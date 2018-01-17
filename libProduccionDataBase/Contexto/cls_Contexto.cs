@@ -8,6 +8,7 @@ using libProduccionDataBase.Tablas;
 
 namespace libProduccionDataBase.Contexto
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class DataBaseContexto : DbContext
     {
         public DbSet<FamiliaMateriales> FamiliasMateriales { get; set; }
@@ -23,6 +24,7 @@ namespace libProduccionDataBase.Contexto
         public DbSet<Desperdicio> Despedicios { get; set; }
         public DbSet<Defecto> Defectos { get; set; }
         public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
+        public DbSet<Proceso> Procesos { get; set; } 
         public DataBaseContexto() : base("ProduccionConexion") { }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

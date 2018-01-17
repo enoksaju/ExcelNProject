@@ -13,7 +13,7 @@ namespace libProduccionDataBase.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801091550396_inicial"; }
+            get { return "201801171758460_inicial"; }
         }
         
         string IMigrationMetadata.Source

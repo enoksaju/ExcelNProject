@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProduccionModelo.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProduccionModeloStoreContainer">
+    <EntitySet Name="Clientes" EntityType="ProduccionModelo.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FamiliasMateriales" EntityType="ProduccionModelo.Store.FamiliasMateriales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Materiales" EntityType="ProduccionModelo.Store.Materiales" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FamiliaMaterialesMaterial" Association="ProduccionModelo.Store.FamiliaMaterialesMaterial">
+      <End Role="FamiliaMateriales" EntitySet="FamiliasMateriales" />
+      <End Role="Material" EntitySet="Materiales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCliente" Type="varchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FamiliasMateriales">
+    <Key>
+      <PropertyRef Name="FamiliaMaterialesId" />
+    </Key>
+    <Property Name="FamiliaMaterialesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreFamiliaMateriales" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materiales">
+    <Key>
+      <PropertyRef Name="MaterialId" />
+    </Key>
+    <Property Name="MaterialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Apariencia" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Densidad" Type="decimal" Nullable="false" Precision="6" Scale="3" />
+    <Property Name="FamiliaMaterialesId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FamiliaMaterialesMaterial">
+    <End Role="FamiliaMateriales" Type="ProduccionModelo.Store.FamiliasMateriales" Multiplicity="1" />
+    <End Role="Material" Type="ProduccionModelo.Store.Materiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FamiliaMateriales">
+        <PropertyRef Name="FamiliaMaterialesId" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="FamiliaMaterialesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ProduccionModelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ProduccionModeloContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="ProduccionModelo.Cliente" />
+          <EntitySet Name="FamiliasMateriales" EntityType="ProduccionModelo.FamiliaMateriales" />
+          <EntitySet Name="Materiales" EntityType="ProduccionModelo.Material" />
+          <AssociationSet Name="FamiliaMaterialesMaterial" Association="ProduccionModelo.FamiliaMaterialesMaterial">
+            <End Role="FamiliaMateriales" EntitySet="FamiliasMateriales" />
+            <End Role="Material" EntitySet="Materiales" />
+          </AssociationSet>
+          <EntitySet Name="Impresoras" EntityType="ProduccionModelo.Impresora" />
+          <EntitySet Name="Rodillos" EntityType="ProduccionModelo.Rodillo" />
+          <AssociationSet Name="ImpresoraRodillo" Association="ProduccionModelo.ImpresoraRodillo">
+            <End Role="Impresora" EntitySet="Impresoras" />
+            <End Role="Rodillo" EntitySet="Rodillos" />
+          </AssociationSet>
+          <EntitySet Name="TiposProducto" EntityType="ProduccionModelo.TipoProducto" />
+          <EntitySet Name="Recetas" EntityType="ProduccionModelo.Receta" />
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCliente" Type="String" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="FamiliaMateriales">
+          <Key>
+            <PropertyRef Name="FamiliaMaterialesId" />
+          </Key>
+          <Property Name="FamiliaMaterialesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreFamiliaMateriales" Type="String" Nullable="false" />
+          <NavigationProperty Name="Materiales" Relationship="ProduccionModelo.FamiliaMaterialesMaterial" FromRole="FamiliaMateriales" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apariencia" Type="String" Nullable="false" MaxLength="250" />
+          <Property Name="Densidad" Type="Decimal" Nullable="false" Scale="3" Precision="6" />
+          <NavigationProperty Name="FamiliaMateriales" Relationship="ProduccionModelo.FamiliaMaterialesMaterial" FromRole="Material" ToRole="FamiliaMateriales" />
+          <Property Name="FamiliaMaterialesId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FamiliaMaterialesMaterial">
+          <End Type="ProduccionModelo.FamiliaMateriales" Role="FamiliaMateriales" Multiplicity="1" />
+          <End Type="ProduccionModelo.Material" Role="Material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamiliaMateriales">
+              <PropertyRef Name="FamiliaMaterialesId" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="FamiliaMaterialesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Impresora">
+          <Key>
+            <PropertyRef Name="ImpresoraId" />
+          </Key>
+          <Property Name="ImpresoraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreImpresora" Type="String" Nullable="false" cg:SetterAccess="Protected" MaxLength="250" />
+          <Property Name="Velocidad" Type="Double" Nullable="false" />
+          <Property Name="Decks" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Rodillos" Relationship="ProduccionModelo.ImpresoraRodillo" FromRole="Impresora" ToRole="Rodillo" />
+        </EntityType>
+        <EntityType Name="Rodillo">
+          <Key>
+            <PropertyRef Name="RodillosId" />
+          </Key>
+          <Property Name="RodillosId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Medida" Type="Double" Nullable="false" />
+          <Property Name="Cantidad" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Impresora" Relationship="ProduccionModelo.ImpresoraRodillo" FromRole="Rodillo" ToRole="Impresora" />
+          <Property Name="ImpresoraImpresoraId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ImpresoraRodillo">
+          <End Type="ProduccionModelo.Impresora" Role="Impresora" Multiplicity="1" />
+          <End Type="ProduccionModelo.Rodillo" Role="Rodillo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Impresora">
+              <PropertyRef Name="ImpresoraId" />
+            </Principal>
+            <Dependent Role="Rodillo">
+              <PropertyRef Name="ImpresoraImpresoraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TipoProducto">
+          <Key>
+            <PropertyRef Name="TipoProductoId" />
+          </Key>
+          <Property Name="TipoProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Receta">
+          <Key>
+            <PropertyRef Name="RecetaId" />
+          </Key>
+          <Property Name="RecetaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaveIntelisis" Type="String" Nullable="false" ConcurrencyMode="None" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProduccionModeloStoreContainer" CdmEntityContainer="ProduccionModeloContainer">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="IsTypeOf(ProduccionModelo.Cliente)">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamiliasMateriales">
+      <EntityTypeMapping TypeName="IsTypeOf(ProduccionModelo.FamiliaMateriales)">
+        <MappingFragment StoreEntitySet="FamiliasMateriales">
+          <ScalarProperty Name="FamiliaMaterialesId" ColumnName="FamiliaMaterialesId" />
+          <ScalarProperty Name="NombreFamiliaMateriales" ColumnName="NombreFamiliaMateriales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materiales">
+      <EntityTypeMapping TypeName="IsTypeOf(ProduccionModelo.Material)">
+        <MappingFragment StoreEntitySet="Materiales">
+          <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+          <ScalarProperty Name="Apariencia" ColumnName="Apariencia" />
+          <ScalarProperty Name="Densidad" ColumnName="Densidad" />
+          <ScalarProperty Name="FamiliaMaterialesId" ColumnName="FamiliaMaterialesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -23,7 +23,7 @@ namespace libProduccionDataBase.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ClaveIntelisis = c.String(nullable: false, maxLength: 1000, storeType: "nvarchar"),
+                        ClaveIntelisis = c.String(nullable: false, maxLength: 250, storeType: "nvarchar"),
                         Producto = c.String(nullable: false, maxLength: 500, storeType: "nvarchar"),
                         DisenoAutorizado = c.String(nullable: false, maxLength: 500, storeType: "nvarchar"),
                         FechaCreacion = c.DateTime(nullable: false, precision: 0),
@@ -270,7 +270,7 @@ namespace libProduccionDataBase.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        NombreProceso = c.Int(nullable: false),
+                        NombreProceso = c.String(maxLength: 250, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.ID);
             

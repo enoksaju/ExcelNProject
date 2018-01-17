@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace libProduccionDataBase.Tablas
     {
         private List<Produccion> _Produccion = new List<Produccion>();
         public int ID { get; set; }
-        public int NombreProceso { get; set; }        
+        [MaxLength(250,ErrorMessage ="El Nombre del Proceso es Requerido.")]
+        public string NombreProceso { get; set; }        
         public List<Produccion> Produccion { get { return _Produccion; } }
     }
 }

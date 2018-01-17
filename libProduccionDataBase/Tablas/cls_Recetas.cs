@@ -16,7 +16,7 @@ namespace libProduccionDataBase.Tablas
         public int Id { get; set; }
 
         [Required(ErrorMessage = "La clave de Intelisis es requerida"), Index(IsUnique = true)]
-        [MaxLength(1000, ErrorMessage = "El tamaño maximo para la clave de intelisis es de 1000 caracteres")]
+        [MaxLength(250, ErrorMessage = "El tamaño maximo para la clave de intelisis es de 250 caracteres")]
 
         public string ClaveIntelisis
         {
