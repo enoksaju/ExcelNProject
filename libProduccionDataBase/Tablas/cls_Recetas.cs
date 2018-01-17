@@ -20,7 +20,7 @@ namespace libProduccionDataBase.Tablas
 
         public string ClaveIntelisis
         {
-            get { return _ClaveIntelisis != null ? _ClaveIntelisis.ToUpper(): ""; }
+            get { return _ClaveIntelisis; }
             set { _ClaveIntelisis = value.Trim().ToUpper(); }
         }
         [MaxLength(500), Required(ErrorMessage = "El nombre del producto es requerido"), Index()]
