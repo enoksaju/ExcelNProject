@@ -66,9 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls_Auxiliares.cs" />
-    <Compile Include="Migrations\201801171758460_inicial.cs" />
-    <Compile Include="Migrations\201801171758460_inicial.Designer.cs">
-      <DependentUpon>201801171758460_inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201801192045591_inicial.cs" />
+    <Compile Include="Migrations\201801192045591_inicial.Designer.cs">
+      <DependentUpon>201801192045591_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -94,8 +94,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801171758460_inicial.resx">
-      <DependentUpon>201801171758460_inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801192045591_inicial.resx">
+      <DependentUpon>201801192045591_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

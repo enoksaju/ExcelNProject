@@ -18,6 +18,7 @@ namespace libProduccionDataBase.Tablas
 
         [Required(ErrorMessage ="La Clave del Cliente es Requerida"), 
          MaxLength(10, ErrorMessage ="El largo maximo para la clave del Cliente es de 10 caracteres"),
+         MinLength(10, ErrorMessage ="El largo minimo para la clave del cliente es de 10 caracteres"),
          Index("ClaveCliente_IDX", IsUnique = true)]
         public string ClaveCliente { get; set; }
         [InverseProperty("Cliente")]

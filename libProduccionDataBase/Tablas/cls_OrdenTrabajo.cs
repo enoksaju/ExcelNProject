@@ -16,6 +16,8 @@ namespace libProduccionDataBase.Tablas
         [Key(), Index(IsUnique = true), MaxLength(10)]
         public string OT { get; set; }
         [Required(ErrorMessage ="La receta es Requerida")]
+        public int Receta_Id { get; set; }
+        [ForeignKey("Receta_Id")]
         public Receta Receta { get; set; }
         public DateTime FechaCaptura { get; set; }
         public Pedido_ Pedido { get; set; }

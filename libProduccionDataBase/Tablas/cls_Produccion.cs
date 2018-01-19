@@ -32,7 +32,13 @@ namespace libProduccionDataBase.Tablas
         
         public CapturaProd_ Captura { get; set; }
         [Required(ErrorMessage = "La maquina que proceso el elemento debe ser seleccionada")]
+        public int Maquina_Id { get; set; }
+        [ForeignKey("Maquina_Id")]
         public Maquina Maquina { get; set; }
+
+        [MaxLength(250, ErrorMessage = "La clave del empaque es incorrecta")]
+        public string claveTarima { get; set; }
+        [ForeignKey("claveTarima")]
         public Tarima Tarima { get; set; }
 
         [ComplexType]

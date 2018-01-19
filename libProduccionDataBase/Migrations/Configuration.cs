@@ -13,6 +13,19 @@ namespace libProduccionDataBase.Migrations
             AutomaticMigrationsEnabled = true;
             DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+            try
+            {
+                using (var context = new libProduccionDataBase.Contexto.DataBaseContexto())
+                {
+                    using (var writer = new System.Xml.XmlTextWriter(System.AppDomain.CurrentDomain.BaseDirectory + @"\Model.edmx", System.Text.Encoding.Default))
+                    {
+                        System.Data.Entity.Infrastructure.EdmxWriter.WriteEdmx(context, writer);
+                    }
+                }
+            }
+            catch (Exception)
+            {             
+            }
         }
 
         protected override void Seed(libProduccionDataBase.Contexto.DataBaseContexto context)

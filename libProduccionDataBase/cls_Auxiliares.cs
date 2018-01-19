@@ -52,5 +52,20 @@ namespace libProduccionDataBase
             DB.GetValidationErrors().ToList().ForEach(o => { Returned.AddRange(o.ValidationErrors); });
             return Returned;
         }
+        public static string ValidationAndErrorMessages(Contexto.DataBaseContexto DB, Exception Ex)
+        {
+            var errors = GetErrors(DB);
+            var strBld = new StringBuilder();
+            if (errors.Count > 0)
+            {
+                errors.ForEach(err=> {
+                    strBld.AppendFormat("• {0}.\n", err.ErrorMessage);
+                });
+                return strBld.ToString();
+            }else
+            {
+                return GetInnerException(Ex);
+            }
+        }
     }
 }

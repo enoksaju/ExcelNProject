@@ -18,20 +18,21 @@ namespace libProduccionDataBase.Tablas
         private List<Produccion> _Produccion = new List<Produccion>();
         private List<Desperdicio> _Desperdicio = new List<Desperdicio>();
         public int Id { get; set; }
+        [Required(ErrorMessage ="El nombre de la Maquina es requerido")]
         public string NombreMaquina { get; set; }
-        public double Velocidad { get; set; }
-        public ushort Decks { get; set; }
+        [Required(ErrorMessage ="La velocidad de la Maquina es requerida")]
+        public double? Velocidad { get; set; }
+        [Required(ErrorMessage = "El Numero de Decks de la Maquina es requerido")]
+        public int? Decks { get; set; }
 
         [InverseProperty("Maquina")]
         public List<Rodillo> Rodillos { get { return _Rodillos; } }
-
-        [InverseProperty("Maquina")]
         public List<Produccion> Produccion { get { return _Produccion; } }
-
-        [InverseProperty("Maquina")]
         public List<Desperdicio> Desperdicio { get { return _Desperdicio; } }
 
         [Required(ErrorMessage ="El Tipo de maquina es requerido")]
+        public int TipoMaquina_Id { get; set; }
+        [ForeignKey("TipoMaquina_Id")]
         public TipoMaquina TipoMaquina { get; set; }
 
     }
@@ -61,8 +62,6 @@ namespace libProduccionDataBase.Tablas
        private List<Maquina> _Maquinas = new List<Maquina>();
         public int Id { get; set; }
         public string Tipo_Maquina { get; set; }
-
-        [InverseProperty("TipoMaquina")]
         public List<Maquina> Maquinas { get { return _Maquinas; } }
     }
 

@@ -35,23 +35,46 @@ namespace libProduccionDataBase.Tablas
         public DateTime FechaCreacion { get; set; }
 
         [Required(ErrorMessage = "Debe seleccionar un Cliente")]
+        public int Cliente_Id { get; set; }
+        [ForeignKey("Cliente_Id")]
         public Cliente Cliente { get; set; }
+        public int Rodillo_Id { get; set; }
+        [ForeignKey("Rodillo_Id")]
         public Rodillo Rodillo { get; set; }
 
+
+        /// <summary>
+        /// Determina el material Base, el valor es requerido
+        /// </summary>
         [Required(ErrorMessage = "La Receta debe contener al menos el material Base")]
+        public int? MaterialBase_Id { get; set; }
+        [ForeignKey("MaterialBase_Id")]
         public Material MaterialBase { get; set; }
         [Required(ErrorMessage = "El calibre del material base es requerido")]
         public double? CalibreMaterialBase { get; set; }
+
+        /// <summary>
+        /// Determina el material para laminacion, el valor puede ser nulo
+        /// </summary>
+        public int? MaterialLaminacion_Id { get; set; }
+        [ForeignKey("MaterialLaminacion_Id")]
         public Material MaterialLaminacion { get; set; }
         public double CalibreMaterialLaminacion { get; set; }
+
+        /// <summary>
+        /// Determina el material para trilaminacion, el valor puede ser nulo
+        /// </summary>
+        public int? MaterialTrilaminacion_Id { get; set; }
+        [ForeignKey("MaterialTrilaminacion_Id")]
         public Material MaterialTrilaminacion { get; set; }
         public double CalibreMaterialTrilaminacion { get; set; }
+
+
         public double GramosTinta { get; set; }
         public double GramosAdhesivoLaminacion { get; set; }
         public double GramosAdhesivoTrilaminacion { get; set; }
         public DatosDiseño Diseño { get; set; }
         public string Descripcion { get; set; }
-        [InverseProperty("Receta")]
         public List<OrdenTrabajo> OrdenesTrabajo { get { return _OrdenesTrabajo; } }
 
         [ComplexType]

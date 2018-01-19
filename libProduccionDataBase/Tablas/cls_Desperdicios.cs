@@ -28,6 +28,8 @@ namespace libProduccionDataBase.Tablas
         public int? Numero { get; set; }
         public CapturaDesp_ Captura { get; set; }
         [Required(ErrorMessage = "La maquina que proceso el elemento debe ser seleccionada")]
+        public int Maquina_Id { get; set; }
+        [ForeignKey("Maquina_Id")]
         public Maquina Maquina { get; set; }
         public Material Material1 { get; set; }
         public Material Material2 { get; set; }
@@ -54,6 +56,7 @@ namespace libProduccionDataBase.Tablas
             public string Estatus { get { return EstatusEn.ToString(); } set { Auxiliares.SetEnumProp(EstatusEn, value); } }
         }
     }
+
     [Table("FamiliasDefectos")]
     public class FamiliaDefectos
     {
@@ -62,14 +65,16 @@ namespace libProduccionDataBase.Tablas
         [MaxLength(500, ErrorMessage = "EL tamaño maximo para el nombre de la Familia de Defectos es de 500 caracteres")]
         public string NombreFamiliaDefecto { get; set; }
         [InverseProperty("FamiliaDefectos")]
-        public List<Defecto > Defectos { get { return _Defectos; } }
+        public List<Defecto> Defectos { get { return _Defectos; } }
     }
+
     [Table("Defectos")]
     public class Defecto
     {
         public int Id { get; set; }
         [MaxLength(500, ErrorMessage ="EL tamaño maximo para el nombre del defecto es de 500 caracteres")]
-        public string NombreDefecto { get; set; }
+        public string NombreDefecto { get; set; } 
+        [Required(ErrorMessage ="La Familia de Defectos es Requerida")]       
         public FamiliaDefectos FamiliaDefectos { get; set; }
     }
 }
