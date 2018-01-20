@@ -33,22 +33,22 @@
             System.Windows.Forms.Label velocidadLabel;
             System.Windows.Forms.Label decksLabel;
             this.nombreMaquinaTextBox = new System.Windows.Forms.TextBox();
+            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rodillosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.velocidadTextBox = new System.Windows.Forms.TextBox();
             this.decksTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.maquinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rodillosDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             nombreMaquinaLabel = new System.Windows.Forms.Label();
             velocidadLabel = new System.Windows.Forms.Label();
             decksLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rodillosBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rodillosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +87,10 @@
             this.nombreMaquinaTextBox.Size = new System.Drawing.Size(251, 20);
             this.nombreMaquinaTextBox.TabIndex = 6;
             // 
+            // maquinaBindingSource
+            // 
+            this.maquinaBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.Maquina);
+            // 
             // rodillosBindingSource
             // 
             this.rodillosBindingSource.DataMember = "Rodillos";
@@ -113,38 +117,10 @@
             this.groupBox1.Controls.Add(this.rodillosDataGridView);
             this.groupBox1.Location = new System.Drawing.Point(12, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 271);
+            this.groupBox1.Size = new System.Drawing.Size(348, 271);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rodillos";
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAceptar.Image = global::tryEntity.Properties.Resources.accept_button;
-            this.btnAceptar.Location = new System.Drawing.Point(138, 339);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(107, 44);
-            this.btnAceptar.TabIndex = 14;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Image = global::tryEntity.Properties.Resources.cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(251, 339);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(107, 44);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // maquinaBindingSource
-            // 
-            this.maquinaBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.Maquina);
             // 
             // rodillosDataGridView
             // 
@@ -157,7 +133,7 @@
             this.rodillosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rodillosDataGridView.Location = new System.Drawing.Point(3, 16);
             this.rodillosDataGridView.Name = "rodillosDataGridView";
-            this.rodillosDataGridView.Size = new System.Drawing.Size(358, 252);
+            this.rodillosDataGridView.Size = new System.Drawing.Size(342, 252);
             this.rodillosDataGridView.TabIndex = 0;
             this.rodillosDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.rodillosDataGridView_DataError);
             // 
@@ -173,12 +149,37 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnAceptar.Image = global::tryEntity.Properties.Resources.accept_button;
+            this.btnAceptar.Location = new System.Drawing.Point(138, 339);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(107, 44);
+            this.btnAceptar.TabIndex = 14;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Image = global::tryEntity.Properties.Resources.cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(253, 339);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(107, 44);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // frmEditAddImpresora
             // 
             this.AcceptButton = this.btnCancelar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 388);
+            this.ClientSize = new System.Drawing.Size(375, 388);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.groupBox1);
@@ -196,9 +197,9 @@
             this.Text = "frmAddEditImpresora";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditAddImpresora_FormClosing);
             this.Load += new System.EventHandler(this.frmEditAddImpresora_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rodillosBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.maquinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rodillosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,19 +16,35 @@ namespace tryEntity
     {
         public Maquina Maquina;
         public libProduccionDataBase.Contexto.DataBaseContexto DB;
-        public frmEditAddImpresora(libProduccionDataBase.Contexto.DataBaseContexto DB,Maquina Maquina = null)
+        public bool readOnly;
+        public frmEditAddImpresora(libProduccionDataBase.Contexto.DataBaseContexto DB,Maquina Maquina = null, bool readOnly = false)
         {
             InitializeComponent();
             this.Maquina = Maquina;
             this.DB = DB;
+            this.readOnly = readOnly;
         }
 
         private void frmEditAddImpresora_Load(object sender, EventArgs e)
         {
             if (Maquina != null)
             {
-                maquinaBindingSource.DataSource = new List<Maquina>() { Maquina };
-                this.Text = "Editar Impresora";
+                if (!readOnly)
+                {
+                    maquinaBindingSource.DataSource = new List<Maquina>() { Maquina };
+                    this.Text = "Editar Impresora";
+                }else
+                {
+                    nombreMaquinaTextBox.ReadOnly = true;
+                    velocidadTextBox.ReadOnly = true;
+                    decksTextBox.ReadOnly = true;
+                    rodillosDataGridView.ReadOnly = true;
+                    rodillosDataGridView.AllowUserToAddRows = false;
+                    rodillosDataGridView.AllowUserToDeleteRows = false;
+                    rodillosDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    maquinaBindingSource.DataSource = new List<Maquina>() { Maquina };
+                    this.Text = "Detalles Impresora";
+                }                
             }
             else
             {
@@ -42,9 +58,8 @@ namespace tryEntity
 
         private void frmEditAddImpresora_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.OK)
+            if (this.DialogResult == DialogResult.OK && !readOnly)
             {
-                //Console.WriteLine(Auxiliares.ValidationAndErrorMessages(DB, new Exception("No se puede Procesar la acción")));
                 if (MessageBox.Show(this, "Realmente desea procesar la acción?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No) e.Cancel = true;
             }
         }
@@ -63,5 +78,9 @@ namespace tryEntity
             e.Cancel = true;
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

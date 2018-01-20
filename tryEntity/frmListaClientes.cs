@@ -93,6 +93,7 @@ namespace tryEntity
                     catch (Exception ex)
                     {
                         MessageBox.Show(this, Auxiliares.ValidationAndErrorMessages(DB, ex), "Algo Salio mal...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        clienteBindingSource.RemoveCurrent();
                     }
                 }
                 return DialogResult.Cancel;

@@ -129,6 +129,17 @@ namespace tryEntity
             throw new NotImplementedException();
         }
 
-
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (maquinaBindingSource.Current != null)
+            {
+                using (var frm = new frmEditAddImpresora(DB, (libProduccionDataBase.Tablas.Maquina)maquinaBindingSource.Current, true))
+                {
+                    frm.ShowDialog();
+                    if (this.maquinaBindingSource.Current != null) DB.Entry(this.maquinaBindingSource.Current).Reload();
+                    this.maquinaBindingSource.ResetCurrentItem();
+                };
+            }
+        }
     }
 }

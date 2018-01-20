@@ -24,9 +24,11 @@ namespace libProduccionDataBase.Tablas
         public int Id { get; set; }
         [MaxLength(250)]
         public string Formula { get; set; }
-        [Required(ErrorMessage ="La Apariencia del Material es Requerida"),
-         MaxLength(250)]
+        [Required(ErrorMessage ="La Apariencia del Material es Requerida"),  MaxLength(250)]
         public string Apariencia { get; set; }
+        [Required(ErrorMessage ="La densidad del Material es Requerida")]
+        public double? Densidad { get; set; }
+
         [Required(ErrorMessage ="La Familia de Material es requerida")]
         public FamiliaMateriales FamiliaMateriales { get; set; }
     }

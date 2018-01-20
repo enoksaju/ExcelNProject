@@ -73,6 +73,16 @@ namespace tryEntity.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap application_view_detail {
+            get {
+                object obj = ResourceManager.GetObject("application_view_detail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap application_view_tile {
             get {
                 object obj = ResourceManager.GetObject("application_view_tile", resourceCulture);
@@ -123,9 +133,29 @@ namespace tryEntity.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gear_in {
             get {
                 object obj = ResourceManager.GetObject("gear_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layer_stack_arrange {
+            get {
+                object obj = ResourceManager.GetObject("layer_stack_arrange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,6 +1,6 @@
 ﻿namespace tryEntity
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonContextListas = new System.Windows.Forms.RibbonContext();
+            this.ribbonMnuBtnConfig = new System.Windows.Forms.RibbonOrbMenuItem();
             this.TabCatalogos = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
-            this.panelDatosLista = new System.Windows.Forms.RibbonPanel();
-            this.ribbtnListaExportExcel = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
-            this.ribtxtListaSearch = new System.Windows.Forms.RibbonTextBox();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
-            this.tabControl1 = new MdiTabControl.TabControl();
-            this.ribbonMnuBtnConfig = new System.Windows.Forms.RibbonOrbMenuItem();
             this.rbnbtnCatClientes = new System.Windows.Forms.RibbonButton();
             this.rbnbtnCatFamiliaMateriales = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
+            this.panelDatosLista = new System.Windows.Forms.RibbonPanel();
             this.rbnbtnListaRefresh = new System.Windows.Forms.RibbonButton();
             this.rbbtnListaAdd = new System.Windows.Forms.RibbonButton();
             this.ribbtnListaEdit = new System.Windows.Forms.RibbonButton();
             this.ribbtnListaDel = new System.Windows.Forms.RibbonButton();
+            this.ribbtnListaExportExcel = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
+            this.ribtxtListaSearch = new System.Windows.Forms.RibbonTextBox();
             this.ribbtnListaSearch = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
+            this.tabControl1 = new MdiTabControl.TabControl();
             this.ribbonDescriptionMenuItem1 = new System.Windows.Forms.RibbonDescriptionMenuItem();
             this.ribbonDescriptionMenuItem2 = new System.Windows.Forms.RibbonDescriptionMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -69,20 +71,29 @@
             this.ribbon1.OrbDropDown.Name = "";
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
-            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
+            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2010;
             this.ribbon1.OrbText = "Inicio";
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
             this.ribbon1.Size = new System.Drawing.Size(690, 143);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.TabCatalogos);
             this.ribbon1.Tabs.Add(this.ribbonTab1);
-            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(5, 26, 20, 0);
-            this.ribbon1.TabSpacing = 4;
+            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(6, 26, 20, 0);
+            this.ribbon1.TabSpacing = 3;
             // 
             // ribbonContextListas
             // 
             this.ribbonContextListas.GlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ribbonContextListas.Text = "Tablas";
+            // 
+            // ribbonMnuBtnConfig
+            // 
+            this.ribbonMnuBtnConfig.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonMnuBtnConfig.Image = global::tryEntity.Properties.Resources.setting_tools;
+            this.ribbonMnuBtnConfig.LargeImage = global::tryEntity.Properties.Resources.setting_tools;
+            this.ribbonMnuBtnConfig.Name = "ribbonMnuBtnConfig";
+            this.ribbonMnuBtnConfig.SmallImage = global::tryEntity.Properties.Resources.setting_tools;
+            this.ribbonMnuBtnConfig.Text = "Configuraciones";
             // 
             // TabCatalogos
             // 
@@ -94,8 +105,36 @@
             // 
             this.ribbonPanel1.Items.Add(this.rbnbtnCatClientes);
             this.ribbonPanel1.Items.Add(this.rbnbtnCatFamiliaMateriales);
+            this.ribbonPanel1.Items.Add(this.ribbonButton1);
             this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Text = "ribbonPanel1";
+            this.ribbonPanel1.Text = "";
+            // 
+            // rbnbtnCatClientes
+            // 
+            this.rbnbtnCatClientes.Image = global::tryEntity.Properties.Resources.users_3;
+            this.rbnbtnCatClientes.LargeImage = global::tryEntity.Properties.Resources.users_3;
+            this.rbnbtnCatClientes.Name = "rbnbtnCatClientes";
+            this.rbnbtnCatClientes.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbnbtnCatClientes.SmallImage")));
+            this.rbnbtnCatClientes.Text = "Clientes";
+            this.rbnbtnCatClientes.Click += new System.EventHandler(this.ribbonButton1_Click);
+            // 
+            // rbnbtnCatFamiliaMateriales
+            // 
+            this.rbnbtnCatFamiliaMateriales.Image = global::tryEntity.Properties.Resources.gear_in;
+            this.rbnbtnCatFamiliaMateriales.LargeImage = global::tryEntity.Properties.Resources.gear_in;
+            this.rbnbtnCatFamiliaMateriales.Name = "rbnbtnCatFamiliaMateriales";
+            this.rbnbtnCatFamiliaMateriales.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbnbtnCatFamiliaMateriales.SmallImage")));
+            this.rbnbtnCatFamiliaMateriales.Text = "Impresoras Y Rodillos";
+            this.rbnbtnCatFamiliaMateriales.Click += new System.EventHandler(this.rbnbtnCatFamiliaMateriales_Click);
+            // 
+            // ribbonButton1
+            // 
+            this.ribbonButton1.Image = global::tryEntity.Properties.Resources.layer_stack_arrange;
+            this.ribbonButton1.LargeImage = global::tryEntity.Properties.Resources.layer_stack_arrange;
+            this.ribbonButton1.Name = "ribbonButton1";
+            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+            this.ribbonButton1.Text = "Materiales";
+            this.ribbonButton1.Click += new System.EventHandler(this.ribbonButton1_Click_1);
             // 
             // ribbonTab1
             // 
@@ -115,71 +154,6 @@
             this.panelDatosLista.Items.Add(this.ribbtnListaDel);
             this.panelDatosLista.Name = "panelDatosLista";
             this.panelDatosLista.Text = "Datos";
-            // 
-            // ribbtnListaExportExcel
-            // 
-            this.ribbtnListaExportExcel.Items.Add(this.ribbonButton2);
-            this.ribbtnListaExportExcel.Name = "ribbtnListaExportExcel";
-            this.ribbtnListaExportExcel.Text = "Exportar";
-            // 
-            // ribbonPanel4
-            // 
-            this.ribbonPanel4.Items.Add(this.ribtxtListaSearch);
-            this.ribbonPanel4.Items.Add(this.ribbtnListaSearch);
-            this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Text = "Busqueda";
-            // 
-            // ribtxtListaSearch
-            // 
-            this.ribtxtListaSearch.Name = "ribtxtListaSearch";
-            this.ribtxtListaSearch.Text = "";
-            this.ribtxtListaSearch.TextBoxText = "";
-            this.ribtxtListaSearch.TextBoxWidth = 200;
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Text = null;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 143);
-            this.tabControl1.MenuRenderer = null;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Size = new System.Drawing.Size(690, 372);
-            this.tabControl1.TabCloseButtonImage = null;
-            this.tabControl1.TabCloseButtonImageDisabled = null;
-            this.tabControl1.TabCloseButtonImageHot = null;
-            this.tabControl1.TabIndex = 1;
-            this.tabControl1.SelectedTabChanged += new System.EventHandler(this.tabControl1_SelectedTabChanged);
-            // 
-            // ribbonMnuBtnConfig
-            // 
-            this.ribbonMnuBtnConfig.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.ribbonMnuBtnConfig.Image = global::tryEntity.Properties.Resources.setting_tools;
-            this.ribbonMnuBtnConfig.LargeImage = global::tryEntity.Properties.Resources.setting_tools;
-            this.ribbonMnuBtnConfig.Name = "ribbonMnuBtnConfig";
-            this.ribbonMnuBtnConfig.SmallImage = global::tryEntity.Properties.Resources.setting_tools;
-            this.ribbonMnuBtnConfig.Text = "Configuraciones";
-            // 
-            // rbnbtnCatClientes
-            // 
-            this.rbnbtnCatClientes.Image = global::tryEntity.Properties.Resources.users_3;
-            this.rbnbtnCatClientes.LargeImage = global::tryEntity.Properties.Resources.users_3;
-            this.rbnbtnCatClientes.Name = "rbnbtnCatClientes";
-            this.rbnbtnCatClientes.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbnbtnCatClientes.SmallImage")));
-            this.rbnbtnCatClientes.Text = "Clientes";
-            this.rbnbtnCatClientes.Click += new System.EventHandler(this.ribbonButton1_Click);
-            // 
-            // rbnbtnCatFamiliaMateriales
-            // 
-            this.rbnbtnCatFamiliaMateriales.Image = global::tryEntity.Properties.Resources.gear_in;
-            this.rbnbtnCatFamiliaMateriales.LargeImage = global::tryEntity.Properties.Resources.gear_in;
-            this.rbnbtnCatFamiliaMateriales.Name = "rbnbtnCatFamiliaMateriales";
-            this.rbnbtnCatFamiliaMateriales.SmallImage = ((System.Drawing.Image)(resources.GetObject("rbnbtnCatFamiliaMateriales.SmallImage")));
-            this.rbnbtnCatFamiliaMateriales.Text = "Impresoras Y Rodillos";
-            this.rbnbtnCatFamiliaMateriales.Click += new System.EventHandler(this.rbnbtnCatFamiliaMateriales_Click);
             // 
             // rbnbtnListaRefresh
             // 
@@ -217,6 +191,12 @@
             this.ribbtnListaDel.Text = "Eliminar";
             this.ribbtnListaDel.Click += new System.EventHandler(this.ribbtnListaDel_Click);
             // 
+            // ribbtnListaExportExcel
+            // 
+            this.ribbtnListaExportExcel.Items.Add(this.ribbonButton2);
+            this.ribbtnListaExportExcel.Name = "ribbtnListaExportExcel";
+            this.ribbtnListaExportExcel.Text = "Exportar";
+            // 
             // ribbonButton2
             // 
             this.ribbonButton2.Image = global::tryEntity.Properties.Resources.export_excel;
@@ -224,6 +204,21 @@
             this.ribbonButton2.Name = "ribbonButton2";
             this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
             this.ribbonButton2.Text = "Excel";
+            this.ribbonButton2.Click += new System.EventHandler(this.ribbonButton2_Click);
+            // 
+            // ribbonPanel4
+            // 
+            this.ribbonPanel4.Items.Add(this.ribtxtListaSearch);
+            this.ribbonPanel4.Items.Add(this.ribbtnListaSearch);
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Text = "Busqueda";
+            // 
+            // ribtxtListaSearch
+            // 
+            this.ribtxtListaSearch.Name = "ribtxtListaSearch";
+            this.ribtxtListaSearch.Text = "";
+            this.ribtxtListaSearch.TextBoxText = "";
+            this.ribtxtListaSearch.TextBoxWidth = 200;
             // 
             // ribbtnListaSearch
             // 
@@ -233,6 +228,28 @@
             this.ribbtnListaSearch.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbtnListaSearch.SmallImage")));
             this.ribbtnListaSearch.Text = "Buscar";
             this.ribbtnListaSearch.Click += new System.EventHandler(this.ribbtnListaSearch_Click);
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = null;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 143);
+            this.tabControl1.MenuRenderer = null;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Size = new System.Drawing.Size(690, 350);
+            this.tabControl1.TabBackHighColor = System.Drawing.Color.LightCyan;
+            this.tabControl1.TabBackLowColorDisabled = System.Drawing.Color.Silver;
+            this.tabControl1.TabBorderEnhanced = true;
+            this.tabControl1.TabBorderEnhanceWeight = MdiTabControl.TabControl.Weight.Soft;
+            this.tabControl1.TabCloseButtonImage = null;
+            this.tabControl1.TabCloseButtonImageDisabled = null;
+            this.tabControl1.TabCloseButtonImageHot = null;
+            this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedTabChanged += new System.EventHandler(this.tabControl1_SelectedTabChanged);
             // 
             // ribbonDescriptionMenuItem1
             // 
@@ -254,19 +271,29 @@
             this.ribbonDescriptionMenuItem2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonDescriptionMenuItem2.SmallImage")));
             this.ribbonDescriptionMenuItem2.Text = "ribbonDescriptionMenuItem2";
             // 
-            // Form1
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 493);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(690, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(690, 515);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -294,6 +321,8 @@
         private System.Windows.Forms.RibbonTextBox ribtxtListaSearch;
         private System.Windows.Forms.RibbonButton ribbtnListaSearch;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonMnuBtnConfig;
+        private System.Windows.Forms.RibbonButton ribbonButton1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 
