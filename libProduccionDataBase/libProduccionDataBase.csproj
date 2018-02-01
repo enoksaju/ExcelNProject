@@ -38,6 +38,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -66,13 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls_Auxiliares.cs" />
-    <Compile Include="Migrations\201801192045591_inicial.cs" />
-    <Compile Include="Migrations\201801192045591_inicial.Designer.cs">
-      <DependentUpon>201801192045591_inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801192141305_addDensidadColumn.cs" />
-    <Compile Include="Migrations\201801192141305_addDensidadColumn.Designer.cs">
-      <DependentUpon>201801192141305_addDensidadColumn.cs</DependentUpon>
+    <Compile Include="Identity\clsApplicationUserManager.cs" />
+    <Compile Include="Identity\clsAppUser.cs" />
+    <Compile Include="Identity\Model\clsLoginModel.cs" />
+    <Compile Include="Migrations\201801201738387_Inicial.cs" />
+    <Compile Include="Migrations\201801201738387_Inicial.Designer.cs">
+      <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -98,11 +105,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801192045591_inicial.resx">
-      <DependentUpon>201801192045591_inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801192141305_addDensidadColumn.resx">
-      <DependentUpon>201801192141305_addDensidadColumn.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801201738387_Inicial.resx">
+      <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

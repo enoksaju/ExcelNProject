@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace libProduccionDataBase
 {
@@ -67,5 +69,41 @@ namespace libProduccionDataBase
                 return GetInnerException(Ex);
             }
         }
+        public static CustomModelState Validate(object Entity)
+        {
+            return  CustomModelState.Validate(Entity);
+        }
+
+        public static bool IsInRol(Identity.ApplicationUserManager UserManager,Identity.ApplicationUser User, params string[] roles)
+        {
+            foreach(var rol in roles.ToList())
+            {
+                if (UserManager.IsInRole(User.Id, rol))
+                {
+                    return true;
+                }                
+            }
+            return false;
+        }
+
+
+
+        public class CustomModelState
+        {
+            public ICollection<ValidationResult> Result;
+            public bool isValid;
+            public CustomModelState(object Entity)
+            {
+                ValidationContext vc = new ValidationContext(Entity);
+                Result = new List<ValidationResult>();
+                isValid = Validator.TryValidateObject(Entity, vc, Result);
+            }
+            public static CustomModelState Validate(object Entity)
+            {
+                return new CustomModelState(Entity);
+            }
+        }
     }
+
+    
 }

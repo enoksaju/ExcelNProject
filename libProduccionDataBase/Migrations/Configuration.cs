@@ -1,10 +1,14 @@
 namespace libProduccionDataBase.Migrations
 {
+    using Identity;
     using MySql.Data.Entity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<libProduccionDataBase.Contexto.DataBaseContexto>
     {
@@ -24,7 +28,7 @@ namespace libProduccionDataBase.Migrations
                 }
             }
             catch (Exception)
-            {             
+            {
             }
         }
 
@@ -41,8 +45,22 @@ namespace libProduccionDataBase.Migrations
                 new Tablas.TipoMaquina { Tipo_Maquina = "Saneadora" }
                 );
 
+            context.Lineas.AddOrUpdate(t => t.Nombre,
+                new Tablas.Linea { Nombre = "SCHIAVI" },
+                new Tablas.Linea { Nombre = "WINDMOLLER" },
+                new Tablas.Linea { Nombre = "UTECO 1" },
+                new Tablas.Linea { Nombre = "UTECO 3" },
+                new Tablas.Linea { Nombre = "TACHYS" },
+                new Tablas.Linea { Nombre = "BOLSAS" },
+                new Tablas.Linea { Nombre = "MANGAS" },
+                new Tablas.Linea { Nombre = "LAMINEXT" },
+                new Tablas.Linea { Nombre = "NAVE3" },
+                new Tablas.Linea { Nombre = "EXTRUSION PP" },
+                new Tablas.Linea { Nombre = "EXTRUSION PE" }
+                );
+
             context.TiposProducto.AddOrUpdate(t => t.NombreTipoProducto,
-                new Tablas.TipoProducto { NombreTipoProducto="Pelicula"},
+                new Tablas.TipoProducto { NombreTipoProducto = "Pelicula" },
                 new Tablas.TipoProducto { NombreTipoProducto = "Pelicula Laminada" },
                 new Tablas.TipoProducto { NombreTipoProducto = "Pelicula Trilaminada" },
                 new Tablas.TipoProducto { NombreTipoProducto = "FlowPack Laminada" },
@@ -59,13 +77,13 @@ namespace libProduccionDataBase.Migrations
                 new Tablas.TipoProducto { NombreTipoProducto = "Etiqueta Tipo Manga" }
                 );
             context.FamiliasMateriales.AddOrUpdate(t => t.NombreFamilia,
-                new Tablas.FamiliaMateriales { NombreFamilia="BOPP"},
+                new Tablas.FamiliaMateriales { NombreFamilia = "BOPP" },
                 new Tablas.FamiliaMateriales { NombreFamilia = "PET" },
                 new Tablas.FamiliaMateriales { NombreFamilia = "PE" },
                 new Tablas.FamiliaMateriales { NombreFamilia = "PVC" }
                 );
             context.Procesos.AddOrUpdate(t => t.NombreProceso,
-                new Tablas.Proceso { NombreProceso= "Impresion"},
+                new Tablas.Proceso { NombreProceso = "Impresion" },
                 new Tablas.Proceso { NombreProceso = "Laminacion" },
                 new Tablas.Proceso { NombreProceso = "Refinado" },
                 new Tablas.Proceso { NombreProceso = "Doblado" },
@@ -75,6 +93,27 @@ namespace libProduccionDataBase.Migrations
                 new Tablas.Proceso { NombreProceso = "Sellado" },
                 new Tablas.Proceso { NombreProceso = "Extrusion" }
                 );
+            context.Roles.AddOrUpdate(t => t.Name,
+                new ApplicationRole() { Name = "Develop" },
+                new ApplicationRole() { Name = "Administrador" },
+                new ApplicationRole() { Name = "Usuario General" },
+                new ApplicationRole() { Name = "Trabajador" },
+                new ApplicationRole() { Name = "Supervisor" }
+            );
+
+            using (var t = new Identity.ApplicationUserManager(new Identity.ApplicationUserStore(context)))
+            {
+                if (!t.Users.Any(HS => HS.UserName == "HSALINAS"))
+                {
+                    var usr = new ApplicationUser { Nombre = "Henoc", ApellidoPaterno = "Salinas", ApellidoMaterno = "Juarez", ClaveTrabajador = "5547", UserName = "HENOCS", Email = "hsalinas@excelnobleza.com.mx" };
+
+                    var result = t.Create(usr, "hsj43295");
+                    if (result.Succeeded)
+                    {
+                        t.AddToRole(usr.Id, "Develop");
+                    }
+                }
+            }
         }
     }
 }

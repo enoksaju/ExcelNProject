@@ -23,5 +23,9 @@ namespace libProduccionDataBase.Tablas
         public string ClaveCliente { get; set; }
         [InverseProperty("Cliente")]
         public List<Receta> Recetas { get { return _Recetas; } }
+        public override string ToString()
+        {
+            return this.NombreCliente;
+        }
     }
 }

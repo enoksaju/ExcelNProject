@@ -17,6 +17,10 @@ namespace libProduccionDataBase.Tablas
         public string NombreFamilia { get; set; }
         [InverseProperty("FamiliaMateriales")]
         public List<Material> Materiales { get { return _Materiales; } }
+        public override string ToString()
+        {
+            return this.NombreFamilia;
+        }
     }
     [Table("Material")]
     public class Material
@@ -31,5 +35,9 @@ namespace libProduccionDataBase.Tablas
 
         [Required(ErrorMessage ="La Familia de Material es requerida")]
         public FamiliaMateriales FamiliaMateriales { get; set; }
+        public override string ToString()
+        {
+            return this.Apariencia + this.Formula;
+        }
     }
 }
