@@ -42,15 +42,23 @@
             this.BasculaRibbonPanel = new System.Windows.Forms.RibbonPanel();
             this.ConectarBasculaRibbonButton = new System.Windows.Forms.RibbonButton();
             this.ConfigurarBasculaRibbonButton = new System.Windows.Forms.RibbonButton();
-            this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.VS2015Theme = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
+            this.VS2015Theme = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
             this.visualStudioToolStripExtender1 = new WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender(this.components);
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.BasculaToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.controlBascula = new libBascula.ControlBascula(this.components);
+            this.ArchivoRibbonTab = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
+            this.GuardarRibbonButton = new System.Windows.Forms.RibbonButton();
+            this.CerrarRibbonButton = new System.Windows.Forms.RibbonButton();
             this.StatusBasculaConectionPicture = new System.Windows.Forms.PictureBox();
+            this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
+            this.controlBascula = new libBascula.ControlBascula(this.components);
+            this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+            this.kryptonPalette = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatusBasculaConectionPicture)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +97,7 @@
             this.MaterialesCatalogRibbonButton.Name = "MaterialesCatalogRibbonButton";
             this.MaterialesCatalogRibbonButton.SmallImage = global::ControlProduccion.Properties.Resources.Sheet_Metal_16px;
             this.MaterialesCatalogRibbonButton.Text = "Materiales";
+            this.MaterialesCatalogRibbonButton.Click += new System.EventHandler(this.MaterialesCatalogRibbonButton_Click);
             // 
             // ImpresorasCatalogRibbonButton
             // 
@@ -154,6 +163,99 @@
             this.ConfigurarBasculaRibbonButton.Text = "Configurar";
             this.ConfigurarBasculaRibbonButton.Click += new System.EventHandler(this.ConfigurarBasculaRibbonButton_Click);
             // 
+            // visualStudioToolStripExtender1
+            // 
+            this.visualStudioToolStripExtender1.DefaultRenderer = null;
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dockPanel1.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.dockPanel1.DockBottomPortion = 200D;
+            this.dockPanel1.DockLeftPortion = 300D;
+            this.dockPanel1.DockRightPortion = 300D;
+            this.dockPanel1.DockTopPortion = 200D;
+            this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
+            this.dockPanel1.Location = new System.Drawing.Point(0, 145);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Padding = new System.Windows.Forms.Padding(6);
+            this.dockPanel1.ShowAutoHideContentOnHover = false;
+            this.dockPanel1.ShowDocumentIcon = true;
+            this.dockPanel1.Size = new System.Drawing.Size(824, 344);
+            this.dockPanel1.TabIndex = 1;
+            this.dockPanel1.Theme = this.VS2015Theme;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusToolStripStatusLabel,
+            this.BasculaToolStripStatusLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 489);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatusToolStripStatusLabel
+            // 
+            this.StatusToolStripStatusLabel.Name = "StatusToolStripStatusLabel";
+            this.StatusToolStripStatusLabel.Size = new System.Drawing.Size(709, 17);
+            this.StatusToolStripStatusLabel.Spring = true;
+            this.StatusToolStripStatusLabel.Text = "Listo";
+            this.StatusToolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BasculaToolStripStatusLabel
+            // 
+            this.BasculaToolStripStatusLabel.AutoSize = false;
+            this.BasculaToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.BasculaToolStripStatusLabel.Image = global::ControlProduccion.Properties.Resources.IndustrialScales_White_Lines16px;
+            this.BasculaToolStripStatusLabel.Name = "BasculaToolStripStatusLabel";
+            this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(100, 17);
+            this.BasculaToolStripStatusLabel.Text = "00.00 kg";
+            // 
+            // ArchivoRibbonTab
+            // 
+            this.ArchivoRibbonTab.Name = "ArchivoRibbonTab";
+            this.ArchivoRibbonTab.Panels.Add(this.ribbonPanel2);
+            this.ArchivoRibbonTab.Text = "Archivo";
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Items.Add(this.GuardarRibbonButton);
+            this.ribbonPanel2.Items.Add(this.CerrarRibbonButton);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = "Archivo";
+            // 
+            // GuardarRibbonButton
+            // 
+            this.GuardarRibbonButton.Image = global::ControlProduccion.Properties.Resources.Save_32px;
+            this.GuardarRibbonButton.LargeImage = global::ControlProduccion.Properties.Resources.Save_32px;
+            this.GuardarRibbonButton.Name = "GuardarRibbonButton";
+            this.GuardarRibbonButton.SmallImage = global::ControlProduccion.Properties.Resources.Save_16px;
+            this.GuardarRibbonButton.Text = "Guardar Documento";
+            this.GuardarRibbonButton.Click += new System.EventHandler(this.GuardarRibbonButton_Click);
+            // 
+            // CerrarRibbonButton
+            // 
+            this.CerrarRibbonButton.Image = global::ControlProduccion.Properties.Resources.Exit_32px;
+            this.CerrarRibbonButton.LargeImage = global::ControlProduccion.Properties.Resources.Exit_32px;
+            this.CerrarRibbonButton.Name = "CerrarRibbonButton";
+            this.CerrarRibbonButton.SmallImage = global::ControlProduccion.Properties.Resources.Exit_16px;
+            this.CerrarRibbonButton.Text = "Cerrar documento";
+            this.CerrarRibbonButton.Click += new System.EventHandler(this.CerrarRibbonButton_Click);
+            // 
+            // StatusBasculaConectionPicture
+            // 
+            this.StatusBasculaConectionPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.StatusBasculaConectionPicture.BackColor = System.Drawing.Color.White;
+            this.StatusBasculaConectionPicture.Image = ((System.Drawing.Image)(resources.GetObject("StatusBasculaConectionPicture.Image")));
+            this.StatusBasculaConectionPicture.Location = new System.Drawing.Point(787, 0);
+            this.StatusBasculaConectionPicture.Name = "StatusBasculaConectionPicture";
+            this.StatusBasculaConectionPicture.Size = new System.Drawing.Size(30, 30);
+            this.StatusBasculaConectionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.StatusBasculaConectionPicture.TabIndex = 4;
+            this.StatusBasculaConectionPicture.TabStop = false;
+            // 
             // ribbon1
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -169,65 +271,42 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 72);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.OrbImage = global::ControlProduccion.Properties.Resources.Menu_White_16px;
-            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
+            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2010;
+            // 
+            // 
+            // 
+            this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton1);
+            this.ribbon1.QuickAccessToolbar.Items.Add(this.ribbonButton2);
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1043, 145);
+            this.ribbon1.Size = new System.Drawing.Size(824, 145);
             this.ribbon1.TabIndex = 0;
+            this.ribbon1.Tabs.Add(this.ArchivoRibbonTab);
             this.ribbon1.Tabs.Add(this.CatalogosRibbonTab);
             this.ribbon1.Tabs.Add(this.BasculaRibbonTab);
-            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(5, 26, 20, 0);
-            this.ribbon1.TabSpacing = 4;
+            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(6, 26, 20, 0);
+            this.ribbon1.TabSpacing = 3;
             this.ribbon1.Text = "ribbon1";
-            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Halloween;
+            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
             // 
-            // visualStudioToolStripExtender1
+            // ribbonButton1
             // 
-            this.visualStudioToolStripExtender1.DefaultRenderer = null;
+            this.ribbonButton1.Image = global::ControlProduccion.Properties.Resources.Save_32px;
+            this.ribbonButton1.LargeImage = global::ControlProduccion.Properties.Resources.Save_32px;
+            this.ribbonButton1.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonButton1.Name = "ribbonButton1";
+            this.ribbonButton1.SmallImage = global::ControlProduccion.Properties.Resources.Save_16px;
+            this.ribbonButton1.Text = "ribbonButton1";
+            this.ribbonButton1.Click += new System.EventHandler(this.GuardarRibbonButton_Click);
             // 
-            // dockPanel1
+            // ribbonButton2
             // 
-            this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(242)))));
-            this.dockPanel1.DockBottomPortion = 200D;
-            this.dockPanel1.DockLeftPortion = 300D;
-            this.dockPanel1.DockRightPortion = 300D;
-            this.dockPanel1.DockTopPortion = 200D;
-            this.dockPanel1.DocumentTabStripLocation = WeifenLuo.WinFormsUI.Docking.DocumentTabStripLocation.Bottom;
-            this.dockPanel1.Location = new System.Drawing.Point(0, 145);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Padding = new System.Windows.Forms.Padding(6);
-            this.dockPanel1.ShowAutoHideContentOnHover = false;
-            this.dockPanel1.Size = new System.Drawing.Size(1043, 390);
-            this.dockPanel1.TabIndex = 1;
-            this.dockPanel1.Theme = this.VS2015Theme;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusToolStripStatusLabel,
-            this.BasculaToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 535);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1043, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // StatusToolStripStatusLabel
-            // 
-            this.StatusToolStripStatusLabel.Name = "StatusToolStripStatusLabel";
-            this.StatusToolStripStatusLabel.Size = new System.Drawing.Size(928, 17);
-            this.StatusToolStripStatusLabel.Spring = true;
-            this.StatusToolStripStatusLabel.Text = "Listo";
-            this.StatusToolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BasculaToolStripStatusLabel
-            // 
-            this.BasculaToolStripStatusLabel.AutoSize = false;
-            this.BasculaToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
-            this.BasculaToolStripStatusLabel.Image = global::ControlProduccion.Properties.Resources.IndustrialScales_White_Lines16px;
-            this.BasculaToolStripStatusLabel.Name = "BasculaToolStripStatusLabel";
-            this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(100, 17);
-            this.BasculaToolStripStatusLabel.Text = "00.00 kg";
+            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
+            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
+            this.ribbonButton2.MaxSizeMode = System.Windows.Forms.RibbonElementSizeMode.Compact;
+            this.ribbonButton2.Name = "ribbonButton2";
+            this.ribbonButton2.SmallImage = global::ControlProduccion.Properties.Resources.NewFile_16x;
+            this.ribbonButton2.Text = "ribbonButton2";
+            this.ribbonButton2.Click += new System.EventHandler(this.ribbonButton2_Click);
             // 
             // controlBascula
             // 
@@ -262,30 +341,19 @@
             this.controlBascula.CambioValor += new libBascula.CambioValorEvenHandler(this.controlBascula_CambioValor);
             this.controlBascula.CambioEstado += new libBascula.CambioEstadoEventHandler(this.controlBascula_CambioEstado);
             // 
-            // StatusBasculaConectionPicture
-            // 
-            this.StatusBasculaConectionPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.StatusBasculaConectionPicture.BackColor = System.Drawing.Color.Gainsboro;
-            this.StatusBasculaConectionPicture.Image = ((System.Drawing.Image)(resources.GetObject("StatusBasculaConectionPicture.Image")));
-            this.StatusBasculaConectionPicture.Location = new System.Drawing.Point(1006, 0);
-            this.StatusBasculaConectionPicture.Name = "StatusBasculaConectionPicture";
-            this.StatusBasculaConectionPicture.Size = new System.Drawing.Size(30, 30);
-            this.StatusBasculaConectionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.StatusBasculaConectionPicture.TabIndex = 4;
-            this.StatusBasculaConectionPicture.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 557);
+            this.ClientSize = new System.Drawing.Size(824, 511);
             this.Controls.Add(this.StatusBasculaConectionPicture);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.ribbon1);
             this.Controls.Add(this.statusStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(840, 550);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Produccion";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
@@ -311,14 +379,22 @@
         private System.Windows.Forms.RibbonPanel BasculaRibbonPanel;
         private System.Windows.Forms.RibbonButton ConectarBasculaRibbonButton;
         private System.Windows.Forms.RibbonButton ConfigurarBasculaRibbonButton;
-        private WeifenLuo.WinFormsUI.Docking.VS2015LightTheme VS2015Theme;
+        private WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme VS2015Theme;
         private WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender visualStudioToolStripExtender1;
-        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatusToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel BasculaToolStripStatusLabel;
         private libBascula.ControlBascula controlBascula;
         private System.Windows.Forms.PictureBox StatusBasculaConectionPicture;
+        public WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
+        private System.Windows.Forms.RibbonTab ArchivoRibbonTab;
+        private System.Windows.Forms.RibbonPanel ribbonPanel2;
+        private System.Windows.Forms.RibbonButton GuardarRibbonButton;
+        private System.Windows.Forms.RibbonButton CerrarRibbonButton;
+        private System.Windows.Forms.RibbonButton ribbonButton1;
+        private System.Windows.Forms.RibbonButton ribbonButton2;
+        private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette;
     }
 }
 

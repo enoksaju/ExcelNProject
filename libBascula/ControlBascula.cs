@@ -119,9 +119,10 @@ namespace libBascula
         public Image DisconnectedImage { get; set; } = Properties.Resources.ScalesConnected_red;
 
 
-        [Description( "ToolStripStatusLabel donde se muestra el valor del peso leido de la bascula" )]
+        [Description( "Indica si se muestra o no la unidad de la bascula en el ToolStripStatusLabel" )]
 		[Category( "Bascula" )]
 		[DefaultValue( true )]
+        [DisplayName("Mostrar Unidad")]
 		public bool StatusLabelShowUnidad { get { return _StatusLabelShowUnidad; } set { _StatusLabelShowUnidad = value; setStatusToolStripLabelText( ValorBascula ); } }
 
 		[Description( "Unidad del valor de la bascula" )]

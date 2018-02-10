@@ -116,8 +116,8 @@ namespace ControlProduccion.Catalogos
         /// </summary>
         private void ConfigureToolStripStyle()
         {
-            this.visualStudioToolStripExtender1.SetStyle(toolStrip1, VisualStudioToolStripExtender.VsVersion.Vs2015, this.VS2015Theme);
-            this.visualStudioToolStripExtender1.SetStyle(toolStrip2, VisualStudioToolStripExtender.VsVersion.Vs2015, this.VS2015Theme);
+            //this.visualStudioToolStripExtender1.SetStyle(toolStrip1, VisualStudioToolStripExtender.VsVersion.Vs2015, this.VS2015Theme);
+           // this.visualStudioToolStripExtender1.SetStyle(toolStrip2, VisualStudioToolStripExtender.VsVersion.Vs2015, this.VS2015Theme);
         }
 
         private void CatalogosBaseForm_Load( object sender, EventArgs e ) { }
@@ -150,6 +150,7 @@ namespace ControlProduccion.Catalogos
                 Buscar(sender, ToSearchTextBox.Text);
             }
         }
+
         /// <summary>
         /// Controla lo que sucede al presionar el Boton de Busqueda
         /// </summary>
@@ -216,6 +217,7 @@ namespace ControlProduccion.Catalogos
         {
             MessageBox.Show(this, ex.Message, "Algo va mal...", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        
 
         public void Show( DockPanel Panel, FlagActiveFunctions Functions )
         {

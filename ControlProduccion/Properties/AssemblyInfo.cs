@@ -34,3 +34,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+[assembly: Dependency( "System", LoadHint.Always )]
+[assembly: Dependency( "System.Drawing", LoadHint.Always )]
+[assembly: Dependency( "System.Windows.Forms", LoadHint.Always )]
+[assembly: Dependency( "ComponentFactory.Krypton.Toolkit", LoadHint.Always )]

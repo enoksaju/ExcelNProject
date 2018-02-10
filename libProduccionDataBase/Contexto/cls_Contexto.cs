@@ -13,6 +13,8 @@ namespace libProduccionDataBase.Contexto
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
     {
+        public event EventHandler SavedChanges;
+
         public DbSet<FamiliaMateriales> FamiliasMateriales { get; set; }
         public DbSet<Material> Materiales { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
@@ -52,9 +54,19 @@ namespace libProduccionDataBase.Contexto
             modelBuilder.Entity<ApplicationUser>().ToTable("Z_Usuarios");
             modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Logins).WithOptional().HasForeignKey(c => c.UserId);
             modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Claims).WithOptional().HasForeignKey(c => c.UserId);
-            modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Roles).WithOptional().HasForeignKey(c => c.UserId);
+            modelBuilder.Entity<ApplicationUser>().HasMany(c => c.Roles).WithOptional().HasForeignKey(c => c.UserId);            
+        }
 
-            
+        public override int SaveChanges()
+        {
+            var t= base.SaveChanges();
+            OnSavedChanges();
+            return t;
+        }
+
+        private void OnSavedChanges()
+        {
+            SavedChanges?.Invoke(this, new EventArgs() );
         }
     }
 

@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DetailView_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DetailView_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Magazine_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Magazine_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -130,8 +133,8 @@
   <data name="Queue_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Queue_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DetailView_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DetailView_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Save_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Management_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Management_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +142,17 @@
   <data name="Edit_Color_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_Color_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Plus_Math_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plus_Math_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Edit_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Center_of_Gravity_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Center_of_Gravity_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="básculas_industriales_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\básculas_industriales_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gears_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gears_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +178,11 @@
   <data name="Center_of_Gravity_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Center_of_Gravity_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="básculas_industriales_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\básculas_industriales_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Magazine_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Magazine_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Menu_White_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu_White_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,11 +190,14 @@
   <data name="Industrial_Scales_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Industrial_Scales_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Admin_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admin_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="básculas_industriales_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\básculas_industriales_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Gears_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Gears_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ScalesConnected_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ScalesConnected_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minus_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minus_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,8 +208,14 @@
   <data name="User_Account_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Account_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddField_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddField_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="action_add_16xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\action_add_16xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,8 +226,8 @@
   <data name="Refresh_grey_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_grey_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Industrial_Scales_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Industrial_Scales_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Gears_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Gears_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Search_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,11 +238,14 @@
   <data name="Edit_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Plus_Math_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plus_Math_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddProperty_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddProperty_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minus_Color_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minus_Color_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Industrial_Scales_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Industrial_Scales_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NewFile_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewFile_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +256,11 @@
   <data name="Barcode_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Barcode_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Exit_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Menu_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Menu_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,7 +268,7 @@
   <data name="Synchronize_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Synchronize_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ScalesConnected_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ScalesConnected_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UserDefinedTableType_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserDefinedTableType_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

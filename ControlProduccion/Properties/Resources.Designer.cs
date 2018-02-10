@@ -73,6 +73,36 @@ namespace ControlProduccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddField_32x {
+            get {
+                object obj = ResourceManager.GetObject("AddField_32x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddProperty_40px {
+            get {
+                object obj = ResourceManager.GetObject("AddProperty_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Admin_40px {
+            get {
+                object obj = ResourceManager.GetObject("Admin_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Barcode_16px {
             get {
                 object obj = ResourceManager.GetObject("Barcode_16px", resourceCulture);
@@ -203,6 +233,26 @@ namespace ControlProduccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Exit_16px {
+            get {
+                object obj = ResourceManager.GetObject("Exit_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exit_32px {
+            get {
+                object obj = ResourceManager.GetObject("Exit_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gears_16px {
             get {
                 object obj = ResourceManager.GetObject("Gears_16px", resourceCulture);
@@ -256,6 +306,16 @@ namespace ControlProduccion.Properties {
         internal static System.Drawing.Bitmap IndustrialScales_White_Lines16px {
             get {
                 object obj = ResourceManager.GetObject("IndustrialScales_White_Lines16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Magazine_100px {
+            get {
+                object obj = ResourceManager.GetObject("Magazine_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,6 +453,26 @@ namespace ControlProduccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Save_16px {
+            get {
+                object obj = ResourceManager.GetObject("Save_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_32px {
+            get {
+                object obj = ResourceManager.GetObject("Save_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ScalesConnected_green {
             get {
                 object obj = ResourceManager.GetObject("ScalesConnected_green", resourceCulture);
@@ -476,6 +556,16 @@ namespace ControlProduccion.Properties {
         internal static System.Drawing.Bitmap User_Account_32px {
             get {
                 object obj = ResourceManager.GetObject("User_Account_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserDefinedTableType_32x {
+            get {
+                object obj = ResourceManager.GetObject("UserDefinedTableType_32x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
