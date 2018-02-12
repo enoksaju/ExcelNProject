@@ -70,8 +70,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         {
 
             var frm= new CatalogosAddEdit.AgregarEditarMaterial(this);
-            // frm.FormClosed += Frm_FormClosed;
-
+           
             MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
             frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
 
@@ -151,6 +150,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="SearchString"></param>
         public override void Buscar( object sender, string SearchString )
         {
+            // Filtro de entidades hijo.
 
             if (SearchString.Trim() == string.Empty) { familiaMaterialesBindingSource.DataSource = DB.FamiliasMateriales.Local; return; }
 

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libBascula", "libBascula\li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimuladorBascula", "SimuladorBascula\SimuladorBascula.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlProduccion", "ControlProduccion\ControlProduccion.csproj", "{2301BFC6-E56F-4387-93F9-56EF53BB16AA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{CE1295C1-B771-459D-A6D7-F41F201F87EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNoblezaControlProduccion", "ExcelNoblezaControlProduccion\ExcelNoblezaControlProduccion.csproj", "{6F833165-D5A2-4A27-97FB-273D19F07BE5}"
@@ -50,14 +48,6 @@ Global
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|Any CPU.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Debug|x86.Build.0 = Debug|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Release|x86.ActiveCfg = Release|Any CPU
-		{2301BFC6-E56F-4387-93F9-56EF53BB16AA}.Release|x86.Build.0 = Release|Any CPU
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Debug|x86.ActiveCfg = Debug|Any CPU

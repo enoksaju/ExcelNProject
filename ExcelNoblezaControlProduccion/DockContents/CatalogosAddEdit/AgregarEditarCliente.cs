@@ -33,12 +33,6 @@ namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
         public override void AgregarNuevo()
         {
             CrearForm( t => new AgregarEditarCliente( t ) );
-
-            //var frm = new AgregarEditarCliente(Catalogo);
-            //MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
-            //frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
-
-            //frm.Show( this.DockPanel );
         }
     }
 }

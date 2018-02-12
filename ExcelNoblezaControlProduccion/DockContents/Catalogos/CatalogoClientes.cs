@@ -56,10 +56,8 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="e"></param>
         public override void Editar( object sender, EventArgs e )
         {
-            // base.Editar( sender, e );
 
             var frm= new CatalogosAddEdit.AgregarEditarCliente(this, (Cliente)clienteBindingSource.Current);
-            //frm.FormClosed += Frm_FormClosed;
 
             MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
             frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
@@ -76,8 +74,6 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         public override void Agregar( object sender, EventArgs e )
         {
             var frm= new CatalogosAddEdit.AgregarEditarCliente(this);
-
-           // frm.FormClosed += Frm_FormClosed;
 
             MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
             frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
