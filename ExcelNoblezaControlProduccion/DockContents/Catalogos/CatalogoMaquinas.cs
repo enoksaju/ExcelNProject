@@ -13,33 +13,33 @@ using libProduccionDataBase.Tablas;
 
 namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
 {
-    public partial class CatalogoClientes : BaseForm.BaseFormCatalogos, ICatalogForm
+    public partial class CatalogoMaquinas : BaseForm.BaseFormCatalogos, ICatalogForm
     {
-
-        public CatalogoClientes( DataBaseContexto DB ) : base( DB )
+        public CatalogoMaquinas( DataBaseContexto DB ) : base( DB )
         {
-            InitializeComponent();         
+            InitializeComponent();           
         }
 
-        /// <summary>
-        /// Carga Asincronica del Formulario, muestra la imagen del preloader si es necesario
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void CatalogoClientes_Load( object sender, EventArgs e )
+        private async void CatalogoMaquinas_Load( object sender, EventArgs e )
         {
             LoaderPicktureBox.Visible = true;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Cargando..", Message = "Cargando Clientes..." } );
 
 
-            if (!Program.IsChangingTheme) await DB.Clientes.LoadAsync();
+                if (!Program.IsChangingTheme)
+                {
+                    await DB.TiposMaquina.LoadAsync();
+                    await DB.Maquinas.LoadAsync();
+                    await DB.Lineas.LoadAsync();
+                }
 
 
-            clienteBindingSource.DataSource = this.DB.Clientes.Local.ToBindingList();
+            lineaBindingSource.DataSource = DB.Lineas.Local.ToBindingList();
+            tipoMaquinaBindingSource.DataSource = DB.TiposMaquina.Local.ToBindingList();
+            maquinaBindingSource.DataSource = this.DB.Maquinas.Local.ToBindingList();
             LoaderPicktureBox.Visible = false;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Listo", Message = "Listo" } );
         }
-
 
         /// <summary>
         /// Abre el formulario de editar un Item.
@@ -48,8 +48,9 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="e"></param>
         public override void Editar( object sender, EventArgs e )
         {
+            // base.Editar( sender, e );
 
-            var frm= new CatalogosAddEdit.AgregarEditarCliente(this, (Cliente)clienteBindingSource.Current);
+            var frm= new CatalogosAddEdit.AgregarEditarMaquina(this, (Maquina)maquinaBindingSource.Current);
 
             MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
             frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
@@ -65,7 +66,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="e"></param>
         public override void Agregar( object sender, EventArgs e )
         {
-            var frm= new CatalogosAddEdit.AgregarEditarCliente(this);
+            var frm= new CatalogosAddEdit.AgregarEditarMaquina(this);
 
             MainForm mainfrm= this.DockPanel.FindForm() as MainForm;
             frm.StatusStringChanged += mainfrm.CambioEstadoFormCatalog;
@@ -80,18 +81,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="e"></param>
         public override void Eliminar( object sender, EventArgs e )
         {
-            try
-            {
-                if (clienteBindingSource.Current != null && MessagesActionsAndForms.AskConfirmation( this ))
-                {
-                    this.clienteBindingSource.RemoveCurrent();
-                    DB.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show( libProduccionDataBase.Auxiliares.GetInnerException( ex ) );
-            }
+            HandledException( new Exception( "Una maquina no se puede eliminar desde la aplicación.\nContacte al Administrador de la Base de Datos para procesar la acción." ) );
         }
 
         /// <summary>
@@ -102,17 +92,26 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         public async override void Actualizar( object sender, EventArgs e )
         {
             LoaderPicktureBox.Visible = true;
-            clienteKryptonDataGridView.Enabled = false;
+            this.kryptonDataGridView1.Enabled = false;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Cargando..", Message = "Cargando Clientes..." } );
 
-            await DB.Clientes.LoadAsync();
+            //await Task.Run( () =>
+            //{
 
-            clienteBindingSource.DataSource = DB.Clientes.Local.ToBindingList();
-            clienteBindingSource.ResetBindings( false );
-            clienteKryptonDataGridView.Invalidate(); 
+            //    ((System.Data.Entity.Infrastructure.IObjectContextAdapter)this.DB)
+            //   .ObjectContext
+            //   .Refresh( System.Data.Entity.Core.Objects.RefreshMode.StoreWins, DB.Maquinas );
+
+            //} );
+
+            await DB.Maquinas.LoadAsync();
+
+            maquinaBindingSource.DataSource = DB.Maquinas.Local.ToBindingList();
+            maquinaBindingSource.ResetBindings( false );
+            this.kryptonDataGridView1.Invalidate(); ;
 
             LoaderPicktureBox.Visible = false;
-            clienteKryptonDataGridView.Enabled = true;
+            this.kryptonDataGridView1.Enabled = true;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Listo", Message = "Listo" } );
         }
 
@@ -123,21 +122,16 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
         /// <param name="SearchString"></param>
         public override void Buscar( object sender, string SearchString )
         {
-            var filter = DB.Clientes.Local
-                 .Where(x => x.NombreCliente.ToLower().Contains(SearchString.ToLower()) || x.ClaveCliente.ToLower().Contains(SearchString.ToLower()));
-            clienteBindingSource.DataSource = filter;
+            if (SearchString.Trim() == String.Empty) { Actualizar( this, null ); return; }
+
+            var filter = DB.Maquinas.Local
+                 .Where(x => x.NombreMaquina.ToLower().Contains(SearchString.ToLower()) || x.Linea.Nombre.ToLower().Contains(SearchString.ToLower()));
+            maquinaBindingSource.DataSource = filter;
         }
 
-        /// <summary>
-        /// Habilita el arrastre de Items.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void clienteKryptonDataGridView_MouseDown( object sender, MouseEventArgs e )
+        private void kryptonDataGridView1_DataError( object sender, DataGridViewDataErrorEventArgs e )
         {
-            clienteKryptonDataGridView.DoDragDrop( clienteKryptonDataGridView.SelectedRows, DragDropEffects.All );
+            Console.WriteLine( e.Exception.Message );
         }
-
-
     }
 }

@@ -208,7 +208,10 @@ namespace ExcelNoblezaControlProduccion.DockContents
         /// <param name="ex">Excepcion a analizar</param>
         protected virtual void HandledException( Exception ex )
         {
-            MessageBox.Show( this, ex.Message, "Algo va mal...", MessageBoxButtons.OK, MessageBoxIcon.Error );
+            KryptonTaskDialog.Show("Algo va mal...", "Error al procesar la acción", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK);
+
+
+            //MessageBox.Show( this, ex.Message, "Algo va mal...", MessageBoxButtons.OK, MessageBoxIcon.Error );
         }
 
         #endregion

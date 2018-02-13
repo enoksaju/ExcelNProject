@@ -214,5 +214,77 @@ namespace ExcelNoblezaControlProduccion.Properties {
                 this["Theme_Blue_Active"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PersistenceLayout {
+            get {
+                return ((bool)(this["PersistenceLayout"]));
+            }
+            set {
+                this["PersistenceLayout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Teal")]
+        public global::System.Drawing.Color BasculaColor {
+            get {
+                return ((global::System.Drawing.Color)(this["BasculaColor"]));
+            }
+            set {
+                this["BasculaColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState mainFormWindowsState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["mainFormWindowsState"]));
+            }
+            set {
+                this["mainFormWindowsState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("960, 570")]
+        public global::System.Drawing.Size mainFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["mainFormSize"]));
+            }
+            set {
+                this["mainFormSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50, 50")]
+        public global::System.Drawing.Point mainFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["mainFormLocation"]));
+            }
+            set {
+                this["mainFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool mainformHasSetDefaults {
+            get {
+                return ((bool)(this["mainformHasSetDefaults"]));
+            }
+            set {
+                this["mainformHasSetDefaults"] = value;
+            }
+        }
     }
 }

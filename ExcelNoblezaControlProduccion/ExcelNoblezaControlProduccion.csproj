@@ -65,6 +65,9 @@
     <Reference Include="libBascula">
       <HintPath>..\libBascula\obj\Debug\libBascula.dll</HintPath>
     </Reference>
+    <Reference Include="libControles">
+      <HintPath>..\libControles\obj\Debug\libControles.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -115,6 +118,18 @@
     <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarCliente.Designer.cs">
       <DependentUpon>AgregarEditarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarImpresora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarImpresora.Designer.cs">
+      <DependentUpon>AgregarEditarImpresora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarMaquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarMaquina.Designer.cs">
+      <DependentUpon>AgregarEditarMaquina.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContents\CatalogosAddEdit\AgregarEditarMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,20 +154,38 @@
     <Compile Include="DockContents\Catalogos\CatalogoClientes.Designer.cs">
       <DependentUpon>CatalogoClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="DockContents\Catalogos\CatalogoImpresoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContents\Catalogos\CatalogoImpresoras.Designer.cs">
+      <DependentUpon>CatalogoImpresoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContents\Catalogos\CatalogoMaquinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContents\Catalogos\CatalogoMaquinas.Designer.cs">
+      <DependentUpon>CatalogoMaquinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockContents\Catalogos\CatalogoMateriales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DockContents\Catalogos\CatalogoMateriales.Designer.cs">
       <DependentUpon>CatalogoMateriales.cs</DependentUpon>
     </Compile>
-    <Compile Include="DockContents\ChangeStatusMessageEventArgs.cs" />
-    <Compile Include="DockContents\IActionsDockContent.cs" />
-    <Compile Include="DockContents\ICatalogForm.cs" />
-    <Compile Include="DockContents\KryptonDockContentFormBase.cs">
+    <Compile Include="DockContents\Base\ChangeStatusMessageEventArgs.cs" />
+    <Compile Include="DockContents\Base\IActionsDockContent.cs" />
+    <Compile Include="DockContents\Base\ICatalogForm.cs" />
+    <Compile Include="DockContents\Base\KryptonDockContentFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DockContents\KryptonDockContentFormBase.Designer.cs">
+    <Compile Include="DockContents\Base\KryptonDockContentFormBase.Designer.cs">
       <DependentUpon>KryptonDockContentFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockContents\Utilidades\IndicadorBascula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContents\Utilidades\IndicadorBascula.Designer.cs">
+      <DependentUpon>IndicadorBascula.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -169,6 +202,12 @@
     <EmbeddedResource Include="DockContents\CatalogosAddEdit\AgregarEditarCliente.resx">
       <DependentUpon>AgregarEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContents\CatalogosAddEdit\AgregarEditarImpresora.resx">
+      <DependentUpon>AgregarEditarImpresora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContents\CatalogosAddEdit\AgregarEditarMaquina.resx">
+      <DependentUpon>AgregarEditarMaquina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContents\CatalogosAddEdit\AgregarEditarMaterial.resx">
       <DependentUpon>AgregarEditarMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,11 +220,20 @@
     <EmbeddedResource Include="DockContents\Catalogos\CatalogoClientes.resx">
       <DependentUpon>CatalogoClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DockContents\Catalogos\CatalogoImpresoras.resx">
+      <DependentUpon>CatalogoImpresoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContents\Catalogos\CatalogoMaquinas.resx">
+      <DependentUpon>CatalogoMaquinas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DockContents\Catalogos\CatalogoMateriales.resx">
       <DependentUpon>CatalogoMateriales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DockContents\KryptonDockContentFormBase.resx">
+    <EmbeddedResource Include="DockContents\Base\KryptonDockContentFormBase.resx">
       <DependentUpon>KryptonDockContentFormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockContents\Utilidades\IndicadorBascula.resx">
+      <DependentUpon>IndicadorBascula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -249,8 +297,11 @@
   <ItemGroup>
     <Content Include="Imagenes\Cancel_vs_32x.png" />
     <Content Include="Imagenes\CopyTheme_16x.png" />
+    <Content Include="Imagenes\DataTypeNumber.png" />
+    <Content Include="Imagenes\gears.png" />
     <Content Include="Imagenes\GroupAssignments.png" />
     <Content Include="Imagenes\Center_of_Gravity.png" />
+    <Content Include="Imagenes\layouts_body_3_col.png" />
     <Content Include="Imagenes\Loader.gif" />
     <None Include="Imagenes\loading.gif" />
     <None Include="Imagenes\SimpleLoader .gif" />

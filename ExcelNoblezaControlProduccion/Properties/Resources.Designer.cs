@@ -93,6 +93,16 @@ namespace ExcelNoblezaControlProduccion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DataTypeNumber {
+            get {
+                object obj = ResourceManager.GetObject("DataTypeNumber", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DetailView_16x {
             get {
                 object obj = ResourceManager.GetObject("DetailView_16x", resourceCulture);
@@ -116,6 +126,16 @@ namespace ExcelNoblezaControlProduccion.Properties {
         internal static System.Drawing.Bitmap EditPage_16x {
             get {
                 object obj = ResourceManager.GetObject("EditPage_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gears {
+            get {
+                object obj = ResourceManager.GetObject("gears", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,6 +216,16 @@ namespace ExcelNoblezaControlProduccion.Properties {
         internal static System.Drawing.Bitmap LayersMenu {
             get {
                 object obj = ResourceManager.GetObject("LayersMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layouts_body_3_col {
+            get {
+                object obj = ResourceManager.GetObject("layouts_body_3_col", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

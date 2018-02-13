@@ -38,6 +38,9 @@
             this.Theme_Blue_kryptonContextMenuRadioButton = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuRadioButton();
             this.Theme_Dark_kryptonContextMenuRadioButton = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuRadioButton();
             this.Theme_Silver_kryptonContextMenuRadioButton = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuRadioButton();
+            this.kryptonContextMenuSeparator1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator();
+            this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
+            this.LayoutPersistenceKCheckBox = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
             this.AgregarEditarCatalogsRibbonContext = new ComponentFactory.Krypton.Ribbon.KryptonRibbonContext();
             this.CatalogoRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
@@ -45,11 +48,14 @@
             this.kryptonRibbonGroupButton1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.BasculaRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.BasculakryptonRibbonGroupButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.Bascula_ConfigurarkryptonRibbonGroupButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupButton5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.AddOrEditCatalogsKryptonRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
@@ -108,8 +114,9 @@
             this.CatalogoRibbonTab,
             this.BasculaRibbonTab,
             this.AddOrEditCatalogsKryptonRibbonTab});
-            this.kryptonRibbon1.SelectedTab = this.CatalogoRibbonTab;
-            this.kryptonRibbon1.Size = new System.Drawing.Size(946, 115);
+            this.kryptonRibbon1.SelectedContext = null;
+            this.kryptonRibbon1.SelectedTab = this.BasculaRibbonTab;
+            this.kryptonRibbon1.Size = new System.Drawing.Size(1009, 115);
             this.kryptonRibbon1.TabIndex = 0;
             // 
             // AparienciaKryptonContextMenuItem
@@ -120,7 +127,10 @@
             this.Theme_Header_kryptonContextMenuHeading,
             this.Theme_Blue_kryptonContextMenuRadioButton,
             this.Theme_Dark_kryptonContextMenuRadioButton,
-            this.Theme_Silver_kryptonContextMenuRadioButton});
+            this.Theme_Silver_kryptonContextMenuRadioButton,
+            this.kryptonContextMenuSeparator1,
+            this.kryptonContextMenuHeading1,
+            this.LayoutPersistenceKCheckBox});
             this.AparienciaKryptonContextMenuItem.Text = "Aperiencia";
             // 
             // Theme_Header_kryptonContextMenuHeading
@@ -149,6 +159,19 @@
             this.Theme_Silver_kryptonContextMenuRadioButton.Text = "Light";
             this.Theme_Silver_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
             // 
+            // kryptonContextMenuHeading1
+            // 
+            this.kryptonContextMenuHeading1.ExtraText = "";
+            this.kryptonContextMenuHeading1.Text = "Layout";
+            // 
+            // LayoutPersistenceKCheckBox
+            // 
+            this.LayoutPersistenceKCheckBox.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.PersistenceLayout;
+            this.LayoutPersistenceKCheckBox.ExtraText = "";
+            this.LayoutPersistenceKCheckBox.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.layouts_body_3_col;
+            this.LayoutPersistenceKCheckBox.Text = "Layout Persitente";
+            this.LayoutPersistenceKCheckBox.CheckedChanged += new System.EventHandler(this.LayoutPersistenceKCheckBox_CheckedChanged);
+            // 
             // AgregarEditarCatalogsRibbonContext
             // 
             this.AgregarEditarCatalogsRibbonContext.ContextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -164,7 +187,8 @@
             // kryptonRibbonGroup1
             // 
             this.kryptonRibbonGroup1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple1});
+            this.kryptonRibbonGroupTriple1,
+            this.kryptonRibbonGroupTriple5});
             this.kryptonRibbonGroup1.TextLine1 = "Catalogos";
             // 
             // kryptonRibbonGroupTriple1
@@ -190,6 +214,18 @@
             // 
             this.kryptonRibbonGroupButton3.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Center_of_Gravity;
             this.kryptonRibbonGroupButton3.TextLine1 = "Impresoras";
+            this.kryptonRibbonGroupButton3.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
+            // 
+            // kryptonRibbonGroupTriple5
+            // 
+            this.kryptonRibbonGroupTriple5.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupButton4});
+            // 
+            // kryptonRibbonGroupButton4
+            // 
+            this.kryptonRibbonGroupButton4.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.gears;
+            this.kryptonRibbonGroupButton4.TextLine1 = "Maquinas";
+            this.kryptonRibbonGroupButton4.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
             // 
             // BasculaRibbonTab
             // 
@@ -207,7 +243,8 @@
             // 
             this.kryptonRibbonGroupTriple2.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
             this.BasculakryptonRibbonGroupButton,
-            this.Bascula_ConfigurarkryptonRibbonGroupButton});
+            this.Bascula_ConfigurarkryptonRibbonGroupButton,
+            this.kryptonRibbonGroupButton5});
             // 
             // BasculakryptonRibbonGroupButton
             // 
@@ -220,6 +257,13 @@
             this.Bascula_ConfigurarkryptonRibbonGroupButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Preferences;
             this.Bascula_ConfigurarkryptonRibbonGroupButton.TextLine1 = "Configurar";
             this.Bascula_ConfigurarkryptonRibbonGroupButton.Click += new System.EventHandler(this.Bascula_ConfigurarkryptonRibbonGroupButton_Click);
+            // 
+            // kryptonRibbonGroupButton5
+            // 
+            this.kryptonRibbonGroupButton5.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.DataTypeNumber;
+            this.kryptonRibbonGroupButton5.TextLine1 = "Mostrar";
+            this.kryptonRibbonGroupButton5.TextLine2 = "Indicador";
+            this.kryptonRibbonGroupButton5.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click);
             // 
             // AddOrEditCatalogsKryptonRibbonTab
             // 
@@ -278,17 +322,18 @@
             this.dockPanel1.DefaultFloatWindowSize = new System.Drawing.Size(350, 350);
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanel1.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(242)))));
-            this.dockPanel1.DockBottomPortion = 200D;
+            this.dockPanel1.DockBottomPortion = 250D;
             this.dockPanel1.DockLeftPortion = 300D;
             this.dockPanel1.DockRightPortion = 300D;
-            this.dockPanel1.DockTopPortion = 150D;
+            this.dockPanel1.DockTopPortion = 250D;
             this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
             this.dockPanel1.Location = new System.Drawing.Point(0, 115);
+            this.dockPanel1.Margin = new System.Windows.Forms.Padding(48, 22, 48, 22);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Padding = new System.Windows.Forms.Padding(6);
             this.dockPanel1.ShowAutoHideContentOnHover = false;
             this.dockPanel1.ShowDocumentIcon = true;
-            this.dockPanel1.Size = new System.Drawing.Size(946, 392);
+            this.dockPanel1.Size = new System.Drawing.Size(1009, 407);
             this.dockPanel1.TabIndex = 1;
             this.dockPanel1.Theme = this.VS2015Light;
             this.dockPanel1.ActiveContentChanged += new System.EventHandler(this.dockPanel1_ActiveContentChanged);
@@ -298,9 +343,10 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EstadoStatusLabelStrip,
             this.BasculaToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 522);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(946, 24);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(16, 0, 224, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1009, 24);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
@@ -308,7 +354,7 @@
             // EstadoStatusLabelStrip
             // 
             this.EstadoStatusLabelStrip.Name = "EstadoStatusLabelStrip";
-            this.EstadoStatusLabelStrip.Size = new System.Drawing.Size(851, 19);
+            this.EstadoStatusLabelStrip.Size = new System.Drawing.Size(689, 19);
             this.EstadoStatusLabelStrip.Spring = true;
             this.EstadoStatusLabelStrip.Text = "Listo...";
             this.EstadoStatusLabelStrip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -353,6 +399,7 @@
             this.controlBascula.StatusPicture = null;
             this.controlBascula.TextoAEnviar = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaTextoAEnviar;
             this.controlBascula.Unidad = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaUnidad;
+            this.controlBascula.CambioValor += new libBascula.CambioValorEvenHandler(this.controlBascula_CambioValor);
             this.controlBascula.CambioEstado += new libBascula.CambioEstadoEventHandler(this.controlBascula_CambioEstado);
             // 
             // BasculaConectedkryptonCommand
@@ -397,19 +444,20 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.BasculaFormButtonSpecAny});
-            this.ClientSize = new System.Drawing.Size(946, 531);
+            this.ClientSize = new System.Drawing.Size(1009, 546);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.kryptonRibbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(48, 22, 48, 22);
             this.MinimumSize = new System.Drawing.Size(700, 440);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Produccion";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonRibbon1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -467,6 +515,12 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteBlue;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteSilver;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteDark;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox LayoutPersistenceKCheckBox;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
     }
 }
 

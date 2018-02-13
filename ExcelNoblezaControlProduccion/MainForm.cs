@@ -24,32 +24,90 @@ namespace ExcelNoblezaControlProduccion
         // Formularios de Configuracion
         ConfiguracionForms.BasculaConfigForm BasculaConfigForm;
 
+        DockContents.Utilidades.IndicadorBascula IndicadorBascula;
+
         //Formularios de Catalogos
         DockContents.Catalogos.CatalogoClientes CatalogoClientes;
         DockContents.Catalogos.CatalogoMateriales CatalogoMateriales;
+        DockContents.Catalogos.CatalogoImpresoras CatalogoImpresoras;
+        DockContents.Catalogos.CatalogoMaquinas CatalogoMaquinas;
 
         public MainForm()
         {
+
+
             InitializeComponent();
+
+            //this.WindowState = Properties.Settings.Default.mainFormWindowsState;
+            //if (this.WindowState != FormWindowState.Maximized)
+            //{
+            //    this.ClientSize = Properties.Settings.Default.mainFormSize;
+            //};
+
             DB = new DataBaseContexto();
             DB.Database.Log = Console.WriteLine;
-            this.TimerStatus.Elapsed += TimerStatus_Tick;
 
+            this.TimerStatus.Elapsed += TimerStatus_Tick;
             this.TimerStatus.AutoReset = false;
+                        
+
+        }
+
+        private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
+        {
+            Properties.Settings.Default.mainFormWindowsState = this.WindowState;
+
+            switch (this.WindowState)
+            {
+                case FormWindowState.Normal:
+                    Properties.Settings.Default.mainFormLocation = this.Location;
+                    Properties.Settings.Default.mainFormSize = this.ClientSize;
+                    break;
+                default:
+                    Properties.Settings.Default.mainFormLocation = this.RestoreBounds.Location;
+                    Properties.Settings.Default.mainFormSize = this.RestoreBounds.Size;
+                    break;
+            }
+
+            Properties.Settings.Default.mainformHasSetDefaults = true;
+
+            string configFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.LastLayout.config");
+            if (Properties.Settings.Default.PersistenceLayout) dockPanel1.SaveAsXml( configFile );
+
+        }
+
+        private  void MainForm_Load( object sender, EventArgs e )
+        {
+            controlBascula.Initialize();
+
+           // DB.Database.Initialize( true );
+
+            //await DB.Clientes.LoadAsync();
+            //await DB.Materiales.LoadAsync();
+            //await DB.Lineas.LoadAsync();
+            //await DB.Rodillos.LoadAsync();
 
             m_deserializeDockContent = new DeserializeDockContent( GetContentFromPersistString );
+
+
+            string configFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.LastLayout.config");
+            if (System.IO.File.Exists( configFile ) && Properties.Settings.Default.PersistenceLayout) dockPanel1.LoadFromXml( configFile, m_deserializeDockContent );
+
 
             // Lee la configuracion del tema y lo aplica.
             this.Theme_Blue_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Blue_Active;
             this.Theme_Dark_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Dark_Active;
             this.Theme_Silver_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Silver_Active;
 
-        }
+            this.FormClosing += MainForm_FormClosing;
 
-        private void MainForm_Load( object sender, EventArgs e )
-        {
-            controlBascula.Initialize();
-            DB.Database.CompatibleWithModel( true );
+            if (Properties.Settings.Default.mainformHasSetDefaults)
+            {
+                this.WindowState = Properties.Settings.Default.mainFormWindowsState;
+                this.Location = Properties.Settings.Default.mainFormLocation;
+                this.Size = Properties.Settings.Default.mainFormSize;
+            }
+
         }
 
 
@@ -102,6 +160,23 @@ namespace ExcelNoblezaControlProduccion
                 );
         }
 
+        private void kryptonRibbonGroupButton3_Click( object sender, EventArgs e )
+        {
+            openAndShowFormCatalog(
+                ref CatalogoImpresoras,
+                b => new DockContents.Catalogos.CatalogoImpresoras( b ),
+                DockContents.ICatalogFormEnums.FlagActiveFunctions.Todas
+                );
+        }
+        private void kryptonRibbonGroupButton4_Click( object sender, EventArgs e )
+        {
+            openAndShowFormCatalog(
+                ref CatalogoMaquinas,
+                b => new DockContents.Catalogos.CatalogoMaquinas( b ),
+                DockContents.ICatalogFormEnums.FlagActiveFunctions.Todas
+                );
+        }
+
         /// <summary>
         /// Crea y muestra un Formulario de catalogo
         /// </summary>
@@ -110,12 +185,12 @@ namespace ExcelNoblezaControlProduccion
         /// <param name="New">Delegado para creacion de un formulario nuevo</param>
         /// <param name="ActiveFunctionsFlag">Forma de apertura del Formulario</param>
         /// <returns></returns>
-        private void openAndShowFormCatalog<t>(ref t CatalogForm, Func<DataBaseContexto, t> New, DockContents.ICatalogFormEnums.FlagActiveFunctions ActiveFunctionsFlag )
+        private void openAndShowFormCatalog<t>( ref t CatalogForm, Func<DataBaseContexto, t> New, DockContents.ICatalogFormEnums.FlagActiveFunctions ActiveFunctionsFlag )
         {
             Task.Run( () =>
             {
                 setStatusMessage( "Cargando el Formulario..." );
-            } );            
+            } );
 
             if (CatalogForm == null)
             {
@@ -229,6 +304,7 @@ namespace ExcelNoblezaControlProduccion
         {
             // Persist settings when rebuilding UI
             string configFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.temp.config");
+
             dockPanel1.SaveAsXml( configFile );
 
             Program.IsChangingTheme = true;
@@ -281,22 +357,44 @@ namespace ExcelNoblezaControlProduccion
         {
             // TODO: se debe agregar las acciones para cada tipo encontrado en el archivo
 
+            // Catalogos
             if (persistString == typeof( DockContents.Catalogos.CatalogoClientes ).ToString())
             {
                 this.CatalogoClientes?.Dispose();
                 this.CatalogoClientes = new DockContents.Catalogos.CatalogoClientes( DB );
                 return this.CatalogoClientes;
             }
-            else if (persistString == typeof( DockContents.Catalogos.CatalogoMateriales ).ToString()) {
+            else if (persistString == typeof( DockContents.Catalogos.CatalogoMateriales ).ToString())
+            {
                 this.CatalogoMateriales?.Dispose();
                 this.CatalogoMateriales = new DockContents.Catalogos.CatalogoMateriales( DB );
                 return this.CatalogoMateriales;
             }
+            else if (persistString == typeof( DockContents.Catalogos.CatalogoImpresoras ).ToString())
+            {
+                this.CatalogoImpresoras?.Dispose();
+                this.CatalogoImpresoras = new DockContents.Catalogos.CatalogoImpresoras( DB );
+                return this.CatalogoImpresoras;
+            }
+            else if (persistString == typeof( DockContents.Catalogos.CatalogoMaquinas ).ToString())
+            {
+                this.CatalogoMaquinas?.Dispose();
+                this.CatalogoMaquinas = new DockContents.Catalogos.CatalogoMaquinas( DB );
+                return this.CatalogoMaquinas;
+            }
+            // Configuracion
             else if (persistString == typeof( ConfiguracionForms.BasculaConfigForm ).ToString())
             {
                 this.BasculaConfigForm?.Dispose();
                 this.BasculaConfigForm = new ConfiguracionForms.BasculaConfigForm( this.controlBascula );
                 return this.BasculaConfigForm;
+            }
+            // Utilidades
+            else if (persistString == typeof( DockContents.Utilidades.IndicadorBascula ).ToString())
+            {
+                this.IndicadorBascula?.Dispose();
+                this.IndicadorBascula = new DockContents.Utilidades.IndicadorBascula( );
+                return this.IndicadorBascula;
             }
             else
             {
@@ -319,6 +417,10 @@ namespace ExcelNoblezaControlProduccion
                 //return dummyDoc;
                 return null;
             }
+        }
+        private void LayoutPersistenceKCheckBox_CheckedChanged( object sender, EventArgs e )
+        {
+            Properties.Settings.Default.PersistenceLayout = LayoutPersistenceKCheckBox.Checked;
         }
 
         #endregion
@@ -361,6 +463,17 @@ namespace ExcelNoblezaControlProduccion
         #region Control sobre la Bascula
 
         /// <summary>
+        /// Muestra el indicador de la bascula en el Dock Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void kryptonRibbonGroupButton5_Click( object sender, EventArgs e )
+        {
+            if (IndicadorBascula == null) IndicadorBascula = new DockContents.Utilidades.IndicadorBascula();
+            IndicadorBascula.Show( dockPanel1 );
+        }
+
+        /// <summary>
         /// Cambia el estado actual de la bascula
         /// </summary>
         /// <param name="sender"></param>
@@ -383,6 +496,15 @@ namespace ExcelNoblezaControlProduccion
             BasculakryptonRibbonGroupButton.KryptonCommand = cmd;
             BasculaFormButtonSpecAny.Checked = e == libBascula.EstadoConexion.Conectado ? ButtonCheckState.Checked : ButtonCheckState.NotCheckButton;
         }
+        /// <summary>
+        /// Controla lo que pasa al cambiar el valor de la bascula
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void controlBascula_CambioValor( object sender, libBascula.CambioValorEventArgs e )
+        {
+           if(IndicadorBascula != null) IndicadorBascula.ValorBascula = String.Format( "{0:00.00} {1}", e.NuevoValor, e.Unidad );
+        }
 
         /// <summary>
         /// Abre el formulario de configuracion de la bascula
@@ -400,8 +522,8 @@ namespace ExcelNoblezaControlProduccion
             BasculaConfigForm.Show( dockPanel1 );
 
         }
-
         #endregion
+
 
     }
 }

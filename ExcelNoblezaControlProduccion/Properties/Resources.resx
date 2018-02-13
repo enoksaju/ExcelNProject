@@ -157,11 +157,20 @@
   <data name="Center_of_Gravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Center_of_Gravity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SimpleLoader " type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\SimpleLoader .gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="layouts_body_3_col" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\layouts_body_3_col.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Refresh_vs_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Refresh_vs_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gears" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\gears.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Industrial_Scales_Disconnected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Industrial_Scales_Disconnected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,7 +208,7 @@
   <data name="LayersMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\LayersMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SimpleLoader " type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\SimpleLoader .gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DataTypeNumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\DataTypeNumber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

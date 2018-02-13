@@ -272,7 +272,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit.BaseForm
                     BindingSource.EndEdit();
                     var t= DB.GetValidationErrors();
                     if (t.Count() > 0) throw new Exception( "Datos invalidados" );
-                    DB.SaveChanges();
+                    DB.SavechangesWithSender(Catalogo);
                 }
             }
             catch (Exception ex)

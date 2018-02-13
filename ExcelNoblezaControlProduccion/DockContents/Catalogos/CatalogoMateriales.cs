@@ -18,8 +18,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
     {
         public CatalogoMateriales( DataBaseContexto DB ) : base( DB )
         {
-            InitializeComponent();
-            DB.SavedChanges += Actualizar;
+            InitializeComponent();         
             this.Load += Catalogo_Load;
         }
 
@@ -34,10 +33,8 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
             InfoContainerkryptonSplitContainer.Visible = false;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Cargando..", Message = "Cargando Materiales..." } );
 
-            await Task.Run( () =>
-            {
-                if (!Program.IsChangingTheme) DB.FamiliasMateriales.Include( mt => mt.Materiales ).LoadAsync();
-            } );
+
+                if (!Program.IsChangingTheme)await DB.FamiliasMateriales.Include( mt => mt.Materiales ).LoadAsync();
 
             familiaMaterialesBindingSource.DataSource = this.DB.FamiliasMateriales.Local.ToBindingList();
             InfoContainerkryptonSplitContainer.Visible = true;
@@ -118,19 +115,20 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
             InfoContainerkryptonSplitContainer.Visible = false;
             OnStatusStringChanged( new ChangeStatusMessageEventArgs { Title = "Cargando..", Message = "Cargando Clientes..." } );
 
-            await Task.Run( () =>
-            {
+            //await Task.Run( () =>
+            //{
 
-                ((System.Data.Entity.Infrastructure.IObjectContextAdapter)this.DB)
-               .ObjectContext
-               .Refresh( System.Data.Entity.Core.Objects.RefreshMode.StoreWins, DB.FamiliasMateriales );
+            //    ((System.Data.Entity.Infrastructure.IObjectContextAdapter)this.DB)
+            //   .ObjectContext
+            //   .Refresh( System.Data.Entity.Core.Objects.RefreshMode.StoreWins, DB.FamiliasMateriales );
 
 
-                ((System.Data.Entity.Infrastructure.IObjectContextAdapter)this.DB)
-               .ObjectContext
-               .Refresh( System.Data.Entity.Core.Objects.RefreshMode.StoreWins, DB.Materiales );
-            } );
-
+            //    ((System.Data.Entity.Infrastructure.IObjectContextAdapter)this.DB)
+            //   .ObjectContext
+            //   .Refresh( System.Data.Entity.Core.Objects.RefreshMode.StoreWins, DB.Materiales );
+            //} );
+            
+            await DB.FamiliasMateriales.Include(t=> t.Materiales).LoadAsync();
 
             familiaMaterialesBindingSource.DataSource = DB.FamiliasMateriales.Local;
             familiaMaterialesBindingSource.ResetBindings( false );

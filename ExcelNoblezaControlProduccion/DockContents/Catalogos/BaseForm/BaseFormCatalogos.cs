@@ -62,7 +62,11 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos.BaseForm
             AutoScaleMode = AutoScaleMode.Dpi;
 
             // Le da valores a los parametros
+
             this.DB = DB;
+
+            DB.SavedChanges += RefreshBindingSource;
+
             //this.ActiveFunctions = ActiveFunctions;
 
             // Agreagar Manejo de Eventos de los controles comunes
@@ -124,7 +128,9 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos.BaseForm
         /// <param name="e"></param>
         public virtual void RefreshBindingSource( object sender, EventArgs e )
         {
-            Actualizar( sender, e );
+            Console.WriteLine( sender );
+            if (sender.GetType() == this.GetType())
+                Actualizar( sender, e );
         }
         public void Show( DockPanel Panel, FlagActiveFunctions Functions )
         {
@@ -151,11 +157,11 @@ namespace ExcelNoblezaControlProduccion.DockContents.Catalogos.BaseForm
             AddNewToolStripButton.Click += Agregar;
             DeleteCurrentToolStripButton.Click += Eliminar;
             EditCurrentToolStripButton.Click += Editar;
-            SearchToolStripButton.Click += Search;
-            ToSearchTextBox.KeyDown += ToSearchTextBox_KeyDown;
             showDetallesToolStripButton.Click += showDetails;
-            ToSearchTextBox.KeyDown += ToSearchTextBox_KeyDown;
+
             SearchToolStripButton.Click += Search;
+            ToSearchTextBox.KeyDown += ToSearchTextBox_KeyDown;
+            
         }
 
         /// <summary>

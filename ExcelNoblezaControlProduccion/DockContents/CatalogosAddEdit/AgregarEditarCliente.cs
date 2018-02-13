@@ -24,7 +24,7 @@ namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
             var DbLocal= new DataBaseContexto();
 
             if (Cliente != null) DbLocal.Clientes.Where( t => t.Id == Cliente.Id ).Load();
-            var Entity = DbLocal.Clientes.Local.FirstOrDefault(p=> p.Id== Cliente.Id);
+            var Entity = DbLocal.Clientes.Local.FirstOrDefault(p=> p.Id== Cliente?.Id);
             
             base.Initialize( DbLocal, DbLocal.Clientes.Local.ToBindingList(), DbLocal.Clientes, Entity );
             
