@@ -76,10 +76,19 @@
     <Compile Include="cls_Auxiliares.cs" />
     <Compile Include="Identity\clsApplicationUserManager.cs" />
     <Compile Include="Identity\clsAppUser.cs" />
+    <Compile Include="Identity\Model\clsCreatingUserModel.cs" />
     <Compile Include="Identity\Model\clsLoginModel.cs" />
     <Compile Include="Migrations\201801201738387_Inicial.cs" />
     <Compile Include="Migrations\201801201738387_Inicial.Designer.cs">
       <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802162319465_addEtiquetas.cs" />
+    <Compile Include="Migrations\201802162319465_addEtiquetas.Designer.cs">
+      <DependentUpon>201802162319465_addEtiquetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802282116265_setnotnullNombreEtiqueta.cs" />
+    <Compile Include="Migrations\201802282116265_setnotnullNombreEtiqueta.Designer.cs">
+      <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -87,6 +96,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tablas\cls_Clientes.cs" />
     <Compile Include="Tablas\cls_Desperdicios.cs" />
+    <Compile Include="Tablas\cls_Etiquetas.cs" />
     <Compile Include="Tablas\cls_Maquinas.cs" />
     <Compile Include="Tablas\cls_Materiales.cs" />
     <Compile Include="Tablas\cls_OrdenTrabajo.cs" />
@@ -107,6 +117,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801201738387_Inicial.resx">
       <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802162319465_addEtiquetas.resx">
+      <DependentUpon>201802162319465_addEtiquetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802282116265_setnotnullNombreEtiqueta.resx">
+      <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

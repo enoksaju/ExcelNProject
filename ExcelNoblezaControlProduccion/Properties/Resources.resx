@@ -127,8 +127,14 @@
   <data name="Themes_Dark_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Themes_Dark_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\arrow_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DetailView_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DetailView_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="login-user2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\login-user2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Themes_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Themes_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,14 +142,26 @@
   <data name="Industrial_Scales" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Industrial_Scales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AddUser_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\AddUser_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Edit_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Industrial_Scales_Connected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Industrial_Scales_Connected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Edit_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Edit_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\arrow_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GroupAssignments" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\GroupAssignments.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Refresh_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,6 +171,9 @@
   </data>
   <data name="Industrial_Scales_Disconnected_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Industrial_Scales_Disconnected_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataTypeNumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\DataTypeNumber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Center_of_Gravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Center_of_Gravity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,11 +199,20 @@
   <data name="Save_vs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Save_vs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Themes_Silver_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Themes_Silver_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ChangePassword_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\ChangePassword_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Loader.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewUsage_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\NewUsage_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report-user_symbol_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\report-user_symbol_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Themes_Silver_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Themes_Silver_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Themes_Blue_16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Themes_Blue_16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +226,14 @@
   <data name="Cancel_vs_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Cancel_vs_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SaveItem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\SaveItem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NewFile_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewFile_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DatabaseRoleMembership_12879" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\DatabaseRoleMembership_12879.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,7 +244,7 @@
   <data name="LayersMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\LayersMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DataTypeNumber" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\DataTypeNumber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="barcode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\barcode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

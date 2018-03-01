@@ -42,14 +42,17 @@
             this.kryptonContextMenuHeading1 = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading();
             this.LayoutPersistenceKCheckBox = new ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox();
             this.AgregarEditarCatalogsRibbonContext = new ComponentFactory.Krypton.Ribbon.KryptonRibbonContext();
+            this.OrdenesTrabajoTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.CatalogoRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoClientesRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoMaterialesRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoImpresorasRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoMaquinasRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoUsuariosRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.CatalogoEtiquetasRibbonButton = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.BasculaRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
@@ -111,12 +114,13 @@
             this.kryptonRibbon1.RibbonStrings.StandardColors = "Colores Standar";
             this.kryptonRibbon1.RibbonStrings.ThemeColors = "Colores Tema";
             this.kryptonRibbon1.RibbonTabs.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab[] {
+            this.OrdenesTrabajoTab,
             this.CatalogoRibbonTab,
             this.BasculaRibbonTab,
             this.AddOrEditCatalogsKryptonRibbonTab});
             this.kryptonRibbon1.SelectedContext = null;
-            this.kryptonRibbon1.SelectedTab = this.BasculaRibbonTab;
-            this.kryptonRibbon1.Size = new System.Drawing.Size(1009, 115);
+            this.kryptonRibbon1.SelectedTab = this.CatalogoRibbonTab;
+            this.kryptonRibbon1.Size = new System.Drawing.Size(1008, 115);
             this.kryptonRibbon1.TabIndex = 0;
             // 
             // AparienciaKryptonContextMenuItem
@@ -178,6 +182,10 @@
             this.AgregarEditarCatalogsRibbonContext.ContextName = "AddOrEditCatalogs";
             this.AgregarEditarCatalogsRibbonContext.ContextTitle = "Catalogos";
             // 
+            // OrdenesTrabajoTab
+            // 
+            this.OrdenesTrabajoTab.Text = "Ordenes de Trabajo";
+            // 
             // CatalogoRibbonTab
             // 
             this.CatalogoRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
@@ -194,38 +202,52 @@
             // kryptonRibbonGroupTriple1
             // 
             this.kryptonRibbonGroupTriple1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton1,
-            this.kryptonRibbonGroupButton2,
-            this.kryptonRibbonGroupButton3});
+            this.CatalogoClientesRibbonButton,
+            this.CatalogoMaterialesRibbonButton,
+            this.CatalogoImpresorasRibbonButton});
             // 
-            // kryptonRibbonGroupButton1
+            // CatalogoClientesRibbonButton
             // 
-            this.kryptonRibbonGroupButton1.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.GroupAssignments;
-            this.kryptonRibbonGroupButton1.TextLine1 = "Clientes";
-            this.kryptonRibbonGroupButton1.Click += new System.EventHandler(this.kryptonRibbonGroupButton1_Click);
+            this.CatalogoClientesRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.GroupAssignments;
+            this.CatalogoClientesRibbonButton.TextLine1 = "Clientes";
+            this.CatalogoClientesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton1_Click);
             // 
-            // kryptonRibbonGroupButton2
+            // CatalogoMaterialesRibbonButton
             // 
-            this.kryptonRibbonGroupButton2.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.LayersMenu;
-            this.kryptonRibbonGroupButton2.TextLine1 = "Materiales";
-            this.kryptonRibbonGroupButton2.Click += new System.EventHandler(this.kryptonRibbonGroupButton2_Click);
+            this.CatalogoMaterialesRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.LayersMenu;
+            this.CatalogoMaterialesRibbonButton.TextLine1 = "Materiales";
+            this.CatalogoMaterialesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton2_Click);
             // 
-            // kryptonRibbonGroupButton3
+            // CatalogoImpresorasRibbonButton
             // 
-            this.kryptonRibbonGroupButton3.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Center_of_Gravity;
-            this.kryptonRibbonGroupButton3.TextLine1 = "Impresoras";
-            this.kryptonRibbonGroupButton3.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
+            this.CatalogoImpresorasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Center_of_Gravity;
+            this.CatalogoImpresorasRibbonButton.TextLine1 = "Impresoras";
+            this.CatalogoImpresorasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
             // 
             // kryptonRibbonGroupTriple5
             // 
             this.kryptonRibbonGroupTriple5.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton4});
+            this.CatalogoMaquinasRibbonButton,
+            this.CatalogoUsuariosRibbonButton,
+            this.CatalogoEtiquetasRibbonButton});
             // 
-            // kryptonRibbonGroupButton4
+            // CatalogoMaquinasRibbonButton
             // 
-            this.kryptonRibbonGroupButton4.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.gears;
-            this.kryptonRibbonGroupButton4.TextLine1 = "Maquinas";
-            this.kryptonRibbonGroupButton4.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
+            this.CatalogoMaquinasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.gears;
+            this.CatalogoMaquinasRibbonButton.TextLine1 = "Maquinas";
+            this.CatalogoMaquinasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
+            // 
+            // CatalogoUsuariosRibbonButton
+            // 
+            this.CatalogoUsuariosRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.report_user_symbol_green;
+            this.CatalogoUsuariosRibbonButton.TextLine1 = "Usuarios";
+            this.CatalogoUsuariosRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton6_Click);
+            // 
+            // CatalogoEtiquetasRibbonButton
+            // 
+            this.CatalogoEtiquetasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.barcode;
+            this.CatalogoEtiquetasRibbonButton.TextLine1 = "Etiquetas";
+            this.CatalogoEtiquetasRibbonButton.Click += new System.EventHandler(this.CatalogoEtiquetasRibbonButton_Click);
             // 
             // BasculaRibbonTab
             // 
@@ -333,28 +355,28 @@
             this.dockPanel1.Padding = new System.Windows.Forms.Padding(6);
             this.dockPanel1.ShowAutoHideContentOnHover = false;
             this.dockPanel1.ShowDocumentIcon = true;
-            this.dockPanel1.Size = new System.Drawing.Size(1009, 407);
+            this.dockPanel1.Size = new System.Drawing.Size(1008, 464);
             this.dockPanel1.TabIndex = 1;
             this.dockPanel1.Theme = this.VS2015Light;
             this.dockPanel1.ActiveContentChanged += new System.EventHandler(this.dockPanel1_ActiveContentChanged);
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EstadoStatusLabelStrip,
             this.BasculaToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 522);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(16, 0, 224, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1009, 24);
-            this.statusStrip1.SizingGrip = false;
+            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // EstadoStatusLabelStrip
             // 
             this.EstadoStatusLabelStrip.Name = "EstadoStatusLabelStrip";
-            this.EstadoStatusLabelStrip.Size = new System.Drawing.Size(689, 19);
+            this.EstadoStatusLabelStrip.Size = new System.Drawing.Size(913, 17);
             this.EstadoStatusLabelStrip.Spring = true;
             this.EstadoStatusLabelStrip.Text = "Listo...";
             this.EstadoStatusLabelStrip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -365,8 +387,9 @@
             this.BasculaToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.BasculaToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
             this.BasculaToolStripStatusLabel.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales;
+            this.BasculaToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.BasculaToolStripStatusLabel.Name = "BasculaToolStripStatusLabel";
-            this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(80, 19);
+            this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(80, 16);
             this.BasculaToolStripStatusLabel.Text = "00.00 kg";
             // 
             // controlBascula
@@ -448,13 +471,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.BasculaFormButtonSpecAny});
-            this.ClientSize = new System.Drawing.Size(1009, 546);
+            this.ClientSize = new System.Drawing.Size(1008, 601);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.kryptonRibbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(48, 22, 48, 22);
-            this.MinimumSize = new System.Drawing.Size(700, 440);
+            this.MinimumSize = new System.Drawing.Size(1024, 600);
             this.Name = "MainForm";
             this.Text = "Control de Produccion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -481,9 +504,9 @@
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab CatalogoRibbonTab;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup1;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton1;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton2;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoClientesRibbonButton;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoMaterialesRibbonButton;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoImpresorasRibbonButton;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab BasculaRibbonTab;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup2;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
@@ -516,11 +539,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteSilver;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteDark;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple5;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton4;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoMaquinasRibbonButton;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuSeparator kryptonContextMenuSeparator1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuHeading kryptonContextMenuHeading1;
         private ComponentFactory.Krypton.Toolkit.KryptonContextMenuCheckBox LayoutPersistenceKCheckBox;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton5;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoUsuariosRibbonButton;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab OrdenesTrabajoTab;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CatalogoEtiquetasRibbonButton;
     }
 }
 

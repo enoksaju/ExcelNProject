@@ -66,7 +66,7 @@
             this.kryptonWrapLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonWrapLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.kryptonWrapLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.kryptonWrapLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
+            this.kryptonWrapLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonWrapLabel1.Location = new System.Drawing.Point(3, 0);
             this.kryptonWrapLabel1.Name = "kryptonWrapLabel1";
             this.kryptonWrapLabel1.Size = new System.Drawing.Size(99, 28);
@@ -78,7 +78,7 @@
             this.kryptonWrapLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonWrapLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.kryptonWrapLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
-            this.kryptonWrapLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
+            this.kryptonWrapLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonWrapLabel2.Location = new System.Drawing.Point(3, 28);
             this.kryptonWrapLabel2.Name = "kryptonWrapLabel2";
             this.kryptonWrapLabel2.Size = new System.Drawing.Size(99, 28);

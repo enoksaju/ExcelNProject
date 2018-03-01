@@ -141,6 +141,12 @@ namespace ExcelNoblezaControlProduccion.DockContents
             StatusStringChanged?.Invoke( this, e );
         }
 
+        protected void OnStatusStringChanged( string Message )
+        {
+            StatusStringChanged?.Invoke(this, new ChangeStatusMessageEventArgs { Title="***", Message= Message} );
+        }
+
+
         #endregion
 
 

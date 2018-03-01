@@ -44,7 +44,9 @@ namespace libProduccionDataBase.Identity
     {
         public ApplicationUserStore(Contexto.DataBaseContexto context) : base(context)
         {
+           
         }
+        
     }
 
     public class ApplicationRoleStore : RoleStore<ApplicationRole, int, ApplicationUserRole>

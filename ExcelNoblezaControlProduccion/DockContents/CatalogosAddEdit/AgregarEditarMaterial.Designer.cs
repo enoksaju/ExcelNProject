@@ -85,6 +85,7 @@
             // 
             this.kryptonWrapLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.kryptonWrapLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.kryptonWrapLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonWrapLabel2.Location = new System.Drawing.Point(60, 109);
             this.kryptonWrapLabel2.Name = "kryptonWrapLabel2";
             this.kryptonWrapLabel2.Size = new System.Drawing.Size(66, 15);
@@ -94,6 +95,7 @@
             // 
             this.kryptonWrapLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.kryptonWrapLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.kryptonWrapLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonWrapLabel3.Location = new System.Drawing.Point(72, 138);
             this.kryptonWrapLabel3.Name = "kryptonWrapLabel3";
             this.kryptonWrapLabel3.Size = new System.Drawing.Size(54, 15);
@@ -103,6 +105,7 @@
             // 
             this.kryptonWrapLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.kryptonWrapLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.kryptonWrapLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.kryptonWrapLabel4.Location = new System.Drawing.Point(67, 166);
             this.kryptonWrapLabel4.Name = "kryptonWrapLabel4";
             this.kryptonWrapLabel4.Size = new System.Drawing.Size(59, 15);

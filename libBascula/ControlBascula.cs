@@ -227,7 +227,7 @@ namespace libBascula
 			}
 
 			SerialPort.PortName = this.Puerto.ToString();
-			SerialPort.Open();
+            SerialPort.Open();
 			SerialPort.NewLine = ((char)Int16.Parse( CaracterFinLinea, System.Globalization.NumberStyles.AllowHexSpecifier )).ToString();
 			this._estatus = EstadoConexion.Conectado;
 			OnCambioEstado( _estatus );

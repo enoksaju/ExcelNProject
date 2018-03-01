@@ -93,12 +93,17 @@ namespace libProduccionDataBase.Migrations
                 new Tablas.Proceso { NombreProceso = "Sellado" },
                 new Tablas.Proceso { NombreProceso = "Extrusion" }
                 );
+
             context.Roles.AddOrUpdate(t => t.Name,
                 new ApplicationRole() { Name = "Develop" },
                 new ApplicationRole() { Name = "Administrador" },
                 new ApplicationRole() { Name = "Usuario General" },
                 new ApplicationRole() { Name = "Trabajador" },
-                new ApplicationRole() { Name = "Supervisor" }
+                new ApplicationRole() { Name = "Supervisor" },
+                new ApplicationRole() { Name = "Recursos Humanos Admin" },
+                new ApplicationRole() { Name = "Recursos Humanos User" },
+                new ApplicationRole() { Name = "Agente Ventas" },
+                new ApplicationRole() { Name = "AdminProduccion" }
             );
 
             using (var t = new Identity.ApplicationUserManager(new Identity.ApplicationUserStore(context)))

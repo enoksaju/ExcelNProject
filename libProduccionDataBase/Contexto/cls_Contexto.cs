@@ -31,6 +31,11 @@ namespace libProduccionDataBase.Contexto
         public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
         public DbSet<Proceso> Procesos { get; set; }
 
+        /// <summary>
+        /// Coleccion de etiquetas en formato zpl
+        /// </summary>
+        public DbSet<Etiqueta> Etiquetas { get; set; }
+
         public DataBaseContexto() : base( "ProduccionConexion" )
         {
             this.Configuration.LazyLoadingEnabled = true;
