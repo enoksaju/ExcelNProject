@@ -19,11 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelNoblezaControlProducci
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino", "Arduino", "{1847CA4D-CF18-46CF-A33E-56B8F6BB6841}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tryPrograms", "tryPrograms\tryPrograms.csproj", "{4447A2DC-80E5-4E40-AEFC-263505479C48}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libControlesPersonalizados", "libControlesPersonalizados\libControlesPersonalizados.csproj", "{1426AED9-0470-48AD-B4E7-B9A4921A7A93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{8427984F-C27F-4163-A3F2-91130BD8DF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tryKryptonDocking", "tryKryptonDocking\tryKryptonDocking.csproj", "{25F8D7E0-97B6-4634-8550-05D9691A1DBA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CapturaTabla", "..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\CapturaTabla\CapturaTabla.vbproj", "{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,14 +65,6 @@ Global
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Release|x86.ActiveCfg = Release|Any CPU
 		{6F833165-D5A2-4A27-97FB-273D19F07BE5}.Release|x86.Build.0 = Release|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Debug|x86.Build.0 = Debug|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Release|x86.ActiveCfg = Release|Any CPU
-		{4447A2DC-80E5-4E40-AEFC-263505479C48}.Release|x86.Build.0 = Release|Any CPU
 		{1426AED9-0470-48AD-B4E7-B9A4921A7A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1426AED9-0470-48AD-B4E7-B9A4921A7A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1426AED9-0470-48AD-B4E7-B9A4921A7A93}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -87,6 +81,22 @@ Global
 		{8427984F-C27F-4163-A3F2-91130BD8DF97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8427984F-C27F-4163-A3F2-91130BD8DF97}.Release|x86.ActiveCfg = Release|Any CPU
 		{8427984F-C27F-4163-A3F2-91130BD8DF97}.Release|x86.Build.0 = Release|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Debug|x86.Build.0 = Debug|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Release|x86.ActiveCfg = Release|Any CPU
+		{25F8D7E0-97B6-4634-8550-05D9691A1DBA}.Release|x86.Build.0 = Release|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Debug|x86.Build.0 = Debug|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

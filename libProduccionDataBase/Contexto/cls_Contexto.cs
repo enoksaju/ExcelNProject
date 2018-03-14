@@ -31,10 +31,13 @@ namespace libProduccionDataBase.Contexto
         public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
         public DbSet<Proceso> Procesos { get; set; }
 
-        /// <summary>
-        /// Coleccion de etiquetas en formato zpl
-        /// </summary>
-        public DbSet<Etiqueta> Etiquetas { get; set; }
+		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
+		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
+
+		/// <summary>
+		/// Coleccion de etiquetas en formato zpl
+		/// </summary>
+		public DbSet<Etiqueta> Etiquetas { get; set; }
 
         public DataBaseContexto() : base( "ProduccionConexion" )
         {

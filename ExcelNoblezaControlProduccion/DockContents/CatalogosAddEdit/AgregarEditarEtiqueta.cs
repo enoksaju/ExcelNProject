@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
 {
-    public partial class AgregarEditarEtiqueta : BaseForm.BaseFormCatalogosAddEdit
+    public partial class AgregarEditarEtiqueta : BaseForm.BaseFormCatalogosAddEdit, IActionsDockContent
     {
         public AgregarEditarEtiqueta(ICatalogForm Catalogo, Etiqueta etiqueta = null)
         {

@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201802282116265_setnotnullNombreEtiqueta.Designer.cs">
       <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803140330034_addTempOT.cs" />
+    <Compile Include="Migrations\201803140330034_addTempOT.Designer.cs">
+      <DependentUpon>201803140330034_addTempOT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -104,6 +108,7 @@
     <Compile Include="Tablas\cls_Produccion.cs" />
     <Compile Include="Tablas\cls_Recetas.cs" />
     <Compile Include="Tablas\cls_TiposProducto.cs" />
+    <Compile Include="Tablas\TemporalOrdenTrabajo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -123,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802282116265_setnotnullNombreEtiqueta.resx">
       <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803140330034_addTempOT.resx">
+      <DependentUpon>201803140330034_addTempOT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

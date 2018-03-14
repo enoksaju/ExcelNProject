@@ -13,6 +13,7 @@ namespace libProduccionDataBase.Tablas
     {
         private List<Receta> _Recetas = new List<Receta>();
         public int Id { get; set; }
+
         [Required(ErrorMessage ="EL Nombre del cliente es requerido"), MaxLength(250)]
         public string NombreCliente { get; set; }
 

@@ -129,6 +129,9 @@ namespace ExcelNoblezaControlProduccion
             };
 
             this.kryptonRibbon1.SelectedContext = "";
+            //kryptonRibbon1.SelectedTab = OrdenesTrabajoTab;
+            //kryptonRibbon1.ResetSelectedTab();//.Refresh();
+            kryptonRibbon1.Invalidate();
         }
 
 
@@ -220,6 +223,9 @@ namespace ExcelNoblezaControlProduccion
             }
 
             (CatalogForm as DockContents.ICatalogForm)?.Show(dockPanel1, ActiveFunctionsFlag);
+
+           
+
         }
 
 
@@ -573,4 +579,6 @@ namespace ExcelNoblezaControlProduccion
 
         
     }
+
+
 }

@@ -17,7 +17,7 @@ namespace libProduccionDataBase.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.ClaveCliente, unique: true, name: "ClaveCliente_IDX");
-            
+
             CreateTable(
                 "dbo.Recetas",
                 c => new
