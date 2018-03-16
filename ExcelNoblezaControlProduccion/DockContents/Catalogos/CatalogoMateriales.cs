@@ -12,7 +12,7 @@ using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
 
 
-namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
+namespace EstacionesPesaje.DockContents.Catalogos
 {
     public partial class CatalogoMateriales : BaseForm.BaseFormCatalogos
     {

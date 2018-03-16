@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit.BaseForm
+﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit.BaseForm
 {
     partial class BaseFormCatalogosAddEdit
     {
@@ -39,7 +39,7 @@
             this.HeaderForm.Size = new System.Drawing.Size(363, 31);
             this.HeaderForm.TabIndex = 0;
             this.HeaderForm.Values.Heading = "Agregar o Editar";
-            this.HeaderForm.Values.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.EditPage_16x;
+            this.HeaderForm.Values.Image = global::EstacionesPesaje.Properties.Resources.EditPage_16x;
             // 
             // BaseFormCatalogosAddEdit
             // 

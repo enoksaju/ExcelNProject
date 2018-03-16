@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion.ConfiguracionForms
+namespace EstacionesPesaje.ConfiguracionForms
 {
     public partial class BasculaConfigForm : DockContent
     {

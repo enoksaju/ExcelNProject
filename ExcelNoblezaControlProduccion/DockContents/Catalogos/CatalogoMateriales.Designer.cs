@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
+﻿namespace EstacionesPesaje.DockContents.Catalogos
 {
     partial class CatalogoMateriales
     {
@@ -95,7 +95,7 @@
             // LoaderPicktureBox
             // 
             this.LoaderPicktureBox.BackColor = System.Drawing.Color.Transparent;
-            this.LoaderPicktureBox.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.loading;
+            this.LoaderPicktureBox.Image = global::EstacionesPesaje.Properties.Resources.loading;
             this.LoaderPicktureBox.Location = new System.Drawing.Point(111, 85);
             this.LoaderPicktureBox.Name = "LoaderPicktureBox";
             this.LoaderPicktureBox.Size = new System.Drawing.Size(90, 90);

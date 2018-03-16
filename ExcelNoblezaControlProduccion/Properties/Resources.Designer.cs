@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExcelNoblezaControlProduccion.Properties {
+namespace EstacionesPesaje.Properties {
     using System;
     
     

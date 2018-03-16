@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tryKryptonDocking.Pages.Base
+namespace EstacionesPesaje.Pages.Base
 {
     public static class PageCreator
     {

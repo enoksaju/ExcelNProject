@@ -12,7 +12,7 @@ using ComponentFactory.Krypton.Toolkit;
 using libProduccionDataBase.Contexto;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion
+namespace EstacionesPesaje
 {
     public partial class MainForm : KryptonForm
     {
@@ -98,9 +98,9 @@ namespace ExcelNoblezaControlProduccion
             }
 
 
-            this.Theme_Blue_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Blue_Active;
-            this.Theme_Dark_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Dark_Active;
-            this.Theme_Silver_kryptonContextMenuRadioButton.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.Theme_Silver_Active;
+            this.Theme_Blue_kryptonContextMenuRadioButton.Checked = global::EstacionesPesaje.Properties.Settings.Default.Theme_Blue_Active;
+            this.Theme_Dark_kryptonContextMenuRadioButton.Checked = global::EstacionesPesaje.Properties.Settings.Default.Theme_Dark_Active;
+            this.Theme_Silver_kryptonContextMenuRadioButton.Checked = global::EstacionesPesaje.Properties.Settings.Default.Theme_Silver_Active;
 
             if (Properties.Settings.Default.mainformHasSetDefaults)
             {

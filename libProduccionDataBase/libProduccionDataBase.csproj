@@ -82,17 +82,13 @@
     <Compile Include="Migrations\201801201738387_Inicial.Designer.cs">
       <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802162319465_addEtiquetas.cs" />
-    <Compile Include="Migrations\201802162319465_addEtiquetas.Designer.cs">
-      <DependentUpon>201802162319465_addEtiquetas.cs</DependentUpon>
+    <Compile Include="Migrations\201803142043482_addProduccion.cs" />
+    <Compile Include="Migrations\201803142043482_addProduccion.Designer.cs">
+      <DependentUpon>201803142043482_addProduccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802282116265_setnotnullNombreEtiqueta.cs" />
-    <Compile Include="Migrations\201802282116265_setnotnullNombreEtiqueta.Designer.cs">
-      <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803140330034_addTempOT.cs" />
-    <Compile Include="Migrations\201803140330034_addTempOT.Designer.cs">
-      <DependentUpon>201803140330034_addTempOT.cs</DependentUpon>
+    <Compile Include="Migrations\201803142345332_addIndexProduction.cs" />
+    <Compile Include="Migrations\201803142345332_addIndexProduction.Designer.cs">
+      <DependentUpon>201803142345332_addIndexProduction.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -123,14 +119,11 @@
     <EmbeddedResource Include="Migrations\201801201738387_Inicial.resx">
       <DependentUpon>201801201738387_Inicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802162319465_addEtiquetas.resx">
-      <DependentUpon>201802162319465_addEtiquetas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803142043482_addProduccion.resx">
+      <DependentUpon>201803142043482_addProduccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802282116265_setnotnullNombreEtiqueta.resx">
-      <DependentUpon>201802282116265_setnotnullNombreEtiqueta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803140330034_addTempOT.resx">
-      <DependentUpon>201803140330034_addTempOT.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803142345332_addIndexProduction.resx">
+      <DependentUpon>201803142345332_addIndexProduction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

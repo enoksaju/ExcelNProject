@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
+﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarEtiqueta
     {

@@ -33,17 +33,26 @@ namespace libProduccionDataBase.Contexto
 
 		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
 		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
+		public DbSet <TempProduccion > TempProduccion { get; set; }
 
 		/// <summary>
 		/// Coleccion de etiquetas en formato zpl
 		/// </summary>
 		public DbSet<Etiqueta> Etiquetas { get; set; }
 
-        public DataBaseContexto() : base( "ProduccionConexion" )
+#if DEBUG
+		public DataBaseContexto() : base( "ProduccionConexionDebug" )
         {
-            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.LazyLoadingEnabled = true;		
         }
-        public static DataBaseContexto Create() { return new DataBaseContexto(); }
+#else
+		public DataBaseContexto() : base( "ProduccionConexion" )
+        {
+            this.Configuration.LazyLoadingEnabled = true;		
+        }
+#endif
+
+		public static DataBaseContexto Create() { return new DataBaseContexto(); }
         protected override void OnModelCreating( DbModelBuilder modelBuilder )
         {
             //  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention>();

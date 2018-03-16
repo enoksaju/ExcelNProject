@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.ConfiguracionForms
+﻿namespace EstacionesPesaje.ConfiguracionForms
 {
     partial class BasculaConfigForm
     {

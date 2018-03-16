@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
+using ZXing.QrCode;
 
 namespace libControlesPersonalizados.ZPLCONVERTER
 {
@@ -452,8 +454,429 @@ namespace libControlesPersonalizados.ZPLCONVERTER
             }
             return stb.ToString();
         }
-        
-        public Image ZPLtoImage( string code )
+
+		private ZXing.BarcodeWriter BarcodeWriter = new ZXing.BarcodeWriter ( );
+		private ZXing.BarcodeWriterSvg BCsvg = new ZXing.BarcodeWriterSvg ( );
+
+		/// <summary>
+		/// Convierte un <c>string</c> con Codigo ZPL a un objeto tipo <c>Image</c>.
+		/// </summary>
+		/// <param name="Code"><c>string</c> del codigo ZPL</param>
+		/// <returns>Una imagen generada con el codigo ZPL</returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// Image Img= previewLabel("^XA ^FO50,50^A0N,20,20^FDHola Mundo^FS^XZ");
+		/// 
+		/// PictureBox1.Image= Img;
+		/// 
+		/// </code>
+		/// </example>
+		public Image previewLabel ( string Code , double _ScaleLabel=0.5, int widthLabel=4, int heightLabel =2) {
+
+			string [] ToAnalize = Regex
+				.Split ( Code.Replace ( "\r\n", "" ), @"(?=\^XA)" )
+				.Where ( x => x.Contains ( "^XZ" ) )
+				.ToArray ( );
+
+			var Resolution = ( int ) ( 203 * _ScaleLabel );
+
+
+			var totalWidth = Resolution * widthLabel;
+			var totalHeight = ( Resolution * heightLabel ) * ToAnalize.Count ( );
+
+			Bitmap toRet = new Bitmap ( ( int ) totalWidth + 5, ( int ) totalHeight + 5 );
+			Graphics gp = Graphics.FromImage ( toRet );
+
+			var cnt = 0;
+
+			try {
+				foreach (var lbl in ToAnalize) {
+
+					var indexy = cnt;
+					var offsetY = ( int ) ( Resolution * heightLabel ) * indexy;
+					gp.ResetTransform ( );
+					gp.TranslateTransform ( 0, offsetY );
+
+					var rect = new Rectangle ( 0, 0, ( int ) ( Resolution * widthLabel ) - 2, ( int ) ( Resolution * heightLabel ) - 2 );
+					gp.FillRectangle ( Brushes.White, rect );
+					gp.DrawRectangle ( Pens.Red, rect );
+
+					cnt++;
+
+					var Fields = Regex.Split ( lbl
+					.Replace ( "^XA", "" )
+					.Replace ( "^XZ", "" )
+					, @"(?=\^FO)" ).ToList ( );
+
+					Fields.Sort ( ( a, b ) => {
+
+						var one = Regex.Match ( a, "(GFA)|(A0)|(GB)|(B[3AQ])" ).Value;
+						var two = Regex.Match ( b, "(GFA)|(A0)|(GB)|(B[3AQ])" ).Value;
+
+						int oneI = one == "GBA" ? 1 : ( one == "A0" ? 3 : ( one == "GB" ? 2 : 0 ) );
+						int twoI = two == "GBA" ? 1 : ( two == "A0" ? 3 : ( two == "GB" ? 2 : 0 ) );
+
+						return oneI.CompareTo ( twoI );
+
+					} );
+
+					foreach (var fld in Fields) {
+						if (fld.Contains ( "^GFA" )) {
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							Point imgPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+
+							var code = Regex.Split ( fld.Replace ( " ", "" ), @"(\^GFA,[0-9]+,[0-9]+,[0-9]+,)" );
+
+							using (var img = this.ZPLtoImage ( code [ 0 ] + '\n' + code [ 1 ] + '\n' + code [ 2 ] )) {
+								gp.DrawImage ( img, imgPoint.X, imgPoint.Y, ( float ) ( img.Width * _ScaleLabel ), ( float ) ( img.Height * _ScaleLabel ) );
+							}
+						} else if (fld.Contains ( "^A" ) && fld.Contains ( "^FD" ) && fld.Contains ( "^FB" )) {
+							var splData = Regex.Split ( fld, @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							var _fieldData = splData.FirstOrDefault ( t => t.Contains ( "FD" ) ).Remove ( 0, 2 ).TrimEnd ( );
+							var _sizeFont = splData.FirstOrDefault ( t => t.Contains ( "A0" ) ).Split ( ',' );
+							var _BlockData = splData.FirstOrDefault ( t => t.Contains ( "FB" ) ).Remove ( 0, 2 ).Split ( ',' );
+
+							var angle = 0;
+							var isRotated = Regex.IsMatch ( _sizeFont [ 0 ], @"(A0)[NRIB]{1}" );
+							if (isRotated) {
+								angle = _sizeFont [ 0 ].Contains ( "N" ) ? 0 : _sizeFont [ 0 ].Contains ( "R" ) ? 90 : _sizeFont [ 0 ].Contains ( "I" ) ? 180 : _sizeFont [ 0 ].Contains ( "B" ) ? 270 : 0;
+							}
+
+							Point lblPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+
+
+							double heightFont = int.Parse ( _sizeFont [ 1 ] );
+							double widthFont = int.Parse ( _sizeFont [ 2 ] );
+
+							Font fnt = new Font ( "Arial"
+								, ( int ) ( heightFont * 9.5 )
+								, FontStyle.Regular
+								, GraphicsUnit.Pixel
+								);
+
+
+							var y = gp.MeasureString ( _fieldData, fnt );
+
+
+							double widthRectangle = int.Parse ( _BlockData [ 0 ] ) * 10;
+							double heightRectangle = ( y.Height + 2 ) * ( int.Parse ( _BlockData [ 1 ] ) );
+
+							Rectangle rectangle = new Rectangle ( new Point ( 0, 0 ), new Size ( ( int ) widthRectangle, ( int ) heightRectangle ) );
+
+							StringAlignment stA = StringAlignment.Near;
+							switch (_BlockData [ 3 ].Trim ( ).First ( )) {
+								case 'L':
+									stA = StringAlignment.Near;
+									break;
+								case 'C':
+									stA = StringAlignment.Center;
+									break;
+								case 'R':
+									stA = StringAlignment.Far;
+									break;
+								case 'J':
+									stA = StringAlignment.Near;
+									break;
+							}
+
+							using (Bitmap bpStr = new Bitmap (
+								angle == 0 || angle == 180 ? ( int ) widthRectangle : ( int ) heightRectangle,
+								angle == 0 || angle == 180 ? ( int ) heightRectangle : ( int ) widthRectangle )
+								) {
+								using (Graphics gpD = Graphics.FromImage ( bpStr )) {
+									switch (angle) {
+										case 0:
+											gpD.TranslateTransform ( 0, 0 );
+											break;
+										case 90:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, 0 );
+											break;
+										case 180:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, ( float ) bpStr.Height );
+											break;
+										case 270:
+											gpD.TranslateTransform ( 0, ( float ) bpStr.Height );
+											break;
+									}
+
+									gpD.RotateTransform ( angle );
+									gpD.DrawString ( _fieldData, fnt, Brushes.Black, rectangle, new StringFormat { Alignment = stA } );
+								}
+
+								gp.DrawImage (
+									bpStr
+									, lblPoint.X
+									, lblPoint.Y
+									, ( float ) ( angle == 0 || angle == 180 ? ( rectangle.Width / 10.5 * _ScaleLabel ) : ( rectangle.Height / 10.5 * _ScaleLabel ) )
+									, ( float ) ( angle == 0 || angle == 180 ? ( rectangle.Height / 10.5 * _ScaleLabel ) : ( rectangle.Width / 10.5 * _ScaleLabel ) )
+									);
+							}
+
+						} else if (fld.Contains ( "^A" ) && fld.Contains ( "^FD" ) && !fld.Contains ( "^FB" )) {
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							var _fieldData = splData.FirstOrDefault ( t => t.Contains ( "FD" ) ).Remove ( 0, 2 ).TrimEnd ( );
+							var _sizeFont = splData.FirstOrDefault ( t => t.Contains ( "A0" ) ).Split ( ',' );
+
+							var angle = 0;
+							var isRotated = Regex.IsMatch ( _sizeFont [ 0 ], @"(A0)[NRIB]{1}" );
+							if (isRotated) {
+								angle = _sizeFont [ 0 ].Contains ( "N" ) ? 0 : _sizeFont [ 0 ].Contains ( "R" ) ? 90 : _sizeFont [ 0 ].Contains ( "I" ) ? 180 : _sizeFont [ 0 ].Contains ( "B" ) ? 270 : 0;
+							}
+
+							Point lblPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+
+							double heightData = int.Parse ( _sizeFont [ 1 ] );
+							var y = gp.MeasureString ( _fieldData, new Font ( "Arial", ( int ) heightData * 10 ) );
+
+							double widthData = y.Width / 14.5;
+
+							using (Bitmap bpStr = new Bitmap (
+								angle == 0 || angle == 180 ?
+								( int ) y.Width :
+								( int ) y.Height
+								,
+								angle == 0 || angle == 180 ?
+								( int ) y.Height :
+								( int ) y.Width
+
+								)) {
+
+								using (Graphics gpD = Graphics.FromImage ( bpStr )) {
+
+									switch (angle) {
+										case 0:
+											gpD.TranslateTransform ( 0, 0 );
+											break;
+										case 90:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, 0 );
+											break;
+										case 180:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, ( float ) bpStr.Height );
+											break;
+										case 270:
+											gpD.TranslateTransform ( 0, ( float ) bpStr.Height );
+											break;
+									}
+
+									gpD.RotateTransform ( angle );
+									gpD.DrawString ( _fieldData, new Font ( "Arial", ( int ) heightData * 10 ), Brushes.Black, 0, 0 );
+								}
+
+								gp.DrawImage ( bpStr,
+									lblPoint.X,
+									lblPoint.Y,
+									( float ) ( ( angle == 0 || angle == 180 ? ( ( float ) widthData * int.Parse ( _sizeFont [ 2 ] ) ) / int.Parse ( _sizeFont [ 1 ] ) : ( float ) heightData ) * _ScaleLabel ),
+									( float ) ( ( angle == 0 || angle == 180 ? ( float ) heightData : ( ( float ) widthData * int.Parse ( _sizeFont [ 2 ] ) ) / int.Parse ( _sizeFont [ 1 ] ) ) * _ScaleLabel ) );
+
+							}
+						} else if (fld.Contains ( "^GB" )) {
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							Point rectPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+
+							var _sizeRect = splData.FirstOrDefault ( t => t.Contains ( "GB" ) ).Remove ( 0, 2 ).Split ( ',' );
+							Size rectSize = new Size ( ( int ) ( int.Parse ( _sizeRect [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _sizeRect [ 1 ] ) * _ScaleLabel ) );
+							Rectangle rec = new Rectangle ( rectPoint, rectSize );
+
+							using (Pen pn = new Pen ( Brushes.Black, ( int ) ( int.Parse ( _sizeRect [ 2 ] ) * _ScaleLabel ) )) {
+								gp.DrawRectangle ( pn, rec );
+							}
+
+						} else if (fld.Contains ( "^B3" )) {
+
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							var _fieldData = splData.FirstOrDefault ( t => t.Contains ( "FD" ) ).Remove ( 0, 2 ).TrimEnd ( );
+							var _BcodeD = splData.FirstOrDefault ( t => t.Contains ( "B3" ) ).Split ( ',' );
+							Point imgPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+
+							var angle = 0;
+							var isRotated = Regex.IsMatch ( _BcodeD [ 0 ], @"(B3)[NRIB]{1}" );
+							if (isRotated) {
+								angle = _BcodeD [ 0 ].Contains ( "N" ) ? 0 : _BcodeD [ 0 ].Contains ( "R" ) ? 90 : _BcodeD [ 0 ].Contains ( "I" ) ? 180 : _BcodeD [ 0 ].Contains ( "B" ) ? 270 : 0;
+							}
+
+							BarcodeWriter.Format = ZXing.BarcodeFormat.CODE_39;
+							BarcodeWriter.Options.Height = int.Parse ( _BcodeD [ 2 ] ) + ( ( _BcodeD [ 3 ].ToUpper ( ) == "Y" ) ? 15 : 0 );
+							BarcodeWriter.Options.Margin = 0;
+							BarcodeWriter.Options.PureBarcode = ( !( _BcodeD [ 3 ].ToUpper ( ) == "Y" ) ? true : false );
+
+							var imgCodeBar = BarcodeWriter.Write ( "*" + _fieldData + ( _BcodeD [ 1 ] == "Y" ? MOD43CheckChar ( _fieldData ).ToString ( ) : "" ) + "*" );
+
+							using (Bitmap bpStr = new Bitmap (
+
+							   angle == 0 || angle == 180 ?
+							   ( int ) imgCodeBar.Width :
+							   ( int ) imgCodeBar.Height
+							   ,
+							   angle == 0 || angle == 180 ?
+							   ( int ) imgCodeBar.Height :
+							   ( int ) imgCodeBar.Width
+
+							   )) {
+								using (Graphics gpD = Graphics.FromImage ( bpStr )) {
+
+									switch (angle) {
+										case 0:
+											gpD.TranslateTransform ( 0, 0 );
+											break;
+										case 90:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, 0 );
+											break;
+										case 180:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, ( float ) bpStr.Height );
+											break;
+										case 270:
+											gpD.TranslateTransform ( 0, ( float ) bpStr.Height );
+											break;
+									}
+									gpD.RotateTransform ( angle );
+									gpD.DrawImage ( imgCodeBar, 0, 0 );//, (float)(imgCodeBar.Width * ScaleLabel * 2.14), (float)(imgCodeBar.Height * ScaleLabel) );
+																	   // gpD.DrawString( _fieldData, new Font( "Arial", (int)heightData * 10 ), Brushes.Black, 0, 0 );
+								}
+
+								gp.DrawImage ( bpStr,
+									imgPoint.X,
+									imgPoint.Y,
+									angle == 0 || angle == 180 ? ( float ) ( imgCodeBar.Width * _ScaleLabel * 2 ) : ( float ) ( imgCodeBar.Height * _ScaleLabel ),
+									angle == 0 || angle == 180 ? ( float ) ( imgCodeBar.Height * _ScaleLabel ) : ( float ) ( imgCodeBar.Width * _ScaleLabel * 2 )
+									);
+							}
+						} else if (fld.Contains ( "^BA" )) {
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							var _fieldData = splData.FirstOrDefault ( t => t.Contains ( "FD" ) ).Remove ( 0, 2 ).TrimEnd ( );
+							var _BcodeD = splData.FirstOrDefault ( t => t.Contains ( "BA" ) ).Split ( ',' );
+
+							Point imgPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+							var angle = 0;
+							var isRotated = Regex.IsMatch ( _BcodeD [ 0 ], @"(BA)[NRIB]{1}" );
+							if (isRotated) {
+								angle = _BcodeD [ 0 ].Contains ( "N" ) ? 0 : _BcodeD [ 0 ].Contains ( "R" ) ? 90 : _BcodeD [ 0 ].Contains ( "I" ) ? 180 : _BcodeD [ 0 ].Contains ( "B" ) ? 270 : 0;
+							}
+
+							BarcodeWriter.Format = ZXing.BarcodeFormat.CODE_93;
+							BarcodeWriter.Options.Height = int.Parse ( _BcodeD [ 1 ] ) + ( ( _BcodeD [ 2 ].ToUpper ( ) == "Y" ) ? 15 : 0 );
+							BarcodeWriter.Options.Margin = 0;
+							BarcodeWriter.Options.PureBarcode = ( !( _BcodeD [ 2 ].ToUpper ( ) == "Y" ) ? true : false );
+
+							var imgCodeBar = BarcodeWriter.Write ( "*" + _fieldData + ( _BcodeD [ 4 ] == "Y" ? MOD43CheckChar ( _fieldData ).ToString ( ) : "" ) + "*" );
+
+							using (Bitmap bpStr = new Bitmap (
+
+							   angle == 0 || angle == 180 ?
+							   ( int ) imgCodeBar.Width :
+							   ( int ) imgCodeBar.Height
+							   ,
+							   angle == 0 || angle == 180 ?
+							   ( int ) imgCodeBar.Height :
+							   ( int ) imgCodeBar.Width
+
+							   )) {
+								using (Graphics gpD = Graphics.FromImage ( bpStr )) {
+
+									switch (angle) {
+										case 0:
+											gpD.TranslateTransform ( 0, 0 );
+											break;
+										case 90:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, 0 );
+											break;
+										case 180:
+											gpD.TranslateTransform ( ( float ) bpStr.Width, ( float ) bpStr.Height );
+											break;
+										case 270:
+											gpD.TranslateTransform ( 0, ( float ) bpStr.Height );
+											break;
+									}
+									gpD.RotateTransform ( angle );
+									gpD.DrawImage ( imgCodeBar, 0, 0 );//, (float)(imgCodeBar.Width * ScaleLabel * 2.14), (float)(imgCodeBar.Height * ScaleLabel) );
+																	   // gpD.DrawString( _fieldData, new Font( "Arial", (int)heightData * 10 ), Brushes.Black, 0, 0 );
+								}
+
+								gp.DrawImage ( bpStr,
+									imgPoint.X,
+									imgPoint.Y,
+									angle == 0 || angle == 180 ? ( float ) ( imgCodeBar.Width * _ScaleLabel * 2 ) : ( float ) ( imgCodeBar.Height * _ScaleLabel ),
+									angle == 0 || angle == 180 ? ( float ) ( imgCodeBar.Height * _ScaleLabel ) : ( float ) ( imgCodeBar.Width * _ScaleLabel * 2 )
+									);
+							}
+						} else if (fld.Contains ( "^BQ" )) {
+							var splData = Regex.Split ( fld.Replace ( "^FS", "" ), @"\^" );
+							var _point = splData.FirstOrDefault ( t => t.Contains ( "FO" ) ).Remove ( 0, 2 ).Split ( ',' );
+							var _fieldData = Regex.Split ( splData.FirstOrDefault ( t => t.Contains ( "FD" ) ), @"(?<=FD[QHLM]{1}[AM]{1},)" );//splData.FirstOrDefault(t=>t.Contains("FD")).Split(',');
+							var _BcodeD = splData.FirstOrDefault ( t => t.Contains ( "BQ" ) ).Split ( ',' );
+
+							Point imgPoint = new Point ( ( int ) ( int.Parse ( _point [ 0 ] ) * _ScaleLabel ), ( int ) ( int.Parse ( _point [ 1 ] ) * _ScaleLabel ) );
+							BarcodeWriter.Format = ZXing.BarcodeFormat.QR_CODE;
+
+							Func<ZXing.QrCode.Internal.ErrorCorrectionLevel> y = () => {
+								switch (_fieldData [ 0 ] [ 2 ]) {
+									case 'H':
+										return ZXing.QrCode.Internal.ErrorCorrectionLevel.H;
+									case 'L':
+										return ZXing.QrCode.Internal.ErrorCorrectionLevel.L;
+									case 'Q':
+										return ZXing.QrCode.Internal.ErrorCorrectionLevel.Q;
+									default:
+										return ZXing.QrCode.Internal.ErrorCorrectionLevel.M;
+
+								}
+							};
+
+							QrCodeEncodingOptions options = new QrCodeEncodingOptions {
+								DisableECI = _BcodeD [ 1 ].Trim ( ) == "1" ? false : true,
+								CharacterSet = "UTF-8",
+								ErrorCorrection = y ( ),
+								Margin = 0
+							};
+							BarcodeWriter.Options = options;
+							BCsvg.Format = ZXing.BarcodeFormat.QR_CODE;
+							BCsvg.Options = options;
+							var bcSVG = BCsvg.Write ( _fieldData [ 1 ].TrimStart ( ).TrimEnd ( ) );
+
+							var svgDocument = Svg.SvgDocument.FromSvg<Svg.SvgDocument> ( bcSVG.Content );
+							svgDocument.Width = bcSVG.Width * int.Parse ( _BcodeD [ 2 ] );
+							svgDocument.Height = bcSVG.Height * int.Parse ( _BcodeD [ 2 ] );
+							var bitmap = svgDocument.Draw ( bcSVG.Width * int.Parse ( _BcodeD [ 2 ] ), bcSVG.Height * int.Parse ( _BcodeD [ 2 ] ) );
+
+							gp.DrawImage ( bitmap,
+									   imgPoint.X,
+									   imgPoint.Y,
+									   ( float ) ( bitmap.Width * _ScaleLabel ),
+									   ( float ) ( bitmap.Height * _ScaleLabel )
+									   );
+						}
+					}
+
+				}
+			}
+			catch (Exception ex) {
+
+				return null;
+			}
+
+			return toRet;
+		}
+
+		private char MOD43CheckChar ( string sValue ) {
+			const string charSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%";
+			int T = 0;
+			int intRemainder = 0;
+
+			foreach (var v in sValue) {
+				T += Array.IndexOf ( charSet.ToArray ( ), v );
+			}
+			intRemainder = T % 43;
+
+			return charSet [ intRemainder ];
+		}
+
+		public Image ZPLtoImage( string code )
         {
             string[] t;
             try

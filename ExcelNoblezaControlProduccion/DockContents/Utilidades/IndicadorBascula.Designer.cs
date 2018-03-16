@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.Utilidades
+﻿namespace EstacionesPesaje.DockContents.Utilidades
 {
     partial class IndicadorBascula
     {
@@ -72,7 +72,7 @@
             // 
             // kryptonContextMenuColorColumns1
             // 
-            this.kryptonContextMenuColorColumns1.SelectedColor = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaColor;
+            this.kryptonContextMenuColorColumns1.SelectedColor = global::EstacionesPesaje.Properties.Settings.Default.BasculaColor;
             this.kryptonContextMenuColorColumns1.SelectedColorChanged += new System.EventHandler<ComponentFactory.Krypton.Toolkit.ColorEventArgs>(this.kryptonContextMenuColorColumns1_SelectedColorChanged);
             // 
             // kryptonPanel1

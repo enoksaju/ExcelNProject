@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{397602AE-7A30-475F-8C0D-48B45157D274}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EstacionesPesaje</RootNamespace>
+    <AssemblyName>EstacionesPesaje</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationVersion>5.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9559E133701F16186990700C694F6B9B37F3EF0C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EstacionPesaje_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>tag_orange.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FilteredPropertyGrid">
+      <HintPath>..\FilteredPropertyGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniciarCaptura_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IniciarCaptura_frm.Designer.cs">
+      <DependentUpon>IniciarCaptura_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Base\CatalogBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Base\CatalogBase.Designer.cs">
+      <DependentUpon>CatalogBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Base\ChangeStatusMessageEventArgs.cs" />
+    <Compile Include="Pages\Base\DefaultPageContent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Base\DefaultPageContent.Designer.cs">
+      <DependentUpon>DefaultPageContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Base\DocumentPageBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Base\DocumentPageBase.Designer.cs">
+      <DependentUpon>DocumentPageBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Base\Enums.cs" />
+    <Compile Include="Pages\Base\EventArgs.cs" />
+    <Compile Include="Pages\Base\ICatalogPage.cs" />
+    <Compile Include="Pages\Base\IToKryptonPage.cs" />
+    <Compile Include="Pages\Base\IUsaBascula.cs" />
+    <Compile Include="Pages\Base\PageCreator.cs" />
+    <Compile Include="Pages\Config\ConfigBasculaPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Config\ConfigBasculaPage.Designer.cs">
+      <DependentUpon>ConfigBasculaPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\AddEditLabelPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\AddEditLabelPage.Designer.cs">
+      <DependentUpon>AddEditLabelPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\MaquinasForms\AddMaquinaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\MaquinasForms\AddMaquinaFrm.Designer.cs">
+      <DependentUpon>AddMaquinaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\MaquinasPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\MaquinasPage.Designer.cs">
+      <DependentUpon>MaquinasPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\ProduccionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\ProduccionPage.Designer.cs">
+      <DependentUpon>ProduccionPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\ViewOTPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\ViewOTPage.Designer.cs">
+      <DependentUpon>ViewOTPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IniciarCaptura_frm.resx">
+      <DependentUpon>IniciarCaptura_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Base\CatalogBase.resx">
+      <DependentUpon>CatalogBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Base\DefaultPageContent.resx">
+      <DependentUpon>DefaultPageContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Config\ConfigBasculaPage.resx">
+      <DependentUpon>ConfigBasculaPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\AddEditLabelPage.resx">
+      <DependentUpon>AddEditLabelPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\MaquinasForms\AddMaquinaFrm.resx">
+      <DependentUpon>AddMaquinaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\MaquinasPage.resx">
+      <DependentUpon>MaquinasPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\ProduccionPage.resx">
+      <DependentUpon>ProduccionPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\ViewOTPage.resx">
+      <DependentUpon>ViewOTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="EstacionPesaje_ClaveTemporal.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Etiqueta.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Maquina.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Proceso.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TEMPCAPT.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TemporalOrdenTrabajo.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TempProduccion.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TipoMaquina.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\libReportsOTS.vbproj">
+      <Project>{c8d24004-87ff-4d73-985f-60c0a8b98369}</Project>
+      <Name>libReportsOTS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libBascula\libBascula.csproj">
+      <Project>{b0bc4541-f643-4306-b2c1-945192d75ff0}</Project>
+      <Name>libBascula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libControlesPersonalizados\libControlesPersonalizados.csproj">
+      <Project>{1426aed9-0470-48ad-b4e7-b9a4921a7a93}</Project>
+      <Name>libControlesPersonalizados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
+      <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
+      <Name>libProduccionDataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_32x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_32x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Process_32x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear_32xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time_32x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListView_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddRemoteServer_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clipboard_cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\script.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_Open_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gear1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\barcode-edit.png" />
+    <Content Include="Resources\barcode-edit1.png" />
+    <None Include="Resources\report_open1.png" />
+    <None Include="Resources\report_open.png" />
+    <None Include="Resources\barcode-new1.png" />
+    <None Include="Resources\barcode-new.png" />
+    <None Include="Resources\database_restore.png" />
+    <None Include="Resources\database-save.png" />
+    <Content Include="tag_orange.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

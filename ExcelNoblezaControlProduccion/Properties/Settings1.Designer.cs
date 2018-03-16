@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExcelNoblezaControlProduccion.Properties {
+namespace EstacionesPesaje.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

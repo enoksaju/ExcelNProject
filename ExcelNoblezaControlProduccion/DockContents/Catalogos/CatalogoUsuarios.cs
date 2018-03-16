@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-using ExcelNoblezaControlProduccion.DockContents.ICatalogFormEnums;
+using EstacionesPesaje.DockContents.ICatalogFormEnums;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Identity;
 using libProduccionDataBase.Identity.Model;
@@ -20,7 +20,7 @@ using Microsoft.Owin.Security.DataProtection;
 using WeifenLuo.WinFormsUI.Docking;
 
 
-namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
+namespace EstacionesPesaje.DockContents.Catalogos
 {
     public partial class CatalogoUsuarios : KryptonDockContentFormBase, ICatalogForm
     {

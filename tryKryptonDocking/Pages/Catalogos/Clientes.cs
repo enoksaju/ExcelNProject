@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tryKryptonDocking.Pages.Catalogos
+namespace EstacionesPesaje.Pages.Catalogos
 {
     public partial class Clientes : Base.CatalogBase<libProduccionDataBase.Tablas.Cliente>
     {

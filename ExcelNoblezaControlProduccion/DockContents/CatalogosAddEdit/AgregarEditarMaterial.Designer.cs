@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
+﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarMaterial
     {
@@ -138,7 +138,7 @@
             this.Controls.Add(this.densidadKryptonNumericUpDown);
             this.Controls.Add(this.formulaKryptonTextBox);
             this.HeaderDescripcion = "";
-            this.HeaderImage = global::ExcelNoblezaControlProduccion.Properties.Resources.LayersMenu;
+            this.HeaderImage = global::EstacionesPesaje.Properties.Resources.LayersMenu;
             this.HeaderText = "Material";
             this.Name = "AgregarEditarMaterial";
             this.TabText = "Material";

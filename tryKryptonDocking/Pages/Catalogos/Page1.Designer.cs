@@ -1,4 +1,4 @@
-﻿namespace tryKryptonDocking.Pages.Catalogos
+﻿namespace EstacionesPesaje.Pages.Catalogos
 {
     partial class Page1
     {

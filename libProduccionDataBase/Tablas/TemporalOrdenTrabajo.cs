@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace libProduccionDataBase.Tablas {
-	[Table("TORDENTRABAJO")]
+	[Table ( "TORDENTRABAJO" )]
 	public class TemporalOrdenTrabajo {
-		private string _OT = "";		
-		
+		private string _OT = "";
+
 		[Key]
 		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
 		public int TIPO { get; set; }
@@ -71,10 +71,18 @@ namespace libProduccionDataBase.Tablas {
 		public string EXANTIESTATICA { get; set; }
 		public string EXKG { get; set; }
 		public string EXANCHO { get; set; }
+
+		public virtual List<TempProduccion > Produccion { get; private set; }
+		public TemporalOrdenTrabajo () {
+			this.Produccion = new List<TempProduccion> ( );
+		}
+
+		public override string ToString () {
+			return this.OT;
+		}
 	}
 
-	[Table("TEMPCAPT")]
-
+	[Table ( "TEMPCAPT" )]
 	public class TEMPCAPT {
 		private string _OT = "";
 		public int Id { get; set; }
@@ -82,8 +90,8 @@ namespace libProduccionDataBase.Tablas {
 		[Key]
 		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
 
-		[ForeignKey("OT")]
-		public virtual TemporalOrdenTrabajo OrdenTrabajo{get;set;}
+		[ForeignKey ( "OT" )]
+		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
 		public string DISENIOAUT { get; set; }
 		public int CENTROS { get; set; }
 		public double TINTA { get; set; }
@@ -110,5 +118,70 @@ namespace libProduccionDataBase.Tablas {
 		public int EX3 { get; set; }
 		public int ZIPPER_TYPE { get; set; }
 		public double MERMAPROCESO { get; set; }
+		public int ENABLED { get; set; }
+	}
+	[Table ( "TPRODUCCION" )]
+	public class TempProduccion {
+
+		private string _OT = "";
+		[Key]
+		public int Id { get; set; }
+
+		[Required (ErrorMessage ="El numero de orden de trabajo es requerido")]
+		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
+
+
+		[Required(ErrorMessage ="El tipo de proceso es requerido")]
+		public int TIPOPROCESO { get; set; }
+
+		public int NUMERO { get; set; }
+
+		public double PESOBRUTO { get; set; }
+
+		[NotMapped]
+		public double PESONETO { get { try { return PESOBRUTO - PESOCORE; } catch { return 0; } } }
+
+		public double PESOCORE { get; set; }
+
+		public int PIEZAS { get; set; }
+
+		public int BANDERAS { get; set; }
+
+		public int MAQUINA { get; set; }
+
+		public string ORIGEN { get; set; }
+
+		public string OPERADOR { get; set; }
+
+		public int TURNO { get; set; }
+
+		public DateTime FECHA { get; set; }
+
+		public short ENSANEO { get; set; }
+
+		public short FUESANEADA { get; set; }
+
+		public short FUEEDITADA { get; set; }
+
+		public short ESRECHAZADA { get; set; }
+
+		public string USUARIO { get; set; }
+
+		[Index(IsUnique = true), MaxLength(128)]
+		public string INDICE { get; set; }
+
+		public int REPETICION { get; set; }
+
+		public string EXTRUSION_ID { get; set; }
+
+		[ForeignKey( "TIPOPROCESO" )]
+		public virtual Proceso Proceso_ { get; set; }
+
+		[ForeignKey ("MAQUINA")]
+		public virtual Maquina Maquina_ { get; set; }
+
+		[ForeignKey ("OT")]
+		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
 	}
 }
+

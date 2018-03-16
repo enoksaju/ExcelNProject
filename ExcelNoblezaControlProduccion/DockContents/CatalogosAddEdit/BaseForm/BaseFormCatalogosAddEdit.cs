@@ -12,7 +12,7 @@ using libProduccionDataBase;
 using libProduccionDataBase.Contexto;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit.BaseForm
+namespace EstacionesPesaje.DockContents.CatalogosAddEdit.BaseForm
 {
     /// <summary>
     /// Clase Base para los formularios de edición o creación.

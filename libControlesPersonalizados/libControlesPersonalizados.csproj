@@ -104,6 +104,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RAWPrinter\RAWPrinter.cs" />
+    <Compile Include="ReplaceAndPrintZPLProduccion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReplaceAndPrintZPLProduccion.Designer.cs">
+      <DependentUpon>ReplaceAndPrintZPLProduccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ZPLCodeEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +253,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\barcode_2d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
+      <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
+      <Name>libProduccionDataBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

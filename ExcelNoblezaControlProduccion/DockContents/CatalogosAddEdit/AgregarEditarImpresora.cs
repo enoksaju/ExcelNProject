@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
 
-namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
+namespace EstacionesPesaje.DockContents.CatalogosAddEdit
 {
     public partial class AgregarEditarImpresora : BaseForm.BaseFormCatalogosAddEdit
     {

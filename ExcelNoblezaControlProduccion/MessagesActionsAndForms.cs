@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace ExcelNoblezaControlProduccion
+namespace EstacionesPesaje
 {
     class MessagesActionsAndForms
     {

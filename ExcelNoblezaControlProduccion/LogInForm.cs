@@ -16,7 +16,7 @@ using libProduccionDataBase.Identity;
 using libProduccionDataBase.Identity.Model;
 using static libProduccionDataBase.Auxiliares;
 
-namespace ExcelNoblezaControlProduccion
+namespace EstacionesPesaje
 {
     public partial class LogInForm : KryptonForm
     {

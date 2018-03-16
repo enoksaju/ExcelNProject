@@ -12,9 +12,16 @@ namespace libProduccionDataBase.Tablas
     public class Proceso
     {
         private List<Produccion> _Produccion = new List<Produccion>();
-        public int ID { get; set; }
+		private List<TempProduccion> _TempProduccion = new List<TempProduccion> ( );
+		public int ID { get; set; }
         [MaxLength(250,ErrorMessage ="El Nombre del Proceso es Requerido.")]
         public string NombreProceso { get; set; }        
         public List<Produccion> Produccion { get { return _Produccion; } }
-    }
+
+		public List<TempProduccion > TempProduccion { get { return _TempProduccion; } }
+
+		public override string ToString () {
+			return this.NombreProceso ;
+		}
+	}
 }

@@ -113,7 +113,7 @@ namespace libProduccionDataBase.Tablas
         private List<Maquina> _Maquinas = new List<Maquina>();
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public virtual List<Maquina> Maquinas { get { return _Maquinas; } }
+        public virtual List<Maquina> Maquinas { get { return _Maquinas; } set { _Maquinas = value; } }
 
         public override string ToString()
         {

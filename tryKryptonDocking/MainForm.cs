@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tryKryptonDocking {
+namespace EstacionesPesaje {
 	/// <summary>
 	/// Formulario Principal de la Aplicación
 	/// </summary>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ExcelNoblezaControlProduccion.DockContents.Utilidades
+namespace EstacionesPesaje.DockContents.Utilidades
 {
     public partial class EditorZPL : KryptonDockContentFormBase
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion.DockContents
+namespace EstacionesPesaje.DockContents
 {
     public interface IActionsDockContent
     {

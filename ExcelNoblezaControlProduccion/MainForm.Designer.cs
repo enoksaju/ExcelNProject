@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion
+﻿namespace EstacionesPesaje
 {
     partial class MainForm
     {
@@ -125,7 +125,7 @@
 			// 
 			// AparienciaKryptonContextMenuItem
 			// 
-			this.AparienciaKryptonContextMenuItem.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Themes_32px;
+			this.AparienciaKryptonContextMenuItem.Image = global::EstacionesPesaje.Properties.Resources.Themes_32px;
 			this.AparienciaKryptonContextMenuItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItems1,
             this.Theme_Header_kryptonContextMenuHeading,
@@ -145,21 +145,21 @@
 			// Theme_Blue_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Blue_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Blue_kryptonContextMenuRadioButton.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Themes_Blue_16px;
+			this.Theme_Blue_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Blue_16px;
 			this.Theme_Blue_kryptonContextMenuRadioButton.Text = "Blue";
 			this.Theme_Blue_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
 			// Theme_Dark_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Dark_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Dark_kryptonContextMenuRadioButton.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Themes_Dark_16px;
+			this.Theme_Dark_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Dark_16px;
 			this.Theme_Dark_kryptonContextMenuRadioButton.Text = "Dark";
 			this.Theme_Dark_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
 			// Theme_Silver_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Silver_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Silver_kryptonContextMenuRadioButton.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Themes_Silver_16px;
+			this.Theme_Silver_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Silver_16px;
 			this.Theme_Silver_kryptonContextMenuRadioButton.Text = "Light";
 			this.Theme_Silver_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
@@ -170,9 +170,9 @@
 			// 
 			// LayoutPersistenceKCheckBox
 			// 
-			this.LayoutPersistenceKCheckBox.Checked = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.PersistenceLayout;
+			this.LayoutPersistenceKCheckBox.Checked = global::EstacionesPesaje.Properties.Settings.Default.PersistenceLayout;
 			this.LayoutPersistenceKCheckBox.ExtraText = "";
-			this.LayoutPersistenceKCheckBox.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.layouts_body_3_col;
+			this.LayoutPersistenceKCheckBox.Image = global::EstacionesPesaje.Properties.Resources.layouts_body_3_col;
 			this.LayoutPersistenceKCheckBox.Text = "Layout Persitente";
 			this.LayoutPersistenceKCheckBox.CheckedChanged += new System.EventHandler(this.LayoutPersistenceKCheckBox_CheckedChanged);
 			// 
@@ -208,19 +208,19 @@
 			// 
 			// CatalogoClientesRibbonButton
 			// 
-			this.CatalogoClientesRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.GroupAssignments;
+			this.CatalogoClientesRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.GroupAssignments;
 			this.CatalogoClientesRibbonButton.TextLine1 = "Clientes";
 			this.CatalogoClientesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton1_Click);
 			// 
 			// CatalogoMaterialesRibbonButton
 			// 
-			this.CatalogoMaterialesRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.LayersMenu;
+			this.CatalogoMaterialesRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.LayersMenu;
 			this.CatalogoMaterialesRibbonButton.TextLine1 = "Materiales";
 			this.CatalogoMaterialesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton2_Click);
 			// 
 			// CatalogoImpresorasRibbonButton
 			// 
-			this.CatalogoImpresorasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Center_of_Gravity;
+			this.CatalogoImpresorasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Center_of_Gravity;
 			this.CatalogoImpresorasRibbonButton.TextLine1 = "Impresoras";
 			this.CatalogoImpresorasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
 			// 
@@ -233,19 +233,19 @@
 			// 
 			// CatalogoMaquinasRibbonButton
 			// 
-			this.CatalogoMaquinasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.gears;
+			this.CatalogoMaquinasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.gears;
 			this.CatalogoMaquinasRibbonButton.TextLine1 = "Maquinas";
 			this.CatalogoMaquinasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
 			// 
 			// CatalogoUsuariosRibbonButton
 			// 
-			this.CatalogoUsuariosRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.report_user_symbol_green;
+			this.CatalogoUsuariosRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.report_user_symbol_green;
 			this.CatalogoUsuariosRibbonButton.TextLine1 = "Usuarios";
 			this.CatalogoUsuariosRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton6_Click);
 			// 
 			// CatalogoEtiquetasRibbonButton
 			// 
-			this.CatalogoEtiquetasRibbonButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.barcode;
+			this.CatalogoEtiquetasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.barcode;
 			this.CatalogoEtiquetasRibbonButton.TextLine1 = "Etiquetas";
 			this.CatalogoEtiquetasRibbonButton.Click += new System.EventHandler(this.CatalogoEtiquetasRibbonButton_Click);
 			// 
@@ -270,19 +270,19 @@
 			// 
 			// BasculakryptonRibbonGroupButton
 			// 
-			this.BasculakryptonRibbonGroupButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales;
+			this.BasculakryptonRibbonGroupButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales;
 			this.BasculakryptonRibbonGroupButton.TextLine1 = "Conectar";
 			this.BasculakryptonRibbonGroupButton.Click += new System.EventHandler(this.BasculaButtonSpecAny_Click);
 			// 
 			// Bascula_ConfigurarkryptonRibbonGroupButton
 			// 
-			this.Bascula_ConfigurarkryptonRibbonGroupButton.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Preferences;
+			this.Bascula_ConfigurarkryptonRibbonGroupButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Preferences;
 			this.Bascula_ConfigurarkryptonRibbonGroupButton.TextLine1 = "Configurar";
 			this.Bascula_ConfigurarkryptonRibbonGroupButton.Click += new System.EventHandler(this.Bascula_ConfigurarkryptonRibbonGroupButton_Click);
 			// 
 			// kryptonRibbonGroupButton5
 			// 
-			this.kryptonRibbonGroupButton5.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.DataTypeNumber;
+			this.kryptonRibbonGroupButton5.ImageLarge = global::EstacionesPesaje.Properties.Resources.DataTypeNumber;
 			this.kryptonRibbonGroupButton5.TextLine1 = "Mostrar";
 			this.kryptonRibbonGroupButton5.TextLine2 = "Indicador";
 			this.kryptonRibbonGroupButton5.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click);
@@ -311,19 +311,19 @@
 			// 
 			// CatalogAction_Guardar_krb
 			// 
-			this.CatalogAction_Guardar_krb.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Save_vs;
+			this.CatalogAction_Guardar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Save_vs;
 			this.CatalogAction_Guardar_krb.TextLine1 = "Guardar";
 			this.CatalogAction_Guardar_krb.Click += new System.EventHandler(this.CatalogAction_Guardar_krb_Click);
 			// 
 			// CatalogAction_Cancelar_krb
 			// 
-			this.CatalogAction_Cancelar_krb.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Cancel_vs_32x;
+			this.CatalogAction_Cancelar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Cancel_vs_32x;
 			this.CatalogAction_Cancelar_krb.TextLine1 = "Cancelar";
 			this.CatalogAction_Cancelar_krb.Click += new System.EventHandler(this.CatalogAction_Cancelar_krb_Click);
 			// 
 			// CatalogAction_Nuevo_krb
 			// 
-			this.CatalogAction_Nuevo_krb.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.NewCube_vs_32px;
+			this.CatalogAction_Nuevo_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.NewCube_vs_32px;
 			this.CatalogAction_Nuevo_krb.TextLine1 = "Nuevo";
 			this.CatalogAction_Nuevo_krb.Click += new System.EventHandler(this.CatalogAction_Nuevo_krb_Click);
 			// 
@@ -334,7 +334,7 @@
 			// 
 			// CatalogAction_Refrescar_krb
 			// 
-			this.CatalogAction_Refrescar_krb.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Refresh_vs_32x;
+			this.CatalogAction_Refrescar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Refresh_vs_32x;
 			this.CatalogAction_Refrescar_krb.TextLine1 = "Volver a";
 			this.CatalogAction_Refrescar_krb.TextLine2 = "Leer";
 			this.CatalogAction_Refrescar_krb.Click += new System.EventHandler(this.CatalogAction_Refrescar_krb_Click);
@@ -386,7 +386,7 @@
 			this.BasculaToolStripStatusLabel.AutoSize = false;
 			this.BasculaToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.BasculaToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-			this.BasculaToolStripStatusLabel.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales;
+			this.BasculaToolStripStatusLabel.Image = global::EstacionesPesaje.Properties.Resources.Industrial_Scales;
 			this.BasculaToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
 			this.BasculaToolStripStatusLabel.Name = "BasculaToolStripStatusLabel";
 			this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(80, 16);
@@ -394,34 +394,34 @@
 			// 
 			// controlBascula
 			// 
-			this.controlBascula.ActivarEnvio = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaActivarEnvio;
-			this.controlBascula.BaudRate = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaBaudRate;
-			this.controlBascula.CaracterFinLinea = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaCaracterFinLinea;
-			this.controlBascula.ConectarAlIniciar = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaconectarAlIniciar;
-			this.controlBascula.ConnectedImage = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Connected;
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Puerto", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaPuerto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ReadTimeOut", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaReadTimeOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ActivarEnvio", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaActivarEnvio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("BaudRate", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaBaudRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("CaracterFinLinea", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaCaracterFinLinea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ConectarAlIniciar", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaconectarAlIniciar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Fin", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaFin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Inicio", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaInicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Intervalo", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaIntervalo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("StatusLabelShowUnidad", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaShowUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("TextoAEnviar", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaTextoAEnviar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Unidad", global::ExcelNoblezaControlProduccion.Properties.Settings.Default, "BasculaUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DisconnectedImage = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Disconnected;
-			this.controlBascula.Fin = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaFin;
-			this.controlBascula.Inicio = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaInicio;
-			this.controlBascula.Intervalo = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaIntervalo;
-			this.controlBascula.Puerto = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaPuerto;
-			this.controlBascula.ReadTimeOut = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaReadTimeOut;
+			this.controlBascula.ActivarEnvio = global::EstacionesPesaje.Properties.Settings.Default.BasculaActivarEnvio;
+			this.controlBascula.BaudRate = global::EstacionesPesaje.Properties.Settings.Default.BasculaBaudRate;
+			this.controlBascula.CaracterFinLinea = global::EstacionesPesaje.Properties.Settings.Default.BasculaCaracterFinLinea;
+			this.controlBascula.ConectarAlIniciar = global::EstacionesPesaje.Properties.Settings.Default.BasculaconectarAlIniciar;
+			this.controlBascula.ConnectedImage = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Puerto", global::EstacionesPesaje.Properties.Settings.Default, "BasculaPuerto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ReadTimeOut", global::EstacionesPesaje.Properties.Settings.Default, "BasculaReadTimeOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ActivarEnvio", global::EstacionesPesaje.Properties.Settings.Default, "BasculaActivarEnvio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("BaudRate", global::EstacionesPesaje.Properties.Settings.Default, "BasculaBaudRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("CaracterFinLinea", global::EstacionesPesaje.Properties.Settings.Default, "BasculaCaracterFinLinea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ConectarAlIniciar", global::EstacionesPesaje.Properties.Settings.Default, "BasculaconectarAlIniciar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Fin", global::EstacionesPesaje.Properties.Settings.Default, "BasculaFin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Inicio", global::EstacionesPesaje.Properties.Settings.Default, "BasculaInicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Intervalo", global::EstacionesPesaje.Properties.Settings.Default, "BasculaIntervalo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("StatusLabelShowUnidad", global::EstacionesPesaje.Properties.Settings.Default, "BasculaShowUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("TextoAEnviar", global::EstacionesPesaje.Properties.Settings.Default, "BasculaTextoAEnviar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Unidad", global::EstacionesPesaje.Properties.Settings.Default, "BasculaUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DisconnectedImage = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Disconnected;
+			this.controlBascula.Fin = global::EstacionesPesaje.Properties.Settings.Default.BasculaFin;
+			this.controlBascula.Inicio = global::EstacionesPesaje.Properties.Settings.Default.BasculaInicio;
+			this.controlBascula.Intervalo = global::EstacionesPesaje.Properties.Settings.Default.BasculaIntervalo;
+			this.controlBascula.Puerto = global::EstacionesPesaje.Properties.Settings.Default.BasculaPuerto;
+			this.controlBascula.ReadTimeOut = global::EstacionesPesaje.Properties.Settings.Default.BasculaReadTimeOut;
 			this.controlBascula.StatusLabel = this.BasculaToolStripStatusLabel;
-			this.controlBascula.StatusLabelShowUnidad = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaShowUnidad;
+			this.controlBascula.StatusLabelShowUnidad = global::EstacionesPesaje.Properties.Settings.Default.BasculaShowUnidad;
 			this.controlBascula.StatusPicture = null;
-			this.controlBascula.TextoAEnviar = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaTextoAEnviar;
-			this.controlBascula.Unidad = global::ExcelNoblezaControlProduccion.Properties.Settings.Default.BasculaUnidad;
+			this.controlBascula.TextoAEnviar = global::EstacionesPesaje.Properties.Settings.Default.BasculaTextoAEnviar;
+			this.controlBascula.Unidad = global::EstacionesPesaje.Properties.Settings.Default.BasculaUnidad;
 			this.controlBascula.CambioValor += new libBascula.CambioValorEvenHandler(this.controlBascula_CambioValor);
 			this.controlBascula.CambioEstado += new libBascula.CambioEstadoEventHandler(this.controlBascula_CambioEstado);
 			// 
@@ -429,14 +429,14 @@
 			// 
 			this.BasculaConectedkryptonCommand.Checked = true;
 			this.BasculaConectedkryptonCommand.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.BasculaConectedkryptonCommand.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Connected;
-			this.BasculaConectedkryptonCommand.ImageSmall = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Connected;
+			this.BasculaConectedkryptonCommand.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
+			this.BasculaConectedkryptonCommand.ImageSmall = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
 			this.BasculaConectedkryptonCommand.TextLine1 = "Desconectar";
 			// 
 			// BasculaFormButtonSpecAny
 			// 
 			this.BasculaFormButtonSpecAny.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
-			this.BasculaFormButtonSpecAny.Image = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Disconnected_16px;
+			this.BasculaFormButtonSpecAny.Image = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Disconnected_16px;
 			this.BasculaFormButtonSpecAny.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
 			this.BasculaFormButtonSpecAny.UniqueName = "05320F8988F04ACE98B08C0255DE0568";
 			this.BasculaFormButtonSpecAny.Click += new System.EventHandler(this.BasculaButtonSpecAny_Click);
@@ -445,8 +445,8 @@
 			// 
 			this.BasculaFormKryptonCommand.Checked = true;
 			this.BasculaFormKryptonCommand.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.BasculaFormKryptonCommand.ImageLarge = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Connected_16px;
-			this.BasculaFormKryptonCommand.ImageSmall = global::ExcelNoblezaControlProduccion.Properties.Resources.Industrial_Scales_Connected_16px;
+			this.BasculaFormKryptonCommand.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
+			this.BasculaFormKryptonCommand.ImageSmall = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
 			this.BasculaFormKryptonCommand.TextLine1 = "Desconectar";
 			// 
 			// kryptonContextMenuItem2

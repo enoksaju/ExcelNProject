@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion.DockContents
+namespace EstacionesPesaje.DockContents
 {
     public interface ICatalogForm
     {
@@ -22,7 +22,7 @@ namespace ExcelNoblezaControlProduccion.DockContents
     }
 }
 
-namespace ExcelNoblezaControlProduccion.DockContents.ICatalogFormEnums
+namespace EstacionesPesaje.DockContents.ICatalogFormEnums
 {
     /// <summary>
     /// Banderas para identificar la funcion del formulario

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExcelNoblezaControlProduccion.DockContents.Catalogos
+namespace EstacionesPesaje.DockContents.Catalogos
 {
     public class CatalogoEtiquetas: BaseForm.BaseFormCatalogos
     {

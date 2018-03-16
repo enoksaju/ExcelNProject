@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tryKryptonDocking.Properties {
+namespace EstacionesPesaje.Properties {
     using System;
     
     

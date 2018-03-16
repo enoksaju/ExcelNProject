@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-using ExcelNoblezaControlProduccion.DockContents.ICatalogFormEnums;
+using EstacionesPesaje.DockContents.ICatalogFormEnums;
 using libProduccionDataBase.Contexto;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace ExcelNoblezaControlProduccion.DockContents.Catalogos.BaseForm
+namespace EstacionesPesaje.DockContents.Catalogos.BaseForm
 {
     public partial class BaseFormCatalogos : KryptonDockContentFormBase, ICatalogForm
     {

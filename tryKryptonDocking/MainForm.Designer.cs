@@ -1,4 +1,4 @@
-﻿namespace tryKryptonDocking
+﻿namespace EstacionesPesaje
 {
     partial class MainForm
     {

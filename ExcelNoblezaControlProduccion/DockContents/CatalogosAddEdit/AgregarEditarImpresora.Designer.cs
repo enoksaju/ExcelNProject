@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.CatalogosAddEdit
+﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarImpresora
     {
@@ -298,7 +298,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.kryptonBorderEdge1);
             this.HeaderDescripcion = "";
-            this.HeaderImage = global::ExcelNoblezaControlProduccion.Properties.Resources.Center_of_Gravity;
+            this.HeaderImage = global::EstacionesPesaje.Properties.Resources.Center_of_Gravity;
             this.HeaderText = "Impresora";
             this.Name = "AgregarEditarImpresora";
             this.Text = "AgregarEditarImpresora";

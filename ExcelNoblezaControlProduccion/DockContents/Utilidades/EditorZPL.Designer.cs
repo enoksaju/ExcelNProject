@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents.Utilidades
+﻿namespace EstacionesPesaje.DockContents.Utilidades
 {
     partial class EditorZPL
     {

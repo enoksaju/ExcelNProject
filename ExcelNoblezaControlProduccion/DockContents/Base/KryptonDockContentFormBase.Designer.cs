@@ -1,4 +1,4 @@
-﻿namespace ExcelNoblezaControlProduccion.DockContents
+﻿namespace EstacionesPesaje.DockContents
 {
     partial class KryptonDockContentFormBase
     {
