@@ -18,13 +18,13 @@ namespace restoreWorksBooks {
 			Worksheet ws= null;
 			int Count = 0;
 			int Total = Directory.EnumerateFiles (
-				"T:\\Henoc\\CapturaOt\\Nueva carpeta",
+				"T:\\HECTOR HERNANDEZ\\OTS",
 				"*.xlsx"
 				).Count ( );
 			//excel.Visible = true;
 
 			foreach (string file in Directory.EnumerateFiles (
-				"T:\\Henoc\\CapturaOt\\Nueva carpeta", 
+				"T:\\HECTOR HERNANDEZ\\OTS", 
 				"*.xlsx"
 				).OrderBy(y=>y)) {
 
@@ -138,7 +138,7 @@ namespace restoreWorksBooks {
 						}
 
 						++Count;
-						File.AppendAllText ( "T:\\Henoc\\CapturaOt\\Nueva carpeta\\log.txt",String.Format( "{0}/{1} => {2}\r\n", Count, Total,  file) );
+						File.AppendAllText ( "T:\\HECTOR HERNANDEZ\\OTS\\log.txt", String.Format( "{0}/{1} => {2}\r\n", Count, Total,  file) );
 
 						Console.WriteLine ( "{0}/{1} => {2}", Count, Total, file );
 
@@ -152,7 +152,7 @@ namespace restoreWorksBooks {
 				catch (Exception ex) {
 
 					Console.WriteLine ( ex );
-					File.AppendAllText ( "T:\\Henoc\\CapturaOt\\Nueva carpeta\\log.txt", String.Format ( "{0}/{1} => {2} \r\nError: {3}\r\n", Count, Total, file, ex ) );
+					File.AppendAllText ( "T:\\HECTOR HERNANDEZ\\OTS\\log.txt", String.Format ( "{0}/{1} => {2} \r\nError: {3}\r\n", Count, Total, file, ex ) );
 
 				}
 				finally {

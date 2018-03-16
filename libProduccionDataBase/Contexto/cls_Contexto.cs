@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define DevelopDataBase
+
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -40,8 +42,8 @@ namespace libProduccionDataBase.Contexto
 		/// </summary>
 		public DbSet<Etiqueta> Etiquetas { get; set; }
 
-#if DEBUG
-		public DataBaseContexto() : base( "ProduccionConexionDebug" )
+#if DevelopDataBase
+		public DataBaseContexto () : base( "ProduccionConexionDebug" )
         {
             this.Configuration.LazyLoadingEnabled = true;		
         }

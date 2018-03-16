@@ -84,15 +84,23 @@
 			this.rEPETICIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.eXTRUSIONIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.produccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.PB_lbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.PN_lbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.PZ_lbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.SEL_lbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+			this.ProcesosFilterToolBar = new System.Windows.Forms.ToolStripComboBox();
 			this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
 			this.kryptonPageCaptura = new ComponentFactory.Krypton.Navigator.KryptonPage();
 			this.kryptonGroupBox4 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
 			this.Optional5_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -130,6 +138,7 @@
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.replaceAndPrintZPLProduccion1 = new libControlesPersonalizados.ReplaceAndPrintZPLProduccion(this.components);
+			this.procesoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.temporalOrdenTrabajoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
 			this.kryptonNavigator1.SuspendLayout();
@@ -168,6 +177,7 @@
 			this.kryptonPageLista.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.produccionKryptonDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.produccionBindingSource)).BeginInit();
+			this.statusStrip2.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPageCaptura)).BeginInit();
 			this.kryptonPageCaptura.SuspendLayout();
@@ -182,6 +192,7 @@
 			this.kryptonGroupBox1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// OTTextBox
@@ -291,6 +302,7 @@
 			// 
 			// tableLayoutPanel3
 			// 
+			this.tableLayoutPanel3.AutoScroll = true;
 			this.tableLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
 			this.tableLayoutPanel3.ColumnCount = 2;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
@@ -761,6 +773,7 @@
 			// 
 			this.kryptonPageLista.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPageLista.Controls.Add(this.produccionKryptonDataGridView);
+			this.kryptonPageLista.Controls.Add(this.statusStrip2);
 			this.kryptonPageLista.Controls.Add(this.toolStrip1);
 			this.kryptonPageLista.Flags = 65534;
 			this.kryptonPageLista.ImageSmall = global::EstacionesPesaje.Properties.Resources.ListView;
@@ -775,7 +788,6 @@
 			// produccionKryptonDataGridView
 			// 
 			this.produccionKryptonDataGridView.AllowUserToAddRows = false;
-			this.produccionKryptonDataGridView.AllowUserToDeleteRows = false;
 			this.produccionKryptonDataGridView.AutoGenerateColumns = false;
 			this.produccionKryptonDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proceso_,
@@ -808,8 +820,9 @@
 			this.produccionKryptonDataGridView.HideOuterBorders = true;
 			this.produccionKryptonDataGridView.Location = new System.Drawing.Point(0, 25);
 			this.produccionKryptonDataGridView.Name = "produccionKryptonDataGridView";
-			this.produccionKryptonDataGridView.Size = new System.Drawing.Size(685, 358);
+			this.produccionKryptonDataGridView.Size = new System.Drawing.Size(685, 336);
 			this.produccionKryptonDataGridView.TabIndex = 3;
+			this.produccionKryptonDataGridView.SelectionChanged += new System.EventHandler(this.produccionKryptonDataGridView_SelectionChanged);
 			// 
 			// Proceso_
 			// 
@@ -945,6 +958,87 @@
 			this.produccionBindingSource.DataMember = "Produccion";
 			this.produccionBindingSource.DataSource = this.temporalOrdenTrabajoBindingSource;
 			// 
+			// statusStrip2
+			// 
+			this.statusStrip2.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel3,
+            this.PB_lbl,
+            this.PN_lbl,
+            this.PZ_lbl,
+            this.SEL_lbl});
+			this.statusStrip2.Location = new System.Drawing.Point(0, 361);
+			this.statusStrip2.Name = "statusStrip2";
+			this.statusStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
+			this.statusStrip2.Size = new System.Drawing.Size(685, 22);
+			this.statusStrip2.SizingGrip = false;
+			this.statusStrip2.TabIndex = 5;
+			this.statusStrip2.Text = "statusStrip2";
+			// 
+			// toolStripStatusLabel1
+			// 
+			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(320, 17);
+			this.toolStripStatusLabel1.Spring = true;
+			// 
+			// toolStripStatusLabel3
+			// 
+			this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+			this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 17);
+			// 
+			// PB_lbl
+			// 
+			this.PB_lbl.AutoSize = false;
+			this.PB_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+			this.PB_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
+			this.PB_lbl.Image = global::EstacionesPesaje.Properties.Resources.button_circle_blue_bottom;
+			this.PB_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.PB_lbl.Name = "PB_lbl";
+			this.PB_lbl.Padding = new System.Windows.Forms.Padding(5);
+			this.PB_lbl.Size = new System.Drawing.Size(85, 17);
+			this.PB_lbl.Text = "PB: 00.00";
+			this.PB_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// PN_lbl
+			// 
+			this.PN_lbl.AutoSize = false;
+			this.PN_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+			this.PN_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
+			this.PN_lbl.Image = global::EstacionesPesaje.Properties.Resources.button_circle_green_bottom;
+			this.PN_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.PN_lbl.Name = "PN_lbl";
+			this.PN_lbl.Padding = new System.Windows.Forms.Padding(5);
+			this.PN_lbl.Size = new System.Drawing.Size(85, 17);
+			this.PN_lbl.Text = "PN: 00:00";
+			this.PN_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// PZ_lbl
+			// 
+			this.PZ_lbl.AutoSize = false;
+			this.PZ_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+			this.PZ_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
+			this.PZ_lbl.Image = global::EstacionesPesaje.Properties.Resources.AzureDefaultResource_16x;
+			this.PZ_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.PZ_lbl.Name = "PZ_lbl";
+			this.PZ_lbl.Padding = new System.Windows.Forms.Padding(5);
+			this.PZ_lbl.Size = new System.Drawing.Size(95, 17);
+			this.PZ_lbl.Text = "PZ: 0";
+			this.PZ_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// SEL_lbl
+			// 
+			this.SEL_lbl.AutoSize = false;
+			this.SEL_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+			this.SEL_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
+			this.SEL_lbl.Image = global::EstacionesPesaje.Properties.Resources.SelectAll_16x;
+			this.SEL_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.SEL_lbl.Name = "SEL_lbl";
+			this.SEL_lbl.Padding = new System.Windows.Forms.Padding(5);
+			this.SEL_lbl.Size = new System.Drawing.Size(85, 17);
+			this.SEL_lbl.Text = "SEL: 0";
+			this.SEL_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -955,9 +1049,10 @@
             this.toolStripButton2,
             this.toolStripSeparator2,
             this.toolStripLabel1,
-            this.toolStripComboBox1,
+            this.ProcesosFilterToolBar,
             this.toolStripButton3,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.toolStripButton4});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(685, 25);
@@ -998,10 +1093,11 @@
 			this.toolStripLabel1.Size = new System.Drawing.Size(79, 22);
 			this.toolStripLabel1.Text = "Filtro Proceso";
 			// 
-			// toolStripComboBox1
+			// ProcesosFilterToolBar
 			// 
-			this.toolStripComboBox1.Name = "toolStripComboBox1";
-			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+			this.ProcesosFilterToolBar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.ProcesosFilterToolBar.Name = "ProcesosFilterToolBar";
+			this.ProcesosFilterToolBar.Size = new System.Drawing.Size(121, 25);
 			// 
 			// toolStripButton3
 			// 
@@ -1010,12 +1106,23 @@
 			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton3.Text = "toolStripButton3";
+			this.toolStripButton3.Text = "Filtrar";
+			this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButton4
+			// 
+			this.toolStripButton4.Image = global::EstacionesPesaje.Properties.Resources.Cancel_16x;
+			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton4.Margin = new System.Windows.Forms.Padding(20, 1, 0, 2);
+			this.toolStripButton4.Name = "toolStripButton4";
+			this.toolStripButton4.Size = new System.Drawing.Size(59, 22);
+			this.toolStripButton4.Text = "Borrar";
+			this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
 			// 
 			// kryptonPageCaptura
 			// 
@@ -1520,6 +1627,10 @@
 			this.replaceAndPrintZPLProduccion1.DataBindings.Add(new System.Windows.Forms.Binding("PrinterName", global::EstacionesPesaje.Properties.Settings.Default, "ImpresoraEtiquetas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.replaceAndPrintZPLProduccion1.PrinterName = global::EstacionesPesaje.Properties.Settings.Default.ImpresoraEtiquetas;
 			// 
+			// procesoBindingSource
+			// 
+			this.procesoBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.Proceso);
+			// 
 			// ProduccionPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1529,6 +1640,7 @@
 			this.PageDescriptionText = "Pagina donde se capturan las producciones.";
 			this.PageTitleText = "Captura de Produccion";
 			this.Size = new System.Drawing.Size(693, 505);
+			this.Load += new System.EventHandler(this.ProduccionPage_Load);
 			((System.ComponentModel.ISupportInitialize)(this.temporalOrdenTrabajoBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).EndInit();
 			this.kryptonNavigator1.ResumeLayout(false);
@@ -1578,6 +1690,8 @@
 			this.kryptonPageLista.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.produccionKryptonDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.produccionBindingSource)).EndInit();
+			this.statusStrip2.ResumeLayout(false);
+			this.statusStrip2.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPageCaptura)).EndInit();
@@ -1597,6 +1711,7 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1702,7 +1817,7 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-		private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+		private System.Windows.Forms.ToolStripComboBox ProcesosFilterToolBar;
 		private System.Windows.Forms.ToolStripButton toolStripButton3;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox4;
@@ -1718,5 +1833,14 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox InstExtrusion_tbx;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox InstMangas_tbx;
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox InsSellado_tbx;
+		private System.Windows.Forms.StatusStrip statusStrip2;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+		private System.Windows.Forms.ToolStripStatusLabel PB_lbl;
+		private System.Windows.Forms.ToolStripStatusLabel PN_lbl;
+		private System.Windows.Forms.ToolStripStatusLabel PZ_lbl;
+		private System.Windows.Forms.ToolStripStatusLabel SEL_lbl;
+		private System.Windows.Forms.BindingSource procesoBindingSource;
+		private System.Windows.Forms.ToolStripButton toolStripButton4;
 	}
 }

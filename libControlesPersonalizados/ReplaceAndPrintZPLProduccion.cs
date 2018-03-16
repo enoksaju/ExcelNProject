@@ -81,7 +81,7 @@ namespace libControlesPersonalizados {
 				{ "@ORIGEN", produccionElemet.ORIGEN},
 				{ "@PESOBRUTO", produccionElemet.PESOBRUTO.ToString("#0.00")},
 				{ "@PESOCORE", produccionElemet.PESOCORE.ToString("#0.00") },
-				{ "@PESONETO", (produccionElemet.PESOBRUTO-produccionElemet .PESOCORE).ToString("#0.0") },
+				{ "@PESONETO", (produccionElemet.PESOBRUTO-produccionElemet .PESOCORE).ToString("#0.00") },
 				{ "@PIEZAS", produccionElemet.PIEZAS.ToString ()},
 				{ "@EXTRUSIONID", produccionElemet.EXTRUSION_ID},
 				{ "@PROCESO", produccionElemet.Proceso_.NombreProceso},

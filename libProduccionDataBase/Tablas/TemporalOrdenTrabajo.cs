@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace libProduccionDataBase.Tablas {
 	[Table ( "TORDENTRABAJO" )]
 	public class TemporalOrdenTrabajo {
@@ -72,14 +73,14 @@ namespace libProduccionDataBase.Tablas {
 		public string EXKG { get; set; }
 		public string EXANCHO { get; set; }
 
-		public virtual List<TempProduccion > Produccion { get; private set; }
+		public virtual ObservableListSource<TempProduccion > Produccion { get; private set; }
 		public TemporalOrdenTrabajo () {
-			this.Produccion = new List<TempProduccion> ( );
+			this.Produccion = new ObservableListSource<TempProduccion>();//new ICollection<TempProduccion> ( );
 		}
 
 		public override string ToString () {
 			return this.OT;
-		}
+		}		
 	}
 
 	[Table ( "TEMPCAPT" )]
@@ -128,7 +129,7 @@ namespace libProduccionDataBase.Tablas {
 		public int Id { get; set; }
 
 		[Required (ErrorMessage ="El numero de orden de trabajo es requerido")]
-		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
+		public string OT { get; set; }
 
 
 		[Required(ErrorMessage ="El tipo de proceso es requerido")]

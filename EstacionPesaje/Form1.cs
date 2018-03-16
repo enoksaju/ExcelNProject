@@ -12,6 +12,8 @@ using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 
+
+// TODO: CAmbiar los botones de las etiquetas a la pestaña de configuracion
 namespace EstacionesPesaje {
 	public partial class Form1 : KryptonForm {
 

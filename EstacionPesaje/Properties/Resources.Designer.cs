@@ -73,6 +73,16 @@ namespace EstacionesPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AzureDefaultResource_16x {
+            get {
+                object obj = ResourceManager.GetObject("AzureDefaultResource_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap barcode_edit {
             get {
                 object obj = ResourceManager.GetObject("barcode-edit", resourceCulture);
@@ -116,6 +126,36 @@ namespace EstacionesPesaje.Properties {
         internal static System.Drawing.Bitmap book_Open_16xLG {
             get {
                 object obj = ResourceManager.GetObject("book_Open_16xLG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_circle_blue_bottom {
+            get {
+                object obj = ResourceManager.GetObject("button_circle_blue_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_circle_green_bottom {
+            get {
+                object obj = ResourceManager.GetObject("button_circle_green_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancel_16x {
+            get {
+                object obj = ResourceManager.GetObject("Cancel_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +406,16 @@ namespace EstacionesPesaje.Properties {
         internal static System.Drawing.Bitmap script {
             get {
                 object obj = ResourceManager.GetObject("script", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SelectAll_16x {
+            get {
+                object obj = ResourceManager.GetObject("SelectAll_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

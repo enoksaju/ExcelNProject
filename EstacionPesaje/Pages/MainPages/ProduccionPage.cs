@@ -12,6 +12,8 @@ using libProduccionDataBase.Tablas;
 using libBascula;
 using ComponentFactory.Krypton.Toolkit;
 using libControlesPersonalizados;
+using libProduccionDataBase.Contexto;
+using Z.EntityFramework.Plus;
 
 namespace EstacionesPesaje.Pages.MainPages {
 	public partial class ProduccionPage : Base.DocumentPageBase, Base.IUsaBascula {
@@ -41,6 +43,8 @@ namespace EstacionesPesaje.Pages.MainPages {
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageReorder );
 
 			DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
+			DB.Configuration.LazyLoadingEnabled = false;
+
 
 
 			if (!DB.tempOt.Any ( o => o.OT == OT.Trim ( ) )) throw new Exception ( "No existe la orden solicitada" );
@@ -49,6 +53,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 			this.PageTitleText = String.Format ( "Produccion[{0}]", this.OT );
 
 			DB.tempOt.Where ( o => o.OT == OT.Trim ( ) ).Load ( );
+
 			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
 
 			this.Bascula = Bascula_;
@@ -58,12 +63,21 @@ namespace EstacionesPesaje.Pages.MainPages {
 			setEnableStatusBascula ( this.Bascula.Estatus == EstadoConexion.Conectado ? true : false );
 
 			kryptonNavigator1.SelectedPage = kryptonPageInstrucciones;
+
+
+		}
+		private async void ProduccionPage_Load ( object sender, EventArgs e ) {
+			await DB.Procesos.LoadAsync ( );
+			procesoBindingSource.DataSource = DB.Procesos.Local.ToBindingList ( );
+			ProcesosFilterToolBar.ComboBox.DataSource = procesoBindingSource;
+			ProcesosFilterToolBar.ComboBox.DisplayMember = "NombreProceso";
+			ProcesosFilterToolBar.ComboBox.ValueMember = "ID";
 		}
 		protected override void Dispose ( bool disposing ) {
 			if (disposing && ( components != null )) {
 
 				Bascula.CambioValor -= Bascula_CambioValor;
-
+				this.Bascula.CambioEstado -= Bascula_CambioEstado;
 				components.Dispose ( );
 			}
 			base.Dispose ( disposing );
@@ -97,7 +111,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 							orderby produccion.NUMERO descending
 							select new { produccion.NUMERO, produccion.PESOCORE };
 
-					var num = t.FirstOrDefault ( )!=null? t.FirstOrDefault ( ).NUMERO: 0;
+					var num = t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).NUMERO : 0;
 					var PesoCore = t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).PESOCORE : 0;
 
 					nUMEROKryptonTextBox.Value = num + 1;
@@ -116,12 +130,35 @@ namespace EstacionesPesaje.Pages.MainPages {
 
 				frm.Dispose ( );
 
+			} else if (e.Item == kryptonPageLista) {
+				RefreshListItems ( );
+
 			} else {
 				this.PageTitleText = String.Format ( "Produccion[{0}]", this.OT );
 			}
 
 		}
-			
+		private  void RefreshListItems () {
+
+
+			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
+
+			DB.TempProduccion
+				.Local
+				.ToList ( )
+				.ForEach ( y => {
+					DB.Entry ( y ).State = EntityState.Detached;
+					y = null;
+				} );
+
+			DB.tempOt.Where ( OT => OT.OT == this.OT )
+				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
+			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
+
+			temporalOrdenTrabajoBindingSource.ResetBindings ( false );
+			produccionBindingSource.ResetBindings ( false );
+			produccionKryptonDataGridView.Refresh ( );
+		}
 		/// <summary>
 		/// Retorna el ItemOptional seleccionado
 		/// </summary>
@@ -154,10 +191,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 				if (td.ShowDialog ( ) == DialogResult.No) return;
 
 				var t = SaveCapturaProduccion ( );
-
-				var y=DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == t.Id ).FirstOrDefault ();
-
-				this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, y, valuesCaptura.Options, GetItemSelected ( ) );
+				this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
 			}
 			catch (Exception ex) {
 				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
@@ -190,43 +224,47 @@ namespace EstacionesPesaje.Pages.MainPages {
 		/// </summary>
 		/// <returns></returns>
 		private TempProduccion SaveCapturaProduccion () {
-			var t = new TempProduccion ( ) {
-				BANDERAS = ( int ) bANDERASKryptonTextBox.Value,
-				OT = this.OT,
 
-				MAQUINA = valuesCaptura.Maquina.Id,
-				TIPOPROCESO = valuesCaptura.Proceso.ID,
+			TempProduccion ToRet = null;
 
-				PESOBRUTO = ( double ) pESOBRUTOKryptonTextBox.Value,
-				PESOCORE = ( double ) pESOCOREKryptonTextBox.Value,
-				NUMERO = ( int ) nUMEROKryptonTextBox.Value,
-				PIEZAS = ( int ) pIEZASKryptonTextBox.Value,
-				TURNO = valuesCaptura.Turno,
-				ORIGEN = oRIGENKryptonTextBox.Text,
-				FECHA = DateTime.Now,
-				OPERADOR = valuesCaptura.Operador,
-				REPETICION = 1,
-				USUARIO = Environment.MachineName,
-				INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + ( int ) nUMEROKryptonTextBox.Value,
-				ENSANEO = 0,
-				FUEEDITADA = 0,
-				FUESANEADA = 0,
-				ESRECHAZADA = 0,
-				EXTRUSION_ID = ""
-			};
+			using (var DBLocal = new DataBaseContexto ( )) {
 
-			DB.TempProduccion.Add ( t );
-			DB.SaveChanges ( );
-			DB.Entry ( t ).Reload ( );
-			nUMEROKryptonTextBox.Value += 1;
+				var t = new TempProduccion ( ) {
+					BANDERAS = ( int ) bANDERASKryptonTextBox.Value,
+					OT = this.OT,
 
-			DB.Entry ( temporalOrdenTrabajoBindingSource.Current ).Reload ( );
-			temporalOrdenTrabajoBindingSource.ResetBindings ( false );
-			produccionBindingSource.ResetBindings ( false );
-			produccionKryptonDataGridView.Refresh ( );
+					MAQUINA = valuesCaptura.Maquina.Id,
+					TIPOPROCESO = valuesCaptura.Proceso.ID,
 
-			return t;
-		}		
+					PESOBRUTO = ( double ) pESOBRUTOKryptonTextBox.Value,
+					PESOCORE = ( double ) pESOCOREKryptonTextBox.Value,
+					NUMERO = ( int ) nUMEROKryptonTextBox.Value,
+					PIEZAS = ( int ) pIEZASKryptonTextBox.Value,
+					TURNO = valuesCaptura.Turno,
+					ORIGEN = oRIGENKryptonTextBox.Text,
+					FECHA = DateTime.Now,
+					OPERADOR = valuesCaptura.Operador,
+					REPETICION = 1,
+					USUARIO = Environment.MachineName,
+					INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + ( int ) nUMEROKryptonTextBox.Value,
+					ENSANEO = 0,
+					FUEEDITADA = 0,
+					FUESANEADA = 0,
+					ESRECHAZADA = 0,
+					EXTRUSION_ID = ""
+				};
+
+
+				DBLocal.TempProduccion.Add ( t );
+				DBLocal.SaveChanges ( );
+				nUMEROKryptonTextBox.Value += 1;
+
+				ToRet = DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == t.Id ).FirstOrDefault ( );
+
+			}
+
+			return ToRet;
+		}
 
 		/// <summary>
 		/// guarda los cambios del datagirdview en la base de datos
@@ -237,6 +275,13 @@ namespace EstacionesPesaje.Pages.MainPages {
 			try {
 				td.Content = "Realmente desea guardar?";
 				if (td.ShowDialog ( ) == DialogResult.No) return;
+
+				foreach (var t in DB.TempProduccion  .Local.ToList ( )) {
+					if(t.OrdenTrabajo == null) {
+						DB.TempProduccion.Remove ( t );
+					}
+				}
+
 				DB.SaveChanges ( );
 			}
 			catch (Exception ex) {
@@ -256,7 +301,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void toolStripButton2_Click ( object sender, EventArgs e ) {
+		private async void toolStripButton2_Click ( object sender, EventArgs e ) {
 
 			var frm = new IniciarCaptura_frm ( );
 			frm.InfoCapturaLayout.Visible = false;
@@ -266,7 +311,9 @@ namespace EstacionesPesaje.Pages.MainPages {
 				foreach (DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows) {
 
 					try {
-						this.replaceAndPrintZPLProduccion1.PrintZPL ( frm.response.Etiqueta.ZPLCode, ( TempProduccion ) rw.DataBoundItem, frm.response.Options );
+
+						var y = await DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == ( ( TempProduccion ) rw.DataBoundItem ).Id ).FirstOrDefaultAsync ( );
+						this.replaceAndPrintZPLProduccion1.PrintZPL ( frm.response.Etiqueta.ZPLCode, y, frm.response.Options );
 					}
 					catch (Exception ex) {
 						HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
@@ -325,7 +372,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 		private async void Bascula_CambioValor ( object sender, CambioValorEventArgs e ) {
 			await Task.Run ( () => {
 				try {
-					if(!CoreEditing) setValuePesoBruto ( e.NuevoValor );
+					if (!CoreEditing) setValuePesoBruto ( e.NuevoValor );
 				}
 				catch (Exception EX) {
 					Console.WriteLine ( EX );
@@ -359,6 +406,58 @@ namespace EstacionesPesaje.Pages.MainPages {
 
 		}
 
+		private void produccionKryptonDataGridView_SelectionChanged ( object sender, EventArgs e ) {
+			try {
+
+				var t = from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
+						select ( libProduccionDataBase.Tablas.TempProduccion ) rw.DataBoundItem;
+
+				PB_lbl.Text = String.Format ( "PB: {0:0.00}", t.Sum ( u => u.PESOBRUTO ) );
+				PN_lbl.Text = String.Format ( "PN: {0:0.00}", t.Sum ( u => u.PESONETO ) );
+				PZ_lbl.Text = String.Format ( "PZ: {0:N0}", t.Sum ( u => u.PIEZAS ) );
+				SEL_lbl.Text = String.Format ( "SEL: {0:N0}", t.Count ( ) );
+
+			}
+			catch (Exception ex) {
+
+				throw;
+			}
+		}
+
+		#region FilterDataGridView
+
+		private async void toolStripButton3_Click ( object sender, EventArgs e ) {
+			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
+
+			DB.TempProduccion
+				.Local
+				.ToList ( )
+				.ForEach ( y => {
+					DB.Entry ( y ).State = EntityState.Detached;
+					y = null;
+				} );
+
+			DB.tempOt.Where ( OT => OT.OT == this.OT )
+				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
+			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
+		}
+
+		#endregion
+
 		
+
+		private void toolStripButton4_Click ( object sender, EventArgs e ) {
+
+			if(produccionKryptonDataGridView .SelectedRows .Count > 0) {
+				td.Content = "Desea Eliminar los elementos seleccionados?";
+				if (td.ShowDialog ( ) == DialogResult.No) return;
+
+				foreach (DataGridViewRow row in produccionKryptonDataGridView .SelectedRows ) {
+					produccionKryptonDataGridView.Rows.Remove ( row );
+				}
+			}
+
+			
+		}
 	}
 }
