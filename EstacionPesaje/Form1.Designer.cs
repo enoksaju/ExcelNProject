@@ -88,7 +88,8 @@
             this.EmbarquesRibbonTab,
             this.kryptonRibbonTab1,
             this.kryptonRibbonTab2});
-			this.Ribbon.SelectedTab = this.EtiquetasRibbonTab;
+			this.Ribbon.SelectedContext = null;
+			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(902, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
@@ -344,8 +345,9 @@
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.Ribbon);
 			this.Controls.Add(this.statusStrip1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Control de Produccion";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.Ribbon)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.MainPanel)).EndInit();

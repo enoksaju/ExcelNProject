@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201803142345332_addIndexProduction.Designer.cs">
       <DependentUpon>201803142345332_addIndexProduction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803162243496_addFamiliaDefectos.cs" />
+    <Compile Include="Migrations\201803162243496_addFamiliaDefectos.Designer.cs">
+      <DependentUpon>201803162243496_addFamiliaDefectos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803142345332_addIndexProduction.resx">
       <DependentUpon>201803142345332_addIndexProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803162243496_addFamiliaDefectos.resx">
+      <DependentUpon>201803162243496_addFamiliaDefectos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

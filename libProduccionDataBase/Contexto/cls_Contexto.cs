@@ -33,9 +33,16 @@ namespace libProduccionDataBase.Contexto
         public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
         public DbSet<Proceso> Procesos { get; set; }
 
+
 		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
 		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
 		public DbSet <TempProduccion > TempProduccion { get; set; }
+
+		public DbSet <TDefecto > TDefectos { get; set; }
+		public DbSet <TFamiliaDefectos > TFamiliasDefectos { get; set; }
+		public DbSet <TFamiliaDefectosTDefecto> FamiliaDefectosDefectos { get; set; }
+		public DbSet <TempDesperdicios > TDesperdicios { get; set; }
+
 
 		/// <summary>
 		/// Coleccion de etiquetas en formato zpl
@@ -77,7 +84,23 @@ namespace libProduccionDataBase.Contexto
             modelBuilder.Entity<ApplicationUser>().HasMany( c => c.Logins ).WithOptional().HasForeignKey( c => c.UserId );
             modelBuilder.Entity<ApplicationUser>().HasMany( c => c.Claims ).WithOptional().HasForeignKey( c => c.UserId );
             modelBuilder.Entity<ApplicationUser>().HasMany( c => c.Roles ).WithOptional().HasForeignKey( c => c.UserId );
-        }
+
+
+			modelBuilder.Entity<TFamiliaDefectosTDefecto> ( )
+				.HasKey ( t => t.Id );
+
+			modelBuilder.Entity<TFamiliaDefectosTDefecto> ( )
+				.HasRequired ( t => t.Defecto )
+				.WithMany ( y => y.TFamiliaDefectosTDefecto )
+				.HasForeignKey ( c => c.TDefectoID );
+
+			modelBuilder.Entity<TFamiliaDefectosTDefecto> ( )
+				.HasRequired ( t => t.FamiliaDefectos )
+				.WithMany ( y => y.TFamiliaDefectosTDefecto )
+				.HasForeignKey ( c => c.TFamiliaDefectosID );
+
+
+		}
 
         public override int SaveChanges()
         {

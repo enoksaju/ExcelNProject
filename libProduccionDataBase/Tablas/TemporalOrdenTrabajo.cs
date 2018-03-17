@@ -73,14 +73,16 @@ namespace libProduccionDataBase.Tablas {
 		public string EXKG { get; set; }
 		public string EXANCHO { get; set; }
 
-		public virtual ObservableListSource<TempProduccion > Produccion { get; private set; }
+		public virtual ObservableListSource<TempProduccion> Produccion { get; private set; }
+		public virtual ObservableListSource<TempDesperdicios > Desperdicios { get; private set; }
 		public TemporalOrdenTrabajo () {
-			this.Produccion = new ObservableListSource<TempProduccion>();//new ICollection<TempProduccion> ( );
+			this.Produccion = new ObservableListSource<TempProduccion> ( );//new ICollection<TempProduccion> ( );
+			this.Desperdicios = new ObservableListSource<TempDesperdicios> ( );
 		}
 
 		public override string ToString () {
 			return this.OT;
-		}		
+		}
 	}
 
 	[Table ( "TEMPCAPT" )]
@@ -123,16 +125,15 @@ namespace libProduccionDataBase.Tablas {
 	}
 	[Table ( "TPRODUCCION" )]
 	public class TempProduccion {
-
-		private string _OT = "";
+		
 		[Key]
 		public int Id { get; set; }
 
-		[Required (ErrorMessage ="El numero de orden de trabajo es requerido")]
+		[Required ( ErrorMessage = "El numero de orden de trabajo es requerido" )]
 		public string OT { get; set; }
 
 
-		[Required(ErrorMessage ="El tipo de proceso es requerido")]
+		[Required ( ErrorMessage = "El tipo de proceso es requerido" )]
 		public int TIPOPROCESO { get; set; }
 
 		public int NUMERO { get; set; }
@@ -168,21 +169,91 @@ namespace libProduccionDataBase.Tablas {
 
 		public string USUARIO { get; set; }
 
-		[Index(IsUnique = true), MaxLength(128)]
+		[Index ( IsUnique = true ), MaxLength ( 128 )]
 		public string INDICE { get; set; }
 
 		public int REPETICION { get; set; }
 
 		public string EXTRUSION_ID { get; set; }
 
-		[ForeignKey( "TIPOPROCESO" )]
+		[ForeignKey ( "TIPOPROCESO" )]
 		public virtual Proceso Proceso_ { get; set; }
 
-		[ForeignKey ("MAQUINA")]
+		[ForeignKey ( "MAQUINA" )]
 		public virtual Maquina Maquina_ { get; set; }
 
-		[ForeignKey ("OT")]
+		[ForeignKey ( "OT" )]
 		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
 	}
+
+
+	#region Desperdicios
+
+	[Table ( "TDESPERDICIOS" )]
+	public class TempDesperdicios {
+
+		public int Id { get; set; }
+		[Required ( ErrorMessage = "El numero de orden de trabajo es requerido" )]
+		public string OT { get; set; }
+		[Required(ErrorMessage ="EL operador es requerido")]
+		public string OPERADOR { get; set; }
+		public int TURNO { get; set; }
+		public int MAQUINA { get; set; }
+		public int NUMERO { get; set; }
+		public double PESO { get; set; }
+		public int DEFECTO { get; set; }
+		public string DESCRIPCION { get; set; }
+		public DateTime FECHA { get; set; }
+		public string USUARIO { get; set; }
+		public string ESTRUCTURA { get; set; }
+		[ForeignKey ("DEFECTO")]
+		public virtual TFamiliaDefectosTDefecto FamiliaDefectosDefecto { get; set; }
+
+		[ForeignKey ( "OT" )]
+		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
+	}
+
+	[Table ( "TFamiliasDefectos" )]
+	public class TFamiliaDefectos {		
+		public int Id { get; set; }
+
+		[Required]
+		public string NombreFamiliaDefecto { get; set; }
+
+		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
+		public TFamiliaDefectos () {
+			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
+		}
+	}
+
+	[Table ( "TDefectos" )]
+	public class TDefecto {
+		public int Id { get; set; }
+		[Required]
+		public string NombreDefecto { get; set; }
+		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
+		public TDefecto () {
+			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
+		}
+	}
+	[Table( " TFamiliaDefectosTDefectos" )]
+	public class TFamiliaDefectosTDefecto {
+		public int Id { get; set; }
+
+		public int TFamiliaDefectosID { get; set; }
+
+		public int TDefectoID { get; set; }
+
+		[Required ]
+		public int ProcesoID { get; set; }
+		public virtual TFamiliaDefectos  FamiliaDefectos { get; set; }
+		public virtual TDefecto Defecto{ get; set; }
+
+		public virtual Proceso Proceso { get; set; }
+				
+	}
+
+	#endregion
+
 }
 

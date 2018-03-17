@@ -247,7 +247,7 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 0;
+			this.kryptonNavigator1.SelectedIndex = 1;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(687, 412);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -788,6 +788,7 @@
 			// produccionKryptonDataGridView
 			// 
 			this.produccionKryptonDataGridView.AllowUserToAddRows = false;
+			this.produccionKryptonDataGridView.AllowUserToDeleteRows = false;
 			this.produccionKryptonDataGridView.AutoGenerateColumns = false;
 			this.produccionKryptonDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proceso_,

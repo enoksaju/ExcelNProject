@@ -43,8 +43,8 @@ namespace EstacionesPesaje.Pages.MainPages {
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageReorder );
 
 			DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
-			DB.Configuration.LazyLoadingEnabled = false;
-
+			//DB.Configuration.LazyLoadingEnabled = false;
+			//DB.Database.Log = Console.Write;
 
 
 			if (!DB.tempOt.Any ( o => o.OT == OT.Trim ( ) )) throw new Exception ( "No existe la orden solicitada" );
@@ -426,7 +426,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 
 		#region FilterDataGridView
 
-		private async void toolStripButton3_Click ( object sender, EventArgs e ) {
+		private void toolStripButton3_Click ( object sender, EventArgs e ) {
 			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
 
 			DB.TempProduccion
@@ -438,7 +438,9 @@ namespace EstacionesPesaje.Pages.MainPages {
 				} );
 
 			DB.tempOt.Where ( OT => OT.OT == this.OT )
-				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
+				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) )
+				.Load ( );
+
 			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
 		}
 

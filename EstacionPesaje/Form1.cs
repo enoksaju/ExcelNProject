@@ -44,6 +44,7 @@ namespace EstacionesPesaje {
 			}
 
 			ImpresoraComboBox.SelectedItem = Properties.Settings.Default.ImpresoraEtiquetas;
+			Ribbon.SelectedTab = ProduccionRibbonTab;
 		}
 
 		private void KryptonDockingManager_DockableWorkspaceCellAdding ( object sender, DockableWorkspaceCellEventArgs e ) {
