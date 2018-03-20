@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.Base {
+﻿namespace EstacionPesaje.Pages.Base {
 	partial class DocumentPageBase {
 		/// <summary> 
 		/// Variable del diseñador necesaria.

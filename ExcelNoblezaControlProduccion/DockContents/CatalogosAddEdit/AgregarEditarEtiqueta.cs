@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje.DockContents.CatalogosAddEdit
+namespace EstacionPesaje.DockContents.CatalogosAddEdit
 {
     public partial class AgregarEditarEtiqueta : BaseForm.BaseFormCatalogosAddEdit, IActionsDockContent
     {

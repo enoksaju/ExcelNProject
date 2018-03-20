@@ -11,7 +11,7 @@ using ComponentFactory.Krypton.Docking;
 using ComponentFactory.Krypton.Workspace;
 using ComponentFactory.Krypton.Navigator;
 
-namespace EstacionesPesaje.Pages.Config {
+namespace EstacionPesaje.Pages.Config {
 	public partial class ConfigBasculaPage :Base.DefaultPageContent {
 		public ConfigBasculaPage ( libBascula .ControlBascula Bascula) {
 			InitializeComponent ( );
@@ -57,7 +57,7 @@ namespace EstacionesPesaje.Pages.Config {
 				try {
 					kryptonDockingManager.AddDockspace ( "Catalogos", DockingEdge.Right, new KryptonPage [] { this.GetKryptonPage ( ) } );
 				}
-				catch (Exception ex) {
+				catch (Exception) {
 
 				}
 			}						

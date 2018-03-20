@@ -16,7 +16,7 @@ using libProduccionDataBase.Identity;
 using libProduccionDataBase.Identity.Model;
 using static libProduccionDataBase.Auxiliares;
 
-namespace EstacionesPesaje
+namespace EstacionPesaje
 {
     public partial class LogInForm : KryptonForm
     {
@@ -34,7 +34,7 @@ namespace EstacionesPesaje
 
 
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
-            Console.WriteLine( "Local user config path: {0}", config.FilePath );
+            Console.WriteLine( "Local user config path: {0} ", config.FilePath );
 
         }
 

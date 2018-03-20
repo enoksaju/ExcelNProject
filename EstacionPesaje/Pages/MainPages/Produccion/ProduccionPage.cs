@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -15,7 +17,7 @@ using libControlesPersonalizados;
 using libProduccionDataBase.Contexto;
 using Z.EntityFramework.Plus;
 
-namespace EstacionesPesaje.Pages.MainPages {
+namespace EstacionPesaje.Pages.MainPages {
 	public partial class ProduccionPage : Base.DocumentPageBase, Base.IUsaBascula {
 
 		private string OT;
@@ -51,6 +53,7 @@ namespace EstacionesPesaje.Pages.MainPages {
 
 			this.OT = OT;
 			this.PageTitleText = String.Format ( "Produccion[{0}]", this.OT );
+			KP.ImageSmall = Properties.Resources.worker1;
 
 			DB.tempOt.Where ( o => o.OT == OT.Trim ( ) ).Load ( );
 
@@ -66,6 +69,8 @@ namespace EstacionesPesaje.Pages.MainPages {
 
 
 		}
+
+		
 		private async void ProduccionPage_Load ( object sender, EventArgs e ) {
 			await DB.Procesos.LoadAsync ( );
 			procesoBindingSource.DataSource = DB.Procesos.Local.ToBindingList ( );
@@ -82,7 +87,6 @@ namespace EstacionesPesaje.Pages.MainPages {
 			}
 			base.Dispose ( disposing );
 		}
-
 
 
 		/// <summary>
@@ -259,7 +263,10 @@ namespace EstacionesPesaje.Pages.MainPages {
 				DBLocal.SaveChanges ( );
 				nUMEROKryptonTextBox.Value += 1;
 
-				ToRet = DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == t.Id ).FirstOrDefault ( );
+				ToRet = DB.TempProduccion.Include ( r => r.Maquina_ )
+					.Include ( r => r.Proceso_ )
+					.Where ( r => r.Id == t.Id )
+					.FirstOrDefault ( );
 
 			}
 
@@ -409,8 +416,8 @@ namespace EstacionesPesaje.Pages.MainPages {
 		private void produccionKryptonDataGridView_SelectionChanged ( object sender, EventArgs e ) {
 			try {
 
-				var t = from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
-						select ( libProduccionDataBase.Tablas.TempProduccion ) rw.DataBoundItem;
+				List<TempProduccion> t = (from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
+						select (TempProduccion ) rw.DataBoundItem).ToList ();
 
 				PB_lbl.Text = String.Format ( "PB: {0:0.00}", t.Sum ( u => u.PESOBRUTO ) );
 				PN_lbl.Text = String.Format ( "PN: {0:0.00}", t.Sum ( u => u.PESONETO ) );
@@ -418,9 +425,8 @@ namespace EstacionesPesaje.Pages.MainPages {
 				SEL_lbl.Text = String.Format ( "SEL: {0:N0}", t.Count ( ) );
 
 			}
-			catch (Exception ex) {
+			catch (Exception) {
 
-				throw;
 			}
 		}
 

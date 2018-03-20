@@ -7,7 +7,7 @@
     <ProjectGuid>{397602AE-7A30-475F-8C0D-48B45157D274}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EstacionesPesaje</RootNamespace>
+    <RootNamespace>EstacionPesaje</RootNamespace>
     <AssemblyName>EstacionesPesaje</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -26,9 +26,10 @@
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>16</ApplicationRevision>
-    <ApplicationVersion>5.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
+    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationVersion>5.3.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -41,6 +42,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -111,6 +115,8 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -125,8 +131,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -199,6 +207,49 @@
     <Compile Include="Pages\MainPages\AddEditLabelPage.Designer.cs">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\FechasPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\FechasPage.Designer.cs">
+      <DependentUpon>FechasPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\forms\LineaFecha_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\forms\LineaFecha_frm.Designer.cs">
+      <DependentUpon>LineaFecha_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\IntelisisPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\IntelisisPage.Designer.cs">
+      <DependentUpon>IntelisisPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\OrdenTrabajoPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\OrdenTrabajoPage.Designer.cs">
+      <DependentUpon>OrdenTrabajoPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\ReportData.cs" />
+    <Compile Include="Pages\MainPages\DesperdiciosPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdiciosPage.Designer.cs">
+      <DependentUpon>DesperdiciosPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\HistoricoOts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\HistoricoOts.Designer.cs">
+      <DependentUpon>HistoricoOts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\InstruccionesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\InstruccionesPage.Designer.cs">
+      <DependentUpon>InstruccionesPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\MaquinasForms\AddMaquinaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,16 +262,16 @@
     <Compile Include="Pages\MainPages\MaquinasPage.Designer.cs">
       <DependentUpon>MaquinasPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPages\ProduccionPage.cs">
+    <Compile Include="Pages\MainPages\Produccion\ProduccionPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\MainPages\ProduccionPage.Designer.cs">
+    <Compile Include="Pages\MainPages\Produccion\ProduccionPage.Designer.cs">
       <DependentUpon>ProduccionPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPages\ViewOTPage.cs">
+    <Compile Include="Pages\MainPages\Produccion\ViewOTPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\MainPages\ViewOTPage.Designer.cs">
+    <Compile Include="Pages\MainPages\Produccion\ViewOTPage.Designer.cs">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -250,16 +301,39 @@
     <EmbeddedResource Include="Pages\MainPages\AddEditLabelPage.resx">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\FechasPage.resx">
+      <DependentUpon>FechasPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\forms\LineaFecha_frm.resx">
+      <DependentUpon>LineaFecha_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\IntelisisPage.resx">
+      <DependentUpon>IntelisisPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\OrdenTrabajoPage.resx">
+      <DependentUpon>OrdenTrabajoPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\Report1.rdlc" />
+    <EmbeddedResource Include="Pages\MainPages\DesperdiciosPage.resx">
+      <DependentUpon>DesperdiciosPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Embarques\Report1.rdlc" />
+    <EmbeddedResource Include="Pages\MainPages\Produccion\HistoricoOts.resx">
+      <DependentUpon>HistoricoOts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Produccion\InstruccionesPage.resx">
+      <DependentUpon>InstruccionesPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\MaquinasForms\AddMaquinaFrm.resx">
       <DependentUpon>AddMaquinaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\MaquinasPage.resx">
       <DependentUpon>MaquinasPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPages\ProduccionPage.resx">
+    <EmbeddedResource Include="Pages\MainPages\Produccion\ProduccionPage.resx">
       <DependentUpon>ProduccionPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPages\ViewOTPage.resx">
+    <EmbeddedResource Include="Pages\MainPages\Produccion\ViewOTPage.resx">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -277,13 +351,18 @@
     </EmbeddedResource>
     <None Include="EstacionPesaje_ClaveTemporal.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Etiqueta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Maquina.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Proceso.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TDefecto.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TEMPCAPT.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TempDesperdicios.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TemporalOrdenTrabajo.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TempProduccion.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TFamiliaDefectos.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TFamiliaDefectosTDefecto.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TipoMaquina.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -418,6 +497,23 @@
     <None Include="Resources\button_circle_blue_bottom.png" />
     <None Include="Resources\SelectAll_16x.png" />
     <None Include="Resources\Cancel_16x.png" />
+    <None Include="Resources\ScalesConnected_red.png" />
+    <None Include="Resources\bin.png" />
+    <None Include="Resources\bin1.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\form-new.png" />
+    <None Include="Resources\calendar_selection_day.png" />
+    <None Include="Resources\calendar_selection_year.png" />
+    <None Include="Resources\calendar_selection_week.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\history1.png" />
+    <None Include="Resources\history-info.png" />
+    <None Include="Resources\history-info1.png" />
+    <Content Include="Resources\intelisis.png" />
+    <None Include="Resources\print-add.png" />
+    <None Include="Resources\text_box.png" />
+    <None Include="Resources\text_box1.png" />
     <Content Include="tag_orange.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

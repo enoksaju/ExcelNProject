@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Docking;
 
-namespace EstacionesPesaje.Pages.Catalogos
+namespace EstacionPesaje.Pages.Catalogos
 {
     [ToolboxItem(true)]
     public partial class Page1 : Base.CatalogBase<libProduccionDataBase.Tablas.Material>

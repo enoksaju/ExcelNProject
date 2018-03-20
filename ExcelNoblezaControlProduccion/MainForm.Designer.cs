@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje
+﻿namespace EstacionPesaje
 {
     partial class MainForm
     {
@@ -125,7 +125,7 @@
 			// 
 			// AparienciaKryptonContextMenuItem
 			// 
-			this.AparienciaKryptonContextMenuItem.Image = global::EstacionesPesaje.Properties.Resources.Themes_32px;
+			this.AparienciaKryptonContextMenuItem.Image = global::EstacionPesaje.Properties.Resources.Themes_32px;
 			this.AparienciaKryptonContextMenuItem.Items.AddRange(new ComponentFactory.Krypton.Toolkit.KryptonContextMenuItemBase[] {
             this.kryptonContextMenuItems1,
             this.Theme_Header_kryptonContextMenuHeading,
@@ -145,21 +145,21 @@
 			// Theme_Blue_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Blue_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Blue_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Blue_16px;
+			this.Theme_Blue_kryptonContextMenuRadioButton.Image = global::EstacionPesaje.Properties.Resources.Themes_Blue_16px;
 			this.Theme_Blue_kryptonContextMenuRadioButton.Text = "Blue";
 			this.Theme_Blue_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
 			// Theme_Dark_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Dark_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Dark_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Dark_16px;
+			this.Theme_Dark_kryptonContextMenuRadioButton.Image = global::EstacionPesaje.Properties.Resources.Themes_Dark_16px;
 			this.Theme_Dark_kryptonContextMenuRadioButton.Text = "Dark";
 			this.Theme_Dark_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
 			// Theme_Silver_kryptonContextMenuRadioButton
 			// 
 			this.Theme_Silver_kryptonContextMenuRadioButton.ExtraText = "";
-			this.Theme_Silver_kryptonContextMenuRadioButton.Image = global::EstacionesPesaje.Properties.Resources.Themes_Silver_16px;
+			this.Theme_Silver_kryptonContextMenuRadioButton.Image = global::EstacionPesaje.Properties.Resources.Themes_Silver_16px;
 			this.Theme_Silver_kryptonContextMenuRadioButton.Text = "Light";
 			this.Theme_Silver_kryptonContextMenuRadioButton.CheckedChanged += new System.EventHandler(this.Theme_CheckedChanged);
 			// 
@@ -170,9 +170,9 @@
 			// 
 			// LayoutPersistenceKCheckBox
 			// 
-			this.LayoutPersistenceKCheckBox.Checked = global::EstacionesPesaje.Properties.Settings.Default.PersistenceLayout;
+			this.LayoutPersistenceKCheckBox.Checked = global::EstacionPesaje.Properties.Settings.Default.PersistenceLayout;
 			this.LayoutPersistenceKCheckBox.ExtraText = "";
-			this.LayoutPersistenceKCheckBox.Image = global::EstacionesPesaje.Properties.Resources.layouts_body_3_col;
+			this.LayoutPersistenceKCheckBox.Image = global::EstacionPesaje.Properties.Resources.layouts_body_3_col;
 			this.LayoutPersistenceKCheckBox.Text = "Layout Persitente";
 			this.LayoutPersistenceKCheckBox.CheckedChanged += new System.EventHandler(this.LayoutPersistenceKCheckBox_CheckedChanged);
 			// 
@@ -208,19 +208,19 @@
 			// 
 			// CatalogoClientesRibbonButton
 			// 
-			this.CatalogoClientesRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.GroupAssignments;
+			this.CatalogoClientesRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.GroupAssignments;
 			this.CatalogoClientesRibbonButton.TextLine1 = "Clientes";
 			this.CatalogoClientesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton1_Click);
 			// 
 			// CatalogoMaterialesRibbonButton
 			// 
-			this.CatalogoMaterialesRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.LayersMenu;
+			this.CatalogoMaterialesRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.LayersMenu;
 			this.CatalogoMaterialesRibbonButton.TextLine1 = "Materiales";
 			this.CatalogoMaterialesRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton2_Click);
 			// 
 			// CatalogoImpresorasRibbonButton
 			// 
-			this.CatalogoImpresorasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Center_of_Gravity;
+			this.CatalogoImpresorasRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.Center_of_Gravity;
 			this.CatalogoImpresorasRibbonButton.TextLine1 = "Impresoras";
 			this.CatalogoImpresorasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
 			// 
@@ -233,19 +233,19 @@
 			// 
 			// CatalogoMaquinasRibbonButton
 			// 
-			this.CatalogoMaquinasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.gears;
+			this.CatalogoMaquinasRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.gears;
 			this.CatalogoMaquinasRibbonButton.TextLine1 = "Maquinas";
 			this.CatalogoMaquinasRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
 			// 
 			// CatalogoUsuariosRibbonButton
 			// 
-			this.CatalogoUsuariosRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.report_user_symbol_green;
+			this.CatalogoUsuariosRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.report_user_symbol_green;
 			this.CatalogoUsuariosRibbonButton.TextLine1 = "Usuarios";
 			this.CatalogoUsuariosRibbonButton.Click += new System.EventHandler(this.kryptonRibbonGroupButton6_Click);
 			// 
 			// CatalogoEtiquetasRibbonButton
 			// 
-			this.CatalogoEtiquetasRibbonButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.barcode;
+			this.CatalogoEtiquetasRibbonButton.ImageLarge = global::EstacionPesaje.Properties.Resources.barcode;
 			this.CatalogoEtiquetasRibbonButton.TextLine1 = "Etiquetas";
 			this.CatalogoEtiquetasRibbonButton.Click += new System.EventHandler(this.CatalogoEtiquetasRibbonButton_Click);
 			// 
@@ -270,19 +270,19 @@
 			// 
 			// BasculakryptonRibbonGroupButton
 			// 
-			this.BasculakryptonRibbonGroupButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales;
+			this.BasculakryptonRibbonGroupButton.ImageLarge = global::EstacionPesaje.Properties.Resources.Industrial_Scales;
 			this.BasculakryptonRibbonGroupButton.TextLine1 = "Conectar";
 			this.BasculakryptonRibbonGroupButton.Click += new System.EventHandler(this.BasculaButtonSpecAny_Click);
 			// 
 			// Bascula_ConfigurarkryptonRibbonGroupButton
 			// 
-			this.Bascula_ConfigurarkryptonRibbonGroupButton.ImageLarge = global::EstacionesPesaje.Properties.Resources.Preferences;
+			this.Bascula_ConfigurarkryptonRibbonGroupButton.ImageLarge = global::EstacionPesaje.Properties.Resources.Preferences;
 			this.Bascula_ConfigurarkryptonRibbonGroupButton.TextLine1 = "Configurar";
 			this.Bascula_ConfigurarkryptonRibbonGroupButton.Click += new System.EventHandler(this.Bascula_ConfigurarkryptonRibbonGroupButton_Click);
 			// 
 			// kryptonRibbonGroupButton5
 			// 
-			this.kryptonRibbonGroupButton5.ImageLarge = global::EstacionesPesaje.Properties.Resources.DataTypeNumber;
+			this.kryptonRibbonGroupButton5.ImageLarge = global::EstacionPesaje.Properties.Resources.DataTypeNumber;
 			this.kryptonRibbonGroupButton5.TextLine1 = "Mostrar";
 			this.kryptonRibbonGroupButton5.TextLine2 = "Indicador";
 			this.kryptonRibbonGroupButton5.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click);
@@ -311,19 +311,19 @@
 			// 
 			// CatalogAction_Guardar_krb
 			// 
-			this.CatalogAction_Guardar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Save_vs;
+			this.CatalogAction_Guardar_krb.ImageLarge = global::EstacionPesaje.Properties.Resources.Save_vs;
 			this.CatalogAction_Guardar_krb.TextLine1 = "Guardar";
 			this.CatalogAction_Guardar_krb.Click += new System.EventHandler(this.CatalogAction_Guardar_krb_Click);
 			// 
 			// CatalogAction_Cancelar_krb
 			// 
-			this.CatalogAction_Cancelar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Cancel_vs_32x;
+			this.CatalogAction_Cancelar_krb.ImageLarge = global::EstacionPesaje.Properties.Resources.Cancel_vs_32x;
 			this.CatalogAction_Cancelar_krb.TextLine1 = "Cancelar";
 			this.CatalogAction_Cancelar_krb.Click += new System.EventHandler(this.CatalogAction_Cancelar_krb_Click);
 			// 
 			// CatalogAction_Nuevo_krb
 			// 
-			this.CatalogAction_Nuevo_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.NewCube_vs_32px;
+			this.CatalogAction_Nuevo_krb.ImageLarge = global::EstacionPesaje.Properties.Resources.NewCube_vs_32px;
 			this.CatalogAction_Nuevo_krb.TextLine1 = "Nuevo";
 			this.CatalogAction_Nuevo_krb.Click += new System.EventHandler(this.CatalogAction_Nuevo_krb_Click);
 			// 
@@ -334,7 +334,7 @@
 			// 
 			// CatalogAction_Refrescar_krb
 			// 
-			this.CatalogAction_Refrescar_krb.ImageLarge = global::EstacionesPesaje.Properties.Resources.Refresh_vs_32x;
+			this.CatalogAction_Refrescar_krb.ImageLarge = global::EstacionPesaje.Properties.Resources.Refresh_vs_32x;
 			this.CatalogAction_Refrescar_krb.TextLine1 = "Volver a";
 			this.CatalogAction_Refrescar_krb.TextLine2 = "Leer";
 			this.CatalogAction_Refrescar_krb.Click += new System.EventHandler(this.CatalogAction_Refrescar_krb_Click);
@@ -386,7 +386,7 @@
 			this.BasculaToolStripStatusLabel.AutoSize = false;
 			this.BasculaToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.BasculaToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-			this.BasculaToolStripStatusLabel.Image = global::EstacionesPesaje.Properties.Resources.Industrial_Scales;
+			this.BasculaToolStripStatusLabel.Image = global::EstacionPesaje.Properties.Resources.Industrial_Scales;
 			this.BasculaToolStripStatusLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
 			this.BasculaToolStripStatusLabel.Name = "BasculaToolStripStatusLabel";
 			this.BasculaToolStripStatusLabel.Size = new System.Drawing.Size(80, 16);
@@ -394,34 +394,34 @@
 			// 
 			// controlBascula
 			// 
-			this.controlBascula.ActivarEnvio = global::EstacionesPesaje.Properties.Settings.Default.BasculaActivarEnvio;
-			this.controlBascula.BaudRate = global::EstacionesPesaje.Properties.Settings.Default.BasculaBaudRate;
-			this.controlBascula.CaracterFinLinea = global::EstacionesPesaje.Properties.Settings.Default.BasculaCaracterFinLinea;
-			this.controlBascula.ConectarAlIniciar = global::EstacionesPesaje.Properties.Settings.Default.BasculaconectarAlIniciar;
-			this.controlBascula.ConnectedImage = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Puerto", global::EstacionesPesaje.Properties.Settings.Default, "BasculaPuerto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ReadTimeOut", global::EstacionesPesaje.Properties.Settings.Default, "BasculaReadTimeOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ActivarEnvio", global::EstacionesPesaje.Properties.Settings.Default, "BasculaActivarEnvio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("BaudRate", global::EstacionesPesaje.Properties.Settings.Default, "BasculaBaudRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("CaracterFinLinea", global::EstacionesPesaje.Properties.Settings.Default, "BasculaCaracterFinLinea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ConectarAlIniciar", global::EstacionesPesaje.Properties.Settings.Default, "BasculaconectarAlIniciar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Fin", global::EstacionesPesaje.Properties.Settings.Default, "BasculaFin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Inicio", global::EstacionesPesaje.Properties.Settings.Default, "BasculaInicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Intervalo", global::EstacionesPesaje.Properties.Settings.Default, "BasculaIntervalo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("StatusLabelShowUnidad", global::EstacionesPesaje.Properties.Settings.Default, "BasculaShowUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("TextoAEnviar", global::EstacionesPesaje.Properties.Settings.Default, "BasculaTextoAEnviar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Unidad", global::EstacionesPesaje.Properties.Settings.Default, "BasculaUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.controlBascula.DisconnectedImage = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Disconnected;
-			this.controlBascula.Fin = global::EstacionesPesaje.Properties.Settings.Default.BasculaFin;
-			this.controlBascula.Inicio = global::EstacionesPesaje.Properties.Settings.Default.BasculaInicio;
-			this.controlBascula.Intervalo = global::EstacionesPesaje.Properties.Settings.Default.BasculaIntervalo;
-			this.controlBascula.Puerto = global::EstacionesPesaje.Properties.Settings.Default.BasculaPuerto;
-			this.controlBascula.ReadTimeOut = global::EstacionesPesaje.Properties.Settings.Default.BasculaReadTimeOut;
+			this.controlBascula.ActivarEnvio = global::EstacionPesaje.Properties.Settings.Default.BasculaActivarEnvio;
+			this.controlBascula.BaudRate = global::EstacionPesaje.Properties.Settings.Default.BasculaBaudRate;
+			this.controlBascula.CaracterFinLinea = global::EstacionPesaje.Properties.Settings.Default.BasculaCaracterFinLinea;
+			this.controlBascula.ConectarAlIniciar = global::EstacionPesaje.Properties.Settings.Default.BasculaconectarAlIniciar;
+			this.controlBascula.ConnectedImage = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Connected;
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Puerto", global::EstacionPesaje.Properties.Settings.Default, "BasculaPuerto", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ReadTimeOut", global::EstacionPesaje.Properties.Settings.Default, "BasculaReadTimeOut", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ActivarEnvio", global::EstacionPesaje.Properties.Settings.Default, "BasculaActivarEnvio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("BaudRate", global::EstacionPesaje.Properties.Settings.Default, "BasculaBaudRate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("CaracterFinLinea", global::EstacionPesaje.Properties.Settings.Default, "BasculaCaracterFinLinea", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("ConectarAlIniciar", global::EstacionPesaje.Properties.Settings.Default, "BasculaconectarAlIniciar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Fin", global::EstacionPesaje.Properties.Settings.Default, "BasculaFin", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Inicio", global::EstacionPesaje.Properties.Settings.Default, "BasculaInicio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Intervalo", global::EstacionPesaje.Properties.Settings.Default, "BasculaIntervalo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("StatusLabelShowUnidad", global::EstacionPesaje.Properties.Settings.Default, "BasculaShowUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("TextoAEnviar", global::EstacionPesaje.Properties.Settings.Default, "BasculaTextoAEnviar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DataBindings.Add(new System.Windows.Forms.Binding("Unidad", global::EstacionPesaje.Properties.Settings.Default, "BasculaUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula.DisconnectedImage = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Disconnected;
+			this.controlBascula.Fin = global::EstacionPesaje.Properties.Settings.Default.BasculaFin;
+			this.controlBascula.Inicio = global::EstacionPesaje.Properties.Settings.Default.BasculaInicio;
+			this.controlBascula.Intervalo = global::EstacionPesaje.Properties.Settings.Default.BasculaIntervalo;
+			this.controlBascula.Puerto = global::EstacionPesaje.Properties.Settings.Default.BasculaPuerto;
+			this.controlBascula.ReadTimeOut = global::EstacionPesaje.Properties.Settings.Default.BasculaReadTimeOut;
 			this.controlBascula.StatusLabel = this.BasculaToolStripStatusLabel;
-			this.controlBascula.StatusLabelShowUnidad = global::EstacionesPesaje.Properties.Settings.Default.BasculaShowUnidad;
+			this.controlBascula.StatusLabelShowUnidad = global::EstacionPesaje.Properties.Settings.Default.BasculaShowUnidad;
 			this.controlBascula.StatusPicture = null;
-			this.controlBascula.TextoAEnviar = global::EstacionesPesaje.Properties.Settings.Default.BasculaTextoAEnviar;
-			this.controlBascula.Unidad = global::EstacionesPesaje.Properties.Settings.Default.BasculaUnidad;
+			this.controlBascula.TextoAEnviar = global::EstacionPesaje.Properties.Settings.Default.BasculaTextoAEnviar;
+			this.controlBascula.Unidad = global::EstacionPesaje.Properties.Settings.Default.BasculaUnidad;
 			this.controlBascula.CambioValor += new libBascula.CambioValorEvenHandler(this.controlBascula_CambioValor);
 			this.controlBascula.CambioEstado += new libBascula.CambioEstadoEventHandler(this.controlBascula_CambioEstado);
 			// 
@@ -429,14 +429,14 @@
 			// 
 			this.BasculaConectedkryptonCommand.Checked = true;
 			this.BasculaConectedkryptonCommand.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.BasculaConectedkryptonCommand.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
-			this.BasculaConectedkryptonCommand.ImageSmall = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected;
+			this.BasculaConectedkryptonCommand.ImageLarge = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Connected;
+			this.BasculaConectedkryptonCommand.ImageSmall = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Connected;
 			this.BasculaConectedkryptonCommand.TextLine1 = "Desconectar";
 			// 
 			// BasculaFormButtonSpecAny
 			// 
 			this.BasculaFormButtonSpecAny.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Far;
-			this.BasculaFormButtonSpecAny.Image = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Disconnected_16px;
+			this.BasculaFormButtonSpecAny.Image = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Disconnected_16px;
 			this.BasculaFormButtonSpecAny.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
 			this.BasculaFormButtonSpecAny.UniqueName = "05320F8988F04ACE98B08C0255DE0568";
 			this.BasculaFormButtonSpecAny.Click += new System.EventHandler(this.BasculaButtonSpecAny_Click);
@@ -445,8 +445,8 @@
 			// 
 			this.BasculaFormKryptonCommand.Checked = true;
 			this.BasculaFormKryptonCommand.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.BasculaFormKryptonCommand.ImageLarge = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
-			this.BasculaFormKryptonCommand.ImageSmall = global::EstacionesPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
+			this.BasculaFormKryptonCommand.ImageLarge = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
+			this.BasculaFormKryptonCommand.ImageSmall = global::EstacionPesaje.Properties.Resources.Industrial_Scales_Connected_16px;
 			this.BasculaFormKryptonCommand.TextLine1 = "Desconectar";
 			// 
 			// kryptonContextMenuItem2

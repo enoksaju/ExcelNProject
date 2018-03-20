@@ -122,6 +122,7 @@ namespace libProduccionDataBase.Tablas {
 		public int ZIPPER_TYPE { get; set; }
 		public double MERMAPROCESO { get; set; }
 		public int ENABLED { get; set; }
+		public DateTime FechaCaptura { get; set; }
 	}
 	[Table ( "TPRODUCCION" )]
 	public class TempProduccion {
@@ -211,6 +212,12 @@ namespace libProduccionDataBase.Tablas {
 
 		[ForeignKey ( "OT" )]
 		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
+
+		[ForeignKey ("MAQUINA")]
+		public virtual Maquina Maquina_ { get; set; }
+
+		[NotMapped]
+		public virtual TFamiliaDefectos FamiliaDefecto { get { return FamiliaDefectosDefecto?.FamiliaDefectos; } }
 	}
 
 	[Table ( "TFamiliasDefectos" )]
@@ -224,6 +231,9 @@ namespace libProduccionDataBase.Tablas {
 		public TFamiliaDefectos () {
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
 		}
+		public override string ToString () {
+			return this.NombreFamiliaDefecto;
+		}
 	}
 
 	[Table ( "TDefectos" )]
@@ -234,6 +244,10 @@ namespace libProduccionDataBase.Tablas {
 		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
 		public TDefecto () {
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
+		}
+
+		public override string ToString () {
+			return this.NombreDefecto;
 		}
 	}
 	[Table( " TFamiliaDefectosTDefectos" )]
@@ -250,7 +264,10 @@ namespace libProduccionDataBase.Tablas {
 		public virtual TDefecto Defecto{ get; set; }
 
 		public virtual Proceso Proceso { get; set; }
-				
+		
+		public override string ToString () {
+			return this.Defecto.ToString ( );
+		}
 	}
 
 	#endregion

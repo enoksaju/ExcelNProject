@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,14 +15,12 @@ using ComponentFactory.Krypton.Workspace;
 
 
 // TODO: CAmbiar los botones de las etiquetas a la pestaña de configuracion
-namespace EstacionesPesaje {
+namespace EstacionPesaje {
 	public partial class Form1 : KryptonForm {
 
 		private KryptonWorkspaceCell _wc;
 		private KryptonWorkspaceCell _dc;
-		private KryptonWorkspaceCell _cf;
 
-		private Pages.MainPages.ProduccionPage ProductionPage;
 		private Pages.Config.ConfigBasculaPage ConfigBascula;
 
 		public Form1 () {
@@ -33,7 +32,7 @@ namespace EstacionesPesaje {
 			// Configuracion del Administrador de Docking
 			KryptonDockingWorkspace w = kryptonDockingManager.ManageWorkspace ( kryptonDockableWorkspace );
 			kryptonDockingManager.ManageControl ( "Catalogos", MainPanel, w );
-			kryptonDockingManager.ManageFloating ( this );
+			kryptonDockingManager.ManageFloating ("Floating", this );
 			kryptonDockingManager.DockspaceCellAdding += KryptonDockingManager_DockspaceCellAdding;
 			kryptonDockingManager.DockableWorkspaceCellAdding += KryptonDockingManager_DockableWorkspaceCellAdding;
 
@@ -85,7 +84,7 @@ namespace EstacionesPesaje {
 
 		}
 
-		private void kryptonRibbonGroupButton1_Click ( object sender, EventArgs e ) {
+		private void ToogleBasculaConnection_Click ( object sender, EventArgs e ) {
 			controlBascula1.toogleConection ( );
 		}
 
@@ -104,6 +103,9 @@ namespace EstacionesPesaje {
 
 			Image img = new Bitmap ( e == libBascula.EstadoConexion.Conectado ? controlBascula1.ConnectedImage : controlBascula1.DisconnectedImage, new Size ( 16, 16 ) );
 			ConnectBasculaSpectButton.Image = img;
+			ToogleBascula_btn.TextLine1 = e == libBascula.EstadoConexion.Conectado ? "Desconectar" : "Conectar";
+			ToogleBascula_btn.ImageLarge = new Bitmap ( e == libBascula.EstadoConexion.Conectado ? controlBascula1.ConnectedImage : controlBascula1.DisconnectedImage, new Size ( 32, 32 ) );
+			ToogleBascula_btn.ImageSmall = img;
 		}
 
 		private void kryptonRibbonGroupButton3_Click ( object sender, EventArgs e ) {
@@ -135,6 +137,116 @@ namespace EstacionesPesaje {
 			Pages.Base.PageCreator.CrateAndShowMainPage (
 				new Pages.MainPages.ViewOTPage ( ),
 				kryptonDockingManager, _dc );
+		}
+
+		private void kryptonRibbonGroupButton4_Click_1 ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese el numero de orden que desea abrir", "Abrir OT Produccion", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.DesperdiciosPage ( OT, controlBascula1 ),
+						kryptonDockingManager, _dc );
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
+		}
+
+		private void kryptonRibbonGroupButton1_Click ( object sender, EventArgs e ) {
+			this.kryptonDockableWorkspace
+				.AllPages ( )
+				.ToList ( )
+				.ForEach ( o => this.kryptonDockableWorkspace.ClosePage ( o ) );
+		}
+
+		private void kryptonRibbonGroupButton5_Click_1 ( object sender, EventArgs e ) {
+			using (var frm = new Pages .MainPages .DesperdicioReports .forms .LineaFecha_frm ( )) {
+				if(frm.ShowDialog ()== DialogResult.OK) {
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+					new Pages.MainPages.DesperdicioReports.IntelisisPage ( frm.Response .Linea .Id , frm.Response .FechaInicial , frm .Response .FechaFinal ),
+					kryptonDockingManager, _dc );
+				}
+			}
+		}
+
+		private void kryptonRibbonGroupButton8_Click ( object sender, EventArgs e ) {
+			using (var frm = new Pages.MainPages.DesperdicioReports.forms.LineaFecha_frm ( )) {
+				if (frm.ShowDialog ( ) == DialogResult.OK) {
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+					new Pages.MainPages.DesperdicioReports.FechasPage ( frm.Response.Linea.Id, frm.Response.FechaInicial, frm.Response.FechaFinal ),
+					kryptonDockingManager, _dc );
+				}
+			}
+		}
+
+		private void kryptonRibbonGroupButton7_Click ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese el numero de orden que desea abrir, separe por ',' si son varias ordenes.", "Abrir OT Produccion", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.DesperdicioReports.OrdenTrabajoPage ( OT ),
+						kryptonDockingManager, _dc );
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
+		}
+
+		private void showInstrucciones_btn_Click ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese el numero de orden que desea abrir", "Abrir OT Produccion", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.InstruccionesPage ( OT ),
+						kryptonDockingManager, _dc );
+
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
+		}
+
+		private void kryptonRibbonGroupButton6_Click ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese el numero de orden que desea abrir", "Abrir Historico", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.HistoricoOts ( OT ),
+						kryptonDockingManager, _dc );
+
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
+		}
+
+		private void kryptonRibbonGroupButton9_Click ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese nombre total o parcial del producto a buscar", "Abrir Historico", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.HistoricoOts ( OT , false),
+						kryptonDockingManager, _dc );
+
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
 		}
 	}
 }

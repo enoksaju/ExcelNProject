@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje {
+namespace EstacionPesaje {
 	/// <summary>
 	/// Formulario Principal de la Aplicación
 	/// </summary>

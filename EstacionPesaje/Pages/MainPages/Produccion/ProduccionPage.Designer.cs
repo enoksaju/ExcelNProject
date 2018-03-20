@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.MainPages {
+﻿namespace EstacionPesaje.Pages.MainPages {
 	partial class ProduccionPage {
 		/// <summary> 
 		/// Variable del diseñador necesaria.
@@ -137,8 +137,9 @@
 			this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.replaceAndPrintZPLProduccion1 = new libControlesPersonalizados.ReplaceAndPrintZPLProduccion(this.components);
+			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.procesoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.replaceAndPrintZPLProduccion1 = new libControlesPersonalizados.ReplaceAndPrintZPLProduccion(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.temporalOrdenTrabajoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
 			this.kryptonNavigator1.SuspendLayout();
@@ -247,7 +248,7 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 1;
+			this.kryptonNavigator1.SelectedIndex = 0;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(687, 412);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -258,7 +259,7 @@
 			this.kryptonPageInstrucciones.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPageInstrucciones.Controls.Add(this.tableLayoutPanel4);
 			this.kryptonPageInstrucciones.Flags = 65534;
-			this.kryptonPageInstrucciones.ImageSmall = global::EstacionesPesaje.Properties.Resources.Report_16x;
+			this.kryptonPageInstrucciones.ImageSmall = global::EstacionPesaje.Properties.Resources.Report_16x;
 			this.kryptonPageInstrucciones.LastVisibleSet = true;
 			this.kryptonPageInstrucciones.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPageInstrucciones.Name = "kryptonPageInstrucciones";
@@ -555,7 +556,7 @@
 			this.kryptonPage2.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage2.Controls.Add(this.InsImpresion_tbx);
 			this.kryptonPage2.Flags = 65534;
-			this.kryptonPage2.ImageSmall = global::EstacionesPesaje.Properties.Resources.colors;
+			this.kryptonPage2.ImageSmall = global::EstacionPesaje.Properties.Resources.colors;
 			this.kryptonPage2.LastVisibleSet = true;
 			this.kryptonPage2.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage2.Name = "kryptonPage2";
@@ -582,7 +583,7 @@
 			this.kryptonPage3.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage3.Controls.Add(this.InstLaminacion_tbx);
 			this.kryptonPage3.Flags = 65534;
-			this.kryptonPage3.ImageSmall = global::EstacionesPesaje.Properties.Resources.layers;
+			this.kryptonPage3.ImageSmall = global::EstacionPesaje.Properties.Resources.layers;
 			this.kryptonPage3.LastVisibleSet = true;
 			this.kryptonPage3.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage3.Name = "kryptonPage3";
@@ -606,7 +607,7 @@
 			this.kryptonPage4.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage4.Controls.Add(this.InsRefinado_tbx);
 			this.kryptonPage4.Flags = 65534;
-			this.kryptonPage4.ImageSmall = global::EstacionesPesaje.Properties.Resources.clipboard_cut;
+			this.kryptonPage4.ImageSmall = global::EstacionPesaje.Properties.Resources.clipboard_cut;
 			this.kryptonPage4.LastVisibleSet = true;
 			this.kryptonPage4.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage4.Name = "kryptonPage4";
@@ -630,7 +631,7 @@
 			this.kryptonPage5.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage5.Controls.Add(this.InsDoblado_tbx);
 			this.kryptonPage5.Flags = 65534;
-			this.kryptonPage5.ImageSmall = global::EstacionesPesaje.Properties.Resources.note;
+			this.kryptonPage5.ImageSmall = global::EstacionPesaje.Properties.Resources.note;
 			this.kryptonPage5.LastVisibleSet = true;
 			this.kryptonPage5.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage5.Name = "kryptonPage5";
@@ -654,7 +655,7 @@
 			this.kryptonPage6.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage6.Controls.Add(this.InsCorte_tbx);
 			this.kryptonPage6.Flags = 65534;
-			this.kryptonPage6.ImageSmall = global::EstacionesPesaje.Properties.Resources.Cut_16x;
+			this.kryptonPage6.ImageSmall = global::EstacionPesaje.Properties.Resources.Cut_16x;
 			this.kryptonPage6.LastVisibleSet = true;
 			this.kryptonPage6.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage6.Name = "kryptonPage6";
@@ -678,7 +679,7 @@
 			this.kryptonPage7.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage7.Controls.Add(this.InsEmbobinado_tbx);
 			this.kryptonPage7.Flags = 65534;
-			this.kryptonPage7.ImageSmall = global::EstacionesPesaje.Properties.Resources.item_disable;
+			this.kryptonPage7.ImageSmall = global::EstacionPesaje.Properties.Resources.item_disable;
 			this.kryptonPage7.LastVisibleSet = true;
 			this.kryptonPage7.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage7.Name = "kryptonPage7";
@@ -702,7 +703,7 @@
 			this.kryptonPage8.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage8.Controls.Add(this.InstExtrusion_tbx);
 			this.kryptonPage8.Flags = 65534;
-			this.kryptonPage8.ImageSmall = global::EstacionesPesaje.Properties.Resources.script;
+			this.kryptonPage8.ImageSmall = global::EstacionPesaje.Properties.Resources.script;
 			this.kryptonPage8.LastVisibleSet = true;
 			this.kryptonPage8.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage8.Name = "kryptonPage8";
@@ -726,7 +727,7 @@
 			this.kryptonPage9.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage9.Controls.Add(this.InstMangas_tbx);
 			this.kryptonPage9.Flags = 65534;
-			this.kryptonPage9.ImageSmall = global::EstacionesPesaje.Properties.Resources.database;
+			this.kryptonPage9.ImageSmall = global::EstacionPesaje.Properties.Resources.database;
 			this.kryptonPage9.LastVisibleSet = true;
 			this.kryptonPage9.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage9.Name = "kryptonPage9";
@@ -750,7 +751,7 @@
 			this.kryptonPage10.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
 			this.kryptonPage10.Controls.Add(this.InsSellado_tbx);
 			this.kryptonPage10.Flags = 65534;
-			this.kryptonPage10.ImageSmall = global::EstacionesPesaje.Properties.Resources.book_Open_16xLG;
+			this.kryptonPage10.ImageSmall = global::EstacionPesaje.Properties.Resources.book_Open_16xLG;
 			this.kryptonPage10.LastVisibleSet = true;
 			this.kryptonPage10.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage10.Name = "kryptonPage10";
@@ -776,7 +777,7 @@
 			this.kryptonPageLista.Controls.Add(this.statusStrip2);
 			this.kryptonPageLista.Controls.Add(this.toolStrip1);
 			this.kryptonPageLista.Flags = 65534;
-			this.kryptonPageLista.ImageSmall = global::EstacionesPesaje.Properties.Resources.ListView;
+			this.kryptonPageLista.ImageSmall = global::EstacionPesaje.Properties.Resources.ListView;
 			this.kryptonPageLista.LastVisibleSet = true;
 			this.kryptonPageLista.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPageLista.Name = "kryptonPageLista";
@@ -993,7 +994,7 @@
 			this.PB_lbl.AutoSize = false;
 			this.PB_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.PB_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-			this.PB_lbl.Image = global::EstacionesPesaje.Properties.Resources.button_circle_blue_bottom;
+			this.PB_lbl.Image = global::EstacionPesaje.Properties.Resources.button_circle_blue_bottom;
 			this.PB_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.PB_lbl.Name = "PB_lbl";
 			this.PB_lbl.Padding = new System.Windows.Forms.Padding(5);
@@ -1006,7 +1007,7 @@
 			this.PN_lbl.AutoSize = false;
 			this.PN_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.PN_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-			this.PN_lbl.Image = global::EstacionesPesaje.Properties.Resources.button_circle_green_bottom;
+			this.PN_lbl.Image = global::EstacionPesaje.Properties.Resources.button_circle_green_bottom;
 			this.PN_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.PN_lbl.Name = "PN_lbl";
 			this.PN_lbl.Padding = new System.Windows.Forms.Padding(5);
@@ -1019,7 +1020,7 @@
 			this.PZ_lbl.AutoSize = false;
 			this.PZ_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.PZ_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-			this.PZ_lbl.Image = global::EstacionesPesaje.Properties.Resources.AzureDefaultResource_16x;
+			this.PZ_lbl.Image = global::EstacionPesaje.Properties.Resources.AzureDefaultResource_16x;
 			this.PZ_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.PZ_lbl.Name = "PZ_lbl";
 			this.PZ_lbl.Padding = new System.Windows.Forms.Padding(5);
@@ -1032,7 +1033,7 @@
 			this.SEL_lbl.AutoSize = false;
 			this.SEL_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.SEL_lbl.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedInner;
-			this.SEL_lbl.Image = global::EstacionesPesaje.Properties.Resources.SelectAll_16x;
+			this.SEL_lbl.Image = global::EstacionPesaje.Properties.Resources.SelectAll_16x;
 			this.SEL_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.SEL_lbl.Name = "SEL_lbl";
 			this.SEL_lbl.Padding = new System.Windows.Forms.Padding(5);
@@ -1062,7 +1063,7 @@
 			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = global::EstacionesPesaje.Properties.Resources.Save_32x;
+			this.toolStripButton1.Image = global::EstacionPesaje.Properties.Resources.Save_32x;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(69, 22);
@@ -1076,7 +1077,7 @@
 			// 
 			// toolStripButton2
 			// 
-			this.toolStripButton2.Image = global::EstacionesPesaje.Properties.Resources.Print_16x;
+			this.toolStripButton2.Image = global::EstacionPesaje.Properties.Resources.Print_16x;
 			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(73, 22);
@@ -1103,7 +1104,7 @@
 			// toolStripButton3
 			// 
 			this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton3.Image = global::EstacionesPesaje.Properties.Resources.Filter_16x;
+			this.toolStripButton3.Image = global::EstacionPesaje.Properties.Resources.Filter_16x;
 			this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton3.Name = "toolStripButton3";
 			this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
@@ -1117,7 +1118,7 @@
 			// 
 			// toolStripButton4
 			// 
-			this.toolStripButton4.Image = global::EstacionesPesaje.Properties.Resources.Cancel_16x;
+			this.toolStripButton4.Image = global::EstacionPesaje.Properties.Resources.Cancel_16x;
 			this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton4.Margin = new System.Windows.Forms.Padding(20, 1, 0, 2);
 			this.toolStripButton4.Name = "toolStripButton4";
@@ -1147,7 +1148,7 @@
 			this.kryptonPageCaptura.Controls.Add(this.kryptonButton1);
 			this.kryptonPageCaptura.Controls.Add(this.oRIGENKryptonTextBox);
 			this.kryptonPageCaptura.Flags = 65534;
-			this.kryptonPageCaptura.ImageSmall = global::EstacionesPesaje.Properties.Resources.AddRemoteServer_16x;
+			this.kryptonPageCaptura.ImageSmall = global::EstacionPesaje.Properties.Resources.AddRemoteServer_16x;
 			this.kryptonPageCaptura.LastVisibleSet = true;
 			this.kryptonPageCaptura.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPageCaptura.Name = "kryptonPageCaptura";
@@ -1249,7 +1250,7 @@
 			this.OperadorLabel.AutoSize = false;
 			this.OperadorLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.OperadorLabel.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-			this.OperadorLabel.Image = global::EstacionesPesaje.Properties.Resources.User_32x;
+			this.OperadorLabel.Image = global::EstacionPesaje.Properties.Resources.User_32x;
 			this.OperadorLabel.Name = "OperadorLabel";
 			this.OperadorLabel.Size = new System.Drawing.Size(80, 17);
 			this.OperadorLabel.Text = "Operador";
@@ -1259,7 +1260,7 @@
 			this.ProcesoLabel.AutoSize = false;
 			this.ProcesoLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.ProcesoLabel.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-			this.ProcesoLabel.Image = global::EstacionesPesaje.Properties.Resources.Process_32x;
+			this.ProcesoLabel.Image = global::EstacionPesaje.Properties.Resources.Process_32x;
 			this.ProcesoLabel.Name = "ProcesoLabel";
 			this.ProcesoLabel.Size = new System.Drawing.Size(80, 17);
 			this.ProcesoLabel.Text = "Proceso";
@@ -1269,7 +1270,7 @@
 			this.MaquinaLabel.AutoSize = false;
 			this.MaquinaLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
 			this.MaquinaLabel.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-			this.MaquinaLabel.Image = global::EstacionesPesaje.Properties.Resources.gear_32xLG;
+			this.MaquinaLabel.Image = global::EstacionPesaje.Properties.Resources.gear_32xLG;
 			this.MaquinaLabel.Name = "MaquinaLabel";
 			this.MaquinaLabel.Size = new System.Drawing.Size(80, 17);
 			this.MaquinaLabel.Text = "Maquina";
@@ -1279,7 +1280,7 @@
 			this.TurnoLabel.AutoSize = false;
 			this.TurnoLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
 			this.TurnoLabel.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
-			this.TurnoLabel.Image = global::EstacionesPesaje.Properties.Resources.Time_32x;
+			this.TurnoLabel.Image = global::EstacionPesaje.Properties.Resources.Time_32x;
 			this.TurnoLabel.Name = "TurnoLabel";
 			this.TurnoLabel.Size = new System.Drawing.Size(80, 17);
 			this.TurnoLabel.Text = "Turno";
@@ -1506,7 +1507,7 @@
 			this.kryptonButton2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
 			this.kryptonButton2.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
 			this.kryptonButton2.TabIndex = 13;
-			this.kryptonButton2.Values.Image = global::EstacionesPesaje.Properties.Resources.Save_32x;
+			this.kryptonButton2.Values.Image = global::EstacionPesaje.Properties.Resources.Save_32x;
 			this.kryptonButton2.Values.Text = "Solo Guardar";
 			this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
 			// 
@@ -1520,7 +1521,7 @@
 			this.kryptonButton1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
 			this.kryptonButton1.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
 			this.kryptonButton1.TabIndex = 12;
-			this.kryptonButton1.Values.Image = global::EstacionesPesaje.Properties.Resources.Print_16x;
+			this.kryptonButton1.Values.Image = global::EstacionPesaje.Properties.Resources.Print_16x;
 			this.kryptonButton1.Values.Text = "Imprimir y Guardar";
 			this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
 			// 
@@ -1623,14 +1624,22 @@
 			this.dataGridViewTextBoxColumn1.HeaderText = "PROCESO";
 			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
 			// 
-			// replaceAndPrintZPLProduccion1
+			// dataGridViewTextBoxColumn2
 			// 
-			this.replaceAndPrintZPLProduccion1.DataBindings.Add(new System.Windows.Forms.Binding("PrinterName", global::EstacionesPesaje.Properties.Settings.Default, "ImpresoraEtiquetas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.replaceAndPrintZPLProduccion1.PrinterName = global::EstacionesPesaje.Properties.Settings.Default.ImpresoraEtiquetas;
+			this.dataGridViewTextBoxColumn2.DataPropertyName = "Proceso_";
+			this.dataGridViewTextBoxColumn2.Frozen = true;
+			this.dataGridViewTextBoxColumn2.HeaderText = "PROCESO";
+			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+			this.dataGridViewTextBoxColumn2.ReadOnly = true;
 			// 
 			// procesoBindingSource
 			// 
 			this.procesoBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.Proceso);
+			// 
+			// replaceAndPrintZPLProduccion1
+			// 
+			this.replaceAndPrintZPLProduccion1.DataBindings.Add(new System.Windows.Forms.Binding("PrinterName", global::EstacionPesaje.Properties.Settings.Default, "ImpresoraEtiquetas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.replaceAndPrintZPLProduccion1.PrinterName = global::EstacionPesaje.Properties.Settings.Default.ImpresoraEtiquetas;
 			// 
 			// ProduccionPage
 			// 
@@ -1725,7 +1734,6 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonTextBox ProductoTextBox;
 		private System.Windows.Forms.BindingSource produccionBindingSource;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView produccionKryptonDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn procesoDataGridViewTextBoxColumn;
 		private ComponentFactory.Krypton.Navigator.KryptonNavigator kryptonNavigator1;
 		private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPageLista;
 		private ComponentFactory.Krypton.Navigator.KryptonPage kryptonPageCaptura;
@@ -1843,5 +1851,6 @@
 		private System.Windows.Forms.ToolStripStatusLabel SEL_lbl;
 		private System.Windows.Forms.BindingSource procesoBindingSource;
 		private System.Windows.Forms.ToolStripButton toolStripButton4;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 	}
 }

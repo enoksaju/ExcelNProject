@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
 
-namespace EstacionesPesaje.DockContents.Catalogos
+namespace EstacionPesaje.DockContents.Catalogos
 {
     public partial class CatalogoImpresoras : BaseForm.BaseFormCatalogos
     {

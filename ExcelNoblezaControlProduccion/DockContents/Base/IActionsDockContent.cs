@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace EstacionesPesaje.DockContents
+namespace EstacionPesaje.DockContents
 {
     public interface IActionsDockContent
     {

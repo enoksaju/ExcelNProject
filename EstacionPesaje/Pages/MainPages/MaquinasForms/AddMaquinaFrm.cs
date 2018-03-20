@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using libProduccionDataBase.Tablas;
 
-namespace EstacionesPesaje.Pages.MainPages.MaquinasForms {
+namespace EstacionPesaje.Pages.MainPages.MaquinasForms {
 	public partial class AddMaquinaFrm : KryptonForm {
 
 		libProduccionDataBase.Contexto.DataBaseContexto DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );

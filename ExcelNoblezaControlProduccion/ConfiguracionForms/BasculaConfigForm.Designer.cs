@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.ConfiguracionForms
+﻿namespace EstacionPesaje.ConfiguracionForms
 {
     partial class BasculaConfigForm
     {

@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
+﻿namespace EstacionPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarCliente
     {
@@ -154,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(332, 470);
             this.Controls.Add(this.tableLayoutPanel2);
             this.HeaderDescripcion = "";
-            this.HeaderImage = global::EstacionesPesaje.Properties.Resources.GroupAssignments;
+            this.HeaderImage = global::EstacionPesaje.Properties.Resources.GroupAssignments;
             this.HeaderText = "Clientes";
             this.Name = "AgregarEditarCliente";
             this.Text = "AgregarEditarCliente";

@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.Utilidades
+﻿namespace EstacionPesaje.DockContents.Utilidades
 {
     partial class IndicadorBascula
     {
@@ -72,7 +72,7 @@
             // 
             // kryptonContextMenuColorColumns1
             // 
-            this.kryptonContextMenuColorColumns1.SelectedColor = global::EstacionesPesaje.Properties.Settings.Default.BasculaColor;
+            this.kryptonContextMenuColorColumns1.SelectedColor = global::EstacionPesaje.Properties.Settings.Default.BasculaColor;
             this.kryptonContextMenuColorColumns1.SelectedColorChanged += new System.EventHandler<ComponentFactory.Krypton.Toolkit.ColorEventArgs>(this.kryptonContextMenuColorColumns1_SelectedColorChanged);
             // 
             // kryptonPanel1

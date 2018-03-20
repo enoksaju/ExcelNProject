@@ -13,7 +13,7 @@ using ComponentFactory.Krypton.Docking;
 using ComponentFactory.Krypton.Workspace;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace EstacionesPesaje.Pages.Base {
+namespace EstacionPesaje.Pages.Base {
 	[ToolboxItem ( false )]
 	public partial class CatalogBase<T> : DefaultPageContent, ICatalogPage, IToKryptonPage where T : class {
 
@@ -41,7 +41,7 @@ namespace EstacionesPesaje.Pages.Base {
 			}
 		}
 
-		public void Show ( KryptonDockingManager kryptonDockingManager, KryptonWorkspaceCell kryptonWorkspaceCell ) {
+		public new void Show ( KryptonDockingManager kryptonDockingManager, KryptonWorkspaceCell kryptonWorkspaceCell ) {
 			throw new NotImplementedException ( );
 		}
 

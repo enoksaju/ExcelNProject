@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 
-namespace EstacionesPesaje.Pages.MainPages {
+namespace EstacionPesaje.Pages.MainPages {
 	public partial class MaquinasPage : Base.DocumentPageBase {
 		public MaquinasPage () {
 			InitializeComponent ( );

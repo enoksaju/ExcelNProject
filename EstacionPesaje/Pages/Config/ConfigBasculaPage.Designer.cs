@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.Config {
+﻿namespace EstacionPesaje.Pages.Config {
 	partial class ConfigBasculaPage {
 		/// <summary> 
 		/// Variable del diseñador necesaria.

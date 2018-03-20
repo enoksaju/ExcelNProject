@@ -47,7 +47,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.AddCodeButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.CancelButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnCancelButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ResultCodeRichTextBox = new System.Windows.Forms.RichTextBox();
             this.zplImageConverter1 = new libControlesPersonalizados.ZPLCONVERTER.zplImageConverter();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
@@ -270,7 +270,7 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.AddCodeButton, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.CancelButton, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnCancelButton, 0, 1);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(336, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
@@ -294,15 +294,15 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CancelButton.Location = new System.Drawing.Point(10, 60);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(10);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(100, 30);
-            this.CancelButton.TabIndex = 1;
-            this.CancelButton.Values.Image = global::libControlesPersonalizados.Properties.Resources.cancel;
-            this.CancelButton.Values.Text = "Cancelar";
+            this.btnCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancelButton.Location = new System.Drawing.Point(10, 60);
+            this.btnCancelButton.Margin = new System.Windows.Forms.Padding(10);
+            this.btnCancelButton.Name = "CancelButton";
+            this.btnCancelButton.Size = new System.Drawing.Size(100, 30);
+            this.btnCancelButton.TabIndex = 1;
+            this.btnCancelButton.Values.Image = global::libControlesPersonalizados.Properties.Resources.cancel;
+            this.btnCancelButton.Values.Text = "Cancelar";
             // 
             // ResultCodeRichTextBox
             // 
@@ -377,7 +377,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown kryptonNumericUpDown1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private ComponentFactory.Krypton.Toolkit.KryptonButton AddCodeButton;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton CancelButton;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancelButton;
         private ComponentFactory.Krypton.Toolkit.KryptonWrapLabel kryptonWrapLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown LargoLinea;
         private System.Windows.Forms.RichTextBox ResultCodeRichTextBox;

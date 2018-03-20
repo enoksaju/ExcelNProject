@@ -13,7 +13,7 @@ using ComponentFactory.Krypton.Docking;
 using ComponentFactory.Krypton.Workspace;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace EstacionesPesaje.Pages.Base {
+namespace EstacionPesaje.Pages.Base {
 	[ToolboxItem ( false )]
 	public partial class CatalogBase<T> : DefaultPageContent, ICatalogPage, IToKryptonPage where T : class {
 

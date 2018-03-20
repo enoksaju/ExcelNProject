@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje
+﻿namespace EstacionPesaje
 {
     partial class SplashScreen
     {
@@ -43,7 +43,7 @@
             // MainLayoutPanel
             // 
             this.MainLayoutPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.MainLayoutPanel.BackgroundImage = global::EstacionesPesaje.Properties.Resources.logo;
+            this.MainLayoutPanel.BackgroundImage = global::EstacionPesaje.Properties.Resources.logo;
             this.MainLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MainLayoutPanel.ColumnCount = 1;
             this.MainLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -104,7 +104,7 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::EstacionesPesaje.Properties.Resources.Cancel_vs_32x;
+            this.button1.Image = global::EstacionPesaje.Properties.Resources.Cancel_vs_32x;
             this.button1.Location = new System.Drawing.Point(281, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 23);

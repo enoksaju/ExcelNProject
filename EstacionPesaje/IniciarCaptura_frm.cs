@@ -12,9 +12,9 @@ using ComponentFactory.Krypton.Toolkit;
 using libControlesPersonalizados;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
-using static EstacionesPesaje.Pages.MainPages.ProduccionPage;
+using static EstacionPesaje.Pages.MainPages.ProduccionPage;
 
-namespace EstacionesPesaje {
+namespace EstacionPesaje {
 	public partial class IniciarCaptura_frm : KryptonForm {
 
 		public InformacionInicialCaptura response = null;
@@ -44,7 +44,7 @@ namespace EstacionesPesaje {
 					etiquetaKryptonComboBox.SelectedItem
 					).ZPLCode );
 			}
-			catch (Exception ex) {
+			catch (Exception) {
 
 			}
 		}

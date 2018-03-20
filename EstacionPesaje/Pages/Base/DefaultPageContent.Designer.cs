@@ -1,13 +1,8 @@
-﻿namespace EstacionesPesaje.Pages.Base
+﻿namespace EstacionPesaje.Pages.Base
 {
     partial class DefaultPageContent
     {
-        /// <summary> 
-        /// Variable del diseñador necesaria.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        
+       
 
         #region Código generado por el Diseñador de componentes
 

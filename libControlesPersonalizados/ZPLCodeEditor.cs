@@ -936,7 +936,7 @@ namespace libControlesPersonalizados
 
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 return null;

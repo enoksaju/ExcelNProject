@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje {
+﻿namespace EstacionPesaje {
 	partial class IniciarCaptura_frm {
 		/// <summary>
 		/// Required designer variable.
@@ -11,6 +11,7 @@
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose ( bool disposing ) {
 			if (disposing && ( components != null )) {
+				DB.Dispose ( );
 				components.Dispose ( );
 			}
 			base.Dispose ( disposing );
@@ -60,7 +61,7 @@
 			this.kryptonLabel9 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			this.ItemOptionalTextBox = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.kryptonPanel2 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-			this.CancelButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+			this.btnCancelButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.AceptButton = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			((System.ComponentModel.ISupportInitialize)(this.procesoBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.etiquetaBindingSource)).BeginInit();
@@ -113,7 +114,7 @@
 			// 
 			// zplImageConverter1
 			// 
-			this.zplImageConverter1.BlacknessLimitPercentage = 42;
+			this.zplImageConverter1.BlacknessLimitPercentage = 40;
 			this.zplImageConverter1.CompressHex = true;
 			this.zplImageConverter1.Image = null;
 			this.zplImageConverter1.LengToSplit = 40;
@@ -235,6 +236,7 @@
 			// 
 			this.maquinasKryptonComboBox.DataSource = this.maquinasBindingSource;
 			this.maquinasKryptonComboBox.DisplayMember = "NombreMaquina";
+			this.maquinasKryptonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.maquinasKryptonComboBox.DropDownWidth = 250;
 			this.maquinasKryptonComboBox.Location = new System.Drawing.Point(119, 121);
 			this.maquinasKryptonComboBox.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
@@ -495,7 +497,7 @@
 			// kryptonPanel2
 			// 
 			this.kryptonPanel2.AutoSize = true;
-			this.kryptonPanel2.Controls.Add(this.CancelButton);
+			this.kryptonPanel2.Controls.Add(this.btnCancelButton);
 			this.kryptonPanel2.Controls.Add(this.AceptButton);
 			this.kryptonPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.kryptonPanel2.Location = new System.Drawing.Point(0, 275);
@@ -505,21 +507,19 @@
 			// 
 			// CancelButton
 			// 
-			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.CancelButton.Location = new System.Drawing.Point(3, 3);
-			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Size = new System.Drawing.Size(132, 43);
-			this.CancelButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-			this.CancelButton.TabIndex = 1;
-			this.CancelButton.Values.Text = "Cancelar";
+			this.btnCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.btnCancelButton.Location = new System.Drawing.Point(3, 3);
+			this.btnCancelButton.Name = "CancelButton";
+			this.btnCancelButton.Size = new System.Drawing.Size(132, 43);
+			this.btnCancelButton.TabIndex = 1;
+			this.btnCancelButton.Values.Text = "Cancelar";
 			// 
 			// AceptButton
 			// 
 			this.AceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.AceptButton.Location = new System.Drawing.Point(141, 3);
+			this.AceptButton.Location = new System.Drawing.Point(753, 3);
 			this.AceptButton.Name = "AceptButton";
 			this.AceptButton.Size = new System.Drawing.Size(132, 43);
-			this.AceptButton.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
 			this.AceptButton.TabIndex = 0;
 			this.AceptButton.Values.Text = "Iniciar";
 			this.AceptButton.Click += new System.EventHandler(this.AceptButton_Click);
@@ -576,7 +576,7 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel2;
-		private ComponentFactory.Krypton.Toolkit.KryptonButton CancelButton;
+		private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancelButton;
 		private ComponentFactory.Krypton.Toolkit.KryptonButton AceptButton;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		public System.Windows.Forms.TableLayoutPanel InfoCapturaLayout;

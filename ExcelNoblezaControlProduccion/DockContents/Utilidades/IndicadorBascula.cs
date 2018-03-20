@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje.DockContents.Utilidades
+namespace EstacionPesaje.DockContents.Utilidades
 {
     public partial class IndicadorBascula : KryptonDockContentFormBase
     {

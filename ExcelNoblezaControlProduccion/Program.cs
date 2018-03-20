@@ -8,7 +8,7 @@ using libProduccionDataBase;
 using libProduccionDataBase.Identity;
 using Microsoft.AspNet.Identity;
 
-namespace EstacionesPesaje
+namespace EstacionPesaje
 {
     static class Program
     {

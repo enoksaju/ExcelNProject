@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EstacionesPesaje.Properties {
+namespace EstacionPesaje.Properties {
     using System;
     
     

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,12 +9,12 @@ using libProduccionDataBase;
 using libProduccionDataBase.Identity;
 using Microsoft.AspNet.Identity;
 
-namespace EstacionesPesaje {
+namespace EstacionPesaje {
 	static class Program {
 		public static bool IsChangingTheme = false;
 		public static SplashScreen splashScreen;
 		public static bool ForceCloseSpash = false;
-		public static ApplicationUser User;
+		//public static ApplicationUser User;
 
 		static Mutex mutex = new Mutex ( true, "{fd868c3b-6a0b-43a8-8349-c550caa6599c}" );
 
@@ -48,6 +49,10 @@ namespace EstacionesPesaje {
 		public static void DoUpgrade () {
 			try {
 
+				Console.WriteLine ( ConfigurationManager.OpenExeConfiguration( ConfigurationUserLevel.PerUserRoamingAndLocal ).FilePath );
+
+				Console.WriteLine ( Application.ProductVersion );
+
 				Properties.Settings.Default.Set_OnLoad ( true );
 
 				if (Properties.Settings.Default.UpgradeRequired) {
@@ -61,8 +66,8 @@ namespace EstacionesPesaje {
 				Properties.Settings.Default.Set_OnLoad ( false );
 
 			}
-			catch (Exception ex) {
-				throw ex;
+		catch {
+				throw;
 			}
 		}
 		class AppContext : ApplicationContext {

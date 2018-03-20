@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ComponentFactory.Krypton.Docking;
 using ComponentFactory.Krypton.Workspace;
 
-namespace EstacionesPesaje.Pages.Base
+namespace EstacionPesaje.Pages.Base
 {
     interface IToKryptonPage 
     {

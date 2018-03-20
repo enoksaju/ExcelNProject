@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstacionesPesaje.Pages.Base
+namespace EstacionPesaje.Pages.Base
 {
     /// <summary>
     /// Banderas para identificar la funcion del formulario

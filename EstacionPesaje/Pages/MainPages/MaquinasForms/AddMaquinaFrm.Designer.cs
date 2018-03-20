@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.MainPages.MaquinasForms {
+﻿namespace EstacionPesaje.Pages.MainPages.MaquinasForms {
 	partial class AddMaquinaFrm {
 		/// <summary>
 		/// Required designer variable.
@@ -11,6 +11,7 @@
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose ( bool disposing ) {
 			if (disposing && ( components != null )) {
+				DB.Dispose ( );		
 				components.Dispose ( );
 			}
 			base.Dispose ( disposing );

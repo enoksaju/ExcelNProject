@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
+﻿namespace EstacionPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarEtiqueta
     {

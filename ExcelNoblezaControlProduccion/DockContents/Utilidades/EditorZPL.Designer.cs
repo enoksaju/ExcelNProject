@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.Utilidades
+﻿namespace EstacionPesaje.DockContents.Utilidades
 {
     partial class EditorZPL
     {

@@ -1,11 +1,7 @@
-﻿namespace EstacionesPesaje.DockContents.Catalogos.BaseForm
+﻿namespace EstacionPesaje.DockContents.Catalogos.BaseForm
 {
     partial class BaseFormCatalogos
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
 
         #region Windows Form Designer generated code
 
@@ -54,7 +50,7 @@
             // SearchToolStripButton
             // 
             this.SearchToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SearchToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.Search_16x;
+            this.SearchToolStripButton.Image = global::EstacionPesaje.Properties.Resources.Search_16x;
             this.SearchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SearchToolStripButton.Name = "SearchToolStripButton";
             this.SearchToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -83,7 +79,7 @@
             // RefreshToolStripButton
             // 
             this.RefreshToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.RefreshToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.Refresh_16x;
+            this.RefreshToolStripButton.Image = global::EstacionPesaje.Properties.Resources.Refresh_16x;
             this.RefreshToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RefreshToolStripButton.Name = "RefreshToolStripButton";
             this.RefreshToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -98,7 +94,7 @@
             // AddNewToolStripButton
             // 
             this.AddNewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.AddNewToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.NewFile_16x;
+            this.AddNewToolStripButton.Image = global::EstacionPesaje.Properties.Resources.NewFile_16x;
             this.AddNewToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.AddNewToolStripButton.Name = "AddNewToolStripButton";
             this.AddNewToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -107,7 +103,7 @@
             // EditCurrentToolStripButton
             // 
             this.EditCurrentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EditCurrentToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.Edit_16xMD;
+            this.EditCurrentToolStripButton.Image = global::EstacionPesaje.Properties.Resources.Edit_16xMD;
             this.EditCurrentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EditCurrentToolStripButton.Name = "EditCurrentToolStripButton";
             this.EditCurrentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -122,7 +118,7 @@
             // DeleteCurrentToolStripButton
             // 
             this.DeleteCurrentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteCurrentToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.icon_delete;
+            this.DeleteCurrentToolStripButton.Image = global::EstacionPesaje.Properties.Resources.icon_delete;
             this.DeleteCurrentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteCurrentToolStripButton.Name = "DeleteCurrentToolStripButton";
             this.DeleteCurrentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -137,7 +133,7 @@
             // showDetallesToolStripButton
             // 
             this.showDetallesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.showDetallesToolStripButton.Image = global::EstacionesPesaje.Properties.Resources.DetailView_16x;
+            this.showDetallesToolStripButton.Image = global::EstacionPesaje.Properties.Resources.DetailView_16x;
             this.showDetallesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.showDetallesToolStripButton.Name = "showDetallesToolStripButton";
             this.showDetallesToolStripButton.Size = new System.Drawing.Size(23, 22);

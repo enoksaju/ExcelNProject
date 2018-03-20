@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstacionesPesaje.Pages.Base
+namespace EstacionPesaje.Pages.Base
 {
     /// <summary>
     /// Clase que contiene los argumentos del evento de cambio del mensaje de estado

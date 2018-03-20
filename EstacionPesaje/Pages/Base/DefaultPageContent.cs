@@ -12,7 +12,7 @@ using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Docking;
 using ComponentFactory.Krypton.Workspace;
 
-namespace EstacionesPesaje.Pages.Base {
+namespace EstacionPesaje.Pages.Base {
 	[ToolboxItem ( false )]
 	public partial class DefaultPageContent : UserControl, IToKryptonPage {
 		#region Delegates

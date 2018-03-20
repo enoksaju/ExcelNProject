@@ -123,6 +123,127 @@ namespace libControlesPersonalizados {
 			RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_{1}_{2}", produccionElemet.OT, produccionElemet.Proceso_.NombreProceso, produccionElemet.NUMERO ) );
 		}
 
+
+		public static string ZPLDesperdicio = @"
+^XA
+
+^FO5,10^GB380,250,1^FS
+^FO5,142^GB380,119,1^FS
+^FO5,142^GB200,119,1^FS
+
+^FO53,17^A0N,19,20^FDTRAZABILIDAD DESPERDICIO^FS
+
+^FO129,41^A0N,19,20^FDOT:^FS
+    ^FO171,36^A0N,25,27^FD@OT^FS    
+^FO36,65^A0N,14,13^FDCLIENTE:^FS
+    ^FO100,65^A0N,16,15^FD@CLIENTE^FS
+^FO19,84^A0N,14,13^FDPRODUCTO:^FS
+    ^FO100,84^A0N,16,15^FD@PRODUCTO^FS
+^FO17,100^A0N,14,13^FDOP:^FS
+    ^FO40,100^A0N,16,15^FD@OPERADOR^FS
+^FO120,100^A0N,14,13^FDTURNO:^FS
+    ^FO165,100^A0N,15,16^FD@TURNO^FS
+^FO210,100^A0N,14,13^FDMAQUINA:^FS
+    ^FO275,100^A0N,15,16^FD@MAQUINA^FS
+^FO96,120^A0N,25,20^FDPESO/#:^FS^
+    ^FO176,120^A0N,28,23^FD@PESO Kg / @NUMERO^FS
+^FO20,145^A0N,15,16^FDDESCRIPCION:^FS
+    ^FO10,158^FB200,3,0,J,0^A0N,22,15^FD@DESCRIPCION^FS
+^FO210,145^A0N,15,16^FDESTRUCTURA:^FS
+    ^FO210,158^FB200,3,0,J,0^A0N,22,15^FD@ESTRUCTURA^FS
+^FO20,232^A0N,14,15^FD@FECHAHORA^FS
+
+
+
+^FO405,10^GB380,250,1^FS
+^FO405,142^GB380,119,1^FS
+^FO405,142^GB200,119,1^FS
+
+^FO453,17^A0N,19,20^FDTRAZABILIDAD DESPERDICIO^FS
+
+^FO529,41^A0N,19,20^FDOT:^FS
+    ^FO571,36^A0N,25,27^FD@OT^FS    
+^FO436,65^A0N,14,13^FDCLIENTE:^FS
+    ^FO100,65^A0N,16,15^FD@CLIENTE^FS
+^FO419,84^A0N,14,13^FDPRODUCTO:^FS
+    ^FO100,84^A0N,16,15^FD@PRODUCTO^FS
+^FO417,100^A0N,14,13^FDOP:^FS
+    ^FO440,100^A0N,16,15^FD@OPERADOR^FS
+^FO520,100^A0N,14,13^FDTURNO:^FS
+    ^FO565,100^A0N,15,16^FD@TURNO^FS
+^FO610,100^A0N,14,13^FDMAQUINA:^FS
+    ^FO675,100^A0N,15,16^FD@MAQUINA^FS
+^FO496,120^A0N,25,20^FDPESO/#:^FS^
+    ^FO576,120^A0N,28,23^FD@PESO Kg / @NUMERO^FS
+^FO420,145^A0N,15,16^FDDESCRIPCION:^FS
+    ^FO410,158^FB200,3,0,J,0^A0N,22,15^FD@DESCRIPCION^FS
+^FO610,145^A0N,15,16^FDESTRUCTURA:^FS
+    ^FO610,158^FB200,3,0,J,0^A0N,22,15^FD@ESTRUCTURA^FS
+^FO420,232^A0N,14,15^FD@FECHAHORA^FS
+
+^XZ
+";
+
+		public void PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio ) {
+
+
+
+			var produccionElementDictionary = new Dictionary<string, string> ( ) {
+				{ "@OT", TempDesperdicio.OT },
+				{ "@CLIENTE", TempDesperdicio.OrdenTrabajo.CLIENTE },
+				{ "@PRODUCTO", TempDesperdicio.OrdenTrabajo.PRODUCTO },
+				{ "@ANCHO", TempDesperdicio.OrdenTrabajo.ANCHO.ToString("#0.0") },
+				{ "@ALTO", TempDesperdicio.OrdenTrabajo.ALTO.ToString("#0.0")},
+				{ "@CLAVEPRODUCTO", TempDesperdicio.OrdenTrabajo.CLAVEPRODUCTO },
+				{ "@IMPRESORA", TempDesperdicio.OrdenTrabajo.IMPRESORA},
+				{ "@ORDENCOMPRA", TempDesperdicio.OrdenTrabajo.ORDENCOMPRA},
+				{ "@MATBASE", TempDesperdicio.OrdenTrabajo.MATBASE},
+				{ "@MATLAMINACION", TempDesperdicio.OrdenTrabajo.MATLAMINACION},
+				{ "@MATTRILAMINACION", TempDesperdicio.OrdenTrabajo.MATTRILAMINACION},
+				{ "@RODILLO", TempDesperdicio.OrdenTrabajo.RODILLO.ToString("#0.0")},
+
+				{ "@FECHA", String.Format("{0:ddd, dd 'de' MMMM 'de' yyyy}",TempDesperdicio.FECHA)},
+				{ "@FECHACORTA", String.Format("{0:dd-MM-yyyy}",TempDesperdicio.FECHA)},
+				{ "@FECHAINGLES", String.Format("{0:MM-dd-yyyy}",TempDesperdicio.FECHA)},
+				{ "@FECHAHORA", String.Format("{0:ddd, dd 'de' MMMM 'de' yyyy, hh:mm tt}",TempDesperdicio.FECHA)},
+				{ "@FECHAHORACORTA", String.Format("{0:dd-MM-yyyy, HH:mm}",TempDesperdicio.FECHA)},
+
+				{ "@ESTRUCTURA", TempDesperdicio.ESTRUCTURA.ToString()},
+				{ "@NUMERO", TempDesperdicio.NUMERO.ToString ()},
+				{ "@OPERADOR", TempDesperdicio.OPERADOR},
+				{ "@DEFECTO", TempDesperdicio.FamiliaDefectosDefecto.Defecto.NombreDefecto},
+				{ "@PESO", TempDesperdicio.PESO.ToString("#0.00")},
+				{ "@DESCRIPCION", TempDesperdicio.DESCRIPCION.ToString() },
+				{ "@FAMILIA", TempDesperdicio.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto},
+				{ "@PROCESO", TempDesperdicio.FamiliaDefectosDefecto.Proceso .NombreProceso  },
+				{ "@MAQUINA", TempDesperdicio .Maquina_ .NombreMaquina },
+				{ "@LINEA", TempDesperdicio .Maquina_ .Linea .Nombre },
+				{ "@TURNO", TempDesperdicio .TURNO.ToString ()  },
+
+			};
+
+			StringBuilder stgBld = new StringBuilder ( ZPLDesperdicio );
+
+			Regex rgx = new Regex ( @"(@)[A-Z0-9]*" );
+			var T = rgx.Matches ( ZPLDesperdicio );
+
+			foreach (Match res in T) {
+
+				if (produccionElementDictionary.ContainsKey ( res.Value )) {
+
+					stgBld.Replace ( res.Value, produccionElementDictionary [ res.Value ] );
+
+				} else {
+					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
+				}
+			}
+
+			RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_Desperdicio_{1}", TempDesperdicio.OT, TempDesperdicio.NUMERO ) );
+
+
+		}
+
+
 		#region IBindableComponent Members
 
 		private BindingContext bindingContext;

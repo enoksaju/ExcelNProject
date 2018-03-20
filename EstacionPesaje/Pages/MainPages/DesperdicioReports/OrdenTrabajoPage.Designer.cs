@@ -1,5 +1,5 @@
-﻿namespace EstacionesPesaje.Pages.MainPages {
-	partial class ViewOTPage {
+﻿namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
+	partial class OrdenTrabajoPage {
 		/// <summary> 
 		/// Variable del diseñador necesaria.
 		/// </summary>
@@ -23,33 +23,30 @@
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent () {
-			this.ctlEmptyOTs1 = new libReportsOTS.ctlEmptyOTs();
+			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.SuspendLayout();
 			// 
-			// ctlEmptyOTs1
+			// reportViewer1
 			// 
-			this.ctlEmptyOTs1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ctlEmptyOTs1.Location = new System.Drawing.Point(5, 5);
-			this.ctlEmptyOTs1.Name = "ctlEmptyOTs1";
-			this.ctlEmptyOTs1.Size = new System.Drawing.Size(546, 436);
-			this.ctlEmptyOTs1.TabIndex = 0;
-			this.ctlEmptyOTs1.ChangeOT += new libReportsOTS.ctlEmptyOTs.ChangeOTEventHandler(this.ctlEmptyOTs1_ChangeOT);
+			this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.reportViewer1.LocalReport.ReportEmbeddedResource = "EstacionPesaje.Pages.MainPages.DesperdicioReports.Report1.rdlc";
+			this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+			this.reportViewer1.Name = "reportViewer1";
+			this.reportViewer1.Size = new System.Drawing.Size(398, 368);
+			this.reportViewer1.TabIndex = 0;
 			// 
-			// ViewOTPage
+			// OrdenTrabajoPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.ctlEmptyOTs1);
-			this.Name = "ViewOTPage";
-			this.Padding = new System.Windows.Forms.Padding(5);
-			this.PageTitleText = "Orden de Trabajo ";
-			this.Size = new System.Drawing.Size(556, 446);
+			this.Controls.Add(this.reportViewer1);
+			this.Name = "OrdenTrabajoPage";
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private libReportsOTS.ctlEmptyOTs ctlEmptyOTs1;
+		private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
 	}
 }

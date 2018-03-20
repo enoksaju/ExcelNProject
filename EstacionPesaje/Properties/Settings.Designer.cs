@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EstacionesPesaje.Properties {
+namespace EstacionPesaje.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

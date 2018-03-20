@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.MainPages {
+﻿namespace EstacionPesaje.Pages.MainPages {
 	partial class AddEditLabelPage {
 		/// <summary> 
 		/// Variable del diseñador necesaria.
@@ -11,6 +11,7 @@
 		/// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
 		protected override void Dispose ( bool disposing ) {
 			if (disposing && ( components != null )) {
+				DB.Dispose ( );
 				components.Dispose ( );
 			}
 			base.Dispose ( disposing );
@@ -73,7 +74,7 @@
 			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = global::EstacionesPesaje.Properties.Resources.database_restore;
+			this.toolStripButton1.Image = global::EstacionPesaje.Properties.Resources.database_restore;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(161, 22);

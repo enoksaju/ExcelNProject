@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje.Pages.Catalogos
+namespace EstacionPesaje.Pages.Catalogos
 {
     public partial class Clientes : Base.CatalogBase<libProduccionDataBase.Tablas.Cliente>
     {

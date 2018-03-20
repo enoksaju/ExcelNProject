@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje
+namespace EstacionPesaje
 {
 
     public partial class SplashScreen : Form
@@ -43,10 +43,7 @@ namespace EstacionesPesaje
             Close();
         }
 
-        private async void SplashScreen_Load( object sender, EventArgs e )
-        {
 
-        }
 
         public async Task initialize()
         {

@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.Catalogos
+﻿namespace EstacionPesaje.DockContents.Catalogos
 {
     partial class CatalogoImpresoras
     {
@@ -127,7 +127,7 @@
             // LoaderPicktureBox
             // 
             this.LoaderPicktureBox.BackColor = System.Drawing.Color.Transparent;
-            this.LoaderPicktureBox.Image = global::EstacionesPesaje.Properties.Resources.loading;
+            this.LoaderPicktureBox.Image = global::EstacionPesaje.Properties.Resources.loading;
             this.LoaderPicktureBox.Location = new System.Drawing.Point(82, 33);
             this.LoaderPicktureBox.Name = "LoaderPicktureBox";
             this.LoaderPicktureBox.Size = new System.Drawing.Size(90, 90);

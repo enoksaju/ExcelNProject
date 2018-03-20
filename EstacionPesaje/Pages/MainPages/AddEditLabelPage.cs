@@ -11,7 +11,7 @@ using libProduccionDataBase.Tablas;
 using System.Data.Entity;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace EstacionesPesaje.Pages.MainPages {
+namespace EstacionPesaje.Pages.MainPages {
 	public partial class AddEditLabelPage : Base.DefaultPageContent {
 
 		libProduccionDataBase.Contexto.DataBaseContexto DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
@@ -32,9 +32,11 @@ namespace EstacionesPesaje.Pages.MainPages {
 			if(Entity != null) {
 				etiquetaBindingSource.Position = etiquetaBindingSource.IndexOf ( Entity );
 				PageTitleText = "Etiqueta "+ Entity.Nombre;
+				KP.ImageSmall = Properties.Resources.barcode_edit1;
 			} else {
 				etiquetaBindingSource.AddNew ( );
 				PageTitleText = "Nueva Etiqueta ";
+				KP.ImageSmall = Properties.Resources.barcode_new1;
 			}
 			
 		}

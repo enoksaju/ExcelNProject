@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje
+﻿namespace EstacionPesaje
 {
     partial class LogInForm
     {
@@ -231,8 +231,8 @@
             // 
             // kryptonCheckBox1
             // 
-            this.kryptonCheckBox1.Checked = global::EstacionesPesaje.Properties.Settings.Default.RememberMe;
-            this.kryptonCheckBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::EstacionesPesaje.Properties.Settings.Default, "RememberMe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.kryptonCheckBox1.Checked = global::EstacionPesaje.Properties.Settings.Default.RememberMe;
+            this.kryptonCheckBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::EstacionPesaje.Properties.Settings.Default, "RememberMe", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.kryptonCheckBox1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicControl;
             this.kryptonCheckBox1.Location = new System.Drawing.Point(83, 8);
             this.kryptonCheckBox1.Name = "kryptonCheckBox1";
@@ -247,7 +247,7 @@
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(111, 32);
             this.kryptonButton1.TabIndex = 3;
-            this.kryptonButton1.Values.Image = global::EstacionesPesaje.Properties.Resources.login_user2;
+            this.kryptonButton1.Values.Image = global::EstacionPesaje.Properties.Resources.login_user2;
             this.kryptonButton1.Values.Text = "Entrar";
             // 
             // kryptonManager1

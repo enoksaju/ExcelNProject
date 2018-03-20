@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace EstacionesPesaje.Properties {
+namespace EstacionPesaje.Properties {
     
     
     // Esta clase le permite controlar eventos específicos en la clase de configuración:
@@ -38,7 +38,7 @@ namespace EstacionesPesaje.Properties {
 			}
 			catch (System.Exception ex) {
 
-				throw ex;
+				System.Console.WriteLine ( ex );
 			}
 		}
 		public void Set_OnLoad ( bool val ) {

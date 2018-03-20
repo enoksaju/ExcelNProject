@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.CatalogosAddEdit
+﻿namespace EstacionPesaje.DockContents.CatalogosAddEdit
 {
     partial class AgregarEditarMaquina
     {
@@ -232,7 +232,7 @@
             this.ClientSize = new System.Drawing.Size(377, 470);
             this.Controls.Add(this.kryptonPanel1);
             this.HeaderDescripcion = "";
-            this.HeaderImage = global::EstacionesPesaje.Properties.Resources.gears;
+            this.HeaderImage = global::EstacionPesaje.Properties.Resources.gears;
             this.HeaderText = "Maquina";
             this.Name = "AgregarEditarMaquina";
             this.Text = "AgregarEditarMaquina";

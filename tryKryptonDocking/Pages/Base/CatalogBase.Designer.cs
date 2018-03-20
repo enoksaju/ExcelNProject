@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.Base
+﻿namespace EstacionPesaje.Pages.Base
 {
     partial class CatalogBase<T> : DefaultPageContent, ICatalogPage, IToKryptonPage where T : class
     {
@@ -35,7 +35,7 @@
             // LoaderPicktureBox
             // 
             this.LoaderPicktureBox.BackColor = System.Drawing.Color.Transparent;
-            this.LoaderPicktureBox.Image = global::EstacionesPesaje.Properties.Resources.Loader;
+            this.LoaderPicktureBox.Image = global::EstacionPesaje.Properties.Resources.Loader;
             this.LoaderPicktureBox.Location = new System.Drawing.Point(8, 8);
             this.LoaderPicktureBox.Name = "LoaderPicktureBox";
             this.LoaderPicktureBox.Size = new System.Drawing.Size(107, 84);

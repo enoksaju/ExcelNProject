@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje
+﻿namespace EstacionPesaje
 {
     partial class MainForm
     {

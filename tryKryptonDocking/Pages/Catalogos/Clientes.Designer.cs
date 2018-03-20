@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.Catalogos
+﻿namespace EstacionPesaje.Pages.Catalogos
 {
     partial class Clientes
     {

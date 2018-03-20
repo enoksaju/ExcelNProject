@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.DockContents.Catalogos
+﻿namespace EstacionPesaje.DockContents.Catalogos
 {
     partial class CatalogoUsuarios
     {
@@ -441,7 +441,7 @@
             this.NavigatorAddkryptonButton.Name = "NavigatorAddkryptonButton";
             this.NavigatorAddkryptonButton.Size = new System.Drawing.Size(123, 27);
             this.NavigatorAddkryptonButton.TabIndex = 0;
-            this.NavigatorAddkryptonButton.Values.Image = global::EstacionesPesaje.Properties.Resources.NewUsage_16x;
+            this.NavigatorAddkryptonButton.Values.Image = global::EstacionPesaje.Properties.Resources.NewUsage_16x;
             this.NavigatorAddkryptonButton.Values.Text = "Agregar";
             this.NavigatorAddkryptonButton.Click += new System.EventHandler(this.Navigation_Click);
             // 
@@ -453,7 +453,7 @@
             this.NavigatorEditkryptonButton.Name = "NavigatorEditkryptonButton";
             this.NavigatorEditkryptonButton.Size = new System.Drawing.Size(123, 27);
             this.NavigatorEditkryptonButton.TabIndex = 1;
-            this.NavigatorEditkryptonButton.Values.Image = global::EstacionesPesaje.Properties.Resources.Edit_16x;
+            this.NavigatorEditkryptonButton.Values.Image = global::EstacionPesaje.Properties.Resources.Edit_16x;
             this.NavigatorEditkryptonButton.Values.Text = "Editar";
             this.NavigatorEditkryptonButton.Click += new System.EventHandler(this.Navigation_Click);
             // 
@@ -465,7 +465,7 @@
             this.NavigatorRolkryptonButton.Name = "NavigatorRolkryptonButton";
             this.NavigatorRolkryptonButton.Size = new System.Drawing.Size(123, 27);
             this.NavigatorRolkryptonButton.TabIndex = 3;
-            this.NavigatorRolkryptonButton.Values.Image = global::EstacionesPesaje.Properties.Resources.DatabaseRoleMembership_12879;
+            this.NavigatorRolkryptonButton.Values.Image = global::EstacionPesaje.Properties.Resources.DatabaseRoleMembership_12879;
             this.NavigatorRolkryptonButton.Values.Text = "Roles";
             this.NavigatorRolkryptonButton.Click += new System.EventHandler(this.Navigation_Click);
             // 
@@ -477,7 +477,7 @@
             this.NavigatorPasswordkryptonButton.Name = "NavigatorPasswordkryptonButton";
             this.NavigatorPasswordkryptonButton.Size = new System.Drawing.Size(123, 28);
             this.NavigatorPasswordkryptonButton.TabIndex = 2;
-            this.NavigatorPasswordkryptonButton.Values.Image = global::EstacionesPesaje.Properties.Resources.ChangePassword_16x;
+            this.NavigatorPasswordkryptonButton.Values.Image = global::EstacionPesaje.Properties.Resources.ChangePassword_16x;
             this.NavigatorPasswordkryptonButton.Values.Text = "Cambiar Password";
             this.NavigatorPasswordkryptonButton.Click += new System.EventHandler(this.Navigation_Click);
             // 
@@ -598,7 +598,7 @@
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(120, 39);
             this.kryptonButton1.TabIndex = 9;
-            this.kryptonButton1.Values.Image = global::EstacionesPesaje.Properties.Resources.AddUser_16x;
+            this.kryptonButton1.Values.Image = global::EstacionPesaje.Properties.Resources.AddUser_16x;
             this.kryptonButton1.Values.Text = "Agregar";
             this.kryptonButton1.Click += new System.EventHandler(this.SaveNew_Click);
             // 
@@ -915,7 +915,7 @@
             this.SaveEditedUserKBtn.Name = "SaveEditedUserKBtn";
             this.SaveEditedUserKBtn.Size = new System.Drawing.Size(92, 33);
             this.SaveEditedUserKBtn.TabIndex = 7;
-            this.SaveEditedUserKBtn.Values.Image = global::EstacionesPesaje.Properties.Resources.SaveItem;
+            this.SaveEditedUserKBtn.Values.Image = global::EstacionPesaje.Properties.Resources.SaveItem;
             this.SaveEditedUserKBtn.Values.Text = "&Guardar";
             this.SaveEditedUserKBtn.Click += new System.EventHandler(this.SaveEdit_Click);
             // 
@@ -1024,7 +1024,7 @@
             this.AddRoleToUserBtn.Name = "AddRoleToUserBtn";
             this.AddRoleToUserBtn.Size = new System.Drawing.Size(94, 24);
             this.AddRoleToUserBtn.TabIndex = 2;
-            this.AddRoleToUserBtn.Values.Image = global::EstacionesPesaje.Properties.Resources.arrow_right;
+            this.AddRoleToUserBtn.Values.Image = global::EstacionPesaje.Properties.Resources.arrow_right;
             this.AddRoleToUserBtn.Values.Text = "Agregar";
             this.AddRoleToUserBtn.Click += new System.EventHandler(this.AddRoleToUserBtn_Click);
             // 
@@ -1035,7 +1035,7 @@
             this.RemoveRoleToUserBtn.Name = "RemoveRoleToUserBtn";
             this.RemoveRoleToUserBtn.Size = new System.Drawing.Size(94, 24);
             this.RemoveRoleToUserBtn.TabIndex = 3;
-            this.RemoveRoleToUserBtn.Values.Image = global::EstacionesPesaje.Properties.Resources.arrow_left;
+            this.RemoveRoleToUserBtn.Values.Image = global::EstacionPesaje.Properties.Resources.arrow_left;
             this.RemoveRoleToUserBtn.Values.Text = "Quitar";
             this.RemoveRoleToUserBtn.Click += new System.EventHandler(this.RemoveRoleToUserBtn_Click);
             // 
@@ -1118,7 +1118,7 @@
             this.kryptonButton2.Name = "kryptonButton2";
             this.kryptonButton2.Size = new System.Drawing.Size(83, 28);
             this.kryptonButton2.TabIndex = 4;
-            this.kryptonButton2.Values.Image = global::EstacionesPesaje.Properties.Resources.ChangePassword_16x;
+            this.kryptonButton2.Values.Image = global::EstacionPesaje.Properties.Resources.ChangePassword_16x;
             this.kryptonButton2.Values.Text = "Cambiar";
             this.kryptonButton2.Click += new System.EventHandler(this.CambiarPassword_Click);
             // 

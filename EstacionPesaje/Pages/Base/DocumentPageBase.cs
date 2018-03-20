@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using libProduccionDataBase.Contexto;
 
-namespace EstacionesPesaje.Pages.Base {
+namespace EstacionPesaje.Pages.Base {
 	public partial class DocumentPageBase : DefaultPageContent, IToKryptonPage {
 
 		public DataBaseContexto DB = null;

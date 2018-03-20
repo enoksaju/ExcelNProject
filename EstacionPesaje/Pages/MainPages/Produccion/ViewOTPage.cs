@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EstacionesPesaje.Pages.MainPages {
+namespace EstacionPesaje.Pages.MainPages {
 	public partial class ViewOTPage : Base.DocumentPageBase {
 		public ViewOTPage () {
 			InitializeComponent ( );
+			KP.ImageSmall = Properties.Resources.report_open1;
 		}
 
 		private void ctlEmptyOTs1_ChangeOT ( object sender, string Name ) {

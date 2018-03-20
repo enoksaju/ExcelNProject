@@ -414,7 +414,6 @@ namespace libControlesPersonalizados.ZPLCONVERTER
 
                         int key1= mapCode.FirstOrDefault(x=> x.Value== CodeImage[i].ToString()).Key;
                         int key2;
-                        char keyVal;
 
                         if (key1 > 19)
                         {
@@ -855,7 +854,7 @@ namespace libControlesPersonalizados.ZPLCONVERTER
 
 				}
 			}
-			catch (Exception ex) {
+			catch (Exception ) {
 
 				return null;
 			}

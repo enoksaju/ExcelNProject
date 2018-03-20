@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace EstacionesPesaje.DockContents
+namespace EstacionPesaje.DockContents
 {
     public partial class KryptonDockContentFormBase : DockContent
     {

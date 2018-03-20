@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Navigator;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace EstacionesPesaje.Pages.Base
+namespace EstacionPesaje.Pages.Base
 {
     [ToolboxItem(false)]
     public partial class DefaultPageContent : UserControl, IToKryptonPage

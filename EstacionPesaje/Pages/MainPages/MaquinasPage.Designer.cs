@@ -1,4 +1,4 @@
-﻿namespace EstacionesPesaje.Pages.MainPages {
+﻿namespace EstacionPesaje.Pages.MainPages {
 	partial class MaquinasPage {
 		/// <summary> 
 		/// Variable del diseñador necesaria.
@@ -304,7 +304,7 @@
 			// 
 			// toolStripButton2
 			// 
-			this.toolStripButton2.Image = global::EstacionesPesaje.Properties.Resources.item_disable;
+			this.toolStripButton2.Image = global::EstacionPesaje.Properties.Resources.item_disable;
 			this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton2.Name = "toolStripButton2";
 			this.toolStripButton2.Size = new System.Drawing.Size(92, 22);
@@ -312,7 +312,7 @@
 			// 
 			// toolStripButton1
 			// 
-			this.toolStripButton1.Image = global::EstacionesPesaje.Properties.Resources.gear1;
+			this.toolStripButton1.Image = global::EstacionPesaje.Properties.Resources.gear1;
 			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.toolStripButton1.Name = "toolStripButton1";
 			this.toolStripButton1.Size = new System.Drawing.Size(111, 22);
