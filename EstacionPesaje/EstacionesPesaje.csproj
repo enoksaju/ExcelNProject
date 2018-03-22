@@ -26,8 +26,8 @@
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>23</ApplicationRevision>
-    <ApplicationVersion>5.3.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>5.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -238,6 +238,13 @@
     <Compile Include="Pages\MainPages\DesperdiciosPage.Designer.cs">
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\Embarques\DataReport.cs" />
+    <Compile Include="Pages\MainPages\Embarques\EmbarquesReportPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Embarques\EmbarquesReportPage.Designer.cs">
+      <DependentUpon>EmbarquesReportPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\Produccion\HistoricoOts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -317,6 +324,9 @@
     <EmbeddedResource Include="Pages\MainPages\DesperdiciosPage.resx">
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Embarques\EmbarquesReportPage.resx">
+      <DependentUpon>EmbarquesReportPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Embarques\Report1.rdlc" />
     <EmbeddedResource Include="Pages\MainPages\Produccion\HistoricoOts.resx">
       <DependentUpon>HistoricoOts.cs</DependentUpon>
@@ -352,6 +362,7 @@
     <None Include="EstacionPesaje_ClaveTemporal.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
+    <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Embarques.DataPackingList.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Etiqueta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Maquina.datasource" />
@@ -510,10 +521,16 @@
     <None Include="Resources\history1.png" />
     <None Include="Resources\history-info.png" />
     <None Include="Resources\history-info1.png" />
+    <None Include="Resources\document-check.png" />
+    <None Include="Resources\document_color_red_error.png" />
+    <None Include="Resources\document_color_green-ok.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />
     <None Include="Resources\text_box1.png" />
+    <None Include="Resources\shipment.png" />
+    <None Include="Resources\shipment1.png" />
+    <None Include="Resources\refresh_update.png" />
     <Content Include="tag_orange.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

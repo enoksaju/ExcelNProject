@@ -1555,7 +1555,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=iif(Fields!TIPOPROCESO.Value=3,Fields!NUMERO_EXT.Value,Fields!NUMERO.Value)</Value>
+                                                <Value>=iif(Fields!TIPOPROCESO.Value=9,Fields!NUMERO_EXT.Value,Fields!NUMERO.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -1940,7 +1940,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=iif(Fields!TIPOPROCESO.Value=3,Fields!NUMERO_EXT.Value,Fields!NUMERO.Value)</Value>
+                                                <Value>=iif(Fields!TIPOPROCESO.Value=9,Fields!NUMERO_EXT.Value,Fields!NUMERO.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -1964,6 +1964,7 @@
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                   <TablixCell>

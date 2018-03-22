@@ -32,7 +32,7 @@ namespace EstacionPesaje {
 			// Configuracion del Administrador de Docking
 			KryptonDockingWorkspace w = kryptonDockingManager.ManageWorkspace ( kryptonDockableWorkspace );
 			kryptonDockingManager.ManageControl ( "Catalogos", MainPanel, w );
-			kryptonDockingManager.ManageFloating ("Floating", this );
+			kryptonDockingManager.ManageFloating ( "Floating", this );
 			kryptonDockingManager.DockspaceCellAdding += KryptonDockingManager_DockspaceCellAdding;
 			kryptonDockingManager.DockableWorkspaceCellAdding += KryptonDockingManager_DockableWorkspaceCellAdding;
 
@@ -163,10 +163,10 @@ namespace EstacionPesaje {
 		}
 
 		private void kryptonRibbonGroupButton5_Click_1 ( object sender, EventArgs e ) {
-			using (var frm = new Pages .MainPages .DesperdicioReports .forms .LineaFecha_frm ( )) {
-				if(frm.ShowDialog ()== DialogResult.OK) {
+			using (var frm = new Pages.MainPages.DesperdicioReports.forms.LineaFecha_frm ( )) {
+				if (frm.ShowDialog ( ) == DialogResult.OK) {
 					Pages.Base.PageCreator.CrateAndShowMainPage (
-					new Pages.MainPages.DesperdicioReports.IntelisisPage ( frm.Response .Linea .Id , frm.Response .FechaInicial , frm .Response .FechaFinal ),
+					new Pages.MainPages.DesperdicioReports.IntelisisPage ( frm.Response.Linea.Id, frm.Response.FechaInicial, frm.Response.FechaFinal ),
 					kryptonDockingManager, _dc );
 				}
 			}
@@ -239,7 +239,7 @@ namespace EstacionPesaje {
 				if (OT != "" && OT != "*****") {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
-						new Pages.MainPages.HistoricoOts ( OT , false),
+						new Pages.MainPages.HistoricoOts ( OT, false ),
 						kryptonDockingManager, _dc );
 
 				}
@@ -247,6 +247,16 @@ namespace EstacionPesaje {
 			catch (Exception ex) {
 				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
 			}
+		}
+		
+		private void OpenReportEmbarque_Click ( object sender, EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Embarques.EmbarquesReportPage(),
+						kryptonDockingManager, _dc );
+		}
+
+		private void kryptonRibbonGroupCheckBox1_CheckedChanged ( object sender, EventArgs e ) {
+			Properties.Settings.Default.enabledImpresionMultiple = kryptonRibbonGroupCheckBox1.Checked;
 		}
 	}
 }

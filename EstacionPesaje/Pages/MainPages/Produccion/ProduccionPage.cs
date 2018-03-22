@@ -20,6 +20,15 @@ using Z.EntityFramework.Plus;
 namespace EstacionPesaje.Pages.MainPages {
 	public partial class ProduccionPage : Base.DocumentPageBase, Base.IUsaBascula {
 
+		private int _AcumuladoBajada = 0;
+		private int AcumuladoBajada {
+			get {
+				return _AcumuladoBajada;
+			}
+			set {
+				_AcumuladoBajada = ( _AcumuladoBajada < int.Parse ( repEje_txt.Text ) ? value : 0 );
+			}
+		}
 		private string OT;
 		private KryptonTaskDialog td = new KryptonTaskDialog ( ) {
 			CommonButtons = TaskDialogButtons.Yes | TaskDialogButtons.No,
@@ -70,7 +79,7 @@ namespace EstacionPesaje.Pages.MainPages {
 
 		}
 
-		
+
 		private async void ProduccionPage_Load ( object sender, EventArgs e ) {
 			await DB.Procesos.LoadAsync ( );
 			procesoBindingSource.DataSource = DB.Procesos.Local.ToBindingList ( );
@@ -142,7 +151,7 @@ namespace EstacionPesaje.Pages.MainPages {
 			}
 
 		}
-		private  void RefreshListItems () {
+		private void RefreshListItems () {
 
 
 			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
@@ -191,11 +200,31 @@ namespace EstacionPesaje.Pages.MainPages {
 		private void kryptonButton1_Click ( object sender, EventArgs e ) {
 			try {
 				td.Content = "Realmente desea Imprimir y guardar?";
-
 				if (td.ShowDialog ( ) == DialogResult.No) return;
 
-				var t = SaveCapturaProduccion ( );
-				this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
+				if (Properties.Settings.Default.enabledImpresionMultiple) {
+					ProgressBar.Visible = true;
+					ProgressBar.Maximum = ( int ) multipleQuantity_num.Value;
+
+
+					for (int i = 1; i < ( int ) multipleQuantity_num.Value; i++) {
+						try {
+							var t = SaveCapturaProduccion ( );
+							this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
+						}
+						catch { }
+						finally {
+							ProgressBar.Value = i;
+						}
+					}
+
+					ProgressBar.Visible = false;
+
+				} else {
+					var t = SaveCapturaProduccion ( );
+					this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
+				}
+
 			}
 			catch (Exception ex) {
 				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
@@ -214,7 +243,24 @@ namespace EstacionPesaje.Pages.MainPages {
 				td.Content = "Realmente desea solo guardar?";
 				if (td.ShowDialog ( ) == DialogResult.No) return;
 
-				SaveCapturaProduccion ( );
+				if (Properties.Settings.Default.enabledImpresionMultiple) {
+					ProgressBar.Visible = true;
+					ProgressBar.Maximum = ( int ) multipleQuantity_num.Value;
+
+					for (int i = 1; i < ( int ) multipleQuantity_num.Value; i++) {
+						try {
+							var t = SaveCapturaProduccion ( );
+						}
+						catch { }
+						finally {
+							ProgressBar.Value = i;
+						}
+					}
+
+					ProgressBar.Visible = false;
+				} else {
+					var t = SaveCapturaProduccion ( );
+				}
 			}
 			catch (Exception ex) {
 
@@ -248,16 +294,15 @@ namespace EstacionPesaje.Pages.MainPages {
 					ORIGEN = oRIGENKryptonTextBox.Text,
 					FECHA = DateTime.Now,
 					OPERADOR = valuesCaptura.Operador,
-					REPETICION = 1,
+					REPETICION = AcumuladoBajada + 1,
 					USUARIO = Environment.MachineName,
 					INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + ( int ) nUMEROKryptonTextBox.Value,
-					ENSANEO = 0,
+					ENSANEO = ( short ) ( saneo_chk.Checked ? -1 : 0 ),
 					FUEEDITADA = 0,
 					FUESANEADA = 0,
 					ESRECHAZADA = 0,
 					EXTRUSION_ID = ""
 				};
-
 
 				DBLocal.TempProduccion.Add ( t );
 				DBLocal.SaveChanges ( );
@@ -268,6 +313,20 @@ namespace EstacionPesaje.Pages.MainPages {
 					.Where ( r => r.Id == t.Id )
 					.FirstOrDefault ( );
 
+				saneo_chk.Checked = false;
+
+				if (valuesCaptura.Proceso.ID == 3) {
+					++AcumuladoBajada;
+					bajadaActual_txt.Text = ( AcumuladoBajada ).ToString ( );
+
+					if (AcumuladoBajada == 0) {
+						var org = oRIGENKryptonTextBox.Text.Split ( ( oRIGENKryptonTextBox.Text.Contains ( '-' ) ? '-' : ( oRIGENKryptonTextBox.Text.Contains ( '.' ) ? '.' : ' ' ) ) );
+						oRIGENKryptonTextBox.Text = ( org.Count ( ) >= 2 ? org [ 1 ] : org [ 0 ] );
+						bANDERASKryptonTextBox.Value = 0;
+					}
+				} else {
+					bANDERASKryptonTextBox.Value = 0;
+				}
 			}
 
 			return ToRet;
@@ -283,8 +342,8 @@ namespace EstacionPesaje.Pages.MainPages {
 				td.Content = "Realmente desea guardar?";
 				if (td.ShowDialog ( ) == DialogResult.No) return;
 
-				foreach (var t in DB.TempProduccion  .Local.ToList ( )) {
-					if(t.OrdenTrabajo == null) {
+				foreach (var t in DB.TempProduccion.Local.ToList ( )) {
+					if (t.OrdenTrabajo == null) {
 						DB.TempProduccion.Remove ( t );
 					}
 				}
@@ -416,8 +475,8 @@ namespace EstacionPesaje.Pages.MainPages {
 		private void produccionKryptonDataGridView_SelectionChanged ( object sender, EventArgs e ) {
 			try {
 
-				List<TempProduccion> t = (from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
-						select (TempProduccion ) rw.DataBoundItem).ToList ();
+				List<TempProduccion> t = ( from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
+										   select ( TempProduccion ) rw.DataBoundItem ).ToList ( );
 
 				PB_lbl.Text = String.Format ( "PB: {0:0.00}", t.Sum ( u => u.PESOBRUTO ) );
 				PN_lbl.Text = String.Format ( "PN: {0:0.00}", t.Sum ( u => u.PESONETO ) );
@@ -452,20 +511,36 @@ namespace EstacionPesaje.Pages.MainPages {
 
 		#endregion
 
-		
+
 
 		private void toolStripButton4_Click ( object sender, EventArgs e ) {
 
-			if(produccionKryptonDataGridView .SelectedRows .Count > 0) {
+			if (produccionKryptonDataGridView.SelectedRows.Count > 0) {
 				td.Content = "Desea Eliminar los elementos seleccionados?";
 				if (td.ShowDialog ( ) == DialogResult.No) return;
 
-				foreach (DataGridViewRow row in produccionKryptonDataGridView .SelectedRows ) {
+				foreach (DataGridViewRow row in produccionKryptonDataGridView.SelectedRows) {
 					produccionKryptonDataGridView.Rows.Remove ( row );
 				}
 			}
 
-			
+
+		}
+		private void setBajadaActual_btn_Click ( object sender, EventArgs e ) {
+			var val = KryptonInputBox.Show ( this, "Ingrese el valor de la bajada siguiente", "Cambiar valor de bajada", "1" );
+			try {
+
+				int valor;
+				bool num = int.TryParse ( val, out valor );
+				if (!num) throw new Exception ( "No es un numero o valor valido" );
+				if (valor - 1 >= int.Parse ( repEje_txt.Text )) throw new Exception ( "El valor debe ser menor al numero de repeticiones al eje de la OT" );
+
+				AcumuladoBajada = valor - 1;
+				bajadaActual_txt.Text = ( AcumuladoBajada ).ToString ( );
+			}
+			catch (Exception ex) {
+				HandledException ( ex );
+			}
 		}
 	}
 }

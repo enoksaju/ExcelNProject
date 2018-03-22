@@ -44,6 +44,9 @@
 			this.kryptonRibbonGroupButton7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.kryptonRibbonGroupButton8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.EmbarquesRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+			this.kryptonRibbonGroup4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+			this.kryptonRibbonGroupTriple8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+			this.kryptonRibbonGroupButton10 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.ConfiguracionRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
 			this.kryptonRibbonGroup3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonGroupLines1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
@@ -71,6 +74,8 @@
 			this.kryptonDockingManager = new ComponentFactory.Krypton.Docking.KryptonDockingManager();
 			this.controlBascula1 = new libBascula.ControlBascula(this.components);
 			this.ConnectBasculaSpectButton = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+			this.kryptonRibbonGroupLines3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
+			this.kryptonRibbonGroupCheckBox1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MainPanel)).BeginInit();
 			this.MainPanel.SuspendLayout();
@@ -112,7 +117,7 @@
             this.EmbarquesRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
-			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
+			this.Ribbon.SelectedTab = this.ConfiguracionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(902, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
@@ -237,7 +242,27 @@
 			// 
 			// EmbarquesRibbonTab
 			// 
+			this.EmbarquesRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup4});
 			this.EmbarquesRibbonTab.Text = "Embarques";
+			// 
+			// kryptonRibbonGroup4
+			// 
+			this.kryptonRibbonGroup4.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple8});
+			// 
+			// kryptonRibbonGroupTriple8
+			// 
+			this.kryptonRibbonGroupTriple8.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupButton10});
+			// 
+			// kryptonRibbonGroupButton10
+			// 
+			this.kryptonRibbonGroupButton10.ImageLarge = global::EstacionPesaje.Properties.Resources.shipment;
+			this.kryptonRibbonGroupButton10.ImageSmall = global::EstacionPesaje.Properties.Resources.shipment1;
+			this.kryptonRibbonGroupButton10.TextLine1 = "Lista de";
+			this.kryptonRibbonGroupButton10.TextLine2 = "Embarques";
+			this.kryptonRibbonGroupButton10.Click += new System.EventHandler(this.OpenReportEmbarque_Click);
 			// 
 			// ConfiguracionRibbonTab
 			// 
@@ -251,7 +276,8 @@
 			// 
 			this.kryptonRibbonGroup3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupLines1,
-            this.kryptonRibbonGroupTriple3});
+            this.kryptonRibbonGroupTriple3,
+            this.kryptonRibbonGroupLines3});
 			this.kryptonRibbonGroup3.TextLine1 = "General";
 			// 
 			// kryptonRibbonGroupLines1
@@ -470,6 +496,17 @@
 			this.ConnectBasculaSpectButton.UniqueName = "7107AEAA4BBD4DD69DAF3390BC180482";
 			this.ConnectBasculaSpectButton.Click += new System.EventHandler(this.ToogleBasculaConnection_Click);
 			// 
+			// kryptonRibbonGroupLines3
+			// 
+			this.kryptonRibbonGroupLines3.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupCheckBox1});
+			// 
+			// kryptonRibbonGroupCheckBox1
+			// 
+			this.kryptonRibbonGroupCheckBox1.Checked = global::EstacionPesaje.Properties.Settings.Default.enabledImpresionMultiple;
+			this.kryptonRibbonGroupCheckBox1.TextLine1 = "Impresión Multiple?";
+			this.kryptonRibbonGroupCheckBox1.CheckedChanged += new System.EventHandler(this.kryptonRibbonGroupCheckBox1_CheckedChanged);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -543,6 +580,11 @@
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple7;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton6;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton9;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup4;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple8;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton10;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines kryptonRibbonGroupLines3;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupCheckBox kryptonRibbonGroupCheckBox1;
 	}
 }
 

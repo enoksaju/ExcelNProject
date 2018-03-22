@@ -102,6 +102,15 @@
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
 			this.kryptonPageCaptura = new ComponentFactory.Krypton.Navigator.KryptonPage();
+			this.kryptonGroupBox5 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
+			this.multipleQuantity_num = new ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown();
+			this.kryptonLabel21 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+			this.bajadaActual_txt = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.setBajadaActual_btn = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+			this.kryptonLabel20 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+			this.kryptonLabel19 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+			this.repEje_txt = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+			this.saneo_chk = new ComponentFactory.Krypton.Toolkit.KryptonCheckButton();
 			this.kryptonGroupBox4 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
 			this.Optional5_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
 			this.Optional4_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
@@ -109,6 +118,7 @@
 			this.Optional2_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
 			this.Optional1_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+			this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.OperadorLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ProcesoLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -182,6 +192,10 @@
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPageCaptura)).BeginInit();
 			this.kryptonPageCaptura.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox5.Panel)).BeginInit();
+			this.kryptonGroupBox5.Panel.SuspendLayout();
+			this.kryptonGroupBox5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4.Panel)).BeginInit();
 			this.kryptonGroupBox4.Panel.SuspendLayout();
@@ -248,7 +262,7 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 0;
+			this.kryptonNavigator1.SelectedIndex = 2;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(687, 412);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -1129,6 +1143,13 @@
 			// kryptonPageCaptura
 			// 
 			this.kryptonPageCaptura.AutoHiddenSlideSize = new System.Drawing.Size(200, 200);
+			this.kryptonPageCaptura.AutoScroll = true;
+			this.kryptonPageCaptura.Controls.Add(this.kryptonGroupBox5);
+			this.kryptonPageCaptura.Controls.Add(this.bajadaActual_txt);
+			this.kryptonPageCaptura.Controls.Add(this.kryptonLabel20);
+			this.kryptonPageCaptura.Controls.Add(this.kryptonLabel19);
+			this.kryptonPageCaptura.Controls.Add(this.repEje_txt);
+			this.kryptonPageCaptura.Controls.Add(this.saneo_chk);
 			this.kryptonPageCaptura.Controls.Add(this.kryptonGroupBox4);
 			this.kryptonPageCaptura.Controls.Add(this.statusStrip1);
 			this.kryptonPageCaptura.Controls.Add(this.PesoNetokryptonNumericUpDown);
@@ -1156,6 +1177,123 @@
 			this.kryptonPageCaptura.Text = "Captura";
 			this.kryptonPageCaptura.ToolTipTitle = "Page ToolTip";
 			this.kryptonPageCaptura.UniqueName = "852C88D3418148B84D9A6460BBD406EA";
+			// 
+			// kryptonGroupBox5
+			// 
+			this.kryptonGroupBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.kryptonGroupBox5.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::EstacionPesaje.Properties.Settings.Default, "enabledImpresionMultiple", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.kryptonGroupBox5.Location = new System.Drawing.Point(11, 183);
+			this.kryptonGroupBox5.Name = "kryptonGroupBox5";
+			// 
+			// kryptonGroupBox5.Panel
+			// 
+			this.kryptonGroupBox5.Panel.Controls.Add(this.multipleQuantity_num);
+			this.kryptonGroupBox5.Panel.Controls.Add(this.kryptonLabel21);
+			this.kryptonGroupBox5.Panel.Padding = new System.Windows.Forms.Padding(5);
+			this.kryptonGroupBox5.Size = new System.Drawing.Size(148, 85);
+			this.kryptonGroupBox5.TabIndex = 37;
+			this.kryptonGroupBox5.Values.Heading = "Impresión Multiple";
+			this.kryptonGroupBox5.Visible = global::EstacionPesaje.Properties.Settings.Default.enabledImpresionMultiple;
+			// 
+			// multipleQuantity_num
+			// 
+			this.multipleQuantity_num.Dock = System.Windows.Forms.DockStyle.Top;
+			this.multipleQuantity_num.Location = new System.Drawing.Point(5, 25);
+			this.multipleQuantity_num.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.multipleQuantity_num.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.multipleQuantity_num.Name = "multipleQuantity_num";
+			this.multipleQuantity_num.Size = new System.Drawing.Size(134, 22);
+			this.multipleQuantity_num.TabIndex = 2;
+			this.multipleQuantity_num.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			// 
+			// kryptonLabel21
+			// 
+			this.kryptonLabel21.Dock = System.Windows.Forms.DockStyle.Top;
+			this.kryptonLabel21.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
+			this.kryptonLabel21.Location = new System.Drawing.Point(5, 5);
+			this.kryptonLabel21.Name = "kryptonLabel21";
+			this.kryptonLabel21.Size = new System.Drawing.Size(134, 20);
+			this.kryptonLabel21.TabIndex = 1;
+			this.kryptonLabel21.Values.Text = "Cantidad:";
+			// 
+			// bajadaActual_txt
+			// 
+			this.bajadaActual_txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.bajadaActual_txt.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.setBajadaActual_btn});
+			this.bajadaActual_txt.Location = new System.Drawing.Point(564, 214);
+			this.bajadaActual_txt.Name = "bajadaActual_txt";
+			this.bajadaActual_txt.ReadOnly = true;
+			this.bajadaActual_txt.Size = new System.Drawing.Size(106, 26);
+			this.bajadaActual_txt.TabIndex = 36;
+			this.bajadaActual_txt.Text = "0";
+			this.bajadaActual_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// setBajadaActual_btn
+			// 
+			this.setBajadaActual_btn.Image = global::EstacionPesaje.Properties.Resources.refresh_update;
+			this.setBajadaActual_btn.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+			this.setBajadaActual_btn.UniqueName = "D47F5B97B36B40EB8999CA03DFF525F6";
+			this.setBajadaActual_btn.Click += new System.EventHandler(this.setBajadaActual_btn_Click);
+			// 
+			// kryptonLabel20
+			// 
+			this.kryptonLabel20.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.kryptonLabel20.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+			this.kryptonLabel20.Location = new System.Drawing.Point(564, 188);
+			this.kryptonLabel20.Name = "kryptonLabel20";
+			this.kryptonLabel20.Size = new System.Drawing.Size(93, 20);
+			this.kryptonLabel20.TabIndex = 35;
+			this.kryptonLabel20.Values.Text = "Bajada Actual:";
+			// 
+			// kryptonLabel19
+			// 
+			this.kryptonLabel19.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.kryptonLabel19.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+			this.kryptonLabel19.Location = new System.Drawing.Point(564, 135);
+			this.kryptonLabel19.Name = "kryptonLabel19";
+			this.kryptonLabel19.Size = new System.Drawing.Size(60, 20);
+			this.kryptonLabel19.TabIndex = 34;
+			this.kryptonLabel19.Values.Text = "Rep. Eje:";
+			// 
+			// repEje_txt
+			// 
+			this.repEje_txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.repEje_txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.temporalOrdenTrabajoBindingSource, "REPEJE", true));
+			this.repEje_txt.Location = new System.Drawing.Point(564, 161);
+			this.repEje_txt.Name = "repEje_txt";
+			this.repEje_txt.ReadOnly = true;
+			this.repEje_txt.Size = new System.Drawing.Size(106, 23);
+			this.repEje_txt.TabIndex = 33;
+			this.repEje_txt.Text = "1";
+			this.repEje_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// saneo_chk
+			// 
+			this.saneo_chk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.saneo_chk.Location = new System.Drawing.Point(562, 14);
+			this.saneo_chk.Name = "saneo_chk";
+			this.saneo_chk.Size = new System.Drawing.Size(106, 97);
+			this.saneo_chk.TabIndex = 32;
+			this.saneo_chk.Values.ImageStates.ImageCheckedNormal = global::EstacionPesaje.Properties.Resources.document_color_red_error;
+			this.saneo_chk.Values.ImageStates.ImageCheckedPressed = global::EstacionPesaje.Properties.Resources.document_color_red_error;
+			this.saneo_chk.Values.ImageStates.ImageCheckedTracking = global::EstacionPesaje.Properties.Resources.document_color_red_error;
+			this.saneo_chk.Values.ImageStates.ImageNormal = global::EstacionPesaje.Properties.Resources.document_color_green_ok;
+			this.saneo_chk.Values.ImageStates.ImagePressed = global::EstacionPesaje.Properties.Resources.document_color_green_ok;
+			this.saneo_chk.Values.ImageStates.ImageTracking = global::EstacionPesaje.Properties.Resources.document_color_green_ok;
+			this.saneo_chk.Values.Text = "Saneo";
 			// 
 			// kryptonGroupBox4
 			// 
@@ -1226,6 +1364,7 @@
 			this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel4,
+            this.ProgressBar,
             this.OperadorLabel,
             this.ProcesoLabel,
             this.MaquinaLabel,
@@ -1237,6 +1376,12 @@
 			this.statusStrip1.SizingGrip = false;
 			this.statusStrip1.TabIndex = 30;
 			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// ProgressBar
+			// 
+			this.ProgressBar.Name = "ProgressBar";
+			this.ProgressBar.Size = new System.Drawing.Size(100, 16);
+			this.ProgressBar.Visible = false;
 			// 
 			// toolStripStatusLabel4
 			// 
@@ -1707,6 +1852,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPageCaptura)).EndInit();
 			this.kryptonPageCaptura.ResumeLayout(false);
 			this.kryptonPageCaptura.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox5.Panel)).EndInit();
+			this.kryptonGroupBox5.Panel.ResumeLayout(false);
+			this.kryptonGroupBox5.Panel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox5)).EndInit();
+			this.kryptonGroupBox5.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox4.Panel)).EndInit();
 			this.kryptonGroupBox4.Panel.ResumeLayout(false);
 			this.kryptonGroupBox4.Panel.PerformLayout();
@@ -1852,5 +2002,15 @@
 		private System.Windows.Forms.BindingSource procesoBindingSource;
 		private System.Windows.Forms.ToolStripButton toolStripButton4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+		private ComponentFactory.Krypton.Toolkit.KryptonCheckButton saneo_chk;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox bajadaActual_txt;
+		private ComponentFactory.Krypton.Toolkit.ButtonSpecAny setBajadaActual_btn;
+		private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel20;
+		private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel19;
+		private ComponentFactory.Krypton.Toolkit.KryptonTextBox repEje_txt;
+		private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kryptonGroupBox5;
+		private ComponentFactory.Krypton.Toolkit.KryptonNumericUpDown multipleQuantity_num;
+		private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel21;
+		private System.Windows.Forms.ToolStripProgressBar ProgressBar;
 	}
 }

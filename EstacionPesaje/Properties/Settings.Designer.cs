@@ -190,5 +190,17 @@ namespace EstacionPesaje.Properties {
                 this["ImpresoraEtiquetas"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enabledImpresionMultiple {
+            get {
+                return ((bool)(this["enabledImpresionMultiple"]));
+            }
+            set {
+                this["enabledImpresionMultiple"] = value;
+            }
+        }
     }
 }
