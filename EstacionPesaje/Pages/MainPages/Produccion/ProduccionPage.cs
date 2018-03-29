@@ -122,10 +122,12 @@ namespace EstacionPesaje.Pages.MainPages {
 					var t = from produccion in DB.TempProduccion
 							where produccion.OT == this.OT && produccion.TIPOPROCESO == valuesCaptura.Proceso.ID
 							orderby produccion.NUMERO descending
-							select new { produccion.NUMERO, produccion.PESOCORE };
+							select new { produccion.NUMERO, produccion.PESOCORE, produccion .USUARIO  };
 
-					var num = t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).NUMERO : 0;
-					var PesoCore = t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).PESOCORE : 0;
+					var myNumber = t.Where ( u => u.USUARIO == Environment.MachineName ).OrderByDescending(i=>i.NUMERO ).FirstOrDefault ( );
+
+					var num = ( myNumber != null? myNumber.NUMERO:(t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).NUMERO : 0));
+					var PesoCore = ( myNumber != null ? myNumber.PESOCORE : ( t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).PESOCORE : 0));
 
 					nUMEROKryptonTextBox.Value = num + 1;
 					pESOCOREKryptonTextBox.Value = ( decimal ) PesoCore;
@@ -210,7 +212,7 @@ namespace EstacionPesaje.Pages.MainPages {
 					for (int i = 1; i < ( int ) multipleQuantity_num.Value; i++) {
 						try {
 							var t = SaveCapturaProduccion ( );
-							this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
+							this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options);
 						}
 						catch { }
 						finally {
@@ -222,7 +224,7 @@ namespace EstacionPesaje.Pages.MainPages {
 
 				} else {
 					var t = SaveCapturaProduccion ( );
-					this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options, GetItemSelected ( ) );
+					this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options );
 				}
 
 			}
@@ -294,7 +296,7 @@ namespace EstacionPesaje.Pages.MainPages {
 					ORIGEN = oRIGENKryptonTextBox.Text,
 					FECHA = DateTime.Now,
 					OPERADOR = valuesCaptura.Operador,
-					REPETICION = AcumuladoBajada + 1,
+					REPETICION = GetItemSelected ( ),
 					USUARIO = Environment.MachineName,
 					INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + ( int ) nUMEROKryptonTextBox.Value,
 					ENSANEO = ( short ) ( saneo_chk.Checked ? -1 : 0 ),

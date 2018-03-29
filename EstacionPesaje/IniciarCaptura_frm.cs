@@ -22,7 +22,6 @@ namespace EstacionPesaje {
 
 		public IniciarCaptura_frm () {
 			InitializeComponent ( );
-
 		}
 
 		private async void IniciarCaptura_frm_Load ( object sender, EventArgs e ) {
@@ -34,6 +33,11 @@ namespace EstacionPesaje {
 			//maquinaBindingSource.DataSource = DB.Maquinas.Local.ToBindingList ( );
 			procesoBindingSource.DataSource = DB.Procesos.Local.ToBindingList ( );
 			etiquetaBindingSource.DataSource = DB.Etiquetas.Local.ToBindingList ( );
+
+			lineaKryptonComboBox.SelectedIndex = -1;
+			maquinasKryptonComboBox.SelectedIndex = -1;
+			etiquetaKryptonComboBox.SelectedIndex = -1;
+			procesoKryptonComboBox.SelectedIndex = -1;
 		}
 
 
@@ -49,16 +53,20 @@ namespace EstacionPesaje {
 			}
 		}
 
-		private void AceptButton_Click ( object sender, EventArgs e ) {
-
-		}
 
 		private void IniciarCaptura_frm_FormClosing ( object sender, FormClosingEventArgs e ) {
-			if (DialogResult == DialogResult.OK) {
-				if (InfoCapturaLayout.Visible && ( OperadorkryptonTextBox.Text.Trim ( ) == string.Empty || TurnokryptonComboBox.SelectedIndex <= 0 )) {
-					KryptonTaskDialog.Show ( "Algo va mal...", "Error", "Por favor, Verifique que la informacion sea la correcta", MessageBoxIcon.Error, TaskDialogButtons.OK );
-					e.Cancel = true;
-				} else {
+			try {
+				if (DialogResult == DialogResult.OK) {
+
+					if (InfoCapturaLayout.Visible) {
+						if ( OperadorkryptonTextBox.Text.Trim ( ) == string.Empty ||
+							TurnokryptonComboBox.SelectedIndex <= 0 ) throw new Exception ( "Escriba el numero de operador y seleccione un Turno valido" );
+						if (lineaKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione una Linea" );
+						if (maquinasKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione una Maquina" );
+						if (procesoKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione un Proceso" );
+					}
+
+					if (etiquetaKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione una Etiqueta" );
 
 					response = new InformacionInicialCaptura ( ) {
 						Maquina = ( Maquina ) maquinasBindingSource.Current,
@@ -67,26 +75,32 @@ namespace EstacionPesaje {
 						Operador = OperadorkryptonTextBox.Text,
 						Etiqueta = ( Etiqueta ) etiquetaBindingSource.Current,
 						Options = new Optionals {
-							ItemOptional = ItemOptionalTextBox .Text,
-							Optional1 = Optional1TextBox .Text,
+							ItemOptional = ItemOptionalTextBox.Text,
+							Optional1 = Optional1TextBox.Text,
 							Optional2 = Optional2TextBox.Text,
 							Optional3 = Optional3TextBox.Text,
 							Optional4 = Optional4TextBox.Text,
 							Optional5 = Optional5TextBox.Text,
 						}
-						
+
 					};
+
 
 				}
 			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+				e.Cancel = true;
+			}
+
 		}
 
 		private void etiquetaKryptonComboBox_SelectionChangeCommitted ( object sender, EventArgs e ) {
-			
+
 		}
 
 		private void etiquetaKryptonComboBox_SelectedIndexChanged ( object sender, EventArgs e ) {
-			
+
 		}
 	}
 }

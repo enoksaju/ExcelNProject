@@ -19,7 +19,7 @@ namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
 		public string DEFECTO { get; set; }
 		public string DESCRIPCION { get; set; }
 		public string ESTRUCTURA { get; set; }
-		public DateTime FECHA { get { return _Fecha.Date; } set { _Fecha = value; } }
+		public DateTime FECHA { get { return _Fecha; } set { _Fecha = value; } }
 		public string PROCESO { get; set; }
 	}
 }

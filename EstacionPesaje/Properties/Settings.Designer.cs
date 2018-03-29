@@ -202,5 +202,77 @@ namespace EstacionPesaje.Properties {
                 this["enabledImpresionMultiple"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional1 {
+            get {
+                return ((string)(this["Optional1"]));
+            }
+            set {
+                this["Optional1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional2 {
+            get {
+                return ((string)(this["Optional2"]));
+            }
+            set {
+                this["Optional2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional3 {
+            get {
+                return ((string)(this["Optional3"]));
+            }
+            set {
+                this["Optional3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional4 {
+            get {
+                return ((string)(this["Optional4"]));
+            }
+            set {
+                this["Optional4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional5 {
+            get {
+                return ((string)(this["Optional5"]));
+            }
+            set {
+                this["Optional5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ItemOptional {
+            get {
+                return ((string)(this["ItemOptional"]));
+            }
+            set {
+                this["ItemOptional"] = value;
+            }
+        }
     }
 }

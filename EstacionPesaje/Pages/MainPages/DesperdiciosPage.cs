@@ -195,7 +195,15 @@ namespace EstacionPesaje.Pages.MainPages {
 
 					nUMEROTextBox.Text = ( numero + 1 ).ToString ( );
 
-					PrintZPL.PrintDesperdicio ( xd );
+
+					if (!SimularEtiqueta_chk.Checked) {
+						PrintZPL.PrintDesperdicio ( xd );
+					} else {
+
+						using (var frm = new tools.PreviewLabel_frm<TempDesperdicios> ( xd )) {
+							frm.ShowDialog ( );
+						}
+					}
 
 					KryptonTaskDialog.Show ( "Muy bien...", "Correcto", "Se agrego el elemento correctamente", MessageBoxIcon.Information, TaskDialogButtons.OK );
 					CleanForm ( );
@@ -259,7 +267,6 @@ namespace EstacionPesaje.Pages.MainPages {
 					.Include ( r => r.FamiliaDefectosDefecto )
 					.Where ( r => r.Id == ( ( TempDesperdicios ) rw.DataBoundItem ).Id )
 					.FirstOrDefaultAsync ( );
-
 					this.PrintZPL.PrintDesperdicio ( y );
 				}
 				catch (Exception ex) {
@@ -294,6 +301,55 @@ namespace EstacionPesaje.Pages.MainPages {
 				kryptonDataGridView1.Refresh ( );
 
 			}
+		}
+
+		private async void simularEtiqueta_Lista_chk_Click ( object sender, EventArgs e ) {
+
+			try {
+				if (kryptonDataGridView1.SelectedRows.Count <= 0) throw new Exception ( "No se selecciono ningun elemento." );
+				var t = kryptonDataGridView1.SelectedRows [ 0 ];
+				var y = await DB
+					.TDesperdicios
+					.Include ( r => r.Maquina_ )
+					.Include ( r => r.FamiliaDefectosDefecto )
+					.Where ( r => r.Id == ( ( TempDesperdicios ) t.DataBoundItem ).Id )
+					.FirstOrDefaultAsync ( );
+
+				using (var frm = new tools.PreviewLabel_frm<TempDesperdicios> ( y )) {
+					frm.ShowDialog ( );
+				}
+
+			}
+			catch (Exception ex) {
+				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
+			}
+
+
+
+			//foreach (DataGridViewRow rw in kryptonDataGridView1.SelectedRows) {
+
+			//	try {
+
+			//		var y = await DB
+			//		.TDesperdicios
+			//		.Include ( r => r.Maquina_ )
+			//		.Include ( r => r.FamiliaDefectosDefecto )
+			//		.Where ( r => r.Id == ( ( TempDesperdicios ) rw.DataBoundItem ).Id )
+			//		.FirstOrDefaultAsync ( );
+
+			//		using (var frm = new tools.PreviewLabel_frm<TempDesperdicios> ( y )) {
+			//			frm.ShowDialog ( );
+			//		}
+
+			//	}
+			//	catch (Exception ex) {
+			//		HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
+			//	}
+
+			//}
+
+
+
 		}
 	}
 }

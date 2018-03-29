@@ -166,7 +166,8 @@ namespace EstacionPesaje {
 			using (var frm = new Pages.MainPages.DesperdicioReports.forms.LineaFecha_frm ( )) {
 				if (frm.ShowDialog ( ) == DialogResult.OK) {
 					Pages.Base.PageCreator.CrateAndShowMainPage (
-					new Pages.MainPages.DesperdicioReports.IntelisisPage ( frm.Response.Linea.Id, frm.Response.FechaInicial, frm.Response.FechaFinal ),
+					new Pages.MainPages.DesperdicioReports.IntelisisPage ( 
+						frm.Response.Linea.Id, frm.Response.FechaInicial, frm.Response.FechaFinal ),
 					kryptonDockingManager, _dc );
 				}
 			}
@@ -176,7 +177,11 @@ namespace EstacionPesaje {
 			using (var frm = new Pages.MainPages.DesperdicioReports.forms.LineaFecha_frm ( )) {
 				if (frm.ShowDialog ( ) == DialogResult.OK) {
 					Pages.Base.PageCreator.CrateAndShowMainPage (
-					new Pages.MainPages.DesperdicioReports.FechasPage ( frm.Response.Linea.Id, frm.Response.FechaInicial, frm.Response.FechaFinal ),
+					new Pages.MainPages.DesperdicioReports.FechasPage ( 
+						frm.Response.Linea.Id, 
+						frm.Response.FechaInicial, 
+						frm.Response.FechaFinal 
+						),
 					kryptonDockingManager, _dc );
 				}
 			}
@@ -257,6 +262,47 @@ namespace EstacionPesaje {
 
 		private void kryptonRibbonGroupCheckBox1_CheckedChanged ( object sender, EventArgs e ) {
 			Properties.Settings.Default.enabledImpresionMultiple = kryptonRibbonGroupCheckBox1.Checked;
+		}
+
+		private void openCierreOrdenes_Click ( object sender, EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Intelisis.CierreOrdenesPage(),
+						kryptonDockingManager, _dc );
+		}
+
+		private void openTransferencias_Click ( object sender, EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Intelisis.TransferenciasPage ( ),
+						kryptonDockingManager, _dc );
+		}
+
+		private void openExistenciasAlmacen_Click ( object sender, EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Intelisis.ExistenciasAlmacenPage ( ),
+						kryptonDockingManager, _dc );
+		}
+
+		private void progressProduction_btn_Click ( object sender, EventArgs e ) {
+			try {
+				string OT = KryptonInputBox.Show ( this, "Ingrese el numero de orden que desea abrir", "Abrir Historico", "*****" );
+
+				if (OT != "" && OT != "*****") {
+
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Produccion.progresoOTPage ( OT ),
+						kryptonDockingManager, _dc );
+
+				}
+			}
+			catch (Exception ex) {
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			}
+		}
+
+		private void kryptonRibbonGroupButton14_Click ( object sender, EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.CapturaOrdenes.CapturaWorkSheetPage(),
+						kryptonDockingManager, _dc );
 		}
 	}
 }

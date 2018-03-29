@@ -26,7 +26,7 @@
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>5.4.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -72,6 +72,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\ReoGrid-master\ReoGrid-master\ReoGrid\bin\Debug\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
@@ -107,6 +110,10 @@
     <Reference Include="FilteredPropertyGrid">
       <HintPath>..\FilteredPropertyGrid.dll</HintPath>
     </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.7.7.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\FirebirdClient\2.7\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -115,8 +122,20 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -144,6 +163,16 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TRYINTELISISSELECTCTL">
+      <HintPath>..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\TRYINTELISISSELECTCTL\obj\Debug\TRYINTELISISSELECTCTL.dll</HintPath>
+    </Reference>
+    <Reference Include="unvell.ReoGrid, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\ReoGrid-master\ReoGrid-master\ReoGrid\bin\Debug\unvell.ReoGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="unvell.ReoScript">
+      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\ReoGrid-master\ReoGrid-master\ReoGrid\bin\Debug\unvell.ReoScript.dll</HintPath>
+    </Reference>
     <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.7.15.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
       <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.7.15\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
       <Private>True</Private>
@@ -207,6 +236,12 @@
     <Compile Include="Pages\MainPages\AddEditLabelPage.Designer.cs">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.Designer.cs">
+      <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\DesperdicioReports\FechasPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -245,6 +280,25 @@
     <Compile Include="Pages\MainPages\Embarques\EmbarquesReportPage.Designer.cs">
       <DependentUpon>EmbarquesReportPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\CierreOrdenesPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\CierreOrdenesPage.Designer.cs">
+      <DependentUpon>CierreOrdenesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\ExistenciasAlmacenPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\ExistenciasAlmacenPage.Designer.cs">
+      <DependentUpon>ExistenciasAlmacenPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\TransferenciasPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Intelisis\TransferenciasPage.Designer.cs">
+      <DependentUpon>TransferenciasPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\dataProduccion.cs" />
     <Compile Include="Pages\MainPages\Produccion\HistoricoOts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -275,11 +329,23 @@
     <Compile Include="Pages\MainPages\Produccion\ProduccionPage.Designer.cs">
       <DependentUpon>ProduccionPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\Produccion\progresoOTPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Produccion\progresoOTPage.Designer.cs">
+      <DependentUpon>progresoOTPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\Produccion\ViewOTPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Pages\MainPages\Produccion\ViewOTPage.Designer.cs">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\tools\PreviewLabel_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\tools\PreviewLabel_frm.Designer.cs">
+      <DependentUpon>PreviewLabel_frm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +374,9 @@
     <EmbeddedResource Include="Pages\MainPages\AddEditLabelPage.resx">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.resx">
+      <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\FechasPage.resx">
       <DependentUpon>FechasPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +397,15 @@
       <DependentUpon>EmbarquesReportPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Embarques\Report1.rdlc" />
+    <EmbeddedResource Include="Pages\MainPages\Intelisis\CierreOrdenesPage.resx">
+      <DependentUpon>CierreOrdenesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Intelisis\ExistenciasAlmacenPage.resx">
+      <DependentUpon>ExistenciasAlmacenPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Intelisis\TransferenciasPage.resx">
+      <DependentUpon>TransferenciasPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Produccion\HistoricoOts.resx">
       <DependentUpon>HistoricoOts.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,8 +421,15 @@
     <EmbeddedResource Include="Pages\MainPages\Produccion\ProduccionPage.resx">
       <DependentUpon>ProduccionPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Produccion\progresoOTPage.resx">
+      <DependentUpon>progresoOTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Produccion\Report1.rdlc" />
     <EmbeddedResource Include="Pages\MainPages\Produccion\ViewOTPage.resx">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\tools\PreviewLabel_frm.resx">
+      <DependentUpon>PreviewLabel_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -363,6 +448,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Embarques.DataPackingList.datasource" />
+    <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Produccion.dataProduccion.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Etiqueta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Maquina.datasource" />
@@ -396,6 +482,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\CapturaTabla\CapturaTabla.vbproj">
+      <Project>{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}</Project>
+      <Name>CapturaTabla</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\libReportsOTS.vbproj">
       <Project>{c8d24004-87ff-4d73-985f-60c0a8b98369}</Project>
       <Name>libReportsOTS</Name>
@@ -403,6 +493,10 @@
     <ProjectReference Include="..\libBascula\libBascula.csproj">
       <Project>{b0bc4541-f643-4306-b2c1-945192d75ff0}</Project>
       <Name>libBascula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libControlesCapturaOrdenes\libControlesCapturaOrdenes.csproj">
+      <Project>{b47f6829-ec2d-4b99-a39a-c2c6043bb005}</Project>
+      <Name>libControlesCapturaOrdenes</Name>
     </ProjectReference>
     <ProjectReference Include="..\libControlesPersonalizados\libControlesPersonalizados.csproj">
       <Project>{1426aed9-0470-48ad-b4e7-b9a4921a7a93}</Project>
@@ -524,6 +618,7 @@
     <None Include="Resources\document-check.png" />
     <None Include="Resources\document_color_red_error.png" />
     <None Include="Resources\document_color_green-ok.png" />
+    <None Include="Resources\document_move.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />
@@ -531,6 +626,11 @@
     <None Include="Resources\shipment.png" />
     <None Include="Resources\shipment1.png" />
     <None Include="Resources\refresh_update.png" />
+    <None Include="Resources\mailbox-info.png" />
+    <None Include="Resources\mailbox-info1.png" />
+    <None Include="Resources\page_numbers_in_margins_insert.png" />
+    <None Include="Resources\report-worker.png" />
+    <None Include="Resources\report_worker.png" />
     <Content Include="tag_orange.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

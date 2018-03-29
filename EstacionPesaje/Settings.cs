@@ -33,7 +33,7 @@ namespace EstacionPesaje.Properties {
 					return;
 				};
 
-				//Program.splashScreen.message = newValue;
+				Program.splashScreen.message = newValue;
 				System.Threading.Thread.Sleep ( 150 );
 			}
 			catch (System.Exception ex) {

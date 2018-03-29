@@ -100,7 +100,12 @@ namespace EstacionPesaje.Pages.MainPages.Embarques {
 
 				var o = ( from fl in t
 						  where fl.includeOnFilter ( Filtro , inicio, fin )
-						  select fl ).ToList ( );
+						  select fl )
+						  .OrderByDescending  (y=>y.FUESANEADA )
+						  .ThenByDescending(y=>y.ENSANEO )
+						  .ThenByDescending (y=>y.RECHAZADA )
+						  .ThenBy (y=>y.NUMERO )
+						  .ToList ( );
 
 				double TotalPag = Math.Ceiling ( ( double ) ( o.Count ( ) / byTar ) );
 				int TotalItems = o.Count ( );

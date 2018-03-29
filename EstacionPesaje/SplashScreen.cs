@@ -32,6 +32,7 @@ namespace EstacionPesaje
             }
             messageText.Text = String.Format( "Cargando {0} ...", value );
         }
+
         public SplashScreen()
         {
             InitializeComponent();

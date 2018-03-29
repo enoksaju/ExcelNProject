@@ -29,8 +29,8 @@ namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
 			PageTitleText = String.Format ( "Desp[{0}]", Ots );
 			KP.ToolTipBody = String.Format ( "{0}", Ots );
 			KP.ToolTipTitle = "Desperdicio";
-			KP.ToolTipImage = Properties.Resources.intelisis;
-			KP.ImageSmall = Properties.Resources.intelisis;
+			KP.ToolTipImage = Properties.Resources.report_open1;
+			KP.ImageSmall = Properties.Resources.report_open1;
 
 
 			var split_ = Ots.Split ( ',' );

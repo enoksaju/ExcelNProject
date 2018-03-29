@@ -40,28 +40,53 @@ namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
 			DateTime FI = FechaInicial.AddHours ( 8 ).AddMinutes ( 51 );
 			DateTime FF = FechaFinal.AddDays ( 1 ).AddHours ( 8 ).AddMinutes ( 50 );
 
+			var g = DB.TDesperdicios.Where ( w => w.FECHA >= FI & w.FECHA <= FF & w.Maquina_.Linea_Id == Linea_Id_   ).ToList ( );
 
-			var y = from TempDesperdicios des in DB.TDesperdicios
-					where des.Maquina_.Linea_Id == Linea_Id_ &
-					( des.FECHA >= FI & des.FECHA <= FF )
-					select new ReportData {
-						ID = des.Id,
-						OT = des.OT,
-						OPERADOR = des.OPERADOR,
-						TURNO = des.TURNO,
-						LINEA = des.Maquina_.Linea.Nombre,
-						MAQUINA = des.Maquina_.NombreMaquina,
-						NUMERO = des.NUMERO,
-						PESO = des.PESO,
-						FAMILIA = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto,
-						DEFECTO = des.FamiliaDefectosDefecto.Defecto.NombreDefecto,
-						DESCRIPCION = des.DESCRIPCION,
-						ESTRUCTURA = des.ESTRUCTURA,
-						FECHA = des.FECHA,
-						PROCESO = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto
-					};
 
-			var XD = y.ToList ( );
+			var y = g.Select ( new Func<TempDesperdicios, ReportData> ( des => {
+				return new ReportData {
+					ID = des.Id,
+					OT = des.OT,
+					OPERADOR = des.OPERADOR,
+					TURNO = des.TURNO,
+					LINEA = des.Maquina_.Linea.Nombre,
+					MAQUINA = des.Maquina_.NombreMaquina,
+					NUMERO = des.NUMERO,
+					PESO = des.PESO,
+					FAMILIA = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto,
+					DEFECTO = des.FamiliaDefectosDefecto.Defecto.NombreDefecto,
+					DESCRIPCION = des.DESCRIPCION,
+					ESTRUCTURA = des.ESTRUCTURA,
+					FECHA = des.FECHA,
+					PROCESO = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto
+				};
+
+			} )
+			).ToList();
+			//var y = from TempDesperdicios des in DB.TDesperdicios
+			//		where des.Maquina_.Linea_Id == Linea_Id_ &
+			//		( des.FECHA >= FI & des.FECHA <= FF )
+			//		select new ReportData {
+			//			ID = des.Id,
+			//			OT = des.OT,
+			//			OPERADOR = des.OPERADOR,
+			//			TURNO = des.TURNO,
+			//			LINEA = des.Maquina_.Linea.Nombre,
+			//			MAQUINA = des.Maquina_.NombreMaquina,
+			//			NUMERO = des.NUMERO,
+			//			PESO = des.PESO,
+			//			FAMILIA = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto,
+			//			DEFECTO = des.FamiliaDefectosDefecto.Defecto.NombreDefecto,
+			//			DESCRIPCION = des.DESCRIPCION,
+			//			ESTRUCTURA = des.ESTRUCTURA,
+			//			FECHA = des.FECHA,
+			//			PROCESO = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto
+			//		};
+
+			y.ForEach ( obj =>
+				  obj.FECHA = ( obj.FECHA > obj.FECHA.Date.AddHours ( 8 ).AddMinutes ( 50 ) ? obj.FECHA.Date : obj.FECHA.Date.AddDays ( -1 ) ) );
+
+						
 			reportViewer1.LocalReport.DataSources.Clear ( );
 			reportViewer1.LocalReport.DataSources.Add ( new Microsoft.Reporting.WinForms.ReportDataSource ( "DataSet1", y ) );
 

@@ -63,6 +63,7 @@
 			this.TurnoComboBox = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
 			this.kryptonButton2 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
 			this.MaterialesDisponibles_listBox = new ComponentFactory.Krypton.Toolkit.KryptonCheckedListBox();
+			this.SimularEtiqueta_chk = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
 			this.kryptonPageLista = new ComponentFactory.Krypton.Navigator.KryptonPage();
 			this.kryptonDataGridView1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.NUMERO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,8 +89,10 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.simularEtiqueta_Lista_chk = new System.Windows.Forms.ToolStripButton();
 			this.desperdiciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.PrintZPL = new libControlesPersonalizados.ReplaceAndPrintZPLProduccion(this.components);
+			this.zplImageConverter = new libControlesPersonalizados.ZPLCONVERTER.zplImageConverter();
 			dESCRIPCIONLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			nUMEROLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			oPERADORLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -133,11 +136,12 @@
 			// 
 			// dESCRIPCIONLabel
 			// 
-			dESCRIPCIONLabel.Dock = System.Windows.Forms.DockStyle.Right;
+			this.tableLayoutPanel1.SetColumnSpan(dESCRIPCIONLabel, 2);
+			dESCRIPCIONLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
 			dESCRIPCIONLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			dESCRIPCIONLabel.Location = new System.Drawing.Point(242, 57);
+			dESCRIPCIONLabel.Location = new System.Drawing.Point(274, 64);
 			dESCRIPCIONLabel.Name = "dESCRIPCIONLabel";
-			dESCRIPCIONLabel.Size = new System.Drawing.Size(90, 21);
+			dESCRIPCIONLabel.Size = new System.Drawing.Size(265, 20);
 			dESCRIPCIONLabel.TabIndex = 4;
 			dESCRIPCIONLabel.Values.Text = "DESCRIPCION:";
 			// 
@@ -145,9 +149,9 @@
 			// 
 			nUMEROLabel.Dock = System.Windows.Forms.DockStyle.Right;
 			nUMEROLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			nUMEROLabel.Location = new System.Drawing.Point(20, 84);
+			nUMEROLabel.Location = new System.Drawing.Point(32, 90);
 			nUMEROLabel.Name = "nUMEROLabel";
-			nUMEROLabel.Size = new System.Drawing.Size(64, 21);
+			nUMEROLabel.Size = new System.Drawing.Size(64, 23);
 			nUMEROLabel.TabIndex = 14;
 			nUMEROLabel.Values.Text = "NUMERO:";
 			// 
@@ -155,9 +159,9 @@
 			// 
 			oPERADORLabel.Dock = System.Windows.Forms.DockStyle.Right;
 			oPERADORLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			oPERADORLabel.Location = new System.Drawing.Point(8, 3);
+			oPERADORLabel.Location = new System.Drawing.Point(20, 3);
 			oPERADORLabel.Name = "oPERADORLabel";
-			oPERADORLabel.Size = new System.Drawing.Size(76, 21);
+			oPERADORLabel.Size = new System.Drawing.Size(76, 23);
 			oPERADORLabel.TabIndex = 16;
 			oPERADORLabel.Values.Text = "OPERADOR:";
 			// 
@@ -165,9 +169,9 @@
 			// 
 			pESOLabel.Dock = System.Windows.Forms.DockStyle.Right;
 			pESOLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			pESOLabel.Location = new System.Drawing.Point(42, 111);
+			pESOLabel.Location = new System.Drawing.Point(54, 119);
 			pESOLabel.Name = "pESOLabel";
-			pESOLabel.Size = new System.Drawing.Size(42, 21);
+			pESOLabel.Size = new System.Drawing.Size(42, 23);
 			pESOLabel.TabIndex = 20;
 			pESOLabel.Values.Text = "PESO:";
 			// 
@@ -202,9 +206,9 @@
 			// 
 			kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Right;
 			kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			kryptonLabel1.Location = new System.Drawing.Point(27, 138);
+			kryptonLabel1.Location = new System.Drawing.Point(39, 148);
 			kryptonLabel1.Name = "kryptonLabel1";
-			kryptonLabel1.Size = new System.Drawing.Size(57, 21);
+			kryptonLabel1.Size = new System.Drawing.Size(57, 23);
 			kryptonLabel1.TabIndex = 37;
 			kryptonLabel1.Values.Text = "FAMILIA:";
 			// 
@@ -212,9 +216,9 @@
 			// 
 			kryptonLabel2.Dock = System.Windows.Forms.DockStyle.Right;
 			kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			kryptonLabel2.Location = new System.Drawing.Point(20, 165);
+			kryptonLabel2.Location = new System.Drawing.Point(32, 177);
 			kryptonLabel2.Name = "kryptonLabel2";
-			kryptonLabel2.Size = new System.Drawing.Size(64, 21);
+			kryptonLabel2.Size = new System.Drawing.Size(64, 23);
 			kryptonLabel2.TabIndex = 38;
 			kryptonLabel2.Values.Text = "DEFECTO:";
 			// 
@@ -222,9 +226,9 @@
 			// 
 			kryptonLabel3.Dock = System.Windows.Forms.DockStyle.Right;
 			kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			kryptonLabel3.Location = new System.Drawing.Point(287, 3);
+			kryptonLabel3.Location = new System.Drawing.Point(334, 3);
 			kryptonLabel3.Name = "kryptonLabel3";
-			kryptonLabel3.Size = new System.Drawing.Size(45, 21);
+			kryptonLabel3.Size = new System.Drawing.Size(45, 23);
 			kryptonLabel3.TabIndex = 40;
 			kryptonLabel3.Values.Text = "LINEA:";
 			// 
@@ -232,9 +236,9 @@
 			// 
 			kryptonLabel4.Dock = System.Windows.Forms.DockStyle.Right;
 			kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			kryptonLabel4.Location = new System.Drawing.Point(263, 30);
+			kryptonLabel4.Location = new System.Drawing.Point(310, 32);
 			kryptonLabel4.Name = "kryptonLabel4";
-			kryptonLabel4.Size = new System.Drawing.Size(69, 21);
+			kryptonLabel4.Size = new System.Drawing.Size(69, 23);
 			kryptonLabel4.TabIndex = 41;
 			kryptonLabel4.Values.Text = "MAQUINA:";
 			// 
@@ -242,9 +246,9 @@
 			// 
 			kryptonLabel5.Dock = System.Windows.Forms.DockStyle.Right;
 			kryptonLabel5.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ItalicPanel;
-			kryptonLabel5.Location = new System.Drawing.Point(30, 30);
+			kryptonLabel5.Location = new System.Drawing.Point(42, 32);
 			kryptonLabel5.Name = "kryptonLabel5";
-			kryptonLabel5.Size = new System.Drawing.Size(54, 21);
+			kryptonLabel5.Size = new System.Drawing.Size(54, 23);
 			kryptonLabel5.TabIndex = 19;
 			kryptonLabel5.Values.Text = "TURNO:";
 			// 
@@ -260,11 +264,11 @@
 			this.tFamiliaDefectosKryptonComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tFamiliaDefectosKryptonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.tFamiliaDefectosKryptonComboBox.DropDownWidth = 180;
-			this.tFamiliaDefectosKryptonComboBox.Location = new System.Drawing.Point(90, 138);
+			this.tFamiliaDefectosKryptonComboBox.Location = new System.Drawing.Point(102, 148);
 			this.tFamiliaDefectosKryptonComboBox.Name = "tFamiliaDefectosKryptonComboBox";
 			this.tFamiliaDefectosKryptonComboBox.Palette = this.kryptonPalette1;
 			this.tFamiliaDefectosKryptonComboBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.tFamiliaDefectosKryptonComboBox.Size = new System.Drawing.Size(145, 24);
+			this.tFamiliaDefectosKryptonComboBox.Size = new System.Drawing.Size(166, 24);
 			this.tFamiliaDefectosKryptonComboBox.TabIndex = 1;
 			this.tFamiliaDefectosKryptonComboBox.ValueMember = "Id";
 			// 
@@ -287,11 +291,11 @@
 			this.tFamiliaDefectosTDefectoKryptonComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tFamiliaDefectosTDefectoKryptonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.tFamiliaDefectosTDefectoKryptonComboBox.DropDownWidth = 180;
-			this.tFamiliaDefectosTDefectoKryptonComboBox.Location = new System.Drawing.Point(90, 165);
+			this.tFamiliaDefectosTDefectoKryptonComboBox.Location = new System.Drawing.Point(102, 177);
 			this.tFamiliaDefectosTDefectoKryptonComboBox.Name = "tFamiliaDefectosTDefectoKryptonComboBox";
 			this.tFamiliaDefectosTDefectoKryptonComboBox.Palette = this.kryptonPalette1;
 			this.tFamiliaDefectosTDefectoKryptonComboBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.tFamiliaDefectosTDefectoKryptonComboBox.Size = new System.Drawing.Size(242, 24);
+			this.tFamiliaDefectosTDefectoKryptonComboBox.Size = new System.Drawing.Size(277, 24);
 			this.tFamiliaDefectosTDefectoKryptonComboBox.TabIndex = 1;
 			this.tFamiliaDefectosTDefectoKryptonComboBox.ValueMember = "Id";
 			// 
@@ -299,61 +303,61 @@
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.dESCRIPCIONKryptonTextBox, 2);
 			this.dESCRIPCIONKryptonTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dESCRIPCIONKryptonTextBox.Location = new System.Drawing.Point(258, 84);
+			this.dESCRIPCIONKryptonTextBox.Location = new System.Drawing.Point(291, 90);
 			this.dESCRIPCIONKryptonTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
 			this.dESCRIPCIONKryptonTextBox.Multiline = true;
 			this.dESCRIPCIONKryptonTextBox.Name = "dESCRIPCIONKryptonTextBox";
 			this.dESCRIPCIONKryptonTextBox.Palette = this.kryptonPalette1;
 			this.dESCRIPCIONKryptonTextBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.tableLayoutPanel1.SetRowSpan(this.dESCRIPCIONKryptonTextBox, 3);
-			this.dESCRIPCIONKryptonTextBox.Size = new System.Drawing.Size(215, 75);
+			this.dESCRIPCIONKryptonTextBox.Size = new System.Drawing.Size(248, 81);
 			this.dESCRIPCIONKryptonTextBox.TabIndex = 5;
 			// 
 			// eSTRUCTURAKryptonTextBox
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.eSTRUCTURAKryptonTextBox, 2);
 			this.eSTRUCTURAKryptonTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.eSTRUCTURAKryptonTextBox.Location = new System.Drawing.Point(258, 192);
+			this.eSTRUCTURAKryptonTextBox.Location = new System.Drawing.Point(291, 206);
 			this.eSTRUCTURAKryptonTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
 			this.eSTRUCTURAKryptonTextBox.Multiline = true;
 			this.eSTRUCTURAKryptonTextBox.Name = "eSTRUCTURAKryptonTextBox";
 			this.eSTRUCTURAKryptonTextBox.Palette = this.kryptonPalette1;
 			this.eSTRUCTURAKryptonTextBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.eSTRUCTURAKryptonTextBox.ReadOnly = true;
-			this.eSTRUCTURAKryptonTextBox.Size = new System.Drawing.Size(215, 158);
+			this.eSTRUCTURAKryptonTextBox.Size = new System.Drawing.Size(248, 156);
 			this.eSTRUCTURAKryptonTextBox.TabIndex = 7;
 			// 
 			// nUMEROTextBox
 			// 
 			this.nUMEROTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.nUMEROTextBox.Location = new System.Drawing.Point(90, 84);
+			this.nUMEROTextBox.Location = new System.Drawing.Point(102, 90);
 			this.nUMEROTextBox.Name = "nUMEROTextBox";
 			this.nUMEROTextBox.Palette = this.kryptonPalette1;
 			this.nUMEROTextBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
 			this.nUMEROTextBox.ReadOnly = true;
-			this.nUMEROTextBox.Size = new System.Drawing.Size(145, 26);
+			this.nUMEROTextBox.Size = new System.Drawing.Size(166, 26);
 			this.nUMEROTextBox.TabIndex = 15;
 			this.nUMEROTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// oPERADORTextBox
 			// 
 			this.oPERADORTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.oPERADORTextBox.Location = new System.Drawing.Point(90, 3);
+			this.oPERADORTextBox.Location = new System.Drawing.Point(102, 3);
 			this.oPERADORTextBox.Name = "oPERADORTextBox";
 			this.oPERADORTextBox.Palette = this.kryptonPalette1;
 			this.oPERADORTextBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.oPERADORTextBox.Size = new System.Drawing.Size(145, 26);
+			this.oPERADORTextBox.Size = new System.Drawing.Size(166, 26);
 			this.oPERADORTextBox.TabIndex = 17;
 			this.oPERADORTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// pESOTextBox
 			// 
 			this.pESOTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pESOTextBox.Location = new System.Drawing.Point(90, 111);
+			this.pESOTextBox.Location = new System.Drawing.Point(102, 119);
 			this.pESOTextBox.Name = "pESOTextBox";
 			this.pESOTextBox.Palette = this.kryptonPalette1;
 			this.pESOTextBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.pESOTextBox.Size = new System.Drawing.Size(145, 26);
+			this.pESOTextBox.Size = new System.Drawing.Size(166, 26);
 			this.pESOTextBox.TabIndex = 21;
 			this.pESOTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
@@ -369,11 +373,11 @@
 			this.lineaKryptonComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lineaKryptonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.lineaKryptonComboBox.DropDownWidth = 160;
-			this.lineaKryptonComboBox.Location = new System.Drawing.Point(338, 3);
+			this.lineaKryptonComboBox.Location = new System.Drawing.Point(385, 3);
 			this.lineaKryptonComboBox.Name = "lineaKryptonComboBox";
 			this.lineaKryptonComboBox.Palette = this.kryptonPalette1;
 			this.lineaKryptonComboBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.lineaKryptonComboBox.Size = new System.Drawing.Size(135, 24);
+			this.lineaKryptonComboBox.Size = new System.Drawing.Size(154, 24);
 			this.lineaKryptonComboBox.TabIndex = 31;
 			this.lineaKryptonComboBox.ValueMember = "Id";
 			// 
@@ -389,11 +393,11 @@
 			this.maquinasKryptonComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.maquinasKryptonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.maquinasKryptonComboBox.DropDownWidth = 160;
-			this.maquinasKryptonComboBox.Location = new System.Drawing.Point(338, 30);
+			this.maquinasKryptonComboBox.Location = new System.Drawing.Point(385, 32);
 			this.maquinasKryptonComboBox.Name = "maquinasKryptonComboBox";
 			this.maquinasKryptonComboBox.Palette = this.kryptonPalette1;
 			this.maquinasKryptonComboBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.maquinasKryptonComboBox.Size = new System.Drawing.Size(135, 24);
+			this.maquinasKryptonComboBox.Size = new System.Drawing.Size(154, 24);
 			this.maquinasKryptonComboBox.TabIndex = 31;
 			this.maquinasKryptonComboBox.ValueMember = "Id";
 			// 
@@ -407,7 +411,7 @@
 			this.oTKryptonWrapLabel.AutoSize = false;
 			this.oTKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.temporalOrdenTrabajoBindingSource, "OT", true));
 			this.oTKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.oTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.oTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.oTKryptonWrapLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.oTKryptonWrapLabel.Location = new System.Drawing.Point(85, 6);
 			this.oTKryptonWrapLabel.Name = "oTKryptonWrapLabel";
@@ -420,7 +424,7 @@
 			this.cLIENTEKryptonWrapLabel.AutoSize = false;
 			this.cLIENTEKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.temporalOrdenTrabajoBindingSource, "CLIENTE", true));
 			this.cLIENTEKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.cLIENTEKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.cLIENTEKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.cLIENTEKryptonWrapLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.cLIENTEKryptonWrapLabel.Location = new System.Drawing.Point(85, 29);
 			this.cLIENTEKryptonWrapLabel.Name = "cLIENTEKryptonWrapLabel";
@@ -433,7 +437,7 @@
 			this.pRODUCTOKryptonWrapLabel.AutoSize = false;
 			this.pRODUCTOKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.temporalOrdenTrabajoBindingSource, "PRODUCTO", true));
 			this.pRODUCTOKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.pRODUCTOKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.pRODUCTOKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.pRODUCTOKryptonWrapLabel.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.pRODUCTOKryptonWrapLabel.Location = new System.Drawing.Point(85, 52);
 			this.pRODUCTOKryptonWrapLabel.Name = "pRODUCTOKryptonWrapLabel";
@@ -507,13 +511,14 @@
 			// 
 			// tableLayoutPanel1
 			// 
+			this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
 			this.tableLayoutPanel1.ColumnCount = 5;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.37121F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.62879F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.45455F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.54545F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
 			this.tableLayoutPanel1.Controls.Add(nUMEROLabel, 0, 3);
 			this.tableLayoutPanel1.Controls.Add(kryptonLabel5, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.kryptonButton1, 4, 4);
@@ -536,7 +541,8 @@
 			this.tableLayoutPanel1.Controls.Add(this.eSTRUCTURAKryptonTextBox, 2, 7);
 			this.tableLayoutPanel1.Controls.Add(this.kryptonButton2, 4, 0);
 			this.tableLayoutPanel1.Controls.Add(this.MaterialesDisponibles_listBox, 0, 7);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(54, 3);
+			this.tableLayoutPanel1.Controls.Add(this.SimularEtiqueta_chk, 4, 7);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(25, 3);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 8;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -547,17 +553,17 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 159F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(659, 353);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(700, 365);
 			this.tableLayoutPanel1.TabIndex = 44;
 			// 
 			// kryptonButton1
 			// 
 			this.kryptonButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.kryptonButton1.Location = new System.Drawing.Point(496, 111);
+			this.kryptonButton1.Location = new System.Drawing.Point(562, 119);
 			this.kryptonButton1.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
 			this.kryptonButton1.Name = "kryptonButton1";
 			this.tableLayoutPanel1.SetRowSpan(this.kryptonButton1, 3);
-			this.kryptonButton1.Size = new System.Drawing.Size(160, 75);
+			this.kryptonButton1.Size = new System.Drawing.Size(135, 81);
 			this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
 			this.kryptonButton1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.kryptonButton1.TabIndex = 42;
@@ -576,21 +582,21 @@
             "Segundo",
             "Tercero",
             "Mixto"});
-			this.TurnoComboBox.Location = new System.Drawing.Point(90, 30);
+			this.TurnoComboBox.Location = new System.Drawing.Point(102, 32);
 			this.TurnoComboBox.Name = "TurnoComboBox";
 			this.TurnoComboBox.Palette = this.kryptonPalette1;
 			this.TurnoComboBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.TurnoComboBox.Size = new System.Drawing.Size(145, 24);
+			this.TurnoComboBox.Size = new System.Drawing.Size(166, 24);
 			this.TurnoComboBox.TabIndex = 18;
 			// 
 			// kryptonButton2
 			// 
 			this.kryptonButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.kryptonButton2.Location = new System.Drawing.Point(496, 3);
+			this.kryptonButton2.Location = new System.Drawing.Point(562, 3);
 			this.kryptonButton2.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
 			this.kryptonButton2.Name = "kryptonButton2";
 			this.tableLayoutPanel1.SetRowSpan(this.kryptonButton2, 3);
-			this.kryptonButton2.Size = new System.Drawing.Size(160, 75);
+			this.kryptonButton2.Size = new System.Drawing.Size(135, 81);
 			this.kryptonButton2.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
 			this.kryptonButton2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.kryptonButton2.TabIndex = 43;
@@ -606,13 +612,23 @@
 			this.MaterialesDisponibles_listBox.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.MaterialesDisponibles_listBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.MaterialesDisponibles_listBox.FormattingEnabled = true;
-			this.MaterialesDisponibles_listBox.Location = new System.Drawing.Point(3, 192);
+			this.MaterialesDisponibles_listBox.Location = new System.Drawing.Point(3, 206);
 			this.MaterialesDisponibles_listBox.Name = "MaterialesDisponibles_listBox";
 			this.MaterialesDisponibles_listBox.Palette = this.kryptonPalette1;
 			this.MaterialesDisponibles_listBox.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-			this.MaterialesDisponibles_listBox.Size = new System.Drawing.Size(232, 158);
+			this.MaterialesDisponibles_listBox.Size = new System.Drawing.Size(265, 156);
 			this.MaterialesDisponibles_listBox.TabIndex = 44;
 			this.MaterialesDisponibles_listBox.ItemChecked += new System.Windows.Forms.ItemCheckEventHandler(this.MaterialesDisponibles_listBox_ItemChecked);
+			// 
+			// SimularEtiqueta_chk
+			// 
+			this.SimularEtiqueta_chk.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.SimularEtiqueta_chk.Location = new System.Drawing.Point(562, 342);
+			this.SimularEtiqueta_chk.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+			this.SimularEtiqueta_chk.Name = "SimularEtiqueta_chk";
+			this.SimularEtiqueta_chk.Size = new System.Drawing.Size(135, 20);
+			this.SimularEtiqueta_chk.TabIndex = 45;
+			this.SimularEtiqueta_chk.Values.Text = "Simular Etiqueta";
 			// 
 			// kryptonPageLista
 			// 
@@ -625,7 +641,7 @@
 			this.kryptonPageLista.LastVisibleSet = true;
 			this.kryptonPageLista.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPageLista.Name = "kryptonPageLista";
-			this.kryptonPageLista.Size = new System.Drawing.Size(713, 417);
+			this.kryptonPageLista.Size = new System.Drawing.Size(749, 371);
 			this.kryptonPageLista.Text = "Lista de Elementos";
 			this.kryptonPageLista.ToolTipTitle = "Page ToolTip";
 			this.kryptonPageLista.UniqueName = "8DC4DEBE47B84B6FABA2B615C5FFEC58";
@@ -653,7 +669,7 @@
 			this.kryptonDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.kryptonDataGridView1.Location = new System.Drawing.Point(0, 25);
 			this.kryptonDataGridView1.Name = "kryptonDataGridView1";
-			this.kryptonDataGridView1.Size = new System.Drawing.Size(713, 370);
+			this.kryptonDataGridView1.Size = new System.Drawing.Size(749, 324);
 			this.kryptonDataGridView1.TabIndex = 7;
 			// 
 			// NUMERO
@@ -738,10 +754,10 @@
             this.PN_lbl,
             this.PZ_lbl,
             this.SEL_lbl});
-			this.statusStrip2.Location = new System.Drawing.Point(0, 395);
+			this.statusStrip2.Location = new System.Drawing.Point(0, 349);
 			this.statusStrip2.Name = "statusStrip2";
 			this.statusStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip2.Size = new System.Drawing.Size(713, 22);
+			this.statusStrip2.Size = new System.Drawing.Size(749, 22);
 			this.statusStrip2.SizingGrip = false;
 			this.statusStrip2.TabIndex = 6;
 			this.statusStrip2.Text = "statusStrip2";
@@ -749,7 +765,7 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(348, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(384, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			// 
 			// toolStripStatusLabel3
@@ -817,10 +833,11 @@
             this.toolStripButton1,
             this.toolStripSeparator1,
             this.toolStripButton2,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.simularEtiqueta_Lista_chk});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(713, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(749, 25);
 			this.toolStrip1.TabIndex = 5;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -852,6 +869,15 @@
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
+			// simularEtiqueta_Lista_chk
+			// 
+			this.simularEtiqueta_Lista_chk.Image = global::EstacionPesaje.Properties.Resources.ListView;
+			this.simularEtiqueta_Lista_chk.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.simularEtiqueta_Lista_chk.Name = "simularEtiqueta_Lista_chk";
+			this.simularEtiqueta_Lista_chk.Size = new System.Drawing.Size(113, 22);
+			this.simularEtiqueta_Lista_chk.Text = "Simular Etiqueta";
+			this.simularEtiqueta_Lista_chk.Click += new System.EventHandler(this.simularEtiqueta_Lista_chk_Click);
+			// 
 			// desperdiciosBindingSource
 			// 
 			this.desperdiciosBindingSource.DataMember = "Desperdicios";
@@ -861,6 +887,13 @@
 			// 
 			this.PrintZPL.DataBindings.Add(new System.Windows.Forms.Binding("PrinterName", global::EstacionPesaje.Properties.Settings.Default, "ImpresoraEtiquetas", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.PrintZPL.PrinterName = global::EstacionPesaje.Properties.Settings.Default.ImpresoraEtiquetas;
+			// 
+			// zplImageConverter
+			// 
+			this.zplImageConverter.BlacknessLimitPercentage = 44;
+			this.zplImageConverter.CompressHex = true;
+			this.zplImageConverter.Image = null;
+			this.zplImageConverter.LengToSplit = 40;
 			// 
 			// DesperdiciosPage
 			// 
@@ -964,5 +997,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
 		private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
 		private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
+		private ComponentFactory.Krypton.Toolkit.KryptonCheckBox SimularEtiqueta_chk;
+		private libControlesPersonalizados.ZPLCONVERTER.zplImageConverter zplImageConverter;
+		private System.Windows.Forms.ToolStripButton simularEtiqueta_Lista_chk;
 	}
 }

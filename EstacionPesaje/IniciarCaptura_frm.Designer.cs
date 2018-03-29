@@ -382,48 +382,58 @@
 			// 
 			// Optional5TextBox
 			// 
+			this.Optional5TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "Optional5", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Optional5TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Optional5TextBox.Location = new System.Drawing.Point(119, 177);
 			this.Optional5TextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.Optional5TextBox.Name = "Optional5TextBox";
 			this.Optional5TextBox.Size = new System.Drawing.Size(250, 23);
 			this.Optional5TextBox.TabIndex = 10;
+			this.Optional5TextBox.Text = global::EstacionPesaje.Properties.Settings.Default.Optional5;
 			// 
 			// Optional4TextBox
 			// 
+			this.Optional4TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "Optional4", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Optional4TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Optional4TextBox.Location = new System.Drawing.Point(119, 143);
 			this.Optional4TextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.Optional4TextBox.Name = "Optional4TextBox";
 			this.Optional4TextBox.Size = new System.Drawing.Size(250, 23);
 			this.Optional4TextBox.TabIndex = 9;
+			this.Optional4TextBox.Text = global::EstacionPesaje.Properties.Settings.Default.Optional4;
 			// 
 			// Optional3TextBox
 			// 
+			this.Optional3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "Optional3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Optional3TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Optional3TextBox.Location = new System.Drawing.Point(119, 108);
 			this.Optional3TextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.Optional3TextBox.Name = "Optional3TextBox";
 			this.Optional3TextBox.Size = new System.Drawing.Size(250, 23);
 			this.Optional3TextBox.TabIndex = 8;
+			this.Optional3TextBox.Text = global::EstacionPesaje.Properties.Settings.Default.Optional3;
 			// 
 			// Optional2TextBox
 			// 
+			this.Optional2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "Optional2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Optional2TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Optional2TextBox.Location = new System.Drawing.Point(119, 73);
 			this.Optional2TextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.Optional2TextBox.Name = "Optional2TextBox";
 			this.Optional2TextBox.Size = new System.Drawing.Size(250, 23);
 			this.Optional2TextBox.TabIndex = 7;
+			this.Optional2TextBox.Text = global::EstacionPesaje.Properties.Settings.Default.Optional2;
 			// 
 			// Optional1TextBox
 			// 
+			this.Optional1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "Optional1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.Optional1TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Optional1TextBox.Location = new System.Drawing.Point(119, 38);
 			this.Optional1TextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.Optional1TextBox.Name = "Optional1TextBox";
 			this.Optional1TextBox.Size = new System.Drawing.Size(250, 23);
 			this.Optional1TextBox.TabIndex = 6;
+			this.Optional1TextBox.Text = global::EstacionPesaje.Properties.Settings.Default.Optional1;
 			// 
 			// kryptonLabel6
 			// 
@@ -487,12 +497,14 @@
 			// 
 			// ItemOptionalTextBox
 			// 
+			this.ItemOptionalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::EstacionPesaje.Properties.Settings.Default, "ItemOptional", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.ItemOptionalTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ItemOptionalTextBox.Location = new System.Drawing.Point(119, 3);
 			this.ItemOptionalTextBox.MaximumSize = new System.Drawing.Size(250, 0);
 			this.ItemOptionalTextBox.Name = "ItemOptionalTextBox";
 			this.ItemOptionalTextBox.Size = new System.Drawing.Size(250, 23);
 			this.ItemOptionalTextBox.TabIndex = 5;
+			this.ItemOptionalTextBox.Text = global::EstacionPesaje.Properties.Settings.Default.ItemOptional;
 			// 
 			// kryptonPanel2
 			// 
@@ -505,11 +517,11 @@
 			this.kryptonPanel2.Size = new System.Drawing.Size(885, 49);
 			this.kryptonPanel2.TabIndex = 11;
 			// 
-			// CancelButton
+			// btnCancelButton
 			// 
 			this.btnCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancelButton.Location = new System.Drawing.Point(3, 3);
-			this.btnCancelButton.Name = "CancelButton";
+			this.btnCancelButton.Name = "btnCancelButton";
 			this.btnCancelButton.Size = new System.Drawing.Size(132, 43);
 			this.btnCancelButton.TabIndex = 1;
 			this.btnCancelButton.Values.Text = "Cancelar";
@@ -522,7 +534,6 @@
 			this.AceptButton.Size = new System.Drawing.Size(132, 43);
 			this.AceptButton.TabIndex = 0;
 			this.AceptButton.Values.Text = "Iniciar";
-			this.AceptButton.Click += new System.EventHandler(this.AceptButton_Click);
 			// 
 			// IniciarCaptura_frm
 			// 

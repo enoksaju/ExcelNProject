@@ -26,14 +26,13 @@ namespace libControlesPersonalizados {
 
 		public string PrinterName { get { return PrinterNameGlobal; } set { PrinterNameGlobal = value; } }
 
-
-		public void PrintZPL ( string ZPL, libProduccionDataBase.Tablas.TempProduccion produccionElemet, Optionals optionals = null, int usedOptional = 1 ) {
+		public string PrintZPL ( string ZPL, libProduccionDataBase.Tablas.TempProduccion produccionElemet, Optionals optionals = null,  bool simulate = false ) {
 
 			Console.WriteLine ( produccionElemet.Proceso_.NombreProceso );
 			if (optionals == null) optionals = new Optionals ( );
 
 			string OptionalValue;
-			switch (usedOptional) {
+			switch (produccionElemet.REPETICION ) {
 				case 1:
 					OptionalValue = optionals.Optional1;
 					break;
@@ -119,8 +118,10 @@ namespace libControlesPersonalizados {
 					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
 				}
 			}
-
-			RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_{1}_{2}", produccionElemet.OT, produccionElemet.Proceso_.NombreProceso, produccionElemet.NUMERO ) );
+			if (!simulate) {
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_{1}_{2}", produccionElemet.OT, produccionElemet.Proceso_.NombreProceso, produccionElemet.NUMERO ) );
+			}
+			return stgBld.ToString ( );
 		}
 
 
@@ -148,7 +149,7 @@ namespace libControlesPersonalizados {
 ^FO96,120^A0N,25,20^FDPESO/#:^FS^
     ^FO176,120^A0N,28,23^FD@PESO Kg / @NUMERO^FS
 ^FO20,145^A0N,15,16^FDDESCRIPCION:^FS
-    ^FO10,158^FB200,3,0,J,0^A0N,22,15^FD@DESCRIPCION^FS
+    ^FO10,158^FB200,3,0,L,0^A0N,15,14^FD@FAMILIA - @DEFECTO: @DESCRIPCION^FS
 ^FO210,145^A0N,15,16^FDESTRUCTURA:^FS
     ^FO210,158^FB200,3,0,J,0^A0N,22,15^FD@ESTRUCTURA^FS
 ^FO20,232^A0N,14,15^FD@FECHAHORA^FS
@@ -164,9 +165,9 @@ namespace libControlesPersonalizados {
 ^FO529,41^A0N,19,20^FDOT:^FS
     ^FO571,36^A0N,25,27^FD@OT^FS    
 ^FO436,65^A0N,14,13^FDCLIENTE:^FS
-    ^FO100,65^A0N,16,15^FD@CLIENTE^FS
+    ^FO500,65^A0N,16,15^FD@CLIENTE^FS
 ^FO419,84^A0N,14,13^FDPRODUCTO:^FS
-    ^FO100,84^A0N,16,15^FD@PRODUCTO^FS
+    ^FO500,84^A0N,16,15^FD@PRODUCTO^FS
 ^FO417,100^A0N,14,13^FDOP:^FS
     ^FO440,100^A0N,16,15^FD@OPERADOR^FS
 ^FO520,100^A0N,14,13^FDTURNO:^FS
@@ -176,7 +177,7 @@ namespace libControlesPersonalizados {
 ^FO496,120^A0N,25,20^FDPESO/#:^FS^
     ^FO576,120^A0N,28,23^FD@PESO Kg / @NUMERO^FS
 ^FO420,145^A0N,15,16^FDDESCRIPCION:^FS
-    ^FO410,158^FB200,3,0,J,0^A0N,22,15^FD@DESCRIPCION^FS
+    ^FO410,158^FB200,3,0,L,0^A0N,15,14^FD @FAMILIA - @DEFECTO: @DESCRIPCION^FS
 ^FO610,145^A0N,15,16^FDESTRUCTURA:^FS
     ^FO610,158^FB200,3,0,J,0^A0N,22,15^FD@ESTRUCTURA^FS
 ^FO420,232^A0N,14,15^FD@FECHAHORA^FS
@@ -184,7 +185,7 @@ namespace libControlesPersonalizados {
 ^XZ
 ";
 
-		public void PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio ) {
+		public string PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio , bool simulate= false) {
 
 
 
@@ -238,9 +239,11 @@ namespace libControlesPersonalizados {
 				}
 			}
 
-			RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_Desperdicio_{1}", TempDesperdicio.OT, TempDesperdicio.NUMERO ) );
+			if (!simulate) {
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_Desperdicio_{1}", TempDesperdicio.OT, TempDesperdicio.NUMERO ) );
+			}
 
-
+			return stgBld.ToString ( );
 		}
 
 

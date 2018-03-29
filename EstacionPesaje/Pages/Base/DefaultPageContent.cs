@@ -243,7 +243,7 @@ namespace EstacionPesaje.Pages.Base {
 		#endregion
 
 		public DefaultPageContent () {
-			InitializeComponent ( );
+			//InitializeComponent ( );
 
 			// (1) To remove flicker we use double buffering for drawing
 			SetStyle ( ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true );

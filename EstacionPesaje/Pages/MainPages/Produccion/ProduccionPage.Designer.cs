@@ -118,8 +118,8 @@
 			this.Optional2_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
 			this.Optional1_rdbtn = new ComponentFactory.Krypton.Toolkit.KryptonRadioButton();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
 			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
 			this.OperadorLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ProcesoLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.MaquinaLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -1377,18 +1377,18 @@
 			this.statusStrip1.TabIndex = 30;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
-			// ProgressBar
-			// 
-			this.ProgressBar.Name = "ProgressBar";
-			this.ProgressBar.Size = new System.Drawing.Size(100, 16);
-			this.ProgressBar.Visible = false;
-			// 
 			// toolStripStatusLabel4
 			// 
 			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
 			this.toolStripStatusLabel4.Size = new System.Drawing.Size(350, 17);
 			this.toolStripStatusLabel4.Spring = true;
 			this.toolStripStatusLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// ProgressBar
+			// 
+			this.ProgressBar.Name = "ProgressBar";
+			this.ProgressBar.Size = new System.Drawing.Size(100, 16);
+			this.ProgressBar.Visible = false;
 			// 
 			// OperadorLabel
 			// 
