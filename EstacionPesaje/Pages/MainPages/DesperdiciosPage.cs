@@ -308,6 +308,7 @@ namespace EstacionPesaje.Pages.MainPages {
 			try {
 				if (kryptonDataGridView1.SelectedRows.Count <= 0) throw new Exception ( "No se selecciono ningun elemento." );
 				var t = kryptonDataGridView1.SelectedRows [ 0 ];
+
 				var y = await DB
 					.TDesperdicios
 					.Include ( r => r.Maquina_ )

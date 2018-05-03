@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EstacionPesaje</RootNamespace>
     <AssemblyName>EstacionesPesaje</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,8 +27,8 @@
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>8</ApplicationRevision>
-    <ApplicationVersion>5.4.0.%2a</ApplicationVersion>
+    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationVersion>5.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -75,6 +76,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\ReoGrid-master\ReoGrid-master\ReoGrid\bin\Debug\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\BarcodeLib.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
@@ -113,6 +117,9 @@
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=2.7.7.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\FirebirdClient\2.7\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="libEmbarquesNCuatro">
+      <HintPath>..\libEmbarquesNCuatro\obj\Debug\libEmbarquesNCuatro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -177,12 +184,12 @@
       <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.7.15\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="zxing, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.dll</HintPath>
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="zxing.presentation, Version=0.16.2.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.0.16.2\lib\net461\zxing.presentation.dll</HintPath>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -242,6 +249,12 @@
     <Compile Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.Designer.cs">
       <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\ExploradorDesperdicioLinea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\DesperdicioReports\ExploradorDesperdicioLinea.Designer.cs">
+      <DependentUpon>ExploradorDesperdicioLinea.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\DesperdicioReports\FechasPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -274,6 +287,12 @@
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPages\Embarques\DataReport.cs" />
+    <Compile Include="Pages\MainPages\Embarques\EmbarquesN4Page.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPages\Embarques\EmbarquesN4Page.Designer.cs">
+      <DependentUpon>EmbarquesN4Page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPages\Embarques\EmbarquesReportPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -368,6 +387,9 @@
     <EmbeddedResource Include="Pages\Base\DefaultPageContent.resx">
       <DependentUpon>DefaultPageContent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Base\DocumentPageBase.resx">
+      <DependentUpon>DocumentPageBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\Config\ConfigBasculaPage.resx">
       <DependentUpon>ConfigBasculaPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.resx">
       <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\ExploradorDesperdicioLinea.resx">
+      <DependentUpon>ExploradorDesperdicioLinea.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\FechasPage.resx">
       <DependentUpon>FechasPage.cs</DependentUpon>
@@ -392,6 +417,9 @@
     <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\Report1.rdlc" />
     <EmbeddedResource Include="Pages\MainPages\DesperdiciosPage.resx">
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPages\Embarques\EmbarquesN4Page.resx">
+      <DependentUpon>EmbarquesN4Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Embarques\EmbarquesReportPage.resx">
       <DependentUpon>EmbarquesReportPage.cs</DependentUpon>
@@ -508,6 +536,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\fre3of9x.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Print_16x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -590,6 +621,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AzureDefaultResource_16x.png" />
+    <None Include="Resources\barcode-check.png" />
     <Content Include="Resources\barcode-edit.png" />
     <Content Include="Resources\barcode-edit1.png" />
     <None Include="Resources\report_open1.png" />
@@ -619,6 +651,7 @@
     <None Include="Resources\document_color_red_error.png" />
     <None Include="Resources\document_color_green-ok.png" />
     <None Include="Resources\document_move.png" />
+    <None Include="Resources\barcode-ok.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />

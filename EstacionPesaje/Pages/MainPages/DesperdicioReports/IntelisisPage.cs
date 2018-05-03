@@ -58,7 +58,7 @@ namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
 					DESCRIPCION = des.DESCRIPCION,
 					ESTRUCTURA = des.ESTRUCTURA,
 					FECHA = des.FECHA,
-					PROCESO = des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto
+					PROCESO = (des.DEFECTO ==72| des.DEFECTO==73 ? "TIRILLA":  des.FamiliaDefectosDefecto.FamiliaDefectos.NombreFamiliaDefecto)
 				};
 
 			} )

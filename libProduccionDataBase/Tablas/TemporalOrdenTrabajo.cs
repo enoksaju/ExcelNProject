@@ -74,13 +74,15 @@ namespace libProduccionDataBase.Tablas {
 		public string EXANCHO { get; set; }
 
 		public virtual ObservableListSource<TempProduccion> Produccion { get; private set; }
-		public virtual ObservableListSource<TempDesperdicios > Desperdicios { get; private set; }
-		public TemporalOrdenTrabajo () {
+		public virtual ObservableListSource<TempDesperdicios> Desperdicios { get; private set; }
+		//public virtual ObservableListSource<NaveCuatro_Tarima> TarimasNCuatro { get; private set; }
+		public TemporalOrdenTrabajo ( ) {
 			this.Produccion = new ObservableListSource<TempProduccion> ( );//new ICollection<TempProduccion> ( );
 			this.Desperdicios = new ObservableListSource<TempDesperdicios> ( );
+			//this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
 		}
 
-		public override string ToString () {
+		public override string ToString ( ) {
 			return this.OT;
 		}
 	}
@@ -126,7 +128,7 @@ namespace libProduccionDataBase.Tablas {
 	}
 	[Table ( "TPRODUCCION" )]
 	public class TempProduccion {
-		
+
 		[Key]
 		public int Id { get; set; }
 
@@ -196,7 +198,7 @@ namespace libProduccionDataBase.Tablas {
 		public int Id { get; set; }
 		[Required ( ErrorMessage = "El numero de orden de trabajo es requerido" )]
 		public string OT { get; set; }
-		[Required(ErrorMessage ="EL operador es requerido")]
+		[Required ( ErrorMessage = "EL operador es requerido" )]
 		public string OPERADOR { get; set; }
 		public int TURNO { get; set; }
 		public int MAQUINA { get; set; }
@@ -207,13 +209,13 @@ namespace libProduccionDataBase.Tablas {
 		public DateTime FECHA { get; set; }
 		public string USUARIO { get; set; }
 		public string ESTRUCTURA { get; set; }
-		[ForeignKey ("DEFECTO")]
+		[ForeignKey ( "DEFECTO" )]
 		public virtual TFamiliaDefectosTDefecto FamiliaDefectosDefecto { get; set; }
 
 		[ForeignKey ( "OT" )]
 		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
 
-		[ForeignKey ("MAQUINA")]
+		[ForeignKey ( "MAQUINA" )]
 		public virtual Maquina Maquina_ { get; set; }
 
 		[NotMapped]
@@ -221,17 +223,17 @@ namespace libProduccionDataBase.Tablas {
 	}
 
 	[Table ( "TFamiliasDefectos" )]
-	public class TFamiliaDefectos {		
+	public class TFamiliaDefectos {
 		public int Id { get; set; }
 
 		[Required]
 		public string NombreFamiliaDefecto { get; set; }
 
 		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
-		public TFamiliaDefectos () {
+		public TFamiliaDefectos ( ) {
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
 		}
-		public override string ToString () {
+		public override string ToString ( ) {
 			return this.NombreFamiliaDefecto;
 		}
 	}
@@ -242,15 +244,15 @@ namespace libProduccionDataBase.Tablas {
 		[Required]
 		public string NombreDefecto { get; set; }
 		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
-		public TDefecto () {
+		public TDefecto ( ) {
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
 		}
 
-		public override string ToString () {
+		public override string ToString ( ) {
 			return this.NombreDefecto;
 		}
 	}
-	[Table( " TFamiliaDefectosTDefectos" )]
+	[Table ( " TFamiliaDefectosTDefectos" )]
 	public class TFamiliaDefectosTDefecto {
 		public int Id { get; set; }
 
@@ -258,14 +260,14 @@ namespace libProduccionDataBase.Tablas {
 
 		public int TDefectoID { get; set; }
 
-		[Required ]
+		[Required]
 		public int ProcesoID { get; set; }
-		public virtual TFamiliaDefectos  FamiliaDefectos { get; set; }
-		public virtual TDefecto Defecto{ get; set; }
+		public virtual TFamiliaDefectos FamiliaDefectos { get; set; }
+		public virtual TDefecto Defecto { get; set; }
 
 		public virtual Proceso Proceso { get; set; }
-		
-		public override string ToString () {
+
+		public override string ToString ( ) {
 			return this.Defecto.ToString ( );
 		}
 	}

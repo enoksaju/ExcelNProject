@@ -31,7 +31,7 @@ void setup() {
 }
 
 void CambiarPeso() {
-	PesoBas = random(1, 500) / 100.00;
+	PesoBas = random(1, 5000) / 100.00;
 }
 
 // Tarea que se realiza al recibir el pulso en el pin 2 Int0.
@@ -46,7 +46,7 @@ void Interrupt() {
 void serialEvent() {
 	while (Serial.available()) {
 		String incoming = Serial.readString();
-		//Serial.print("Recibí: ");
+		//Serial.print("Recibï¿½: ");
 		//Serial.println(incoming);
 
 		if (incoming == "LC") {       // Leer Contador

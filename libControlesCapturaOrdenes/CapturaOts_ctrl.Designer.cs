@@ -60,6 +60,6 @@
 
 		#endregion
 
-		private unvell.ReoGrid.ReoGridControl reoGridControl1;
+		public unvell.ReoGrid.ReoGridControl reoGridControl1;
 	}
 }

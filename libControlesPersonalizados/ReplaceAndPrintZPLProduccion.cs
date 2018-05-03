@@ -8,11 +8,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
 
 namespace libControlesPersonalizados {
 	public partial class ReplaceAndPrintZPLProduccion : Component, IBindableComponent {
-		public ReplaceAndPrintZPLProduccion () {
+		public ReplaceAndPrintZPLProduccion ( ) {
 			InitializeComponent ( );
 		}
 
@@ -26,13 +27,14 @@ namespace libControlesPersonalizados {
 
 		public string PrinterName { get { return PrinterNameGlobal; } set { PrinterNameGlobal = value; } }
 
-		public string PrintZPL ( string ZPL, libProduccionDataBase.Tablas.TempProduccion produccionElemet, Optionals optionals = null,  bool simulate = false ) {
+		public string PrintZPL ( string ZPL , libProduccionDataBase.Tablas.TempProduccion produccionElemet , Optionals optionals = null , bool simulate = false ) {
 
 			Console.WriteLine ( produccionElemet.Proceso_.NombreProceso );
-			if (optionals == null) optionals = new Optionals ( );
+			if ( optionals == null )
+				optionals = new Optionals ( );
 
 			string OptionalValue;
-			switch (produccionElemet.REPETICION ) {
+			switch ( produccionElemet.REPETICION ) {
 				case 1:
 					OptionalValue = optionals.Optional1;
 					break;
@@ -53,7 +55,7 @@ namespace libControlesPersonalizados {
 					break;
 			}
 
-			var produccionElementDictionary = new Dictionary<string, string> ( ) {
+			var produccionElementDictionary = new Dictionary<string , string> ( ) {
 
 				{ "@OT", produccionElemet.OT },
 				{ "@CLIENTE", produccionElemet.OrdenTrabajo.CLIENTE },
@@ -68,9 +70,33 @@ namespace libControlesPersonalizados {
 				{ "@MATTRILAMINACION", produccionElemet.OrdenTrabajo.MATTRILAMINACION},
 				{ "@RODILLO", produccionElemet.OrdenTrabajo.RODILLO.ToString("#0.0")},
 
+				{ "@EXTCOLOR", produccionElemet.OrdenTrabajo.EXCOLOR},
+				{ "@EXTID", produccionElemet.EXTRUSION_ID},
+				{ "@EXTTIPO", produccionElemet.OrdenTrabajo.EXTIPO},
+				{ "@EXTANTIESTATICA", produccionElemet.OrdenTrabajo.EXANTIESTATICA },
+				{ "@EXTTRATADO", produccionElemet.OrdenTrabajo.EXTRATADO},
+				{ "@EXTFORMULA", produccionElemet.OrdenTrabajo.EXCOLOR},
+				{ "@EXTANCHO", produccionElemet.OrdenTrabajo.EXANCHO},
+				{ "@EXTCALIBRE", (new Func<string>(()=> {
+					try
+					{
+						using(var calDB= new DataBaseContexto()) {
+							var Temp= calDB.TEMPCAPT.FirstOrDefault(o=>o.OT== produccionElemet.OT );
+							return Temp!=null? String.Concat(
+								Temp.EX1!=0?(produccionElemet.OrdenTrabajo.MATBASECALIBRE  ).ToString("#.0, "):"",
+								Temp.EX2!=0?(produccionElemet.OrdenTrabajo.MATLAMINACIONCALIBRE ).ToString("#.0, "):"",
+								Temp.EX3!=0?(produccionElemet.OrdenTrabajo.MATTRILAMINACIONCALIBRE ).ToString("#.0"):""): "0";
+						}
+					}
+					catch (Exception)
+					{
+						return "0";
+					}
+				} ))() },
+
 				{ "@FECHA", String.Format("{0:ddd, dd 'de' MMMM 'de' yyyy}",produccionElemet.FECHA)},
-				{ "@FECHACORTA", String.Format("{0:dd-MM-yyyy}",produccionElemet.FECHA)},
-				{ "@FECHAINGLES", String.Format("{0:MM-dd-yyyy}",produccionElemet.FECHA)},
+				{ "@FECHACORTA", String.Format("{0:dd/MM/yyyy}",produccionElemet.FECHA)},
+				{ "@FECHAINGLES", String.Format("{0:MM/dd/yyyy}",produccionElemet.FECHA)},
 				{ "@FECHAHORA", String.Format("{0:ddd, dd 'de' MMMM 'de' yyyy, hh:mm tt}",produccionElemet.FECHA)},
 				{ "@FECHAHORACORTA", String.Format("{0:dd-MM-yyyy, HH:mm}",produccionElemet.FECHA)},
 
@@ -87,7 +113,10 @@ namespace libControlesPersonalizados {
 				{ "@REPETICION", produccionElemet.REPETICION.ToString ()},
 				{ "@TURNO", produccionElemet.TURNO.ToString ()},
 				{ "@USUARIO", produccionElemet.USUARIO},
-				{ "@ID", String.Format("000000000000",produccionElemet.Id)},
+
+				{ "@ID", produccionElemet.Id.ToString().PadLeft(10,'0')},//String.Format("000000000000",produccionElemet.Id)},
+				{ "$ID",produccionElemet.Id.ToString().PadLeft(10,'0')},// String.Format("000000000000",produccionElemet.Id)},
+
 				{ "@MAQUINA", produccionElemet .Maquina_ .NombreMaquina  },
 
 				{ "@ITEMKB", (produccionElemet .OT.Substring(produccionElemet .OT.Length -3) + " " + produccionElemet .OPERADOR .Substring(produccionElemet .OPERADOR .Length -3)+" "+produccionElemet.ORIGEN + " " +produccionElemet .FECHA .Month .ToString ()).ToUpper ()},
@@ -102,24 +131,44 @@ namespace libControlesPersonalizados {
 			};
 
 
-			//var t = obj.GetType ( ).GetProperties ( );
+			if ( produccionElemet.ENSANEO == 0 ) {
+				ZPL = Regex.Replace ( ZPL , @"(\^FXENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXENSANEO\^FS)+" , "" );
+			} else {
+				ZPL = Regex.Replace ( ZPL , @"(\^FXNOTENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXNOTENSANEO\^FS)+" , "" );
+			}
+
 			StringBuilder stgBld = new StringBuilder ( ZPL );
 
-			Regex rgx = new Regex ( @"(@)[A-Z0-9]*" );
-			var T = rgx.Matches ( ZPL );
+			var T = Regex.Matches ( ZPL , @"([@$]{1})[A-Z0-9]*" );
 
-			foreach (Match res in T) {
+			foreach ( Match res in T ) {
 
-				if (produccionElementDictionary.ContainsKey ( res.Value )) {
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
 
-					stgBld.Replace ( res.Value, produccionElementDictionary [ res.Value ] );
+					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
 
 				} else {
-					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
+					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
 				}
 			}
-			if (!simulate) {
-				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_{1}_{2}", produccionElemet.OT, produccionElemet.Proceso_.NombreProceso, produccionElemet.NUMERO ) );
+
+
+			var MakeOptionals = Regex.Matches ( ZPL , @"([@$]{1})[A-Z0-9]*" );
+
+			foreach ( Match res in MakeOptionals ) {
+
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
+
+					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
+
+				} else {
+					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
+				}
+			}
+
+
+			if ( !simulate ) {
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal , stgBld.ToString ( ) , String.Format ( "{0}_{1}_{2}" , produccionElemet.OT , produccionElemet.Proceso_.NombreProceso , produccionElemet.NUMERO ) );
 			}
 			return stgBld.ToString ( );
 		}
@@ -185,11 +234,11 @@ namespace libControlesPersonalizados {
 ^XZ
 ";
 
-		public string PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio , bool simulate= false) {
+		public string PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio , bool simulate = false ) {
 
 
 
-			var produccionElementDictionary = new Dictionary<string, string> ( ) {
+			var produccionElementDictionary = new Dictionary<string , string> ( ) {
 				{ "@OT", TempDesperdicio.OT },
 				{ "@CLIENTE", TempDesperdicio.OrdenTrabajo.CLIENTE },
 				{ "@PRODUCTO", TempDesperdicio.OrdenTrabajo.PRODUCTO },
@@ -228,19 +277,19 @@ namespace libControlesPersonalizados {
 			Regex rgx = new Regex ( @"(@)[A-Z0-9]*" );
 			var T = rgx.Matches ( ZPLDesperdicio );
 
-			foreach (Match res in T) {
+			foreach ( Match res in T ) {
 
-				if (produccionElementDictionary.ContainsKey ( res.Value )) {
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
 
-					stgBld.Replace ( res.Value, produccionElementDictionary [ res.Value ] );
+					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
 
 				} else {
-					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
+					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
 				}
 			}
 
-			if (!simulate) {
-				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_Desperdicio_{1}", TempDesperdicio.OT, TempDesperdicio.NUMERO ) );
+			if ( !simulate ) {
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal , stgBld.ToString ( ) , String.Format ( "{0}_Desperdicio_{1}" , TempDesperdicio.OT , TempDesperdicio.NUMERO ) );
 			}
 
 			return stgBld.ToString ( );
@@ -255,7 +304,7 @@ namespace libControlesPersonalizados {
 		[Browsable ( false )]//, EditorBrowsable ( EditorBrowsableState.Never  )]
 		public BindingContext BindingContext {
 			get {
-				if (bindingContext == null) {
+				if ( bindingContext == null ) {
 					bindingContext = new BindingContext ( );
 				}
 				return bindingContext;
@@ -268,7 +317,7 @@ namespace libControlesPersonalizados {
 		[DesignerSerializationVisibility ( DesignerSerializationVisibility.Content )]
 		public ControlBindingsCollection DataBindings {
 			get {
-				if (dataBindings == null) {
+				if ( dataBindings == null ) {
 					dataBindings = new ControlBindingsCollection ( this );
 				}
 				return dataBindings;

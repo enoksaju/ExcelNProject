@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {            
-            this.LoaderPicktureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.LoaderPicktureBox)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // LoaderPicktureBox
-            // 
-            this.LoaderPicktureBox.BackColor = System.Drawing.Color.Transparent;
-            //this.LoaderPicktureBox.Image = global::EstacionPesaje.Properties.Resources.Loader;
-            this.LoaderPicktureBox.Location = new System.Drawing.Point(8, 8);
-            this.LoaderPicktureBox.Name = "LoaderPicktureBox";
-            this.LoaderPicktureBox.Size = new System.Drawing.Size(107, 84);
-            this.LoaderPicktureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LoaderPicktureBox.TabIndex = 0;
-            this.LoaderPicktureBox.TabStop = false;
-            this.LoaderPicktureBox.Visible = false;
-            // 
-            // CatalogBase
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.LoaderPicktureBox);
-            this.Name = "CatalogBase";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(252, 494);
-            this.Load += new System.EventHandler(this.CatalogBase_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.LoaderPicktureBox)).EndInit();
-            this.ResumeLayout(false);
+			this.LoaderPicktureBox = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.LoaderPicktureBox)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// LoaderPicktureBox
+			// 
+			this.LoaderPicktureBox.BackColor = System.Drawing.Color.Transparent;
+			this.LoaderPicktureBox.Location = new System.Drawing.Point(8, 8);
+			this.LoaderPicktureBox.Name = "LoaderPicktureBox";
+			this.LoaderPicktureBox.Size = new System.Drawing.Size(107, 84);
+			this.LoaderPicktureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.LoaderPicktureBox.TabIndex = 0;
+			this.LoaderPicktureBox.TabStop = false;
+			this.LoaderPicktureBox.Visible = false;
+			// 
+			// CatalogBase
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.Controls.Add(this.LoaderPicktureBox);
+			this.Name = "CatalogBase";
+			this.Padding = new System.Windows.Forms.Padding(5);
+			this.Size = new System.Drawing.Size(252, 494);
+			this.Load += new System.EventHandler(this.CatalogBase_Load);
+			((System.ComponentModel.ISupportInitialize)(this.LoaderPicktureBox)).EndInit();
+			this.ResumeLayout(false);
 
         }
 

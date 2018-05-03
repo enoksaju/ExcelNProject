@@ -14,17 +14,16 @@ namespace libProduccionDataBase.Migrations {
 			
 
 			DbConfiguration.SetConfiguration ( new MySqlEFConfiguration ( ) );
-			AutomaticMigrationsEnabled = true;
+			AutomaticMigrationsEnabled = false;
 			SetSqlGenerator ( "MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator ( ) );
 
 			//try {
-			//	using (var context = new libProduccionDataBase.Contexto.DataBaseContexto ( )) {
-			//		using (var writer = new System.Xml.XmlTextWriter ( System.AppDomain.CurrentDomain.BaseDirectory + @"\Model.edmx", System.Text.Encoding.Default )) {
-			//			System.Data.Entity.Infrastructure.EdmxWriter.WriteEdmx ( context, writer );
+			//	using ( var context = new libProduccionDataBase.Contexto.DataBaseContexto ( ) ) {
+			//		using ( var writer = new System.Xml.XmlTextWriter ( System.AppDomain.CurrentDomain.BaseDirectory + @"\Model.edmx" , System.Text.Encoding.Default ) ) {
+			//			System.Data.Entity.Infrastructure.EdmxWriter.WriteEdmx ( context , writer );
 			//		}
 			//	}
-			//}
-			//catch (Exception) {
+			//} catch ( Exception ) {
 			//}
 		}
 
@@ -71,12 +70,14 @@ namespace libProduccionDataBase.Migrations {
 				new Tablas.TipoProducto { NombreTipoProducto = "Piezas" },
 				new Tablas.TipoProducto { NombreTipoProducto = "Etiqueta Tipo Manga" }
 				);
+
 			context.FamiliasMateriales.AddOrUpdate ( t => t.NombreFamilia,
 				new Tablas.FamiliaMateriales { NombreFamilia = "BOPP" },
 				new Tablas.FamiliaMateriales { NombreFamilia = "PET" },
 				new Tablas.FamiliaMateriales { NombreFamilia = "PE" },
 				new Tablas.FamiliaMateriales { NombreFamilia = "PVC" }
 				);
+
 			context.Procesos.AddOrUpdate ( t => t.NombreProceso,
 				new Tablas.Proceso { NombreProceso = "Impresion" },
 				new Tablas.Proceso { NombreProceso = "Laminacion" },

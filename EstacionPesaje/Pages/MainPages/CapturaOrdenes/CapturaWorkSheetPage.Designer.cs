@@ -23,13 +23,13 @@
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent () {
-			this.insertarnuevaotTableAdapter1 = new CapturaTabla.DataSet1TableAdapters.INSERTARNUEVAOTTableAdapter();
+			//this.insertarnuevaotTableAdapter1 = new CapturaTabla.DataSet1TableAdapters.INSERTARNUEVAOTTableAdapter();
 			this.capturaOts_ctrl1 = new libControlesCapturaOrdenes.CapturaOts_ctrl();
 			this.SuspendLayout();
 			// 
 			// insertarnuevaotTableAdapter1
 			// 
-			this.insertarnuevaotTableAdapter1.ClearBeforeFill = true;
+			//this.insertarnuevaotTableAdapter1.ClearBeforeFill = true;
 			// 
 			// capturaOts_ctrl1
 			// 
@@ -55,7 +55,7 @@
 
 		#endregion
 
-		private CapturaTabla.DataSet1TableAdapters.INSERTARNUEVAOTTableAdapter insertarnuevaotTableAdapter1;
+		//private CapturaTabla.DataSet1TableAdapters.INSERTARNUEVAOTTableAdapter insertarnuevaotTableAdapter1;
 		private libControlesCapturaOrdenes.CapturaOts_ctrl capturaOts_ctrl1;
 	}
 }

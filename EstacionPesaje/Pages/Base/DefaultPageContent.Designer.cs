@@ -12,14 +12,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // DefaultPageContent
-            // 
-            
-            this.Name = "DefaultPageContent";
-            this.Size = new System.Drawing.Size(398, 368);
-            this.ResumeLayout(false);
+			this.SuspendLayout();
+			// 
+			// DefaultPageContent
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+			this.Name = "DefaultPageContent";
+			this.Size = new System.Drawing.Size(398, 368);
+			this.ResumeLayout(false);
 
         }
 

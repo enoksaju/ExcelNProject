@@ -92,7 +92,7 @@ namespace EstacionPesaje.Pages.MainPages.Embarques {
 		public static List<DataPackingList> getList (string OT, int TipoProceso, int Filtro, int inicio, int fin, int initPage, int byTar, bool unirPaginas= false,string Repeticiones= "[0-9]*" ) {
 			int elmTarCount = 0;
 			int pageCount = initPage;
-			int currenPage = 0;
+			int currenPage = ( initPage - 1 );
 
 			using (var DB = new libProduccionDataBase.Contexto.DataBaseContexto ( )) {
 
@@ -107,7 +107,7 @@ namespace EstacionPesaje.Pages.MainPages.Embarques {
 						  .ThenBy (y=>y.NUMERO )
 						  .ToList ( );
 
-				double TotalPag = Math.Ceiling ( ( double ) ( o.Count ( ) / byTar ) );
+				double TotalPag = Math.Ceiling ( ( double ) ( o.Count ( ) / byTar ) ) + (initPage-1);
 				int TotalItems = o.Count ( );
 
 				foreach (var y in o) {

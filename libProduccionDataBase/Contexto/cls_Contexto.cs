@@ -32,16 +32,15 @@ namespace libProduccionDataBase.Contexto
         public DbSet<Defecto> Defectos { get; set; }
         public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
         public DbSet<Proceso> Procesos { get; set; }
-
-
 		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
 		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
 		public DbSet <TempProduccion > TempProduccion { get; set; }
-
 		public DbSet <TDefecto > TDefectos { get; set; }
 		public DbSet <TFamiliaDefectos > TFamiliasDefectos { get; set; }
 		public DbSet <TFamiliaDefectosTDefecto> FamiliaDefectosDefectos { get; set; }
 		public DbSet <TempDesperdicios > TDesperdicios { get; set; }
+	
+		//public DbSet<NaveCuatro_Tarima> NCuatro_Tarimas { get; set; }
 
 
 		/// <summary>
@@ -51,15 +50,14 @@ namespace libProduccionDataBase.Contexto
 
 #if DevelopDataBase
 		public DataBaseContexto () : base( "ProduccionConexionDebug" )
-        {
-            this.Configuration.LazyLoadingEnabled = true;		
-        }
 #else
 		public DataBaseContexto() : base( "ProduccionConexion" )
-        {
-            this.Configuration.LazyLoadingEnabled = true;		
-        }
 #endif
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+			Database.SetInitializer<DataBaseContexto> ( null );
+		}
+		
 
 		public static DataBaseContexto Create() { return new DataBaseContexto(); }
         protected override void OnModelCreating( DbModelBuilder modelBuilder )

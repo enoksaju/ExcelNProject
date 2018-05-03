@@ -14,7 +14,7 @@ using ComponentFactory.Krypton.Toolkit;
 using ComponentFactory.Krypton.Workspace;
 
 
-// TODO: CAmbiar los botones de las etiquetas a la pestaña de configuracion
+
 namespace EstacionPesaje {
 	public partial class Form1 : KryptonForm {
 
@@ -44,6 +44,11 @@ namespace EstacionPesaje {
 
 			ImpresoraComboBox.SelectedItem = Properties.Settings.Default.ImpresoraEtiquetas;
 			Ribbon.SelectedTab = ProduccionRibbonTab;
+
+
+			using (var db = new libProduccionDataBase.Contexto .DataBaseContexto ( ) ) {
+				databaseName_lbl.Text = db.Database.Connection.Database;
+			}
 		}
 
 		private void KryptonDockingManager_DockableWorkspaceCellAdding ( object sender, DockableWorkspaceCellEventArgs e ) {
@@ -303,6 +308,29 @@ namespace EstacionPesaje {
 			Pages.Base.PageCreator.CrateAndShowMainPage (
 						new Pages.MainPages.CapturaOrdenes.CapturaWorkSheetPage(),
 						kryptonDockingManager, _dc );
+		}
+
+		private void kryptonRibbonGroupButton16_Click ( object sender , EventArgs e ) {
+
+			using ( var frm = new Pages.MainPages.DesperdicioReports.forms.LineaFecha_frm ( ) ) {
+				if ( frm.ShowDialog ( ) == DialogResult.OK ) {
+					Pages.Base.PageCreator.CrateAndShowMainPage (
+					new Pages.MainPages.DesperdicioReports.ExploradorDesperdicioLinea (
+						frm.Response.Linea.Id ,
+						frm.Response.FechaInicial ,
+						frm.Response.FechaFinal
+						) ,
+					kryptonDockingManager , _dc );
+				}
+			}
+
+		}
+
+		// Open CaptureForm EmbarquesNave4
+		private void kryptonRibbonGroupButton15_Click ( object sender , EventArgs e ) {
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						new Pages.MainPages.Embarques.EmbarquesN4Page ("0000" ) ,
+						kryptonDockingManager , _dc );
 		}
 	}
 }

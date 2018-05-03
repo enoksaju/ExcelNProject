@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>libProduccionDataBase</RootNamespace>
     <AssemblyName>libProduccionDataBase</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -106,6 +107,10 @@
     <Compile Include="Migrations\201803201835289_addsETcORRECTvALUEfECHA.Designer.cs">
       <DependentUpon>201803201835289_addsETcORRECTvALUEfECHA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804162113394_addTarima.cs" />
+    <Compile Include="Migrations\201804162113394_addTarima.Designer.cs">
+      <DependentUpon>201804162113394_addTarima.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -120,6 +125,7 @@
     <Compile Include="Tablas\cls_Produccion.cs" />
     <Compile Include="Tablas\cls_Recetas.cs" />
     <Compile Include="Tablas\cls_TiposProducto.cs" />
+    <Compile Include="Tablas\EmbarquesNaveCuatro.cs" />
     <Compile Include="Tablas\TemporalOrdenTrabajo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803201835289_addsETcORRECTvALUEfECHA.resx">
       <DependentUpon>201803201835289_addsETcORRECTvALUEfECHA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804162113394_addTarima.resx">
+      <DependentUpon>201804162113394_addTarima.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

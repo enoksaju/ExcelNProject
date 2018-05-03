@@ -207,8 +207,8 @@ script.GETUNIDADCALIBRE= function(mat){
     <row row="4" height="19" />
     <row row="5" height="19" />
     <row row="6" height="19" />
-    <row row="7" height="21" last-height="30" auto-height="false" />
-    <row row="8" height="19" last-height="12" auto-height="false" />
+    <row row="7" height="21" auto-height="false" />
+    <row row="8" height="19" auto-height="false" />
     <row row="9" height="19" />
     <row row="10" height="19" />
     <row row="11" height="19" />
@@ -217,9 +217,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <row row="14" height="19" />
     <row row="15" height="19" />
     <row row="16" height="25" auto-height="false" />
-    <row row="17" height="24" last-height="29" auto-height="false" />
-    <row row="18" height="20" last-height="25" auto-height="false" />
-    <row row="19" height="19" last-height="27" auto-height="false" />
+    <row row="17" height="24" auto-height="false" />
+    <row row="18" height="20" auto-height="false" />
+    <row row="19" height="19" auto-height="false" />
     <row row="20" height="19" />
     <row row="21" height="21" />
     <row row="22" height="19" />
@@ -267,9 +267,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <row row="81" height="32" last-height="32" auto-height="false" />
     <row row="90" height="86" last-height="20" />
     <row row="94" height="16" last-height="24" auto-height="false" />
-    <row row="95" height="16" last-height="24" auto-height="false" />
-    <row row="96" height="16" last-height="24" auto-height="false" />
-    <row row="97" height="16" last-height="24" auto-height="false" />
+    <row row="95" height="0" last-height="16" auto-height="false" />
+    <row row="96" height="0" last-height="16" auto-height="false" />
+    <row row="97" height="0" last-height="16" auto-height="false" />
     <row row="98" height="16" last-height="24" auto-height="false" />
   </rows>
   <cols>
@@ -288,90 +288,90 @@ script.GETUNIDADCALIBRE= function(mat){
     <col col="12" width="165" last-width="148" />
     <col col="13" width="469" last-width="1107" />
     <col col="14" width="70" last-width="70" />
-    <col col="15" width="70" last-width="70" />
-    <col col="16" width="70" last-width="70" />
-    <col col="17" width="70" last-width="70" />
-    <col col="18" width="70" last-width="70" />
-    <col col="19" width="70" last-width="70" />
-    <col col="20" width="70" last-width="70" />
-    <col col="21" width="70" last-width="70" />
-    <col col="22" width="70" last-width="70" />
-    <col col="23" width="70" last-width="70" />
-    <col col="24" width="70" last-width="70" />
-    <col col="25" width="70" last-width="70" />
-    <col col="26" width="253" last-width="280" />
-    <col col="27" width="70" last-width="70" />
-    <col col="28" width="70" last-width="70" />
-    <col col="29" width="70" last-width="70" />
-    <col col="30" width="70" last-width="70" />
-    <col col="31" width="70" last-width="70" />
-    <col col="32" width="70" last-width="70" />
-    <col col="33" width="70" last-width="70" />
-    <col col="34" width="70" last-width="70" />
-    <col col="35" width="70" last-width="70" />
-    <col col="36" width="70" last-width="70" />
-    <col col="37" width="70" last-width="70" />
-    <col col="38" width="70" last-width="70" />
-    <col col="39" width="70" last-width="70" />
-    <col col="40" width="70" last-width="70" />
-    <col col="41" width="70" last-width="70" />
-    <col col="42" width="70" last-width="70" />
-    <col col="43" width="70" last-width="70" />
-    <col col="44" width="70" last-width="70" />
-    <col col="45" width="70" last-width="70" />
-    <col col="46" width="70" last-width="70" />
-    <col col="47" width="70" last-width="70" />
-    <col col="48" width="70" last-width="70" />
-    <col col="49" width="70" last-width="70" />
-    <col col="50" width="70" last-width="70" />
-    <col col="51" width="70" last-width="70" />
-    <col col="52" width="70" last-width="70" />
-    <col col="53" width="70" last-width="70" />
-    <col col="54" width="70" last-width="70" />
-    <col col="55" width="70" last-width="70" />
-    <col col="56" width="70" last-width="70" />
-    <col col="57" width="70" last-width="70" />
-    <col col="58" width="70" last-width="70" />
-    <col col="59" width="70" last-width="70" />
-    <col col="60" width="70" last-width="70" />
-    <col col="61" width="70" last-width="70" />
-    <col col="62" width="70" last-width="70" />
-    <col col="63" width="70" last-width="70" />
-    <col col="64" width="70" last-width="70" />
-    <col col="65" width="70" last-width="70" />
-    <col col="66" width="70" last-width="70" />
-    <col col="67" width="70" last-width="70" />
-    <col col="68" width="70" last-width="70" />
-    <col col="69" width="70" last-width="70" />
-    <col col="70" width="70" last-width="70" />
-    <col col="71" width="70" last-width="70" />
-    <col col="72" width="70" last-width="70" />
-    <col col="73" width="70" last-width="70" />
-    <col col="74" width="70" last-width="70" />
-    <col col="75" width="70" last-width="70" />
-    <col col="76" width="70" last-width="70" />
-    <col col="77" width="70" last-width="70" />
-    <col col="78" width="70" last-width="70" />
-    <col col="79" width="70" last-width="70" />
-    <col col="80" width="70" last-width="70" />
-    <col col="81" width="70" last-width="70" />
-    <col col="82" width="70" last-width="70" />
-    <col col="83" width="70" last-width="70" />
-    <col col="84" width="70" last-width="70" />
-    <col col="85" width="70" last-width="70" />
-    <col col="86" width="70" last-width="70" />
-    <col col="87" width="70" last-width="70" />
-    <col col="88" width="70" last-width="70" />
-    <col col="89" width="70" last-width="70" />
-    <col col="90" width="70" last-width="70" />
-    <col col="91" width="70" last-width="70" />
-    <col col="92" width="70" last-width="70" />
-    <col col="93" width="70" last-width="70" />
-    <col col="94" width="70" last-width="70" />
-    <col col="95" width="70" last-width="70" />
-    <col col="96" width="70" last-width="70" />
-    <col col="97" width="70" last-width="70" />
-    <col col="98" width="70" last-width="70" />
+    <col col="15" width="0" last-width="70" />
+    <col col="16" width="0" last-width="70" />
+    <col col="17" width="0" last-width="70" />
+    <col col="18" width="0" last-width="70" />
+    <col col="19" width="0" last-width="70" />
+    <col col="20" width="0" last-width="70" />
+    <col col="21" width="0" last-width="70" />
+    <col col="22" width="0" last-width="70" />
+    <col col="23" width="0" last-width="70" />
+    <col col="24" width="0" last-width="70" />
+    <col col="25" width="0" last-width="70" />
+    <col col="26" width="0" last-width="253" />
+    <col col="27" width="0" last-width="70" />
+    <col col="28" width="0" last-width="70" />
+    <col col="29" width="0" last-width="70" />
+    <col col="30" width="0" last-width="70" />
+    <col col="31" width="0" last-width="70" />
+    <col col="32" width="0" last-width="70" />
+    <col col="33" width="0" last-width="70" />
+    <col col="34" width="0" last-width="70" />
+    <col col="35" width="0" last-width="70" />
+    <col col="36" width="0" last-width="70" />
+    <col col="37" width="0" last-width="70" />
+    <col col="38" width="0" last-width="70" />
+    <col col="39" width="0" last-width="70" />
+    <col col="40" width="0" last-width="70" />
+    <col col="41" width="0" last-width="70" />
+    <col col="42" width="0" last-width="70" />
+    <col col="43" width="0" last-width="70" />
+    <col col="44" width="0" last-width="70" />
+    <col col="45" width="0" last-width="70" />
+    <col col="46" width="0" last-width="70" />
+    <col col="47" width="0" last-width="70" />
+    <col col="48" width="0" last-width="70" />
+    <col col="49" width="0" last-width="70" />
+    <col col="50" width="0" last-width="70" />
+    <col col="51" width="0" last-width="70" />
+    <col col="52" width="0" last-width="70" />
+    <col col="53" width="0" last-width="70" />
+    <col col="54" width="0" last-width="70" />
+    <col col="55" width="0" last-width="70" />
+    <col col="56" width="0" last-width="70" />
+    <col col="57" width="0" last-width="70" />
+    <col col="58" width="0" last-width="70" />
+    <col col="59" width="0" last-width="70" />
+    <col col="60" width="0" last-width="70" />
+    <col col="61" width="0" last-width="70" />
+    <col col="62" width="0" last-width="70" />
+    <col col="63" width="0" last-width="70" />
+    <col col="64" width="0" last-width="70" />
+    <col col="65" width="0" last-width="70" />
+    <col col="66" width="0" last-width="70" />
+    <col col="67" width="0" last-width="70" />
+    <col col="68" width="0" last-width="70" />
+    <col col="69" width="0" last-width="70" />
+    <col col="70" width="0" last-width="70" />
+    <col col="71" width="0" last-width="70" />
+    <col col="72" width="0" last-width="70" />
+    <col col="73" width="0" last-width="70" />
+    <col col="74" width="0" last-width="70" />
+    <col col="75" width="0" last-width="70" />
+    <col col="76" width="0" last-width="70" />
+    <col col="77" width="0" last-width="70" />
+    <col col="78" width="0" last-width="70" />
+    <col col="79" width="0" last-width="70" />
+    <col col="80" width="0" last-width="70" />
+    <col col="81" width="0" last-width="70" />
+    <col col="82" width="0" last-width="70" />
+    <col col="83" width="0" last-width="70" />
+    <col col="84" width="0" last-width="70" />
+    <col col="85" width="0" last-width="70" />
+    <col col="86" width="0" last-width="70" />
+    <col col="87" width="0" last-width="70" />
+    <col col="88" width="0" last-width="70" />
+    <col col="89" width="0" last-width="70" />
+    <col col="90" width="0" last-width="70" />
+    <col col="91" width="0" last-width="70" />
+    <col col="92" width="0" last-width="70" />
+    <col col="93" width="0" last-width="70" />
+    <col col="94" width="0" last-width="70" />
+    <col col="95" width="0" last-width="70" />
+    <col col="96" width="0" last-width="70" />
+    <col col="97" width="0" last-width="70" />
+    <col col="98" width="0" last-width="70" />
   </cols>
   <v-borders>
     <v-border row="0" col="0" color="#787878" pos="left" rows="20" />
@@ -388,57 +388,44 @@ script.GETUNIDADCALIBRE= function(mat){
     <v-border row="54" col="1" color="#787878" pos="all" rows="19" />
     <v-border row="82" col="1" color="#787878" pos="all" rows="12" />
     <v-border row="17" col="2" color="#787878" pos="all" rows="3" />
-    <v-border row="22" col="2" color="#787878" pos="all" rows="1" />
-    <v-border row="23" col="2" pos="left" rows="4" />
-    <v-border row="27" col="2" color="#787878" pos="all" rows="4" />
+    <v-border row="22" col="2" color="#787878" pos="all" rows="9" />
     <v-border row="33" col="2" color="#787878" pos="all" rows="12" />
     <v-border row="47" col="2" color="#0000ff" pos="all" rows="5" />
     <v-border row="0" col="3" color="#787878" pos="all" rows="3" />
     <v-border row="5" col="3" color="#787878" pos="all" rows="11" />
     <v-border row="17" col="3" color="#787878" pos="all" rows="3" />
-    <v-border row="22" col="3" color="#787878" pos="all" rows="1" />
-    <v-border row="27" col="3" color="#787878" pos="all" rows="4" />
+    <v-border row="22" col="3" color="#787878" pos="all" rows="9" />
     <v-border row="33" col="3" color="#787878" pos="all" rows="12" />
     <v-border row="47" col="3" color="#0000ff" pos="all" rows="5" />
     <v-border row="0" col="4" color="#787878" pos="all" rows="3" />
     <v-border row="5" col="4" color="#787878" pos="all" rows="5" />
     <v-border row="14" col="4" color="#787878" pos="all" rows="6" />
-    <v-border row="22" col="4" color="#787878" pos="all" rows="1" />
-    <v-border row="23" col="4" pos="right" rows="4" />
-    <v-border row="27" col="4" color="#787878" pos="all" rows="4" />
+    <v-border row="22" col="4" color="#787878" pos="all" rows="9" />
     <v-border row="33" col="4" color="#787878" pos="all" rows="1" />
     <v-border row="34" col="4" pos="left" rows="5" />
     <v-border row="39" col="4" color="#787878" pos="all" rows="6" />
     <v-border row="47" col="4" color="#0000ff" pos="all" rows="5" />
     <v-border row="82" col="4" color="#787878" pos="all" rows="12" />
-    <v-border row="22" col="5" color="#787878" pos="all" rows="1" />
-    <v-border row="23" col="5" pos="left" rows="4" />
-    <v-border row="27" col="5" color="#787878" pos="all" rows="4" />
+    <v-border row="22" col="5" color="#787878" pos="all" rows="9" />
     <v-border row="32" col="5" color="#787878" pos="right" rows="2" />
     <v-border row="34" col="5" pos="right" rows="5" />
     <v-border row="39" col="5" color="#787878" pos="right" rows="6" />
     <v-border row="47" col="5" color="#0000ff" pos="all" rows="2" />
     <v-border row="50" col="5" color="#0000ff" pos="all" rows="1" />
     <v-border row="0" col="6" color="#787878" pos="all" rows="17" />
-    <v-border row="22" col="6" color="#787878" pos="all" rows="1" />
-    <v-border row="23" col="6" pos="right" rows="4" />
-    <v-border row="27" col="6" color="#787878" pos="all" rows="4" />
+    <v-border row="22" col="6" color="#787878" pos="all" rows="9" />
     <v-border row="32" col="6" color="#787878" pos="left" rows="13" />
     <v-border row="47" col="6" color="#0000ff" pos="all" rows="2" />
     <v-border row="50" col="6" color="#0000ff" pos="all" rows="1" />
     <v-border row="6" col="7" color="#787878" pos="left" rows="3" />
     <v-border row="10" col="7" color="#787878" pos="left" rows="3" />
     <v-border row="14" col="7" color="#787878" pos="left" rows="2" />
-    <v-border row="22" col="7" color="#787878" pos="all" rows="1" />
-    <v-border row="23" col="7" pos="left" rows="6" />
-    <v-border row="29" col="7" color="#787878" pos="all" rows="2" />
+    <v-border row="22" col="7" color="#787878" pos="all" rows="9" />
     <v-border row="47" col="7" color="#0000ff" pos="all" rows="2" />
     <v-border row="54" col="7" color="#787878" pos="all" rows="19" />
     <v-border row="81" col="7" pos="right" rows="1" />
     <v-border row="82" col="7" color="#787878" pos="right" rows="12" />
-    <v-border row="21" col="8" color="#787878" pos="right" rows="2" />
-    <v-border row="23" col="8" pos="right" rows="6" />
-    <v-border row="29" col="8" color="#787878" pos="right" rows="2" />
+    <v-border row="21" col="8" color="#787878" pos="right" rows="10" />
     <v-border row="48" col="8" pos="left" rows="1" />
     <v-border row="50" col="8" pos="left" rows="1" />
     <v-border row="65" col="8" color="#787878" pos="all" rows="4" />
@@ -486,29 +473,13 @@ script.GETUNIDADCALIBRE= function(mat){
     <h-border row="20" col="0" color="#787878" pos="bottom" cols="4" />
     <h-border row="21" col="0" color="#787878" pos="top" cols="8" />
     <h-border row="22" col="0" color="#787878" pos="all" cols="8" />
-    <h-border row="23" col="0" color="#787878" pos="all" cols="2" />
-    <h-border row="23" col="2" pos="top" cols="2" />
-    <h-border row="23" col="4" color="#787878" pos="all" cols="1" />
-    <h-border row="23" col="5" pos="top" cols="1" />
-    <h-border row="23" col="6" color="#787878" pos="all" cols="1" />
-    <h-border row="23" col="7" pos="top" cols="1" />
-    <h-border row="24" col="0" color="#787878" pos="all" cols="2" />
-    <h-border row="24" col="4" color="#787878" pos="all" cols="1" />
-    <h-border row="24" col="6" color="#787878" pos="all" cols="1" />
-    <h-border row="25" col="0" color="#787878" pos="all" cols="2" />
-    <h-border row="25" col="4" color="#787878" pos="all" cols="1" />
-    <h-border row="25" col="6" color="#787878" pos="all" cols="1" />
-    <h-border row="26" col="0" color="#787878" pos="all" cols="2" />
-    <h-border row="26" col="4" color="#787878" pos="all" cols="1" />
-    <h-border row="26" col="6" color="#787878" pos="all" cols="1" />
-    <h-border row="27" col="0" color="#787878" pos="all" cols="2" />
-    <h-border row="27" col="2" pos="bottom" cols="2" />
-    <h-border row="27" col="4" color="#787878" pos="all" cols="1" />
-    <h-border row="27" col="5" pos="bottom" cols="1" />
-    <h-border row="27" col="6" color="#787878" pos="all" cols="1" />
-    <h-border row="28" col="0" color="#787878" pos="all" cols="7" />
-    <h-border row="29" col="0" color="#787878" pos="all" cols="7" />
-    <h-border row="29" col="7" pos="bottom" cols="1" />
+    <h-border row="23" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="24" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="25" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="26" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="27" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="28" col="0" color="#787878" pos="all" cols="8" />
+    <h-border row="29" col="0" color="#787878" pos="all" cols="8" />
     <h-border row="30" col="0" color="#787878" pos="all" cols="8" />
     <h-border row="31" col="0" color="#787878" pos="bottom" cols="8" />
     <h-border row="32" col="0" color="#787878" pos="top" cols="5" />
@@ -571,10 +542,12 @@ script.GETUNIDADCALIBRE= function(mat){
   </h-borders>
   <cells>
     <cell row="0" col="0" format="text" readonly="true">TIPO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="0" col="1" colspan="2" format="text">SELLO LATERAL IMPRESA<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="0" col="1" colspan="2" format="text">PELICULA<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="0" col="3" format="text" readonly="true">ORDEN COMPRA<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="0" col="4" colspan="2" format="text">OC<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="0" col="6" readonly="true">6<formula>GetNumberTipo(B1)</formula><style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="right" /></cell>
+    <cell row="0" col="4" colspan="2" format="text">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
+    <cell row="0" col="6" readonly="true">0<formula>GetNumberTipo(B1)</formula><style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="right" /></cell>
     <cell row="0" col="7" readonly="true">tProd<style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="left" /></cell>
     <cell row="0" col="8">
       <style bgcolor="#ffffff" />
@@ -589,12 +562,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="0" col="12">TIPO PRODUCTO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="0" col="13">6<formula>G1</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="0" col="13">0<formula>G1</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="0" col="25">
       <style font-size="10.5" />
     </cell>
     <cell row="0" col="26">PELICULA<style font-size="10.5" align="right" /></cell>
-    <cell row="0" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="0" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="0" col="28">0<style align="center" /></cell>
     <cell row="0" col="29">0<style align="center" /></cell>
     <cell row="0" col="30">0<style align="center" /></cell>
@@ -602,9 +575,13 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="0" col="32">0<style align="center" /></cell>
     <cell row="0" col="33">0<style align="center" /></cell>
     <cell row="1" col="0" format="text" readonly="true">OT<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="1" col="1" colspan="2">49812<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="1" col="1" colspan="2">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="1" col="3" format="text" readonly="true">CLAVE INTELISIS<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="1" col="4" colspan="2" format="text">CI<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="1" col="4" colspan="2" format="text">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="1" col="6" readonly="true">3<formula>VLOOKUP(B15,AA21:AB26,2,TRUE)</formula><style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="right" /></cell>
     <cell row="1" col="7" readonly="true">tImp<style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="left" /></cell>
     <cell row="1" col="8">
@@ -620,9 +597,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="1" col="12">CLAVE INTELISIS<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="1" col="13">CI<formula>IF(E2&lt;&gt;"",E2,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="1" col="13">
+      <formula>IF(E2&lt;&gt;"",E2,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="1" col="26">PELICULA LAMINADA<style font-size="10.5" align="right" /></cell>
-    <cell row="1" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="1" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="1" col="28">0<style align="center" /></cell>
     <cell row="1" col="29">0<style align="center" /></cell>
     <cell row="1" col="30">0<style align="center" /></cell>
@@ -630,9 +610,15 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="1" col="32">0<style align="center" /></cell>
     <cell row="1" col="33">0<style align="center" /></cell>
     <cell row="2" col="0" format="text" readonly="true">FECHA RECIBIDO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="2" col="1" colspan="2" format="text">26/03/2018<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="2" col="1" colspan="2" format="datetime">
+      <format-args pattern="dd/MM/yyyy" culture="es-MX" />
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="2" col="3" format="text" readonly="true">FECHA SOLICITADA<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="2" col="4" colspan="2" format="text">26/03/2018<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="2" col="4" colspan="2" format="datetime">
+      <format-args pattern="dd/MM/yyyy" culture="es-MX" />
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="2" col="6" readonly="true">3<formula>VLOOKUP(B16,AA29:AB30,2,TRUE)</formula><style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="right" /></cell>
     <cell row="2" col="7" readonly="true">tTrab<style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="left" /></cell>
     <cell row="2" col="8">
@@ -648,9 +634,13 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="2" col="12">ORDEN COMPRA<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="2" col="13" format="datetime">OC<formula>IF(E1&lt;&gt;"",E1,"")</formula><format-args pattern="dd/MM/yyyy" culture="es-MX" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="2" col="13" format="datetime">
+      <formula>IF(E1&lt;&gt;"",E1,"")</formula>
+      <format-args pattern="dd/MM/yyyy" culture="es-MX" />
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="2" col="26">PELICULA TRILAMINADA<style font-size="10.5" align="right" /></cell>
-    <cell row="2" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="2" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="2" col="28">0<style align="center" /></cell>
     <cell row="2" col="29">0<style align="center" /></cell>
     <cell row="2" col="30">0<style align="center" /></cell>
@@ -658,7 +648,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="2" col="32">0<style align="center" /></cell>
     <cell row="2" col="33">0<style align="center" /></cell>
     <cell row="3" col="0" format="text" readonly="true">CLIENTE<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="3" col="1" colspan="5">CLIENTE DE PRUEBA<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="3" col="1" colspan="5">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="3" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -678,17 +670,22 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="3" col="12">OT<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="3" col="13">49812<formula>IF(B2&lt;&gt;"",B2,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="3" col="13">
+      <formula>IF(B2&lt;&gt;"",B2,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="3" col="26">FLOWPACK LAMINADA<style font-size="10.5" align="right" /></cell>
-    <cell row="3" col="27">94<formula>SUM($E$7,$B$9,$B$12)*2</formula><style font-size="10.5" /></cell>
+    <cell row="3" col="27">0<formula>SUM($E$7,$B$9,$B$12)*2</formula><style font-size="10.5" /></cell>
     <cell row="3" col="28">0<style align="center" /></cell>
-    <cell row="3" col="29">2<formula>$B$9</formula><style align="center" /></cell>
+    <cell row="3" col="29">0<formula>$B$9</formula><style align="center" /></cell>
     <cell row="3" col="30">0<style align="center" /></cell>
     <cell row="3" col="31">0<style align="center" /></cell>
-    <cell row="3" col="32">5<formula>$B$12</formula><style align="center" /></cell>
-    <cell row="3" col="33">6<formula>$B$13</formula><style align="center" /></cell>
+    <cell row="3" col="32">0<formula>$B$12</formula><style align="center" /></cell>
+    <cell row="3" col="33">0<formula>$B$13</formula><style align="center" /></cell>
     <cell row="4" col="0" format="text" readonly="true">PRODUCTO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="4" col="1" colspan="5">PRODUCTO DE PRUEBA<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="4" col="1" colspan="5">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="4" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -708,15 +705,15 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="4" col="12">FECHA RECIBIDO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="4" col="13" format="datetime">26/03/2018<formula>B3</formula><format-args pattern="dd/MM/yyyy" culture="es-MX" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="4" col="13" format="datetime">0<formula>B3</formula><format-args pattern="dd/MM/yyyy" culture="es-MX" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="4" col="26">FLOWPACK TRILAMINADA<style font-size="10.5" align="right" /></cell>
-    <cell row="4" col="27">94<formula>SUM($E$7,$B$9,$B$12)*2</formula><style font-size="10.5" /></cell>
+    <cell row="4" col="27">0<formula>SUM($E$7,$B$9,$B$12)*2</formula><style font-size="10.5" /></cell>
     <cell row="4" col="28">0<style align="center" /></cell>
-    <cell row="4" col="29">2<formula>$B$9</formula><style align="center" /></cell>
+    <cell row="4" col="29">0<formula>$B$9</formula><style align="center" /></cell>
     <cell row="4" col="30">0<style align="center" /></cell>
     <cell row="4" col="31">0<style align="center" /></cell>
-    <cell row="4" col="32">5<formula>$B$12</formula><style align="center" /></cell>
-    <cell row="4" col="33">6<formula>$B$13</formula><style align="center" /></cell>
+    <cell row="4" col="32">0<formula>$B$12</formula><style align="center" /></cell>
+    <cell row="4" col="33">0<formula>$B$13</formula><style align="center" /></cell>
     <cell row="5" col="0" format="text" readonly="true">DISEÑO AUTORIZADO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="5" col="1" colspan="2">
       <style bgcolor="#eeffee" font-size="10.5" />
@@ -742,19 +739,19 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="5" col="12">FECHA SOLICITADA<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="5" col="13" format="datetime">26/03/2018<formula>E3</formula><format-args pattern="dd/MM/yyyy" culture="es-MX" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="5" col="13" format="datetime">0<formula>E3</formula><format-args pattern="dd/MM/yyyy" culture="es-MX" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="5" col="26">SELLO LATERAL NO IMPRESA<style font-size="10.5" align="right" /></cell>
-    <cell row="5" col="27">115<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
-    <cell row="5" col="28">1<formula>$B$8</formula><style align="center" /></cell>
+    <cell row="5" col="27">0<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
+    <cell row="5" col="28">0<formula>$B$8</formula><style align="center" /></cell>
     <cell row="5" col="29">0<style align="center" /></cell>
-    <cell row="5" col="30">3<formula>$B$10</formula><style align="center" /></cell>
-    <cell row="5" col="31">4<formula>$B$11</formula><style align="center" /></cell>
+    <cell row="5" col="30">0<formula>$B$10</formula><style align="center" /></cell>
+    <cell row="5" col="31">0<formula>$B$11</formula><style align="center" /></cell>
     <cell row="5" col="32">0<style align="center" /></cell>
     <cell row="5" col="33">0<style align="center" /></cell>
     <cell row="6" col="0" format="text" readonly="true">ALTO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="6" col="1" colspan="2" format="number">50<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="6" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="6" col="3" format="text" readonly="true">ANCHO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="6" col="4" colspan="2" format="number">40<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="6" col="4" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="6" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -771,15 +768,15 @@ script.GETUNIDADCALIBRE= function(mat){
       <style font-size="10.5" />
     </cell>
     <cell row="6" col="26">SELLO LATERAL IMPRESA<style font-size="10.5" align="right" /></cell>
-    <cell row="6" col="27">115<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
-    <cell row="6" col="28">1<formula>$B$8</formula><style align="center" /></cell>
+    <cell row="6" col="27">0<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
+    <cell row="6" col="28">0<formula>$B$8</formula><style align="center" /></cell>
     <cell row="6" col="29">0<style align="center" /></cell>
-    <cell row="6" col="30">3<formula>$B$10</formula><style align="center" /></cell>
-    <cell row="6" col="31">4<formula>$B$11</formula><style align="center" /></cell>
+    <cell row="6" col="30">0<formula>$B$10</formula><style align="center" /></cell>
+    <cell row="6" col="31">0<formula>$B$11</formula><style align="center" /></cell>
     <cell row="6" col="32">0<style align="center" /></cell>
     <cell row="6" col="33">0<style align="center" /></cell>
     <cell row="7" col="0" format="text" readonly="true">SOLAPA<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="7" col="1" colspan="2" format="number">1<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="7" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="7" col="3" format="text" readonly="true">REP. EJE<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="7" col="4" colspan="2">1<style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="7" col="6" readonly="true">
@@ -797,15 +794,15 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="7" col="12">REP EJE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="7" col="13">1<formula>E8</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="7" col="26">SELLO LATERAL LAMINADA NO IMPRESA<style font-size="10.5" align="right" /></cell>
-    <cell row="7" col="27">115<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
-    <cell row="7" col="28">1<formula>$B$8</formula><style align="center" /></cell>
+    <cell row="7" col="27">0<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
+    <cell row="7" col="28">0<formula>$B$8</formula><style align="center" /></cell>
     <cell row="7" col="29">0<style align="center" /></cell>
-    <cell row="7" col="30">3<formula>$B$10</formula><style align="center" /></cell>
-    <cell row="7" col="31">4<formula>$B$11</formula><style align="center" /></cell>
+    <cell row="7" col="30">0<formula>$B$10</formula><style align="center" /></cell>
+    <cell row="7" col="31">0<formula>$B$11</formula><style align="center" /></cell>
     <cell row="7" col="32">0<style align="center" /></cell>
     <cell row="7" col="33">0<style align="center" /></cell>
     <cell row="8" col="0" format="text" readonly="true">FUELLE LATERAL<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="8" col="1" colspan="2" format="number">2<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="8" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="8" col="3" format="text" readonly="true">REP. DESARROLLO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="8" col="4" colspan="2">1<style bgcolor="#eeffee" font-size="10.5" align="center" /></cell>
     <cell row="8" col="6" readonly="true">
@@ -822,15 +819,15 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="8" col="12">REP DES<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="8" col="13">1<formula>E9</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="8" col="26">SELLO LATERAL LAMINADA IMPRESA<style font-size="10.5" align="right" /></cell>
-    <cell row="8" col="27">115<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
-    <cell row="8" col="28">1<formula>$B$8</formula><style align="center" /></cell>
+    <cell row="8" col="27">0<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
+    <cell row="8" col="28">0<formula>$B$8</formula><style align="center" /></cell>
     <cell row="8" col="29">0<style align="center" /></cell>
-    <cell row="8" col="30">3<formula>$B$10</formula><style align="center" /></cell>
-    <cell row="8" col="31">4<formula>$B$11</formula><style align="center" /></cell>
+    <cell row="8" col="30">0<formula>$B$10</formula><style align="center" /></cell>
+    <cell row="8" col="31">0<formula>$B$11</formula><style align="center" /></cell>
     <cell row="8" col="32">0<style align="center" /></cell>
     <cell row="8" col="33">0<style align="center" /></cell>
     <cell row="9" col="0" format="text" readonly="true">FUELLE FONDO (cerrado)<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="9" col="1" colspan="2" format="number">3<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="9" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="9" col="3" format="text" readonly="true">CENTROS<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="9" col="4" colspan="2">3<style bgcolor="#eeffee" font-size="10.5" align="center" /></cell>
     <cell row="9" col="6" readonly="true">
@@ -852,17 +849,20 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="9" col="12">CLIENTE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="9" col="13">CLIENTE DE PRUEBA<formula>IF(B4&lt;&gt;"",B4,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="9" col="13">
+      <formula>IF(B4&lt;&gt;"",B4,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="9" col="26">SELLO LATERAL TRILAMINADA<style font-size="10.5" align="right" /></cell>
-    <cell row="9" col="27">115<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
-    <cell row="9" col="28">1<formula>$B$8</formula><style align="center" /></cell>
+    <cell row="9" col="27">0<formula>(SUM($B$7,$B$11,$B$10)*2+$B$8)</formula><style font-size="10.5" /></cell>
+    <cell row="9" col="28">0<formula>$B$8</formula><style align="center" /></cell>
     <cell row="9" col="29">0<style align="center" /></cell>
-    <cell row="9" col="30">3<formula>$B$10</formula><style align="center" /></cell>
-    <cell row="9" col="31">4<formula>$B$11</formula><style align="center" /></cell>
+    <cell row="9" col="30">0<formula>$B$10</formula><style align="center" /></cell>
+    <cell row="9" col="31">0<formula>$B$11</formula><style align="center" /></cell>
     <cell row="9" col="32">0<style align="center" /></cell>
     <cell row="9" col="33">0<style align="center" /></cell>
     <cell row="10" col="0" format="text" readonly="true">COPETE<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="10" col="1" colspan="2" format="number">4<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="10" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="10" col="3" colspan="3" rowspan="4" format="text" readonly="true">En Sello Lateral y stand up pouch, el alto se considera al eje y el ancho para desarrollo<style bgcolor="#ffffd0" color="#ff9900" font-size="12.5" bold="true" align="center" text-wrap="word-break" /></cell>
     <cell row="10" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
@@ -875,9 +875,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="10" col="12">PRODUCTO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="10" col="13">PRODUCTO DE PRUEBA<formula>IF(B5&lt;&gt;"",B5,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="10" col="13">
+      <formula>IF(B5&lt;&gt;"",B5,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="10" col="26">ETIQUETA<style font-size="10.5" align="right" /></cell>
-    <cell row="10" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="10" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="10" col="28">0<style align="center" /></cell>
     <cell row="10" col="29">0<style align="center" /></cell>
     <cell row="10" col="30">0<style align="center" /></cell>
@@ -885,14 +888,11 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="10" col="32">0<style align="center" /></cell>
     <cell row="10" col="33">0<style align="center" /></cell>
     <cell row="11" col="0" format="text" readonly="true">AREA SELLO REV<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="11" col="1" colspan="2" format="number">5<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="11" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="11" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
-    <cell row="11" col="7" body-type="CheckBoxCell">
-      <formula>False</formula>
-      <style bgcolor="#eeffee" color="#eeeeee" font-size="10.5" align="center" />
-    </cell>
+    <cell row="11" col="7" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#eeffee" color="#eeeeee" font-size="10.5" align="center" /></cell>
     <cell row="11" col="8" readonly="true">Permanente?<style bgcolor="#eeffee" color="#000000" font-size="10.5" align="left" /></cell>
     <cell row="11" col="9" rowspan="2" format="number" readonly="true">0<formula>IF(OR(H12,H13),(B32+J16)*(0.089524*IF(AND(H12,H13),2,1)),0)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" align="center" /></cell>
     <cell row="11" col="10">
@@ -904,7 +904,7 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="11" col="12">TIPO TRABAJO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="11" col="13">3<formula>G3</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="11" col="26">PVC<style font-size="10.5" align="right" /></cell>
-    <cell row="11" col="27">80.5<formula>(E7*2+0.5)</formula><style font-size="10.5" /></cell>
+    <cell row="11" col="27">0.5<formula>(E7*2+0.5)</formula><style font-size="10.5" /></cell>
     <cell row="11" col="28">0<style align="center" /></cell>
     <cell row="11" col="29">0<style align="center" /></cell>
     <cell row="11" col="30">0<style align="center" /></cell>
@@ -912,14 +912,11 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="11" col="32">0<style align="center" /></cell>
     <cell row="11" col="33">0<style align="center" /></cell>
     <cell row="12" col="0" format="text" readonly="true">AREA SELLO FONDO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="12" col="1" colspan="2" format="number">6<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
+    <cell row="12" col="1" colspan="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#beffbe" font-size="10.5" align="center" valign="bottom" /></cell>
     <cell row="12" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
-    <cell row="12" col="7" body-type="CheckBoxCell">
-      <formula>False</formula>
-      <style bgcolor="#eeffee" color="#eeeeee" font-size="10.5" align="center" />
-    </cell>
+    <cell row="12" col="7" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#eeffee" color="#eeeeee" font-size="10.5" align="center" /></cell>
     <cell row="12" col="8" readonly="true">Removible?<style bgcolor="#eeffee" color="#000000" font-size="10.5" align="left" /></cell>
     <cell row="12" col="10">
       <style bgcolor="#ffffff" />
@@ -930,7 +927,7 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="12" col="12">TIPO IMPRESION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="12" col="13">3<formula>G2</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="12" col="26">PROTOTIPOS<style font-size="10.5" align="right" /></cell>
-    <cell row="12" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="12" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="12" col="28">0<style align="center" /></cell>
     <cell row="12" col="29">0<style align="center" /></cell>
     <cell row="12" col="30">0<style align="center" /></cell>
@@ -938,7 +935,7 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="12" col="32">0<style align="center" /></cell>
     <cell row="12" col="33">0<style align="center" /></cell>
     <cell row="13" col="0" format="text" readonly="true">ANCHO IMPRESIÓN<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="13" col="1" colspan="2" format="number" readonly="true">115<formula>VLOOKUP(B1,AA1:AB15,2,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
+    <cell row="13" col="1" colspan="2" format="number" readonly="true">0<formula>VLOOKUP(B1,AA1:AB15,2,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="13" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -958,9 +955,9 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="13" col="12">CANTIDAD<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="13" col="13">100<formula>B18</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="13" col="13">0<formula>B18</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="13" col="26">PIEZAS<style font-size="10.5" align="right" /></cell>
-    <cell row="13" col="27">40<formula>$E$7</formula><style font-size="10.5" /></cell>
+    <cell row="13" col="27">0<formula>$E$7</formula><style font-size="10.5" /></cell>
     <cell row="13" col="28">0<style align="center" /></cell>
     <cell row="13" col="29">0<style align="center" /></cell>
     <cell row="13" col="30">0<style align="center" /></cell>
@@ -970,7 +967,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="14" col="0" format="text" readonly="true">TIPO IMPRESIÓN<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="14" col="1" colspan="2">POR DENTRO<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="14" col="3" format="text" readonly="true">IMPRESORA<style bgcolor="#d2d2ff" font-size="10.5" align="right" /></cell>
-    <cell row="14" col="4" colspan="2">WINDMOLLER<style bgcolor="#eeffee" font-size="10.5" align="center" /></cell>
+    <cell row="14" col="4" colspan="2">
+      <style bgcolor="#eeffee" font-size="10.5" align="center" />
+    </cell>
     <cell row="14" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -984,7 +983,7 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="14" col="12">UNIDAD<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="14" col="13">KG<formula>B19</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="14" col="26">ETIQUETA TIPO MANGA<style font-size="10.5" align="right" /></cell>
-    <cell row="14" col="27">80<formula>$E$7*2</formula><style font-size="10.5" /></cell>
+    <cell row="14" col="27">0<formula>$E$7*2</formula><style font-size="10.5" /></cell>
     <cell row="14" col="28">0<style align="center" /></cell>
     <cell row="14" col="29">0<style align="center" /></cell>
     <cell row="14" col="30">0<style align="center" /></cell>
@@ -994,7 +993,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="15" col="0" format="text" readonly="true">TIPO TRABAJO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="15" col="1" colspan="2">REPETIDO<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="15" col="3" format="text" readonly="true">RODILLO<style bgcolor="#d2d2ff" font-size="10.5" align="right" /></cell>
-    <cell row="15" col="4" colspan="2">60<style bgcolor="#eeffee" font-size="10.5" align="center" /></cell>
+    <cell row="15" col="4" colspan="2">
+      <style bgcolor="#eeffee" font-size="10.5" align="center" />
+    </cell>
     <cell row="15" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -1008,7 +1009,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="15" col="12">ES IMPRESO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="15" col="13">True<formula>C27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="15" col="13">False<formula>C27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="15" col="28">SOLAPA<style align="center" /></cell>
     <cell row="15" col="29">FL<style align="center" /></cell>
     <cell row="15" col="30">FF<style align="center" /></cell>
@@ -1016,7 +1017,10 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="15" col="32">SR<style align="center" /></cell>
     <cell row="15" col="33">FFDO<style align="center" /></cell>
     <cell row="16" col="0" colspan="4" format="text" readonly="true">DATOS DE PRODUCTO FINAL<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
-    <cell row="16" col="4" colspan="2" readonly="true">40<formula>IF(IsBolsa(B1), E7,B7)*E9</formula><style bgcolor="#ffdcaa" font-size="10.5" align="center" /></cell>
+    <cell row="16" col="4" colspan="2" readonly="true">
+      <formula>IF(IsBolsa(B1), E7,B7)*E9</formula>
+      <style bgcolor="#ffdcaa" font-size="10.5" align="center" />
+    </cell>
     <cell row="16" col="6" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -1036,11 +1040,18 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="16" col="12">IMPRESORA<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="16" col="13">WINDMOLLER<formula>IF(C27,E15,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="16" col="13">
+      <formula>IF(C27,E15,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="17" col="0" format="text" readonly="true">CANTIDAD<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="17" col="1">100<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="17" col="1">0<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="17" col="2" format="text" readonly="true">KG/MILL<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="17" col="3" format="number" readonly="true">39.8866<formula>((IF(IsBolsa(B1),E7,B7)*H30*B14)/10000)+J8+J12+J16</formula><format-args decimal-places="5" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
+    <cell row="17" col="3" format="number" readonly="true">
+      <formula>((IF(IsBolsa(B1),E7,B7)*H30*B14)/10000)+J8+J12+J16</formula>
+      <format-args decimal-places="5" use-separator="true" />
+      <style bgcolor="#ffdcaa" font-size="10.5" />
+    </cell>
     <cell row="17" col="4" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -1066,11 +1077,15 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="17" col="12">RODILLO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="17" col="13">60<formula>E16</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="17" col="13">0<formula>E16</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="18" col="0" format="text" readonly="true">UNIDAD<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="18" col="1">KG<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="18" col="2" format="number" readonly="true">105<formula>IF(B19&lt;&gt;"KG",B18*D18,B18)*(1+D20)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#d0d0d0" color="#eeeeee" font-size="10.5" /></cell>
-    <cell row="18" col="3" format="number" readonly="true">39.8866<formula>(IF(IsBolsa(B1),E7,B7)*H30*B14)/10000</formula><format-args decimal-places="3" use-separator="true" /><style bgcolor="#d0d0d0" color="#eeeeee" font-size="10.5" /></cell>
+    <cell row="18" col="2" format="number" readonly="true">0<formula>IF(B19&lt;&gt;"KG",B18*D18,B18)*(1+D20)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#d0d0d0" color="#eeeeee" font-size="10.5" /></cell>
+    <cell row="18" col="3" format="number" readonly="true">
+      <formula>(IF(IsBolsa(B1),E7,B7)*H30*B14)/10000</formula>
+      <format-args decimal-places="3" use-separator="true" />
+      <style bgcolor="#d0d0d0" color="#eeeeee" font-size="10.5" />
+    </cell>
     <cell row="18" col="4" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -1096,9 +1111,13 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="18" col="12">KG/MILL<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="18" col="13" format="number">39.8866<formula>D18</formula><format-args decimal-places="5" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="18" col="13" format="number">
+      <formula>D18</formula>
+      <format-args decimal-places="5" use-separator="true" />
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="19" col="0" format="text" readonly="true">ANCHO PELICULA<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="19" col="1" format="number" readonly="true">115<formula>B14*E8</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
+    <cell row="19" col="1" format="number" readonly="true">0<formula>B14*E8</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="19" col="2" format="text" readonly="true">% Tolerancia<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="19" col="3" format="percent">0.05<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="19" col="4" readonly="true">
@@ -1126,14 +1145,17 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="19" col="12">MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="19" col="13">BOPP_TRANSP1<formula>IF(B25&lt;&gt;"NINGUNO",B25&amp;"_"&amp;B26,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="19" col="13">
+      <formula>IF(B25&lt;&gt;"NINGUNO",B25&amp;"_"&amp;B26,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="20" col="0" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
     <cell row="20" col="1" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
-    <cell row="20" col="2" readonly="true">105<style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" /></cell>
+    <cell row="20" col="2" readonly="true">0<formula>IF(B19&lt;&gt;"KG",B18*D19,B18)*(1+D20)</formula><style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" /></cell>
     <cell row="20" col="3" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" font-size="10.5" align="center" />
     </cell>
@@ -1162,7 +1184,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="20" col="12">ANCHO MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="20" col="13">102<formula>B27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="20" col="13">0<formula>B27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="20" col="26">PIE<style align="right" /></cell>
     <cell row="20" col="27">1<style align="right" /></cell>
     <cell row="21" col="0" colspan="8" format="text" readonly="true">DATOS DE ESTRUCTURA<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
@@ -1179,7 +1201,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="21" col="12">CALIBRE MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="21" col="13">20<formula>IF(OR(B25="PEBD", B25="PEHD"), B24*4,B24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="21" col="13">0<formula>IF(OR(B25="PEBD", B25="PEHD"), B24*4,B24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="21" col="26">CABEZA<style align="right" /></cell>
     <cell row="21" col="27">2<style align="right" /></cell>
     <cell row="22" col="0" format="text" readonly="true">
@@ -1205,24 +1227,27 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="22" col="12">CANT MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="22" col="13">20.41<formula>ROUND(B51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="22" col="13">NeuN<formula>ROUND(B51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="22" col="26">POR DENTRO<style align="right" /></cell>
     <cell row="22" col="27">3<style align="right" /></cell>
     <cell row="23" col="0" format="text" readonly="true">CAL<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="23" col="1">20<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="23" col="2" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="23" col="1" format="number">0<format-args decimal-places="1" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="23" col="2" format="number" readonly="true">
+      <format-args decimal-places="1" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="23" col="3" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="23" col="3" format="number" readonly="true">
+      <format-args decimal-places="1" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="23" col="4">12<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="23" col="5" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="23" col="4" format="number">0<format-args decimal-places="1" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="23" col="5" format="number" readonly="true">
+      <format-args decimal-places="1" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="23" col="6">50<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="23" col="6" format="number">0<format-args decimal-places="1" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="23" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="23" col="8">
       <style bgcolor="#ffffff" />
@@ -1237,24 +1262,27 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="23" col="12">MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="23" col="13">PET_TRANSP2<formula>IF(E25&lt;&gt;"NINGUNO",E25&amp;"_"&amp;E26,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="23" col="13">
+      <formula>IF(E25&lt;&gt;"NINGUNO",E25&amp;"_"&amp;E26,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="23" col="26">POR FUERA<style align="right" /></cell>
     <cell row="23" col="27">4<style align="right" /></cell>
     <cell row="24" col="0" format="text" readonly="true">Material<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="24" col="1">BOPP<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="24" col="1">NINGUNO<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="24" col="2" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="24" col="3" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="24" col="4">PET<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="24" col="4">NINGUNO<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="24" col="5" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="24" col="6">PEBD<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="24" col="6">NINGUNO<style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="24" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="24" col="8">
       <style bgcolor="#ffffff" />
@@ -1269,24 +1297,30 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="24" col="12">ANCHO MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="24" col="13">104<formula>E27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="24" col="13">0<formula>E27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="24" col="26">REPETICION<style align="right" /></cell>
     <cell row="24" col="27">5<style align="right" /></cell>
     <cell row="25" col="0" format="text" readonly="true">Apariencia<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="25" col="1">TRANSP1<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="25" col="1">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="25" col="2" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="25" col="3" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="25" col="4">TRANSP2<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="25" col="4">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="25" col="5" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="25" col="6">TRANSP3<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="25" col="6">
+      <style bgcolor="#eeffee" font-size="10.5" />
+    </cell>
     <cell row="25" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="25" col="8">
       <style bgcolor="#ffffff" />
@@ -1301,22 +1335,24 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="25" col="12">CALIBRE MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="25" col="13">12<formula>IF(OR(E25="PEBD", E25="PEHD"), E24*4,E24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="25" col="13">0<formula>IF(OR(E25="PEBD", E25="PEHD"), E24*4,E24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="25" col="26">PIE DE IMPRESIÓN<style align="right" /></cell>
     <cell row="25" col="27">6<style align="right" /></cell>
     <cell row="26" col="0" format="text" readonly="true">Ancho de Material<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="26" col="1">102<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="26" col="2" readonly="true">True<formula>IF(C28&gt;0, True,False)</formula><style bgcolor="#d0d0d0" color="#eeeeee" font-size="8" italic="true" align="center" /></cell>
-    <cell row="26" col="3" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="26" col="1" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="26" col="2" format="number" readonly="true">False<formula>IF(C28&gt;0, True,False)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#787878" color="#004646" font-size="8" italic="true" align="center" /></cell>
+    <cell row="26" col="3" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="26" col="4">104<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="26" col="5" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="26" col="4" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="26" col="5" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="26" col="6">105<style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="26" col="6" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="26" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="26" col="8">
       <style bgcolor="#ffffff" />
@@ -1331,22 +1367,25 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="26" col="12">CANT MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="26" col="13">19.04<formula>ROUND(C51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="26" col="13">0<formula>ROUND(C51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="27" col="0" format="text" readonly="true">Gr<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="27" col="1" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="27" col="1" format="number">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="27" col="2">1.8<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="27" col="3">2<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="27" col="4" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="27" col="2" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="27" col="3" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="27" col="4" format="number">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="27" col="5">2<style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="27" col="6" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="27" col="5" format="number">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="27" col="6" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="27" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="27" col="8">
       <style bgcolor="#ffffff" />
@@ -1361,22 +1400,29 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="27" col="12">MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="27" col="13">PEBD_TRANSP3<formula>IF(G25&lt;&gt;"NINGUNO",G25&amp;"_"&amp;G26,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="27" col="13">
+      <formula>IF(G25&lt;&gt;"NINGUNO",G25&amp;"_"&amp;G26,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="28" col="0" format="text" readonly="true">Densidad<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="28" col="1" readonly="true">0.905<formula>Densidad(B25)</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="28" col="2" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="28" col="1" format="number" readonly="true">0<formula>Densidad(B25)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="28" col="2" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="28" col="3" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="28" col="3" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="28" col="4" readonly="true">1.38<formula>Densidad(E25)</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="28" col="5" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="28" col="4" format="number" readonly="true">0<formula>Densidad(E25)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="28" col="5" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
-    <cell row="28" col="6" readonly="true">0.925<formula>Densidad(G25)</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="28" col="7" readonly="true">
-      <style bgcolor="#d0d0d0" font-size="10.5" />
+    <cell row="28" col="6" format="number" readonly="true">0<formula>Densidad(G25)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="28" col="7" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#787878" font-size="10.5" />
     </cell>
     <cell row="28" col="8">
       <style bgcolor="#ffffff" />
@@ -1391,17 +1437,17 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="28" col="12">ANCHO MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="28" col="13">105<formula>G27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="28" col="13">0<formula>G27</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="28" col="26">REPETIDO<style align="right" /></cell>
     <cell row="28" col="27">3<style align="right" /></cell>
     <cell row="29" col="0" format="text" readonly="true">G/MT2<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="29" col="1" readonly="true">18.1<formula>B29*B24</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="2" readonly="true">1.8<formula>C28</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="3" readonly="true">2<formula>D28</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="4" readonly="true">16.56<formula>E29*E24</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="5" readonly="true">2<formula>F28</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="6" readonly="true">46.25<formula>G29*G24</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="29" col="7" readonly="true">86.71<formula>SUM(B30:G30)</formula><style bgcolor="#ffeeda" font-size="10.5" /></cell>
+    <cell row="29" col="1" format="number" readonly="true">0<formula>B29*B24</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="2" format="number" readonly="true">0<formula>C28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="3" format="number" readonly="true">0<formula>D28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="4" format="number" readonly="true">0<formula>E29*E24</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="5" format="number" readonly="true">0<formula>F28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="6" format="number" readonly="true">0<formula>G29*G24</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="29" col="7" format="number" readonly="true">0<formula>SUM(B30:G30)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="29" col="8">
       <style bgcolor="#ffffff" />
     </cell>
@@ -1415,17 +1461,17 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="29" col="12">CALIBRE MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="29" col="13">200<formula>IF(OR(G25="PEBD", G25="PEHD"), G24*4,G24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="29" col="13">0<formula>IF(OR(G25="PEBD", G25="PEHD"), G24*4,G24)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="29" col="26">NUEVO<style align="right" /></cell>
     <cell row="29" col="27">4<style align="right" /></cell>
     <cell row="30" col="0" format="text" readonly="true">%<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="30" col="1" format="percent" readonly="true">0.208741782954676<formula>B30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="2" format="percent" readonly="true">0.020758851343559<formula>C30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="3" format="percent" readonly="true">0.0230653903817322<formula>D30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="4" format="percent" readonly="true">0.190981432360743<formula>E30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="5" format="percent" readonly="true">0.0230653903817322<formula>F30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="6" format="percent" readonly="true">0.533387152577557<formula>G30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="30" col="7" format="percent" readonly="true">1<formula>H30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
+    <cell row="30" col="1" format="percent" readonly="true">NeuN<formula>B30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="2" format="percent" readonly="true">NeuN<formula>C30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="3" format="percent" readonly="true">NeuN<formula>D30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="4" format="percent" readonly="true">NeuN<formula>E30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="5" format="percent" readonly="true">NeuN<formula>F30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="6" format="percent" readonly="true">NeuN<formula>G30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="30" col="7" format="percent" readonly="true">NeuN<formula>H30/$H$30</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="30" col="8">
       <style bgcolor="#ffffff" />
     </cell>
@@ -1439,11 +1485,11 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="30" col="12">CANT MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="30" col="13">53.18<formula>ROUND(D51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="30" col="13">0<formula>ROUND(D51,2)</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="31" col="0" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
-    <cell row="31" col="1" readonly="true">8.326<formula>$E$7*$B$14*B30/10000</formula><style bgcolor="#ffffff" color="#eeeeee" /></cell>
+    <cell row="31" col="1" readonly="true">0<formula>$E$7*$B$14*B30/10000</formula><style bgcolor="#ffffff" color="#eeeeee" /></cell>
     <cell row="31" col="2" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1475,7 +1521,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="31" col="12">ANCHO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="31" col="13">40<formula>E7</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="31" col="13">0<formula>E7</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="32" col="0" colspan="5" format="text" readonly="true">MERMA Y DESPERDICIO<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
     <cell row="32" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
@@ -1485,7 +1531,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="32" col="12">ALTO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="32" col="13">50<formula>B7</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="32" col="13">0<formula>B7</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="33" col="0" format="text" readonly="true">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
@@ -1497,7 +1543,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
     <cell row="33" col="6" colspan="5" rowspan="12">
-      <style bgcolor="#eeffee" font-size="10.5" />
+      <style bgcolor="#eeffee" font-size="10.5" align="distributed-indent" valign="top" text-wrap="word-break" />
     </cell>
     <cell row="33" col="11">
       <style bgcolor="#ffffff" />
@@ -1505,9 +1551,9 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="33" col="12">CENTROS<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="33" col="13">3<formula>E10</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="34" col="0" format="text" readonly="true">% Ajuste<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="34" col="1" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="34" col="2" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="34" col="3" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="34" col="1" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="34" col="2" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="34" col="3" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="34" col="4" readonly="true">
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
@@ -1518,10 +1564,10 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="34" col="12">TINTA<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="34" col="13" format="number">1.8<formula>C28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="34" col="13" format="number">0<formula>C28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="35" col="0" format="text" readonly="true">% Lam.<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="35" col="1" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="35" col="2" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="35" col="1" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="35" col="2" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="35" col="3" format="percent" readonly="true">0<format-args decimal-places="0" /><style bgcolor="#d0d0d0" font-size="10.5" /></cell>
     <cell row="35" col="4" readonly="true">
       <style bgcolor="#d0d0d0" font-size="10.5" />
@@ -1533,11 +1579,11 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="35" col="12">ADH1<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="35" col="13" format="number">2<formula>D28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="35" col="13" format="number">0<formula>D28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="36" col="0" format="text" readonly="true">% Trilam.<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="36" col="1" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="36" col="2" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
-    <cell row="36" col="3" format="percent">0.01<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="36" col="1" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="36" col="2" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="36" col="3" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="36" col="4" readonly="true">
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
@@ -1548,9 +1594,9 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="36" col="12">ADH2<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="36" col="13" format="number">2<formula>F28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="36" col="13" format="number">0<formula>F28</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="37" col="0" format="text" readonly="true">Merma Proceso<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="37" col="1" format="percent">0.02<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
+    <cell row="37" col="1" format="percent">0<format-args decimal-places="2" /><style bgcolor="#eeffee" font-size="10.5" /></cell>
     <cell row="37" col="2" readonly="true">0<style bgcolor="#d0d0d0" font-size="10.5" /></cell>
     <cell row="37" col="3" readonly="true">0<style bgcolor="#d0d0d0" font-size="10.5" /></cell>
     <cell row="37" col="4" readonly="true">
@@ -1563,11 +1609,11 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="37" col="12">% AJUSTE MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="37" col="13">0.01<formula>B35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="37" col="13">0<formula>B35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="38" col="0" format="text" readonly="true">% Tirilla<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="38" col="1" format="percent" readonly="true">0.11304347826087<formula>IF(B29=0,0,IF(ABS(1-(B27/$B$20))=1,0,ABS(1-(B27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="38" col="2" format="percent" readonly="true">0.0956521739130435<formula>IF(E29=0,0,IF(ABS(1-(E27/$B$20))=1,0,ABS(1-(E27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="38" col="3" format="percent" readonly="true">0.0869565217391305<formula>IF(G29=0,0,IF(ABS(1-(G27/$B$20))=1,0,ABS(1-(G27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="38" col="1" format="percent" readonly="true">0<formula>IF(B29=0,0,IF(ABS(1-(B27/$B$20))=1,0,ABS(1-(B27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="38" col="2" format="percent" readonly="true">0<formula>IF(E29=0,0,IF(ABS(1-(E27/$B$20))=1,0,ABS(1-(E27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="38" col="3" format="percent" readonly="true">0<formula>IF(G29=0,0,IF(ABS(1-(G27/$B$20))=1,0,ABS(1-(G27/$B$20))))</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="38" col="4" readonly="true">
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
@@ -1578,12 +1624,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="38" col="12">%LAM MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="38" col="13">0.01<formula>B36</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="38" col="13">0<formula>B36</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="39" col="0" format="text" readonly="true">KG Tirilla<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="39" col="1" format="number" readonly="true">-2.60155791669382<formula>((B51-(B41+B42+B43+B44))-B49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
-    <cell row="39" col="2" format="number" readonly="true">-2.0140237573521<formula>((C51-(C41+C42+C43+C44))-C49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
-    <cell row="39" col="3" format="number" readonly="true">-5.06485887491036<formula>((D51-(D41+D42+D43+D44))-D49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
-    <cell row="39" col="4" format="number" readonly="true">-9.68044054895628<formula>SUM(B40:D40)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
+    <cell row="39" col="1" format="number" readonly="true">NeuN<formula>((B51-(B41+B42+B43+B44))-B49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
+    <cell row="39" col="2" format="number" readonly="true">NeuN<formula>((C51-(C41+C42+C43+C44))-C49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
+    <cell row="39" col="3" format="number" readonly="true">NeuN<formula>((D51-(D41+D42+D43+D44))-D49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
+    <cell row="39" col="4" format="number" readonly="true">NeuN<formula>SUM(B40:D40)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ff9900" font-size="10.5" /></cell>
     <cell row="39" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1591,12 +1637,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="39" col="12">%TRILAM MATBASE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="39" col="13">0.01<formula>B37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="39" col="13">0<formula>B37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="40" col="0" format="text" readonly="true">KG Ajuste<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="40" col="1" format="number" readonly="true">0.21917887210241<formula>$B$49*(B35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="40" col="2" format="number" readonly="true">0.20053050397878<formula>$C$49*(C35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="40" col="3" format="number" readonly="true">0.560056510206435<formula>$D$49*(D35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="40" col="4" format="number" readonly="true">0.979765886287625<formula>SUM(B41:D41)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="40" col="1" format="number" readonly="true">NeuN<formula>$B$49*(B35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="40" col="2" format="number" readonly="true">NeuN<formula>$C$49*(C35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="40" col="3" format="number" readonly="true">NeuN<formula>$D$49*(D35)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="40" col="4" format="number" readonly="true">NeuN<formula>SUM(B41:D41)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="40" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1604,12 +1650,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="40" col="12">%AJUSTE MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="40" col="13">0.01<formula>C35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="40" col="13">0<formula>C35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="41" col="0" format="text" readonly="true">KG Lam.<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="41" col="1" format="number" readonly="true">0.21917887210241<formula>$B$49*(B36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="41" col="2" format="number" readonly="true">0.20053050397878<formula>$C$49*(C36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="41" col="3" format="number" readonly="true">0<formula>$D$49*(D36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="41" col="4" format="number" readonly="true">0.41970937608119<formula>SUM(B42:D42)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="41" col="1" format="number" readonly="true">NeuN<formula>$B$49*(B36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="41" col="2" format="number" readonly="true">NeuN<formula>$C$49*(C36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="41" col="3" format="number" readonly="true">NeuN<formula>$D$49*(D36)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="41" col="4" format="number" readonly="true">NeuN<formula>SUM(B42:D42)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="41" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1617,12 +1663,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="41" col="12">%LAM MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="41" col="13">0.01<formula>C36</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="41" col="13">0<formula>C36</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="42" col="0" format="text" readonly="true">KG Trilam.<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="42" col="1" format="number" readonly="true">0.21917887210241<formula>$B$49*(B37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="42" col="2" format="number" readonly="true">0.20053050397878<formula>$C$49*(C37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="42" col="3" format="number" readonly="true">0.560056510206435<formula>$D$49*(D37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="42" col="4" format="number" readonly="true">0.979765886287625<formula>SUM(B43:D43)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="42" col="1" format="number" readonly="true">NeuN<formula>$B$49*(B37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="42" col="2" format="number" readonly="true">NeuN<formula>$C$49*(C37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="42" col="3" format="number" readonly="true">NeuN<formula>$D$49*(D37)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="42" col="4" format="number" readonly="true">NeuN<formula>SUM(B43:D43)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="42" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1630,12 +1676,12 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="42" col="12">%TRILAM MATLAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="42" col="13">0.01<formula>C37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="42" col="13">0<formula>C37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="43" col="0" format="text" readonly="true">Kg Proceso<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="43" col="1" format="number" readonly="true">0.438357744204821<formula>$B$49*(B38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="43" col="2" format="number" readonly="true">0.40106100795756<formula>$C$49*($B$38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="43" col="3" format="number" readonly="true">1.12011302041287<formula>$D$49*(B38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" font-size="10.5" /></cell>
-    <cell row="43" col="4" format="number" readonly="true">1.95953177257525<formula>SUM(B44:D44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="43" col="1" format="number" readonly="true">NeuN<formula>$B$49*(B38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="43" col="2" format="number" readonly="true">NeuN<formula>$C$49*($B$38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="43" col="3" format="number" readonly="true">NeuN<formula>$D$49*(B38)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="43" col="4" format="number" readonly="true">NeuN<formula>SUM(B44:D44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="43" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1643,15 +1689,15 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="43" col="12">%AJUSTE MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="43" col="13">0.01<formula>D35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="43" col="13">0<formula>D35</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="43" col="15">
       <style font-size="10.5" />
     </cell>
     <cell row="44" col="0" format="text" readonly="true">Total<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="44" col="1" format="number" readonly="true">-1.50566355618177<formula>SUM(B40:B44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="44" col="2" format="number" readonly="true">-1.0113712374582<formula>SUM(C40:C44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="44" col="3" format="number" readonly="true">-2.82463283408462<formula>SUM(D40:D44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="44" col="4" format="number" readonly="true">-5.34166762772459<formula>SUM(B45:D45)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="44" col="1" format="number" readonly="true">NeuN<formula>SUM(B40:B44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="44" col="2" format="number" readonly="true">NeuN<formula>SUM(C40:C44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="44" col="3" format="number" readonly="true">NeuN<formula>SUM(D40:D44)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="44" col="4" format="number" readonly="true">NeuN<formula>SUM(B45:D45)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
     <cell row="44" col="5" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1659,7 +1705,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="44" col="12">%TRILAM MATTRILAM<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="44" col="13">0.01<formula>D37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="44" col="13">0<formula>D37</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="45" col="0" readonly="true">
       <style bgcolor="#ffffff" color="#eeeeee" />
     </cell>
@@ -1697,7 +1743,7 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="45" col="12">%MERMA PROCESO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="45" col="13">0.02<formula>B38</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="45" col="13">0<formula>B38</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="46" col="0" colspan="8" format="text" readonly="true">RESULTADOS DE LOS CALCULOS<style bgcolor="#000000" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
     <cell row="46" col="8" readonly="true">
       <style bgcolor="#000000" color="#ffffff" font-size="10.5" bold="true" align="center" />
@@ -1728,31 +1774,34 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="47" col="10" format="text" readonly="true">%M2<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
     <cell row="47" col="11" format="text" readonly="true">%M3<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
     <cell row="47" col="12">SOLAPA<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="47" col="13" format="number">1<formula>VLOOKUP($B$1,$AA$1:$AH$15,3,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="47" col="13" format="number">0<formula>VLOOKUP($B$1,$AA$1:$AH$15,3,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="48" col="0" format="text" readonly="true">kg Req<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="right" /></cell>
-    <cell row="48" col="1" format="number" readonly="true">21.917887210241<formula>$C$21*B31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="2" format="number" readonly="true">20.053050397878<formula>$C$21*E31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="3" format="number" readonly="true">56.0056510206435<formula>$C$21*G31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="4" format="number" readonly="true">2.17967939107369<formula>$C$21*C31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="5" format="number" readonly="true">4.84373198016376<formula>($C$21*D31)+($C$21*F31)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="6" readonly="true">0<style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="48" col="7" readonly="true">0<style bgcolor="#ffdcaa" font-size="10.5" /></cell>
-    <cell row="48" col="8" readonly="true">105<formula>SUM(B49:H49)</formula><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="48" col="9" readonly="true">
+    <cell row="48" col="1" format="number" readonly="true">NeuN<formula>$C$21*B31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="2" format="number" readonly="true">NeuN<formula>$C$21*E31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="3" format="number" readonly="true">NeuN<formula>$C$21*G31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="4" format="number" readonly="true">NeuN<formula>$C$21*C31</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="5" format="number" readonly="true">NeuN<formula>($C$21*D31)+($C$21*F31)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="6" format="number" readonly="true">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="48" col="7" format="number" readonly="true">0<format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" font-size="10.5" /></cell>
+    <cell row="48" col="8" format="number" readonly="true">NeuN<formula>SUM(B49:H49)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="48" col="9" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="48" col="10" readonly="true">
+    <cell row="48" col="10" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="48" col="11" readonly="true">
+    <cell row="48" col="11" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
     <cell row="48" col="12">FUELLE LATERAL<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="48" col="13" format="number">0<formula>VLOOKUP($B$1,$AA$1:$AH$15,4,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="49" col="0" format="text" readonly="true">ML Req<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="right" /></cell>
-    <cell row="49" col="1" format="number" readonly="true">1052.98521307908<formula>(B49*100000)/(B30*($B$20))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="49" col="2" format="number" readonly="true">1052.98521307908<formula>IF(E30=0,0,(C49*100000)/(E30*($B$20)))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
-    <cell row="49" col="3" format="number" readonly="true">1052.98521307908<formula>IF(G30=0,0,(D49*100000)/(G30*($B$20)))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="49" col="1" format="number" readonly="true">NeuN<formula>(B49*100000)/(B30*($B$20))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="49" col="2" format="number" readonly="true">0<formula>IF(E30=0,0,(C49*100000)/(E30*($B$20)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
+    <cell row="49" col="3" format="number" readonly="true">0<formula>IF(G30=0,0,(D49*100000)/(G30*($B$20)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#009900" font-size="10.5" italic="true" /></cell>
     <cell row="49" col="4" format="number" readonly="true">
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
@@ -1761,48 +1810,56 @@ script.GETUNIDADCALIBRE= function(mat){
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="6" readonly="true">
+    <cell row="49" col="6" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="7" readonly="true">
+    <cell row="49" col="7" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="8" readonly="true">
+    <cell row="49" col="8" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="9" readonly="true">
+    <cell row="49" col="9" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="10" readonly="true">
+    <cell row="49" col="10" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="49" col="11" readonly="true">
+    <cell row="49" col="11" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
     <cell row="49" col="12">FUELLE FONDO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="49" col="13" format="number">3<formula>VLOOKUP($B$1,$AA$1:$AH$15,5,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="49" col="13" format="number">0<formula>VLOOKUP($B$1,$AA$1:$AH$15,5,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="50" col="0" format="text" readonly="true">Kg Sol<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="right" /></cell>
-    <cell row="50" col="1" format="number" readonly="true">20.4122236540593<formula>(B52*((B30)*(B27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="50" col="2" format="number" readonly="true">19.0416791604198<formula>(C52*((E30)*(E27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="50" col="3" format="number" readonly="true">53.1810181865589<formula>(D52*((G30)*(G27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="50" col="4" format="number" readonly="true">2.26686656671664<formula>E49+(E49*(B36+B37+B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="50" col="5" format="number" readonly="true">5.08591857917195<formula>F49+(F49*SUM(C36:E37,B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="50" col="6" readonly="true">
+    <cell row="50" col="1" format="number" readonly="true">NeuN<formula>(B52*((B30)*(B27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="50" col="2" format="number" readonly="true">0<formula>(C52*((E30)*(E27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="50" col="3" format="number" readonly="true">0<formula>(D52*((G30)*(G27)))/100000</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="50" col="4" format="number" readonly="true">NeuN<formula>E49+(E49*(B36+B37+B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="50" col="5" format="number" readonly="true">NeuN<formula>F49+(F49*SUM(C36:E37,B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="50" col="6" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="50" col="7" readonly="true">
+    <cell row="50" col="7" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="50" col="8" format="number" readonly="true">99.9877061469265<formula>SUM(B51:H51)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
-    <cell row="50" col="9" format="percent" readonly="true">0.220351282577664<formula>B51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
-    <cell row="50" col="10" format="percent" readonly="true">0.205556165586911<formula>C51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
-    <cell row="50" col="11" format="percent" readonly="true">0.574092551835425<formula>D51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
+    <cell row="50" col="8" format="number" readonly="true">NeuN<formula>SUM(B51:H51)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
+    <cell row="50" col="9" format="number" readonly="true">NeuN<formula>B51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
+    <cell row="50" col="10" format="number" readonly="true">NeuN<formula>C51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
+    <cell row="50" col="11" format="number" readonly="true">NeuN<formula>D51/SUM($B$51:$D$51)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000099" font-size="10.5" italic="true" /></cell>
     <cell row="50" col="12">COPETE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="50" col="13" format="number">4<formula>VLOOKUP($B$1,$AA$1:$AH$15,6,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="50" col="13" format="number">0<formula>VLOOKUP($B$1,$AA$1:$AH$15,6,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="51" col="0" format="text" readonly="true">ML Sol<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="right" /></cell>
-    <cell row="51" col="1" format="number" readonly="true">1105.63447373303<formula>B50*(1+SUM(B35,B36,B37,B38))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="51" col="2" format="number" readonly="true">1105.63447373303<formula>C50*(1+SUM(C35,C36,C37,B38))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
-    <cell row="51" col="3" format="number" readonly="true">1095.10462160224<formula>D50*(1+SUM(D35,D36,D37,B38))</formula><format-args decimal-places="0" use-separator="true" /><style bgcolor="#ffffee" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="51" col="1" format="number" readonly="true">NeuN<formula>B50*(1+SUM(B35,B36,B37,B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="51" col="2" format="number" readonly="true">0<formula>C50*(1+SUM(C35,C36,C37,B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
+    <cell row="51" col="3" format="number" readonly="true">0<formula>D50*(1+SUM(D35,D36,D37,B38))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#0000ff" font-size="10.5" bold="true" /></cell>
     <cell row="51" col="4" format="number" readonly="true">
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
@@ -1811,22 +1868,28 @@ script.GETUNIDADCALIBRE= function(mat){
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="6" readonly="true">
+    <cell row="51" col="6" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="7" readonly="true">
+    <cell row="51" col="7" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="8" readonly="true">
+    <cell row="51" col="8" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="9" readonly="true">
+    <cell row="51" col="9" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="10" readonly="true">
+    <cell row="51" col="10" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
-    <cell row="51" col="11" readonly="true">
+    <cell row="51" col="11" format="number" readonly="true">
+      <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#d0d0d0" font-size="10.5" />
     </cell>
     <cell row="51" col="12">SELLO REV<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -1871,71 +1934,76 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="52" col="13" format="number">0<formula>VLOOKUP($B$1,$AA$1:$AH$15,8,TRUE)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="53" col="0" colspan="12" format="text">INSTRUCCIONES<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" /></cell>
     <cell row="53" col="12">METROS LINEALES<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="53" col="13" format="number">1052.98521307908<formula>B50</formula><format-args decimal-places="0" use-separator="false" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="53" col="13" format="number">NeuN<formula>B50</formula><format-args decimal-places="0" use-separator="false" /><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="54" col="0" format="text">IMPRESION<style bgcolor="#4fbafb" font-size="10.5" align="right" valign="top" /></cell>
-    <cell row="54" col="1" colspan="6" rowspan="2">IMPRESORA WINDMOLLER RODILLO 60, DISEÑO (1 REPETICIONES AL EJE, 1 REPETICIONES AL DESARROLLO), OBTENER 22 KG (1,104.36 MTS) BUENOS Y SANEADOS DE BOPP TRANSP1 CALIBRE 20 MICRAS CON 102 CM DE ANCHO, VER ORDEN DE CORTE_.Especial<formula>IF(AND(A56,H55&lt;&gt;"",H55&lt;&gt;"."), H55, IF(AND(H55&lt;&gt;"",C27),B76&amp;H55,""))</formula><style bgcolor="#ffdcaa" align="left" valign="top" text-wrap="word-break" /></cell>
-    <cell row="54" col="7" colspan="5" rowspan="2">.Especial<style bgcolor="#eeffee" align="left" valign="top" /></cell>
+    <cell row="54" col="1" colspan="6" rowspan="2" readonly="true">
+      <formula>IF(AND(A56,H55&lt;&gt;"",H55&lt;&gt;"."), H55, IF(AND(H55&lt;&gt;"",C27),B76&amp;H55,""))</formula>
+      <style bgcolor="#ffdcaa" align="left" valign="top" text-wrap="word-break" />
+    </cell>
+    <cell row="54" col="7" colspan="5" rowspan="2">.<style bgcolor="#eeffee" align="left" valign="top" /></cell>
     <cell row="54" col="12">TIPO REFINADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="54" col="13">1<formula>L64</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="54" col="13">4<formula>L64</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="55" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
     <cell row="55" col="12">ESPECIAL IMPRESION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="55" col="13">False<formula>A56</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="56" col="0" format="text">LAMINACION<style bgcolor="#4fbafb" font-size="10.5" align="right" valign="top" /></cell>
-    <cell row="56" col="1" colspan="6" rowspan="2">LAMINAR 22 KG DE BOPP TRANSP1 IMPRESOS BUENOS Y SANEADOS CALIBRE 20 MICRAS CON 102 CM DE ANCHO CONTRA 19 KG DE PET TRANSP2 CALIBRE 12 MICRAS CON 104 CM DE ANCHO, TRILAMINAR CONTRA 53 KG DE PEBD TRANSP3 CALIBRE 200 CI CON 105 CM DE ANCHO_.Especial<formula>IF(AND(A58,H57&lt;&gt;"",H57&lt;&gt;"."),"_" &amp; H57, IF(AND(H57&lt;&gt;"",I67&gt;0),B77&amp;", " &amp; B78 &amp; H57,""))</formula><style bgcolor="#ffdcaa" align="left" valign="top" text-wrap="word-break" /></cell>
-    <cell row="56" col="7" colspan="5" rowspan="2">.Especial<style bgcolor="#eeffee" align="left" valign="top" /></cell>
+    <cell row="56" col="1" colspan="6" rowspan="2" readonly="true">
+      <formula>IF(AND(A58,H57&lt;&gt;"",H57&lt;&gt;"."),"_" &amp; H57, IF(AND(H57&lt;&gt;"",I67&gt;0),B77&amp;", " &amp; B78 &amp; H57,""))</formula>
+      <style bgcolor="#ffdcaa" align="left" valign="top" text-wrap="word-break" />
+    </cell>
+    <cell row="56" col="7" colspan="5" rowspan="2">.<style bgcolor="#eeffee" align="left" valign="top" /></cell>
     <cell row="56" col="12">ESPECIAL LAMINACION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="56" col="13">False<formula>A58</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="57" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
     <cell row="57" col="12">EXTRUIR MAT1<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="57" col="13">True<formula>A92</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="57" col="13">False<formula>A92</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
     <cell row="58" col="0" format="text">REFINADO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="58" col="1" colspan="6" rowspan="5">REFINAR A 115 CM., EN CENTROS DE 3 PULGADAS_.<formula>IF(OR(L64=0, L64=4), "",IF(L64=3, "_" &amp;H59, B79 &amp; H59))</formula><style bgcolor="#ffdcaa" align="left" valign="top" /></cell>
+    <cell row="58" col="1" colspan="6" rowspan="5" readonly="true">
+      <formula>IF(OR(L64=0, L64=4), "",IF(L64=3, "_" &amp;H59, B79 &amp; H59))</formula>
+      <style bgcolor="#ffdcaa" align="left" valign="top" />
+    </cell>
     <cell row="58" col="7" colspan="5" rowspan="5">.<style bgcolor="#eeffee" align="left" valign="top" /></cell>
     <cell row="58" col="12">EXTRUIR MAT2<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="58" col="13">True<formula>A93</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
-    <cell row="59" col="0" format="text" body-type="CheckBoxCell">
-      <formula>False</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
+    <cell row="58" col="13">False<formula>A93</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="59" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
     <cell row="59" col="12">EXTRUIR MAT3<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="59" col="13">True<formula>A94</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
-    <cell row="60" col="0" format="text" body-type="CheckBoxCell">
-      <formula>True</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
+    <cell row="59" col="13">False<formula>A94</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="60" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
     <cell row="60" col="12">AUTOMATICO EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="60" col="13">True<formula>D82</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
-    <cell row="61" col="0" format="text" body-type="CheckBoxCell">
-      <formula>False</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
+    <cell row="61" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
     <cell row="61" col="12">TIPO EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="61" col="13">
       <formula>E83</formula>
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="62" col="0" format="number" body-type="CheckBoxCell">
-      <formula>False</formula>
+      <formula>True</formula>
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#4fbafb" font-size="10.5" align="center" />
     </cell>
     <cell row="62" col="12">COLOR EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="62" col="13">TRANSP1/TRANSP2/TRANSP3<formula>E84</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="62" col="13">
+      <formula>E84</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="63" col="0" format="text">DOBLADO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="63" col="1" colspan="6" rowspan="2">DOBLADO<style bgcolor="#eeffee" align="left" valign="top" /></cell>
-    <cell row="63" col="7">
+    <cell row="63" col="1" colspan="6" rowspan="2">
+      <style bgcolor="#eeffee" align="left" valign="top" />
+    </cell>
+    <cell row="63" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="63" col="8">
+    <cell row="63" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="63" col="9">
+    <cell row="63" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="63" col="10">
+    <cell row="63" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="63" col="11">1<formula>IF(A60=True,3,0)+IF(A61=True,1,0)+ IF(A62=True,2,0)+IF(A63="True,4,0)</formula><style bgcolor="#ffffff" color="#d0d0d0" /></cell>
+    <cell row="63" col="11" readonly="true">4<formula>IF(A60=True,3,0)+IF(A61=True,1,0)+ IF(A62=True,2,0)+IF(A63="True,4,0)</formula><style bgcolor="#ffffff" color="#d0d0d0" /></cell>
     <cell row="63" col="12">TRATADO EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
     <cell row="63" col="13">
       <formula>E85</formula>
@@ -1944,19 +2012,19 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="64" col="0" format="text">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
-    <cell row="64" col="7">
+    <cell row="64" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="64" col="8">
+    <cell row="64" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="64" col="9">
+    <cell row="64" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="64" col="10">
+    <cell row="64" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="64" col="11">
+    <cell row="64" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="64" col="12">DINAS EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -1965,14 +2033,16 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="65" col="0" format="text">CORTE<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="65" col="1" colspan="6" rowspan="2">CORTE<style bgcolor="#eeffee" align="left" valign="top" /></cell>
-    <cell row="65" col="7" format="text">Kg Imp<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
-    <cell row="65" col="8" format="number">22.416317760852<formula>B51-B41+(E49*(SUM(1,B36:B37)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
-    <cell row="65" col="9" format="number">1104.3609104765<formula>I66*100000/((B30+C30)*B27)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#009900" bold="true" italic="true" /></cell>
-    <cell row="65" col="10">
+    <cell row="65" col="1" colspan="6" rowspan="2">
+      <style bgcolor="#eeffee" align="left" valign="top" />
+    </cell>
+    <cell row="65" col="7" format="text" readonly="true">Kg Imp<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
+    <cell row="65" col="8" format="number" readonly="true">NeuN<formula>B51-B41+(E49*(SUM(1,B36:B37)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
+    <cell row="65" col="9" format="number" readonly="true">NeuN<formula>I66*100000/((B30+C30)*B27)</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#009900" bold="true" italic="true" /></cell>
+    <cell row="65" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="65" col="11">
+    <cell row="65" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="65" col="12">DESLIZ EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -1983,16 +2053,16 @@ script.GETUNIDADCALIBRE= function(mat){
     <cell row="66" col="0" format="text">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
-    <cell row="66" col="7" format="text">Kg Lam<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
-    <cell row="66" col="8" format="number">43.4625754012626<formula>IF(E29=0,0,(B51-B41+(E49*SUM(1,B37))-B42)+(C51-C42+(($C$21*D31)*SUM(1,C37))))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
-    <cell row="66" col="9" rowspan="3" format="number">
+    <cell row="66" col="7" format="text" readonly="true">Kg Lam<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
+    <cell row="66" col="8" format="number" readonly="true">0<formula>IF(E29=0,0,(B51-B41+(E49*SUM(1,B37))-B42)+(C51-C42+(($C$21*D31)*SUM(1,C37))))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
+    <cell row="66" col="9" rowspan="3" format="number" readonly="true">
       <format-args decimal-places="2" use-separator="true" />
       <style bgcolor="#ffeeda" />
     </cell>
-    <cell row="66" col="10">
+    <cell row="66" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="66" col="11">
+    <cell row="66" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="66" col="12">ANTIESTATICA EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2001,110 +2071,131 @@ script.GETUNIDADCALIBRE= function(mat){
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="67" col="0" format="text">EMBOBINADO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="67" col="1" colspan="6" rowspan="2">EMBOBINADO<style bgcolor="#eeffee" align="left" valign="top" /></cell>
-    <cell row="67" col="7" format="text">Kg Trilam<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
-    <cell row="67" col="8" format="number">98.0396782378042<formula>IF(G29=0,0,((B51-B41+E49-B42)+(C51-C42+($C$21*D31))+(D51-D43+($C$21*F31)-C43-B43)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
-    <cell row="67" col="10">
+    <cell row="67" col="1" colspan="6" rowspan="2">
+      <style bgcolor="#eeffee" align="left" valign="top" />
+    </cell>
+    <cell row="67" col="7" format="text" readonly="true">Kg Trilam<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
+    <cell row="67" col="8" format="number" readonly="true">0<formula>IF(G29=0,0,((B51-B41+E49-B42)+(C51-C42+($C$21*D31))+(D51-D43+($C$21*F31)-C43-B43)))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
+    <cell row="67" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="67" col="11">
+    <cell row="67" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="67" col="12">KG EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="67" col="13">20 KG/19 KG/53 KG<formula>E89</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="67" col="13">
+      <formula>E89</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="68" col="0" format="text">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
-    <cell row="68" col="7" format="text">Kg ref<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
-    <cell row="68" col="8" format="number">107.72011878676<formula>((B51-B41+E49-B42)+(C51-C42+($C$21*D31))+(D51-D43+($C$21*F31)-C43-B43))-E40</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
-    <cell row="68" col="10">
+    <cell row="68" col="7" format="text" readonly="true">Kg ref<style bgcolor="#4fbafb" color="#000000" font-size="10.5" italic="true" align="right" /></cell>
+    <cell row="68" col="8" format="number" readonly="true">NeuN<formula>((B51-B41+E49-B42)+(C51-C42+($C$21*D31))+(D51-D43+($C$21*F31)-C43-B43))-E40</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#0000ff" bold="true" italic="true" /></cell>
+    <cell row="68" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="68" col="11">
+    <cell row="68" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="68" col="12">ANCHO EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="68" col="13">102 CM/104 CM/105 CM<formula>E90</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="68" col="13">
+      <formula>E90</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="69" col="0" format="text">MANGAS<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="69" col="1" colspan="6" rowspan="2">MANGAS<style bgcolor="#eeffee" align="left" valign="top" /></cell>
-    <cell row="69" col="7">
+    <cell row="69" col="1" colspan="6" rowspan="2">
+      <style bgcolor="#eeffee" align="left" valign="top" />
+    </cell>
+    <cell row="69" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="69" col="8">
+    <cell row="69" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="69" col="9">
+    <cell row="69" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="69" col="10">
+    <cell row="69" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="69" col="11">
+    <cell row="69" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="69" col="12">INST EXTRUSION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="69" col="13">EXTRUIR 20 KG (1106 MTS) DE BOPP TRANSP1 CON 102 CM DE ANCHO, CALIBRE 20 MICRAS.
-EXTRUIR 19 KG (1106 MTS) DE PET TRANSP2 CON 104 CM DE ANCHO, CALIBRE 12 MICRAS. 
-EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<formula>E91</formula><style bgcolor="#b47800" color="#ffffd0" align="left" text-wrap="word-break" /></cell>
+    <cell row="69" col="13">
+ 
+<formula>E91</formula><style bgcolor="#b47800" color="#ffffd0" align="left" text-wrap="word-break" /></cell>
     <cell row="70" col="0" format="text">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
-    <cell row="70" col="7">
+    <cell row="70" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="70" col="8">
+    <cell row="70" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="70" col="9">
+    <cell row="70" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="70" col="10">
+    <cell row="70" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="70" col="11">
+    <cell row="70" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="70" col="12">INST IMPRESION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="70" col="13">IMPRESORA WINDMOLLER RODILLO 60, DISEÑO (1 REPETICIONES AL EJE, 1 REPETICIONES AL DESARROLLO), OBTENER 22 KG (1,104.36 MTS) BUENOS Y SANEADOS DE BOPP TRANSP1 CALIBRE 20 MICRAS CON 102 CM DE ANCHO, VER ORDEN DE CORTE_.Especial<formula>B55</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="70" col="13">
+      <formula>B55</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="71" col="0" format="text">SELLADO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
-    <cell row="71" col="1" colspan="6" rowspan="2">SELLADO<style bgcolor="#eeffee" align="left" valign="top" /></cell>
-    <cell row="71" col="7">
+    <cell row="71" col="1" colspan="6" rowspan="2">
+      <style bgcolor="#eeffee" align="left" valign="top" />
+    </cell>
+    <cell row="71" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="71" col="8">
+    <cell row="71" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="71" col="9">
+    <cell row="71" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="71" col="10">
+    <cell row="71" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="71" col="11">
+    <cell row="71" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="71" col="12">INST LAMINACION<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="71" col="13">LAMINAR 22 KG DE BOPP TRANSP1 IMPRESOS BUENOS Y SANEADOS CALIBRE 20 MICRAS CON 102 CM DE ANCHO CONTRA 19 KG DE PET TRANSP2 CALIBRE 12 MICRAS CON 104 CM DE ANCHO, TRILAMINAR CONTRA 53 KG DE PEBD TRANSP3 CALIBRE 200 CI CON 105 CM DE ANCHO_.Especial<formula>B57</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="71" col="13">
+      <formula>B57</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="72" col="0" format="text">
       <style bgcolor="#4fbafb" font-size="10.5" align="right" />
     </cell>
-    <cell row="72" col="7">
+    <cell row="72" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="72" col="8">
+    <cell row="72" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="72" col="9">
+    <cell row="72" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="72" col="10">
+    <cell row="72" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="72" col="11">
+    <cell row="72" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="72" col="12">INST REFINADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="72" col="13">REFINAR A 115 CM., EN CENTROS DE 3 PULGADAS_.<formula>B59</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="72" col="13">
+      <formula>B59</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="73" col="0" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
@@ -2126,55 +2217,61 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="73" col="6" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="73" col="7">
+    <cell row="73" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="73" col="8">
+    <cell row="73" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="73" col="9">
+    <cell row="73" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="73" col="10">
+    <cell row="73" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="73" col="11">
+    <cell row="73" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="73" col="12">INST DOBLADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="73" col="13">DOBLADO<formula>IF(B64&lt;&gt;"",B64,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
-    <cell row="74" col="7">
+    <cell row="73" col="13">
+      <formula>IF(B64&lt;&gt;"",B64,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
+    <cell row="74" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="74" col="8">
+    <cell row="74" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="74" col="9">
+    <cell row="74" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="74" col="10">
+    <cell row="74" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="74" col="11">
+    <cell row="74" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="74" col="12">INST CORTE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="74" col="13">CORTE<formula>IF(B66&lt;&gt;"",B66,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="74" col="13">
+      <formula>IF(B66&lt;&gt;"",B66,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="75" col="0" readonly="true">Impresion</cell>
-    <cell row="75" col="1" readonly="true">IMPRESORA WINDMOLLER RODILLO 60, DISEÑO (1 REPETICIONES AL EJE, 1 REPETICIONES AL DESARROLLO), OBTENER 22 KG (1,104.36 MTS) BUENOS Y SANEADOS DE BOPP TRANSP1 CALIBRE 20 MICRAS CON 102 CM DE ANCHO, VER ORDEN DE CORTE_<formula>INSTIMPRESION(C27,E15,E16,B6,E8,E9,ROUND(I66,0),B25,B26,B24,ROUND(B27,2),IF(LEN(B66)&gt;0,1,0))</formula></cell>
-    <cell row="75" col="7">
+    <cell row="75" col="1" readonly="true">0<formula>INSTIMPRESION(C27,E15,E16,B6,E8,E9,ROUND(I66,0),B25,B26,B24,ROUND(B27,2),IF(LEN(B66)&gt;0,1,0))</formula></cell>
+    <cell row="75" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="75" col="8">
+    <cell row="75" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="75" col="9">
+    <cell row="75" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="75" col="10">
+    <cell row="75" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="75" col="11">
+    <cell row="75" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="75" col="12">
@@ -2184,20 +2281,20 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="76" col="0" readonly="true">Laminacion</cell>
-    <cell row="76" col="1" readonly="true">LAMINAR 22 KG DE BOPP TRANSP1 IMPRESOS BUENOS Y SANEADOS CALIBRE 20 MICRAS CON 102 CM DE ANCHO CONTRA 19 KG DE PET TRANSP2 CALIBRE 12 MICRAS CON 104 CM DE ANCHO<formula>INSTLAMINACION(E30,C27,B25,B26,B24,ROUND(B27,2),ROUND(I66,0),   E25,E26,E24,ROUND(E27),CEILING(C51-C41,1))</formula></cell>
-    <cell row="76" col="7">
+    <cell row="76" col="1" readonly="true">0<formula>INSTLAMINACION(E30,C27,B25,B26,B24,ROUND(B27,2),ROUND(I66,0),   E25,E26,E24,ROUND(E27),CEILING(C51-C41,1))</formula></cell>
+    <cell row="76" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="76" col="8">
+    <cell row="76" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="76" col="9">
+    <cell row="76" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="76" col="10">
+    <cell row="76" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="76" col="11">
+    <cell row="76" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="76" col="12">
@@ -2207,20 +2304,20 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="77" col="0" readonly="true">Trilaminacion</cell>
-    <cell row="77" col="1" readonly="true">TRILAMINAR CONTRA 53 KG DE PEBD TRANSP3 CALIBRE 200 CI CON 105 CM DE ANCHO_<formula>INSTTRILAMINACION(G30,ROUND(D51-D41,0),G25,G24,G26,ROUND(G27,2))</formula></cell>
-    <cell row="77" col="7">
+    <cell row="77" col="1" readonly="true">0<formula>INSTTRILAMINACION(G30,ROUND(D51-D41,0),G25,G24,G26,ROUND(G27,2))</formula></cell>
+    <cell row="77" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="77" col="8">
+    <cell row="77" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="77" col="9">
+    <cell row="77" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="77" col="10">
+    <cell row="77" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="77" col="11">
+    <cell row="77" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="77" col="12">
@@ -2230,20 +2327,22 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
     <cell row="78" col="0" readonly="true">Refinado</cell>
-    <cell row="78" col="1" readonly="true">REFINAR A 115 CM., EN CENTROS DE 3 PULGADAS_<formula>IF(L64=0,"",IF(OR(L64=4,L64=3),"","REFINAR A " &amp; IF(L64=1,ROUND(B14,2) &amp; " CM.,", ROUND(B14*2,2) &amp; " CM., DOBLE PISTA,") &amp; " EN CENTROS DE " &amp; E10 &amp; " PULGADAS_"))</formula></cell>
-    <cell row="78" col="7">
+    <cell row="78" col="1" readonly="true">
+      <formula>IF(L64=0,"",IF(OR(L64=4,L64=3),"","REFINAR A " &amp; IF(L64=1,ROUND(B14,2) &amp; " CM.,", ROUND(B14*2,2) &amp; " CM., DOBLE PISTA,") &amp; " EN CENTROS DE " &amp; E10 &amp; " PULGADAS_"))</formula>
+    </cell>
+    <cell row="78" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="78" col="8">
+    <cell row="78" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="78" col="9">
+    <cell row="78" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="78" col="10">
+    <cell row="78" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="78" col="11">
+    <cell row="78" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="78" col="12">
@@ -2252,19 +2351,19 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="78" col="13">
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
-    <cell row="79" col="7">
+    <cell row="79" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="79" col="8">
+    <cell row="79" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="79" col="9">
+    <cell row="79" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="79" col="10">
+    <cell row="79" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="79" col="11">
+    <cell row="79" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="79" col="12">
@@ -2273,89 +2372,102 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="79" col="13">
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
-    <cell row="80" col="7">
+    <cell row="80" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="80" col="8">
+    <cell row="80" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="80" col="9">
+    <cell row="80" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="80" col="10">
+    <cell row="80" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="80" col="11">
+    <cell row="80" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="80" col="12">INST EMBOBINADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="80" col="13">EMBOBINADO<formula>IF(B68&lt;&gt;"",B68,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="80" col="13">
+      <formula>IF(B68&lt;&gt;"",B68,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="81" col="0" colspan="3" format="text" readonly="true">EXTRUSION<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="right" /></cell>
     <cell row="81" col="3" body-type="CheckBoxCell">
       <formula>True</formula>
       <style bgcolor="#0000ff" color="#ffffff" font-size="10.5" bold="true" align="center" />
     </cell>
     <cell row="81" col="4" colspan="3" readonly="true">Automatico<style bgcolor="#0000ff" color="#ffffff" font-size="10.5" align="left" /></cell>
-    <cell row="81" col="7">
+    <cell row="81" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="81" col="8">
+    <cell row="81" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="81" col="9">
+    <cell row="81" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="81" col="10">
+    <cell row="81" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="81" col="11">
+    <cell row="81" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="81" col="12">INST MANGAS<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="81" col="13">MANGAS<formula>IF(B70&lt;&gt;"",B70,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="81" col="13">
+      <formula>IF(B70&lt;&gt;"",B70,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="82" col="0" format="text" readonly="true">TIPO<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="82" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="82" col="4" colspan="3">
+    <cell row="82" col="4" colspan="3" readonly="true">
       <formula>IF(B83&lt;&gt;"",B83,"")</formula>
-      <style bgcolor="#ffeeda" color="#000000" align="center" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
     </cell>
-    <cell row="82" col="7">
+    <cell row="82" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="82" col="8">
+    <cell row="82" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="82" col="9">
+    <cell row="82" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="82" col="10">
+    <cell row="82" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="82" col="11">
+    <cell row="82" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="82" col="12">INST SELLADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
-    <cell row="82" col="13">SELLADO<formula>IF(B72&lt;&gt;"",B72,"")</formula><style bgcolor="#b47800" color="#ffffd0" align="left" /></cell>
+    <cell row="82" col="13">
+      <formula>IF(B72&lt;&gt;"",B72,"")</formula>
+      <style bgcolor="#b47800" color="#ffffd0" align="left" />
+    </cell>
     <cell row="83" col="0" format="text" readonly="true">COLOR<style bgcolor="#4fbafb" font-size="10.5" align="right" /></cell>
     <cell row="83" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="83" col="4" colspan="3" format="number">TRANSP1/TRANSP2/TRANSP3<formula>IF(D82, IF(B29&gt;0,IF(A92,B26,""),"") &amp; IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; E26,"")  &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; G26,"")   ,"")   ,"")    , IF(B84&lt;&gt;"",B84,""))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#000000" align="center" /></cell>
-    <cell row="83" col="7">
+    <cell row="83" col="4" colspan="3" format="number" readonly="true">
+      <formula>IF(D82, IF(B29&gt;0,IF(A92,B26,""),"") &amp; IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; E26,"")  &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; G26,"")   ,"")   ,"")    , IF(B84&lt;&gt;"",B84,""))</formula>
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
+    </cell>
+    <cell row="83" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="83" col="8">
+    <cell row="83" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="83" col="9">
+    <cell row="83" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="83" col="10">
+    <cell row="83" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="83" col="11">
+    <cell row="83" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="83" col="12">ZIPPER<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2364,24 +2476,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="84" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="84" col="4" colspan="3" format="number">
+    <cell row="84" col="4" colspan="3" format="number" readonly="true">
       <formula>IF(B85&lt;&gt;"",B85,"")</formula>
       <format-args decimal-places="2" use-separator="true" />
-      <style bgcolor="#ffeeda" color="#000000" align="center" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
     </cell>
-    <cell row="84" col="7">
+    <cell row="84" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="84" col="8">
+    <cell row="84" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="84" col="9">
+    <cell row="84" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="84" col="10">
+    <cell row="84" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="84" col="11">
+    <cell row="84" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="84" col="12">ZIPPER POUCH<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2390,24 +2502,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="85" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="85" col="4" colspan="3" format="number">
+    <cell row="85" col="4" colspan="3" format="number" readonly="true">
       <formula>IF(B86&lt;&gt;"",B86,"")</formula>
       <format-args decimal-places="2" use-separator="true" />
-      <style bgcolor="#ffeeda" color="#000000" align="center" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
     </cell>
-    <cell row="85" col="7">
+    <cell row="85" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="85" col="8">
+    <cell row="85" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="85" col="9">
+    <cell row="85" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="85" col="10">
+    <cell row="85" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="85" col="11">
+    <cell row="85" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="85" col="12">ADHESIVO PERMANENTE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2416,24 +2528,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="86" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="86" col="4" colspan="3" format="number">
+    <cell row="86" col="4" colspan="3" format="number" readonly="true">
       <formula>IF(B87&lt;&gt;"",B87,"")</formula>
       <format-args decimal-places="2" use-separator="true" />
-      <style bgcolor="#ffeeda" color="#000000" align="center" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
     </cell>
-    <cell row="86" col="7">
+    <cell row="86" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="86" col="8">
+    <cell row="86" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="86" col="9">
+    <cell row="86" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="86" col="10">
+    <cell row="86" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="86" col="11">
+    <cell row="86" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="86" col="12">ADHESIVO REMOVIBLE<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2442,24 +2554,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="87" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="87" col="4" colspan="3" format="number">
+    <cell row="87" col="4" colspan="3" format="number" readonly="true">
       <formula>IF(B88&lt;&gt;"",B88,"")</formula>
       <format-args decimal-places="2" use-separator="true" />
-      <style bgcolor="#ffeeda" color="#000000" align="center" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
     </cell>
-    <cell row="87" col="7">
+    <cell row="87" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="87" col="8">
+    <cell row="87" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="87" col="9">
+    <cell row="87" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="87" col="10">
+    <cell row="87" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="87" col="11">
+    <cell row="87" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="87" col="12">COPETE REFORZADO<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2468,20 +2580,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="88" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="88" col="4" colspan="3" format="number">20 KG/19 KG/53 KG<formula>IF(D82,IF(B29&gt;0,IF(A92,ROUND(B51,0) &amp;" KG",""),"") &amp;  IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; ROUND(C51,0) &amp; " KG",""))   &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; ROUND(D51,0) &amp; " KG","")   ,"")     ,IF(B89&lt;&gt;"",B89,""))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#000000" align="center" /></cell>
-    <cell row="88" col="7">
+    <cell row="88" col="4" colspan="3" format="number" readonly="true">
+      <formula>IF(D82,IF(B29&gt;0,IF(A92,ROUND(B51,0) &amp;" KG",""),"") &amp;  IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; ROUND(C51,0) &amp; " KG",""))   &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; ROUND(D51,0) &amp; " KG","")   ,"")     ,IF(B89&lt;&gt;"",B89,""))</formula>
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
+    </cell>
+    <cell row="88" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="88" col="8">
+    <cell row="88" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="88" col="9">
+    <cell row="88" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="88" col="10">
+    <cell row="88" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="88" col="11">
+    <cell row="88" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="88" col="12">OBSERVACIONES<style bgcolor="#000000" color="#eeeeee" align="right" /></cell>
@@ -2493,20 +2609,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="89" col="1" colspan="3">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="89" col="4" colspan="3" format="number">102 CM/104 CM/105 CM<formula>IF(D82,IF(B29&gt;0,IF(A92,ROUND(B27,2) &amp;" CM",""),"") &amp;  IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; ROUND(E27,2) &amp; " CM",""))   &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; ROUND(G27,2) &amp; " CM","")   ,"")     ,IF(B90&lt;&gt;"",B90,""))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#000000" align="center" /></cell>
-    <cell row="89" col="7">
+    <cell row="89" col="4" colspan="3" format="number" readonly="true">
+      <formula>IF(D82,IF(B29&gt;0,IF(A92,ROUND(B27,2) &amp;" CM",""),"") &amp;  IF(E29&gt;0, IF(A93,  IF(A92,"/","") &amp; ROUND(E27,2) &amp; " CM",""))   &amp;  IF(G29&gt;0, IF(A94,  IF(OR(A93,A92),"/","") &amp; ROUND(G27,2) &amp; " CM","")   ,"")     ,IF(B90&lt;&gt;"",B90,""))</formula>
+      <format-args decimal-places="2" use-separator="true" />
+      <style bgcolor="#ffdcaa" color="#000000" align="center" />
+    </cell>
+    <cell row="89" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="89" col="8">
+    <cell row="89" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="89" col="9">
+    <cell row="89" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="89" col="10">
+    <cell row="89" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="89" col="11">
+    <cell row="89" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="89" col="12">
@@ -2519,24 +2639,24 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="90" col="1" colspan="3" rowspan="4">
       <style bgcolor="#eeffee" align="left" valign="top" />
     </cell>
-    <cell row="90" col="4" colspan="3" rowspan="4" format="number">EXTRUIR 20 KG (1106 MTS) DE BOPP TRANSP1 CON 102 CM DE ANCHO, CALIBRE 20 MICRAS.
-EXTRUIR 19 KG (1106 MTS) DE PET TRANSP2 CON 104 CM DE ANCHO, CALIBRE 12 MICRAS. 
-EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<formula>IF(D82,A96 &amp;"
+    <cell row="90" col="4" colspan="3" rowspan="4" format="number" readonly="true">
+ 
+<formula>IF(D82,A96 &amp;"
 "&amp; A97&amp; " 
-" &amp;A98    ,IF(B91&lt;&gt;"",B91,""))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffeeda" color="#000000" align="left" text-wrap="word-break" /></cell>
-    <cell row="90" col="7">
+" &amp;A98    ,IF(B91&lt;&gt;"",B91,""))</formula><format-args decimal-places="2" use-separator="true" /><style bgcolor="#ffdcaa" color="#000000" align="left" text-wrap="word-break" /></cell>
+    <cell row="90" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="90" col="8">
+    <cell row="90" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="90" col="9">
+    <cell row="90" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="90" col="10">
+    <cell row="90" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="90" col="11">
+    <cell row="90" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="90" col="12">
@@ -2545,23 +2665,20 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="90" col="13">
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
-    <cell row="91" col="0" format="text" body-type="CheckBoxCell">
-      <formula>True</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
-    <cell row="91" col="7">
+    <cell row="91" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
+    <cell row="91" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="91" col="8">
+    <cell row="91" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="91" col="9">
+    <cell row="91" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="91" col="10">
+    <cell row="91" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="91" col="11">
+    <cell row="91" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="91" col="12">
@@ -2570,23 +2687,20 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="91" col="13">
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
-    <cell row="92" col="0" format="text" body-type="CheckBoxCell">
-      <formula>True</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
-    <cell row="92" col="7">
+    <cell row="92" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
+    <cell row="92" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="92" col="8">
+    <cell row="92" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="92" col="9">
+    <cell row="92" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="92" col="10">
+    <cell row="92" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="92" col="11">
+    <cell row="92" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="92" col="12">
@@ -2595,23 +2709,20 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="92" col="13">
       <style bgcolor="#b47800" color="#ffffd0" align="left" />
     </cell>
-    <cell row="93" col="0" format="text" body-type="CheckBoxCell">
-      <formula>True</formula>
-      <style bgcolor="#4fbafb" font-size="10.5" align="center" />
-    </cell>
-    <cell row="93" col="7">
+    <cell row="93" col="0" format="text" body-type="CheckBoxCell">False<formula>False</formula><style bgcolor="#4fbafb" font-size="10.5" align="center" /></cell>
+    <cell row="93" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="93" col="8">
+    <cell row="93" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="93" col="9">
+    <cell row="93" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="93" col="10">
+    <cell row="93" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="93" col="11">
+    <cell row="93" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="93" col="12">
@@ -2641,26 +2752,32 @@ EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<fo
     <cell row="94" col="6">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="94" col="7">
+    <cell row="94" col="7" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="94" col="8">
+    <cell row="94" col="8" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="94" col="9">
+    <cell row="94" col="9" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="94" col="10">
+    <cell row="94" col="10" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="94" col="11">
+    <cell row="94" col="11" readonly="true">
       <style bgcolor="#ffffff" />
     </cell>
     <cell row="94" col="12">
       <style bgcolor="#ffffff" />
     </cell>
-    <cell row="95" col="0">EXTRUIR 20 KG (1106 MTS) DE BOPP TRANSP1 CON 102 CM DE ANCHO, CALIBRE 20 MICRAS.<formula>IF(NOT(A92),"",IF(B29&lt;=0,"","EXTRUIR " &amp; ROUND(B51,0) &amp; " KG (" &amp; ROUND(B52) &amp; " MTS) DE " &amp; B25 &amp; " " &amp; B26 &amp; " CON " &amp; ROUND(B27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(B25,B24) &amp; " " &amp; GETUNIDADCALIBRE(B25) &amp; "." ))</formula></cell>
-    <cell row="96" col="0">EXTRUIR 19 KG (1106 MTS) DE PET TRANSP2 CON 104 CM DE ANCHO, CALIBRE 12 MICRAS.<formula>IF(NOT(A93),"",IF(E29&lt;=0,"","EXTRUIR " &amp; ROUND(C51,0) &amp; " KG (" &amp; ROUND(C52) &amp; " MTS) DE " &amp; E25 &amp; " " &amp; E26 &amp; " CON " &amp; ROUND(E27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(E25,E24) &amp; " " &amp; GETUNIDADCALIBRE(E25) &amp; "."))</formula></cell>
-    <cell row="97" col="0">EXTRUIR 53 KG (1095 MTS) DE PEBD TRANSP3 CON 105 CM DE ANCHO, CALIBRE 200 CI.<formula>IF(NOT(A94),"",IF(G29&lt;=0,"","EXTRUIR " &amp; ROUND(D51,0) &amp; " KG (" &amp; ROUND(D52) &amp; " MTS) DE " &amp; G25 &amp; " " &amp; G26 &amp; " CON " &amp; ROUND(G27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(G25,G24) &amp; " " &amp; GETUNIDADCALIBRE(G25)&amp; "." ))</formula></cell>
+    <cell row="95" col="0">
+      <formula>IF(NOT(A92),"",IF(B29&lt;=0,"","EXTRUIR " &amp; ROUND(B51,0) &amp; " KG (" &amp; ROUND(B52) &amp; " MTS) DE " &amp; B25 &amp; " " &amp; B26 &amp; " CON " &amp; ROUND(B27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(B25,B24) &amp; " " &amp; GETUNIDADCALIBRE(B25) &amp; "." ))</formula>
+    </cell>
+    <cell row="96" col="0">
+      <formula>IF(NOT(A93),"",IF(E29&lt;=0,"","EXTRUIR " &amp; ROUND(C51,0) &amp; " KG (" &amp; ROUND(C52) &amp; " MTS) DE " &amp; E25 &amp; " " &amp; E26 &amp; " CON " &amp; ROUND(E27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(E25,E24) &amp; " " &amp; GETUNIDADCALIBRE(E25) &amp; "."))</formula>
+    </cell>
+    <cell row="97" col="0">
+      <formula>IF(NOT(A94),"",IF(G29&lt;=0,"","EXTRUIR " &amp; ROUND(D51,0) &amp; " KG (" &amp; ROUND(D52) &amp; " MTS) DE " &amp; G25 &amp; " " &amp; G26 &amp; " CON " &amp; ROUND(G27,2) &amp; " CM DE ANCHO, CALIBRE " &amp; GETCALIBRE(G25,G24) &amp; " " &amp; GETUNIDADCALIBRE(G25)&amp; "." ))</formula>
+    </cell>
   </cells>
 </grid>

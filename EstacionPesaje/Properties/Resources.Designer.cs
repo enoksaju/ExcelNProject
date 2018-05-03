@@ -83,6 +83,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barcode_check {
+            get {
+                object obj = ResourceManager.GetObject("barcode-check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap barcode_edit {
             get {
                 object obj = ResourceManager.GetObject("barcode_edit", resourceCulture);
@@ -116,6 +126,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap barcode_new1 {
             get {
                 object obj = ResourceManager.GetObject("barcode_new1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap barcode_ok {
+            get {
+                object obj = ResourceManager.GetObject("barcode-ok", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -357,6 +377,16 @@ namespace EstacionPesaje.Properties {
             get {
                 object obj = ResourceManager.GetObject("form-new", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] fre3of9x {
+            get {
+                object obj = ResourceManager.GetObject("fre3of9x", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

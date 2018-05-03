@@ -31,8 +31,8 @@
 			ComponentFactory.Krypton.Toolkit.KryptonLabel cANTIDADLabel;
 			ComponentFactory.Krypton.Toolkit.KryptonLabel uNIDADLabel;
 			ComponentFactory.Krypton.Toolkit.KryptonLabel mLLabel;
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoOts));
 			ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoOts));
 			this.tEMPCAPTBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.tEMPCAPTBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
 			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -52,6 +52,7 @@
 			this.uNIDADKryptonWrapLabel = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
 			this.mLKryptonWrapLabel = new ComponentFactory.Krypton.Toolkit.KryptonWrapLabel();
 			this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+			this.fechaCapturaKryptonLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			this.kryptonGroupBox2 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
 			this.InstruccionesNavigator = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
 			this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
@@ -72,7 +73,6 @@
 			this.kryptonTextBox7 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.kryptonPage10 = new ComponentFactory.Krypton.Navigator.KryptonPage();
 			this.kryptonTextBox8 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-			this.fechaCapturaKryptonLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			dISENIOAUTLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			oTLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
 			pRODUCTOLabel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -182,6 +182,16 @@
 			mLLabel.TabIndex = 13;
 			mLLabel.Values.Text = "Metros Lineales:";
 			// 
+			// kryptonLabel1
+			// 
+			kryptonLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
+			kryptonLabel1.Location = new System.Drawing.Point(327, 105);
+			kryptonLabel1.Name = "kryptonLabel1";
+			kryptonLabel1.Size = new System.Drawing.Size(53, 20);
+			kryptonLabel1.TabIndex = 22;
+			kryptonLabel1.Values.Text = "FECHA:";
+			// 
 			// tEMPCAPTBindingSource
 			// 
 			this.tEMPCAPTBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.TEMPCAPT);
@@ -287,7 +297,7 @@
 			this.dISENIOAUTKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dISENIOAUTKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "DISENIOAUT", true));
 			this.dISENIOAUTKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.dISENIOAUTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.dISENIOAUTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.dISENIOAUTKryptonWrapLabel.Location = new System.Drawing.Point(386, 7);
 			this.dISENIOAUTKryptonWrapLabel.Name = "dISENIOAUTKryptonWrapLabel";
 			this.dISENIOAUTKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -298,7 +308,7 @@
 			this.oTKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.oTKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "OrdenTrabajo.OT", true));
 			this.oTKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.oTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.oTKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.oTKryptonWrapLabel.Location = new System.Drawing.Point(178, 7);
 			this.oTKryptonWrapLabel.Name = "oTKryptonWrapLabel";
 			this.oTKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -309,7 +319,7 @@
 			this.pRODUCTOKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.pRODUCTOKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "OrdenTrabajo.PRODUCTO", true));
 			this.pRODUCTOKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.pRODUCTOKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.pRODUCTOKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.pRODUCTOKryptonWrapLabel.Location = new System.Drawing.Point(178, 55);
 			this.pRODUCTOKryptonWrapLabel.Name = "pRODUCTOKryptonWrapLabel";
 			this.pRODUCTOKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -320,7 +330,7 @@
 			this.cLIENTEKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cLIENTEKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "OrdenTrabajo.CLIENTE", true));
 			this.cLIENTEKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.cLIENTEKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.cLIENTEKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.cLIENTEKryptonWrapLabel.Location = new System.Drawing.Point(178, 31);
 			this.cLIENTEKryptonWrapLabel.Name = "cLIENTEKryptonWrapLabel";
 			this.cLIENTEKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -331,7 +341,7 @@
 			this.cANTIDADKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cANTIDADKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "OrdenTrabajo.CANTIDAD", true));
 			this.cANTIDADKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.cANTIDADKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.cANTIDADKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.cANTIDADKryptonWrapLabel.Location = new System.Drawing.Point(178, 83);
 			this.cANTIDADKryptonWrapLabel.Name = "cANTIDADKryptonWrapLabel";
 			this.cANTIDADKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -342,7 +352,7 @@
 			this.uNIDADKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.uNIDADKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "OrdenTrabajo.UNIDAD", true));
 			this.uNIDADKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.uNIDADKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.uNIDADKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.uNIDADKryptonWrapLabel.Location = new System.Drawing.Point(385, 80);
 			this.uNIDADKryptonWrapLabel.Name = "uNIDADKryptonWrapLabel";
 			this.uNIDADKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -353,7 +363,7 @@
 			this.mLKryptonWrapLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.mLKryptonWrapLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "ML", true));
 			this.mLKryptonWrapLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.mLKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+			this.mLKryptonWrapLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
 			this.mLKryptonWrapLabel.Location = new System.Drawing.Point(178, 105);
 			this.mLKryptonWrapLabel.Name = "mLKryptonWrapLabel";
 			this.mLKryptonWrapLabel.Size = new System.Drawing.Size(110, 15);
@@ -382,6 +392,15 @@
 			this.kryptonPanel1.Name = "kryptonPanel1";
 			this.kryptonPanel1.Size = new System.Drawing.Size(567, 146);
 			this.kryptonPanel1.TabIndex = 21;
+			// 
+			// fechaCapturaKryptonLabel
+			// 
+			this.fechaCapturaKryptonLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "FechaCaptura", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "g"));
+			this.fechaCapturaKryptonLabel.Location = new System.Drawing.Point(385, 105);
+			this.fechaCapturaKryptonLabel.Name = "fechaCapturaKryptonLabel";
+			this.fechaCapturaKryptonLabel.Size = new System.Drawing.Size(88, 20);
+			this.fechaCapturaKryptonLabel.TabIndex = 21;
+			this.fechaCapturaKryptonLabel.Values.Text = "kryptonLabel1";
 			// 
 			// kryptonGroupBox2
 			// 
@@ -464,7 +483,7 @@
 			this.kryptonPage3.LastVisibleSet = true;
 			this.kryptonPage3.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage3.Name = "kryptonPage3";
-			this.kryptonPage3.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage3.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage3.Text = "Laminación";
 			this.kryptonPage3.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage3.UniqueName = "09A1D83E283B4CEC9BB7FF0310CF716E";
@@ -479,7 +498,7 @@
 			this.kryptonTextBox1.Name = "kryptonTextBox1";
 			this.kryptonTextBox1.ReadOnly = true;
 			this.kryptonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox1.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox1.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox1.TabIndex = 2;
 			this.kryptonTextBox1.Text = "{}";
 			// 
@@ -492,7 +511,7 @@
 			this.kryptonPage4.LastVisibleSet = true;
 			this.kryptonPage4.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage4.Name = "kryptonPage4";
-			this.kryptonPage4.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage4.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage4.Text = "Refinado";
 			this.kryptonPage4.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage4.UniqueName = "48D802A2B5534B75FD998AB5C2C821E2";
@@ -507,7 +526,7 @@
 			this.kryptonTextBox2.Name = "kryptonTextBox2";
 			this.kryptonTextBox2.ReadOnly = true;
 			this.kryptonTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox2.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox2.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox2.TabIndex = 3;
 			this.kryptonTextBox2.Text = "{}";
 			// 
@@ -520,7 +539,7 @@
 			this.kryptonPage5.LastVisibleSet = true;
 			this.kryptonPage5.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage5.Name = "kryptonPage5";
-			this.kryptonPage5.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage5.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage5.Text = "Doblado";
 			this.kryptonPage5.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage5.UniqueName = "E34157DC24294079F0ADBB8E24E3BC0E";
@@ -535,7 +554,7 @@
 			this.kryptonTextBox3.Name = "kryptonTextBox3";
 			this.kryptonTextBox3.ReadOnly = true;
 			this.kryptonTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox3.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox3.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox3.TabIndex = 3;
 			this.kryptonTextBox3.Text = "{}";
 			// 
@@ -576,7 +595,7 @@
 			this.kryptonPage7.LastVisibleSet = true;
 			this.kryptonPage7.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage7.Name = "kryptonPage7";
-			this.kryptonPage7.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage7.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage7.Text = "Embobinado";
 			this.kryptonPage7.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage7.UniqueName = "30EAF4676EFF489EFBB9EEE4CEAA70A4";
@@ -591,7 +610,7 @@
 			this.kryptonTextBox5.Name = "kryptonTextBox5";
 			this.kryptonTextBox5.ReadOnly = true;
 			this.kryptonTextBox5.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox5.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox5.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox5.TabIndex = 3;
 			this.kryptonTextBox5.Text = "{}";
 			// 
@@ -604,7 +623,7 @@
 			this.kryptonPage8.LastVisibleSet = true;
 			this.kryptonPage8.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage8.Name = "kryptonPage8";
-			this.kryptonPage8.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage8.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage8.Text = "Extrusión";
 			this.kryptonPage8.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage8.UniqueName = "09C85BA9E50944A21BA856C82931C1E5";
@@ -619,7 +638,7 @@
 			this.kryptonTextBox6.Name = "kryptonTextBox6";
 			this.kryptonTextBox6.ReadOnly = true;
 			this.kryptonTextBox6.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox6.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox6.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox6.TabIndex = 3;
 			this.kryptonTextBox6.Text = "{}";
 			// 
@@ -632,7 +651,7 @@
 			this.kryptonPage9.LastVisibleSet = true;
 			this.kryptonPage9.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage9.Name = "kryptonPage9";
-			this.kryptonPage9.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage9.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage9.Text = "Mangas";
 			this.kryptonPage9.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage9.UniqueName = "A8EB1E37FC0643C67E90A2331252797B";
@@ -647,7 +666,7 @@
 			this.kryptonTextBox7.Name = "kryptonTextBox7";
 			this.kryptonTextBox7.ReadOnly = true;
 			this.kryptonTextBox7.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox7.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox7.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox7.TabIndex = 3;
 			this.kryptonTextBox7.Text = "{}";
 			// 
@@ -660,7 +679,7 @@
 			this.kryptonPage10.LastVisibleSet = true;
 			this.kryptonPage10.MinimumSize = new System.Drawing.Size(50, 50);
 			this.kryptonPage10.Name = "kryptonPage10";
-			this.kryptonPage10.Size = new System.Drawing.Size(561, 270);
+			this.kryptonPage10.Size = new System.Drawing.Size(561, 259);
 			this.kryptonPage10.Text = "Sellado";
 			this.kryptonPage10.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage10.UniqueName = "78078C3214C644FE9A93269DD0F6459C";
@@ -675,28 +694,9 @@
 			this.kryptonTextBox8.Name = "kryptonTextBox8";
 			this.kryptonTextBox8.ReadOnly = true;
 			this.kryptonTextBox8.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.kryptonTextBox8.Size = new System.Drawing.Size(561, 270);
+			this.kryptonTextBox8.Size = new System.Drawing.Size(561, 259);
 			this.kryptonTextBox8.TabIndex = 3;
 			this.kryptonTextBox8.Text = "{}";
-			// 
-			// fechaCapturaKryptonLabel
-			// 
-			this.fechaCapturaKryptonLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tEMPCAPTBindingSource, "FechaCaptura", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "g"));
-			this.fechaCapturaKryptonLabel.Location = new System.Drawing.Point(385, 105);
-			this.fechaCapturaKryptonLabel.Name = "fechaCapturaKryptonLabel";
-			this.fechaCapturaKryptonLabel.Size = new System.Drawing.Size(88, 20);
-			this.fechaCapturaKryptonLabel.TabIndex = 21;
-			this.fechaCapturaKryptonLabel.Values.Text = "kryptonLabel1";
-			// 
-			// kryptonLabel1
-			// 
-			kryptonLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
-			kryptonLabel1.Location = new System.Drawing.Point(327, 105);
-			kryptonLabel1.Name = "kryptonLabel1";
-			kryptonLabel1.Size = new System.Drawing.Size(53, 20);
-			kryptonLabel1.TabIndex = 22;
-			kryptonLabel1.Values.Text = "FECHA:";
 			// 
 			// HistoricoOts
 			// 

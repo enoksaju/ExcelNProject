@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,20 +13,53 @@ using Microsoft.AspNet.Identity;
 
 namespace EstacionPesaje {
 	static class Program {
+
+		//[DllImport ( "gdi32.dll" , EntryPoint = "AddFontResourceW" , SetLastError = true )]
+		//public static extern int AddFontResource ( [In][MarshalAs ( UnmanagedType.LPWStr )] string lpFileName );
+
+		//[DllImport ( "gdi32.dll" , EntryPoint = "RemoveFontResourceW" , SetLastError = true )]
+		//public static extern int RemoveFontResource ( [In][MarshalAs ( UnmanagedType.LPWStr )] string lpFileName );
+
+
 		public static bool IsChangingTheme = false;
 		public static SplashScreen splashScreen;
 		public static bool ForceCloseSpash = false;
 		//public static ApplicationUser User;
 
-		static Mutex mutex = new Mutex ( true, "{fd868c3b-6a0b-43a8-8349-c550caa6599c}" );
+		static Mutex mutex = new Mutex ( true , "{fd868c3b-6a0b-43a8-8349-c550caa6599c}" );
 
 		/// <summary>
 		/// Punto de entrada principal para la aplicación.
 		/// </summary>
 		[STAThread]
-		static void Main () {
+		static void Main ( ) {
+			//int result = -1;
+			//int error = 0;
+			string y = System.IO.Path.Combine ( AppDomain.CurrentDomain.BaseDirectory , @"Resources\fre3of9x.ttf" );
 
-			if (mutex.WaitOne ( TimeSpan.Zero, true )) {
+			//// Try remove the font.
+			//result = RemoveFontResource ( y );
+			//error = Marshal.GetLastWin32Error ( );
+			//if ( error != 0 ) {
+			//	Console.WriteLine ( new Win32Exception ( error ).Message );
+			//} else {
+			//	Console.WriteLine ( ( result == 0 ) ? "Font was not found." :
+			//									  "Font removed successfully." );
+			//}
+
+
+			// Try install the font.
+
+			//result = AddFontResource ( y ); // @"C:\MY_FONT_LOCATION\MY_NEW_FONT.TTF" );
+			//error = Marshal.GetLastWin32Error ( );
+			//if ( error != 0 ) {
+			//	Console.WriteLine ( new Win32Exception ( error ).Message );
+			//} else {
+			//	Console.WriteLine ( ( result == 0 ) ? "Font is already installed." : "Font installed successfully." );
+			//}
+
+
+			if ( mutex.WaitOne ( TimeSpan.Zero , true ) ) {
 
 				Application.EnableVisualStyles ( );
 				Application.SetCompatibleTextRenderingDefault ( false );
@@ -39,23 +74,23 @@ namespace EstacionPesaje {
 
 				mutex.ReleaseMutex ( );
 
-			}else {
+			} else {
 
 				MessageBox.Show ( "Ya se encuentra abierta la aplicacion." );
 
 			}
 		}
 
-		public static void DoUpgrade () {
+		public static void DoUpgrade ( ) {
 			try {
 
-				Console.WriteLine ( ConfigurationManager.OpenExeConfiguration( ConfigurationUserLevel.PerUserRoamingAndLocal ).FilePath );
+				Console.WriteLine ( ConfigurationManager.OpenExeConfiguration ( ConfigurationUserLevel.PerUserRoamingAndLocal ).FilePath );
 
 				Console.WriteLine ( Application.ProductVersion );
 
 				Properties.Settings.Default.Set_OnLoad ( true );
 
-				if (Properties.Settings.Default.UpgradeRequired) {
+				if ( Properties.Settings.Default.UpgradeRequired ) {
 
 					Properties.Settings.Default.Upgrade ( );
 
@@ -65,8 +100,7 @@ namespace EstacionPesaje {
 
 				Properties.Settings.Default.Set_OnLoad ( false );
 
-			}
-		catch {
+			} catch {
 				throw;
 			}
 		}
@@ -76,7 +110,7 @@ namespace EstacionPesaje {
 			public ApplicationUserManager UsrMan = new ApplicationUserManager ( new ApplicationUserStore ( new libProduccionDataBase.Contexto.DataBaseContexto ( ) ) );
 
 
-			public AppContext () {
+			public AppContext ( ) {
 
 				//new LogInForm().ShowDialog();
 
@@ -88,25 +122,25 @@ namespace EstacionPesaje {
 
 				MySplashScreen.Show ( );
 
-				Task.Run ( async () => { await MySplashScreen.initialize ( ); } );
+				Task.Run ( async ( ) => { await MySplashScreen.initialize ( ); } );
 
 
 
 			}
 
-			private void MyMainForm_FormClosed ( object sender, FormClosedEventArgs e ) {
+			private void MyMainForm_FormClosed ( object sender , FormClosedEventArgs e ) {
 				ExitThread ( );
 			}
 
-			private void MySplashScreen_FormClosed ( object sender, FormClosedEventArgs e ) {
+			private void MySplashScreen_FormClosed ( object sender , FormClosedEventArgs e ) {
 
-				if (ForceCloseSpash) { ExitThread ( ); return; };
+				if ( ForceCloseSpash ) { ExitThread ( ); return; };
 
 				CheckLogin ( );
 				//if (User != null) {
-					MyMainForm = new Form1 ( );
-					MyMainForm.FormClosed += MyMainForm_FormClosed;
-					MyMainForm.Show ( );
+				MyMainForm = new Form1 ( );
+				MyMainForm.FormClosed += MyMainForm_FormClosed;
+				MyMainForm.Show ( );
 				//}
 			}
 
@@ -141,4 +175,7 @@ namespace EstacionPesaje {
 		}
 
 	}
+
+
+
 }
