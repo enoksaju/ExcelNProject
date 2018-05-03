@@ -39,16 +39,16 @@ namespace libEmbarquesNCuatro.WinForms.Controls {
 		private void kryptonListBox1_SelectedValueChanged ( object sender , EventArgs e ) {
 			if ( !DesignMode && kryptonListBox1.SelectedItem != null ) {
 
-				//using ( var barcode = new BarcodeLib.Barcode ( ) ) {
-				//	barcode.ImageFormat = System.Drawing.Imaging.ImageFormat.Png;
-				//	barcode.IncludeLabel = true;
-				//	barcode.BarWidth = 2;
-					
-				//	pictureBox1.Image = barcode.Encode ( BarcodeLib.TYPE.CODE39 , ( ( NaveCuatro_Tarima ) kryptonListBox1.SelectedItem ).Id.ToString ( "*0000000000*" ),280,80);
-				//}
+				using ( var barcode = new BarcodeLib.Barcode ( ) ) {
+					barcode.ImageFormat = System.Drawing.Imaging.ImageFormat.Png;
+					barcode.IncludeLabel = true;
+					barcode.BarWidth = 2;
 
-				//ReportModelBindingSource.DataSource = Models.ReportModel.fromContext ( DB , ( ( NaveCuatro_Tarima ) kryptonListBox1.SelectedItem ).Id ).ToList ( );
-				//reportViewer1.RefreshReport ( );
+					pictureBox1.Image = barcode.Encode ( BarcodeLib.TYPE.CODE39 , ( ( NaveCuatro_Tarima ) kryptonListBox1.SelectedItem ).Id.ToString ( "*0000000000*" ) , 280 , 80 );
+				}
+
+				ReportModelBindingSource.DataSource = Models.ReportModel.fromContext ( DB , ( ( NaveCuatro_Tarima ) kryptonListBox1.SelectedItem ).Id ).ToList ( );
+				reportViewer1.RefreshReport ( );
 			}
 		}
 	}

@@ -75,11 +75,11 @@ namespace libProduccionDataBase.Tablas {
 
 		public virtual ObservableListSource<TempProduccion> Produccion { get; private set; }
 		public virtual ObservableListSource<TempDesperdicios> Desperdicios { get; private set; }
-		//public virtual ObservableListSource<NaveCuatro_Tarima> TarimasNCuatro { get; private set; }
+		public virtual ObservableListSource<NaveCuatro_Tarima> TarimasNCuatro { get; private set; }
 		public TemporalOrdenTrabajo ( ) {
 			this.Produccion = new ObservableListSource<TempProduccion> ( );//new ICollection<TempProduccion> ( );
 			this.Desperdicios = new ObservableListSource<TempDesperdicios> ( );
-			//this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
+			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
 		}
 
 		public override string ToString ( ) {

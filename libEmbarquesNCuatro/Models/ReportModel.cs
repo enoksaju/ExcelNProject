@@ -51,64 +51,64 @@ namespace libEmbarquesNCuatro.Models {
 			}
 		}
 
-		//public static IEnumerable<ReportModel> fromTempCapt ( NaveCuatro_Tarima obj ) {
-		//	var ret = from itm in obj.Items
-		//			  select new ReportModel ( ) {
-		//				  OT = itm.Tarima.OT ,
-		//				  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
-		//				  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
-		//				  Id_Tarima = itm.Tarima.Id ,
-		//				  Id_Item = itm.Id ,
-		//				  Id_Produccion = itm.Item.Id ,
-		//				  Ancho = itm.Tarima.Ancho ,
-		//				  Calibre = itm.Tarima.Calibre ,
-		//				  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
-		//				  FechaExtrusion = itm.Tarima.FechaExtrusion ,
-		//				  Extrusion_Id = itm.Item.EXTRUSION_ID ,
-		//				  FechaCapturaItem = itm.Item.FECHA ,
-		//				  Numero = itm.Item.NUMERO ,
-		//				  PesoBruto = itm.Item.PESOBRUTO ,
-		//				  PesoCore = itm.Item.PESOCORE ,
-		//				  //PesoNeto = itm.Item.PESONETO ,
-		//				  Maquina = itm.Item.Maquina_.NombreMaquina ,
-		//				  Operador = itm.Item.OPERADOR ,
-		//				  Piezas = itm.Item.PIEZAS ,
-		//				  Proceso = itm.Item.Proceso_.NombreProceso ,
-		//				  Usuario = itm.Item.USUARIO
-		//			  };
-		//	return ret;
-		//}
-		//public static IEnumerable<ReportModel> fromContext ( libProduccionDataBase.Contexto.DataBaseContexto DB , int idTarima ) {
+		public static IEnumerable<ReportModel> fromTempCapt ( NaveCuatro_Tarima obj ) {
+			var ret = from itm in obj.Items
+					  select new ReportModel ( ) {
+						  OT = itm.Tarima.OT ,
+						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
+						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
+						  Id_Tarima = itm.Tarima.Id ,
+						  Id_Item = itm.Id ,
+						  Id_Produccion = itm.Item.Id ,
+						  Ancho = itm.Tarima.Ancho ,
+						  Calibre = itm.Tarima.Calibre ,
+						  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
+						  FechaExtrusion = itm.Tarima.FechaExtrusion ,
+						  Extrusion_Id = itm.Item.EXTRUSION_ID ,
+						  FechaCapturaItem = itm.Item.FECHA ,
+						  Numero = itm.Item.NUMERO ,
+						  PesoBruto = itm.Item.PESOBRUTO ,
+						  PesoCore = itm.Item.PESOCORE ,
+						  //PesoNeto = itm.Item.PESONETO ,
+						  Maquina = itm.Item.Maquina_.NombreMaquina ,
+						  Operador = itm.Item.OPERADOR ,
+						  Piezas = itm.Item.PIEZAS ,
+						  Proceso = itm.Item.Proceso_.NombreProceso ,
+						  Usuario = itm.Item.USUARIO
+					  };
+			return ret;
+		}
+		public static IEnumerable<ReportModel> fromContext ( libProduccionDataBase.Contexto.DataBaseContexto DB , int idTarima ) {
 
-		//	var ret = from tar in DB.NCuatro_Tarimas
-		//			  where tar.Id == idTarima
-		//			  from itm in tar.Items
-		//				  // obj.Items
-		//			  select new ReportModel ( ) {
-		//				  OT = itm.Tarima.OT ,
-		//				  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
-		//				  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
-		//				  Id_Tarima = itm.Tarima.Id ,
-		//				  Id_Item = itm.Id ,
-		//				  Id_Produccion = itm.Item.Id ,
-		//				  Ancho = itm.Tarima.Ancho ,
-		//				  Calibre = itm.Tarima.Calibre ,
-		//				  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
-		//				  FechaExtrusion = itm.Tarima.FechaExtrusion ,
-		//				  Extrusion_Id = itm.Item.EXTRUSION_ID ,
-		//				  FechaCapturaItem = itm.Item.FECHA ,
-		//				  Numero = itm.Item.NUMERO ,
-		//				  PesoBruto = itm.Item.PESOBRUTO ,
-		//				  PesoCore = itm.Item.PESOCORE ,
-		//				  // PesoNeto = itm.Item.PESONETO ,
-		//				  Maquina = itm.Item.Maquina_.NombreMaquina ,
-		//				  Operador = itm.Item.OPERADOR ,
-		//				  Piezas = itm.Item.PIEZAS ,
-		//				  Proceso = itm.Item.Proceso_.NombreProceso ,
-		//				  Usuario = itm.Item.USUARIO
-		//			  };
-		//	return ret;
-		//}
+			var ret = from tar in DB.NCuatro_Tarimas
+					  where tar.Id == idTarima
+					  from itm in tar.Items
+						  // obj.Items
+					  select new ReportModel ( ) {
+						  OT = itm.Tarima.OT ,
+						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
+						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
+						  Id_Tarima = itm.Tarima.Id ,
+						  Id_Item = itm.Id ,
+						  Id_Produccion = itm.Item.Id ,
+						  Ancho = itm.Tarima.Ancho ,
+						  Calibre = itm.Tarima.Calibre ,
+						  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
+						  FechaExtrusion = itm.Tarima.FechaExtrusion ,
+						  Extrusion_Id = itm.Item.EXTRUSION_ID ,
+						  FechaCapturaItem = itm.Item.FECHA ,
+						  Numero = itm.Item.NUMERO ,
+						  PesoBruto = itm.Item.PESOBRUTO ,
+						  PesoCore = itm.Item.PESOCORE ,
+						  // PesoNeto = itm.Item.PESONETO ,
+						  Maquina = itm.Item.Maquina_.NombreMaquina ,
+						  Operador = itm.Item.OPERADOR ,
+						  Piezas = itm.Item.PIEZAS ,
+						  Proceso = itm.Item.Proceso_.NombreProceso ,
+						  Usuario = itm.Item.USUARIO
+					  };
+			return ret;
+		}
 
 	}
 }
