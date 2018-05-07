@@ -34,7 +34,6 @@
 			this.tarimasNCuatroBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,7 +47,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
 			this.kryptonPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).BeginInit();
 			this.kryptonGroupBox1.Panel.SuspendLayout();
@@ -107,13 +105,8 @@
 			this.tarimasNCuatroBindingSource.DataMember = "TarimasNCuatro";
 			this.tarimasNCuatroBindingSource.DataSource = this.temporalOrdenTrabajoBindingSource;
 			// 
-			// itemsBindingSource
-			// 
-			//this.itemsBindingSource.DataSource = typeof(libProduccionDataBase.Tablas.NaveCuatro_TarimaItem);
-			// 
 			// kryptonPanel1
 			// 
-			this.kryptonPanel1.Controls.Add(this.pictureBox1);
 			this.kryptonPanel1.Controls.Add(this.reportViewer1);
 			this.kryptonPanel1.Controls.Add(this.kryptonListBox1);
 			this.kryptonPanel1.Controls.Add(this.kryptonGroupBox1);
@@ -123,17 +116,6 @@
 			this.kryptonPanel1.Padding = new System.Windows.Forms.Padding(5);
 			this.kryptonPanel1.Size = new System.Drawing.Size(665, 462);
 			this.kryptonPanel1.TabIndex = 8;
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBox1.BackColor = System.Drawing.Color.White;
-			this.pictureBox1.Location = new System.Drawing.Point(379, 123);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(275, 85);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 9;
-			this.pictureBox1.TabStop = false;
 			// 
 			// reportViewer1
 			// 
@@ -147,7 +129,7 @@
 			this.reportViewer1.LocalReport.ReportEmbeddedResource = "libEmbarquesNCuatro.WinForms.Controls.Report1.rdlc";
 			this.reportViewer1.Location = new System.Drawing.Point(131, 122);
 			this.reportViewer1.Name = "reportViewer1";
-			this.reportViewer1.Size = new System.Drawing.Size(242, 337);
+			this.reportViewer1.Size = new System.Drawing.Size(529, 337);
 			this.reportViewer1.TabIndex = 8;
 			// 
 			// kryptonGroupBox1
@@ -196,8 +178,8 @@
 			// 
 			// CrearPapeletaTarima
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.kryptonPanel1);
 			this.Name = "CrearPapeletaTarima";
 			this.Size = new System.Drawing.Size(665, 462);
@@ -208,7 +190,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
 			this.kryptonPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();
 			this.kryptonGroupBox1.Panel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1)).EndInit();
@@ -231,6 +212,5 @@
 		private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
 		private System.Windows.Forms.BindingSource ReportModelBindingSource;
 		private ComponentFactory.Krypton.Toolkit.KryptonLabel cLIENTEKryptonLabel;
-		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
