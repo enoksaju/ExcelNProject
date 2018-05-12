@@ -38,6 +38,10 @@ namespace EstacionPesaje {
 			maquinasKryptonComboBox.SelectedIndex = -1;
 			etiquetaKryptonComboBox.SelectedIndex = -1;
 			procesoKryptonComboBox.SelectedIndex = -1;
+
+
+			this.OperadorkryptonTextBox.Focus ( );
+			this.OperadorkryptonTextBox.Select ( );
 		}
 
 

@@ -17,6 +17,9 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			//this.AutoValidate =AutoValidate.Disable;
 			this.Tipo = tipo;
 			this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )}";
+
+			this.TipoAnticipo_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Tipos ) );
+
 		}
 		private async void frmPerdidaGanaciaCambiaria_Load ( object sender , EventArgs e ) {
 			using (var db= new Context.dataBaseContext ( ) ) {
@@ -43,7 +46,7 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 					dateTimePicker1.Enabled = false;
 					textBox1.Enabled = false;
 					button1.Enabled = false;
-					setValueList ( Tipo == Tipos.cxc ? await Modelos.perdidaGananciaCambiaria.getCxcAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) ,( string )comboBox1.SelectedValue ) : await Modelos.perdidaGananciaCambiaria.getCxpAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ), (string)comboBox1.SelectedValue ) );
+					setValueList ( Tipo == Tipos.cxc ? await Modelos.perdidaGananciaCambiaria.getCxcAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) ,( string )comboBox1.SelectedValue, ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem ) : await Modelos.perdidaGananciaCambiaria.getCxpAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ), (string)comboBox1.SelectedValue , (Modelos .Tipos ) TipoAnticipo_cmb .SelectedItem ) );
 					return;
 				}
 				throw new Exception ( errorProvider1.GetError ( textBox1 ) );			

@@ -26,6 +26,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
+			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
 			this.Ribbon = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
 			this.ProduccionRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
 			this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
@@ -89,7 +90,6 @@
 			this.kryptonDockingManager = new ComponentFactory.Krypton.Docking.KryptonDockingManager();
 			this.controlBascula1 = new libBascula.ControlBascula(this.components);
 			this.ConnectBasculaSpectButton = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-			this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.Ribbon)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.MainPanel)).BeginInit();
 			this.MainPanel.SuspendLayout();
@@ -99,8 +99,7 @@
 			// 
 			// kryptonManager1
 			// 
-			this.kryptonManager1.GlobalPalette = this.kryptonPalette1;
-			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
+			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2013White;
 			this.kryptonManager1.GlobalStrings.Abort = "Abortar";
 			this.kryptonManager1.GlobalStrings.Cancel = "Cancelar";
 			this.kryptonManager1.GlobalStrings.Close = "Cerrar";
@@ -108,6 +107,14 @@
 			this.kryptonManager1.GlobalStrings.Retry = "Reintentar";
 			this.kryptonManager1.GlobalStrings.Today = "Hoy";
 			this.kryptonManager1.GlobalStrings.Yes = "Si";
+			// 
+			// kryptonPalette1
+			// 
+			this.kryptonPalette1.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
+			this.kryptonPalette1.Common.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonPalette1.Common.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonPalette1.LabelStyles.LabelBoldPanel.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonPalette1.LabelStyles.LabelBoldPanel.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			// 
 			// Ribbon
 			// 
@@ -134,7 +141,6 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
-			this.Ribbon.SelectedContext = null;
 			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(902, 115);
 			this.Ribbon.TabIndex = 0;
@@ -144,6 +150,7 @@
 			this.ProduccionRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup1,
             this.kryptonRibbonGroup5});
+			this.ProduccionRibbonTab.KeyTip = "P";
 			this.ProduccionRibbonTab.Tag = " ";
 			this.ProduccionRibbonTab.Text = "Produccion";
 			// 
@@ -199,6 +206,7 @@
 			// 
 			this.kryptonRibbonGroupButton6.ImageLarge = global::EstacionPesaje.Properties.Resources.history;
 			this.kryptonRibbonGroupButton6.ImageSmall = global::EstacionPesaje.Properties.Resources.history1;
+			this.kryptonRibbonGroupButton6.KeyTip = "H";
 			this.kryptonRibbonGroupButton6.TextLine1 = "Historial";
 			this.kryptonRibbonGroupButton6.TextLine2 = "OT";
 			this.kryptonRibbonGroupButton6.Click += new System.EventHandler(this.kryptonRibbonGroupButton6_Click);
@@ -207,6 +215,7 @@
 			// 
 			this.kryptonRibbonGroupButton9.ImageLarge = global::EstacionPesaje.Properties.Resources.history_info;
 			this.kryptonRibbonGroupButton9.ImageSmall = global::EstacionPesaje.Properties.Resources.history_info1;
+			this.kryptonRibbonGroupButton9.KeyTip = "Q";
 			this.kryptonRibbonGroupButton9.TextLine1 = "Historico";
 			this.kryptonRibbonGroupButton9.TextLine2 = "Producto";
 			this.kryptonRibbonGroupButton9.Click += new System.EventHandler(this.kryptonRibbonGroupButton9_Click);
@@ -215,6 +224,7 @@
 			// 
 			this.progressProduction_btn.ImageLarge = global::EstacionPesaje.Properties.Resources.report_worker1;
 			this.progressProduction_btn.ImageSmall = global::EstacionPesaje.Properties.Resources.report_worker;
+			this.progressProduction_btn.KeyTip = "E";
 			this.progressProduction_btn.TextLine1 = "Progreso de";
 			this.progressProduction_btn.TextLine2 = "Producción";
 			this.progressProduction_btn.Click += new System.EventHandler(this.progressProduction_btn_Click);
@@ -250,26 +260,28 @@
 			// kryptonRibbonGroupButton5
 			// 
 			this.kryptonRibbonGroupButton5.ImageSmall = global::EstacionPesaje.Properties.Resources.intelisis;
-			this.kryptonRibbonGroupButton5.KeyTip = "N";
+			this.kryptonRibbonGroupButton5.KeyTip = "1";
 			this.kryptonRibbonGroupButton5.TextLine1 = "Reporte Intelisis";
 			this.kryptonRibbonGroupButton5.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click_1);
 			// 
 			// kryptonRibbonGroupButton7
 			// 
 			this.kryptonRibbonGroupButton7.ImageSmall = global::EstacionPesaje.Properties.Resources.report;
-			this.kryptonRibbonGroupButton7.KeyTip = "T";
+			this.kryptonRibbonGroupButton7.KeyTip = "2";
 			this.kryptonRibbonGroupButton7.TextLine1 = "Reporte OT";
 			this.kryptonRibbonGroupButton7.Click += new System.EventHandler(this.kryptonRibbonGroupButton7_Click);
 			// 
 			// kryptonRibbonGroupButton8
 			// 
 			this.kryptonRibbonGroupButton8.ImageSmall = global::EstacionPesaje.Properties.Resources.calendar;
-			this.kryptonRibbonGroupButton8.KeyTip = "L";
+			this.kryptonRibbonGroupButton8.KeyTip = "3";
 			this.kryptonRibbonGroupButton8.TextLine1 = "Reporte Linea";
 			this.kryptonRibbonGroupButton8.Click += new System.EventHandler(this.kryptonRibbonGroupButton8_Click);
 			// 
 			// kryptonRibbonGroupButton16
 			// 
+			this.kryptonRibbonGroupButton16.ImageSmall = global::EstacionPesaje.Properties.Resources.AzureDefaultResource_16x;
+			this.kryptonRibbonGroupButton16.KeyTip = "4";
 			this.kryptonRibbonGroupButton16.TextLine1 = "Explorador Desp Linea-Fecha";
 			this.kryptonRibbonGroupButton16.Click += new System.EventHandler(this.kryptonRibbonGroupButton16_Click);
 			// 
@@ -278,6 +290,7 @@
 			this.EmbarquesRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup4,
             this.kryptonRibbonGroup7});
+			this.EmbarquesRibbonTab.KeyTip = "E";
 			this.EmbarquesRibbonTab.Text = "Embarques";
 			// 
 			// kryptonRibbonGroup4
@@ -295,6 +308,7 @@
 			// 
 			this.kryptonRibbonGroupButton10.ImageLarge = global::EstacionPesaje.Properties.Resources.shipment;
 			this.kryptonRibbonGroupButton10.ImageSmall = global::EstacionPesaje.Properties.Resources.shipment1;
+			this.kryptonRibbonGroupButton10.KeyTip = "E";
 			this.kryptonRibbonGroupButton10.TextLine1 = "Lista de";
 			this.kryptonRibbonGroupButton10.TextLine2 = "Embarques";
 			this.kryptonRibbonGroupButton10.Click += new System.EventHandler(this.OpenReportEmbarque_Click);
@@ -314,6 +328,7 @@
 			// 
 			this.kryptonRibbonGroupButton15.ImageLarge = global::EstacionPesaje.Properties.Resources.barcode_ok;
 			this.kryptonRibbonGroupButton15.ImageSmall = global::EstacionPesaje.Properties.Resources.barcode_check;
+			this.kryptonRibbonGroupButton15.KeyTip = "P";
 			this.kryptonRibbonGroupButton15.TextLine1 = "Crear Papeleta";
 			this.kryptonRibbonGroupButton15.Click += new System.EventHandler(this.kryptonRibbonGroupButton15_Click);
 			// 
@@ -321,6 +336,7 @@
 			// 
 			this.IntelisisRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup6});
+			this.IntelisisRibbonTab.KeyTip = "I";
 			this.IntelisisRibbonTab.Text = "Intelisis";
 			// 
 			// kryptonRibbonGroup6
@@ -340,6 +356,7 @@
 			// 
 			this.kryptonRibbonGroupButton11.ImageLarge = global::EstacionPesaje.Properties.Resources.mailbox_info;
 			this.kryptonRibbonGroupButton11.ImageSmall = global::EstacionPesaje.Properties.Resources.mailbox_info1;
+			this.kryptonRibbonGroupButton11.KeyTip = "C";
 			this.kryptonRibbonGroupButton11.TextLine1 = "Cierre de";
 			this.kryptonRibbonGroupButton11.TextLine2 = "Ordenes";
 			this.kryptonRibbonGroupButton11.Click += new System.EventHandler(this.openCierreOrdenes_Click);
@@ -347,6 +364,7 @@
 			// kryptonRibbonGroupButton12
 			// 
 			this.kryptonRibbonGroupButton12.ImageLarge = global::EstacionPesaje.Properties.Resources.document_move;
+			this.kryptonRibbonGroupButton12.KeyTip = "T";
 			this.kryptonRibbonGroupButton12.TextLine1 = "Transferencias";
 			this.kryptonRibbonGroupButton12.TextLine2 = "Linea";
 			this.kryptonRibbonGroupButton12.Click += new System.EventHandler(this.openTransferencias_Click);
@@ -354,6 +372,7 @@
 			// kryptonRibbonGroupButton13
 			// 
 			this.kryptonRibbonGroupButton13.ImageLarge = global::EstacionPesaje.Properties.Resources.page_numbers_in_margins_insert;
+			this.kryptonRibbonGroupButton13.KeyTip = "E";
 			this.kryptonRibbonGroupButton13.TextLine1 = "Existencias";
 			this.kryptonRibbonGroupButton13.Click += new System.EventHandler(this.openExistenciasAlmacen_Click);
 			// 
@@ -363,6 +382,7 @@
             this.kryptonRibbonGroup3,
             this.EtiquetasRibbonGroup,
             this.BasculaRibbonGroup});
+			this.ConfiguracionRibbonTab.KeyTip = "C";
 			this.ConfiguracionRibbonTab.Text = "Configuracion";
 			// 
 			// kryptonRibbonGroup3
@@ -402,6 +422,7 @@
 			// kryptonRibbonGroupButton3
 			// 
 			this.kryptonRibbonGroupButton3.ImageLarge = global::EstacionPesaje.Properties.Resources.Process_32x;
+			this.kryptonRibbonGroupButton3.KeyTip = "L";
 			this.kryptonRibbonGroupButton3.TextLine1 = "Lineas";
 			this.kryptonRibbonGroupButton3.Click += new System.EventHandler(this.kryptonRibbonGroupButton3_Click);
 			// 
@@ -413,6 +434,7 @@
 			// kryptonRibbonGroupCheckBox1
 			// 
 			this.kryptonRibbonGroupCheckBox1.Checked = global::EstacionPesaje.Properties.Settings.Default.enabledImpresionMultiple;
+			this.kryptonRibbonGroupCheckBox1.KeyTip = "M";
 			this.kryptonRibbonGroupCheckBox1.TextLine1 = "Impresión Multiple?";
 			this.kryptonRibbonGroupCheckBox1.CheckedChanged += new System.EventHandler(this.kryptonRibbonGroupCheckBox1_CheckedChanged);
 			// 
@@ -432,6 +454,7 @@
 			// 
 			this.AgregarEtiqueta_btn.ImageLarge = ((System.Drawing.Image)(resources.GetObject("AgregarEtiqueta_btn.ImageLarge")));
 			this.AgregarEtiqueta_btn.ImageSmall = ((System.Drawing.Image)(resources.GetObject("AgregarEtiqueta_btn.ImageSmall")));
+			this.AgregarEtiqueta_btn.KeyTip = "N";
 			this.AgregarEtiqueta_btn.TextLine1 = "Nueva";
 			this.AgregarEtiqueta_btn.TextLine2 = "Etiqueta";
 			this.AgregarEtiqueta_btn.Click += new System.EventHandler(this.kryptonRibbonGroupButton4_Click);
@@ -440,6 +463,7 @@
 			// 
 			this.EditarEtiqueta_btn.ImageLarge = ((System.Drawing.Image)(resources.GetObject("EditarEtiqueta_btn.ImageLarge")));
 			this.EditarEtiqueta_btn.ImageSmall = ((System.Drawing.Image)(resources.GetObject("EditarEtiqueta_btn.ImageSmall")));
+			this.EditarEtiqueta_btn.KeyTip = "E";
 			this.EditarEtiqueta_btn.TextLine1 = "Editar";
 			this.EditarEtiqueta_btn.TextLine2 = "Etiqueta";
 			this.EditarEtiqueta_btn.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click);
@@ -460,6 +484,7 @@
 			// 
 			this.ToogleBascula_btn.ImageLarge = global::EstacionPesaje.Properties.Resources.ScalesConnected_red;
 			this.ToogleBascula_btn.ImageSmall = global::EstacionPesaje.Properties.Resources.connect1;
+			this.ToogleBascula_btn.KeyTip = "C";
 			this.ToogleBascula_btn.TextLine1 = "Conectar";
 			this.ToogleBascula_btn.Click += new System.EventHandler(this.ToogleBasculaConnection_Click);
 			// 
@@ -467,6 +492,7 @@
 			// 
 			this.kryptonRibbonGroupButton2.ImageLarge = global::EstacionPesaje.Properties.Resources.gear;
 			this.kryptonRibbonGroupButton2.ImageSmall = global::EstacionPesaje.Properties.Resources.gear1;
+			this.kryptonRibbonGroupButton2.KeyTip = "F";
 			this.kryptonRibbonGroupButton2.TextLine1 = "Configurar";
 			this.kryptonRibbonGroupButton2.Click += new System.EventHandler(this.OpenConfigBasculaPage_Click);
 			// 
@@ -474,6 +500,7 @@
 			// 
 			this.kryptonRibbonTab1.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup2});
+			this.kryptonRibbonTab1.KeyTip = "V";
 			this.kryptonRibbonTab1.Text = "Ventanas";
 			// 
 			// kryptonRibbonGroup2
@@ -491,11 +518,13 @@
 			// 
 			this.kryptonRibbonGroupButton1.ImageLarge = global::EstacionPesaje.Properties.Resources.Cancel_16x;
 			this.kryptonRibbonGroupButton1.ImageSmall = global::EstacionPesaje.Properties.Resources.SelectAll_16x;
+			this.kryptonRibbonGroupButton1.KeyTip = "C";
 			this.kryptonRibbonGroupButton1.TextLine1 = "Cerrar Todas";
 			this.kryptonRibbonGroupButton1.Click += new System.EventHandler(this.kryptonRibbonGroupButton1_Click);
 			// 
 			// kryptonRibbonGroupButton14
 			// 
+			this.kryptonRibbonGroupButton14.KeyTip = "T";
 			this.kryptonRibbonGroupButton14.Click += new System.EventHandler(this.kryptonRibbonGroupButton14_Click);
 			// 
 			// MainPanel
@@ -504,7 +533,7 @@
 			this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.MainPanel.Location = new System.Drawing.Point(0, 115);
 			this.MainPanel.Name = "MainPanel";
-			this.MainPanel.Size = new System.Drawing.Size(902, 426);
+			this.MainPanel.Size = new System.Drawing.Size(902, 428);
 			this.MainPanel.TabIndex = 1;
 			// 
 			// kryptonDockableWorkspace
@@ -531,7 +560,7 @@
 			this.kryptonDockableWorkspace.Root.WorkspaceControl = this.kryptonDockableWorkspace;
 			this.kryptonDockableWorkspace.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
 			this.kryptonDockableWorkspace.ShowMaximizeButton = false;
-			this.kryptonDockableWorkspace.Size = new System.Drawing.Size(902, 426);
+			this.kryptonDockableWorkspace.Size = new System.Drawing.Size(902, 428);
 			this.kryptonDockableWorkspace.TabIndex = 0;
 			this.kryptonDockableWorkspace.TabStop = true;
 			// 
@@ -542,32 +571,37 @@
             this.toolStripStatusLabel1,
             this.databaseName_lbl,
             this.BasculaText});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 541);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 543);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip1.Size = new System.Drawing.Size(902, 24);
+			this.statusStrip1.Size = new System.Drawing.Size(902, 22);
 			this.statusStrip1.TabIndex = 2;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(806, 19);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(694, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			this.toolStripStatusLabel1.Text = "Listo...";
 			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// databaseName_lbl
 			// 
-			this.databaseName_lbl.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+			this.databaseName_lbl.Image = global::EstacionPesaje.Properties.Resources.database_16xLG;
+			this.databaseName_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.databaseName_lbl.Margin = new System.Windows.Forms.Padding(4, 3, 5, 2);
 			this.databaseName_lbl.Name = "databaseName_lbl";
-			this.databaseName_lbl.Size = new System.Drawing.Size(31, 19);
+			this.databaseName_lbl.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.databaseName_lbl.Size = new System.Drawing.Size(51, 17);
 			this.databaseName_lbl.Text = "****";
+			this.databaseName_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// BasculaText
 			// 
+			this.BasculaText.Image = global::EstacionPesaje.Properties.Resources.ScaleBordered;
 			this.BasculaText.Name = "BasculaText";
-			this.BasculaText.Size = new System.Drawing.Size(50, 19);
+			this.BasculaText.Size = new System.Drawing.Size(66, 17);
 			this.BasculaText.Text = "00.00 kg";
 			// 
 			// kryptonDockingManager
@@ -615,18 +649,10 @@
 			this.ConnectBasculaSpectButton.UniqueName = "7107AEAA4BBD4DD69DAF3390BC180482";
 			this.ConnectBasculaSpectButton.Click += new System.EventHandler(this.ToogleBasculaConnection_Click);
 			// 
-			// kryptonPalette1
-			// 
-			this.kryptonPalette1.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Silver;
-			this.kryptonPalette1.Common.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.kryptonPalette1.Common.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.kryptonPalette1.LabelStyles.LabelBoldPanel.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.kryptonPalette1.LabelStyles.LabelBoldPanel.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.ConnectBasculaSpectButton});
 			this.ClientSize = new System.Drawing.Size(902, 565);
@@ -660,7 +686,6 @@
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton CapturaProduccionRbnBtn;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton OrdenTrabajoExplorerRbnBtn;
 		private ComponentFactory.Krypton.Docking.KryptonDockableWorkspace kryptonDockableWorkspace;
-		private ComponentFactory.Krypton.Docking.KryptonDockingManager kryptonDockingManager;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab EmbarquesRibbonTab;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup BasculaRibbonGroup;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple2;
@@ -715,6 +740,7 @@
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton16;
 		private System.Windows.Forms.ToolStripStatusLabel databaseName_lbl;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
+		public ComponentFactory.Krypton.Docking.KryptonDockingManager kryptonDockingManager;
 	}
 }
 

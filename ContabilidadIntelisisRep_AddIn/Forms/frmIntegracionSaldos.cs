@@ -16,17 +16,20 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			InitializeComponent ( );
 			this.dt = dt;
 			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }";// this.dt == Datos.cxc ? $"Integracion de saldos Cxc[{}]": $"Integracion de saldos Cxp[{}]";
+
+			this.TipoBusqueda_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Tipos ) );
+			this.dateTimePicker1.Value = DateTime.Now.Date;
 		}
 
 		private async void button1_Click ( object sender , EventArgs e ) {
 			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }[{ String.Format ( "{0:dd/MM/yyyy}" , dateTimePicker1.Value ) }] - Cargando...";
 			this.dateTimePicker1.Enabled = false;
 			this.button1.Enabled = false;
-			SetValue ( this.dt == Datos.cxc ? await Modelos.IntegracionSaldos.getCxcAsync ( dateTimePicker1.Value ): await Modelos.IntegracionSaldos.getCxpAsync ( dateTimePicker1.Value ) );
+			SetValue ( this.dt == Datos.cxc ? await Modelos.IntegracionSaldos.getCxcAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem ) : await Modelos.IntegracionSaldos.getCxpAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem ) );
 		}
 
-		private void SetValue ( List<Modelos.IntegracionSaldos> value) {
-			if(this.integracionSaldosDataGridView.InvokeRequired ) {
+		private void SetValue ( List<Modelos.IntegracionSaldos> value ) {
+			if ( this.integracionSaldosDataGridView.InvokeRequired ) {
 				this.integracionSaldosDataGridView.Invoke ( new Action<List<Modelos.IntegracionSaldos>> ( SetValue ) , value );
 				return;
 			}
@@ -37,13 +40,13 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 		}
 
 		private void dateTimePicker1_KeyUp ( object sender , KeyEventArgs e ) {
-			if(e.KeyCode== Keys.Enter ) {
+			if ( e.KeyCode == Keys.Enter ) {
 				button1_Click ( sender , null );
 			}
 		}
 
 		private void copiarToolStripMenuItem_Click ( object sender , EventArgs e ) {
-			DataObject dt = integracionSaldosDataGridView .GetClipboardContent ( );
+			DataObject dt = integracionSaldosDataGridView.GetClipboardContent ( );
 			if ( dt != null )
 				Clipboard.SetDataObject ( dt );
 		}

@@ -17,7 +17,7 @@ namespace EstacionPesaje.Pages.Base {
 	public partial class DefaultPageContent : UserControl, IToKryptonPage {
 		#region Delegates
 
-		public delegate void ChangeStatusMessage ( object sender, ChangeStatusMessageEventArgs e );
+		public delegate void ChangeStatusMessage ( object sender , ChangeStatusMessageEventArgs e );
 
 		#endregion
 
@@ -139,20 +139,20 @@ namespace EstacionPesaje.Pages.Base {
 		#endregion
 
 		#region Private Void
-		private void OnPalettePaint ( object sender, PaletteLayoutEventArgs e ) {
+		private void OnPalettePaint ( object sender , PaletteLayoutEventArgs e ) {
 			Invalidate ( );
 		}
 
-		private void OnGlobalPaletteChanged ( object sender, EventArgs e ) {
+		private void OnGlobalPaletteChanged ( object sender , EventArgs e ) {
 			// (5) Unhook events from old palette
-			if (_palette != null)
+			if ( _palette != null )
 				_palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs> ( OnPalettePaint );
 
 			// (6) Cache the new IPalette that is the global palette
 			_palette = KryptonManager.CurrentGlobalPalette;
 
 			// (7) Hook into events for the new palette
-			if (_palette != null)
+			if ( _palette != null )
 				_palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs> ( OnPalettePaint );
 
 			// (8) Change of palette means we should repaint to show any changes
@@ -164,14 +164,14 @@ namespace EstacionPesaje.Pages.Base {
 		/// </summary>
 		/// <param name="e"></param>
 		protected void OnStatusStringChanged ( ChangeStatusMessageEventArgs e ) {
-			StatusStringChanged?.Invoke ( this, e );
+			StatusStringChanged?.Invoke ( this , e );
 		}
 		/// <summary>
 		/// Invoka al evento StatusStringChanged
 		/// </summary>
 		/// <param name="Message">Message to send</param>
-		protected void OnStatusStringChanged ( string message, string title = "***" ) {
-			StatusStringChanged?.Invoke ( this, new ChangeStatusMessageEventArgs { Title = title, Message = message } );
+		protected void OnStatusStringChanged ( string message , string title = "***" ) {
+			StatusStringChanged?.Invoke ( this , new ChangeStatusMessageEventArgs { Title = title , Message = message } );
 		}
 
 		#endregion
@@ -179,9 +179,9 @@ namespace EstacionPesaje.Pages.Base {
 		#region Protected void
 
 		protected override void Dispose ( bool disposing ) {
-			if (disposing) {
+			if ( disposing ) {
 				// (10) Unhook from the palette events
-				if (_palette != null) {
+				if ( _palette != null ) {
 					_palette.PalettePaint -= new EventHandler<PaletteLayoutEventArgs> ( OnPalettePaint );
 					_palette = null;
 				}
@@ -195,19 +195,19 @@ namespace EstacionPesaje.Pages.Base {
 
 		protected override void OnPaint ( PaintEventArgs e ) {
 
-			if (_palette != null) {
+			if ( _palette != null ) {
 				// (12) Calculate the palette state to use in calls to IPalette
 				PaletteState state = Enabled ? PaletteState.Normal : PaletteState.Disabled;
 
 				// (13) Get the background, border and text colors along with the text font
-				Color backColor = _palette.GetBackColor1 ( BackStyle, state );
-				Color borderColor = _palette.GetBorderColor1 ( _BorderStyle, state );
+				Color backColor = _palette.GetBackColor1 ( BackStyle , state );
+				Color borderColor = _palette.GetBorderColor1 ( _BorderStyle , state );
 				// Color textColor = _palette.GetContentShortTextColor1(TextStyle, state);
 				//Font textFont = _palette.GetContentShortTextFont(TextStyle, state);
 
 				// Fill the entire background of the control
-				using (SolidBrush backBrush = new SolidBrush ( backColor ))
-					e.Graphics.FillRectangle ( backBrush, e.ClipRectangle );
+				using ( SolidBrush backBrush = new SolidBrush ( backColor ) )
+					e.Graphics.FillRectangle ( backBrush , e.ClipRectangle );
 
 				//System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
 				//path.AddRectangle( ClientRectangle );//.AddEllipse( 0, 0, 200, 100 );
@@ -216,7 +216,7 @@ namespace EstacionPesaje.Pages.Base {
 				//using (Pen borderPen = new Pen( borderColor ))
 				//    e.Graphics.DrawPath( borderPen, path );
 
-				ControlPaint.DrawBorder ( e.Graphics, ClientRectangle, borderColor, ButtonBorderStyle.Solid );
+				ControlPaint.DrawBorder ( e.Graphics , ClientRectangle , borderColor , ButtonBorderStyle.Solid );
 
 				// ControlPaint.DrawBorder3D()
 				// Draw control Text at a fixed position
@@ -234,7 +234,7 @@ namespace EstacionPesaje.Pages.Base {
 		/// </summary>
 		/// <param name="ex">Excepcion a analizar</param>
 		protected virtual void HandledException ( Exception ex ) {
-			KryptonTaskDialog.Show ( "Algo va mal...", "Error al procesar la acción", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
+			KryptonTaskDialog.Show ( "Algo va mal..." , "Error al procesar la acción" , ex.Message , MessageBoxIcon.Error , TaskDialogButtons.OK );
 
 
 			//MessageBox.Show( this, ex.Message, "Algo va mal...", MessageBoxButtons.OK, MessageBoxIcon.Error );
@@ -242,11 +242,11 @@ namespace EstacionPesaje.Pages.Base {
 
 		#endregion
 
-		public DefaultPageContent () {
+		public DefaultPageContent ( ) {
 			//InitializeComponent ( );
 
 			// (1) To remove flicker we use double buffering for drawing
-			SetStyle ( ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw, true );
+			SetStyle ( ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw , true );
 
 			InitializeComponent ( );
 			AutoScaleMode = AutoScaleMode.Dpi;
@@ -255,7 +255,7 @@ namespace EstacionPesaje.Pages.Base {
 			_palette = KryptonManager.CurrentGlobalPalette;
 
 			// (3) Hook into palette events
-			if (_palette != null)
+			if ( _palette != null )
 				_palette.PalettePaint += new EventHandler<PaletteLayoutEventArgs> ( OnPalettePaint );
 
 			// (4) We want to be notified whenever the global palette changes
@@ -264,29 +264,32 @@ namespace EstacionPesaje.Pages.Base {
 			KP = new KryptonPage ( );
 			KP.Enter += KP_Enter;
 			KP.Leave += KP_Leave;
+
+
+
 		}
 		/// <summary>
 		/// Dispara el evento LeavePage AL entrar en KP
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void KP_Leave ( object sender, EventArgs e ) {
+		private void KP_Leave ( object sender , EventArgs e ) {
 			this.LeavePageEventArgs.Item = KP;
 			this.LeavePageEventArgs.ContextNames = RibbonContext;
-			LeavePage?.Invoke ( this, this.LeavePageEventArgs );
+			LeavePage?.Invoke ( this , this.LeavePageEventArgs );
 		}
 		/// <summary>
 		/// Dispara el evento LeavePage AL entrar en KP
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void KP_Enter ( object sender, EventArgs e ) {
+		private void KP_Enter ( object sender , EventArgs e ) {
 			this.EnterPageEventArgs.Item = KP;
 			this.EnterPageEventArgs.ContextNames = RibbonContext;
-			EnterPage?.Invoke ( this, this.EnterPageEventArgs );
+			EnterPage?.Invoke ( this , this.EnterPageEventArgs );
 		}
-		public KryptonPage GetKryptonPage () {
-			if (!this.KP.Controls.Contains ( this )) {
+		public KryptonPage GetKryptonPage ( ) {
+			if ( !this.KP.Controls.Contains ( this ) ) {
 				this.Dock = DockStyle.Fill;
 				this.KP.Controls.Add ( this );
 			}
@@ -294,30 +297,34 @@ namespace EstacionPesaje.Pages.Base {
 			return this.KP;
 		}
 
-		public virtual void Show ( KryptonDockingManager kryptonDockingManager, KryptonWorkspaceCell kryptonWorkspaceCell ) {
+		protected KryptonDockingManager kryptonDockingManager_ { get; set; }
+
+		public virtual void Show ( KryptonDockingManager kryptonDockingManager , KryptonWorkspaceCell kryptonWorkspaceCell ) {
 
 			OnStatusStringChanged ( "Abriendo " + KP.TextTitle );
 
-			//var t = kryptonDockingManager.FindPageElement ( this.GetKryptonPage ( ) );
-
-			//if (( kryptonWorkspaceCell == null || kryptonWorkspaceCell.IsDisposed ) && t == null) {
-
-			//	kryptonDockingManager.AddToWorkspace ( "Workspace", new KryptonPage [] { this.GetKryptonPage ( ) } );
-
-			//} else if (t == null & !kryptonWorkspaceCell.Pages.Contains ( this.GetKryptonPage ( ) )) {
-			//	kryptonWorkspaceCell.Pages.Add ( this.GetKryptonPage ( ) );
-			//}
 			try {
-				kryptonDockingManager.AddToWorkspace ( "Workspace", new KryptonPage [] { this.GetKryptonPage ( ) } );
+				kryptonDockingManager.AddToWorkspace ( "Workspace" , new KryptonPage [ ] { this.GetKryptonPage ( ) } );
+			} catch {
+
 			}
-			catch {
-				
-			}				
+			this.kryptonDockingManager_ = kryptonDockingManager;
 
 			kryptonDockingManager.ShowPage ( this.GetKryptonPage ( ) );
 
-			//var ds = t as KryptonDockingDockspace;
-			//ds?.SelectPage ( this.GetKryptonPage ( ).UniqueName );
+			IDockingElement t = kryptonDockingManager.FindPageElement ( this.GetKryptonPage ( ) );
+
+			System.Diagnostics.Debug.WriteLine ( t.GetType ( ) );
+
+			if ( t.GetType ( ) == typeof ( KryptonDockingDockspace ) ) {
+				var ds = ( KryptonDockingDockspace ) t;
+				ds?.SelectPage ( this.GetKryptonPage ( ).UniqueName );
+			}
+
+			if ( t.GetType ( ) == typeof ( KryptonDockingWorkspace  ) ) {
+				var ds = ( KryptonDockingWorkspace ) t;
+				ds.SelectPage ( this.GetKryptonPage ( ) .UniqueName);				
+			}
 		}
 	}
 }

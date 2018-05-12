@@ -280,10 +280,10 @@
       <DependentUpon>OrdenTrabajoPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPages\DesperdicioReports\ReportData.cs" />
-    <Compile Include="Pages\MainPages\DesperdiciosPage.cs">
+    <Compile Include="Pages\MainPages\DesperdicioReports\DesperdiciosPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Pages\MainPages\DesperdiciosPage.Designer.cs">
+    <Compile Include="Pages\MainPages\DesperdicioReports\DesperdiciosPage.Designer.cs">
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPages\Embarques\DataReport.cs" />
@@ -415,7 +415,7 @@
       <DependentUpon>OrdenTrabajoPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\Report1.rdlc" />
-    <EmbeddedResource Include="Pages\MainPages\DesperdiciosPage.resx">
+    <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\DesperdiciosPage.resx">
       <DependentUpon>DesperdiciosPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Embarques\EmbarquesN4Page.resx">
@@ -622,6 +622,7 @@
   <ItemGroup>
     <None Include="Resources\AzureDefaultResource_16x.png" />
     <None Include="Resources\barcode-check.png" />
+    <None Include="Resources\B16.png" />
     <Content Include="Resources\barcode-edit.png" />
     <Content Include="Resources\barcode-edit1.png" />
     <None Include="Resources\report_open1.png" />
@@ -652,6 +653,8 @@
     <None Include="Resources\document_color_green-ok.png" />
     <None Include="Resources\document_move.png" />
     <None Include="Resources\barcode-ok.png" />
+    <None Include="Resources\Bold_16x.png" />
+    <None Include="Resources\database_16xLG.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />
@@ -664,6 +667,8 @@
     <None Include="Resources\page_numbers_in_margins_insert.png" />
     <None Include="Resources\report-worker.png" />
     <None Include="Resources\report_worker.png" />
+    <None Include="Resources\N16.png" />
+    <None Include="Resources\ScaleBordered.png" />
     <Content Include="tag_orange.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

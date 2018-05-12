@@ -12,6 +12,9 @@ namespace libProduccionDataBase.Tablas {
 	public class NaveCuatro_Tarima {
 		public NaveCuatro_Tarima ( ) {
 			this.Items = new ObservableListSource<NaveCuatro_TarimaItem> ( );
+			this.FechaCaptura = DateTime.Now;
+			this.FechaExtrusion = DateTime.Now;
+			this.Usuario = Environment.MachineName;
 		}
 
 		public int Id { get; set; }
@@ -30,25 +33,32 @@ namespace libProduccionDataBase.Tablas {
 
 		public virtual ObservableListSource<NaveCuatro_TarimaItem> Items { get; private set; }
 
+		public override string ToString ( ) => $"{this.OT}_{ FechaCaptura.ToString ( "ddMMyyHHmm" )}";
+		public string toShow => $"{this.OT}_{ FechaCaptura.ToString ( "ddMMyyHHmm" )}";
+
+		public double PesoNetoTotal => Items.Sum ( o => ( o.Item?.PESONETO ).Value );
+
 	}
 	[Table ( "ncuatro_tarimas_items" )]
 	public class NaveCuatro_TarimaItem {
 
-		[Key, DatabaseGenerated ( DatabaseGeneratedOption.Identity )]
-		public int Id { get; set; }
-
+		//[Key, DatabaseGenerated ( DatabaseGeneratedOption.Identity )]
+		[Key, Column ( Order = 0 )]
 		public int Item_Id { get; set; }
+
+		[Key, Column ( Order = 1 )]
+		public int Tarima_Id { get; set; }
+
+		//[Index ("ItemTarima_Idx",IsUnique =true, Order =1)]
 
 		[ForeignKey ( "Item_Id" )]
 		public virtual TempProduccion Item { get; set; }
-
-		public int Tarima_Id { get; set; }
 		[ForeignKey ( "Tarima_Id" )]
 		public virtual NaveCuatro_Tarima Tarima { get; set; }
 
-		public override string ToString ( ) {
-			return $"{Item.OT}_{Item.NUMERO}_{ Item.EXTRUSION_ID }";
-		}
+		public override string ToString ( ) => $"{Item.OT}_{Item.NUMERO}_{ Item.EXTRUSION_ID }";
+
+		public string ToShow => String.Format ( "{0,10:0000000000} {1,6} {2,10:#0.00} Kg" , this.Item?.Id , this.Item?.EXTRUSION_ID , this.Item?.PESONETO );
 
 	}
 }

@@ -94,11 +94,22 @@
   <ItemGroup>
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\Controls\CrearPapeletaTarima.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WinForms\Controls\CrearPapeletaTarima.Designer.cs">
       <DependentUpon>CrearPapeletaTarima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\Controls\frmCrearTarimaNueva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\Controls\frmCrearTarimaNueva.Designer.cs">
+      <DependentUpon>frmCrearTarimaNueva.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -119,10 +130,26 @@
     <Folder Include="ZPL\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Controls\CrearPapeletaTarima.resx">
       <DependentUpon>CrearPapeletaTarima.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\Controls\frmCrearTarimaNueva.resx">
+      <DependentUpon>frmCrearTarimaNueva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Controls\Report1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_green_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_bullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_rounded_red_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

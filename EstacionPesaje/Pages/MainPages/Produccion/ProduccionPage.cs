@@ -113,8 +113,6 @@ namespace EstacionPesaje.Pages.MainPages {
 
 				if ( frm.ShowDialog ( ) == DialogResult.OK ) {
 					valuesCaptura = frm.response;
-					this.PageTitleText = String.Format ( "Captura Produccion[{0}]" , this.OT );
-
 
 					OperadorLabel.Text = valuesCaptura.Operador;
 					TurnoLabel.Text = ( valuesCaptura.Turno == 1 ? "Primero" : ( valuesCaptura.Turno == 2 ? "Segundo" : ( valuesCaptura.Turno == 3 ? "Tercero" : "Mixto" ) ) );
@@ -142,7 +140,7 @@ namespace EstacionPesaje.Pages.MainPages {
 					Optional5_rdbtn.Text = valuesCaptura.Options.Optional5;
 					Extrusion_Panel.Visible = valuesCaptura.Proceso.ID == 9 ? true : false;
 
-
+					this.PageTitleText = $"Captura [{this.OT}] [{valuesCaptura.Proceso.NombreProceso}] ";
 
 				} else {
 					e.Cancel = true;
@@ -152,33 +150,12 @@ namespace EstacionPesaje.Pages.MainPages {
 
 			} else if ( e.Item == kryptonPageLista ) {
 				RefreshListItems ( );
-
 			} else {
 				this.PageTitleText = String.Format ( "Produccion[{0}]" , this.OT );
 			}
 
 		}
-		private void RefreshListItems ( ) {
-
-
-			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
-
-			DB.TempProduccion
-				.Local
-				.ToList ( )
-				.ForEach ( y => {
-					DB.Entry ( y ).State = EntityState.Detached;
-					y = null;
-				} );
-
-			DB.tempOt.Where ( OT => OT.OT == this.OT )
-				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
-			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
-
-			temporalOrdenTrabajoBindingSource.ResetBindings ( false );
-			produccionBindingSource.ResetBindings ( false );
-			produccionKryptonDataGridView.Refresh ( );
-		}
+		
 		/// <summary>
 		/// Retorna el ItemOptional seleccionado
 		/// </summary>
@@ -503,10 +480,10 @@ namespace EstacionPesaje.Pages.MainPages {
 				List<TempProduccion> t = ( from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
 										   select ( TempProduccion ) rw.DataBoundItem ).ToList ( );
 
-				PB_lbl.Text = String.Format ( "PB: {0:0.00}" , t.Sum ( u => u.PESOBRUTO ) );
-				PN_lbl.Text = String.Format ( "PN: {0:0.00}" , t.Sum ( u => u.PESONETO ) );
-				PZ_lbl.Text = String.Format ( "PZ: {0:N0}" , t.Sum ( u => u.PIEZAS ) );
-				SEL_lbl.Text = String.Format ( "SEL: {0:N0}" , t.Count ( ) );
+				PB_lbl.Text = String.Format ( "{0:0.00}" , t.Sum ( u => u.PESOBRUTO ) );
+				PN_lbl.Text = String.Format ( "{0:0.00}" , t.Sum ( u => u.PESONETO ) );
+				PZ_lbl.Text = String.Format ( "{0:N0}" , t.Sum ( u => u.PIEZAS ) );
+				SEL_lbl.Text = String.Format ( "{0:N0}" , t.Count ( ) );
 
 			} catch ( Exception ) {
 
@@ -514,8 +491,9 @@ namespace EstacionPesaje.Pages.MainPages {
 		}
 
 		#region FilterDataGridView
+		private void RefreshListItems ( ) {
 
-		private void toolStripButton3_Click ( object sender , EventArgs e ) {
+
 			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
 
 			DB.TempProduccion
@@ -527,11 +505,35 @@ namespace EstacionPesaje.Pages.MainPages {
 				} );
 
 			DB.tempOt.Where ( OT => OT.OT == this.OT )
-				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) )
-				.Load ( );
+				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
 
 			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
+
+			temporalOrdenTrabajoBindingSource.ResetBindings ( false );
+			produccionBindingSource.ResetBindings ( false );
+			produccionKryptonDataGridView.Refresh ( );
+
+			this.PageTitleText = $"Lista [{this.OT }] [{ProcesosFilterToolBar.ComboBox.SelectedItem }]";
 		}
+
+		private void toolStripButton3_Click ( object sender , EventArgs e ) => RefreshListItems ( );
+		//	{
+		//	int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
+
+		//	DB.TempProduccion
+		//		.Local
+		//		.ToList ( )
+		//		.ForEach ( y => {
+		//			DB.Entry ( y ).State = EntityState.Detached;
+		//			y = null;
+		//		} );
+
+		//	DB.tempOt.Where ( OT => OT.OT == this.OT )
+		//		.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) )
+		//		.Load ( );
+
+		//	temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
+		//}
 
 		#endregion
 

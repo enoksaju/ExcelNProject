@@ -22,7 +22,7 @@ namespace libEmbarquesNCuatro.Models {
 		public int Numero { get; set; }
 		public double PesoBruto { get; set; }
 		public double PesoCore { get; set; }
-		public double PesoNeto { get { return PesoBruto - PesoCore; } }
+		public double PesoNeto => PesoBruto - PesoCore;
 		public double Piezas { get; set; }
 		public string Maquina { get; set; }
 		public string Operador { get; set; }
@@ -40,7 +40,7 @@ namespace libEmbarquesNCuatro.Models {
 						barcode.IncludeLabel = true;
 						barcode.BarWidth = 2;
 						barcode
-							.Encode ( BarcodeLib.TYPE.CODE39 , this.Id_Tarima.ToString ( "*000000000000*" ) , 300 , 70 )
+							.Encode ( BarcodeLib.TYPE.CODE39 , this.Id_Tarima.ToString ( "*90000000000*" ) , 300 , 70 )
 							.Save ( ms , System.Drawing.Imaging.ImageFormat.Bmp );
 					}					
 					byte [ ] imageBytes = ms.ToArray ( );
@@ -58,7 +58,7 @@ namespace libEmbarquesNCuatro.Models {
 						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
 						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
 						  Id_Tarima = itm.Tarima.Id ,
-						  Id_Item = itm.Id ,
+						  Id_Item = itm.Item.Id ,
 						  Id_Produccion = itm.Item.Id ,
 						  Ancho = itm.Tarima.Ancho ,
 						  Calibre = itm.Tarima.Calibre ,
@@ -89,7 +89,7 @@ namespace libEmbarquesNCuatro.Models {
 						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
 						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
 						  Id_Tarima = itm.Tarima.Id ,
-						  Id_Item = itm.Id ,
+						  Id_Item =itm.Item.Id ,
 						  Id_Produccion = itm.Item.Id ,
 						  Ancho = itm.Tarima.Ancho ,
 						  Calibre = itm.Tarima.Calibre ,

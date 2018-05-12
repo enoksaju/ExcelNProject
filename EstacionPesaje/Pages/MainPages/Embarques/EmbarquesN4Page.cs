@@ -13,7 +13,10 @@ namespace EstacionPesaje.Pages.MainPages.Embarques {
 		public EmbarquesN4Page (string OT ) {
 			InitializeComponent ( );
 
-			this.crearPapeletaTarima1.OT = OT;			
+			if ( !this.crearPapeletaTarima1.DB.tempOt.Any ( o => o.OT.TrimEnd() == OT.TrimEnd() ) )
+				throw new Exception ( "La orden de trabajo no existe en la base de datos" );
+
+			this.crearPapeletaTarima1.OT = OT;	
 
 			KP.ClearFlags ( ComponentFactory.Krypton.Navigator.KryptonPageFlags.All );
 
