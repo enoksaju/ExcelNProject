@@ -83,6 +83,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap B16 {
+            get {
+                object obj = ResourceManager.GetObject("B16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap barcode_check {
             get {
                 object obj = ResourceManager.GetObject("barcode-check", resourceCulture);
@@ -156,6 +166,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap bin1 {
             get {
                 object obj = ResourceManager.GetObject("bin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bold_16x {
+            get {
+                object obj = ResourceManager.GetObject("Bold_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +316,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap database {
             get {
                 object obj = ResourceManager.GetObject("database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap database_16xLG {
+            get {
+                object obj = ResourceManager.GetObject("database_16xLG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -543,6 +573,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap N16 {
+            get {
+                object obj = ResourceManager.GetObject("N16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap note {
             get {
                 object obj = ResourceManager.GetObject("note", resourceCulture);
@@ -666,6 +706,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap Save_32x {
             get {
                 object obj = ResourceManager.GetObject("Save_32x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScaleBordered {
+            get {
+                object obj = ResourceManager.GetObject("ScaleBordered", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

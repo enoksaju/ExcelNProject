@@ -7,13 +7,13 @@ namespace libProduccionDataBase.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addTarima : IMigrationMetadata
+    public sealed partial class addEmbarquesNave4Control : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addTarima));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addEmbarquesNave4Control));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804162113394_addTarima"; }
+            get { return "201805081532196_addEmbarquesNave4Control"; }
         }
         
         string IMigrationMetadata.Source

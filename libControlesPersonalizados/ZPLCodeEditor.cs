@@ -463,7 +463,7 @@ namespace libControlesPersonalizados {
 		public Image previewLabel ( string Code ) { 
 
 			using(var cv = new ZPLCONVERTER.zplImageConverter ( )){
-				return cv.previewLabel ( Code );
+				return cv.previewLabel ( Code, _ScaleLabel  );
 			}
 
 

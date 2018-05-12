@@ -22,7 +22,7 @@ namespace libEmbarquesNCuatro.Models {
 		public int Numero { get; set; }
 		public double PesoBruto { get; set; }
 		public double PesoCore { get; set; }
-		public double PesoNeto { get { return PesoBruto - PesoCore; } }
+		public double PesoNeto => PesoBruto - PesoCore;
 		public double Piezas { get; set; }
 		public string Maquina { get; set; }
 		public string Operador { get; set; }
@@ -40,7 +40,7 @@ namespace libEmbarquesNCuatro.Models {
 						barcode.IncludeLabel = true;
 						barcode.BarWidth = 2;
 						barcode
-							.Encode ( BarcodeLib.TYPE.CODE39 , this.Id_Tarima.ToString ( "*000000000000*" ) , 300 , 70 )
+							.Encode ( BarcodeLib.TYPE.CODE39 , this.Id_Tarima.ToString ( "*90000000000*" ) , 300 , 70 )
 							.Save ( ms , System.Drawing.Imaging.ImageFormat.Bmp );
 					}					
 					byte [ ] imageBytes = ms.ToArray ( );
@@ -51,64 +51,64 @@ namespace libEmbarquesNCuatro.Models {
 			}
 		}
 
-		//public static IEnumerable<ReportModel> fromTempCapt ( NaveCuatro_Tarima obj ) {
-		//	var ret = from itm in obj.Items
-		//			  select new ReportModel ( ) {
-		//				  OT = itm.Tarima.OT ,
-		//				  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
-		//				  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
-		//				  Id_Tarima = itm.Tarima.Id ,
-		//				  Id_Item = itm.Id ,
-		//				  Id_Produccion = itm.Item.Id ,
-		//				  Ancho = itm.Tarima.Ancho ,
-		//				  Calibre = itm.Tarima.Calibre ,
-		//				  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
-		//				  FechaExtrusion = itm.Tarima.FechaExtrusion ,
-		//				  Extrusion_Id = itm.Item.EXTRUSION_ID ,
-		//				  FechaCapturaItem = itm.Item.FECHA ,
-		//				  Numero = itm.Item.NUMERO ,
-		//				  PesoBruto = itm.Item.PESOBRUTO ,
-		//				  PesoCore = itm.Item.PESOCORE ,
-		//				  //PesoNeto = itm.Item.PESONETO ,
-		//				  Maquina = itm.Item.Maquina_.NombreMaquina ,
-		//				  Operador = itm.Item.OPERADOR ,
-		//				  Piezas = itm.Item.PIEZAS ,
-		//				  Proceso = itm.Item.Proceso_.NombreProceso ,
-		//				  Usuario = itm.Item.USUARIO
-		//			  };
-		//	return ret;
-		//}
-		//public static IEnumerable<ReportModel> fromContext ( libProduccionDataBase.Contexto.DataBaseContexto DB , int idTarima ) {
+		public static IEnumerable<ReportModel> fromTempCapt ( NaveCuatro_Tarima obj ) {
+			var ret = from itm in obj.Items
+					  select new ReportModel ( ) {
+						  OT = itm.Tarima.OT ,
+						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
+						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
+						  Id_Tarima = itm.Tarima.Id ,
+						  Id_Item = itm.Item.Id ,
+						  Id_Produccion = itm.Item.Id ,
+						  Ancho = itm.Tarima.Ancho ,
+						  Calibre = itm.Tarima.Calibre ,
+						  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
+						  FechaExtrusion = itm.Tarima.FechaExtrusion ,
+						  Extrusion_Id = itm.Item.EXTRUSION_ID ,
+						  FechaCapturaItem = itm.Item.FECHA ,
+						  Numero = itm.Item.NUMERO ,
+						  PesoBruto = itm.Item.PESOBRUTO ,
+						  PesoCore = itm.Item.PESOCORE ,
+						  //PesoNeto = itm.Item.PESONETO ,
+						  Maquina = itm.Item.Maquina_.NombreMaquina ,
+						  Operador = itm.Item.OPERADOR ,
+						  Piezas = itm.Item.PIEZAS ,
+						  Proceso = itm.Item.Proceso_.NombreProceso ,
+						  Usuario = itm.Item.USUARIO
+					  };
+			return ret;
+		}
+		public static IEnumerable<ReportModel> fromContext ( libProduccionDataBase.Contexto.DataBaseContexto DB , int idTarima ) {
 
-		//	var ret = from tar in DB.NCuatro_Tarimas
-		//			  where tar.Id == idTarima
-		//			  from itm in tar.Items
-		//				  // obj.Items
-		//			  select new ReportModel ( ) {
-		//				  OT = itm.Tarima.OT ,
-		//				  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
-		//				  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
-		//				  Id_Tarima = itm.Tarima.Id ,
-		//				  Id_Item = itm.Id ,
-		//				  Id_Produccion = itm.Item.Id ,
-		//				  Ancho = itm.Tarima.Ancho ,
-		//				  Calibre = itm.Tarima.Calibre ,
-		//				  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
-		//				  FechaExtrusion = itm.Tarima.FechaExtrusion ,
-		//				  Extrusion_Id = itm.Item.EXTRUSION_ID ,
-		//				  FechaCapturaItem = itm.Item.FECHA ,
-		//				  Numero = itm.Item.NUMERO ,
-		//				  PesoBruto = itm.Item.PESOBRUTO ,
-		//				  PesoCore = itm.Item.PESOCORE ,
-		//				  // PesoNeto = itm.Item.PESONETO ,
-		//				  Maquina = itm.Item.Maquina_.NombreMaquina ,
-		//				  Operador = itm.Item.OPERADOR ,
-		//				  Piezas = itm.Item.PIEZAS ,
-		//				  Proceso = itm.Item.Proceso_.NombreProceso ,
-		//				  Usuario = itm.Item.USUARIO
-		//			  };
-		//	return ret;
-		//}
+			var ret = from tar in DB.NCuatro_Tarimas
+					  where tar.Id == idTarima
+					  from itm in tar.Items
+						  // obj.Items
+					  select new ReportModel ( ) {
+						  OT = itm.Tarima.OT ,
+						  Cliente = itm.Tarima.OrdenTrabajo.CLIENTE ,
+						  Producto = itm.Tarima.OrdenTrabajo.PRODUCTO ,
+						  Id_Tarima = itm.Tarima.Id ,
+						  Id_Item =itm.Item.Id ,
+						  Id_Produccion = itm.Item.Id ,
+						  Ancho = itm.Tarima.Ancho ,
+						  Calibre = itm.Tarima.Calibre ,
+						  FechaCapturaTarima = itm.Tarima.FechaCaptura ,
+						  FechaExtrusion = itm.Tarima.FechaExtrusion ,
+						  Extrusion_Id = itm.Item.EXTRUSION_ID ,
+						  FechaCapturaItem = itm.Item.FECHA ,
+						  Numero = itm.Item.NUMERO ,
+						  PesoBruto = itm.Item.PESOBRUTO ,
+						  PesoCore = itm.Item.PESOCORE ,
+						  // PesoNeto = itm.Item.PESONETO ,
+						  Maquina = itm.Item.Maquina_.NombreMaquina ,
+						  Operador = itm.Item.OPERADOR ,
+						  Piezas = itm.Item.PIEZAS ,
+						  Proceso = itm.Item.Proceso_.NombreProceso ,
+						  Usuario = itm.Item.USUARIO
+					  };
+			return ret;
+		}
 
 	}
 }

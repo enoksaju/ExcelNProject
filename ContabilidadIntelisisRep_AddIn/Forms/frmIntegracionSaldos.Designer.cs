@@ -41,10 +41,6 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIntegracionSaldos));
 			this.integracionSaldosDataGridView = new System.Windows.Forms.DataGridView();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.button1 = new System.Windows.Forms.Button();
 			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,12 +69,17 @@
 			this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.TipoBusqueda_cmb = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).BeginInit();
-			this.panel1.SuspendLayout();
 			this.contextMenuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// integracionSaldosDataGridView
@@ -131,47 +132,6 @@
 			this.integracionSaldosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.integracionSaldosDataGridView.Size = new System.Drawing.Size(617, 383);
 			this.integracionSaldosDataGridView.TabIndex = 1;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.button1);
-			this.panel1.Controls.Add(this.dateTimePicker1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(617, 32);
-			this.panel1.TabIndex = 2;
-			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.CustomFormat = "ddMMMMyyyy";
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker1.Location = new System.Drawing.Point(12, 5);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(146, 20);
-			this.dateTimePicker1.TabIndex = 0;
-			this.dateTimePicker1.Value = new System.DateTime(2018, 4, 27, 14, 20, 32, 0);
-			this.dateTimePicker1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyUp);
-			// 
-			// contextMenuStrip1
-			// 
-			this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copiarToolStripMenuItem});
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
-			// 
-			// button1
-			// 
-			this.button1.Image = global::ContabilidadIntelisisRep_AddIn.Properties.Resources.odbs_database;
-			this.button1.Location = new System.Drawing.Point(164, 5);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(64, 24);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "Llenar";
-			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// dataGridViewTextBoxColumn7
 			// 
@@ -411,18 +371,69 @@
 			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
 			this.dataGridViewTextBoxColumn6.ReadOnly = true;
 			// 
-			// integracionSaldosBindingSource
+			// contextMenuStrip1
 			// 
-			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
+			this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copiarToolStripMenuItem});
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(152, 26);
 			// 
 			// copiarToolStripMenuItem
 			// 
 			this.copiarToolStripMenuItem.Image = global::ContabilidadIntelisisRep_AddIn.Properties.Resources.page_copy;
 			this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
 			this.copiarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.copiarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.copiarToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.copiarToolStripMenuItem.Text = "Copiar";
 			this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
+			// 
+			// integracionSaldosBindingSource
+			// 
+			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.TipoBusqueda_cmb);
+			this.panel1.Controls.Add(this.button1);
+			this.panel1.Controls.Add(this.dateTimePicker1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(617, 32);
+			this.panel1.TabIndex = 2;
+			// 
+			// button1
+			// 
+			this.button1.Image = global::ContabilidadIntelisisRep_AddIn.Properties.Resources.odbs_database;
+			this.button1.Location = new System.Drawing.Point(353, 5);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(64, 24);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "Llenar";
+			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.CustomFormat = "ddMMMMyyyy";
+			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker1.Location = new System.Drawing.Point(12, 5);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(146, 20);
+			this.dateTimePicker1.TabIndex = 0;
+			this.dateTimePicker1.Value = new System.DateTime(2018, 4, 27, 14, 20, 32, 0);
+			this.dateTimePicker1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyUp);
+			// 
+			// TipoBusqueda_cmb
+			// 
+			this.TipoBusqueda_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.TipoBusqueda_cmb.FormattingEnabled = true;
+			this.TipoBusqueda_cmb.Location = new System.Drawing.Point(164, 5);
+			this.TipoBusqueda_cmb.Name = "TipoBusqueda_cmb";
+			this.TipoBusqueda_cmb.Size = new System.Drawing.Size(171, 21);
+			this.TipoBusqueda_cmb.TabIndex = 2;
 			// 
 			// frmIntegracionSaldos
 			// 
@@ -437,9 +448,9 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "frmIntegracionSaldos";
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).EndInit();
-			this.panel1.ResumeLayout(false);
 			this.contextMenuStrip1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).EndInit();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -481,5 +492,6 @@
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
+		private System.Windows.Forms.ComboBox TipoBusqueda_cmb;
 	}
 }

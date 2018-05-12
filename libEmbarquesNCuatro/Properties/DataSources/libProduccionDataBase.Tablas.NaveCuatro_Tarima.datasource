@@ -21,9 +21,6 @@
             </PropertyUISettings>
          </TypeUISetting>
       </GenericObjectDataSource>
-      <GenericObjectDataSource DisplayName="Items" Version="1.0">
-         <TypeInfo>libProduccionDataBase.Tablas.NaveCuatro_TarimaItem, libProduccionDataBase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
-      </GenericObjectDataSource>
    </Children>
    <TypeInfo>libProduccionDataBase.Tablas.NaveCuatro_Tarima, libProduccionDataBase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>
@@ -31,7 +28,7 @@
          <PropertyUISetting Name="Usuario">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-                  <BindableControlInfo Name="[Ninguno]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                  <BindableControlInfo Name="KryptonLabel" Type="ComponentFactory.Krypton.Toolkit.KryptonLabel" AssemblyName="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" AssemblyCodeBase="file:///C:/Users/HSALINAS.PC-HSALINAS/Downloads/Krypton-master/Krypton-master/build/bin/Debug/ComponentFactory.Krypton.Toolkit.dll" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.6.2;.NETFramework,Version=v4.7" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
@@ -52,7 +49,7 @@
          <PropertyUISetting Name="FechaExtrusion">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-                  <BindableControlInfo Name="DateTimePicker" Type="System.Windows.Forms.DateTimePicker" AssemblyName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+                  <BindableControlInfo Name="KryptonDateTimePicker" Type="ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker" AssemblyName="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" AssemblyCodeBase="file:///C:/Users/HSALINAS.PC-HSALINAS/Downloads/Krypton-master/Krypton-master/build/bin/Debug/ComponentFactory.Krypton.Toolkit.dll" Frameworks=".NETFramework,Version=v2.0;.NETFramework,Version=v3.0;.NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.6.2;.NETFramework,Version=v4.7" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>

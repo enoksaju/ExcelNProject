@@ -107,9 +107,9 @@
     <Compile Include="Migrations\201803201835289_addsETcORRECTvALUEfECHA.Designer.cs">
       <DependentUpon>201803201835289_addsETcORRECTvALUEfECHA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804162113394_addTarima.cs" />
-    <Compile Include="Migrations\201804162113394_addTarima.Designer.cs">
-      <DependentUpon>201804162113394_addTarima.cs</DependentUpon>
+    <Compile Include="Migrations\201805081532196_addEmbarquesNave4Control.cs" />
+    <Compile Include="Migrations\201805081532196_addEmbarquesNave4Control.Designer.cs">
+      <DependentUpon>201805081532196_addEmbarquesNave4Control.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -159,8 +159,8 @@
     <EmbeddedResource Include="Migrations\201803201835289_addsETcORRECTvALUEfECHA.resx">
       <DependentUpon>201803201835289_addsETcORRECTvALUEfECHA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804162113394_addTarima.resx">
-      <DependentUpon>201804162113394_addTarima.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805081532196_addEmbarquesNave4Control.resx">
+      <DependentUpon>201805081532196_addEmbarquesNave4Control.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
