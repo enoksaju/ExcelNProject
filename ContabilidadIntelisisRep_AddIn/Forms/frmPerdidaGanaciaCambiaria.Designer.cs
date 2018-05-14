@@ -33,6 +33,8 @@
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.TipoAnticipo_cmb = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.perdidaGananciaCambiariaDataGridView = new System.Windows.Forms.DataGridView();
@@ -56,8 +58,8 @@
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.perdidaGananciaCambiariaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.TipoAnticipo_cmb = new System.Windows.Forms.ComboBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.empresa_cmb = new System.Windows.Forms.ComboBox();
+			this.label5 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.perdidaGananciaCambiariaDataGridView)).BeginInit();
@@ -121,6 +123,8 @@
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
+			this.panel1.Controls.Add(this.label5);
+			this.panel1.Controls.Add(this.empresa_cmb);
 			this.panel1.Controls.Add(this.TipoAnticipo_cmb);
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.comboBox1);
@@ -136,6 +140,24 @@
 			this.panel1.Size = new System.Drawing.Size(761, 73);
 			this.panel1.TabIndex = 0;
 			this.panel1.Validating += new System.ComponentModel.CancelEventHandler(this.panel1_Validating);
+			// 
+			// TipoAnticipo_cmb
+			// 
+			this.TipoAnticipo_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.TipoAnticipo_cmb.FormattingEnabled = true;
+			this.TipoAnticipo_cmb.Location = new System.Drawing.Point(285, 38);
+			this.TipoAnticipo_cmb.Name = "TipoAnticipo_cmb";
+			this.TipoAnticipo_cmb.Size = new System.Drawing.Size(171, 21);
+			this.TipoAnticipo_cmb.TabIndex = 8;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(248, 41);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(31, 13);
+			this.label4.TabIndex = 7;
+			this.label4.Text = "Tipo:";
 			// 
 			// comboBox1
 			// 
@@ -329,23 +351,23 @@
 			// 
 			this.perdidaGananciaCambiariaBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.perdidaGananciaCambiaria);
 			// 
-			// TipoAnticipo_cmb
+			// empresa_cmb
 			// 
-			this.TipoAnticipo_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.TipoAnticipo_cmb.FormattingEnabled = true;
-			this.TipoAnticipo_cmb.Location = new System.Drawing.Point(285, 38);
-			this.TipoAnticipo_cmb.Name = "TipoAnticipo_cmb";
-			this.TipoAnticipo_cmb.Size = new System.Drawing.Size(171, 21);
-			this.TipoAnticipo_cmb.TabIndex = 8;
+			this.empresa_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.empresa_cmb.FormattingEnabled = true;
+			this.empresa_cmb.Location = new System.Drawing.Point(517, 11);
+			this.empresa_cmb.Name = "empresa_cmb";
+			this.empresa_cmb.Size = new System.Drawing.Size(155, 21);
+			this.empresa_cmb.TabIndex = 9;
 			// 
-			// label4
+			// label5
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(248, 41);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(31, 13);
-			this.label4.TabIndex = 7;
-			this.label4.Text = "Tipo:";
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(462, 15);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(51, 13);
+			this.label5.TabIndex = 10;
+			this.label5.Text = "Empresa:";
 			// 
 			// frmPerdidaGanaciaCambiaria
 			// 
@@ -401,5 +423,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox TipoAnticipo_cmb;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ComboBox empresa_cmb;
 	}
 }

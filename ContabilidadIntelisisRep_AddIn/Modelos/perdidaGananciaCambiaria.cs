@@ -13,7 +13,7 @@ namespace ContabilidadIntelisisRep_AddIn.Modelos {
 From Auxiliar aux Join MovTipo mt On aux.Aplica=mt.Mov And mt.Modulo='CXC' Join Cxc On aux.Empresa=Cxc.Empresa And aux.Sucursal=Cxc.Sucursal And aux.Aplica=Cxc.Mov And aux.AplicaId=Cxc.MovId And Cxc.Estatus in ('CONCLUIDO','PENDIENTE') Join Cte On Cxc.Cliente=Cte.Cliente 
 Where aux.Rama='CXC' And mt.Clave in ('CXC.F','CXC.NC','CXC.A', 'CXC.FA','CXC.CAP') And mt.Mov<>'Retencion' 
 And aux.Fecha<=@Fecha and Aux.Moneda=@Moneda
-and ((@Tipo='Todos') or (@Tipo= 'Anticipos' and Cxc.Mov in ('Anticipo','Anticipo Electronico','Anticipo CFDi' )) or (@Tipo= 'SinAnticipos' and Cxc.Mov not in ('Anticipo','Anticipo Electronico','Anticipo CFDi' )))
+and ((@Tipo='Todos') or (@Tipo= 'Anticipos' and Cxc.Mov in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )) or (@Tipo= 'SinAnticipos' and Cxc.Mov not in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )))
 
 Group by Cxc.Cliente,Cte.Nombre,Cte.Cuenta,Cte.Tipo,Cte.Grupo,Cte.Familia,Cte.Categoria,Cxc.Mov,Cxc.MovId,Cxc.FechaEmision,Cxc.Vencimiento,Aux.Moneda,Cxc.ClienteTipoCambio
 Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01) 
@@ -52,11 +52,14 @@ Order by mt.Clave, Aux.Moneda,1,Prov.Categoria,Prov.Nombre,Cxp.FechaEmision,Cxp.
 		public double Diferencia { get { return SaldoPesosTCSAT - SaldoPesos; } }
 
 
-		public static async Task<List<perdidaGananciaCambiaria>> getCxcAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo ) {
+		public static async Task<List<perdidaGananciaCambiaria>> getCxcAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo , Empresas Empresa) {
 
 
 			try {
 				using ( var DB = new Context.dataBaseContext ( ) ) {
+					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder ( DB.Database.Connection.ConnectionString );
+					y.Database = Empresa.ToString ( );
+					DB.Database.Connection.ConnectionString = y.ConnectionString;
 					DB.Database.CommandTimeout = 240;
 					return await DB.Database.SqlQuery<perdidaGananciaCambiaria> ( SqlCxc , new SqlParameter ( "@Fecha" , Fecha ) , new SqlParameter ( "@TipoCambioSat" , TipoCambio ) , new SqlParameter ( "@Moneda" , Moneda ) , new SqlParameter ( "@Tipo" , Tipo.ToString ( ) ) ).ToListAsync ( );
 				}
@@ -68,9 +71,12 @@ Order by mt.Clave, Aux.Moneda,1,Prov.Categoria,Prov.Nombre,Cxp.FechaEmision,Cxp.
 
 
 		}
-		public static async Task<List<perdidaGananciaCambiaria>> getCxpAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo ) {
+		public static async Task<List<perdidaGananciaCambiaria>> getCxpAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo, Empresas Empresa ) {
 			try {
 				using ( var DB = new Context.dataBaseContext ( ) ) {
+					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder ( DB.Database.Connection.ConnectionString );
+					y.Database = Empresa.ToString ( );
+					DB.Database.Connection.ConnectionString = y.ConnectionString;
 					DB.Database.CommandTimeout = 240;
 					return await DB.Database.SqlQuery<perdidaGananciaCambiaria> ( SqlCxp , new SqlParameter ( "@Fecha" , Fecha ) , new SqlParameter ( "@TipoCambioSat" , TipoCambio ) , new SqlParameter ( "@Moneda" , Moneda ) , new SqlParameter ( "@Tipo" , Tipo.ToString ( ) ) ).ToListAsync ( );
 				}

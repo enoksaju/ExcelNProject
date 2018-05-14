@@ -19,11 +19,13 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )}";
 
 			this.TipoAnticipo_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Tipos ) );
+			this.empresa_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Empresas ) );
+			this.empresa_cmb.SelectedItem = Modelos.Empresas.ExcelNobleza;
 
 		}
 		private async void frmPerdidaGanaciaCambiaria_Load ( object sender , EventArgs e ) {
-			using (var db= new Context.dataBaseContext ( ) ) {
-				var list= await db.Database.SqlQuery<string> ( @"SELECT [Moneda] FROM [ExcelNobleza].[dbo].[Mon] order by [Orden]" ).ToListAsync();
+			using ( var db = new Context.dataBaseContext ( ) ) {
+				var list = await db.Database.SqlQuery<string> ( @"SELECT [Moneda] FROM [ExcelNobleza].[dbo].[Mon] order by [Orden]" ).ToListAsync ( );
 				comboBox1.DataSource = list;
 				comboBox1.SelectedIndex = 1;
 			}
@@ -42,31 +44,31 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 		private async void button1_Click ( object sender , EventArgs e ) {
 			try {
 				if ( this.ValidateChildren ( ValidationConstraints.Enabled | ValidationConstraints.ImmediateChildren ) ) {
-					this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )} [{dateTimePicker1.Value.ToString ( "dd/MM/yyyy" )}] [{(( string ) comboBox1.SelectedValue).Trim()}] - Cargando...";
+					this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )} [{dateTimePicker1.Value.ToString ( "dd/MM/yyyy" )}] [{( ( string ) comboBox1.SelectedValue ).Trim ( )}] [{ empresa_cmb .SelectedValue }] - Cargando...";
 					dateTimePicker1.Enabled = false;
 					textBox1.Enabled = false;
 					button1.Enabled = false;
-					setValueList ( Tipo == Tipos.cxc ? await Modelos.perdidaGananciaCambiaria.getCxcAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) ,( string )comboBox1.SelectedValue, ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem ) : await Modelos.perdidaGananciaCambiaria.getCxpAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ), (string)comboBox1.SelectedValue , (Modelos .Tipos ) TipoAnticipo_cmb .SelectedItem ) );
+					setValueList ( Tipo == Tipos.cxc ? await Modelos.perdidaGananciaCambiaria.getCxcAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) , ( string ) comboBox1.SelectedValue , ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem , ( Modelos.Empresas ) empresa_cmb.SelectedItem ) : await Modelos.perdidaGananciaCambiaria.getCxpAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) , ( string ) comboBox1.SelectedValue , ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem , ( Modelos.Empresas ) empresa_cmb.SelectedItem ) );
 					return;
 				}
-				throw new Exception ( errorProvider1.GetError ( textBox1 ) );			
-			} catch ( Exception ex) {
-				MessageBox.Show ( this , ex.Message  , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error );
-			}			
+				throw new Exception ( errorProvider1.GetError ( textBox1 ) );
+			} catch ( Exception ex ) {
+				MessageBox.Show ( this , ex.Message , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error );
+			}
 		}
 
-		private void setValueList(List<Modelos.perdidaGananciaCambiaria> value ) {
+		private void setValueList ( List<Modelos.perdidaGananciaCambiaria> value ) {
 
-			if(perdidaGananciaCambiariaDataGridView .InvokeRequired ) {
+			if ( perdidaGananciaCambiariaDataGridView.InvokeRequired ) {
 				perdidaGananciaCambiariaDataGridView.Invoke ( new Action<List<Modelos.perdidaGananciaCambiaria>> ( setValueList ) , value );
 				return;
 			}
 			perdidaGananciaCambiariaBindingSource.DataSource = value;
-			this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )} [{dateTimePicker1.Value.ToString ( "dd/MM/yyyy" )}] [{( ( string ) comboBox1.SelectedValue ).Trim ( )}]";
+			this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )} [{dateTimePicker1.Value.ToString ( "dd/MM/yyyy" )}] [{( ( string ) comboBox1.SelectedValue ).Trim ( )}] [{ empresa_cmb.SelectedValue }]";
 			dateTimePicker1.Enabled = true;
 			textBox1.Enabled = true;
 			button1.Enabled = true;
-		}		
+		}
 
 		private void Control_KeyUp ( object sender , KeyEventArgs e ) {
 			if ( e.KeyCode == Keys.Enter ) {
@@ -74,6 +76,6 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			}
 		}
 
-		
+
 	}
 }

@@ -18,6 +18,10 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }";// this.dt == Datos.cxc ? $"Integracion de saldos Cxc[{}]": $"Integracion de saldos Cxp[{}]";
 
 			this.TipoBusqueda_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Tipos ) );
+			this.Empresa_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Empresas ) );
+
+			this.Empresa_cmb.SelectedItem = Modelos.Empresas.ExcelNobleza;
+
 			this.dateTimePicker1.Value = DateTime.Now.Date;
 
 
@@ -29,10 +33,10 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 		}
 
 		private async void button1_Click ( object sender , EventArgs e ) {
-			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }[{ String.Format ( "{0:dd/MM/yyyy}" , dateTimePicker1.Value ) }] - Cargando...";
+			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }[{ String.Format ( "{0:dd/MM/yyyy}" , dateTimePicker1.Value ) }] [{((Modelos .Empresas )this.Empresa_cmb .SelectedItem ).ToString ()}] - Cargando...";
 			this.dateTimePicker1.Enabled = false;
 			this.button1.Enabled = false;
-			SetValue ( this.dt == Datos.cxc ? await Modelos.IntegracionSaldos.getCxcAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem ) : await Modelos.IntegracionSaldos.getCxpAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem ) );
+			SetValue ( this.dt == Datos.cxc ? await Modelos.IntegracionSaldos.getCxcAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem , ( Modelos.Empresas ) Empresa_cmb.SelectedItem ) : await Modelos.IntegracionSaldos.getCxpAsync ( dateTimePicker1.Value , ( Modelos.Tipos ) TipoBusqueda_cmb.SelectedItem , ( Modelos.Empresas ) Empresa_cmb.SelectedItem ) );
 		}
 
 		private void SetValue ( List<Modelos.IntegracionSaldos> value ) {
@@ -41,7 +45,7 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 				return;
 			}
 			this.integracionSaldosBindingSource.DataSource = value;
-			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }[{String.Format ( "{0:dd/MM/yyyy}" , dateTimePicker1.Value )}]";
+			this.Text = $"Integración de saldos { ( this.dt == Datos.cxc ? "Cxc" : "Cxp" ) }[{String.Format ( "{0:dd/MM/yyyy}" , dateTimePicker1.Value )}] [{( ( Modelos.Empresas ) this.Empresa_cmb.SelectedItem ).ToString ( )}]";
 			this.dateTimePicker1.Enabled = true;
 			this.button1.Enabled = true;
 		}
@@ -61,7 +65,7 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 		private void button2_Click ( object sender , EventArgs e ) {
 			if ( textBox1.Text.Trim ( ) != "" ) {
 				var y = ( ( List<Modelos.IntegracionSaldos> ) this.integracionSaldosBindingSource.DataSource )
-					.FirstOrDefault ( o => o.MovId.Contains( textBox1.Text.Trim ( ) ));
+					.FirstOrDefault ( o => o.MovId.Contains ( textBox1.Text.Trim ( ) ) );
 				if ( y != null ) {
 					this.integracionSaldosBindingSource.Position = ( ( List<Modelos.IntegracionSaldos> ) this.integracionSaldosBindingSource.DataSource ).IndexOf ( y );
 				}
