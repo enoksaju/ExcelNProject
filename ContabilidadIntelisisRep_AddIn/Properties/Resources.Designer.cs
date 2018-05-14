@@ -93,6 +93,16 @@ namespace ContabilidadIntelisisRep_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap magnifier {
+            get {
+                object obj = ResourceManager.GetObject("magnifier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap odbs_database {
             get {
                 object obj = ResourceManager.GetObject("odbs_database", resourceCulture);

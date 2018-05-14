@@ -19,6 +19,13 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 
 			this.TipoBusqueda_cmb.DataSource = Enum.GetValues ( typeof ( Modelos.Tipos ) );
 			this.dateTimePicker1.Value = DateTime.Now.Date;
+
+
+			if ( dt == Datos.cxp ) {
+				PorcRetISR.Visible = true;
+				SaldoRetISR.Visible = true;
+				RetencionISR.Visible = true;
+			}
 		}
 
 		private async void button1_Click ( object sender , EventArgs e ) {
@@ -49,6 +56,16 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 			DataObject dt = integracionSaldosDataGridView.GetClipboardContent ( );
 			if ( dt != null )
 				Clipboard.SetDataObject ( dt );
+		}
+
+		private void button2_Click ( object sender , EventArgs e ) {
+			if ( textBox1.Text.Trim ( ) != "" ) {
+				var y = ( ( List<Modelos.IntegracionSaldos> ) this.integracionSaldosBindingSource.DataSource )
+					.FirstOrDefault ( o => o.MovId.Contains( textBox1.Text.Trim ( ) ));
+				if ( y != null ) {
+					this.integracionSaldosBindingSource.Position = ( ( List<Modelos.IntegracionSaldos> ) this.integracionSaldosBindingSource.DataSource ).IndexOf ( y );
+				}
+			}
 		}
 	}
 }

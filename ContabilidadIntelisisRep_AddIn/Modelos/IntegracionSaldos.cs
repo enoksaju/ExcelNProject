@@ -11,13 +11,22 @@ namespace ContabilidadIntelisisRep_AddIn.Modelos {
 	public enum Tipos { Todos, Anticipos, SinAnticipos }
 
 	public class IntegracionSaldos {
-		public static string SqlCxp = @"Select Clase=Case When mt.Clave='CXP.A' Then 'Anticipos' Else 'Proveedores/Acreedores' End,Clave=Cxp.Proveedor,Nombre=Prov.Nombre,Categoria=Prov.Categoria,Grupo='cxp',Familia=Prov.Familia,Cuenta=Prov.Cuenta,Tipo=Prov.Tipo,Mov=Cxp.Mov,MovId=Cxp.Movid,FechaEmision=Cxp.FechaEmision,Vencimiento=Cxp.Vencimiento,Importe= isnull(Avg(cxp.Importe),0),Impuestos= isnull(avg(cxp.Impuestos),0),Retencion= isnull(avg(cxp.Retencion),0),Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),Moneda=Aux.moneda,TipoCambio =Cxp.ProveedorTipoCambio,ImporteTotal=isnull(Avg(cxp.Importe),0)+ isnull(avg(cxp.Impuestos),0)-isnull(avg(cxp.Retencion),0)
+		public static string SqlCxp = @"Select Clase=Case When mt.Clave='CXP.A' Then 'Anticipos' Else 'Proveedores/Acreedores' End,Clave=Cxp.Proveedor,Nombre=Prov.Nombre,Categoria=Prov.Categoria,Grupo='cxp',
+Familia=Prov.Familia,Cuenta=Prov.Cuenta,Tipo=Prov.Tipo,Mov=Cxp.Mov,MovId=Cxp.Movid,FechaEmision=Cxp.FechaEmision,Vencimiento=Cxp.Vencimiento,
+Importe= isnull(Avg(cxp.Importe),0),Impuestos= isnull(avg(cxp.Impuestos),0),
+
+Retencion= isnull(avg(cxp.Retencion2),0),
+RetencionISR= isnull(avg( cxp.Retencion),0),
+
+Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),
+Moneda=Aux.moneda,TipoCambio =Cxp.ProveedorTipoCambio,ImporteTotal=isnull(Avg(cxp.Importe),0)+ isnull(avg(cxp.Impuestos),0)-isnull(avg(cxp.Retencion),0)
+
 From Auxiliar aux Join MovTipo mt On aux.Aplica=mt.Mov And mt.Modulo='CXP' Join Cxp On Aux.Empresa=Cxp.Empresa And Cxp.Sucursal=aux.Sucursal And Cxp.Mov=aux.Aplica And Cxp.MovId=aux.AplicaId And Cxp.Estatus in ('CONCLUIDO','PENDIENTE') Join Prov On Cxp.Proveedor=Prov.Proveedor 
 Where aux.Rama='CXP' And mt.Clave in ('CXP.F','CXP.NC','CXP.A','CXP.CAP','CXP.AJM','CXP.AJR','CXP.RA','CXP.FAC','CXP.DC') And mt.Mov<>'Retencion'
 And Aux.Fecha<=@Fecha and ((@Tipo='Todos' ) or (@Tipo= 'Anticipos' and CxP.Mov='Anticipo') or (@Tipo= 'SinAnticipos' and CxP.Mov<>'Anticipo'))
 
 Group by Cxp.Proveedor,Prov.Nombre,Prov.Categoria,Prov.Familia,Prov.Tipo,mt.Clave,Cxp.Mov,Cxp.MovId,Cxp.FechaEmision,Cxp.Vencimiento,Aux.Moneda,Cxp.ProveedorTipoCambio, Prov.Cuenta 
-Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01) 
+Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01)
 Order by Aux.Moneda,1,Prov.Categoria,Prov.Familia,Prov.Nombre,Cxp.FechaEmision,Cxp.Mov,Cxp.MovId";
 
 		public static string SqlCxc = @"Select Clase='N/A',Clave=Cxc.Cliente,Nombre=Cte.Nombre,Categoria=Cte.Categoria,Grupo=Cte.Grupo,Familia=Cte.Familia,Cuenta=Cte.Cuenta,Tipo=Cte.Tipo,Mov=Cxc.Mov,MovId=Cxc.Movid,FechaEmision=Cxc.FechaEmision,Vencimiento=Cxc.Vencimiento,Importe= isnull(Avg(cxc.Importe),0),Impuestos= isnull(avg(cxc.Impuestos),0),Retencion= isnull(avg(cxc.Retencion),0),Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),Moneda=Aux.moneda,TipoCambio=Cxc.ClienteTipoCambio
@@ -44,6 +53,7 @@ Order by Aux.Moneda,Cte.Categoria,Cte.Grupo,Cte.Familia,Cte.Nombre,Cxc.FechaEmis
 		public decimal Importe { get; set; }
 		public decimal Impuestos { get; set; }
 		public decimal Retencion { get; set; }
+		public decimal? RetencionISR { get; set; } = 0;
 		public decimal Saldo { get; set; }
 		public string Moneda { get; set; }
 		public double TipoCambio { get; set; }
@@ -51,16 +61,18 @@ Order by Aux.Moneda,Cte.Categoria,Cte.Grupo,Cte.Familia,Cte.Nombre,Cxc.FechaEmis
 
 		#region ReadonlyProperties
 
-		public decimal ImporteTotal { get { return Importe + Impuestos - Retencion; } }
+		public decimal ImporteTotal => Importe + Impuestos - Retencion -  RetencionISR.Value ;
 		public decimal PorcIva { get { return Importe == 0 ? 0 : Impuestos / Importe; } }
 		public decimal PorcRetIva { get { return Importe == 0 ? 0 : Retencion / Importe; } }
-		public decimal PorcImporte { get { return 1 + PorcIva - PorcRetIva; } }
+		public decimal PorcRetISR { get { return Importe == 0 || RetencionISR == null ? 0 : RetencionISR.Value / Importe; } }
+		public decimal PorcImporte { get { return 1 + PorcIva - PorcRetIva - PorcRetISR; } }
 
 		public decimal SaldoEnPesos { get { return ( decimal ) TipoCambio * Saldo; } }
 		public decimal SaldoSubTotal { get { return SaldoEnPesos / PorcImporte; } }
 		public decimal SaldoIva { get { return SaldoSubTotal * PorcIva; } }
-		public decimal SaldoRetIva { get { return SaldoSubTotal * PorcRetIva; } }
-		public decimal SaldoTotal { get { return SaldoSubTotal + SaldoIva + SaldoRetIva; } }
+		public decimal SaldoRetIva { get { return SaldoSubTotal * PorcRetIva * -1; } }
+		public decimal SaldoRetISR { get { return SaldoSubTotal * PorcRetISR * -1; } }
+		public decimal SaldoTotal { get { return SaldoSubTotal + SaldoIva + SaldoRetIva + SaldoRetISR; } }
 		public decimal SaldoDiferencia { get { return SaldoEnPesos - SaldoTotal; } }
 
 		#endregion
