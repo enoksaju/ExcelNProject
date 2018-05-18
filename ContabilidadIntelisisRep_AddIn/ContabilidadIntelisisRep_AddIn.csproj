@@ -34,7 +34,7 @@
     <PublishUrl>T:\Henoc\Contabilidad\</PublishUrl>
     <InstallUrl />
     <TargetCulture>es</TargetCulture>
-    <ApplicationVersion>1.0.0.9</ApplicationVersion>
+    <ApplicationVersion>1.0.0.15</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -211,6 +211,13 @@
     <Compile Include="Forms\frmPerdidaGanaciaCambiaria.Designer.cs">
       <DependentUpon>frmPerdidaGanaciaCambiaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSelectorCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSelectorCuentas.Designer.cs">
+      <DependentUpon>frmSelectorCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Cuentas.cs" />
     <Compile Include="Modelos\perdidaGananciaCambiaria.cs" />
     <Compile Include="Modelos\spVerContBalanza.cs" />
     <Compile Include="Modelos\IntegracionSaldos.cs" />
@@ -232,6 +239,9 @@
     <EmbeddedResource Include="Forms\frmPerdidaGanaciaCambiaria.resx">
       <DependentUpon>frmPerdidaGanaciaCambiaria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSelectorCuentas.resx">
+      <DependentUpon>frmSelectorCuentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -246,6 +256,7 @@
     <None Include="ContabilidadIntelisisRep_AddIn_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Forms.frmContResultados+ConfigContBalanza.datasource" />
+    <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Modelos.Cuentas.datasource" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos.datasource" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Modelos.perdidaGananciaCambiaria.datasource" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Modelos.spVerContBalanza.datasource" />

@@ -44,12 +44,14 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 		private async void button1_Click ( object sender , EventArgs e ) {
 			try {
 				if ( this.ValidateChildren ( ValidationConstraints.Enabled | ValidationConstraints.ImmediateChildren ) ) {
+
 					this.Text = $"Pérdida/Ganancia Cambiaria { ( Tipo == Tipos.cxc ? "Cxc" : "Cxp" )} [{dateTimePicker1.Value.ToString ( "dd/MM/yyyy" )}] [{( ( string ) comboBox1.SelectedValue ).Trim ( )}] [{ empresa_cmb .SelectedValue }] - Cargando...";
 					dateTimePicker1.Enabled = false;
 					textBox1.Enabled = false;
 					button1.Enabled = false;
 					setValueList ( Tipo == Tipos.cxc ? await Modelos.perdidaGananciaCambiaria.getCxcAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) , ( string ) comboBox1.SelectedValue , ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem , ( Modelos.Empresas ) empresa_cmb.SelectedItem ) : await Modelos.perdidaGananciaCambiaria.getCxpAsync ( dateTimePicker1.Value , double.Parse ( textBox1.Text ) , ( string ) comboBox1.SelectedValue , ( Modelos.Tipos ) TipoAnticipo_cmb.SelectedItem , ( Modelos.Empresas ) empresa_cmb.SelectedItem ) );
 					return;
+
 				}
 				throw new Exception ( errorProvider1.GetError ( textBox1 ) );
 			} catch ( Exception ex ) {

@@ -26,14 +26,14 @@
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.spVerContBalanza_ModDataGridView = new System.Windows.Forms.DataGridView();
+			this.Mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.statusMessage_lbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.spVerContBalanza_ModBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,11 +41,11 @@
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Familia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.spVerContBalanza_ModBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.spVerContBalanza_ModDataGridView)).BeginInit();
 			this.statusStrip1.SuspendLayout();
 			this.contextMenuStrip1.SuspendLayout();
@@ -87,6 +87,20 @@
 			this.spVerContBalanza_ModDataGridView.Size = new System.Drawing.Size(625, 426);
 			this.spVerContBalanza_ModDataGridView.TabIndex = 1;
 			// 
+			// Mes
+			// 
+			this.Mes.DataPropertyName = "Mes";
+			this.Mes.HeaderText = "Mes";
+			this.Mes.Name = "Mes";
+			this.Mes.ReadOnly = true;
+			// 
+			// Familia
+			// 
+			this.Familia.DataPropertyName = "Familia";
+			this.Familia.HeaderText = "Familia";
+			this.Familia.Name = "Familia";
+			this.Familia.ReadOnly = true;
+			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -127,23 +141,12 @@
 			this.copiarToolStripMenuItem.Text = "Copiar";
 			this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
 			// 
-			// spVerContBalanza_ModBindingSource
-			// 
-			this.spVerContBalanza_ModBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.spVerContBalanza_Mod);
-			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.DataPropertyName = "Periodo";
 			this.dataGridViewTextBoxColumn1.HeaderText = "Periodo";
 			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
 			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// Mes
-			// 
-			this.Mes.DataPropertyName = "Mes";
-			this.Mes.HeaderText = "Mes";
-			this.Mes.Name = "Mes";
-			this.Mes.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
@@ -194,13 +197,6 @@
 			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
 			this.dataGridViewTextBoxColumn8.ReadOnly = true;
 			// 
-			// Familia
-			// 
-			this.Familia.DataPropertyName = "Familia";
-			this.Familia.HeaderText = "Familia";
-			this.Familia.Name = "Familia";
-			this.Familia.ReadOnly = true;
-			// 
 			// dataGridViewTextBoxColumn9
 			// 
 			this.dataGridViewTextBoxColumn9.DataPropertyName = "Inicio";
@@ -229,6 +225,10 @@
 			this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
 			this.dataGridViewTextBoxColumn12.ReadOnly = true;
 			// 
+			// spVerContBalanza_ModBindingSource
+			// 
+			this.spVerContBalanza_ModBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.spVerContBalanza_Mod);
+			// 
 			// frmContResultados
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,7 +237,8 @@
 			this.Controls.Add(this.spVerContBalanza_ModDataGridView);
 			this.Controls.Add(this.statusStrip1);
 			this.Name = "frmContResultados";
-			this.Text = "frmContResultados";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Balanza Comprobación";
 			this.Load += new System.EventHandler(this.frmContResultados_Load);
 			((System.ComponentModel.ISupportInitialize)(this.spVerContBalanza_ModDataGridView)).EndInit();
 			this.statusStrip1.ResumeLayout(false);

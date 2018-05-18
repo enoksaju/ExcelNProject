@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
@@ -12,26 +14,26 @@ namespace ContabilidadIntelisisRep_AddIn {
 
 		private void button1_Click ( object sender , RibbonControlEventArgs e ) {
 
-			using (var frmConfig= new Forms .frmConfigBalanzaComp() ) {
+			using ( var frmConfig = new Forms.frmConfigBalanzaComp ( ) ) {
 				if ( frmConfig.ShowDialog ( ) != System.Windows.Forms.DialogResult.OK )
 					return;
 
-				var frm = new Forms.frmContResultados (frmConfig.response );
-				frm.Show ( );
+				var frm = new Forms.frmContResultados ( frmConfig.response );
+				frm.Show ();
 			}
-				
+
 		}
 
 		private void IntegracionSaldosCxc_btn_Click ( object sender , RibbonControlEventArgs e ) {
-			 new Forms.frmIntegracionSaldos ( Forms.frmIntegracionSaldos.Datos.cxc ).Show();
+			new Forms.frmIntegracionSaldos ( Forms.frmIntegracionSaldos.Datos.cxc ).Show ( );
 		}
 
 		private void button2_Click ( object sender , RibbonControlEventArgs e ) {
-			new Forms.frmIntegracionSaldos ( Forms.frmIntegracionSaldos.Datos.cxp).Show ( );
+			new Forms.frmIntegracionSaldos ( Forms.frmIntegracionSaldos.Datos.cxp ).Show ( );
 		}
 
 		private void button3_Click ( object sender , RibbonControlEventArgs e ) {
-			new Forms.frmPerdidaGanaciaCambiaria (  Forms.frmPerdidaGanaciaCambiaria.Tipos.cxc).Show();
+			new Forms.frmPerdidaGanaciaCambiaria ( Forms.frmPerdidaGanaciaCambiaria.Tipos.cxc ).Show ( );
 		}
 
 		private void button4_Click ( object sender , RibbonControlEventArgs e ) {

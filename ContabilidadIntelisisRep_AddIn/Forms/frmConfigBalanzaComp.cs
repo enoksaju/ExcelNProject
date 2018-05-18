@@ -32,5 +32,23 @@ namespace ContabilidadIntelisisRep_AddIn.Forms {
 
 			}
 		}
+
+		private void button3_Click ( object sender , EventArgs e ) {
+			using (var frm = new Forms .frmSelectorCuentas ( ) ) {
+				if(frm.ShowDialog() ==  DialogResult.OK ) {
+					(( frmContResultados.ConfigContBalanza ) frmContResultados_ConfigContBalanzaBindingSource.Current).CuentaD = frm.response;
+					this.frmContResultados_ConfigContBalanzaBindingSource.ResetCurrentItem ( );
+				}
+			}
+		}
+
+		private void button4_Click ( object sender , EventArgs e ) {
+			using ( var frm = new Forms.frmSelectorCuentas ( ) ) {
+				if ( frm.ShowDialog ( ) == DialogResult.OK ) {
+					( ( frmContResultados.ConfigContBalanza ) frmContResultados_ConfigContBalanzaBindingSource.Current ).CuentaA = frm.response;
+					this.frmContResultados_ConfigContBalanzaBindingSource.ResetCurrentItem ( );
+				}
+			}
+		}
 	}
 }

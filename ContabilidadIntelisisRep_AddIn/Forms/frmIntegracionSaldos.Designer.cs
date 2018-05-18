@@ -25,45 +25,45 @@
 		private void InitializeComponent ( ) {
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIntegracionSaldos));
 			this.integracionSaldosDataGridView = new System.Windows.Forms.DataGridView();
-			this.SaldoRetISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.RetencionISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.PorcRetISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label2 = new System.Windows.Forms.Label();
+			this.Empresa_cmb = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.TipoBusqueda_cmb = new System.Windows.Forms.ComboBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.Empresa_cmb = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
 			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,22 +75,22 @@
 			this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.SaldoRetISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RetencionISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.PorcRetISR = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).BeginInit();
 			this.contextMenuStrip1.SuspendLayout();
-			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// integracionSaldosDataGridView
@@ -110,6 +110,8 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
@@ -132,9 +134,7 @@
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21,
             this.PorcRetISR,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn22});
 			this.integracionSaldosDataGridView.ContextMenuStrip = this.contextMenuStrip1;
 			this.integracionSaldosDataGridView.DataSource = this.integracionSaldosBindingSource;
 			this.integracionSaldosDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -146,39 +146,6 @@
 			this.integracionSaldosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.integracionSaldosDataGridView.Size = new System.Drawing.Size(893, 433);
 			this.integracionSaldosDataGridView.TabIndex = 1;
-			// 
-			// SaldoRetISR
-			// 
-			this.SaldoRetISR.DataPropertyName = "SaldoRetISR";
-			dataGridViewCellStyle7.Format = "C2";
-			dataGridViewCellStyle7.NullValue = "0";
-			this.SaldoRetISR.DefaultCellStyle = dataGridViewCellStyle7;
-			this.SaldoRetISR.HeaderText = "SaldoRetISR";
-			this.SaldoRetISR.Name = "SaldoRetISR";
-			this.SaldoRetISR.ReadOnly = true;
-			this.SaldoRetISR.Visible = false;
-			// 
-			// RetencionISR
-			// 
-			this.RetencionISR.DataPropertyName = "RetencionISR";
-			dataGridViewCellStyle13.Format = "C2";
-			dataGridViewCellStyle13.NullValue = "0";
-			this.RetencionISR.DefaultCellStyle = dataGridViewCellStyle13;
-			this.RetencionISR.HeaderText = "RetencionISR";
-			this.RetencionISR.Name = "RetencionISR";
-			this.RetencionISR.ReadOnly = true;
-			this.RetencionISR.Visible = false;
-			// 
-			// PorcRetISR
-			// 
-			this.PorcRetISR.DataPropertyName = "PorcRetISR";
-			dataGridViewCellStyle17.Format = "P2";
-			dataGridViewCellStyle17.NullValue = "0";
-			this.PorcRetISR.DefaultCellStyle = dataGridViewCellStyle17;
-			this.PorcRetISR.HeaderText = "PorcRetISR";
-			this.PorcRetISR.Name = "PorcRetISR";
-			this.PorcRetISR.ReadOnly = true;
-			this.PorcRetISR.Visible = false;
 			// 
 			// contextMenuStrip1
 			// 
@@ -197,6 +164,10 @@
 			this.copiarToolStripMenuItem.Text = "Copiar";
 			this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
 			// 
+			// integracionSaldosBindingSource
+			// 
+			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
+			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.label2);
@@ -212,6 +183,24 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(893, 32);
 			this.panel1.TabIndex = 2;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(351, 9);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(51, 13);
+			this.label2.TabIndex = 7;
+			this.label2.Text = "Empresa:";
+			// 
+			// Empresa_cmb
+			// 
+			this.Empresa_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.Empresa_cmb.FormattingEnabled = true;
+			this.Empresa_cmb.Location = new System.Drawing.Point(408, 5);
+			this.Empresa_cmb.Name = "Empresa_cmb";
+			this.Empresa_cmb.Size = new System.Drawing.Size(147, 21);
+			this.Empresa_cmb.TabIndex = 6;
 			// 
 			// label1
 			// 
@@ -276,24 +265,6 @@
 			this.dateTimePicker1.Value = new System.DateTime(2018, 4, 27, 14, 20, 32, 0);
 			this.dateTimePicker1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyUp);
 			// 
-			// Empresa_cmb
-			// 
-			this.Empresa_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.Empresa_cmb.FormattingEnabled = true;
-			this.Empresa_cmb.Location = new System.Drawing.Point(408, 5);
-			this.Empresa_cmb.Name = "Empresa_cmb";
-			this.Empresa_cmb.Size = new System.Drawing.Size(147, 21);
-			this.Empresa_cmb.TabIndex = 6;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(351, 9);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(51, 13);
-			this.label2.TabIndex = 7;
-			this.label2.Text = "Empresa:";
-			// 
 			// dataGridViewTextBoxColumn7
 			// 
 			this.dataGridViewTextBoxColumn7.DataPropertyName = "Cuenta";
@@ -335,6 +306,20 @@
 			this.dataGridViewTextBoxColumn5.HeaderText = "Grupo";
 			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
 			this.dataGridViewTextBoxColumn5.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this.dataGridViewTextBoxColumn1.DataPropertyName = "Clase";
+			this.dataGridViewTextBoxColumn1.HeaderText = "Clase";
+			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+			this.dataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this.dataGridViewTextBoxColumn6.DataPropertyName = "Familia";
+			this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
+			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+			this.dataGridViewTextBoxColumn6.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn9
 			// 
@@ -428,6 +413,17 @@
 			this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
 			this.dataGridViewTextBoxColumn26.ReadOnly = true;
 			// 
+			// SaldoRetISR
+			// 
+			this.SaldoRetISR.DataPropertyName = "SaldoRetISR";
+			dataGridViewCellStyle7.Format = "C2";
+			dataGridViewCellStyle7.NullValue = "0";
+			this.SaldoRetISR.DefaultCellStyle = dataGridViewCellStyle7;
+			this.SaldoRetISR.HeaderText = "SaldoRetISR";
+			this.SaldoRetISR.Name = "SaldoRetISR";
+			this.SaldoRetISR.ReadOnly = true;
+			this.SaldoRetISR.Visible = false;
+			// 
 			// dataGridViewTextBoxColumn27
 			// 
 			this.dataGridViewTextBoxColumn27.DataPropertyName = "SaldoTotal";
@@ -478,6 +474,17 @@
 			this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
 			this.dataGridViewTextBoxColumn15.ReadOnly = true;
 			// 
+			// RetencionISR
+			// 
+			this.RetencionISR.DataPropertyName = "RetencionISR";
+			dataGridViewCellStyle13.Format = "C2";
+			dataGridViewCellStyle13.NullValue = "0";
+			this.RetencionISR.DefaultCellStyle = dataGridViewCellStyle13;
+			this.RetencionISR.HeaderText = "RetencionISR";
+			this.RetencionISR.Name = "RetencionISR";
+			this.RetencionISR.ReadOnly = true;
+			this.RetencionISR.Visible = false;
+			// 
 			// dataGridViewTextBoxColumn19
 			// 
 			this.dataGridViewTextBoxColumn19.DataPropertyName = "ImporteTotal";
@@ -508,6 +515,17 @@
 			this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
 			this.dataGridViewTextBoxColumn21.ReadOnly = true;
 			// 
+			// PorcRetISR
+			// 
+			this.PorcRetISR.DataPropertyName = "PorcRetISR";
+			dataGridViewCellStyle17.Format = "P2";
+			dataGridViewCellStyle17.NullValue = "0";
+			this.PorcRetISR.DefaultCellStyle = dataGridViewCellStyle17;
+			this.PorcRetISR.HeaderText = "PorcRetISR";
+			this.PorcRetISR.Name = "PorcRetISR";
+			this.PorcRetISR.ReadOnly = true;
+			this.PorcRetISR.Visible = false;
+			// 
 			// dataGridViewTextBoxColumn22
 			// 
 			this.dataGridViewTextBoxColumn22.DataPropertyName = "PorcImporte";
@@ -517,24 +535,6 @@
 			this.dataGridViewTextBoxColumn22.HeaderText = "PorcImporte";
 			this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
 			this.dataGridViewTextBoxColumn22.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Clase";
-			this.dataGridViewTextBoxColumn1.HeaderText = "Clase";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "Familia";
-			this.dataGridViewTextBoxColumn6.HeaderText = "Familia";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.ReadOnly = true;
-			// 
-			// integracionSaldosBindingSource
-			// 
-			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
 			// 
 			// frmIntegracionSaldos
 			// 
@@ -550,9 +550,9 @@
 			this.Text = "frmIntegracionSaldos";
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).EndInit();
 			this.contextMenuStrip1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -569,12 +569,17 @@
 		private System.Windows.Forms.ComboBox TipoBusqueda_cmb;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ComboBox Empresa_cmb;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
@@ -598,10 +603,5 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
 		private System.Windows.Forms.DataGridViewTextBoxColumn PorcRetISR;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox Empresa_cmb;
 	}
 }
