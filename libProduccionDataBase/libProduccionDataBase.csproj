@@ -111,6 +111,11 @@
     <Compile Include="Migrations\201805081532196_addEmbarquesNave4Control.Designer.cs">
       <DependentUpon>201805081532196_addEmbarquesNave4Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805181608443_ControlTintas.cs" />
+    <Compile Include="Migrations\201805181608443_ControlTintas.Designer.cs">
+      <DependentUpon>201805181608443_ControlTintas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -161,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805081532196_addEmbarquesNave4Control.resx">
       <DependentUpon>201805081532196_addEmbarquesNave4Control.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181608443_ControlTintas.resx">
+      <DependentUpon>201805181608443_ControlTintas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿//#define DevelopDataBase
+﻿#define DevelopDataBase
 
 using System;
 using System.Collections.Generic;
@@ -42,6 +42,12 @@ namespace libProduccionDataBase.Contexto
 	
 		public DbSet<NaveCuatro_Tarima> NCuatro_Tarimas { get; set; }
 		public DbSet <NaveCuatro_TarimaItem > NCuatro_Tarima_Items { get; set; }
+
+
+
+		public DbSet <ArticuloTinta > ArticulosTintas { get; set; }
+		public DbSet <EntradaTinta > EntradasTintas { get; set; }
+		public DbSet <SalidaTinta > SalidasTintas { get; set; }
 
 		/// <summary>
 		/// Coleccion de etiquetas en formato zpl
