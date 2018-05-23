@@ -26,6 +26,7 @@ namespace libProduccionDataBase.Tablas {
 	public class TiposTinta {
 		public int Id { get; set; }
 		public string Nombre { get; set; }
+		public override string ToString ( ) => this.Nombre;
 	}
 
 	[Table ( "Tinta_Entradas" )]

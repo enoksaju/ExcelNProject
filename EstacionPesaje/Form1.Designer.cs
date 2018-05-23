@@ -141,6 +141,7 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
+			this.Ribbon.SelectedContext = null;
 			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(902, 115);
 			this.Ribbon.TabIndex = 0;
@@ -581,7 +582,7 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(694, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(761, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			this.toolStripStatusLabel1.Text = "Listo...";
 			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

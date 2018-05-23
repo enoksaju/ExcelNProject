@@ -82,9 +82,7 @@ namespace libProduccionDataBase.Tablas {
 			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
 		}
 
-		public override string ToString ( ) {
-			return this.OT;
-		}
+		public override string ToString ( ) => this.OT;
 	}
 
 	[Table ( "TEMPCAPT" )]
