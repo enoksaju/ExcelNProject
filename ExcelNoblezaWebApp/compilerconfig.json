@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "Content/customMaterial.css",
+    "inputFile": "Content/customMaterial.scss"
+  },
+  {
+    "outputFile": "app/homeApp/app/components/contacto.component.css",
+    "inputFile": "app/homeApp/app/components/contacto.component.scss"
+  },
+  {
+    "outputFile": "Content/darkmaterialtheme.css",
+    "inputFile": "Content/darkmaterialtheme.scss"
+  },
+  {
+    "outputFile": "app/homeApp/app/components/app.component.css",
+    "inputFile": "app/homeApp/app/components/app.component.scss"
+  }
+]

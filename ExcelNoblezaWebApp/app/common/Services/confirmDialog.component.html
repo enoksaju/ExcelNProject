@@ -1,0 +1,16 @@
+﻿<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <div mat-card-avatar style="height:50px;width:50px;">
+      <mat-icon style="font-size:50px;height:50px;width:50px;" color="accent">live_help</mat-icon>
+    </div>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <mat-card-subtitle>{{ message }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button type="button" mat-raised-button color="primary" tabindex="-1" (click)="dialogRef.close(true)">{{confirmText}}</button>
+    <div fxFlex></div>
+    <button type="button" mat-raised-button color="warn" (click)="dialogRef.close(false)">{{cancelText}}</button>
+  </mat-card-actions>
+</mat-card>
+
+

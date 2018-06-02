@@ -45,9 +45,11 @@ namespace libProduccionDataBase.Contexto
 
 
 
+		public DbSet <ProveedorTinta > ProveedoresTinta { get; set; }
 		public DbSet <ArticuloTinta > ArticulosTintas { get; set; }
 		public DbSet <EntradaTinta > EntradasTintas { get; set; }
 		public DbSet <SalidaTinta > SalidasTintas { get; set; }
+		public DbSet <TiposTinta > TiposTinta { get; set; }
 
 		/// <summary>
 		/// Coleccion de etiquetas en formato zpl

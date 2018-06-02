@@ -1,0 +1,15 @@
+﻿@using ExcelNoblezaWebApp.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+@Html.AntiForgeryToken()
+<input id="messageModel" hidden value="@ViewBag.Message" />
+<my-app>
+  <img src="~/Content/images/logopl.svg" class="image-app" />
+  <div class="loader"></div>
+</my-app>
+@section scripts{
+  <script>
+    System.import('../../../app/loginApp/main.js').catch(function (err) { console.error(err); });
+  </script>}

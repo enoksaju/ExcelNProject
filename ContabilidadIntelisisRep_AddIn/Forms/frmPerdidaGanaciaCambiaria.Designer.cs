@@ -51,6 +51,7 @@
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -214,6 +215,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
+            this.Concepto,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.Moneda,
@@ -305,6 +307,13 @@
 			this.dataGridViewTextBoxColumn9.HeaderText = "MovId";
 			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
 			this.dataGridViewTextBoxColumn9.ReadOnly = true;
+			// 
+			// Concepto
+			// 
+			this.Concepto.DataPropertyName = "Concepto";
+			this.Concepto.HeaderText = "Concepto";
+			this.Concepto.Name = "Concepto";
+			this.Concepto.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn10
 			// 
@@ -416,6 +425,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Moneda;

@@ -1,0 +1,8 @@
+﻿<main-app [Menus]="Menus" 
+          logoffPath="/Account/LogOff" 
+          loginPath="/Account/Login" 
+          [Token]="rvt" 
+          ImageUrl="../../../../Content/images/logobw.svg"
+          [Card]="!Router.isActive('/index')">
+  <router-outlet></router-outlet>
+</main-app>

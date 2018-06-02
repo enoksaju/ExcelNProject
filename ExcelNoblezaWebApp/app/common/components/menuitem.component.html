@@ -1,0 +1,40 @@
+﻿<h3 *ngIf="Menu.NombreGrupo" matSubheader style="background-color:rgba(0,0,0,0.05)">
+  <mat-icon *ngIf="Menu.Icon" style="margin: 0 10px 0 10px">{{Menu.Icon}}</mat-icon>
+  <span style="margin: 0 10px 0 10px">{{Menu.NombreGrupo}}</span>
+</h3>
+
+<ng-container *ngFor="let item of Menu.Items">
+  <a *ngIf="item.routerLink" matTooltip="{{item.Description}}" mat-list-item routerLink="{{item.routerLink}}" routerLinkActive="mat-active">
+    <mat-icon *ngIf="item.Icon" class="primary-dark-fg lg-icon" matListIcon>{{item.Icon}}</mat-icon>
+    <h3 matLine class="head">{{item.Label}}</h3>
+    <span matLine class="tx">{{item.Description}}</span>
+  </a>
+
+  <ng-container *ngIf="item.SubMenu">
+
+    <mat-expansion-panel #pnl="routerLinkActive" [expanded]="pnl.isActive"  routerLinkActive="isActive" class="menu mat-typography mat-elevation-z0" [routerLinkActiveOptions]="{exact: true}">
+
+      <mat-expansion-panel-header  matTooltip="{{item.Description}}" [class]="pnl.isActive ? 'mat-active' : ''">
+          <div class="content">
+            <mat-icon *ngIf="item.Icon" class="icon primary-dark-fg lg-icon">{{item.Icon}}</mat-icon>
+            <div class="text">
+              <h3 class="line head">{{item.Label}}</h3>
+              <span class="line tx">{{item.Description}}</span>
+            </div>
+          </div>
+      </mat-expansion-panel-header>
+
+      <hr />
+      <mat-nav-list>
+        <a mat-list-item routerLink="{{subitem.routerLink}}" matTooltip="{{subitem.Description}}" routerLinkActive="mat-active-child" *ngFor="let subitem of item.SubMenu.Items">
+          <mat-icon *ngIf="subitem.Icon" color="accent" class="lg-icon" matListIcon>{{subitem.Icon}}</mat-icon>
+          <h3 matLine class="head">{{subitem.Label}}</h3>
+          <span matLine class="tx">{{subitem.Description}}</span>
+        </a>
+      </mat-nav-list>
+      <hr />
+    </mat-expansion-panel>
+
+  </ng-container>
+
+</ng-container>

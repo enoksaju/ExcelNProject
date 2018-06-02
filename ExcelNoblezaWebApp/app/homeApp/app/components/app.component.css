@@ -1,0 +1,22 @@
+﻿.sideNavApp{
+    width:250px;
+}
+.toolbar-app{
+    position:fixed; 
+    top:0px; 
+    left:0px; 
+    right:0px;
+    z-index:15;
+}
+.snav-content{
+    padding:10px!important;
+}
+.snav-container{
+    margin-top:64px; width:100%;
+    min-height: Calc(100vh - 65px)
+}
+a.active {
+  color: #039be5;
+  background-color:rgba(0,0,0,0.3)
+}
+

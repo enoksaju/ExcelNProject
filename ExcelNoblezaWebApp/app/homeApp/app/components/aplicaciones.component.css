@@ -1,0 +1,62 @@
+﻿.button-app {
+    margin: 10px;
+    height: 150px;
+}
+
+
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+    .button-content > span {
+        margin: auto;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        font-size: 1.2rem;
+    }
+
+    .button-content > mat-icon {
+        margin: 10px auto 0px;
+        font-size: 50px;
+        height: 50px;
+        width: 50px;        
+    }
+
+@media screen and (max-width: 599px ) {
+    .button-app {
+        width: Calc( 50% - 22px);
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px) {
+    .button-app {
+        width: Calc( 33% - 22px);
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+    .button-app {
+        width: Calc( 25% - 22px);
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .button-app {
+        width: Calc( 16.6% - 22px);
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 5000px) {
+    .button-app {
+        width: Calc( 12.5% - 22px);
+    }
+}

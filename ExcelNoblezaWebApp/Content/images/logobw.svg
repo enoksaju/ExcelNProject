@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="svg4242"
+   viewBox="0 0 160 25"
+   height="100%"
+   width="100%">
+  <defs
+     id="defs4244">
+    <linearGradient
+       id="linearGradient4857">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="0"
+         id="stop4859" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop4861" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient4857"
+       id="linearGradient4883"
+       gradientUnits="userSpaceOnUse"
+       x1="67.421806"
+       y1="23.442385"
+       x2="67.421799"
+       y2="40.215614"
+       gradientTransform="translate(0.51563331,-45.166126)" />
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask4879">
+      <rect
+         style="opacity:1;fill:url(#linearGradient4883);fill-opacity:1;stroke:none;stroke-width:6.99700022;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4881"
+         width="156.38571"
+         height="24.173185"
+         x="2.4889545"
+         y="-21.805964"
+         transform="scale(1,-1)" />
+    </mask>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter5902"
+       x="-0.029695651"
+       width="1.0593913"
+       y="-1.1927752"
+       height="3.3855505">
+      <feGaussianBlur
+         stdDeviation="0.98072033"
+         id="feGaussianBlur5904" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter5906"
+       x="-0.13751712"
+       width="1.2750343"
+       y="-1.9448851"
+       height="4.88977">
+      <feGaussianBlur
+         stdDeviation="0.93281881"
+         id="feGaussianBlur5908" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter5910"
+       x="-0.044137508"
+       width="1.088275"
+       y="-1.3329529"
+       height="3.6659057">
+      <feGaussianBlur
+         stdDeviation="0.91331389"
+         id="feGaussianBlur5912" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4247">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="fill:#ffffff;fill-opacity:1;opacity:0.97"
+     id="g4792"
+     transform="translate(-0.98666063,1.1511041)">
+    <path
+       id="path6340-4-5"
+       d="m 68.73124,20.780106 c 8.551905,0.59703 7.682405,-11.5295674 7.773575,-11.2340774 l -7.778175,0.076 -0.0566,-0.0429 z"
+       style="display:inline;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98867416px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       y="0.43464836"
+       x="68.672318"
+       height="7.5967402"
+       width="7.8302307"
+       id="rect6271-2"
+       style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.77199996;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="0.48168358"
+       x="59.407787"
+       height="7.5967402"
+       width="7.8302307"
+       id="rect6271"
+       style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.77199996;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path6340-4"
+       d="M 67.22051,20.862916 C 58.668597,21.459936 59.538097,9.3333486 59.446927,9.6288286 l 7.778183,0.076 0.0566,-0.0429 z"
+       style="display:inline;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98867416px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:15.55165482px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.97;"
+     x="6.0898271"
+     y="17.118895"
+     id="text6235"><tspan
+       id="tspan6237"
+       x="6.0898271"
+       y="17.118895"
+       style="fill:#ffffff;fill-opacity:1;">EXCEL</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:15.06041527px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:0.97;"
+     x="76.388496"
+     y="16.578466"
+     id="text6372"><tspan
+       id="tspan6374"
+       x="76.388496"
+       y="16.578466"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;">NOBLEZA</tspan></text>
+</svg>

@@ -15,7 +15,7 @@
 		/// </summary>
 		private void InitializeComponent () {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.OTTextBox = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
 			this.temporalOrdenTrabajoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.ClienteTextBox = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -274,7 +274,7 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 1;
+			this.kryptonNavigator1.SelectedIndex = 2;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(708, 409);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -924,9 +924,9 @@
 			// PESONETO
 			// 
 			this.PESONETO.DataPropertyName = "PESONETO";
-			dataGridViewCellStyle1.Format = "N2";
-			dataGridViewCellStyle1.NullValue = "0";
-			this.PESONETO.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Format = "N2";
+			dataGridViewCellStyle2.NullValue = "0";
+			this.PESONETO.DefaultCellStyle = dataGridViewCellStyle2;
 			this.PESONETO.HeaderText = "PESONETO";
 			this.PESONETO.Name = "PESONETO";
 			this.PESONETO.ReadOnly = true;
@@ -1408,7 +1408,6 @@
 			this.repEje_txt.Location = new System.Drawing.Point(557, 166);
 			this.repEje_txt.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.repEje_txt.Name = "repEje_txt";
-			this.repEje_txt.ReadOnly = true;
 			this.repEje_txt.Size = new System.Drawing.Size(97, 23);
 			this.repEje_txt.TabIndex = 33;
 			this.repEje_txt.Text = "1";

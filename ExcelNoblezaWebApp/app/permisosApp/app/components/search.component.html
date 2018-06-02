@@ -1,0 +1,26 @@
+﻿<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon color="primary" class="icon-avatar">find_in_page</mat-icon>
+    </div>
+    <mat-card-title>Buscar un Permiso.</mat-card-title>
+    <mat-card-subtitle>Busca y descarga un permiso en formato PDF</mat-card-subtitle>
+  </mat-card-header>
+  <hr />
+  <mat-card-actions style="padding: 20px">
+    <form (ngSubmit)="buscarFolio(Folio.value)">
+      <mat-form-field>
+        <input matInput placeholder="Folio a buscar" [formControl]="Folio" required />
+        <mat-hint align="end">{{Folio.value?.length || 0}}/11</mat-hint>
+        <mat-error *ngIf="Folio.invalid">El Folio es requerido y debe ser de 11 caracteres</mat-error>
+      </mat-form-field>
+      <button [disabled]="Folio.invalid" color="accent" type="submit" mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </form>
+  </mat-card-actions>
+  <mat-card-content>
+   <object fxFlex *ngIf="showPDF" [attr.data]="safeResourceUrl" type="application/pdf" style="background-color:transparent; height:700px; overflow: hidden">
+   </object> <!--style="background-color:transparent; height:700px; overflow: hidden" type='application/pdf' fxFlex/>--> 
+  </mat-card-content>
+</mat-card>

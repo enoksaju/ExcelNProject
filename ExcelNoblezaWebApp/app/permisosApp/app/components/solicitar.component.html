@@ -1,0 +1,174 @@
+﻿
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon color="primary" class="icon-avatar">description</mat-icon>
+    </div>
+    <mat-card-title>Solicitar un permiso.</mat-card-title>
+    <mat-card-subtitle>Rellene el formulario para solicitar un permiso</mat-card-subtitle>
+  </mat-card-header>
+  <hr />
+  <form [formGroup]="tryForm" #frm_ (ngSubmit)="onSubmit(tryForm, stepper,frm_ )">
+    <mat-vertical-stepper formArrayName="array" #stepper linear>
+
+      <mat-step formGroupName="0" [stepControl]="array.get([0])" label="Datos del Trabajador">
+        <div>
+          <mat-form-field fxFlex="50" fxFlex.xs="100">
+            <input matInput placeholder="Clave" (keyup)="claveChange(array.get([0]).get('Clave').value)" formControlName="Clave">
+            <mat-error *ngIf="!array.get([0]).get('Clave').valid">
+              La clave del trabajador es requerida.
+            </mat-error>
+          </mat-form-field>
+          <mat-spinner strokeWidth="3" *ngIf="loadingTrabajador" [diameter]="40"></mat-spinner>
+        </div>
+        <div>
+          <mat-form-field fxFlex>
+            <input readonly matInput placeholder="Linea" formControlName="Linea">
+          </mat-form-field>
+        </div>
+        <div fxLayoutGap="20px" fxLayout.xs="column">
+          <mat-form-field fxFlex>
+            <input readonly required matInput placeholder="Nombre" formControlName="Nombre">
+            <mat-error *ngIf="!array.get('0.Nombre').valid">
+              El Nombre del trabajador es requerido.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <input matInput placeholder="Email" formControlName="Email">
+            <mat-error *ngIf="!array.get([0]).get('Email').valid">
+              El Email del trabajador es Requerido.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+          <div fxFlex></div>
+          <button mat-mini-fab matStepperNext type="button" color="accent">
+            <mat-icon aria-label="Siguiente">chevron_right</mat-icon>
+          </button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="1" [stepControl]="array.get([1])" label="Tiempo del Permiso">
+
+        <div>
+          <mat-form-field fxFlex="50">
+            <mat-select placeholder="Turno"
+                        formControlName="Turno"
+                        (change)="changeTurno($event)">
+              <mat-option *ngFor="let key of turnos" [value]="key.value">{{key.label}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout.xs="column" fxLayout="row" style="min-height:200px">
+          <mat-radio-group fxLayout="column" fxFlex="120px" fxLayoutGap="10px"
+                           (change)="changeTipo($event)" formControlName="Tipo">
+            <mat-radio-button *ngFor="let key of tipos" [value]="key.value">{{key.label}}</mat-radio-button>
+          </mat-radio-group>
+          <div fxFlex>
+            <div fxLayout="row">
+              <mat-form-field fxFlex="50" fxFlex.xs="100">
+                <input matInput
+                       type="date"
+                       placeholder="Seleccione la Fecha {{array.get([1]).get('Tipo').value == 3 ? ' de Inicio': ''}}"
+                       formControlName="Inicio"
+                       (change)="setMinDate(array.get([1]).get('Inicio').value)" />
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" *ngIf="array.get([1]).get('Tipo').value == 3">
+              <mat-form-field fxFlex="50" fxFlex.xs="100">
+                <input matInput
+                       type="date"
+                       placeholder="Seleccione la fecha de Termino"
+                       formControlName="Fin">
+                <mat-error *ngIf="!array.get([1]).get('Fin').valid">
+                  <span *ngIf="array.get([1]).get('Fin').errors.minDate">
+                    La fecha debe ser mayor que la fecha de inicio
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="10px" *ngIf="array.get([1]).get('Tipo').value == 1">
+              <mat-form-field fxFlex="50">
+                <input matInput
+                       type="time"
+                       placeholder="Hora de Inicio"
+                       formControlName="HoraIni" (change)="changeHourIni(array.get([1]).get('HoraIni').value)">
+                <mat-error *ngIf="!array.get([1]).get('HoraIni').valid">
+                  <span *ngIf="array.get('1.HoraIni').errors.HourMin">
+                    La hora debe ser mayor que {{getHoraString(minIniHour)}}
+                  </span>
+                  <span *ngIf="array.get([1]).get('HoraIni').errors.HourMax">
+                    La hora debe ser menor que {{getHoraString(maxHour)}}
+                  </span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex="50">
+                <input matInput
+                       type="time"
+                       placeholder="Hora de Termino"
+                       formControlName="HoraFin">
+                <mat-error *ngIf="!array.get([1]).get('HoraFin').valid">
+                  <span *ngIf="array.get('1.HoraFin').errors.HourMin">
+                    La hora debe ser mayor que {{getHoraString(minFinHour)}}
+                  </span>
+                  <span *ngIf="array.get('1.HoraFin').errors.HourMax">
+                    La hora debe ser menor que {{getHoraString(maxHour)}}
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div fxLayout="row">
+          <button mat-mini-fab matStepperPrevious type="button" color="accent">
+            <mat-icon aria-label="Siguiente">chevron_left</mat-icon>
+          </button>
+          <div fxFlex></div>
+          <button mat-mini-fab matStepperNext type="button" color="accent">
+            <mat-icon aria-label="Siguiente">chevron_right</mat-icon>
+          </button>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="2" [stepControl]="array.get([2])" label="Motivo y Comentarios">
+
+        <div fxLayoutGap="10px" fxLayout.xs="column" fxLayout="row">
+          <div fxFlex.gt-xs="220px" fxFlex="120px" fxLayout="column" fxLayoutGap="10px">
+            <mat-form-field>
+              <mat-select placeholder="Dia Descanso" formControlName="DiaDescanso">
+                <mat-option *ngFor="let key of diasDescanso" [value]="key.value">{{key.label}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Motivo" formControlName="Motivo">
+                <mat-option *ngFor="let key of motivos" [value]="key.Id">{{key.Motivo}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="!array.get('2.Motivo').valid">
+                Debe seleccionar un Motivo de la lista
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <mat-form-field fxFlex="100">
+            <textarea matInput placeholder="Comentarios" rows="3" formControlName="Comentarios"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+          <button mat-mini-fab matStepperPrevious type="button" color="accent">
+            <mat-icon aria-label="Siguiente">chevron_left</mat-icon>
+          </button>
+          <div fxFlex></div>
+          <button mat-raised-button color="primary" type="submit" fxFlex="130px" fxLayoutAlign="end center" fxLayoutGap="10px" fxLayout="row">
+            <mat-spinner *ngIf="getPermiso" strokeWidth="2" color="accent" [diameter]="30"></mat-spinner>
+            <span fxFlex="70px">Solicitar</span>
+          </button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+
+  </form>
+</mat-card>

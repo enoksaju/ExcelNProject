@@ -60,6 +60,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView">
+      <HintPath>..\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -68,13 +71,13 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.8.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -111,6 +114,12 @@
     <Compile Include="Pages\Pages\CatalogoArticulo.Designer.cs">
       <DependentUpon>CatalogoArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Pages\EntradaArticulo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\Pages\EntradaArticulo.Designer.cs">
+      <DependentUpon>EntradaArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -118,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Pages\CatalogoArticulo.resx">
       <DependentUpon>CatalogoArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Pages\EntradaArticulo.resx">
+      <DependentUpon>EntradaArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,6 +145,7 @@
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.ArticuloTinta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.ComponentesSalida.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.EntradaTinta.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Tablas.ProveedorTinta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.SalidaTinta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TemporalOrdenTrabajo.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.TiposTinta.datasource" />
@@ -163,6 +176,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\paintcan1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_flat-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fill_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smartart_change_color_gallery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_add_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_9x_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors-info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors-info1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

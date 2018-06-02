@@ -1,0 +1,12 @@
+﻿.banner-card-container{
+    background-color:rgba(0,0,0,0.7);
+    padding: 20px 30px;
+}
+mat-card{
+    padding:50px 0px!important;
+    background:no-repeat;
+    background-size:cover;
+}
+mat-card-content, .mat-card-header{
+    color:white;
+}

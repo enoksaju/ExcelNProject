@@ -157,15 +157,15 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 
 		public short ENABLED { get; set; }
 
-		public dataProduccion () {
+		public dataProduccion ( ) {
 
 		}
-		public dataProduccion ( TemporalOrdenTrabajo T, int PROCESO, int index ) {
+		public dataProduccion ( TemporalOrdenTrabajo T , int PROCESO , int index ) {
 			ID = index;
 			TIPOINSTRING = "";
 			TIPOPROCESO = PROCESO;
 			OT = T.OT;
-			TIPO = T.TIPO;
+			TIPO = ( int ) T.TIPO;
 			FECHARECIBIDO = T.FECHARECIBIDO;
 			FECHAENTREGASOL = T.FECHAENTREGASOL;
 			CLIENTE = T.CLIENTE;
@@ -246,7 +246,7 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 			List<dataProduccion> ret = new List<dataProduccion> ( );
 
 			OT.Produccion.ToList ( ).ForEach ( prod => {
-				var y = new dataProduccion ( prod.OrdenTrabajo,CorrectProceso ( prod.TIPOPROCESO), prod.Id );
+				var y = new dataProduccion ( prod.OrdenTrabajo , CorrectProceso ( prod.TIPOPROCESO ) , prod.Id );
 				y.P_BANDERAS = prod.BANDERAS;
 				y.P_ENSANEO = prod.ENSANEO;
 				y.P_ESRECHAZADA = prod.ESRECHAZADA;
@@ -268,7 +268,7 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 		}
 
 		private static int CorrectProceso ( int proceso ) {
-			switch (proceso) {
+			switch ( proceso ) {
 				case 1:
 					return 4;
 				case 2:

@@ -28,9 +28,9 @@ namespace ControlTintas.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.1.248;user id=root;password=hsj43295;persistsecurityinfo=True;data" +
             "base=productiondebug")]
-        public string ProductionDebug {
+        public string ProduccionConexionDebug {
             get {
-                return ((string)(this["ProductionDebug"]));
+                return ((string)(this["ProduccionConexionDebug"]));
             }
         }
         
@@ -38,9 +38,9 @@ namespace ControlTintas.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.1.248;port=3306;database=Production;uid=root;password=hsj43295;")]
-        public string Production {
+        public string ProduccionConexion {
             get {
-                return ((string)(this["Production"]));
+                return ((string)(this["ProduccionConexion"]));
             }
         }
     }

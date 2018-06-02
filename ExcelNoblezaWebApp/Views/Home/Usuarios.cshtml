@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Usuarios";
+    ViewBag.BaseRef = "/home/usuarios/";
+}
+@Html.AntiForgeryToken()
+<my-app>
+  <img src="~/Content/images/logopl.svg" class="image-app" />
+  <div class="loader"></div>
+</my-app>
+@*@section scripts{
+  <script>System.import('../../../app/UsuariosApp/main.js').catch(function (err) { console.error(err); });</script>
+}*@
+@section scripts{
+  <script>System.import('../../../app/usuariosapp/main.js').catch(function (err) { console.error(err); });</script>
+}

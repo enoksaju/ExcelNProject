@@ -1,0 +1,68 @@
+﻿<card-container Titulo="Contacto"  class="dark-theme" Imagen="../../../../Content/images/bgcards/productos.etiquetas.jpg">
+  <div fxLayout="column" fxLayout.gt-xs="row">
+    <div fxFlex class="px400">
+      <form id="frmContact"
+            fxLayout="row"
+            fxLayoutWrap
+            fxFlex
+            method="post"
+            action="/home/contact"
+            [formGroup]="contactForm"
+            (ngSubmit)="onSubmit(contactForm)" 
+            style="padding:30px">
+
+        <mat-form-field fxFlex="100">
+          <input matInput class="form-control" placeholder="Nombre" formControlName="name">
+          <mat-error *ngIf="!contactForm.controls.name.valid">Su nombre es requerido</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+          <input matInput class="form-control" placeholder="Email" formControlName="email">
+          <mat-error *ngIf="!contactForm.controls.email.valid">
+            <span>Debe escribir una direccion valida.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+          <input matInput class="form-control" placeholder="Telefono" formControlName="phone">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+          <input matInput class="form-control" placeholder="Titulo" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+          <input matInput class="form-control" placeholder="Mensaje" formControlName="message">
+          <mat-error *ngIf="!contactForm.controls.message.valid">
+            <span *ngIf="contactForm.controls.message.errors.minlength">El largo minimo del mensaje es de 50 caracteres.</span>
+            <span *ngIf="contactForm.controls.message.errors.required">Un mensaje es requerido.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button fxFlex="100" color="primary" type="submit">Enviar</button>
+      </form>
+    </div>
+    <div fxFlex class="px400">
+      <div fxFill fxLayout="column" fxLayoutAlign="center center">
+        <p style="text-align:center">
+          Carretera Federal Puebla - Tehuacán
+          <br />
+          Kilómetro 101
+          <br />
+          Tepanco de López, Puebla.
+        </p>
+        <br />
+
+        <p style="text-align:center">
+          <a href="tel:+522383837433" style="color:white; text-decoration:none">Teléfono: +52 2383 8374 33</a>
+        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d121083.23883393047!2d-97.50485558564452!3d18.490397500470255!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c5a2ab84f2284d%3A0x40c39e7b430aa869!2sExcel+Nobleza%2C+S.A.+De+C.V.!5e0!3m2!1ses-419!2s!4v1507222220800"
+                frameborder="0"
+                style="border:0"
+                allowfullscreen=""
+                fxFlex.xs="100" fxFlex.gt-xs="50"></iframe>
+      </div>
+    </div>
+  </div>
+
+</card-container>

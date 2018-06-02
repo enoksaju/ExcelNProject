@@ -1,0 +1,106 @@
+﻿
+<carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+  <slide *ngFor="let slidez of slides;  let index = index" [active]="slidez.active">
+    <img [src]="slidez.image" style="width:95%;height:auto;display: block;margin-left: auto ;margin-right: auto">
+    <div class="carousel-caption">
+      <h3 *ngIf="!media.isActive('xs')">{{slidez.text}}</h3>
+    </div>
+  </slide>
+</carousel>
+<hr />
+<card-container Titulo="Compañia" Imagen="../../../../Content/images/bgcards/cover-empresa.jpg">
+      <div fxLayout.gt-sm="row" fxLayoutGap="20px" fxLayout="column">
+        <div fxFlex>
+          <h4>Historia</h4>
+          <p>Durante más de veinte años, el objetivo principal de EXCEL NOBLEZA ha sido ofrecer soluciones a los problemas de embalaje que sus clientes puedan tener. Estos productos de embalaje flexible de alta calidad incluyen diversos tipos de etiquetas, bolsas para propósitos especiales y estructuras impresas sofisticadas que son respaldadas de manera permanentemente con innovaciones que ofrecen a nuestros clientes la distinción que buscan para sus productos y que dan una sorpresa favorable a sus clientes.</p>
+          <p>Excel Nobleza ha sido muy cuidadoso en la selección y capacitación constante de su personal bajo rigurosos programas</p>
+        </div>
+
+        <div fxFlex>
+          <h4>Misión</h4>
+          <p>Proporcionar soluciones en impresión y empaque flexible creando valor para nuestro personal, clientes, proveedores y accionistas, respetando el medio ambiente y contribuyendo al progreso de la comunidad.</p>
+          <h4>Visión</h4>
+          <p>Ser un líder de clase mundial en México en impresión y embalaje flexible y reconocido internacionalmente por su tecnología, innovación y soluciones puntuales e inteligentes.</p>
+        </div>
+
+        <div fxFlex="25%" fxFlex.xs>
+          <h4>Valores</h4>
+          <ul>
+            <li>Respeto por la gente</li>
+            <li>Actitud</li>
+            <li>Integridad</li>
+            <li>Trabajo</li>
+            <li>Profesionalismo</li>
+            <li>Enfoque en el cliente</li>
+            <li>Innovación</li>
+            <li>Orientado a los resultados</li>
+            <li>Socialmente responsable</li>
+          </ul>
+        </div>
+      </div>
+</card-container>
+<hr />
+<card-container Titulo="Tecnologia" Imagen="../../../../Content/images/bgcards/cover-tecnologia.jpg">
+  <div fxLayout="row" fxLayoutGap="10px">
+
+    <mat-nav-list *ngIf="media.isActive('gt-sm')">
+      <a mat-list-item (click)="setTab(1)" [class.active]="tab==1">COSTO/BENEFICIO</a>
+      <a mat-list-item (click)="setTab(2)" [class.active]="tab==2">EXCELENCIA DE MANUFACTURA</a>
+      <a mat-list-item (click)="setTab(3)" [class.active]="tab==3">EXTRUSIÓN</a>
+      <a mat-list-item (click)="setTab(4)" [class.active]="tab==4">PRE PRENSA</a>
+      <a mat-list-item (click)="setTab(5)" [class.active]="tab==5">IMPRESIÓN</a>
+      <a mat-list-item (click)="setTab(6)" [class.active]="tab==6">LAMINACIÓN</a>
+    </mat-nav-list>
+
+    <div fxLayout="column" *ngIf="!media.isActive('gt-sm')">
+
+      <button mat-icon-button (click)="setTab(tab-(tab>=2 ? 1 : 0))">
+        <mat-icon color="primary">arrow_upward</mat-icon>
+      </button>
+      {{tab}}/6
+      <button mat-icon-button (click)="setTab(tab+(tab<=5 ? 1 : 0))">
+        <mat-icon color="primary">arrow_downward</mat-icon>
+      </button>
+
+    </div>
+    <div style="min-height:450px">
+      <div *ngIf="tab==1">
+        <h4>COSTO/BENEFICIO</h4>
+        <p>El mundo de los empaques flexibles es primordialmente dinámico y, conscientes de ello, Excel Nobleza pone especial énfasis en el desarrollo de empaques eficientes y creativos complementados con un servicio profesional al cliente.</p>
+        <p>Estamos comprometidos a ofrecer siempre la mejor relación costo/beneficio posible a nuestros clientes ofreciendo empaques que le aseguren la protección requerida y una vida útil más larga en los anaqueles y, simultáneamente, los distinga de la competencia a los ojos del consumidor.</p>
+      </div>
+
+      <div *ngIf="tab==2">
+        <h4>EXCELENCIA DE MANUFACTURA</h4>
+        <p>Trabajar junto con nuestros clientes para lograr la excelencia en la fabricación.</p>
+        <p>Para Excel Nobleza es primordial ofrecer, junto con la calidad del producto, servicios integrales que van desde asesorar al cliente en la selección del empaque más apropiado llevando a cabo el desarrollo del producto hasta brindar asistencia técnica en la operación de empacado en sí.</p>
+        <p>La rigurosa aplicación de estándares y parámetros de calidad empezando con las materias primas utilizadas en nuestros procesos de fabricación y el uso de la más alta tecnología disponible en el mundo nos permiten optimizar el tiempo de respuesta cumpliendo con los más altos estándares de calidad para satisfacción de los clientes.</p>
+        <p>A petición de los clientes estamos preparados para utilizar materiales e insumos en general que permitan la degradación controlada de empaque.</p>
+      </div>
+
+      <div *ngIf="tab==3">
+        <h4>EXTRUSIÓN</h4>
+        <p>Con objeto de asegurar disponer a tiempo y de la calidad necesaria del suministro de películas Excel Nobleza decidió desde el inicio de sus operaciones contar en casa con la operación de extrusión : primero con extrusoras monocapa, después con coextrusoras de tres y cinco capas y recientemente con la extrusión de películas de barrera de siete capas superamos un reto formidable que abrió para la empresa un amplio e inimaginable campo de nuevas y disruptivas formulaciones y estructuras.</p>
+        <p>Además de contar con personal especializado y entrenado para la investigación, así como sofisticados equipos de laboratorio, tenemos el apoyo de una prestigiada empresa Italiana con larga experiencia en este campo.</p>
+      </div>
+
+      <div *ngIf="tab==4">
+        <h4>PRE PRENSA</h4>
+        <p>La calidad de la pre-prensa es factor determinante en la calidad de la impresión que se puede obtener en una impresora de cualquier nivel. Excel Nobleza se ha asegurado de contar con el mejor equipo y los más adelantados softwares y tecnologías a nivel mundial disponiendo de equipos para películas de gran formato, alta definición (HD) y punto plano.</p>
+      </div>
+
+      <div *ngIf="tab==5">
+        <h4>IMPRESIÓN</h4>
+        <p>Indudablemente la impresión es el corazón de una empresa de empaques flexibles. La calidad de la impresión influye fuertemente en la decisión del comprador a la hora de decidir entre dos o más productos y, conociendo esto, nuestro cliente exige cada vez mayor calidad : Mejor definición, sólidos con mayor poder de cobertura, textos más pequeños y nítidos, seguridad absoluta con los códigos de barras e imágenes con mayor resolución.</p>
+        <p>Para atender estas demandas contamos con 17 prensas flexográficas de tambor central incluyendo impresoras sin engranes de diez tintas de reconocidas marcas como Windmoller y Schiavi.</p>
+      </div>
+
+      <div *ngIf="tab==6">
+        <h4>LAMINACIÓN</h4>
+        <p>Adicional a un buen sellado y considerando que se ha cumplido con las condiciones establecidas de proceso, la integridad de un empaque depende de la película o estructura utilizada. En función de las especificaciones del cliente utilizamos laminadoras sin solvente, con solvente ó por extrusión. Seleccionando el proceso adecuado ofrecemos estructuras que garantizan una protección controlada a la luz, barreras al paso del oxígeno, vapor de agua, CO2 y otros gases, aromas, etc.</p>
+      </div>
+    </div>
+  </div>
+</card-container>
+
+

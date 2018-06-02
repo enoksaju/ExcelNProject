@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - Excel Nobleza</title>
+  <link rel="icon" type="image/png" href="~/Content/images/logo.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <base href="@ViewBag.BaseRef">
+  <link href="~/Content/Site.min.css" rel="stylesheet" />
+  @Scripts.Render("~/bundles/angular")
+</head>
+<body class="scrollbar">
+  @RenderBody()@RenderSection("scripts", required: false)
+</body>
+</html>

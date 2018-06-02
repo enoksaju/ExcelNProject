@@ -31,14 +31,18 @@ namespace ControlTintas {
 			if ( ( _dc == null || _dc.IsDisposed ) && System.Text.RegularExpressions.Regex.IsMatch ( e.WorkspaceElement.Path , "(Workspace)" ) ) {
 				_dc = e.CellControl;
 			}
-			e.CellControl.CloseAction += CellControl_CloseAction;			
+			e.CellControl.CloseAction += CellControl_CloseAction;
 		}
 		private void CellControl_CloseAction ( object sender , ComponentFactory.Krypton.Navigator.CloseActionEventArgs e ) {
 			e.Action = CloseButtonAction.HidePage;
 		}
-		
+
 		private void kryptonRibbonGroupButton1_Click ( object sender , EventArgs e ) {
 			Pages.Base.PageCreator.CrateAndShowMainPage<Pages.Pages.CatalogoArticulo> ( kryptonDockingManager , _dc );
+		}
+
+		private void kryptonRibbonGroupButton2_Click ( object sender , EventArgs e ) {
+			
 		}
 	}
 }
