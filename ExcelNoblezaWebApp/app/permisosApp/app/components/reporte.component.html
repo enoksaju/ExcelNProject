@@ -1,0 +1,120 @@
+﻿<mat-card>
+
+  <mat-card-header fxLayout="column">
+    <h3>Reporte de Permisos</h3>
+    <div>
+      <mat-form-field fxFlex="50" fxFlex.xs="100">
+        <input matInput placeholder="Fecha" type="date" #searchFecha (change)="setDataReportFecha(searchFecha.value)" [value]="DateSearch">
+      </mat-form-field>
+    </div>   
+  </mat-card-header>
+
+
+
+  <div class="example-loading-shade" *ngIf="dataSource.isLoadingResults || dataSource.isRateLimitReached">
+    <mat-spinner *ngIf="dataSource.isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="dataSource.isRateLimitReached">
+      Error inesperado, por favor recargue la pagina.
+    </div>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" class="example-table mat-elevation-z2" matSort matSortActive="Folio" matSortDisableClear matSortDirection="asc">
+    <ng-container matColumnDef="Clave">
+      <mat-header-cell *matHeaderCellDef fxFlex="50px">Clave</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="50px">{{ row.Clave }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Folio">
+      <mat-header-cell *matHeaderCellDef fxFlex="100px">Folio</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="100px">{{ row.Folio}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Dia1">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" fxLayout="column" class="day-header mat-elevation-z1"  >
+          <span class="date-{{i}}" *ngFor="let arr of getDateforDay(0); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia1 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia2">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(1); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia2 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia3">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(2); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia3 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia4">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(3); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia4 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia5">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(4); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia5 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia6">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(5); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia6 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia7">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(6); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia7 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia8">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(7); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia8 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia9">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(8); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia9 }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Dia10">
+      <mat-header-cell *matHeaderCellDef fxFlex="40px" class="day-header mat-elevation-z1" >
+        <span class="date-{{i}}" *ngFor="let arr of getDateforDay(9); let i = index"> {{arr}} </span>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="42px" class="center-text">{{ row.Dia10 }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Concepto">
+      <mat-header-cell *matHeaderCellDef fxFlex="80px">Concepto</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="80px" class="hastextExcel">{{ row.Concepto}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Estatus">
+      <mat-header-cell *matHeaderCellDef fxFlex="80px">Estatus</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="80px">{{ row.Estatus}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Validado">
+      <mat-header-cell *matHeaderCellDef fxFlex="100px">Validado Por</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="100px">{{ row.ValidadoPor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Comentarios">
+      <mat-header-cell *matHeaderCellDef fxFlex="400px">Comentarios</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="400px">{{ row.Comentarios}}</mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</mat-card>
+
+<button mat-fab *ngIf="dataSource.resultLength>0" class="animated bounceIn" color="accent" style="right:20px; top:80px; z-index:2; position:fixed" (click)="downloadExcel('example-table')">
+  <mat-icon>&#xE2C4;</mat-icon>
+</button>
+

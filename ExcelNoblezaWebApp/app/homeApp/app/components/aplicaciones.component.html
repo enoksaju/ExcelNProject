@@ -1,0 +1,22 @@
+﻿<div fxLayout="column">
+  <h2>apps</h2>
+
+
+  <div fxFill
+       fxLayout="row"
+       fxLayoutWrap>
+    <a class="button-app mat-elevation-z10"
+            *ngFor="let app of Apps"
+            mat-raised-button
+            [style.background]="app.Color ? app.Color : white"
+            href="{{app.Link}}">
+
+      <div class="button-content" >
+        <mat-icon *ngIf="!app.fa">{{app.Icon}}</mat-icon>
+        <mat-icon *ngIf="app.fa" fontSet="fa" fontIcon="fa-{{app.Icon}}"></mat-icon>
+        <span>{{app.Label}}</span>
+      </div>
+
+    </a>
+  </div>
+</div>

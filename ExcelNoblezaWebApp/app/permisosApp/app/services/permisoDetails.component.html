@@ -1,0 +1,99 @@
+﻿<mat-toolbar color="primary">
+  <h3>Folio: {{permiso.Id}}</h3>
+  <span fxFlex></span>
+  <button mat-icon-button (click)="dgRef.close('cancel')">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<div style="padding:5px; max-height:500px; overflow-y:scroll;" fxLayout="column" fxLayoutGap="20px">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon color="primary" class="icon-avatar">person</mat-icon>
+      </div>
+      <mat-card-title>Trabajador</mat-card-title>
+      <mat-card-subtitle>Datos del Trabajador.</mat-card-subtitle>
+    </mat-card-header>
+    <hr />
+    <mat-card-content fxLayout="column">
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Clave" value="{{permiso.Trabajador.Clave}}">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput readonly placeholder="Nombre" value="{{permiso.Trabajador.NombreCompleto}}">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Turno" value="{{permiso.TurnoString}}">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon color="primary" class="icon-avatar">attach_file</mat-icon>
+      </div>
+      <mat-card-title>Permiso</mat-card-title>
+      <mat-card-subtitle>Datos del Permiso.</mat-card-subtitle>
+    </mat-card-header>
+    <hr />
+    <mat-card-content fxLayout="column">
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Tipo" value="{{permiso.TipoString}}">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+
+        <mat-form-field>
+          <input matInput readonly placeholder="Inicio" value="{{permiso.Inicio | date: 'dd/MMM/yyyy hh:mm a'}}">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput readonly placeholder="Fin" value="{{permiso.Fin | date: 'dd/MMM/yyyy hh:mm a'}}">
+        </mat-form-field>
+
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Motivo" value="{{permiso.MotivoPermiso.Motivo}}">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Validacion" value="{{permiso.Validacion.Descripcion}}">
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <textarea rows="3" matInput readonly placeholder="Comentarios" value="{{permiso.Comentarios}}"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="20px">
+        <mat-form-field>
+          <input matInput readonly placeholder="Generado" value="{{permiso.Generado | date: 'dd/MMM/yyyy hh:mm a'}}">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+<mat-dialog-actions style="background-color:rgba(0,0,0,0.1)!important" fxLayoutAlign="space-around center">
+
+  <button mat-icon-button style="color:darkorange" (click)="close('Cancelar')">
+    <mat-icon>block</mat-icon>
+  </button>
+
+  <button mat-icon-button style="color:darkred" (click)="close('Denegar')">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <button mat-icon-button style="color:green" (click)="close('Aprobar')">
+    <mat-icon>check</mat-icon>
+  </button>
+
+</mat-dialog-actions>

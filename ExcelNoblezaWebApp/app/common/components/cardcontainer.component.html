@@ -1,0 +1,11 @@
+﻿<mat-card class="mat-elevation-z10" style="background-color:transparent" [ngStyle]="{'background-image':'url( '+ Imagen + ')'}" >
+  <div class="banner-card-container">
+    <mat-card-header>
+      <span class="mat-title">{{Titulo}}</span>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-content></ng-content>
+    </mat-card-content>
+  </div>
+</mat-card>
+

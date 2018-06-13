@@ -1,0 +1,45 @@
+﻿<mat-toolbar color="primary" class="toolbar-app mat-elevation-z13">
+
+  <button *ngIf="!media.isActive('gt-sm')" mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img *ngIf="ImageUrl" src="{{ ImageUrl}}" style="width:200px" />
+  <span fxFlex="100"></span>
+
+  <button *ngIf="withPaths()" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" xPosition="before">
+    <a *ngIf="withPaths()" mat-menu-item (click)="LogClick()">
+
+      <mat-icon *ngIf="isloged && logoffPath" color="warn">exit_to_app</mat-icon>
+      <mat-icon *ngIf="!isloged && loginPath" color="warn">account_circle</mat-icon>
+
+      <span *ngIf="isloged && logoffPath"> Cerrar Sesion</span>
+      <span *ngIf="!isloged && loginPath"> Iniciar Sesion</span>
+
+    </a>
+    <form id="logoutForm" action="{{logoffPath}}" method="post">
+      <input name="__RequestVerificationToken" type="hidden" [ngModel]="Token" />
+    </form>
+  </mat-menu>
+
+
+</mat-toolbar>
+<mat-sidenav-container class="snav-container scrollbar">
+  <mat-sidenav fixedInViewport=true
+               fixedTopGap=64
+               fixedBottomGap=true
+               #sidenav
+               mode="{{media.isActive('gt-sm') ? 'side' : 'over'}}"
+               opened="{{media.isActive('gt-sm') ? true : false}}"
+               class="sideNavApp mat-elevation-z10 scrollbar">
+    <mat-nav-list>
+      <menu-item *ngFor="let mnu of Menus" [Menu]="mnu"></menu-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="snav-content scrollbar">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

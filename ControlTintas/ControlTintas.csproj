@@ -166,6 +166,12 @@
     <None Include="Resources\logopl.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
+      <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
+      <Name>libProduccionDataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\paintcan.png" />
   </ItemGroup>
   <ItemGroup>
@@ -212,12 +218,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\find.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
-      <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
-      <Name>libProduccionDataBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

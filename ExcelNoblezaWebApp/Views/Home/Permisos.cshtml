@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Permisos";
+    ViewBag.BaseRef = "/home/permisos/";
+}
+@Html.AntiForgeryToken()
+  <my-app>
+    <img src="~/Content/images/logopl.svg" class="image-app" />
+    <div class="loader"></div>
+  </my-app>
+@section scripts{
+  <script>System.import('../../../app/permisosApp/main.js').catch(function (err) { console.error(err); });</script>
+  }
+
+

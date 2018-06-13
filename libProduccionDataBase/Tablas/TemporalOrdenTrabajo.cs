@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -12,9 +13,30 @@ namespace libProduccionDataBase.Tablas {
 	public class TemporalOrdenTrabajo {
 		private string _OT = "";
 
-		[Key]
+		public enum Tipos {
+			Pelicula,
+			PeliculaLaminada,
+			PeliculaTrilaminada,
+			FlowpackLaminada,
+			FlowpackTrilaminada,
+			SelloLateralNoImpresa,
+			SelloLateralImpresa,
+			SelloLateralLaminadaNoImpresa,
+			SelloLateralLaminadaImpresa,
+			SelloLateralTrilaminada,
+			Otro,
+			Etiqueta,
+			PVC,
+			Prototipos,
+			Piezas,
+			EtiquetaTipoManga,
+			BolsaTubular
+		}
+
+		[Key, ForeignKey ( "TempCapt" )]
 		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
-		public int TIPO { get; set; }
+		public Tipos TIPO { get; set; }
+		public string TIPOINSTRING { get { return Regex.Replace ( this.TIPO.ToString ( ) , "([^A-Z ])([A-Z])" , "$1 $2" ); } }
 		public DateTime FECHARECIBIDO { get; set; }
 		public DateTime FECHAENTREGASOL { get; set; }
 		public string CLIENTE { get; set; }
@@ -72,6 +94,7 @@ namespace libProduccionDataBase.Tablas {
 		public string EXANTIESTATICA { get; set; }
 		public string EXKG { get; set; }
 		public string EXANCHO { get; set; }
+		public int? ENABLED { get { return TempCapt?.ENABLED; } }
 
 		public virtual ObservableListSource<TempProduccion> Produccion { get; private set; }
 		public virtual ObservableListSource<TempDesperdicios> Desperdicios { get; private set; }
@@ -82,9 +105,9 @@ namespace libProduccionDataBase.Tablas {
 			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
 		}
 
-		public override string ToString ( ) {
-			return this.OT;
-		}
+		public override string ToString ( ) => this.OT;
+
+		public virtual TEMPCAPT TempCapt { get; set; }
 	}
 
 	[Table ( "TEMPCAPT" )]
@@ -92,10 +115,8 @@ namespace libProduccionDataBase.Tablas {
 		private string _OT = "";
 		public int Id { get; set; }
 
-		[Key]
+		[Key, ForeignKey ( "OrdenTrabajo" )]
 		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
-
-		[ForeignKey ( "OT" )]
 		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
 		public string DISENIOAUT { get; set; }
 		public int CENTROS { get; set; }

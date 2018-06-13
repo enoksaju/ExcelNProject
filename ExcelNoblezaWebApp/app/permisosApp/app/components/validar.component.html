@@ -1,0 +1,104 @@
+﻿<mat-card>
+  <mat-card-header>
+    <mat-form-field fxFlex="50">
+      <mat-select placeholder="Validacion" [(ngModel)]="Validacion.validacion">
+        <mat-option *ngFor="let key of Validacion.validaciones" [value]="key.value">{{key.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-header>
+
+  <div class="example-loading-shade" *ngIf="dataSource.isLoadingResults || dataSource.isRateLimitReached">
+    <mat-spinner *ngIf="dataSource.isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="dataSource.isRateLimitReached">
+      Error inesperado, por favor recargue la pagina.
+    </div>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" class="example-table"
+             matSort matSortActive="Folio" matSortDisableClear matSortDirection="asc">
+    <ng-container matColumnDef="chk">
+      <mat-header-cell *matHeaderCellDef fxFlex="50px">
+        <mat-checkbox #allcheck (change)="markAll(allcheck)"></mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="50px">
+        <mat-checkbox [(ngModel)]="row.selected"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Folio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="100px">Folio</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="100px">{{ row.Id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TrabajadorId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="70px">Clave</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="70px">{{ row.Trabajador.Clave }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TipoString">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="120px">Tipo</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="120px">{{ row.TipoString }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Inicio">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <p>{{row.Inicio |  date:"dd/MM/yyyy"}}</p>
+        <p *ngIf="row.Tipo==1">{{row.Inicio |  date: "h:mm a"}} - {{row.Fin |  date: "h:mm a"}}</p>
+        <p *ngIf="row.Tipo==3">{{row.Fin |  date:"dd/MM/yyyy"}}</p>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="MotivoPermisoId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Motivo</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.MotivoPermiso.Motivo }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef mat-sort-header  fxFlex="50px"></mat-header-cell>
+      <mat-cell *matCellDef="let row"  fxFlex="50px">
+        <button mat-icon-button color="primary" (click)="showDetails(row)">
+          <mat-icon>info</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ValidacionId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="50px">1° Val.</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="50px">
+        <mat-icon [ngStyle]="{'color':(row.ValidacionId==1 ? 'green': (row.ValidacionId==2 || row.ValidacionId==3 ? 'orange' : 'red')) }">
+          {{(row.ValidacionId==1 ? 'check': (row.ValidacionId==2 || row.ValidacionId==3 ? 'timer' : 'date_range')) }}
+        </mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+  <mat-paginator [length]="dataSource.resultLength"
+                 [pageSize]="25"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+</mat-card>
+
+<smd-fab-speed-dial *ngIf="foliosSeleccionados().length > 0" class="animated bounceIn" direction="left" animationMode="fling" style="right:20px; top:80px; z-index:2; position:fixed">
+  <smd-fab-trigger spin="true">
+    <button mat-fab class="mat-elevation-z0">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </smd-fab-trigger>
+  <smd-fab-actions>
+    <button mat-mini-fab style="background-color:green" matTooltip="Aprobar" (click)="validar('Aprobar')">
+      <mat-icon>check</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:darkred" matTooltip="Denegar" (click)="validar('Denegar')">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:darkorange" matTooltip="Cancelar" (click)="validar('Cancelar')">
+      <mat-icon>block</mat-icon>
+    </button>
+  </smd-fab-actions>
+</smd-fab-speed-dial>
+

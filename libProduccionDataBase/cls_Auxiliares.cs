@@ -68,7 +68,7 @@ namespace libProduccionDataBase {
 		public static ValidateEntryResult ValidateEntry ( Contexto.DataBaseContexto DB , object Entry ) => new ValidateEntryResult ( DB.Entry ( Entry ).GetValidationResult ( ) );
 
 		public class ValidateEntryResult {
-
+			
 			public bool IsValid { get; set; }
 			public string ValidationErrorsString {
 				get {
@@ -113,7 +113,7 @@ namespace libProduccionDataBase {
 			public string ValidationErrorsString {
 				get {
 					var strBld = new StringBuilder ( );
-					foreach ( var err in Result ) {
+					foreach ( var err in Result  ) {
 						strBld.AppendFormat ( "• {0}.\n" , err.ErrorMessage );
 					}
 					return strBld.ToString ( );

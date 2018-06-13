@@ -1,0 +1,75 @@
+﻿<button mat-mini-fab class="animated bounceIn" style="left:-5px; top:20px; z-index:2; position:relative" routerLink="/users/index">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<form [formGroup]="Form" novalidate fxLayout="column" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <div fxLayoutGap="20px" fxLayout.xs="column">
+        <mat-form-field fxFlex>
+          <input #UserName matInput placeholder="Usuario" tabindex="-1" formControlName="UserName">
+          <mat-error *ngIf="!UserName.valid">
+            La definición del Usuario es requerida.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <input #Email matInput placeholder="Email" tabindex="2" formControlName="Email">
+          <mat-error *ngIf="!UserName.valid">
+            El Email del Usuario es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayoutGap="20px" fxLayout.xs="column">
+        <mat-form-field fxFlex>
+          <input #Nombre matInput placeholder="Nombre" tabindex="3" formControlName="Nombre">
+          <mat-error *ngIf="!Nombre.valid">
+            El Nombre del Usuario es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayoutGap="20px" fxLayout.xs="column">
+        <mat-form-field fxFlex>
+          <input #ApPat matInput placeholder="Apellido Paterno" tabindex="4" formControlName="ApellidoPaterno">
+          <mat-error *ngIf="!ApPat.valid">
+            El Apellido Paterno del Usuario es requerido.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <input #ApMat matInput placeholder="Apellido Materno" tabindex="5" formControlName="ApellidoMaterno">
+          <mat-error *ngIf="!ApMat.valid">
+            El Apellido Materno del Usuario es requerido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayoutGap="20px" fxLayout.xs="column">
+        <mat-form-field fxFlex>
+          <input #pass matInput placeholder="Contraseña" type="password" tabindex="6" formControlName="Password">
+          <mat-error *ngIf="!pass.valid">
+            La contraseña es requerida.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <input #cpass matInput placeholder="Confirmar Contraseña" onpaste="return false;" type="password" tabindex="7" formControlName="ConfirmPassword">
+          <mat-error *ngIf="!cpass.valid">
+            La confirmación de la contraseña es requerida
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center center">
+      <button mat-raised-button type="submit" tabindex="8">Agregar</button>
+    </mat-card-actions>
+    <mat-card-footer *ngIf="errors.length > 0" style="padding:20px;" fxLayout="column">
+      <ul>
+        <li *ngFor="let err of errors" style="color:darkred; height:20px!important"> {{err}} </li>
+      </ul>
+    </mat-card-footer>
+  </mat-card>
+
+</form>

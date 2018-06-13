@@ -1,0 +1,68 @@
+﻿
+<smd-fab-speed-dial class="animated bounceIn" direction="left" animationMode="fling" style="right:20px; top:80px; z-index:2; position:fixed">
+  <smd-fab-trigger spin="true">
+    <button mat-fab class="mat-elevation-z1">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </smd-fab-trigger>
+  <smd-fab-actions>
+    <button mat-mini-fab style="background-color:teal" matTooltip="Agregar Usuario" routerLink="/users/adduser">
+      <mat-icon>person_add</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:darkturquoise" matTooltip="Actualizar Lista" (click)="usuarioServiceClass.Refresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:sandybrown" matTooltip="Regresar al Inicio" (click)="Back()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </smd-fab-actions>
+</smd-fab-speed-dial>
+
+<mat-card class="mat-typography">
+
+  <div class="example-loading-shade" *ngIf="dataSource.isLoadingResults || dataSource.isRateLimitReached">
+    <mat-spinner *ngIf="dataSource.isLoadingResults"></mat-spinner>
+    <div class="example-rate-limit-reached" *ngIf="dataSource.isRateLimitReached">
+      Error inesperado, por favor recargue la pagina.
+    </div>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" class="example-table mat-elevation-z2" matSort matSortActive="Usuario" matSortDisableClear matSortDirection="asc">
+
+    <ng-container matColumnDef="Usuario">
+      <mat-header-cell *matHeaderCellDef fxFlex="80px">Usuario</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="80px"><h5>{{ row.UserName }}</h5></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Nombre">
+      <mat-header-cell *matHeaderCellDef fxFlex="200px">Nombre</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="200px"><h5>{{ row.FullName }}</h5></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Email">
+      <mat-header-cell *matHeaderCellDef fxFlex="250px">Email</mat-header-cell>
+      <mat-cell *matCellDef="let row" fxFlex="250px"><h5>{{ row.Email }}</h5></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Roles">
+      <mat-header-cell *matHeaderCellDef>Roles</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <ul style="list-style-type:none;padding:0px">
+          <li class="mat-caption" *ngFor="let rol of row.Roles">{{rol}}</li>
+        </ul>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Buttons">
+      <mat-header-cell *matHeaderCellDef fxFlex="80px"></mat-header-cell>
+      <mat-cell *matCellDef="let row" fxLayout="row" fxFlex="80px">
+        <button mat-icon-button (click)="EditRole(row)">
+          <mat-icon color="accent">style</mat-icon>
+        </button>
+        <button *ngIf="canDelete(row)" (click)="deleteUser(row)" mat-icon-button>
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</mat-card>

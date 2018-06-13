@@ -1,0 +1,12 @@
+﻿@Html.AntiForgeryToken()
+@{
+    ViewBag.Title = "Bienvenidos";
+    ViewBag.BaseRef = "/";
+}<my-app>
+  <img src="~/Content/images/logopl.svg" class="image-app" />
+  <div class="loader"></div>
+</my-app>
+@section scripts{
+  <script>
+    System.import('../../../app/homeApp/main.js').catch(function (err) { console.error(err); });
+  </script>}

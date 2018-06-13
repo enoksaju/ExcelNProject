@@ -1,0 +1,96 @@
+﻿<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon color="primary" class="icon-avatar">find_in_page</mat-icon>
+    </div>
+    <mat-card-title>Orden de Trabajo.</mat-card-title>
+    <mat-card-subtitle>Informacion sobre las Ordenes de trabajo.</mat-card-subtitle>
+  </mat-card-header>
+  <hr />
+  <mat-card-content>
+    <div>
+      <form (ngSubmit)="buscarOT(OT.value)" fxLayout="row">
+        <mat-form-field>
+          <input matInput placeholder="OT a buscar" [formControl]="OT" required />
+          <mat-hint align="end">Ingrese el numero de Orden de trabajo a buscar</mat-hint>
+          <mat-error *ngIf="OT.invalid">La OT es requerida</mat-error>
+        </mat-form-field>
+        <button [disabled]="OT.invalid" color="accent" type="submit" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <h4 fxFlex style="text-align:right" *ngIf="secondstate" [style.color]="secondstate && model.ENABLED ? 'green' : 'red'">{{  (secondstate && !model.ENABLED ? 'La orden de trabajo no está disponible para su impresión.' : 'Disponible') }}</h4>
+        <a style="margin:5px" *ngIf="secondstate  && model.ENABLED" mat-mini-fab [href]="'/api/OrdenTrabajo/' + OT.value + '/Todas'" [target]="'_blank'" color="accent">
+          <mat-icon>picture_as_pdf</mat-icon>
+        </a>
+      </form>
+    </div>
+    <br />
+    <mat-progress-bar mode="buffer" *ngIf="isSearching"></mat-progress-bar>
+    <mat-tab-group class="mat-elevation-z15">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>info</mat-icon>
+          <span>Información</span>
+        </ng-template>
+        <div class="pad mat-elevation-z1" fxLayout="row wrap" fxLayoutGap="25px">
+
+          <div fxFlex="calc(100% - 25px;)" fxLayout="row">
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <input matInput readonly placeholder="Tipo" [(ngModel)]="model.TIPOINSTRING" />
+            </mat-form-field>
+          </div>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Cliente" [(ngModel)]="model.CLIENTE" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Producto" [(ngModel)]="model.PRODUCTO" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Clave de Intelisis" [(ngModel)]="model.CLAVEINTELISIS" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Clave de Producto" [(ngModel)]="model.CLAVEPRODUCTO" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Impresora" [(ngModel)]="model.IMPRESORA" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Rodillo" [(ngModel)]="model.RODILLO" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Figura de Salida Final" [(ngModel)]="model.FIGURASALIDAFINAL" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" fxFlex.xs="100">
+            <input matInput readonly placeholder="Kg/M" [(ngModel)]="model.KGXMILL" />
+          </mat-form-field>
+          <mat-form-field fxFlex="calc(50% - 25px)" class="marg-25" fxFlex.xs="100">
+            <input matInput readonly placeholder="Cantidad" [value]="model.CANTIDAD>0 ? model.CANTIDAD + ' ' + model.UNIDAD : ''" />
+          </mat-form-field>
+
+        </div>
+      </mat-tab>
+      <mat-tab label="Instrucciones">
+        <ng-template mat-tab-label>
+          <mat-icon>description</mat-icon>
+          <span>Instrucciones</span>
+        </ng-template>
+        <div class="pad mat-typography" fxLayoutGap="20px" fxLayout="column">
+
+          <mat-card *ngFor="let inst of Instrucciones" fxLayout="row">
+            <div fxFlex="100">
+              <div fxLayout="row">
+                <h3 fxFlex="100">Instrucciones de {{inst.nombre}}</h3>
+                <div *ngIf="model.ENABLED" fxLayoutAlign="center center">
+                  <a style="margin:5px" mat-mini-fab [href]="'/api/OrdenTrabajo/' + OT.value + '/' + inst.nombre " [target]="'_blank'" color="accent">
+                    <mat-icon>picture_as_pdf</mat-icon>
+                  </a>
+                </div>
+              </div>              
+              <h5 style="text-align:justify">{{inst.value}}</h5>
+            </div>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

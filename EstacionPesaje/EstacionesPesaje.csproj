@@ -76,12 +76,10 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\ReoGrid-master\ReoGrid-master\ReoGrid\bin\Debug\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="BarcodeLib">
-      <HintPath>..\BarcodeLib.dll</HintPath>
-    </Reference>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Docking, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

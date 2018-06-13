@@ -1,0 +1,40 @@
+﻿<mat-toolbar color="primary" class="toolbar-app mat-elevation-z13">
+
+
+  <button *ngIf="!media.isActive('gt-sm')" mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="../../../../Content/images/logobw.svg" style="width:200px" />
+  <span fxFlex="100"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" xPosition="before">
+    <a mat-menu-item (click)="LogClick()">
+      <mat-icon color="warn">{{ !isloged ? 'account_circle' : 'exit_to_app' }}</mat-icon>
+      <span>{{ !isloged ? 'Iniciar' : 'Cerrar' }} Sesión</span>
+    </a>
+    <form id="logoutForm" action="/Account/LogOff" method="post">
+      <input name="__RequestVerificationToken" type="hidden" [ngModel]="token()" />
+    </form>
+  </mat-menu>
+
+
+</mat-toolbar>
+<mat-sidenav-container class="snav-container scrollbar">
+  <mat-sidenav fixedInViewport=true 
+               fixedTopGap=64 
+               fixedBottomGap=true 
+               #sidenav
+               mode="{{media.isActive('gt-sm') ? 'side' : 'over'}}"
+               opened="{{media.isActive('gt-sm') ? true : false}}"
+               class="sideNavApp mat-elevation-z10 scrollbar">
+    <mat-nav-list>
+      <menu-item [Menu]="Menu"></menu-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="snav-content scrollbar">
+    <mat-card><router-outlet></router-outlet></mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

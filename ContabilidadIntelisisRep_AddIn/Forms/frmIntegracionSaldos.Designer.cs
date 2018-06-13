@@ -46,7 +46,6 @@
 			this.integracionSaldosDataGridView = new System.Windows.Forms.DataGridView();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.Empresa_cmb = new System.Windows.Forms.ComboBox();
@@ -56,6 +55,7 @@
 			this.TipoBusqueda_cmb = new System.Windows.Forms.ComboBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.integracionSaldosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +66,7 @@
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,8 +90,8 @@
 			this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).BeginInit();
 			this.contextMenuStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).BeginInit();
 			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// integracionSaldosDataGridView
@@ -114,6 +115,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
+            this.Concepto,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn17,
@@ -163,10 +165,6 @@
 			this.copiarToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.copiarToolStripMenuItem.Text = "Copiar";
 			this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
-			// 
-			// integracionSaldosBindingSource
-			// 
-			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
 			// 
 			// panel1
 			// 
@@ -265,6 +263,10 @@
 			this.dateTimePicker1.Value = new System.DateTime(2018, 4, 27, 14, 20, 32, 0);
 			this.dateTimePicker1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dateTimePicker1_KeyUp);
 			// 
+			// integracionSaldosBindingSource
+			// 
+			this.integracionSaldosBindingSource.DataSource = typeof(ContabilidadIntelisisRep_AddIn.Modelos.IntegracionSaldos);
+			// 
 			// dataGridViewTextBoxColumn7
 			// 
 			this.dataGridViewTextBoxColumn7.DataPropertyName = "Cuenta";
@@ -334,6 +336,13 @@
 			this.dataGridViewTextBoxColumn10.HeaderText = "MovId";
 			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
 			this.dataGridViewTextBoxColumn10.ReadOnly = true;
+			// 
+			// Concepto
+			// 
+			this.Concepto.DataPropertyName = "Concepto";
+			this.Concepto.HeaderText = "Concepto";
+			this.Concepto.Name = "Concepto";
+			this.Concepto.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn11
 			// 
@@ -550,9 +559,9 @@
 			this.Text = "frmIntegracionSaldos";
 			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosDataGridView)).EndInit();
 			this.contextMenuStrip1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.integracionSaldosBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -582,6 +591,7 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
