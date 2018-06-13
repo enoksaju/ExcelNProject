@@ -20,26 +20,28 @@ namespace libProduccionDataBase {
 		/// <typeparam name="t">Tipo de la Enumeracion</typeparam>
 		/// <param name="Property">Propiedad del objecto al que se le asignara el valor(Debe ser del tipo de la enumeración)</param>
 		/// <param name="value">string con el valor a asiganr</param>
-		public static void SetEnumProp<t> ( t Property, string value ) {
+		public static void SetEnumProp<t> ( t Property , string value ) {
 			try {
-				Property = ( t ) Enum.Parse ( typeof ( t ), value );
-			}
-			catch (Exception) {
-				throw new Exception ( "No se puede asignar el valor: " + value + " a la propiedad " + typeof ( t ).Name ); ;
+				Property = ( t ) Enum.Parse ( typeof ( t ) , value );
+			} catch ( Exception ) {
+				throw new Exception ( "No se puede asignar el valor: " + value + " a la propiedad " + typeof ( t ).Name );
+				;
 			}
 		}
+
 		/// <summary>
 		/// Devuelve la Excepcion mas profunda.
 		/// </summary>
 		/// <param name="Ex">Excepcion a analizar</param>
 		/// <returns></returns>
 		public static string GetInnerException ( Exception Ex ) {
-			if (Ex.InnerException != null) {
+			if ( Ex.InnerException != null ) {
 				return GetInnerException ( Ex.InnerException );
 			} else {
 				return Ex.Message;
 			}
 		}
+
 		/// <summary>
 		/// Devuelve una lista con los errores del entity.
 		/// </summary>
@@ -50,32 +52,54 @@ namespace libProduccionDataBase {
 			DB.GetValidationErrors ( ).ToList ( ).ForEach ( o => { Returned.AddRange ( o.ValidationErrors ); } );
 			return Returned;
 		}
-		public static string ValidationAndErrorMessages ( Contexto.DataBaseContexto DB, Exception Ex ) {
+		public static string ValidationAndErrorMessages ( Contexto.DataBaseContexto DB , Exception Ex ) {
 			var errors = GetErrors ( DB );
 			var strBld = new StringBuilder ( );
-			if (errors.Count > 0) {
+			if ( errors.Count > 0 ) {
 				errors.ForEach ( err => {
-					strBld.AppendFormat ( "• {0}.\n", err.ErrorMessage );
+					strBld.AppendFormat ( "• {0}.\n" , err.ErrorMessage );
 				} );
 				return strBld.ToString ( );
 			} else {
 				return GetInnerException ( Ex );
 			}
 		}
-		public static CustomModelState Validate ( object Entity ) {
-			return CustomModelState.Validate ( Entity );
+
+		public static ValidateEntryResult ValidateEntry ( Contexto.DataBaseContexto DB , object Entry ) => new ValidateEntryResult ( DB.Entry ( Entry ).GetValidationResult ( ) );
+
+		public class ValidateEntryResult {
+
+			public bool IsValid { get; set; }
+			public string ValidationErrorsString {
+				get {
+					var strBld = new StringBuilder ( );
+					foreach ( var err in this.ValidationErrors ) {
+						strBld.AppendFormat ( "• {0}.\n" , err.ErrorMessage );
+					}
+					return strBld.ToString ( );
+				}
+			}
+
+			public EntityState State { get; }
+			public ICollection<System.Data.Entity.Validation.DbValidationError> ValidationErrors { get; set; }
+			public ValidateEntryResult ( System.Data.Entity.Validation.DbEntityValidationResult Result ) {
+				this.IsValid = Result.IsValid;
+				this.ValidationErrors = Result.ValidationErrors;
+				this.State = Result.Entry.State;
+			}
+
 		}
 
-		public static bool IsInRol ( Identity.ApplicationUserManager UserManager, Identity.ApplicationUser User, params string [] roles ) {
-			foreach (var rol in roles.ToList ( )) {
-				if (UserManager.IsInRole ( User.Id, rol )) {
+		public static CustomModelState Validate ( object Entity ) => CustomModelState.Validate ( Entity );
+
+		public static bool IsInRol ( Identity.ApplicationUserManager UserManager , Identity.ApplicationUser User , params string [ ] roles ) {
+			foreach ( var rol in roles.ToList ( ) ) {
+				if ( UserManager.IsInRole ( User.Id , rol ) ) {
 					return true;
 				}
 			}
 			return false;
 		}
-
-
 
 		public class CustomModelState {
 			public ICollection<ValidationResult> Result;
@@ -83,14 +107,20 @@ namespace libProduccionDataBase {
 			public CustomModelState ( object Entity ) {
 				ValidationContext vc = new ValidationContext ( Entity );
 				Result = new List<ValidationResult> ( );
-				isValid = Validator.TryValidateObject ( Entity, vc, Result );
+				isValid = Validator.TryValidateObject ( Entity , vc , Result );
 			}
-			public static CustomModelState Validate ( object Entity ) {
-				return new CustomModelState ( Entity );
+
+			public string ValidationErrorsString {
+				get {
+					var strBld = new StringBuilder ( );
+					foreach ( var err in Result ) {
+						strBld.AppendFormat ( "• {0}.\n" , err.ErrorMessage );
+					}
+					return strBld.ToString ( );
+				}
 			}
+			public static CustomModelState Validate ( object Entity ) => new CustomModelState ( Entity );
 		}
-
-
 
 		public static class StringKript {
 			// This constant is used to determine the keysize of the encryption algorithm in bits.
@@ -100,22 +130,22 @@ namespace libProduccionDataBase {
 			// This constant determines the number of iterations for the password bytes generation function.
 			private const int DerivationIterations = 1000;
 
-			public static string Encrypt ( string plainText, string passPhrase ) {
+			public static string Encrypt ( string plainText , string passPhrase ) {
 				// Salt and IV is randomly generated each time, but is preprended to encrypted cipher text
 				// so that the same Salt and IV values can be used when decrypting.  
 				var saltStringBytes = Generate256BitsOfRandomEntropy ( );
 				var ivStringBytes = Generate256BitsOfRandomEntropy ( );
 				var plainTextBytes = Encoding.UTF8.GetBytes ( plainText );
-				using (var password = new Rfc2898DeriveBytes ( passPhrase, saltStringBytes, DerivationIterations )) {
+				using ( var password = new Rfc2898DeriveBytes ( passPhrase , saltStringBytes , DerivationIterations ) ) {
 					var keyBytes = password.GetBytes ( Keysize / 8 );
-					using (var symmetricKey = new RijndaelManaged ( )) {
+					using ( var symmetricKey = new RijndaelManaged ( ) ) {
 						symmetricKey.BlockSize = 256;
 						symmetricKey.Mode = CipherMode.CBC;
 						symmetricKey.Padding = PaddingMode.PKCS7;
-						using (var encryptor = symmetricKey.CreateEncryptor ( keyBytes, ivStringBytes )) {
-							using (var memoryStream = new MemoryStream ( )) {
-								using (var cryptoStream = new CryptoStream ( memoryStream, encryptor, CryptoStreamMode.Write )) {
-									cryptoStream.Write ( plainTextBytes, 0, plainTextBytes.Length );
+						using ( var encryptor = symmetricKey.CreateEncryptor ( keyBytes , ivStringBytes ) ) {
+							using ( var memoryStream = new MemoryStream ( ) ) {
+								using ( var cryptoStream = new CryptoStream ( memoryStream , encryptor , CryptoStreamMode.Write ) ) {
+									cryptoStream.Write ( plainTextBytes , 0 , plainTextBytes.Length );
 									cryptoStream.FlushFinalBlock ( );
 									// Create the final bytes as a concatenation of the random salt bytes, the random iv bytes and the cipher bytes.
 									var cipherTextBytes = saltStringBytes;
@@ -131,7 +161,7 @@ namespace libProduccionDataBase {
 				}
 			}
 
-			public static string Decrypt ( string cipherText, string passPhrase ) {
+			public static string Decrypt ( string cipherText , string passPhrase ) {
 				// Get the complete stream of bytes that represent:
 				// [32 bytes of Salt] + [32 bytes of IV] + [n bytes of CipherText]
 				var cipherTextBytesWithSaltAndIv = Convert.FromBase64String ( cipherText );
@@ -143,36 +173,35 @@ namespace libProduccionDataBase {
 				var cipherTextBytes = cipherTextBytesWithSaltAndIv.Skip ( ( Keysize / 8 ) * 2 ).Take ( cipherTextBytesWithSaltAndIv.Length - ( ( Keysize / 8 ) * 2 ) ).ToArray ( );
 
 				try {
-					using (var password = new Rfc2898DeriveBytes ( passPhrase, saltStringBytes, DerivationIterations )) {
+					using ( var password = new Rfc2898DeriveBytes ( passPhrase , saltStringBytes , DerivationIterations ) ) {
 						var keyBytes = password.GetBytes ( Keysize / 8 );
-						using (var symmetricKey = new RijndaelManaged ( )) {
+						using ( var symmetricKey = new RijndaelManaged ( ) ) {
 							symmetricKey.BlockSize = 256;
 							symmetricKey.Mode = CipherMode.CBC;
 							symmetricKey.Padding = PaddingMode.PKCS7;
-							using (var decryptor = symmetricKey.CreateDecryptor ( keyBytes, ivStringBytes )) {
-								using (var memoryStream = new MemoryStream ( cipherTextBytes )) {
-									using (var cryptoStream = new CryptoStream ( memoryStream, decryptor, CryptoStreamMode.Read )) {
+							using ( var decryptor = symmetricKey.CreateDecryptor ( keyBytes , ivStringBytes ) ) {
+								using ( var memoryStream = new MemoryStream ( cipherTextBytes ) ) {
+									using ( var cryptoStream = new CryptoStream ( memoryStream , decryptor , CryptoStreamMode.Read ) ) {
 										var plainTextBytes = new byte [ cipherTextBytes.Length ];
-										var decryptedByteCount = cryptoStream.Read ( plainTextBytes, 0, plainTextBytes.Length );
+										var decryptedByteCount = cryptoStream.Read ( plainTextBytes , 0 , plainTextBytes.Length );
 										memoryStream.Close ( );
 										cryptoStream.Close ( );
-										return Encoding.UTF8.GetString ( plainTextBytes, 0, decryptedByteCount );
+										return Encoding.UTF8.GetString ( plainTextBytes , 0 , decryptedByteCount );
 									}
 								}
 							}
 						}
 					}
-				}
-				catch (Exception) {
+				} catch ( Exception ) {
 					return "";
 				}
 
 
 			}
 
-			private static byte [] Generate256BitsOfRandomEntropy () {
+			private static byte [ ] Generate256BitsOfRandomEntropy ( ) {
 				var randomBytes = new byte [ 32 ]; // 32 Bytes will give us 256 bits.
-				using (var rngCsp = new RNGCryptoServiceProvider ( )) {
+				using ( var rngCsp = new RNGCryptoServiceProvider ( ) ) {
 					// Fill the array with cryptographically secure random bytes.
 					rngCsp.GetBytes ( randomBytes );
 				}
@@ -186,10 +215,13 @@ namespace libProduccionDataBase {
 		public class ObservableListSource<T> : ObservableCollection<T>, IListSource where T : class {
 
 			private IBindingList _bindingList;
-			bool IListSource.ContainsListCollection { get { return false; } }
-			IList IListSource.GetList () {
-				return _bindingList ?? ( _bindingList = this.ToBindingList ( ) );
-			}
+
+
+			bool IListSource.ContainsListCollection => false;
+
+
+			IList IListSource.GetList ( ) => _bindingList ?? ( _bindingList = this.ToBindingList ( ) );
+
 		}
 	}
 }
