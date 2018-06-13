@@ -27,7 +27,7 @@ namespace EstacionPesaje.Pages.MainPages {
 				return _AcumuladoBajada;
 			}
 			set {
-				_AcumuladoBajada = ( _AcumuladoBajada < int.Parse ( repEje_txt.Text ) ? value : 0 );
+				_AcumuladoBajada = ( _AcumuladoBajada < ( int.Parse ( repEje_txt.Text ) - 1 ) ? value : 0 );
 			}
 		}
 		private string OT;
@@ -155,7 +155,7 @@ namespace EstacionPesaje.Pages.MainPages {
 			}
 
 		}
-		
+
 		/// <summary>
 		/// Retorna el ItemOptional seleccionado
 		/// </summary>

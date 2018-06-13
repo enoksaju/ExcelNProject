@@ -259,12 +259,31 @@
 			// 
 			// kryptonNavigator1
 			// 
+			this.kryptonNavigator1.Bar.BarMapExtraText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.None;
+			this.kryptonNavigator1.Bar.BarMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+			this.kryptonNavigator1.Bar.BarMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+			this.kryptonNavigator1.Bar.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Standalone;
 			this.kryptonNavigator1.Bar.ItemAlignment = ComponentFactory.Krypton.Toolkit.RelativePositionAlign.Center;
 			this.kryptonNavigator1.Bar.ItemSizing = ComponentFactory.Krypton.Navigator.BarItemSizing.SameWidth;
+			this.kryptonNavigator1.Bar.TabBorderStyle = ComponentFactory.Krypton.Toolkit.TabBorderStyle.RoundedOutsizeMedium;
+			this.kryptonNavigator1.Bar.TabStyle = ComponentFactory.Krypton.Toolkit.TabStyle.HighProfile;
 			this.kryptonNavigator1.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
 			this.kryptonNavigator1.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
 			this.kryptonNavigator1.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+			this.kryptonNavigator1.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+			this.kryptonNavigator1.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+			this.kryptonNavigator1.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+			this.kryptonNavigator1.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+			this.kryptonNavigator1.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+			this.kryptonNavigator1.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+			this.kryptonNavigator1.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+			this.kryptonNavigator1.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
 			this.kryptonNavigator1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonNavigator1.Group.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+			this.kryptonNavigator1.Group.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlClient;
+			this.kryptonNavigator1.Header.HeaderStyleBar = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+			this.kryptonNavigator1.Header.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
+			this.kryptonNavigator1.Header.HeaderStyleSecondary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
 			this.kryptonNavigator1.Location = new System.Drawing.Point(5, 103);
 			this.kryptonNavigator1.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonNavigator1.Name = "kryptonNavigator1";
@@ -274,7 +293,8 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 1;
+			this.kryptonNavigator1.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
+			this.kryptonNavigator1.SelectedIndex = 2;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(708, 409);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -294,6 +314,7 @@
 			this.kryptonPageInstrucciones.Text = "Informacion";
 			this.kryptonPageInstrucciones.TextDescription = "Explorar las instrucciones para la orden de trabajo en curso.";
 			this.kryptonPageInstrucciones.TextTitle = "Instrucciones";
+			this.kryptonPageInstrucciones.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPageInstrucciones.ToolTipTitle = "Page ToolTip";
 			this.kryptonPageInstrucciones.UniqueName = "24121931F8B44242DA8E86E42392E23E";
 			// 
@@ -318,7 +339,10 @@
 			// 
 			// kryptonGroupBox3
 			// 
+			this.kryptonGroupBox3.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
 			this.kryptonGroupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonGroupBox3.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.kryptonGroupBox3.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox3.Location = new System.Drawing.Point(45, 2);
 			this.kryptonGroupBox3.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonGroupBox3.Name = "kryptonGroupBox3";
@@ -557,7 +581,10 @@
 			// 
 			// kryptonGroupBox2
 			// 
+			this.kryptonGroupBox2.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
 			this.kryptonGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonGroupBox2.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.kryptonGroupBox2.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox2.Location = new System.Drawing.Point(369, 2);
 			this.kryptonGroupBox2.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonGroupBox2.Name = "kryptonGroupBox2";
@@ -574,15 +601,32 @@
 			this.InstruccionesNavigator.Button.ButtonDisplayLogic = ComponentFactory.Krypton.Navigator.ButtonDisplayLogic.NextPrevious;
 			this.InstruccionesNavigator.Button.CloseButtonAction = ComponentFactory.Krypton.Navigator.CloseButtonAction.None;
 			this.InstruccionesNavigator.Button.CloseButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Hide;
+			this.InstruccionesNavigator.Button.ContextButtonAction = ComponentFactory.Krypton.Navigator.ContextButtonAction.SelectPage;
+			this.InstruccionesNavigator.Button.ContextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+			this.InstruccionesNavigator.Button.ContextMenuMapImage = ComponentFactory.Krypton.Navigator.MapKryptonPageImage.Small;
+			this.InstruccionesNavigator.Button.ContextMenuMapText = ComponentFactory.Krypton.Navigator.MapKryptonPageText.TextTitle;
+			this.InstruccionesNavigator.Button.NextButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+			this.InstruccionesNavigator.Button.NextButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
+			this.InstruccionesNavigator.Button.PreviousButtonAction = ComponentFactory.Krypton.Navigator.DirectionButtonAction.ModeAppropriateAction;
+			this.InstruccionesNavigator.Button.PreviousButtonDisplay = ComponentFactory.Krypton.Navigator.ButtonDisplay.Logic;
 			this.InstruccionesNavigator.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.InstruccionesNavigator.Group.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
+			this.InstruccionesNavigator.Group.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlClient;
+			this.InstruccionesNavigator.Header.HeaderStyleBar = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
+			this.InstruccionesNavigator.Header.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Primary;
+			this.InstruccionesNavigator.Header.HeaderStyleSecondary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
 			this.InstruccionesNavigator.Header.HeaderVisiblePrimary = false;
 			this.InstruccionesNavigator.Header.HeaderVisibleSecondary = false;
 			this.InstruccionesNavigator.Location = new System.Drawing.Point(0, 0);
 			this.InstruccionesNavigator.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.InstruccionesNavigator.Name = "InstruccionesNavigator";
 			this.InstruccionesNavigator.NavigatorMode = ComponentFactory.Krypton.Navigator.NavigatorMode.StackCheckButtonHeaderGroup;
+			this.InstruccionesNavigator.Outlook.BorderEdgeStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlClient;
+			this.InstruccionesNavigator.Outlook.CheckButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.NavigatorStack;
 			this.InstruccionesNavigator.Outlook.ItemOrientation = ComponentFactory.Krypton.Toolkit.ButtonOrientation.FixedLeft;
 			this.InstruccionesNavigator.Outlook.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			this.InstruccionesNavigator.Outlook.OverflowButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.NavigatorOverflow;
+			this.InstruccionesNavigator.PageBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlClient;
 			this.InstruccionesNavigator.Pages.AddRange(new ComponentFactory.Krypton.Navigator.KryptonPage[] {
             this.kryptonPage2,
             this.kryptonPage3,
@@ -593,6 +637,7 @@
             this.kryptonPage8,
             this.kryptonPage9,
             this.kryptonPage10});
+			this.InstruccionesNavigator.Panel.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelClient;
 			this.InstruccionesNavigator.SelectedIndex = 6;
 			this.InstruccionesNavigator.Size = new System.Drawing.Size(286, 352);
 			this.InstruccionesNavigator.TabIndex = 0;
@@ -612,6 +657,7 @@
 			this.kryptonPage2.Text = "Impresion";
 			this.kryptonPage2.TextDescription = "Instrucciones de Impresion";
 			this.kryptonPage2.TextTitle = "Impresión";
+			this.kryptonPage2.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage2.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage2.UniqueName = "EB377029200545ADDA8476543F0B0994";
 			// 
@@ -639,6 +685,7 @@
 			this.kryptonPage3.Name = "kryptonPage3";
 			this.kryptonPage3.Size = new System.Drawing.Size(334, 125);
 			this.kryptonPage3.Text = "Laminación";
+			this.kryptonPage3.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage3.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage3.UniqueName = "09A1D83E283B4CEC9BB7FF0310CF716E";
 			// 
@@ -665,6 +712,7 @@
 			this.kryptonPage4.Name = "kryptonPage4";
 			this.kryptonPage4.Size = new System.Drawing.Size(491, 93);
 			this.kryptonPage4.Text = "Refinado";
+			this.kryptonPage4.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage4.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage4.UniqueName = "48D802A2B5534B75FD998AB5C2C821E2";
 			// 
@@ -691,6 +739,7 @@
 			this.kryptonPage5.Name = "kryptonPage5";
 			this.kryptonPage5.Size = new System.Drawing.Size(334, 125);
 			this.kryptonPage5.Text = "Doblado";
+			this.kryptonPage5.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage5.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage5.UniqueName = "E34157DC24294079F0ADBB8E24E3BC0E";
 			// 
@@ -717,6 +766,7 @@
 			this.kryptonPage6.Name = "kryptonPage6";
 			this.kryptonPage6.Size = new System.Drawing.Size(334, 125);
 			this.kryptonPage6.Text = "Corte";
+			this.kryptonPage6.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage6.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage6.UniqueName = "CA6E5AC111134A6E8C9A44016B6CED24";
 			// 
@@ -743,6 +793,7 @@
 			this.kryptonPage7.Name = "kryptonPage7";
 			this.kryptonPage7.Size = new System.Drawing.Size(334, 125);
 			this.kryptonPage7.Text = "Embobinado";
+			this.kryptonPage7.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage7.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage7.UniqueName = "30EAF4676EFF489EFBB9EEE4CEAA70A4";
 			// 
@@ -769,6 +820,7 @@
 			this.kryptonPage8.Name = "kryptonPage8";
 			this.kryptonPage8.Size = new System.Drawing.Size(284, 125);
 			this.kryptonPage8.Text = "Extrusión";
+			this.kryptonPage8.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage8.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage8.UniqueName = "09C85BA9E50944A21BA856C82931C1E5";
 			// 
@@ -795,6 +847,7 @@
 			this.kryptonPage9.Name = "kryptonPage9";
 			this.kryptonPage9.Size = new System.Drawing.Size(491, 93);
 			this.kryptonPage9.Text = "Mangas";
+			this.kryptonPage9.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage9.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage9.UniqueName = "A8EB1E37FC0643C67E90A2331252797B";
 			// 
@@ -821,6 +874,7 @@
 			this.kryptonPage10.Name = "kryptonPage10";
 			this.kryptonPage10.Size = new System.Drawing.Size(491, 93);
 			this.kryptonPage10.Text = "Sellado";
+			this.kryptonPage10.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPage10.ToolTipTitle = "Page ToolTip";
 			this.kryptonPage10.UniqueName = "78078C3214C644FE9A93269DD0F6459C";
 			// 
@@ -849,6 +903,7 @@
 			this.kryptonPageLista.Name = "kryptonPageLista";
 			this.kryptonPageLista.Size = new System.Drawing.Size(706, 380);
 			this.kryptonPageLista.Text = "Lista de Elementos";
+			this.kryptonPageLista.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPageLista.ToolTipTitle = "Page ToolTip";
 			this.kryptonPageLista.UniqueName = "8DC4DEBE47B84B6FABA2B615C5FFEC58";
 			// 
@@ -1234,6 +1289,7 @@
 			this.kryptonPageCaptura.Name = "kryptonPageCaptura";
 			this.kryptonPageCaptura.Size = new System.Drawing.Size(706, 380);
 			this.kryptonPageCaptura.Text = "Captura";
+			this.kryptonPageCaptura.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
 			this.kryptonPageCaptura.ToolTipTitle = "Page ToolTip";
 			this.kryptonPageCaptura.UniqueName = "852C88D3418148B84D9A6460BBD406EA";
 			// 
@@ -1245,10 +1301,14 @@
 			this.kryptonButton2.Name = "kryptonButton2";
 			this.kryptonButton2.Size = new System.Drawing.Size(119, 99);
 			this.kryptonButton2.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonButton2.StateCommon.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+			this.kryptonButton2.StateCommon.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.kryptonButton2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonButton2.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
 			this.kryptonButton2.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
 			this.kryptonButton2.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
 			this.kryptonButton2.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+			this.kryptonButton2.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.kryptonButton2.TabIndex = 13;
 			this.kryptonButton2.Values.Image = global::EstacionPesaje.Properties.Resources.Save_32x;
 			this.kryptonButton2.Values.Text = "Solo Guardar";
@@ -1268,6 +1328,9 @@
 			// Extrusion_Panel
 			// 
 			this.Extrusion_Panel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.Extrusion_Panel.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
+			this.Extrusion_Panel.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.Extrusion_Panel.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.Extrusion_Panel.Location = new System.Drawing.Point(319, 134);
 			this.Extrusion_Panel.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.Extrusion_Panel.Name = "Extrusion_Panel";
@@ -1306,7 +1369,10 @@
 			// kryptonGroupBox5
 			// 
 			this.kryptonGroupBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.kryptonGroupBox5.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
 			this.kryptonGroupBox5.DataBindings.Add(new System.Windows.Forms.Binding("Visible", global::EstacionPesaje.Properties.Settings.Default, "enabledImpresionMultiple", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.kryptonGroupBox5.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.kryptonGroupBox5.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox5.Location = new System.Drawing.Point(48, 135);
 			this.kryptonGroupBox5.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonGroupBox5.Name = "kryptonGroupBox5";
@@ -1375,6 +1441,8 @@
 			// 
 			this.setBajadaActual_btn.Image = global::EstacionPesaje.Properties.Resources.refresh_update;
 			this.setBajadaActual_btn.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Standalone;
+			this.setBajadaActual_btn.ToolTipStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.ToolTip;
+			this.setBajadaActual_btn.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Generic;
 			this.setBajadaActual_btn.UniqueName = "D47F5B97B36B40EB8999CA03DFF525F6";
 			this.setBajadaActual_btn.Click += new System.EventHandler(this.setBajadaActual_btn_Click);
 			// 
@@ -1422,8 +1490,12 @@
 			this.saneo_chk.Name = "saneo_chk";
 			this.saneo_chk.Size = new System.Drawing.Size(120, 99);
 			this.saneo_chk.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.saneo_chk.StateCommon.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+			this.saneo_chk.StateCommon.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.saneo_chk.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.saneo_chk.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
 			this.saneo_chk.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+			this.saneo_chk.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.saneo_chk.TabIndex = 32;
 			this.saneo_chk.Values.ImageStates.ImageCheckedNormal = global::EstacionPesaje.Properties.Resources.document_color_red_error;
 			this.saneo_chk.Values.ImageStates.ImageCheckedPressed = global::EstacionPesaje.Properties.Resources.document_color_red_error;
@@ -1436,6 +1508,9 @@
 			// kryptonGroupBox4
 			// 
 			this.kryptonGroupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.kryptonGroupBox4.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
+			this.kryptonGroupBox4.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.kryptonGroupBox4.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox4.Location = new System.Drawing.Point(48, 9);
 			this.kryptonGroupBox4.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonGroupBox4.Name = "kryptonGroupBox4";
@@ -1797,10 +1872,14 @@
 			this.kryptonButton1.Name = "kryptonButton1";
 			this.kryptonButton1.Size = new System.Drawing.Size(119, 99);
 			this.kryptonButton1.StateCommon.Content.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonButton1.StateCommon.Content.LongText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
+			this.kryptonButton1.StateCommon.Content.LongText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.kryptonButton1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.kryptonButton1.StateCommon.Content.ShortText.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
 			this.kryptonButton1.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.True;
 			this.kryptonButton1.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
 			this.kryptonButton1.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+			this.kryptonButton1.StateCommon.Content.ShortText.Trim = ComponentFactory.Krypton.Toolkit.PaletteTextTrim.Inherit;
 			this.kryptonButton1.TabIndex = 12;
 			this.kryptonButton1.Values.Image = global::EstacionPesaje.Properties.Resources.Print_16x;
 			this.kryptonButton1.Values.Text = "Imprimir y \r\nGuardar";
@@ -1820,7 +1899,10 @@
 			// 
 			// kryptonGroupBox1
 			// 
+			this.kryptonGroupBox1.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
 			this.kryptonGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
+			this.kryptonGroupBox1.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox1.Location = new System.Drawing.Point(5, 2);
 			this.kryptonGroupBox1.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
 			this.kryptonGroupBox1.Name = "kryptonGroupBox1";
