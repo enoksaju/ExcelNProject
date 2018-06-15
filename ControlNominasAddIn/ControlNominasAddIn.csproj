@@ -109,7 +109,7 @@
     <Reference Include="Accessibility" />
     <Reference Include="ComponentFactory.Krypton.Design">
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator">
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
@@ -121,7 +121,9 @@
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\FastColoredTextBox-master\FastColoredTextBox-master\FastColoredTextBox\bin\Debug\FastColoredTextBox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -166,6 +168,13 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Forms\customKryptonPage.cs" />
+    <Compile Include="Forms\frmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConfiguration.Designer.cs">
+      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmImportarPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,11 +199,11 @@
     <Compile Include="Forms\frmVacaciones.Designer.cs">
       <DependentUpon>frmVacaciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SQLPage.cs">
+    <Compile Include="Forms\SQLPageBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\SQLPageBase.Designer.cs">
-      <DependentUpon>SQLPage.cs</DependentUpon>
+      <DependentUpon>SQLPageBase.cs</DependentUpon>
     </Compile>
     <Compile Include="MainRibbon.cs">
       <SubType>Component</SubType>
@@ -207,6 +216,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="Forms\frmConfiguration.resx">
+      <DependentUpon>frmConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImportarPermisos.resx">
       <DependentUpon>frmImportarPermisos.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +232,7 @@
       <DependentUpon>frmVacaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SQLPageBase.resx">
-      <DependentUpon>SQLPage.cs</DependentUpon>
+      <DependentUpon>SQLPageBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainRibbon.resx">
       <DependentUpon>MainRibbon.cs</DependentUpon>
@@ -239,7 +251,7 @@
     <None Include="ControlNominasAddIn_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\ControlNominasAddIn.Models.Vacaciones.datasource" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -281,6 +293,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_vertical_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_black.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

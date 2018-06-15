@@ -351,6 +351,9 @@ WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N""
 			// Limpio la coleccion de checadas
 			Checadas.Clear ( );
 
+			int claveChofer;
+			int.TryParse ( Properties.Settings.Default.claveChofer , out claveChofer );
+
 
 			// Genero variables locales
 			int FilaFinal = ( int ) ExApp.WorksheetFunction.CountA ( ExHoja.Range [ "B1:B50000" ] ), //Cuento el total de elementos en la hoja
@@ -394,7 +397,7 @@ WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N""
 				if ( _anteriorId != _numericId ) {
 
 					// Si la clave es igual a la del chofer asigno valores y salto a la etiqueta "Continua"
-					if ( _numericId == Properties.Settings.Default.claveChofer ) {
+					if ( _numericId == claveChofer ) {
 						_TipoChofer = _Tipo;
 						_vecesChofer = 2;
 						goto Continua;
@@ -411,7 +414,7 @@ WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N""
 				// Si la clave es igual a la clave anterior.
 				else {
 					// Si la clave es igual a la clave del chofer, ajusto valores y salto a la etiqueta "Continua"
-					if ( _numericId == Properties.Settings.Default.claveChofer ) {
+					if ( _numericId == claveChofer ) {
 
 						// Si el numero de veces del chofer es par, agrego una vez al contador y salto a la etiqueta "Siguiente"
 						if ( _vecesChofer % 2 == 0 ) {

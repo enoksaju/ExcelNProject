@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.tbNominasExcelNobleza = this.Factory.CreateRibbonTab();
 			this.gpNominas = this.Factory.CreateRibbonGroup();
+			this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
 			this.mnuNominasExcel = this.Factory.CreateRibbonMenu();
 			this.btnImportarReloj = this.Factory.CreateRibbonButton();
 			this.btnImportarPermisos = this.Factory.CreateRibbonButton();
@@ -39,7 +40,6 @@
 			this.btnCustomSQL = this.Factory.CreateRibbonButton();
 			this.separator2 = this.Factory.CreateRibbonSeparator();
 			this.btnConfiguracion = this.Factory.CreateRibbonButton();
-			this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
 			this.tbNominasExcelNobleza.SuspendLayout();
 			this.gpNominas.SuspendLayout();
 			this.SuspendLayout();
@@ -58,6 +58,10 @@
 			this.gpNominas.Label = "Nominas Excel";
 			this.gpNominas.Name = "gpNominas";
 			this.gpNominas.Position = this.Factory.RibbonPosition.BeforeOfficeId("GroupSortFilter");
+			// 
+			// kryptonManager1
+			// 
+			this.kryptonManager1.GlobalPaletteMode = global::ControlNominasAddIn.Properties.Settings.Default.Theme;
 			// 
 			// mnuNominasExcel
 			// 
@@ -135,10 +139,6 @@
 			this.btnConfiguracion.SuperTip = "Permite cambiar los ajustes de conexión a las bases de datos y ajustar los datos " +
     "del chofer.";
 			this.btnConfiguracion.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnConfiguracion_Click);
-			// 
-			// kryptonManager1
-			// 
-			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.SparklePurple;
 			// 
 			// MainRibbon
 			// 

@@ -13,7 +13,7 @@ namespace ControlNominasAddIn.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -48,9 +48,9 @@ namespace ControlNominasAddIn.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int claveChofer {
+        public string claveChofer {
             get {
-                return ((int)(this["claveChofer"]));
+                return ((string)(this["claveChofer"]));
             }
             set {
                 this["claveChofer"] = value;
@@ -61,10 +61,22 @@ namespace ControlNominasAddIn.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\192.168.1.253\\Temp\\Fto_PLREGI_Fto" +
-            "\\BDO\\P3.mdb; Jet OLEDB:Database Password=EXCEL2016")]
+            "\\BDO\\P3DEBUG.mdb; Jet OLEDB:Database Password=EXCEL2016")]
         public string PermisosConnectionString {
             get {
                 return ((string)(this["PermisosConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Sparkle - Blue")]
+        public global::ComponentFactory.Krypton.Toolkit.PaletteModeManager Theme {
+            get {
+                return ((global::ComponentFactory.Krypton.Toolkit.PaletteModeManager)(this["Theme"]));
+            }
+            set {
+                this["Theme"] = value;
             }
         }
     }

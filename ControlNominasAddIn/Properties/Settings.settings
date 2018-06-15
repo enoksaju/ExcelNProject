@@ -18,15 +18,18 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\192.168.1.251\Config\ZKT\att2000.mdb</Value>
     </Setting>
-    <Setting Name="claveChofer" Type="System.Int32" Scope="User">
+    <Setting Name="claveChofer" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="PermisosConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\192.168.1.253\Temp\Fto_PLREGI_Fto\BDO\P3.mdb; Jet OLEDB:Database Password=EXCEL2016&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\192.168.1.253\Temp\Fto_PLREGI_Fto\BDO\P3DEBUG.mdb; Jet OLEDB:Database Password=EXCEL2016&lt;/ConnectionString&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\192.168.1.253\Temp\Fto_PLREGI_Fto\BDO\P3.mdb; Jet OLEDB:Database Password=EXCEL2016</Value>
+      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\192.168.1.253\Temp\Fto_PLREGI_Fto\BDO\P3DEBUG.mdb; Jet OLEDB:Database Password=EXCEL2016</Value>
+    </Setting>
+    <Setting Name="Theme" Type="ComponentFactory.Krypton.Toolkit.PaletteModeManager" Scope="User">
+      <Value Profile="(Default)">Sparkle - Blue</Value>
     </Setting>
   </Settings>
 </SettingsFile>

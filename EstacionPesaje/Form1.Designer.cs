@@ -99,7 +99,7 @@
 			// 
 			// kryptonManager1
 			// 
-			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2013White;
+			this.kryptonManager1.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Silver;
 			this.kryptonManager1.GlobalStrings.Abort = "Abortar";
 			this.kryptonManager1.GlobalStrings.Cancel = "Cancelar";
 			this.kryptonManager1.GlobalStrings.Close = "Cerrar";
@@ -143,7 +143,7 @@
             this.kryptonRibbonTab1});
 			this.Ribbon.SelectedContext = null;
 			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
-			this.Ribbon.Size = new System.Drawing.Size(902, 115);
+			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
 			// ProduccionRibbonTab
@@ -534,7 +534,7 @@
 			this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.MainPanel.Location = new System.Drawing.Point(0, 115);
 			this.MainPanel.Name = "MainPanel";
-			this.MainPanel.Size = new System.Drawing.Size(902, 428);
+			this.MainPanel.Size = new System.Drawing.Size(823, 428);
 			this.MainPanel.TabIndex = 1;
 			// 
 			// kryptonDockableWorkspace
@@ -561,7 +561,7 @@
 			this.kryptonDockableWorkspace.Root.WorkspaceControl = this.kryptonDockableWorkspace;
 			this.kryptonDockableWorkspace.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
 			this.kryptonDockableWorkspace.ShowMaximizeButton = false;
-			this.kryptonDockableWorkspace.Size = new System.Drawing.Size(902, 428);
+			this.kryptonDockableWorkspace.Size = new System.Drawing.Size(823, 428);
 			this.kryptonDockableWorkspace.TabIndex = 0;
 			this.kryptonDockableWorkspace.TabStop = true;
 			// 
@@ -575,14 +575,14 @@
 			this.statusStrip1.Location = new System.Drawing.Point(0, 543);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip1.Size = new System.Drawing.Size(902, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(823, 22);
 			this.statusStrip1.TabIndex = 2;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(761, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(682, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			this.toolStripStatusLabel1.Text = "Listo...";
 			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -656,7 +656,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.ConnectBasculaSpectButton});
-			this.ClientSize = new System.Drawing.Size(902, 565);
+			this.ClientSize = new System.Drawing.Size(823, 565);
 			this.Controls.Add(this.MainPanel);
 			this.Controls.Add(this.Ribbon);
 			this.Controls.Add(this.statusStrip1);

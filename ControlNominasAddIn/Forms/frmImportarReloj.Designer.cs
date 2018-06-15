@@ -30,12 +30,15 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+			this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
 			this.statusStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+			this.kryptonPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// kryptonButton1
 			// 
-			this.kryptonButton1.Location = new System.Drawing.Point(278, 12);
+			this.kryptonButton1.Location = new System.Drawing.Point(269, 9);
 			this.kryptonButton1.Name = "kryptonButton1";
 			this.kryptonButton1.Size = new System.Drawing.Size(148, 65);
 			this.kryptonButton1.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -46,7 +49,7 @@
 			// 
 			// kryptonButton2
 			// 
-			this.kryptonButton2.Location = new System.Drawing.Point(278, 109);
+			this.kryptonButton2.Location = new System.Drawing.Point(269, 106);
 			this.kryptonButton2.Name = "kryptonButton2";
 			this.kryptonButton2.Size = new System.Drawing.Size(148, 65);
 			this.kryptonButton2.StateCommon.Content.Image.ImageV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Near;
@@ -57,7 +60,7 @@
 			// 
 			// clFechaInicial
 			// 
-			this.clFechaInicial.Location = new System.Drawing.Point(18, 12);
+			this.clFechaInicial.Location = new System.Drawing.Point(9, 9);
 			this.clFechaInicial.Name = "clFechaInicial";
 			this.clFechaInicial.TabIndex = 2;
 			// 
@@ -67,10 +70,10 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 184);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 185);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-			this.statusStrip1.Size = new System.Drawing.Size(442, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(424, 22);
 			this.statusStrip1.SizingGrip = false;
 			this.statusStrip1.TabIndex = 3;
 			this.statusStrip1.Text = "statusStrip1";
@@ -78,7 +81,7 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(427, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(409, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			this.toolStripStatusLabel1.Text = "Listo...";
 			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,15 +92,24 @@
 			this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
 			this.toolStripProgressBar1.Visible = false;
 			// 
+			// kryptonPanel1
+			// 
+			this.kryptonPanel1.Controls.Add(this.clFechaInicial);
+			this.kryptonPanel1.Controls.Add(this.kryptonButton1);
+			this.kryptonPanel1.Controls.Add(this.kryptonButton2);
+			this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+			this.kryptonPanel1.Name = "kryptonPanel1";
+			this.kryptonPanel1.Size = new System.Drawing.Size(424, 185);
+			this.kryptonPanel1.TabIndex = 4;
+			// 
 			// frmImportarReloj
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.ClientSize = new System.Drawing.Size(442, 206);
+			this.ClientSize = new System.Drawing.Size(424, 207);
+			this.Controls.Add(this.kryptonPanel1);
 			this.Controls.Add(this.statusStrip1);
-			this.Controls.Add(this.clFechaInicial);
-			this.Controls.Add(this.kryptonButton2);
-			this.Controls.Add(this.kryptonButton1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -107,6 +119,8 @@
 			this.Text = "Importar datos del reloj";
 			this.statusStrip1.ResumeLayout(false);
 			this.statusStrip1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+			this.kryptonPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -120,5 +134,6 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
 		private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+		private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
 	}
 }

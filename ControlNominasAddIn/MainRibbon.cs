@@ -28,7 +28,7 @@ namespace ControlNominasAddIn {
 		}
 
 		private void btnConfiguracion_Click ( object sender , RibbonControlEventArgs e ) {
-
+			new Forms.frmConfiguration ( ).ShowDialog ( );
 		}
 	}
 }
