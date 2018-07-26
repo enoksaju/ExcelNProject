@@ -66,6 +66,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -115,6 +116,22 @@
     <Compile Include="Migrations\201805181608443_ControlTintas.Designer.cs">
       <DependentUpon>201805181608443_ControlTintas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807042147033_addresponsable.cs" />
+    <Compile Include="Migrations\201807042147033_addresponsable.Designer.cs">
+      <DependentUpon>201807042147033_addresponsable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807051518424_ControlResiduosPeligrosos.cs" />
+    <Compile Include="Migrations\201807051518424_ControlResiduosPeligrosos.Designer.cs">
+      <DependentUpon>201807051518424_ControlResiduosPeligrosos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807051626121_AgregarTelefonoTransportista.cs" />
+    <Compile Include="Migrations\201807051626121_AgregarTelefonoTransportista.Designer.cs">
+      <DependentUpon>201807051626121_AgregarTelefonoTransportista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091742575_addEmailResponsable.cs" />
+    <Compile Include="Migrations\201807091742575_addEmailResponsable.Designer.cs">
+      <DependentUpon>201807091742575_addEmailResponsable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -131,6 +148,7 @@
     <Compile Include="Tablas\cls_Recetas.cs" />
     <Compile Include="Tablas\cls_TiposProducto.cs" />
     <Compile Include="Tablas\EmbarquesNaveCuatro.cs" />
+    <Compile Include="Tablas\resSalidaRP.cs" />
     <Compile Include="Tablas\TemporalOrdenTrabajo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +187,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805181608443_ControlTintas.resx">
       <DependentUpon>201805181608443_ControlTintas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807042147033_addresponsable.resx">
+      <DependentUpon>201807042147033_addresponsable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807051518424_ControlResiduosPeligrosos.resx">
+      <DependentUpon>201807051518424_ControlResiduosPeligrosos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807051626121_AgregarTelefonoTransportista.resx">
+      <DependentUpon>201807051626121_AgregarTelefonoTransportista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091742575_addEmailResponsable.resx">
+      <DependentUpon>201807091742575_addEmailResponsable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

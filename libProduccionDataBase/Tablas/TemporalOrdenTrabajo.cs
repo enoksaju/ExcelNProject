@@ -111,6 +111,7 @@ namespace libProduccionDataBase.Tablas {
 	}
 
 	[Table ( "TEMPCAPT" )]
+  [Serializable]
 	public class TEMPCAPT {
 		private string _OT = "";
 		public int Id { get; set; }

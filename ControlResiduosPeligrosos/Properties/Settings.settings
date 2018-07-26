@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ControlResiduosPeligrosos.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CorreoReceptorSalidas" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dtellez</Value>
+    </Setting>
+    <Setting Name="DominioCorreo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">@excelnobleza.com.mx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

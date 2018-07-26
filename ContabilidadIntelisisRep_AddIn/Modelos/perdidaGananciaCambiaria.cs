@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ContabilidadIntelisisRep_AddIn.Modelos {
-	public class perdidaGananciaCambiaria {
+namespace ContabilidadIntelisisRep_AddIn.Modelos
+{
+	public class perdidaGananciaCambiaria
+	{
 
 		private const string SqlCxc = @"Select Clase='cxc' ,Clave=Cxc.Cliente,Nombre=Cte.Nombre,Tipo=Cte.Tipo,Grupo=Cte.Grupo,Familia=Cte.Familia,Categoria=Cte.Categoria,
 Mov=Cxc.Mov,MovId=Cxc.Movid,FechaEmision=Cxc.FechaEmision,Vencimiento=Cxc.Vencimiento,Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),
@@ -31,6 +33,7 @@ Group by Cxp.Proveedor,Prov.Nombre, Prov.Cuenta,Prov.Tipo,Prov.Categoria, Prov.F
 Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01) 
 Order by mt.Clave, Aux.Moneda,1,Prov.Categoria,Prov.Nombre,Cxp.FechaEmision,Cxp.Mov,Cxp.MovId";
 
+		private static bool asCXP = false;
 
 		public string Clase { get; set; }
 		public string Clave { get; set; }
@@ -51,42 +54,54 @@ Order by mt.Clave, Aux.Moneda,1,Prov.Categoria,Prov.Nombre,Cxp.FechaEmision,Cxp.
 		public string Concepto { get; set; }
 
 
-		public double SaldoPesos { get { return TipoCambio * ( double ) Saldo; } }
-		public double SaldoPesosTCSAT { get { return TipoCambioSat * ( double ) Saldo; } }
-		public double Diferencia { get { return SaldoPesosTCSAT - SaldoPesos; } }
+		public double SaldoPesos { get { return TipoCambio * (double)Saldo; } }
+		public double SaldoPesosTCSAT { get { return TipoCambioSat * (double)Saldo; } }
+		public double Diferencia { get { return (SaldoPesosTCSAT - SaldoPesos) * (asCXP ? -1 : 1); } }
 
 
-		public static async Task<List<perdidaGananciaCambiaria>> getCxcAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo , Empresas Empresa) {
+		public static async Task<List<perdidaGananciaCambiaria>> getCxcAsync(DateTime Fecha, double TipoCambio, string Moneda, Tipos Tipo, Empresas Empresa)
+		{
 
 
-			try {
-				using ( var DB = new Context.dataBaseContext ( ) ) {
-					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder ( DB.Database.Connection.ConnectionString );
-					y.Database = Empresa.ToString ( );
+			try
+			{
+				asCXP = false;
+				using (var DB = new Context.dataBaseContext())
+				{
+					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder(DB.Database.Connection.ConnectionString);
+					y.Database = Empresa.ToString();
 					DB.Database.Connection.ConnectionString = y.ConnectionString;
 					DB.Database.CommandTimeout = 240;
-					return await DB.Database.SqlQuery<perdidaGananciaCambiaria> ( SqlCxc , new SqlParameter ( "@Fecha" , Fecha ) , new SqlParameter ( "@TipoCambioSat" , TipoCambio ) , new SqlParameter ( "@Moneda" , Moneda ) , new SqlParameter ( "@Tipo" , Tipo.ToString ( ) ) ).ToListAsync ( );
+					return await DB.Database.SqlQuery<perdidaGananciaCambiaria>(SqlCxc, new SqlParameter("@Fecha", Fecha), new SqlParameter("@TipoCambioSat", TipoCambio), new SqlParameter("@Moneda", Moneda), new SqlParameter("@Tipo", Tipo.ToString())).ToListAsync();
 				}
-			} catch ( Exception ex ) {
+			}
+			catch (Exception ex)
+			{
 
-				MessageBox.Show ( ex.Message );
+				MessageBox.Show(ex.Message);
 				return null;
 			}
 
 
 		}
-		public static async Task<List<perdidaGananciaCambiaria>> getCxpAsync ( DateTime Fecha , double TipoCambio , string Moneda , Tipos Tipo, Empresas Empresa ) {
-			try {
-				using ( var DB = new Context.dataBaseContext ( ) ) {
-					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder ( DB.Database.Connection.ConnectionString );
-					y.Database = Empresa.ToString ( );
+		public static async Task<List<perdidaGananciaCambiaria>> getCxpAsync(DateTime Fecha, double TipoCambio, string Moneda, Tipos Tipo, Empresas Empresa)
+		{
+			try
+			{
+				asCXP = true;
+				using (var DB = new Context.dataBaseContext())
+				{
+					var y = new MySql.Data.MySqlClient.MySqlConnectionStringBuilder(DB.Database.Connection.ConnectionString);
+					y.Database = Empresa.ToString();
 					DB.Database.Connection.ConnectionString = y.ConnectionString;
 					DB.Database.CommandTimeout = 240;
-					return await DB.Database.SqlQuery<perdidaGananciaCambiaria> ( SqlCxp , new SqlParameter ( "@Fecha" , Fecha ) , new SqlParameter ( "@TipoCambioSat" , TipoCambio ) , new SqlParameter ( "@Moneda" , Moneda ) , new SqlParameter ( "@Tipo" , Tipo.ToString ( ) ) ).ToListAsync ( );
+					return await DB.Database.SqlQuery<perdidaGananciaCambiaria>(SqlCxp, new SqlParameter("@Fecha", Fecha), new SqlParameter("@TipoCambioSat", TipoCambio), new SqlParameter("@Moneda", Moneda), new SqlParameter("@Tipo", Tipo.ToString())).ToListAsync();
 				}
-			} catch ( Exception ex ) {
+			}
+			catch (Exception ex)
+			{
 
-				MessageBox.Show ( ex.Message );
+				MessageBox.Show(ex.Message);
 				return null;
 			}
 		}

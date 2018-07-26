@@ -101,9 +101,9 @@ namespace EstacionPesaje.Pages.MainPages.Embarques {
 				var o = ( from fl in t
 						  where fl.includeOnFilter ( Filtro , inicio, fin )
 						  select fl )
-						  .OrderByDescending  (y=>y.FUESANEADA )
-						  .ThenByDescending(y=>y.ENSANEO )
-						  .ThenByDescending (y=>y.RECHAZADA )
+						  .OrderBy  (y=>y.FUESANEADA )
+						  .ThenBy (y=>y.ENSANEO )
+						  .ThenBy (y=>y.RECHAZADA )
 						  .ThenBy (y=>y.NUMERO )
 						  .ToList ( );
 
