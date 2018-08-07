@@ -1,0 +1,49 @@
+<div style="position:relative">
+    <mat-card class="mat-card-theme mat-primary">
+      <mat-card-header>
+        <div mat-card-avatar>
+          <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
+        </div>
+        <mat-card-title>Usuarios</mat-card-title>
+        <mat-card-subtitle>Se muestra la lista de todos los usuarios registrados en la aplicacion</mat-card-subtitle>
+        <button mat-fab class="mat-card-action-button" color="accent" (click)="addUser()">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content style="overflow: auto;">
+
+        <mat-table #table [dataSource]="Usuarios" style="min-width: 800px;">
+          <ng-container cdkColumnDef="Nombre">
+            <mat-header-cell *cdkHeaderCellDef> Nombre </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{row.Nombre}} </mat-cell>
+          </ng-container>
+
+          <ng-container cdkColumnDef="Email">
+            <mat-header-cell *cdkHeaderCellDef> Correo </mat-header-cell>
+            <mat-cell *cdkCellDef="let row"> {{row.Email}} </mat-cell>
+          </ng-container>
+
+          <ng-container cdkColumnDef="EmailConfirmed">
+            <mat-header-cell *cdkHeaderCellDef fxFlex="120px"> Email Confirmado </mat-header-cell>
+            <mat-cell *cdkCellDef="let row" fxLayoutAlign="center center" fxFlex="120px">
+              <fa-icon [style.color]="row.EmailConfirmed ? '#4caf50': '#f44336'" [icon]="['fas', row.EmailConfirmed ? 'check': 'times' ]"></fa-icon>
+              <!-- <mat-checkbox disabled="true" [checked]="row.EmailConfirmed"></mat-checkbox> -->
+            </mat-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="Roles">
+            <mat-header-cell *cdkHeaderCellDef fxFlex="250px" fxLayoutAlign="center center"> Roles </mat-header-cell>
+            <mat-cell *cdkCellDef="let row" fxFlex="250px" fxLayoutAlign="center center">
+              <ul style="list-style: none;" fxFlex="200px">
+                <li *ngFor="let itm of row.Roles">{{itm}}</li>
+              </ul>
+              <button mat-icon-button color="primary" (click)="editRoles(row)">
+                <fa-icon [icon]="['fas','edit']"></fa-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </div>

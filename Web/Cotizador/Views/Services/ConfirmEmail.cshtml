@@ -1,0 +1,13 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "ConfirmEmail";
+    Layout = "~/Views/Shared/_shared.cshtml";
+}
+
+<md-card flex="100" flex-gt-xs="80" flex-gt-sm="50" layout="column">
+  <md-card-content layout="column" layout-align="space-between">
+    <span class="md-headline" style="color: darkgreen">Usuario Confirmado!!</span>
+    <md-button href="@Url.Action("","")" class="md-raised md-primary">Iniciar</md-button>
+  </md-card-content>
+</md-card>
+

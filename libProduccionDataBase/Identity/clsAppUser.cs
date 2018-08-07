@@ -11,48 +11,58 @@ using System.Threading.Tasks;
 
 namespace libProduccionDataBase.Identity
 {
-    public class ApplicationUser : IdentityUser<int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
-    {
-        [Required(ErrorMessage = "El nombre del usuario es requerido")]
-        public string Nombre { get; set; }
-        [Required(ErrorMessage = "El Apellido Paterno del usuario es requerido")]
-        public string ApellidoPaterno { get; set; }
-        [Required(ErrorMessage = "El Apellido Materno del usuario es requerido")]
-        public string ApellidoMaterno { get; set; }
-        [Index(IsUnique = true)]
-        [MaxLength(10, ErrorMessage = "El largo maximo para la clave del trabajador es de 10 caracteres")]
-        public string ClaveTrabajador { get; set; }
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser, int> manager)
-        {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
-        }
-    }
-    public class ApplicationUserRole : IdentityUserRole<int> { }
-    public class ApplicationUserClaim : IdentityUserClaim<int> { }
-    public class ApplicationUserLogin : IdentityUserLogin<int> { }
+	public class ApplicationUser : IdentityUser<int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
+	{
+		public enum status { Activo, Baja, Espera }
 
-    public class ApplicationRole : IdentityRole<int, ApplicationUserRole>
-    {
-        public ApplicationRole() { }
-        public ApplicationRole(string name) { Name = name; }
-    }
+		[Required ( ErrorMessage = "El nombre del usuario es requerido" )]
+		public string Nombre { get; set; }
+		[Required ( ErrorMessage = "El Apellido Paterno del usuario es requerido" )]
+		public string ApellidoPaterno { get; set; }
+		[Required ( ErrorMessage = "El Apellido Materno del usuario es requerido" )]
+		public string ApellidoMaterno { get; set; }
+		[Index ( IsUnique = true )]
+		[MaxLength ( 10, ErrorMessage = "El largo maximo para la clave del trabajador es de 10 caracteres" )]
+		public string ClaveTrabajador { get; set; }
+		public status Estatus { get; set; }
+		public async Task<ClaimsIdentity> GenerateUserIdentityAsync ( UserManager<ApplicationUser, int> manager )
+		{
+			// Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+			var userIdentity = await manager.CreateIdentityAsync ( this, DefaultAuthenticationTypes.ApplicationCookie );
+			// Add custom user claims here
+			return userIdentity;
+		}
+		public async Task<ClaimsIdentity> GenerateUserIdentityAsync ( UserManager<ApplicationUser, int> manager, string authenticationType )
+		{
+			// Tenga en cuenta que el valor de authenticationType debe coincidir con el definido en CookieAuthenticationOptions.AuthenticationType
+			var userIdentity = await manager.CreateIdentityAsync ( this, authenticationType );
+			// Agregar aquí notificaciones personalizadas de usuario
+			return userIdentity;
+		}
+	}
+	public class ApplicationUserRole : IdentityUserRole<int> { }
+	public class ApplicationUserClaim : IdentityUserClaim<int> { }
+	public class ApplicationUserLogin : IdentityUserLogin<int> { }
 
-    public class ApplicationUserStore : UserStore<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
-    {
-        public ApplicationUserStore(Contexto.DataBaseContexto context) : base(context)
-        {
-           
-        }
-        
-    }
+	public class ApplicationRole : IdentityRole<int, ApplicationUserRole>
+	{
+		public ApplicationRole () { }
+		public ApplicationRole ( string name ) { Name = name; }
+	}
 
-    public class ApplicationRoleStore : RoleStore<ApplicationRole, int, ApplicationUserRole>
-    {
-        public ApplicationRoleStore(Contexto.DataBaseContexto context) : base(context)
-        {
-        }
-    }
+	public class ApplicationUserStore : UserStore<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
+	{
+		public ApplicationUserStore ( Contexto.DataBaseContexto context ) : base ( context )
+		{
+
+		}
+
+	}
+
+	public class ApplicationRoleStore : RoleStore<ApplicationRole, int, ApplicationUserRole>
+	{
+		public ApplicationRoleStore ( Contexto.DataBaseContexto context ) : base ( context )
+		{
+		}
+	}
 }

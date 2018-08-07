@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DumpMySQL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="mysqldumpPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin</Value>
+    </Setting>
+    <Setting Name="backupDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\bkMysql</Value>
+    </Setting>
+    <Setting Name="errorLogPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\bkMysql\dumperrors.txt</Value>
+    </Setting>
+    <Setting Name="retaindays" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="Email" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="portEmail" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="serverEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="pEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="sendEmail" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

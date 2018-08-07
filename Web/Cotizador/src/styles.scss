@@ -1,0 +1,178 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import 'styles-variables.scss';
+$light-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+$dark-app-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-warn);
+$colorTypes: primary accent warn;
+@mixin backColorAndContrast($color) {
+    background-color: mat-color($color, darker);
+    color: mat-color($color, darker-contrast);
+}
+
+@mixin colorCardHeader($color) {
+    @include backColorAndContrast($color);
+    & mat-card-title,
+    mat-card-subtitle {
+        color: mat-color($color, darker-contrast);
+    }
+}
+
+@mixin customMatCard($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $colorVariables: $primary $accent $warn;
+    .mat-card {
+        @media screen and (max-width: 959px) {
+            margin-top: 80px !important;
+        }
+        &-action-button {
+            position: absolute !important;
+            bottom: -28px;
+            right: 20px;
+        }
+        &.mat-card-theme {
+            margin: 10px;
+            padding: 0px;
+            &>.mat-card-header,
+            .mat-card-footer {
+                position: relative;
+            }
+            & .mat-card-header,
+            .mat-card-content,
+            .mat-card-actions,
+            .mat-card-footer {
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            & .mat-card-footer {
+                margin: 0px;
+            }
+            @for $i from 1 through length($colorVariables) {
+                &.mat-#{nth($colorTypes, $i)} {
+                    &>.mat-card-header {
+                        @include colorCardHeader( nth($colorVariables, $i));
+                    }
+                }
+            }
+        }
+        &-outside-icon {
+            margin-top: 40px;
+            position: relative;
+            min-height: 170px;
+            & .mat-card-title,
+            .mat-card-subtitle {
+                text-align: right;
+            }
+            & .mat-card-header {
+                margin-left: 15% !important;
+            }
+            & .mat-card-icon {
+                position: absolute;
+                top: -20px;
+                left: 10px;
+                width: 80px;
+                height: 80px;
+                border-radius: 3px;
+                background-color: mat-color($background, card);
+                @for $i from 1 through length($colorVariables) {
+                    &.bg-#{nth($colorTypes, $i)} {
+                        @include backColorAndContrast(nth($colorVariables, $i));
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin Loader($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    .center-loader {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 50vw;
+        height: 50vw;
+        margin: -25vw 0 0 -25vw;
+        max-width: 400px;
+        max-height: 400px;
+        &#{&}-image {
+            background-image: url('assets/logopl.svg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &#{&}-spin {
+            border: 2vw solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 2vw solid mat-color($primary);
+            animation: spin 2s linear infinite;
+        }
+        @media screen and (min-width:480px) {
+            width: 400px;
+            height: 400px;
+            margin: -200px 0 0 -200px;
+            &#{&}-spin {
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid mat-color($primary);
+            }
+        }
+    }
+}
+
+@include angular-material-theme($dark-app-theme);
+@include customMatCard($dark-app-theme);
+@include Loader($dark-app-theme);
+.lt {
+    @include angular-material-theme($light-app-theme);
+    @include customMatCard($light-app-theme);
+    @include Loader($light-app-theme);
+    .excel {
+        filter: invert(0.6);
+    }
+}
+
+.closeButton {
+    position: absolute !important;
+    top: -20px;
+    right: -20px;
+}
+
+.dialog-container {
+    position: relative;
+    min-width: 200px;
+    min-height: 250px;
+    .closeButton {
+        position: absolute !important;
+        top: -20px;
+        right: -20px;
+    }
+}
+
+.relleno {
+    flex: 1 1 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+$list: 5 10 15 20 25 30 35 40 45 50 60 65 70 75 80 85 90 95 100;
+@each $i in $list {
+    .end-wrap-#{$i} {
+        > :last-child {
+            margin-right: #{$i}px;
+        }
+    }
+}

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -132,6 +133,22 @@
     <Compile Include="Migrations\201807091742575_addEmailResponsable.Designer.cs">
       <DependentUpon>201807091742575_addEmailResponsable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808032047109_addStatusToUser.cs" />
+    <Compile Include="Migrations\201808032047109_addStatusToUser.Designer.cs">
+      <DependentUpon>201808032047109_addStatusToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071618155_ChangePropertiesOfTableClientes.cs" />
+    <Compile Include="Migrations\201808071618155_ChangePropertiesOfTableClientes.Designer.cs">
+      <DependentUpon>201808071618155_ChangePropertiesOfTableClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071636164_optimizeClassMaquina.cs" />
+    <Compile Include="Migrations\201808071636164_optimizeClassMaquina.Designer.cs">
+      <DependentUpon>201808071636164_optimizeClassMaquina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808071710138_optimizeClassMateriales.cs" />
+    <Compile Include="Migrations\201808071710138_optimizeClassMateriales.Designer.cs">
+      <DependentUpon>201808071710138_optimizeClassMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
     <Compile Include="Contexto\cls_Contexto.cs" />
@@ -199,6 +216,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807091742575_addEmailResponsable.resx">
       <DependentUpon>201807091742575_addEmailResponsable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808032047109_addStatusToUser.resx">
+      <DependentUpon>201808032047109_addStatusToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071618155_ChangePropertiesOfTableClientes.resx">
+      <DependentUpon>201808071618155_ChangePropertiesOfTableClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071636164_optimizeClassMaquina.resx">
+      <DependentUpon>201808071636164_optimizeClassMaquina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808071710138_optimizeClassMateriales.resx">
+      <DependentUpon>201808071710138_optimizeClassMateriales.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

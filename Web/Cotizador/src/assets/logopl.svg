@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="0 0 170 35"
+   id="svg4242"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="logopl.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1632"
+     inkscape:window-height="771"
+     id="namedview29"
+     showgrid="false"
+     inkscape:zoom="2.075"
+     inkscape:cx="-4.5783133"
+     inkscape:cy="17.5"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4242" />
+  <defs
+     id="defs4244">
+    <linearGradient
+       id="linearGradient4857">
+      <stop
+         id="stop4859"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1" />
+      <stop
+         id="stop4861"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="translate(0.51563331,-45.166126)"
+       y2="40.215614"
+       x2="67.421799"
+       y1="23.442385"
+       x1="67.421806"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4883"
+       xlink:href="#linearGradient4857" />
+    <mask
+       id="mask4879"
+       maskUnits="userSpaceOnUse">
+      <rect
+         transform="scale(1,-1)"
+         y="-21.805964"
+         x="2.4889545"
+         height="24.173185"
+         width="156.38571"
+         id="rect4881"
+         style="opacity:1;fill:url(#linearGradient4883);fill-opacity:1;stroke:none;stroke-width:6.99700022;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </mask>
+    <filter
+       height="3.3855505"
+       y="-1.1927752"
+       width="1.0593913"
+       x="-0.029695651"
+       id="filter5902"
+       style="color-interpolation-filters:sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur5904"
+         stdDeviation="0.98072033" />
+    </filter>
+    <filter
+       height="4.88977"
+       y="-1.9448851"
+       width="1.2750343"
+       x="-0.13751712"
+       id="filter5906"
+       style="color-interpolation-filters:sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur5908"
+         stdDeviation="0.93281881" />
+    </filter>
+    <filter
+       height="3.6659057"
+       y="-1.3329529"
+       width="1.088275"
+       x="-0.044137508"
+       id="filter5910"
+       style="color-interpolation-filters:sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur5912"
+         stdDeviation="0.91331389" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4247">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(8.6518936,1.6330318)"
+     id="g4792">
+    <path
+       style="display:inline;fill:#00788b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98867416px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 68.73124,20.780106 c 8.551905,0.59703 7.682405,-11.5295674 7.773575,-11.2340774 l -7.778175,0.076 -0.0566,-0.0429 z"
+       id="path6340-4-5"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="display:inline;opacity:1;fill:#00788b;fill-opacity:1;stroke:none;stroke-width:1.77199996;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6271-2"
+       width="7.8302307"
+       height="7.5967402"
+       x="68.672318"
+       y="0.43464836" />
+    <rect
+       style="display:inline;opacity:1;fill:#00788b;fill-opacity:1;stroke:none;stroke-width:1.77199996;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6271"
+       width="7.8302307"
+       height="7.5967402"
+       x="59.407787"
+       y="0.48168358" />
+    <path
+       style="display:inline;fill:#00788b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.98867416px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 67.22051,20.862916 C 58.668597,21.459936 59.538097,9.3333486 59.446927,9.6288286 l 7.778183,0.076 0.0566,-0.0429 z"
+       id="path6340-4"
+       inkscape:connector-curvature="0" />
+  </g>
+  <text
+     id="text6235"
+     y="17.600822"
+     x="15.728381"
+     style="font-style:normal;font-weight:normal;font-size:15.55165482px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#666971;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"
+     sodipodi:linespacing="125%"><tspan
+       style="fill:#666971;fill-opacity:1"
+       y="17.600822"
+       x="15.728381"
+       id="tspan6237">EXCEL</tspan></text>
+  <text
+     id="text6372"
+     y="17.060394"
+     x="86.027054"
+     style="font-style:normal;font-weight:normal;font-size:15.06041527px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#027897;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     xml:space="preserve"
+     sodipodi:linespacing="125%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#027897;fill-opacity:1;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none"
+       y="17.060394"
+       x="86.027054"
+       id="tspan6374">NOBLEZA</tspan></text>
+  <ellipse
+     transform="matrix(1.1060104,0,0,1.0425359,3.4485794,-0.98202029)"
+     ry="0.82221717"
+     rx="24.830959"
+     cy="28.617756"
+     cx="31.244251"
+     id="path4150"
+     style="opacity:0.11799999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.99700022;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5910)" />
+  <ellipse
+     transform="matrix(0.97883514,0,0,1.1292399,11.049865,-3.5164254)"
+     ry="0.57555205"
+     rx="8.1399498"
+     cy="29.028864"
+     cx="66.681808"
+     id="path4152"
+     style="opacity:0.11799999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.99700022;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5906)" />
+  <ellipse
+     ry="0.9866606"
+     rx="39.630867"
+     cy="29.264128"
+     cx="125.57117"
+     id="path4154"
+     style="opacity:0.11799999;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6.99700022;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter5902)" />
+</svg>

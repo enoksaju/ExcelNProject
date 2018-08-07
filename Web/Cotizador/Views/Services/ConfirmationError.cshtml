@@ -1,0 +1,13 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "ConfirmationError";
+    Layout = "~/Views/Shared/_shared.cshtml";
+}
+
+<md-card flex="100" flex-gt-xs="80" flex-gt-sm="50" layout="column">
+  <md-card-content layout="column" layout-align="space-between">
+    <span class="md-headline" style="color: red">Error al intentar Confirmar su correo electronico.</span>
+    <span class="md-subhead">Probablemente el tiempo de espera de confirmación ha caducado, por favor contacte al administrador de la aplicación.</span>
+  </md-card-content>
+</md-card>
+

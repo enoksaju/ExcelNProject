@@ -1,0 +1,85 @@
+﻿<mat-sidenav-container class="main-container mat-typography">
+  <!-- SideNav -->
+  <mat-sidenav *ngIf="usuariosService.hasToken()" #sideNav class="mat-elevation-z1" style="width: 300px;" fxLayout="column"
+    [opened]="sideNavOpend() ? false: true" [mode]="sideNavOpend() ? 'overlay' : 'side'">
+
+    <!-- Barra de navegacion del side nav bar -->
+    <mat-toolbar fxFlex="60px" color="primary">
+      <span class="relleno"></span>
+      <!-- Botón de apertura del menu MoreOptions -->
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <!-- Menu de mas opciones -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="themes">
+          <mat-icon>color_lens</mat-icon>
+          <span>Temas</span>
+        </button>
+        <button mat-menu-item (click)="signOut()" [routerLink]="'../login'">
+          <mat-icon>close</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+
+      <!-- Menu de Temas -->
+      <mat-menu #themes="matMenu">
+        <button mat-menu-item (click)="darkTheme = true">
+          <span>Oscuro</span>
+        </button>
+        <button mat-menu-item (click)="darkTheme = false">
+          <span>Claro</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <!-- Menu de Navegacion -->
+    <!-- Con sesion iniciada -->
+    <div>
+      <mat-nav-list>
+        <mat-list-item [routerLink]="''">
+          <fa-icon mat-list-icon [fixedWidth]="true" [icon]="['fas', 'home']"></fa-icon>
+          <h4 mat-line>Inicio</h4>
+        </mat-list-item>
+        <mat-accordion>
+          <!-- Control de Usuarios -->
+          <mat-expansion-panel class="plain" displayMode="flat" *ngIf="usuariosService.CurrentIsInRol('Administrador,Develop,Sistemas')">
+            <mat-expansion-panel-header>
+                <fa-icon [fixedWidth]="true" [icon]="['fas', 'users']"></fa-icon>
+                <h4>Administrador</h4>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+              <mat-list-item [routerLink]="'../usuarios'">
+                <fa-icon mat-list-icon [fixedWidth]="true" [icon]="['fas', 'users']"></fa-icon>
+                <h4 mat-line>Usuarios</h4>
+              </mat-list-item>
+            </mat-nav-list>
+          </mat-expansion-panel>
+          <!-- Catalogos -->
+          <mat-list-item [routerLink]="'../catalogos'">
+            <fa-icon mat-list-icon [fixedWidth]="true" [icon]="['fas', 'book']"></fa-icon>
+            <h4 mat-line>Catalogos</h4>
+          </mat-list-item>
+        </mat-accordion>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <!-- Contenido principal de la pagina -->
+  <mat-sidenav-content fxLayout="column">
+    <!-- ToolBar de la aplicacion en modo Movil -->
+    <mat-toolbar fxFlex="60px" style="position:fixed; z-index: 999;" color="primary" *ngIf="sideNavOpend()">
+
+      <!-- Control de apertura del SideNav -->
+      <button mat-icon-button (click)="OpenSideNav( sideNav )">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Contendor de Componentes Navegables -->
+    <div fxLayout="column" fxFlex="100%">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

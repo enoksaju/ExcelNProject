@@ -1,0 +1,41 @@
+:host{
+  height: 100%;
+  &.myClass{
+    flex:1 1 100%;
+  }
+}
+.card {
+  max-width: 300px;
+}
+
+.logo {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  height: 50px;
+  width: 280px;
+
+  > .excel {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 250px;
+  }
+
+  > .guala {
+    position: absolute;
+    bottom: 30px;
+    right: 90px;
+    width: 120px;
+  }
+
+  > span {
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    width: 250px;
+    font-size:10px;
+  }
+}
