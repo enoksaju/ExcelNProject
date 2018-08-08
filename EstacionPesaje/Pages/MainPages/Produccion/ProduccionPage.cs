@@ -54,9 +54,11 @@ namespace EstacionPesaje.Pages.MainPages {
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageDrag
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageReorder );
 
+		
 			DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
-			//DB.Configuration.LazyLoadingEnabled = false;
-			//DB.Database.Log = Console.Write;
+
+			DB.Configuration.LazyLoadingEnabled = false;
+			DB.Database.Log = (string text) => { System.Diagnostics.Debug.Write ( text ); };
 
 
 			if ( !DB.tempOt.Any ( o => o.OT == OT.Trim ( ) ) )
@@ -491,21 +493,21 @@ namespace EstacionPesaje.Pages.MainPages {
 		}
 
 		#region FilterDataGridView
-		private void RefreshListItems ( ) {
+		private async void RefreshListItems ( ) {
 
 
 			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
-
+			
 			DB.TempProduccion
 				.Local
 				.ToList ( )
-				.ForEach ( y => {
+				.ForEach ( y =>
+				{
 					DB.Entry ( y ).State = EntityState.Detached;
 					y = null;
 				} );
-
-			DB.tempOt.Where ( OT => OT.OT == this.OT )
-				.IncludeFilter ( u => u.Produccion.Where ( o => o.TIPOPROCESO == sp ) ).Load ( );
+			
+			var tempu= DB.TempProduccion.Where ( o => o.TIPOPROCESO == sp & o.OT == this.OT ).ToList();
 
 			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
 

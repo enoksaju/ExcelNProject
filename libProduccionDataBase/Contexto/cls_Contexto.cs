@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using libProduccionDataBase.Tablas;
 using Microsoft.AspNet.Identity.EntityFramework;
 using libProduccionDataBase.Identity;
+using MySql.Data.EntityFramework;
 
 namespace libProduccionDataBase.Contexto
 {
-	[DbConfigurationType ( typeof ( MySql.Data.Entity.MySqlEFConfiguration ) )]
+	[DbConfigurationType ( typeof (MySqlEFConfiguration ) )]
 	public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
 	{
 		public event EventHandler SavedChanges;
@@ -75,7 +76,7 @@ namespace libProduccionDataBase.Contexto
 			Database.SetInitializer<DataBaseContexto> ( null );
 		}
 
-		public static DataBaseContexto Create () { return new DataBaseContexto ( ); }
+		public static DataBaseContexto Create () => new DataBaseContexto ( );
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
 			//  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention>();

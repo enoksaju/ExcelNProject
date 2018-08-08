@@ -1,7 +1,6 @@
 namespace libProduccionDataBase.Migrations
 {
 	using Identity;
-	using MySql.Data.Entity;
 	using System;
 	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
@@ -9,6 +8,7 @@ namespace libProduccionDataBase.Migrations
 
 	using Microsoft.AspNet.Identity;
 	using Microsoft.AspNet.Identity.EntityFramework;
+	using MySql.Data.EntityFramework;
 
 	internal sealed class Configuration : DbMigrationsConfiguration<libProduccionDataBase.Contexto.DataBaseContexto>
 	{
@@ -18,7 +18,7 @@ namespace libProduccionDataBase.Migrations
 
 			DbConfiguration.SetConfiguration ( new MySqlEFConfiguration ( ) );
 			AutomaticMigrationsEnabled = false;
-			SetSqlGenerator ( "MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator ( ) );
+			SetSqlGenerator ( "MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator ( ) );
 
 			//try
 			//{
