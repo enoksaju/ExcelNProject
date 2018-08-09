@@ -64,6 +64,9 @@ namespace libProduccionDataBase.Tablas
 		public virtual ObservableListSource<Calibre> Calibres { get; set; }
 		public virtual FamiliaMateriales Familia { get; set; }
 		
+		/// <summary>
+		/// Busca los incrementos o decremntos de la familia de materiales y modifica el precio inicial.
+		/// </summary>
 		public double IncrementoDecremento
 		{
 			get

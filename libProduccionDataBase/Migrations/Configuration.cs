@@ -1,38 +1,68 @@
 namespace libProduccionDataBase.Migrations
 {
-	using Identity;
 	using System;
-	using System.Data.Entity;
 	using System.Data.Entity.Migrations;
+	using System.Data.Entity.Migrations.Model;
+	using System.Data.Entity.Migrations.Sql;
+	using System.Data.Entity.SqlServer.Utilities;
 	using System.Linq;
-
+	using System.Text;
+	using Identity;
 	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
 	using MySql.Data.EntityFramework;
+
+	public class myMigrationSQLGenerator : MySqlMigrationSqlGenerator
+	{
+		private string TrimSchemaPrefix ( string table )
+		{
+			if ( table.StartsWith ( "dbo." ) )
+				return table.Replace ( "dbo.", "" );
+			return table;
+		}
+
+		protected override MigrationStatement Generate ( CreateIndexOperation op )
+		{
+			StringBuilder sb = new StringBuilder ( );
+
+			sb = sb.Append ( "CREATE " );
+
+			if ( op.IsUnique )
+			{
+				sb.Append ( "UNIQUE " );
+			}
+
+			//index_col_name specification can end with ASC or DESC.
+			// sort order are permitted for future extensions for specifying ascending or descending index value storage
+			//Currently, they are parsed but ignored; index values are always stored in ascending order.
+
+			object sort;
+			op.AnonymousArguments.TryGetValue ( "Sort", out sort );
+			var sortOrder = sort != null && sort.ToString ( ) == "Ascending" ?
+							"ASC" : "DESC";
+
+			sb.AppendFormat ( "index  `{0}` on `{1}` (", op.Name, TrimSchemaPrefix ( op.Table ) );
+			sb.Append ( string.Join ( ",", op.Columns.Select ( c => "`" + c + "` " + sortOrder ) ) + ") " );
+
+			object indexTypeDefinition;
+			op.AnonymousArguments.TryGetValue ( "Type", out indexTypeDefinition );
+
+			var indexType = indexTypeDefinition != null && string.Compare ( indexTypeDefinition.ToString ( ), "Hash", StringComparison.InvariantCultureIgnoreCase ) > 0 ?
+							"HASH": "BTREE" ;
+
+			sb.Append ( "using " + indexType );
+
+			return new MigrationStatement ( ) { Sql = sb.ToString ( ) };
+		}
+	}
+
 
 	internal sealed class Configuration : DbMigrationsConfiguration<libProduccionDataBase.Contexto.DataBaseContexto>
 	{
 		public Configuration ()
-		{
-
-
-			DbConfiguration.SetConfiguration ( new MySqlEFConfiguration ( ) );
+		{			
 			AutomaticMigrationsEnabled = false;
-			SetSqlGenerator ( "MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator ( ) );
-
-			//try
-			//{
-			//	using ( var context = new libProduccionDataBase.Contexto.DataBaseContexto ( ) )
-			//	{
-			//		using ( var writer = new System.Xml.XmlTextWriter ( System.AppDomain.CurrentDomain.BaseDirectory + @"\Model.edmx", System.Text.Encoding.Default ) )
-			//		{
-			//			System.Data.Entity.Infrastructure.EdmxWriter.WriteEdmx ( context, writer );
-			//		}
-			//	}
-			//}
-			//catch ( Exception )
-			//{
-			//}
+			SetSqlGenerator ( "MySql.Data.MySqlClient", new myMigrationSQLGenerator ( ) );
+			//SetSqlGenerator ( "MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator ( ) );
 		}
 
 		protected override void Seed ( libProduccionDataBase.Contexto.DataBaseContexto context )

@@ -1,4 +1,4 @@
-﻿//#define DevelopDataBase
+﻿#define DevelopDataBase
 
 using System;
 using System.Collections.Generic;
@@ -13,72 +13,25 @@ using MySql.Data.EntityFramework;
 
 namespace libProduccionDataBase.Contexto
 {
-	[DbConfigurationType ( typeof (MySqlEFConfiguration ) )]
+	[DbConfigurationType ( typeof ( MySqlEFConfiguration ) )]
 	public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
 	{
-		public event EventHandler SavedChanges;
-
-		public DbSet<FamiliaMateriales> FamiliasMateriales { get; set; }
-		public DbSet<Material> Materiales { get; set; }
-		public DbSet<Cliente> Clientes { get; set; }
-		public DbSet<Maquina> Maquinas { get; set; }
-		public DbSet<Linea> Lineas { get; set; }
-		public DbSet<Rodillo> Rodillos { get; set; }
-		public DbSet<TipoProducto> TiposProducto { get; set; }
-		public DbSet<Receta> Recetas { get; set; }
-		public DbSet<TipoMaquina> TiposMaquina { get; set; }
-		public DbSet<OrdenTrabajo> OrdenesTrabajo { get; set; }
-		public DbSet<Produccion> Produccion { get; set; }
-		public DbSet<Desperdicio> Despedicios { get; set; }
-		public DbSet<Defecto> Defectos { get; set; }
-		public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
-		public DbSet<Proceso> Procesos { get; set; }
-		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
-		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
-		public DbSet<TempProduccion> TempProduccion { get; set; }
-		public DbSet<TDefecto> TDefectos { get; set; }
-		public DbSet<TFamiliaDefectos> TFamiliasDefectos { get; set; }
-		public DbSet<TFamiliaDefectosTDefecto> FamiliaDefectosDefectos { get; set; }
-		public DbSet<TempDesperdicios> TDesperdicios { get; set; }
-
-		public DbSet<NaveCuatro_Tarima> NCuatro_Tarimas { get; set; }
-		public DbSet<NaveCuatro_TarimaItem> NCuatro_Tarima_Items { get; set; }
-
-
-
-		public DbSet<ProveedorTinta> ProveedoresTinta { get; set; }
-		public DbSet<ArticuloTinta> ArticulosTintas { get; set; }
-		public DbSet<EntradaTinta> EntradasTintas { get; set; }
-		public DbSet<SalidaTinta> SalidasTintas { get; set; }
-		public DbSet<TiposTinta> TiposTinta { get; set; }
-
-
-		// Control de Residuos Peligrosos
-		public DbSet<TipoRP> TiposRP { get; set; }
-		public DbSet<Transportista> Transportistas { get; set; }
-		public DbSet<Proveedor> Proveedores { get; set; }
-		public DbSet<Manifiesto> Manifiestos { get; set; }
-		public DbSet<ManifiestoDetalle> ManifiestosDetalle { get; set; }
-		public DbSet<SalidaRP> SalidasRP { get; set; }
-
-		/// <summary>
-		/// Coleccion de etiquetas en formato zpl
-		/// </summary>
-		public DbSet<Etiqueta> Etiquetas { get; set; }
+		public event EventHandler SavedChanges;		
 
 #if DevelopDataBase
-		public DataBaseContexto () : base( "ProduccionConexionDebug" )
+		public DataBaseContexto () : base ( "ProduccionConexionDebug" )
 #else
 		public DataBaseContexto () : base ( "ProduccionConexion" )
 #endif
-		{
+		{			
 			this.Configuration.LazyLoadingEnabled = true;
-			Database.SetInitializer<DataBaseContexto> ( null );
+			Database.SetInitializer<DataBaseContexto> ( null );//<DataBaseContexto> ( null );
 		}
 
 		public static DataBaseContexto Create () => new DataBaseContexto ( );
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
+
 			//  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention>();
 			//  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.ManyToManyCascadeDeleteConvention>();       
 
@@ -112,9 +65,8 @@ namespace libProduccionDataBase.Contexto
 			modelBuilder.Entity<TFamiliaDefectosTDefecto> ( )
 			  .HasRequired ( t => t.FamiliaDefectos )
 			  .WithMany ( y => y.TFamiliaDefectosTDefecto )
-			  .HasForeignKey ( c => c.TFamiliaDefectosID );
-
-
+			  .HasForeignKey ( c => c.TFamiliaDefectosID );	
+			
 		}
 
 		public override int SaveChanges ()
@@ -145,6 +97,65 @@ namespace libProduccionDataBase.Contexto
 		{
 			SavedChanges?.Invoke ( sender, e );
 		}
+
+		#region DbSets
+		public DbSet<FamiliaMateriales> FamiliasMateriales { get; set; }
+		public DbSet<Material> Materiales { get; set; }
+		public DbSet<Cliente> Clientes { get; set; }
+		public DbSet<Maquina> Maquinas { get; set; }
+		public DbSet<Linea> Lineas { get; set; }
+		public DbSet<Rodillo> Rodillos { get; set; }
+		public DbSet<TipoProducto> TiposProducto { get; set; }
+		public DbSet<Receta> Recetas { get; set; }
+		public DbSet<TipoMaquina> TiposMaquina { get; set; }
+		public DbSet<OrdenTrabajo> OrdenesTrabajo { get; set; }
+		public DbSet<Produccion> Produccion { get; set; }
+		public DbSet<Desperdicio> Despedicios { get; set; }
+		public DbSet<Defecto> Defectos { get; set; }
+		public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
+		public DbSet<Proceso> Procesos { get; set; }
+		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
+		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
+		public DbSet<TempProduccion> TempProduccion { get; set; }
+		public DbSet<TDefecto> TDefectos { get; set; }
+		public DbSet<TFamiliaDefectos> TFamiliasDefectos { get; set; }
+		public DbSet<TFamiliaDefectosTDefecto> FamiliaDefectosDefectos { get; set; }
+		public DbSet<TempDesperdicios> TDesperdicios { get; set; }
+
+
+		public DbSet<NaveCuatro_Tarima> NCuatro_Tarimas { get; set; }
+		public DbSet<NaveCuatro_TarimaItem> NCuatro_Tarima_Items { get; set; }
+
+
+
+		public DbSet<ProveedorTinta> ProveedoresTinta { get; set; }
+		public DbSet<ArticuloTinta> ArticulosTintas { get; set; }
+		public DbSet<EntradaTinta> EntradasTintas { get; set; }
+		public DbSet<SalidaTinta> SalidasTintas { get; set; }
+		public DbSet<TiposTinta> TiposTinta { get; set; }
+
+		public DbSet<Tinta> Tintas { get; set; }
+		public DbSet<Otro> Otros { get; set; }
+
+
+		//try
+		public DbSet<Master> Master { get; set; }
+		public DbSet<Child> Childs { get; set; }
+
+
+		// Control de Residuos Peligrosos
+		public DbSet<TipoRP> TiposRP { get; set; }
+		public DbSet<Transportista> Transportistas { get; set; }
+		public DbSet<Proveedor> Proveedores { get; set; }
+		public DbSet<Manifiesto> Manifiestos { get; set; }
+		public DbSet<ManifiestoDetalle> ManifiestosDetalle { get; set; }
+		public DbSet<SalidaRP> SalidasRP { get; set; }
+
+		/// <summary>
+		/// Coleccion de etiquetas en formato zpl
+		/// </summary>
+		public DbSet<Etiqueta> Etiquetas { get; set; }
+		#endregion
 	}
 
 }
