@@ -92,7 +92,7 @@ namespace libProduccionDataBase {
 
 		public static CustomModelState Validate ( object Entity ) => CustomModelState.Validate ( Entity );
 
-		public static bool IsInRol ( Identity.ApplicationUserManager UserManager , Identity.ApplicationUser User , params string [ ] roles ) {
+		public static bool IsInRol ( Identity.ApplicationUserManager_ UserManager , Identity.ApplicationUser User , params string [ ] roles ) {
 			foreach ( var rol in roles.ToList ( ) ) {
 				if ( UserManager.IsInRole ( User.Id , rol ) ) {
 					return true;

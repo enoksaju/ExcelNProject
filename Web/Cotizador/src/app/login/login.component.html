@@ -1,6 +1,7 @@
 <div fxLayout="column" fxFlex="100%" fxFlexFill fxLayoutAlign="center center">
-  <mat-card fxLayout="column" class="mat-elevation-z20 card">
 
+  <mat-spinner *ngIf="loading"  [mode]="'indeterminate'"></mat-spinner>
+  <mat-card *ngIf="!loading" fxLayout="column" class="mat-elevation-z20 card">
     <div class="logo">
       <img mat-card-image class="excel" src="assets/logo.png" alt="Logo de ExcelNobleza">
       <img mat-card-image class="guala" src="assets/guala.png" alt="Logo de Gualapack">

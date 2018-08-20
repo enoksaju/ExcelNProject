@@ -161,6 +161,7 @@ namespace libProduccionDataBase.Tablas {
 		[Required ( ErrorMessage = "El tipo de proceso es requerido" )]
 		public int TIPOPROCESO { get; set; }
 
+		[Index]
 		public int NUMERO { get; set; }
 
 		public double PESOBRUTO { get; set; }

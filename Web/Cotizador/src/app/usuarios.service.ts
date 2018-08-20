@@ -1,6 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable, observable } from '../../node_modules/rxjs';
+import { async } from '../../node_modules/@types/q';
+
 
 export enum Actions { Add, Remove }
 
@@ -41,19 +44,22 @@ export interface AddRemoveUserRoleModel {
   providedIn: 'root'
 })
 export class UsuariosService {
-  public UserRoles: string[] = [];
+  public myRoles: string[];
+
+
+  // public UserRoles: string[] = [];
   constructor(private http: HttpClient, private router: Router, private ngZone: NgZone) {
     this.Initialice();
   }
 
   public Initialice() {
-    this.Roles()
-      .then(val => this.UserRoles = val)
-      .catch(err => console.log(err.error.Message));
+    this.getUserRoles().subscribe(r => this.myRoles = r);
+    //   .then(val => this.UserRoles = val)
+    //   .catch(err => console.log(err.error.Message));
   }
 
-  public Roles(UsuarioId: number = null) {
-    return this.http.post<string[]>('api/Account/UserRoles', UsuarioId).toPromise();
+  public getUserRoles(UsuarioId: number = null) {
+    return this.http.post<string[]>('api/Account/UserRoles', UsuarioId);
   }
   /**
   * Registra un usuario nuevo en la App
@@ -80,6 +86,7 @@ export class UsuariosService {
       .subscribe(
         (resp: any) => {
           sessionStorage.setItem('userName', resp.userName);
+          sessionStorage.setItem('userId', resp.userId);
           sessionStorage.setItem('accessToken', resp.access_token);
           sessionStorage.setItem('refreshToken', resp.refresh_token);
           this.Initialice();
@@ -90,18 +97,22 @@ export class UsuariosService {
     );
   }
 
-  public CurrentIsInRol(role: string): boolean {
+  public getRolesAvailables(): Observable<string[]> {
+    return this.http.get<string[]>('/api/Account/Roles');
+  }
+
+  public CurrentIsInRol(role: string): Observable<boolean> {
     const roles = role.split(',');
-    let ret: boolean;
+    let ret: boolean = false;
 
-    for (const v of roles) {
-      ret = this.UserRoles.includes(v.replace(' ', ''));
-      if (ret) {
-        break;
+    return new Observable<boolean>((observer) => {
+      for (const v of roles) {
+        if (this.myRoles != null && this.myRoles.includes(v.replace('', ''))) { ret = true; }
       }
-    }
+      observer.next(ret);
+      observer.complete();
+    });
 
-    return ret;
   }
 
   public ManageRoles(data: AddRemoveUserRoleModel) {
@@ -116,6 +127,11 @@ export class UsuariosService {
     sessionStorage.removeItem('accessToken');
     sessionStorage.removeItem('refreshToken');
     sessionStorage.removeItem('userName');
+    sessionStorage.removeItem('userId');
+  }
+
+  public getUserId(): number {
+    return +sessionStorage.getItem('userId');
   }
 
   /**

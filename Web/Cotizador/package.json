@@ -9,9 +9,7 @@
     "start": "ng serve",
     "devel": " npm run buildW | (npm run buildT & npm run bLink)",
     "build": "ng build --configuration=production",
-    "buildT": "ng build --extractCss=true",
     "buildW": "ng build --extractCss=true --watch",
-    "bLink": "browser-sync http://localhost:54418 wwwroot --watch --no-open --reload-delay=200",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -1,3 +1,15 @@
-<p>
-  catalogos works!
-</p>
+<div fxLayoutGap="20px" class="end-wrap-20" fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card *ngFor="let itm of Items" fxLayout="column" fxFlex="250px" class="mat-card-outside-icon mat-elevation-z10">
+    <div class="mat-card-icon bg-primary mat-elevation-z10" fxLayout="row" fxLayoutAlign="center center">
+      <fa-icon [icon]="['fas', itm.Icono]" [fixedWidth]="true"  size="3x"></fa-icon>    </div>
+
+    <mat-card-header fxLayoutAlign="end center">
+      <mat-card-title style="font-size: 20px;">{{itm.Nombre}}</mat-card-title>
+      <mat-card-subtitle>{{itm.Content}}</mat-card-subtitle>
+    </mat-card-header>
+    <span style="flex: 1 1 100%"></span>
+    <mat-card-actions fxLayoutAlign="center center">
+      <button mat-raised-button color="accent" [routerLink]="itm.Route" >Abrir Catalogo</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

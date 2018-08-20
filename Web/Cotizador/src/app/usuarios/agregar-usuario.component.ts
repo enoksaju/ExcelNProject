@@ -122,29 +122,7 @@ export class AgregarUsuarioComponent implements OnInit {
       this.usuariosService.registrar(this.userForm.value)
         .subscribe(success => { this.dialogService.showDialog('Correcto...', 'Se agrego correctamente el usuario, <br />Por favor, confirme el registro mediante el correo electronico que hemos enviado.', { Icon: DialogIcons.Success }); },
           error => {
-            let errormsg = '<dl>';
-            const errors: object = error.error.ModelState;
-            const errorMsg: string = error.error.Message;
-
-            if (errors) {
-
-              for (const i in errors) {
-                if (errors.hasOwnProperty(i)) {
-                  if (Array.isArray(errors[i])) {
-                    errormsg += `<dt>${i}:</dt>`;
-                    errors[i].forEach(v => {
-                      errormsg += `<dd>${v}</dd>`;
-                    });
-                  }
-                }
-              }
-            } else if (errorMsg) {
-              errormsg += `<dt>${errorMsg}</dt>`;
-            } else {
-              errormsg += `<dt>Operación no valida</dt>`;
-            }
-            errormsg += '</dl>';
-            this.dialogService.showDialog('Error en los Datos', errormsg, { Icon: DialogIcons.Error });
+            this.dialogService.showDialog('Error en los Datos', this.dialogService.getModelError(error), { Icon: DialogIcons.Error });
           }
         );
 

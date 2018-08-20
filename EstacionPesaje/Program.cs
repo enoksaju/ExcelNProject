@@ -107,7 +107,7 @@ namespace EstacionPesaje {
 		class AppContext : ApplicationContext {
 			public Form1 MyMainForm;
 			public SplashScreen MySplashScreen;
-			public ApplicationUserManager UsrMan = new ApplicationUserManager ( new ApplicationUserStore ( new libProduccionDataBase.Contexto.DataBaseContexto ( ) ) );
+			public ApplicationUserManager_ UsrMan = new ApplicationUserManager_ ( new ApplicationUserStore ( new libProduccionDataBase.Contexto.DataBaseContexto ( ) ) );
 
 
 			public AppContext ( ) {

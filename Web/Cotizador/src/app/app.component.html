@@ -1,7 +1,8 @@
 ﻿<mat-sidenav-container class="main-container mat-typography">
   <!-- SideNav -->
-  <mat-sidenav *ngIf="usuariosService.hasToken()" #sideNav class="mat-elevation-z1" style="width: 300px;" fxLayout="column"
-    [opened]="sideNavOpend() ? false: true" [mode]="sideNavOpend() ? 'overlay' : 'side'">
+  <mat-sidenav #sidenav class="mat-elevation-z1" style="width: 300px;"
+    fxLayout="column"
+    [opened]="!sideNavOpend() && usuariosService.hasToken()" [mode]="sideNavOpend() ? 'overlay' : 'side'">
 
     <!-- Barra de navegacion del side nav bar -->
     <mat-toolbar fxFlex="60px" color="primary">
@@ -43,7 +44,7 @@
         </mat-list-item>
         <mat-accordion>
           <!-- Control de Usuarios -->
-          <mat-expansion-panel class="plain" displayMode="flat" *ngIf="usuariosService.CurrentIsInRol('Administrador,Develop,Sistemas')">
+          <mat-expansion-panel class="plain" displayMode="flat" *ngIf="(usuariosService.CurrentIsInRol('Administrador,Develop,Sistemas') | async)">
             <mat-expansion-panel-header>
                 <fa-icon [fixedWidth]="true" [icon]="['fas', 'users']"></fa-icon>
                 <h4>Administrador</h4>
@@ -68,10 +69,10 @@
   <!-- Contenido principal de la pagina -->
   <mat-sidenav-content fxLayout="column">
     <!-- ToolBar de la aplicacion en modo Movil -->
-    <mat-toolbar fxFlex="60px" style="position:fixed; z-index: 999;" color="primary" *ngIf="sideNavOpend()">
+    <mat-toolbar fxFlex="60px" style="position:fixed; z-index: 999;" color="primary" *ngIf="sideNavOpend() && usuariosService.hasToken()">
 
       <!-- Control de apertura del SideNav -->
-      <button mat-icon-button (click)="OpenSideNav( sideNav )">
+      <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar>

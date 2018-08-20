@@ -22,10 +22,7 @@ import { DialogIcons, DialogButtonsFlags, DialogResults } from '../dialog.compon
                   <span style="flex: 1 1 100%"></span>
                   <mat-icon matChipRemove>cancel</mat-icon>
               </mat-chip>
-
           </ng-container>
-
-
       </mat-chip-list>
       <br />
       <div fxLayout="row">
@@ -35,9 +32,15 @@ import { DialogIcons, DialogButtonsFlags, DialogResults } from '../dialog.compon
   <mat-divider></mat-divider>
   <div matDialogActions fxLayout="column">
       <div fxLayout="row" style="font-size: 18px;" fxLayoutGap="5px">
+
           <mat-form-field fxFlex>
-              <input #rolInput name="rol" matInput placeholder="Rol">
+             <mat-select #rolInput placeholder="Rol"  name="rol">
+               <mat-option *ngFor="let item of Roles" [value]="item">
+                 {{item}}
+               </mat-option>
+             </mat-select>
           </mat-form-field>
+
           <div fxLayoutAlign="center center" >
               <button [disabled]="!rolInput.value" mat-mini-fab  (click)="addRole(rolInput.value)" color="primary">
                   <mat-icon>add</mat-icon>
@@ -50,8 +53,9 @@ import { DialogIcons, DialogButtonsFlags, DialogResults } from '../dialog.compon
   `,
   styles: []
 })
-export class ManageRolesComponent {
+export class ManageRolesComponent implements OnInit {
   User: BasicInfoUser;
+  Roles: string[];
   constructor(
     public dialogRef: MatDialogRef<ManageRolesComponent>,
     @Inject(MAT_DIALOG_DATA) public data: BasicInfoUser,
@@ -59,6 +63,10 @@ export class ManageRolesComponent {
     private dialogService: DialogService
   ) {
     this.User = this.data;
+  }
+
+  ngOnInit() {
+    this.usuariosService.getRolesAvailables().subscribe(u => this.Roles = u);
   }
 
   addRole(role: string) {

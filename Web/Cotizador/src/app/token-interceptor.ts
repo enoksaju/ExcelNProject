@@ -26,18 +26,10 @@ export class TokenInterceptor implements HttpInterceptor {
     });
 
     return next.handle(request).pipe(tap(event => {
-      if (event instanceof HttpResponse) {
-        const elapsed = Date.now() - started;
-        console.log(`La respuesta desde ${request.urlWithParams} tomó ${elapsed} ms.`);
-      }
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
-
-      if (error.status === 401) {
-        this.ngZone.run(() => {
-          this.router.navigate(['./main/login'], { queryParams: { toRoute: './main' } });
-        });
-      }
+      // if (event instanceof HttpResponse) {
+      //   const elapsed = Date.now() - started;
+      //   console.log(`La respuesta desde ${request.url} tomó ${elapsed} ms.`);
+      // }
     }));
   }
 }

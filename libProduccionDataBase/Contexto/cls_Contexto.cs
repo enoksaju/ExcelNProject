@@ -13,7 +13,7 @@ using MySql.Data.EntityFramework;
 
 namespace libProduccionDataBase.Contexto
 {
-	[DbConfigurationType ( typeof ( MySqlEFConfiguration ) )]
+	[DbConfigurationType ( typeof ( MyCustomEFConfiguration) )]
 	public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
 	{
 		public event EventHandler SavedChanges;		
@@ -136,12 +136,7 @@ namespace libProduccionDataBase.Contexto
 
 		public DbSet<Tinta> Tintas { get; set; }
 		public DbSet<Otro> Otros { get; set; }
-
-
-		//try
-		public DbSet<Master> Master { get; set; }
-		public DbSet<Child> Childs { get; set; }
-
+		
 
 		// Control de Residuos Peligrosos
 		public DbSet<TipoRP> TiposRP { get; set; }

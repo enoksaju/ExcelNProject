@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace libProduccionDataBase.Identity
 {
-    public class ApplicationUserManager : UserManager<ApplicationUser, int>
+    public class ApplicationUserManager_ : UserManager<ApplicationUser, int>
     {
-        public ApplicationUserManager( IUserStore<ApplicationUser, int> store ) : base( store )
+        public ApplicationUserManager_( IUserStore<ApplicationUser, int> store ) : base( store )
         {
 
            // this.UserValidator = new CustomUserValidator<ApplicationUser>(this);           

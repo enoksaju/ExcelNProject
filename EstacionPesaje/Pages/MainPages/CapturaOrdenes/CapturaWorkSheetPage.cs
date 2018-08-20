@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using unvell.ReoGrid;
-using unvell.ReoGrid.CellTypes;
+//using unvell.ReoGrid;
+//using unvell.ReoGrid.CellTypes;
 
 namespace EstacionPesaje.Pages.MainPages.CapturaOrdenes {
 	public partial class CapturaWorkSheetPage : Base.DocumentPageBase {

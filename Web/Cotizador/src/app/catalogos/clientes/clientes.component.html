@@ -1,0 +1,93 @@
+<div style="position:relative">
+  <mat-card class="mat-card-theme mat-primary">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
+      </div>
+      <mat-card-title>Clientes</mat-card-title>
+      <mat-card-subtitle>Se muestra la lista de todos los clientes registrados en la aplicacion</mat-card-subtitle>
+      <button mat-fab class="mat-card-action-button" color="accent" (click)="add()">
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </mat-card-header>
+    <div style="padding: 10px;">
+      <mat-form-field>
+        <input matInput placeholder="Buscar" [formControl]="searchControl">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <mat-checkbox style="margin-left: 20px;" [(ngModel)]="searchAll" (change)="getClientesPage()">Todos</mat-checkbox>
+    </div>
+    <mat-card-content style="overflow: auto;">
+      <mat-progress-bar *ngIf="loading" color="accent" mode="indeterminate" value="50"></mat-progress-bar>
+      <mat-table [dataSource]="clientes" style="min-width: 800px;" matSort (matSortChange)="emitSort($event)">
+        <!-- Clave -->
+        <ng-container matColumnDef="ClaveCliente">
+          <mat-header-cell *matHeaderCellDef fxFlex="100px" mat-sort-header> Clave </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="100px"> {{row.ClaveCliente}} </mat-cell>
+        </ng-container>
+
+        <!-- Nombre -->
+        <ng-container matColumnDef="NombreCliente">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NombreCliente}} </mat-cell>
+        </ng-container>
+
+        <!-- Agente -->
+        <ng-container matColumnDef="AgenteId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Agente </mat-header-cell>
+          <mat-cell *matCellDef="let row"><span [ngClass]="{'orange-fg-700' : row.AgenteId !== usuariosService.getUserId(), 'green-fg-700': row.AgenteId === usuariosService.getUserId()}">{{row.NombreEjecutivo}}</span>  </mat-cell>
+        </ng-container>
+
+        <!-- Contacto -->
+        <ng-container matColumnDef="NombreContacto">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Contacto </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NombreContacto}} </mat-cell>
+        </ng-container>
+
+        <!-- ActionsContact -->
+        <ng-container matColumnDef="ActionsContact">
+          <mat-header-cell *matHeaderCellDef fxFlex="140px"> Contacto </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="140px">
+            <a mat-icon-button color="warn" [href]="'tel:'+row.Telefono">
+              <mat-icon>phone</mat-icon>
+            </a>
+            <a mat-icon-button color="accent" [href]="'mailto:'+row.Email">
+              <mat-icon>mail</mat-icon>
+            </a>
+            <a mat-icon-button class="pink-fg" target="_blank" [href]="getURLLocation(row)">
+              <mat-icon>location_on</mat-icon>
+            </a>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Actions Client -->
+        <ng-container matColumnDef="ActionEdit">
+          <mat-header-cell *matHeaderCellDef fxFlex="100px"> Acciones </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="100px">
+
+            <ng-container *ngIf="!usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop') && row.AgenteId !== usuariosService.getUserId()">
+                Unautorized
+            </ng-container>
+            <ng-container *ngIf="usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop') || row.AgenteId === usuariosService.getUserId()">
+              <button class="blue-fg-700" mat-icon-button (click)="edit(row.Id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button class="red-fg-700" mat-icon-button (click)="delete(row.Id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </ng-container>
+
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columsToView()"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columsToView();"></mat-row>
+      </mat-table>
+    </mat-card-content>
+    <mat-card-footer fxLayout="row" fxLayoutAlign="end end">
+      <mat-paginator [length]="clientesPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
+        (page)="emitPaginator($event)">
+      </mat-paginator>
+    </mat-card-footer>
+  </mat-card>
+</div>

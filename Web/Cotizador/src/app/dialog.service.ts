@@ -8,12 +8,12 @@ import { DialogComponent, DialogButtonsFlags, DialogIcons, DialogResults } from 
 export class DialogService {
 
   constructor(private dialog: MatDialog) { }
-    /**
-   * Controlador de los dialogos.
-   * @param Title Titulo del dialogo
-   * @param Message Mensaje que se mostrara en el dialogo
-   * @param options buttons: Botones del cuadro de dialogo, Icon: Icono que se mostrara
-   */
+  /**
+ * Controlador de los dialogos.
+ * @param Title Titulo del dialogo
+ * @param Message Mensaje que se mostrara en el dialogo
+ * @param options buttons: Botones del cuadro de dialogo, Icon: Icono que se mostrara
+ */
   showDialog(
     Title: string,
     Message: string,
@@ -24,7 +24,7 @@ export class DialogService {
       Icon: DialogIcons.Info,
       affterClose: result => console.log(result)
     };
-    const options_ = Object.assign(defaults_, options );
+    const options_ = Object.assign(defaults_, options);
     const dialogRef = this.dialog.open(DialogComponent, {
       disableClose: true,
       data: {
@@ -39,5 +39,31 @@ export class DialogService {
       dialogRef.afterClosed().subscribe((res: DialogResults) => resolve(res));
     });
 
+  }
+
+  getModelError(error: any): string {
+    let errormsg = '<dl>';
+    const errors: object = error.error.ModelState;
+    const errorMsg: string = error.error.Message;
+
+    if (errors) {
+
+      for (const i in errors) {
+        if (errors.hasOwnProperty(i)) {
+          if (Array.isArray(errors[i])) {
+            errormsg += `<dt>${i.replace('model.', '')}:</dt>`;
+            errors[i].forEach(v => {
+              errormsg += `<dd>${v}</dd>`;
+            });
+          }
+        }
+      }
+    } else if (errorMsg) {
+      errormsg += `<dt>${errorMsg}</dt>`;
+    } else {
+      errormsg += `<dt>Operación no valida</dt>`;
+    }
+    errormsg += '</dl>';
+    return errormsg;
   }
 }

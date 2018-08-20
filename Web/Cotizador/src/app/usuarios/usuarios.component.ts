@@ -5,7 +5,7 @@ import { AgregarUsuarioComponent } from './agregar-usuario.component';
 import { ManageRolesComponent } from './manage-roles.component';
 
 @Component({
-  selector: 'app-usuarios',
+  selector: 'adm-usuarios.cc',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.scss']
 })

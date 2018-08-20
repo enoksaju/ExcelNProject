@@ -17,6 +17,10 @@ import { CatalogosComponent } from './catalogos/catalogos.component';
 import { AgregarUsuarioComponent } from './usuarios/agregar-usuario.component';
 import { DialogComponent } from './dialog.component';
 import { ManageRolesComponent } from './usuarios/manage-roles.component';
+import { ClientesComponent } from './catalogos/clientes/clientes.component';
+import { AddClienteComponent } from './catalogos/clientes/add-cliente.component';
+import { WrapInputsComponent} from './common/wrap-inputs/wrap-inputs.component';
+
 
 
 @NgModule({
@@ -27,7 +31,10 @@ import { ManageRolesComponent } from './usuarios/manage-roles.component';
     CatalogosComponent,
     AgregarUsuarioComponent,
     DialogComponent,
-    ManageRolesComponent
+    ManageRolesComponent,
+    ClientesComponent,
+    AddClienteComponent,
+    WrapInputsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,7 @@ import { ManageRolesComponent } from './usuarios/manage-roles.component';
     { provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AgregarUsuarioComponent, DialogComponent, ManageRolesComponent]
+  entryComponents: [AgregarUsuarioComponent, DialogComponent, ManageRolesComponent, AddClienteComponent]
 })
 export class AppModule {
   constructor(@Inject(APP_BASE_HREF) private baseHref: string) {

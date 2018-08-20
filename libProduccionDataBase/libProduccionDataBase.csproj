@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cls_Auxiliares.cs" />
+    <Compile Include="Contexto\myCustomMigrationSqlGenerator.cs" />
     <Compile Include="Identity\clsApplicationUserManager.cs" />
     <Compile Include="Identity\clsAppUser.cs" />
     <Compile Include="Identity\Model\clsCreatingUserModel.cs" />
@@ -157,6 +158,14 @@
     <Compile Include="Migrations\201803140330034_addTempOT.Designer.cs" />
     <Compile Include="Migrations\201803140330034_addTempOT.Designer.Designer.cs">
       <DependentUpon>201803140330034_addTempOT.Designer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808091526166_addTintasOtros.cs" />
+    <Compile Include="Migrations\201808091526166_addTintasOtros.Designer.cs">
+      <DependentUpon>201808091526166_addTintasOtros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151409562_AddIndexToTProduccion.cs" />
+    <Compile Include="Migrations\201808151409562_AddIndexToTProduccion.Designer.cs">
+      <DependentUpon>201808151409562_AddIndexToTProduccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
@@ -242,6 +251,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803140330034_addTempOT.Designer.resx">
       <DependentUpon>201803140330034_addTempOT.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808091526166_addTintasOtros.resx">
+      <DependentUpon>201808091526166_addTintasOtros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151409562_AddIndexToTProduccion.resx">
+      <DependentUpon>201808151409562_AddIndexToTProduccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

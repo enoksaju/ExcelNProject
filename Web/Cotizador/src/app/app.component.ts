@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     this.usuariosService.signOut();
   }
 
-  OpenSideNav(drawer: MatDrawer) {
+  OpenSideNav(drawer: MatSidenav) {
     drawer.open();
   }
 }

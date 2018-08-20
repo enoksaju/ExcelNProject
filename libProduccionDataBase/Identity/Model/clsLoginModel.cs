@@ -39,7 +39,7 @@ namespace libProduccionDataBase.Identity.Model
 
         public int Id { get; set; }
 
-        public async Task<ApplicationUser> ToUpdatedUser( ApplicationUserManager usrManager )
+        public async Task<ApplicationUser> ToUpdatedUser( ApplicationUserManager_ usrManager )
         {
             ApplicationUser  usr=  await usrManager.FindByIdAsync(this.Id);
 
