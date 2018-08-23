@@ -218,6 +218,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Catalogos\CatalogosController.cs" />
     <Compile Include="Controllers\Catalogos\CatalogosController_Clientes.cs" />
+    <Compile Include="Controllers\Catalogos\CatalogosController_FamiliasMateriales.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -225,6 +226,7 @@
     </Compile>
     <Compile Include="Models\AccountBindingModel\AccountBindingModel.cs" />
     <Compile Include="Models\AccountViewModel\AccountViewModel.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\FronEndModel_FamiliasMateriales.cs" />
     <Compile Include="Models\FrontEndModels\Catalogos\FrontEndModel_Cliente.cs" />
     <Compile Include="Models\Managers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

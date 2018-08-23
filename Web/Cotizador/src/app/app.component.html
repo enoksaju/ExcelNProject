@@ -1,8 +1,7 @@
 ﻿<mat-sidenav-container class="main-container mat-typography">
   <!-- SideNav -->
-  <mat-sidenav #sidenav class="mat-elevation-z1" style="width: 300px;"
-    fxLayout="column"
-    [opened]="!sideNavOpend() && usuariosService.hasToken()" [mode]="sideNavOpend() ? 'overlay' : 'side'">
+  <mat-sidenav #sidenav class="mat-elevation-z15" style="width: 300px;" fxLayout="column" [opened]="!sideNavOpend() && usuariosService.hasToken()"
+    [mode]="sideNavOpend() ? 'overlay' : 'side'">
 
     <!-- Barra de navegacion del side nav bar -->
     <mat-toolbar fxFlex="60px" color="primary">
@@ -46,8 +45,8 @@
           <!-- Control de Usuarios -->
           <mat-expansion-panel class="plain" displayMode="flat" *ngIf="(usuariosService.CurrentIsInRol('Administrador,Develop,Sistemas') | async)">
             <mat-expansion-panel-header>
-                <fa-icon [fixedWidth]="true" [icon]="['fas', 'users']"></fa-icon>
-                <h4>Administrador</h4>
+              <fa-icon [fixedWidth]="true" [icon]="['fas', 'users']"></fa-icon>
+              <h4>Administrador</h4>
             </mat-expansion-panel-header>
             <mat-nav-list>
               <mat-list-item [routerLink]="'../usuarios'">
@@ -78,8 +77,14 @@
     </mat-toolbar>
 
     <!-- Contendor de Componentes Navegables -->
-    <div fxLayout="column" fxFlex="100%">
-      <router-outlet></router-outlet>
+    <div fxLayout="column" fxFlex="100%" [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+
+      <router-outlet #o="outlet"></router-outlet>
+      <div class="logo">
+        <img mat-card-image class="excel" src="assets/logo.png" alt="Logo de ExcelNobleza">
+        <img mat-card-image class="guala" src="assets/guala.png" alt="Logo de Gualapack">
+        <span>MIEMBRO DE GRUPO</span>
+      </div>
     </div>
   </mat-sidenav-content>
 

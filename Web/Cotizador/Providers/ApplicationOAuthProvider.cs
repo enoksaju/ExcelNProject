@@ -55,7 +55,7 @@ namespace Cotizador.Providers
 			ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync ( userManager, OAuthDefaults.AuthenticationType );
 			ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync ( userManager, CookieAuthenticationDefaults.AuthenticationType );
 
-			AuthenticationProperties properties = CreateProperties ( user.UserName );
+			AuthenticationProperties properties = CreateProperties ( user.UserName, user.Id );
 			AuthenticationTicket ticket = new AuthenticationTicket ( oAuthIdentity, properties );
 			context.Validated ( ticket );
 			context.Request.Context.Authentication.SignIn ( cookiesIdentity );
@@ -96,11 +96,11 @@ namespace Cotizador.Providers
 			return Task.FromResult<object> ( null );
 		}
 
-		public static AuthenticationProperties CreateProperties ( string userName )
+		public static AuthenticationProperties CreateProperties ( string userName, int userId = 0 )
 		{
 			IDictionary<string, string> data = new Dictionary<string, string> {
-		{ "userName", userName }
-	  };
+				{ "userName", userName }, { "userId", userId.ToString()}
+			};
 			return new AuthenticationProperties ( data );
 		}
 	}

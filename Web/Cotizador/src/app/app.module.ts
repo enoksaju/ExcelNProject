@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Inject } from '@angular/core';
+import { NgModule, Inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -19,9 +19,9 @@ import { DialogComponent } from './dialog.component';
 import { ManageRolesComponent } from './usuarios/manage-roles.component';
 import { ClientesComponent } from './catalogos/clientes/clientes.component';
 import { AddClienteComponent } from './catalogos/clientes/add-cliente.component';
-import { WrapInputsComponent} from './common/wrap-inputs/wrap-inputs.component';
-
-
+import { WrapInputsComponent } from './common/wrap-inputs/wrap-inputs.component';
+import { FamiliasMaterialesComponent } from './catalogos/familias-materiales/familias-materiales.component';
+import { MyCardComponent } from './common/my-card/my-card.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,9 @@ import { WrapInputsComponent} from './common/wrap-inputs/wrap-inputs.component';
     ManageRolesComponent,
     ClientesComponent,
     AddClienteComponent,
-    WrapInputsComponent
+    WrapInputsComponent,
+    FamiliasMaterialesComponent,
+    MyCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,18 +44,24 @@ import { WrapInputsComponent} from './common/wrap-inputs/wrap-inputs.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro }
+    { provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
-  entryComponents: [AgregarUsuarioComponent, DialogComponent, ManageRolesComponent, AddClienteComponent]
+  entryComponents: [
+    AgregarUsuarioComponent,
+    DialogComponent,
+    ManageRolesComponent,
+    AddClienteComponent,
+  ],
 })
 export class AppModule {
   constructor(@Inject(APP_BASE_HREF) private baseHref: string) {
-    console.log(`El HREF base es : ${ this.baseHref }.` );
+    console.log(`El HREF base es : ${this.baseHref}.`);
   }
 }

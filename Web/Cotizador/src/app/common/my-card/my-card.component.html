@@ -1,0 +1,26 @@
+<div style="position:relative">
+  <mat-card [ngClass]="getColor()" class="mat-elevation-z10">
+    <mat-card-header>
+      <div *ngIf="Icono" mat-card-avatar fxFlex="60px" fxLayoutAlign="center center">
+        <ng-container *ngIf="HasFontawesomeIcon">
+          <fa-icon [icon]="['fas', Icono]" size="3x"></fa-icon>
+        </ng-container>
+        <ng-container *ngIf="!HasFontawesomeIcon">
+          <mat-icon class="icon-large">{{Icono}}</mat-icon>
+        </ng-container>
+      </div>
+      <mat-card-title>{{Titulo}}</mat-card-title>
+      <mat-card-subtitle>{{Descripcion}}</mat-card-subtitle>
+      <button *ngIf="ShowAdd" matTooltip="Agregar" mat-fab class="mat-card-action-button bg" [ngClass]="addBtnClass" (click)="clickAdd()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-header>
+    <ng-content select="[my-card-body]"></ng-content>
+    <mat-card-content style="overflow: auto;">
+      <ng-content select="[my-card-content]"></ng-content>
+    </mat-card-content>
+    <mat-card-footer #myCardFooter [ngClass]="{'hideElement':!showFooter}">
+      <ng-content select="[my-card-footer]"></ng-content>
+    </mat-card-footer>
+  </mat-card>
+</div>

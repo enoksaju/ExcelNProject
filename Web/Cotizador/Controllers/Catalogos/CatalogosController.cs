@@ -16,21 +16,23 @@ namespace Cotizador.Controllers
 	[Authorize]
 	[RoutePrefix ( "api/Catalogos" )]
 	public partial class CatalogosController : ApiController
-    {
+	{
 		private ApplicationUserManager _userManager;
-				public enum OrderTypes { ASC, DESC }
+		public enum OrderTypes { ASC, DESC }
 		private const string SUCCESS_INSERT_MESSAGE = "Se inserto correctamente el elemento:";
 		private const string SUCCESS_UPDATE_MESSAGE = "Se actualizó correctamente el elemento:";
 		private const string SUCCESS_DELETE_MESSAGE = "Se Eliminó correctamente el elemento:";
 		private const string NOT_VALID_ENTITY = "La entidad solicitada no es valida:";
 
-		private libProduccionDataBase.Contexto.DataBaseContexto DB = new libProduccionDataBase.Contexto.DataBaseContexto();
+		private libProduccionDataBase.Contexto.DataBaseContexto DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
 		public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; }
 
-		public CatalogosController () {
-			UserManager = new ApplicationUserManager ( new ApplicationUserStore(DB));
+		public CatalogosController ()
+		{
+			UserManager = new ApplicationUserManager ( new ApplicationUserStore ( DB ) );
 		}
-		public CatalogosController ( ApplicationUserManager userManager , ISecureDataFormat<AuthenticationTicket> accessTokenFormat ) {
+		public CatalogosController ( ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat )
+		{
 			UserManager = userManager;
 			AccessTokenFormat = accessTokenFormat;
 		}

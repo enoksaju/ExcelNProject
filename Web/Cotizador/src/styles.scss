@@ -1,12 +1,22 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
+@import "styles-scrollbar.scss";
 @include mat-core();
-@import 'styles-variables.scss';
+@import "styles-variables.scss";
 $light-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
-$dark-app-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-warn);
+$dark-app-theme: mat-dark-theme( $app-dark-primary, $app-dark-accent, $app-dark-warn);
 $colorTypes: primary accent warn;
+$materialHue: 50 100 200 300 400 600 700 800 900 "A100" "A200" "A400" "A700";
+$materialColors: ( ( "red", $mat-red), ("pink", $mat-pink), ("purple", $mat-purple), ("deep-purple", $mat-deep-purple), ("indigo", $mat-indigo), ("blue", $mat-blue), ("light-blue", $mat-light-blue), ("cyan", $mat-cyan), ("teal", $mat-teal), ("green", $mat-green), ("light-green", $mat-light-green), ("lime", $mat-lime), ("yellow", $mat-yellow), ("amber", $mat-amber), ("orange", $mat-orange), ("deep-orange", $mat-deep-orange), ("brown", $mat-brown), ("grey", $mat-grey), ("blue-grey", $mat-blue-grey)); //$mat-red $mat-pink $mat-purple $mat-deep-purple $mat-indigo $mat-blue $mat-light-blue $mat-cyan $mat-teal $mat-green $mat-light-green $mat-lime $mat-yellow $mat-amber $mat-orange $mat-deep-orange $mat-brown $mat-blue-grey;
+$my-dark-primary-text: rgba(black, 0.87);
+$my-light-primary-text: white;
 @mixin backColorAndContrast($color) {
     background-color: mat-color($color, darker);
     color: mat-color($color, darker-contrast);
+}
+
+@mixin backgroundText($color, $hue) {
+    background-color: mat-color($color, $hue) !important;
+    color: mat-contrast($color, $hue) !important;
 }
 
 @mixin colorCardHeader($color) {
@@ -24,13 +34,15 @@ $colorTypes: primary accent warn;
     $background: map-get($theme, background);
     $colorVariables: $primary $accent $warn;
     .mat-card {
-        @media screen and (max-width: 959px) {
-            margin-top: 80px !important;
-        }
         &-action-button {
             position: absolute !important;
             bottom: -28px;
             right: 20px;
+        }
+        &-primary-button {
+            position: absolute !important;
+            bottom: -28px;
+            left: 20px;
         }
         &.mat-card-theme {
             margin: 10px;
@@ -54,7 +66,7 @@ $colorTypes: primary accent warn;
             @for $i from 1 through length($colorVariables) {
                 &.mat-#{nth($colorTypes, $i)} {
                     &>.mat-card-header {
-                        @include colorCardHeader( nth($colorVariables, $i));
+                        @include colorCardHeader(nth($colorVariables, $i));
                     }
                 }
             }
@@ -103,7 +115,7 @@ $colorTypes: primary accent warn;
         max-width: 400px;
         max-height: 400px;
         &#{&}-image {
-            background-image: url('assets/logopl.svg');
+            background-image: url("assets/logopl.svg");
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -114,7 +126,7 @@ $colorTypes: primary accent warn;
             border-top: 2vw solid mat-color($primary);
             animation: spin 2s linear infinite;
         }
-        @media screen and (min-width:480px) {
+        @media screen and (min-width: 480px) {
             width: 400px;
             height: 400px;
             margin: -200px 0 0 -200px;
@@ -126,9 +138,64 @@ $colorTypes: primary accent warn;
     }
 }
 
+@mixin colors() {
+    $darkSelector: ();
+    $lightSelector: ();
+    @each $color_ in $materialColors {
+        $name: nth($color_, 1);
+        $color: nth($color_, 2);
+        @if mat-contrast($color,
+        500)==$my-dark-primary-text {
+            $darkSelector: append($darkSelector, "."+$name+".bg", comma);
+            $darkSelector: append($darkSelector, "."+$name+"-500.bg", comma);
+        }
+        @else {
+            $lightSelector: append($lightSelector, "."+$name+".bg", comma);
+            $lightSelector: append($lightSelector, "."+$name+"-500.bg", comma);
+        }
+        @each $hue in $materialHue {
+            @if mat-contrast($color,
+            $hue)==$my-dark-primary-text {
+                $darkSelector: append($darkSelector, "."+$name+"-"+$hue+".bg", comma)
+            }
+            @else {
+                $lightSelector: append($lightSelector, "."+$name+"-"+$hue+".bg", comma)
+            }
+        }
+    }
+    #{ $darkSelector} {
+        color: $my-dark-primary-text !important;
+    }
+    #{ $lightSelector} {
+        color: $my-light-primary-text !important;
+    }
+    @each $color_ in $materialColors {
+        $section: nth($color_, 1);
+        $pallete: nth($color_, 2);
+        .#{$section} {
+            &,
+            &-500 {
+                color: map-get($pallete, 500) !important;
+                &.bg {
+                    background-color: mat-color($pallete, 500) !important;
+                }
+            }
+            @each $hue in $materialHue {
+                &-#{$hue} {
+                    color: map-get($pallete, $hue) !important;
+                    &.bg {
+                        background-color: mat-color($pallete, $hue) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @include angular-material-theme($dark-app-theme);
 @include customMatCard($dark-app-theme);
 @include Loader($dark-app-theme);
+@include scrollbar($dark-app-theme);
 .lt {
     @include angular-material-theme($light-app-theme);
     @include customMatCard($light-app-theme);
@@ -138,21 +205,11 @@ $colorTypes: primary accent warn;
     }
 }
 
+@include colors();
 .closeButton {
     position: absolute !important;
     top: -20px;
     right: -20px;
-}
-
-.dialog-container {
-    position: relative;
-    min-width: 200px;
-    min-height: 250px;
-    .closeButton {
-        position: absolute !important;
-        top: -20px;
-        right: -20px;
-    }
 }
 
 .relleno {
@@ -165,6 +222,33 @@ $colorTypes: primary accent warn;
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.cc {
+    // margin-left: 40px;
+    // margin-right: 40px;
+    @media screen and (max-width: 959px) {
+        margin-top: 80px !important; //      margin-left: 0px;
+        //       margin-right: 0px;
+    }
+}
+
+.back-button {
+    position: absolute;
+    top: -36px;
+    left: 0px;
+    ;
+}
+
+router-outlet~* {
+    position: absolute;
+    height: 100%;
+    width: calc( 100% - 80px);
+    padding: 0px 40px 0px 40px;
+    @media screen and (max-width: 959px) {
+        width: 100%;
+        padding: 0px 0px 0px 0px;
     }
 }
 

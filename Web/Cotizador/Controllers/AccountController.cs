@@ -24,8 +24,8 @@ using Microsoft.Owin.Security.OAuth;
 
 namespace Cotizador.Controllers
 {
-	//[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
-	[RoutePrefix("api/Account")]
+	[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+	[RoutePrefix ( "api/Account" )]
 	public class AccountController : ApiController
 	{
 		#region Cofiguration Class
@@ -96,7 +96,7 @@ namespace Cotizador.Controllers
 				ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync ( UserManager, OAuthDefaults.AuthenticationType );
 				ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync ( UserManager, CookieAuthenticationDefaults.AuthenticationType );
 
-				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties ( user.UserName );
+				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties ( user.UserName, user.Id );
 				Authentication.SignIn ( properties, oAuthIdentity, cookieIdentity );
 			}
 			else
@@ -159,7 +159,7 @@ namespace Cotizador.Controllers
 			int.TryParse ( User.Identity.GetUserId ( ), out currentUserId );
 			var _id = Id ?? currentUserId;
 
-			if ( _id == 0 ) return BadRequest ( "Usuario no valido" );
+			if ( _id == 0 ) return Ok ( new List<string> ( ) { "Usuario" } );
 
 			using ( var DB = new DataBaseContexto ( ) )
 			{
@@ -186,19 +186,19 @@ namespace Cotizador.Controllers
 				ApellidoPaterno = model.ApellidoPaterno,
 				ApellidoMaterno = model.ApellidoMaterno,
 				Estatus = ApplicationUser.status.Espera,
-				ClaveTrabajador = model.Clave.ToString()
+				ClaveTrabajador = model.Clave.ToString ( )
 			};
-			IdentityResult result= null;
+			IdentityResult result = null;
 
 			try
 			{
 				result = await UserManager.CreateAsync ( user, model.Password );
 			}
-			catch ( Exception ex)
+			catch ( Exception ex )
 			{
 				return BadRequest ( libProduccionDataBase.Auxiliares.GetInnerException ( ex ) );
 			}
-			
+
 			if ( !result.Succeeded )
 			{
 				return GetErrorResult ( result );
@@ -266,7 +266,7 @@ namespace Cotizador.Controllers
 		{
 			var ret = new List<BasicInfoUser> ( );
 
-			foreach ( var itm in await UserManager.Users.Where ( o => o.Id != 2  ).ToListAsync ( ) )
+			foreach ( var itm in await UserManager.Users.ToListAsync ( ) )
 			{
 				ret.Add ( new BasicInfoUser ( )
 				{

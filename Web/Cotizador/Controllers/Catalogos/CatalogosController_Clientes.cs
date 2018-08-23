@@ -48,7 +48,8 @@ namespace Cotizador.Controllers
 				string _columnToOrder = $"{( HasProperty ( typeof ( Cliente ), orderBy ) ? orderBy : "ClienteId" )} {orderType}";
 
 				// Obtengo la lista de elementos, la pagina requerida y el orden de las columnas, si no es admin solo devuelvo los datos que son propiedad del usuario actual
-				List<Cliente> ret = await clientesQuery.Where ( o => ( o.ClaveCliente.Contains ( query ) | o.NombreCliente.Contains ( query ) | o.NombreContacto.Contains ( query ) | ( o.Agente.Nombre + " " + o.Agente.ApellidoPaterno + " " + o.Agente.ApellidoMaterno ).Contains ( query ) ) & ( o.AgenteId == id | allUsers ) ).OrderBy ( _columnToOrder ).Skip ( ( pageNumber - 1 ) * pageSize ).Take ( pageSize ).ToListAsync ( );
+				List<Cliente> ret = await clientesQuery.Where ( o => ( o.ClaveCliente.Contains ( query ) | o.NombreCliente.Contains ( query ) | o.NombreContacto.Contains ( query ) | ( o.Agente.Nombre + " " + o.Agente.ApellidoPaterno + " " + o.Agente.ApellidoMaterno ).Contains ( query ) ) & ( o.AgenteId == id | allUsers ) )
+					.OrderBy ( _columnToOrder ).Skip ( ( pageNumber - 1 ) * pageSize ).Take ( pageSize ).ToListAsync ( );
 
 				// Si el cliente no tiene usuario asignado, le asigno un valor por defecto
 				ret.ForEach ( o =>

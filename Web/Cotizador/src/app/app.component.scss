@@ -1,28 +1,63 @@
 .main-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.plain{
-  box-shadow: 0 0 0 0 !important;
+
+.plain {
+    box-shadow: 0 0 0 0 !important;
 }
-mat-expansion-panel-header{
-  padding-left: 16px;
-  & fa-icon{
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    font-size: 24px!important;
-    box-sizing: content-box;
-    border-radius: 50%;
-    padding: 4px;
-  }
-  & h4{
+
+mat-expansion-panel-header {
     padding-left: 16px;
-    padding-right: 0px;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
+    & fa-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        font-size: 24px !important;
+        box-sizing: content-box;
+        border-radius: 50%;
+        padding: 4px;
+    }
+    & h4 {
+        padding-left: 16px;
+        padding-right: 0px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.logo {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: fixed;
+    height: 50px;
+    width: 280px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -999;
+    filter:opacity(60%);
+    >.excel {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 250px;
+    }
+    >.guala {
+        position: absolute;
+        bottom: 30px;
+        right: 90px;
+        width: 120px;
+    }
+    >span {
+        position: absolute;
+        top: 50px;
+        left: 5px;
+        width: 250px;
+        font-size: 10px;
+    }
 }

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ICatalogResponse, ICliente, IPageConfig, CatalogosService, OrderTypes } from '../../catalogos.service';
+import {
+  ICatalogResponse,
+  ICliente,
+  IPageConfig,
+  CatalogosService,
+  OrderTypes,
+} from '../../catalogos.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog, PageEvent, Sort } from '@angular/material';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -12,22 +18,40 @@ import { UsuariosService } from '../../usuarios.service';
 @Component({
   selector: 'cat-clientes.cc',
   templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.scss']
+  styleUrls: ['./clientes.component.scss'],
 })
 export class ClientesComponent implements OnInit {
-
-  clientesPage: ICatalogResponse = { TotalCount: 0, TotalPages: 0, Items: null };
+  clientesPage: ICatalogResponse = {
+    TotalCount: 0,
+    TotalPages: 0,
+    Items: null,
+  };
   clientes: ICliente[] = new Array<ICliente>();
   pagConfig: IPageConfig;
   searchControl: FormControl = new FormControl('');
-  searchAll: boolean;
+  searchAll: boolean = false;
   loading: boolean = false;
+  isAdmin: boolean = false;
 
-  constructor(private catalogosService: CatalogosService, private dialog: MatDialog, private dialogServices: DialogService, public usuariosService: UsuariosService) {
+  constructor(
+    private catalogosService: CatalogosService,
+    private dialog: MatDialog,
+    private dialogServices: DialogService,
+    public usuariosService: UsuariosService
+  ) {
+    this.pagConfig = {
+      pageSize: 10,
+      pageNumber: 1,
+      orderType: OrderTypes.ASC,
+      orderBy: 'Id',
+      query: '',
+    };
 
-    this.pagConfig = { pageSize: 10, pageNumber: 1, orderType: OrderTypes.ASC, orderBy: 'Id', query: '' };
-
-    this.searchControl.valueChanges.pipe(debounceTime(500), distinctUntilChanged())
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged()
+      )
       .subscribe(query => {
         this.pagConfig.query = query;
         this.pagConfig.pageNumber = 1;
@@ -36,32 +60,44 @@ export class ClientesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchAll = this.usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop') ? true : false;
-    this.getClientesPage();
+    this.usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop').subscribe(p => {
+      this.isAdmin = p;
+      this.searchAll = this.isAdmin;
+      this.getClientesPage();
+    });
   }
 
   columsToView(): string[] {
-    if (this.usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop') || this.searchAll) {
-      return ['ClaveCliente', 'NombreCliente', 'AgenteId', 'NombreContacto', 'ActionsContact', 'ActionEdit'];
+    if (this.isAdmin || this.searchAll) {
+      return [
+        'ClaveCliente',
+        'NombreCliente',
+        'AgenteId',
+        'NombreContacto',
+        'ActionsContact',
+        'ActionEdit',
+      ];
     } else {
-      return ['ClaveCliente', 'NombreCliente', 'NombreContacto', 'ActionsContact', 'ActionEdit']
+      return ['ClaveCliente', 'NombreCliente', 'NombreContacto', 'ActionsContact', 'ActionEdit'];
     }
   }
 
   /**
-  * Solicita la informacion al servicio.
-  */
+   * Solicita la informacion al servicio.
+   */
   async getClientesPage() {
     this.loading = true;
-    this.clientesPage = await this.catalogosService.getClientes(this.pagConfig, this.searchAll);
-    this.clientes = this.clientesPage.Items;
-    this.loading = false;
+    this.catalogosService.getClientes(this.pagConfig, this.searchAll).then(o => {
+      this.clientesPage = o;
+      this.clientes = o.Items;
+      this.loading = false;
+    });
   }
 
   /**
-  * Funcion de escucha para el evento de cambios en el paginador
-  * @param pageEvent Propiedades del evento del paginador
-  */
+   * Funcion de escucha para el evento de cambios en el paginador
+   * @param pageEvent Propiedades del evento del paginador
+   */
   async emitPaginator(pageEvent: PageEvent) {
     this.pagConfig.pageSize = pageEvent.pageSize;
     this.pagConfig.pageNumber = pageEvent.pageIndex + 1;
@@ -69,30 +105,45 @@ export class ClientesComponent implements OnInit {
   }
 
   /**
-  *Funcion de escucha para el eventento de cambio de orden
-  * @param sort Propiedades del evento de ordenamiento
-  */
+   *Funcion de escucha para el eventento de cambio de orden
+   * @param sort Propiedades del evento de ordenamiento
+   */
   async emitSort(sort: Sort) {
     this.pagConfig.orderBy = sort.active;
-    this.pagConfig.orderType = (sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC);
+    this.pagConfig.orderType = sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC;
     this.pagConfig.pageNumber = 1;
     this.getClientesPage();
   }
 
   /**
-  * Muestra el cuadro de dialogo para agregar
-  */
+   * Muestra el cuadro de dialogo para agregar
+   */
   add() {
-    const ref = this.dialog.open(AddClienteComponent, { disableClose: true, width: '450px' });
-    ref.afterClosed().subscribe(() => { this.getClientesPage(); });
+    const ref = this.dialog.open<AddClienteComponent, any, DialogResults>(AddClienteComponent, {
+      disableClose: true,
+      width: '450px',
+    });
+    ref.afterClosed().subscribe(m => {
+      if (m === DialogResults.Ok) {
+        this.getClientesPage();
+      }
+    });
   }
 
   /**
-  * Muestra el cuadro de dialogo para editar
-  */
+   * Muestra el cuadro de dialogo para editar
+   */
   edit(id: number) {
-    const ref = this.dialog.open(AddClienteComponent, { disableClose: true, data: id, width: '450px' });
-    ref.afterClosed().subscribe(() => this.getClientesPage());
+    const ref = this.dialog.open<AddClienteComponent, number, DialogResults>(AddClienteComponent, {
+      disableClose: true,
+      data: id,
+      width: '450px',
+    });
+    ref.afterClosed().subscribe(m => {
+      if (m === DialogResults.Ok) {
+        this.getClientesPage();
+      }
+    });
   }
 
   /**
@@ -100,15 +151,26 @@ export class ClientesComponent implements OnInit {
    * @param id Id del cliente que se eliminara
    */
   delete(id: number) {
-    this.dialogServices.showDialog('Eliminar!!', 'Realmente desea Eliminar al cliente?', { buttons: DialogButtonsFlags.Yes | DialogButtonsFlags.No, Icon: DialogIcons.Question })
+    this.dialogServices
+      .showDialog('Eliminar!!', 'Realmente desea Eliminar al cliente?', {
+        buttons: DialogButtonsFlags.Yes | DialogButtonsFlags.No,
+        Icon: DialogIcons.Question,
+      })
       .then(r => {
         if (r === DialogResults.Yes) {
-          this.catalogosService.delCliente(id)
+          this.catalogosService
+            .delCliente(id)
             .toPromise()
-            .then(v => this.dialogServices.showDialog('Correcto!!', v, { Icon: DialogIcons.Success })
-              .then(() => this.getClientesPage()))
-            .catch(e => this.dialogServices.showDialog('Error!!', e, { Icon: DialogIcons.Error })
-              .then(() => this.getClientesPage()));
+            .then(v =>
+              this.dialogServices
+                .showDialog('Correcto!!', v, { Icon: DialogIcons.Success })
+                .then(() => this.getClientesPage())
+            )
+            .catch(e =>
+              this.dialogServices.showDialog('Error!!', e, {
+                Icon: DialogIcons.Error,
+              })
+            );
         }
       });
   }
@@ -118,7 +180,9 @@ export class ClientesComponent implements OnInit {
    * @param v Cliente del que se obtendra la informacion
    */
   getURLLocation(v: ICliente): string {
-    return `https://www.google.com/maps/search/?${new HttpParams().set('api', '1').set('query', `${v.Domicilio}, ${v.Ciudad}, ${v.Estado}`).toString()}`;
+    return `https://www.google.com/maps/search/?${new HttpParams()
+      .set('api', '1')
+      .set('query', `${v.Domicilio}, ${v.Ciudad}, ${v.Estado}`)
+      .toString()}`;
   }
-
 }

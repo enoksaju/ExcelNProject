@@ -7,16 +7,26 @@ import { ManageRolesComponent } from './manage-roles.component';
 @Component({
   selector: 'adm-usuarios.cc',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.scss']
+  styleUrls: ['./usuarios.component.scss'],
 })
 export class UsuariosComponent implements OnInit {
   Usuarios: BasicInfoUser[];
   displayedColumns: string[] = ['Nombre', 'Email', 'EmailConfirmed', 'Roles'];
-  constructor(private usuarioService: UsuariosService, private dialog: MatDialog) { }
+  constructor(private usuarioService: UsuariosService, private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.refreshUsers();
+    this.usuarioService
+      .CurrentIsInRol('Administrador,Sistemas,Develop')
+      .toPromise()
+      .then(isAdmin => {
+        if (isAdmin) {
+          this.refreshUsers();
+        } else {
+          this.usuarioService.goToRoute();
+        }
+      });
   }
+
   private async refreshUsers() {
     this.Usuarios = await this.usuarioService.GetUsers().toPromise();
   }

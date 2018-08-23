@@ -1,0 +1,11 @@
+.hideElement{
+  display: none;
+}
+
+:host{
+  .mat-icon.icon-large{
+    width: 54px;
+    height: 54px;
+    font-size: 54px;
+  }
+}
