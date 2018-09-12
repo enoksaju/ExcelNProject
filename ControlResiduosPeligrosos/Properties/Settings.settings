@@ -8,5 +8,8 @@
     <Setting Name="DominioCorreo" Type="System.String" Scope="User">
       <Value Profile="(Default)">@excelnobleza.com.mx</Value>
     </Setting>
+    <Setting Name="Tema" Type="ComponentFactory.Krypton.Toolkit.PaletteModeManager" Scope="User">
+      <Value Profile="(Default)">Office 2010 - Silver</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

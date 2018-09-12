@@ -1,6 +1,9 @@
 <div style="position:relative">
-  <mat-card [ngClass]="getColor()" class="mat-elevation-z10">
-    <mat-card-header>
+
+
+  <mat-card class="mat-elevation-z5 flatprint mat-card-outside-icon">
+
+    <!-- <mat-card-header>
       <div *ngIf="Icono" mat-card-avatar fxFlex="60px" fxLayoutAlign="center center">
         <ng-container *ngIf="HasFontawesomeIcon">
           <fa-icon [icon]="['fas', Icono]" size="3x"></fa-icon>
@@ -11,12 +14,52 @@
       </div>
       <mat-card-title>{{Titulo}}</mat-card-title>
       <mat-card-subtitle>{{Descripcion}}</mat-card-subtitle>
-      <button *ngIf="ShowAdd" matTooltip="Agregar" mat-fab class="mat-card-action-button bg" [ngClass]="addBtnClass" (click)="clickAdd()">
-        <mat-icon>add</mat-icon>
-      </button>
+
+      <div class="mat-card-action-button-1" fxLayout="row wrap" fxLayoutGap="10px">
+        <button *ngIf="ShowAdd" mat-mini-fab class="bg noprinted" [ngClass]="addBtnClass" (click)="clickAdd()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button *ngIf="ShowPrint" mat-mini-fab class="bg noprinted" [ngClass]="addBtnClass" (click)="Print()">
+          <mat-icon>print</mat-icon>
+        </button>
+        <button *ngIf="ShowMore" mat-mini-fab class="bg noprinted" [ngClass]="addBtnClass" (click)="openBottomSheet()">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+      <span class="relleno"></span>
+      <ng-content select="[my-card-header]"></ng-content>
+    </mat-card-header> -->
+    <div *ngIf="Icono" class="mat-card-icon flatprint mat-elevation-z10" [ngClass]="getColor()" fxLayout="row" fxLayoutAlign="center center">
+      <ng-container *ngIf="HasFontawesomeIcon">
+        <fa-icon [icon]="['fas', Icono]" [fixedWidth]="true" size="3x"></fa-icon>
+      </ng-container>
+      <ng-container *ngIf="!HasFontawesomeIcon">
+        <mat-icon class="icon-large">{{Icono}}</mat-icon>
+      </ng-container>
+    </div>
+
+    <mat-card-header class="my-card-header">
+      <mat-card-title style="font-size: 20px;">{{Titulo}}</mat-card-title>
+      <mat-card-subtitle>{{Descripcion}}</mat-card-subtitle>
+      <span class="relleno"></span>
+      <ng-content select="[my-card-header]"></ng-content>
+      <span class="relleno"></span>
+      <div fxLayout="row wrap" fxLayoutGap="10px">
+        <button *ngIf="ShowAdd" type="button" mat-mini-fab class="lime noprinted" (click)="clickAdd()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button *ngIf="ShowPrint" type="button" mat-mini-fab class="cyan noprinted" (click)="Print()">
+          <mat-icon>print</mat-icon>
+        </button>
+        <button *ngIf="ShowMore" type="button" mat-mini-fab class="noprinted" [ngClass]="addBtnClass" (click)="openBottomSheet()">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
     </mat-card-header>
+
+
     <ng-content select="[my-card-body]"></ng-content>
-    <mat-card-content style="overflow: auto;">
+    <mat-card-content>
       <ng-content select="[my-card-content]"></ng-content>
     </mat-card-content>
     <mat-card-footer #myCardFooter [ngClass]="{'hideElement':!showFooter}">

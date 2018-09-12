@@ -1,0 +1,80 @@
+<!-- spinner -->
+<div *ngIf="isLoading" fxLayoutAlign="center center" fxFlex="100%">
+  <mat-spinner color="accent" diameter="80"></mat-spinner>
+</div>
+
+<form *ngIf="!isLoading" fxFlex="100%" style="position:relative;" fxLayout="column" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>{{isNew ? 'Agregar' : 'Editar'}} Impresora</h2>
+  <mat-divider class="dialog-divider"></mat-divider>
+
+  <!-- Contenido del dialogo -->
+  <div mat-dialog-content class="mat-typography">
+    <div *ngIf="!isLoading" fxLayout="column">
+      <div fxLayout="column">
+        <wrap-inputs [controls]="ctls" [fGroup]="form" *ngFor="let ctls of ViewForm"></wrap-inputs>
+      </div>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <my-card [Titulo]="'Rodillos'" [Descripcion]="'Se muestran los rodillos de la maquina'" [ShowAdd]="true" [Icono]="'adjust'"
+      (ClickAdd)="AddRodillo()">
+
+      <mat-list my-card-content dense>
+        <mat-list-item *ngFor="let link of entity.Rodillos">
+          <span class="mat-body-2" style="width: 150px;
+          font-size: 18px;
+          border-radius: 18px;
+          background-color: teal;
+          text-align: end;
+          padding-right: 15px;" matTooltip="{{link.Cantidad}} rodillos de {{ link.Medida | number:'2.2-2'}}" matBadge="{{link.Cantidad}}"
+            matBadgeColor="accent">
+            {{ link.Medida | number:'2.2-2'}}
+          </span>
+
+          <span class="relleno"></span>
+          <button type="button" matTooltip="Borrar Rodillo" (click)="RemoveRodillo(link)" class="red-fg" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+
+    </my-card>
+    <br>
+    <my-card [Titulo]="'Configuración de Tintas'" [Descripcion]="'Determina los valores minimos para el numero de tintas'" [ShowAdd]="true"
+      [Icono]="'opacity'" (ClickAdd)="AddConfTinta()">
+
+      <mat-list my-card-content dense>
+        <mat-list-item *ngFor="let link of entity.ConfiguracionTintas">
+          <span class="mat-body-2" style="width: 150px;
+            font-size: 18px;
+            border-radius: 18px;
+            background-color: teal;
+            text-align: end;
+            padding-right: 15px;" matTooltip="{{link.MinimoMetros}} mts para {{link.Cantidad}} tintas" matBadge="{{link.Cantidad}}"
+            matBadgeColor="accent">
+            {{link.MinimoMetros}} mts
+          </span>
+          <span class="relleno"></span>
+          <button type="button" matTooltip="Borrar Configuración" (click)="RemoveConfTinta(link)" class="red-fg" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+
+    </my-card>
+    <br>
+  </div>
+
+  <mat-divider class="dialog-divider"></mat-divider>
+  <div mat-dialog-actions fxLayout="row" fxFlex="80px" fxLayoutAlign="center center">
+    <button type="submit" mat-raised-button color="warn">{{isNew ? 'Guardar' : 'Actualizar'}}</button>
+  </div>
+
+  <!-- CloseButton -->
+  <button class="closeButton" mat-dialog-close tabIndex="3" color="warn" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</form>

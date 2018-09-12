@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   CatalogosService,
   ICatalogResponse,
   IPageConfig,
   OrderTypes,
   Column,
+  ROUTE_FAMILIA_MATERIALES,
+  IFamiliasMateriales,
 } from '../../catalogos.service';
 import { UsuariosService } from '../../usuarios.service';
+import { MatDialog } from '@angular/material';
+import { AddEditFamiliaMaterialesComponent } from './add-edit-familia-materiales.component';
+import { DialogResults, DialogButtonsFlags, DialogIcons } from '../../dialog.component';
+import { DialogService } from '../../dialog.service';
+import { Observable, Subscription } from 'rxjs';
+import { MovimientosFamiliasMaterialesComponent } from './movimientos-familias-materiales.component';
 
 @Component({
   selector: 'cat-familias-materiales.cc',
   templateUrl: './familias-materiales.component.html',
   styleUrls: ['./familias-materiales.component.scss'],
 })
-export class FamiliasMaterialesComponent implements OnInit {
+export class FamiliasMaterialesComponent implements OnInit, OnDestroy {
   /**
    * Contenido del Catalogo
    */
-  catalogPage: ICatalogResponse = {
+  catalogPage: ICatalogResponse<IFamiliasMateriales> = {
     TotalCount: 0,
     TotalPages: 0,
     Items: null,
   };
+
   /**
    * Configuracion del Paginador
    */
@@ -35,34 +44,46 @@ export class FamiliasMaterialesComponent implements OnInit {
 
   isLoading: boolean = false;
   isAdmin: boolean = false;
+  needRefresh$: Subscription;
+  subIsAdmin$: Subscription;
 
   /**
    * Constructor del componente
    * @param catalogosService
    * @param usuariosService
    */
-  constructor(public catalogosService: CatalogosService, private usuariosService: UsuariosService) {
-    this.catalogosService.needRefresh.subscribe(p => {
+  constructor(
+    public catalogosService: CatalogosService,
+    private usuariosService: UsuariosService,
+    private dialog: MatDialog,
+    private dialogService: DialogService
+  ) {
+    this.needRefresh$ = this.catalogosService.needRefresh.subscribe(p => {
       this.fillCatalog();
     });
 
-    this.usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop').subscribe(p => {
-      this.isAdmin = p;
+    this.subIsAdmin$ = this.usuariosService.isAdmin().subscribe(o => {
+      this.isAdmin = o;
       this.fillCatalog();
     });
   }
 
   ngOnInit() {}
+  ngOnDestroy() {
+    this.subIsAdmin$.unsubscribe();
+    this.needRefresh$.unsubscribe();
+  }
 
   /**
    * Llena el catalogo
    */
-  fillCatalog() {
+  async fillCatalog() {
     this.isLoading = true;
-    this.catalogosService.getFamiliasMateriales(this.pagConfig).then(result => {
-      this.catalogPage = result;
-      this.isLoading = false;
-    });
+    this.catalogPage = await this.catalogosService.getCollection<IFamiliasMateriales>(
+      this.pagConfig,
+      ROUTE_FAMILIA_MATERIALES
+    );
+    this.isLoading = false;
   }
 
   /**
@@ -70,7 +91,7 @@ export class FamiliasMaterialesComponent implements OnInit {
    */
   columsToView(): Column[] {
     return [
-      new Column('Id', 'Id', { flex: '100px' }),
+      // new Column('Id', 'Id', { flex: '100px' }),
       new Column('NombreFamilia', 'Nombre de la Familia'),
       new Column('ActionEdit', 'Acciones', { sortable: false, db: false }),
     ];
@@ -83,14 +104,49 @@ export class FamiliasMaterialesComponent implements OnInit {
     return this.columsToView().map(p => p.column);
   }
 
-  add() {
-    console.log('you press add button');
+  AddOrEdit(Id: number = null) {
+    this.dialog
+      .open<AddEditFamiliaMaterialesComponent, number, DialogResults>(
+        AddEditFamiliaMaterialesComponent,
+        {
+          disableClose: true,
+          data: Id,
+          width: '450px',
+        }
+      )
+      .afterClosed()
+      .toPromise()
+      .then(m => {
+        if (m === DialogResults.Ok) {
+          this.fillCatalog();
+        }
+      });
   }
 
-  edit(id: number) {
-    console.log('you press edit button on ' + id);
+  viewMovesToPrice(id: number) {
+    this.dialog.open<MovimientosFamiliasMaterialesComponent, number, DialogResults>(
+      MovimientosFamiliasMaterialesComponent,
+      {
+        data: id,
+        disableClose: true,
+        width: '100%',
+        height: '100%',
+        maxWidth: '100vw',
+        maxHeight: '100vh',
+      }
+    );
   }
+
   delete(id: number) {
-    console.log('you press delete button on ' + id);
+    this.dialogService
+      .showDialog('Eliminar!!', 'Realmente desea Eliminar al cliente?', {
+        buttons: DialogButtonsFlags.Yes | DialogButtonsFlags.No,
+        Icon: DialogIcons.Question,
+      })
+      .then(r => {
+        if (r === DialogResults.Yes) {
+          this.catalogosService.delEntity(id, ROUTE_FAMILIA_MATERIALES);
+        }
+      });
   }
 }

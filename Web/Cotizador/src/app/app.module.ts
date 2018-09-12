@@ -1,8 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
+import { NgModule, Inject, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
+import {
+  APP_BASE_HREF,
+  HashLocationStrategy,
+  LocationStrategy,
+  registerLocaleData,
+} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CustomBreakPointsProvider } from './custom-breackpoints';
+import localeMx from '@angular/common/locales/es-MX';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +27,27 @@ import { DialogComponent } from './dialog.component';
 import { ManageRolesComponent } from './usuarios/manage-roles.component';
 import { ClientesComponent } from './catalogos/clientes/clientes.component';
 import { AddClienteComponent } from './catalogos/clientes/add-cliente.component';
-import { WrapInputsComponent } from './common/wrap-inputs/wrap-inputs.component';
+import {
+  WrapInputsComponent,
+  WrapInputsContainerComponent,
+} from './common/wrap-inputs/wrap-inputs.component';
 import { FamiliasMaterialesComponent } from './catalogos/familias-materiales/familias-materiales.component';
 import { MyCardComponent } from './common/my-card/my-card.component';
+import { AddEditFamiliaMaterialesComponent } from './catalogos/familias-materiales/add-edit-familia-materiales.component';
+import { MovimientosFamiliasMaterialesComponent } from './catalogos/familias-materiales/movimientos-familias-materiales.component';
+import { BottomActionsMyCardComponent } from './common/my-card/bottom-actions-my-card.component';
+import { AddMovimientosFamiliasMaterialesComponent } from './catalogos/familias-materiales/add-movimientos-familias-materiales.component';
+import { MaterialesComponent } from './catalogos/materiales/materiales.component';
+import { AddEditMaterialComponent } from './catalogos/materiales/add-edit-material.component';
+import { DetailMaterialComponent } from './catalogos/materiales/detail-material/detail-material.component';
+import { ImpresorasComponent } from './catalogos/impresoras/impresoras.component';
+import { DetailImpresoraComponent } from './catalogos/impresoras/detail-impresora/detail-impresora.component';
+import { AddEditImpresoraComponent } from './catalogos/impresoras/add-edit-impresora/add-edit-impresora.component';
+import { AddRodilloComponent } from './catalogos/impresoras/add-edit-impresora/add-rodillo.component';
+import { AddConfigTintaComponent } from './catalogos/impresoras/add-edit-impresora/add-config-tinta.component';
+import { InitialPageComponent } from './initial-page/initial-page.component';
+
+registerLocaleData(localeMx, 'es-MX');
 
 @NgModule({
   declarations: [
@@ -35,8 +61,22 @@ import { MyCardComponent } from './common/my-card/my-card.component';
     ClientesComponent,
     AddClienteComponent,
     WrapInputsComponent,
+    WrapInputsContainerComponent,
     FamiliasMaterialesComponent,
     MyCardComponent,
+    AddEditFamiliaMaterialesComponent,
+    MovimientosFamiliasMaterialesComponent,
+    BottomActionsMyCardComponent,
+    AddMovimientosFamiliasMaterialesComponent,
+    MaterialesComponent,
+    AddEditMaterialComponent,
+    DetailMaterialComponent,
+    ImpresorasComponent,
+    DetailImpresoraComponent,
+    AddEditImpresoraComponent,
+    AddRodilloComponent,
+    AddConfigTintaComponent,
+    InitialPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,11 +85,15 @@ import { MyCardComponent } from './common/my-card/my-card.component';
     MaterialModule,
     FormsModule,
     HttpClientModule,
+    DeviceDetectorModule.forRoot()
   ],
   providers: [
+    CustomBreakPointsProvider,
+    { provide: LOCALE_ID, useValue: 'es-MX' },
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
@@ -58,6 +102,14 @@ import { MyCardComponent } from './common/my-card/my-card.component';
     DialogComponent,
     ManageRolesComponent,
     AddClienteComponent,
+    AddEditFamiliaMaterialesComponent,
+    MovimientosFamiliasMaterialesComponent,
+    BottomActionsMyCardComponent,
+    AddMovimientosFamiliasMaterialesComponent,
+    AddEditMaterialComponent,
+    AddEditImpresoraComponent,
+    AddRodilloComponent,
+    AddConfigTintaComponent,
   ],
 })
 export class AppModule {

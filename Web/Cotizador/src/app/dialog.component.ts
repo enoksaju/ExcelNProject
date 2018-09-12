@@ -22,6 +22,7 @@ export interface DialogData {
   Title: string;
   Icon: DialogIcons;
   buttons: DialogButtonsFlags;
+  hasCloseButton: boolean;
 }
 
 export enum DialogResults {
@@ -37,7 +38,7 @@ export enum DialogResults {
   template: `
   <div style="position: relative" fxLayout="row" fxLayoutGap="15px" class="mat-typography">
   <!-- CloseButton -->
-  <button class="closeButton"  tabIndex="3" color="warn" mat-icon-button (click)="CancelResult()">
+  <button class="closeButton" *ngIf="data.hasCloseButton"  tabIndex="3" color="warn" mat-icon-button (click)="CancelResult()">
     <mat-icon>close</mat-icon>
   </button>
   <!-- DialogIcon -->

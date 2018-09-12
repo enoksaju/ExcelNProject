@@ -30,11 +30,11 @@
 		private void InitializeComponent ( ) {
 			this.ContabilidadExcelIntelisi = this.Factory.CreateRibbonTab();
 			this.group1 = this.Factory.CreateRibbonGroup();
-			this.button1 = this.Factory.CreateRibbonButton();
 			this.group2 = this.Factory.CreateRibbonGroup();
+			this.group3 = this.Factory.CreateRibbonGroup();
+			this.button1 = this.Factory.CreateRibbonButton();
 			this.IntegracionSaldosCxc_btn = this.Factory.CreateRibbonButton();
 			this.button3 = this.Factory.CreateRibbonButton();
-			this.group3 = this.Factory.CreateRibbonGroup();
 			this.button2 = this.Factory.CreateRibbonButton();
 			this.button4 = this.Factory.CreateRibbonButton();
 			this.ContabilidadExcelIntelisi.SuspendLayout();
@@ -48,7 +48,7 @@
 			this.ContabilidadExcelIntelisi.Groups.Add(this.group1);
 			this.ContabilidadExcelIntelisi.Groups.Add(this.group2);
 			this.ContabilidadExcelIntelisi.Groups.Add(this.group3);
-			this.ContabilidadExcelIntelisi.Label = "Contabilidad Intelisis";
+			this.ContabilidadExcelIntelisi.Label = "Contabilidad Intelisis v2.0";
 			this.ContabilidadExcelIntelisi.Name = "ContabilidadExcelIntelisi";
 			// 
 			// group1
@@ -56,6 +56,20 @@
 			this.group1.Items.Add(this.button1);
 			this.group1.Label = "Controles";
 			this.group1.Name = "group1";
+			// 
+			// group2
+			// 
+			this.group2.Items.Add(this.IntegracionSaldosCxc_btn);
+			this.group2.Items.Add(this.button3);
+			this.group2.Label = "Cxc";
+			this.group2.Name = "group2";
+			// 
+			// group3
+			// 
+			this.group3.Items.Add(this.button2);
+			this.group3.Items.Add(this.button4);
+			this.group3.Label = "Cxp";
+			this.group3.Name = "group3";
 			// 
 			// button1
 			// 
@@ -65,13 +79,6 @@
 			this.button1.Name = "button1";
 			this.button1.ShowImage = true;
 			this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
-			// 
-			// group2
-			// 
-			this.group2.Items.Add(this.IntegracionSaldosCxc_btn);
-			this.group2.Items.Add(this.button3);
-			this.group2.Label = "Cxc";
-			this.group2.Name = "group2";
 			// 
 			// IntegracionSaldosCxc_btn
 			// 
@@ -90,13 +97,6 @@
 			this.button3.Name = "button3";
 			this.button3.ShowImage = true;
 			this.button3.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button3_Click);
-			// 
-			// group3
-			// 
-			this.group3.Items.Add(this.button2);
-			this.group3.Items.Add(this.button4);
-			this.group3.Label = "Cxp";
-			this.group3.Name = "group3";
 			// 
 			// button2
 			// 

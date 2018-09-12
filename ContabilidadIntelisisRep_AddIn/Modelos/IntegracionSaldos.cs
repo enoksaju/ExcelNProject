@@ -32,10 +32,34 @@ Group by Cxp.Proveedor,Prov.Nombre,Prov.Categoria,Prov.Familia,Prov.Tipo,mt.Clav
 Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01)
 Order by Aux.Moneda,1,Prov.Categoria,Prov.Familia,Prov.Nombre,Cxp.FechaEmision,Cxp.Mov,Cxp.MovId";
 
-		public static string SqlCxc = @"Select Clase='N/A',Clave=Cxc.Cliente,Nombre=Cte.Nombre,Categoria=Cte.Categoria,Grupo=Cte.Grupo,Familia=Cte.Familia,Cuenta=Cte.Cuenta,Tipo=Cte.Tipo,Mov=Cxc.Mov,MovId=Cxc.Movid,FechaEmision=Cxc.FechaEmision,Vencimiento=Cxc.Vencimiento,Importe= isnull(Avg(cxc.Importe),0),Impuestos= isnull(avg(cxc.Impuestos),0),Retencion= isnull(avg(cxc.Retencion),0),Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),Moneda=Aux.moneda,TipoCambio=Cxc.ClienteTipoCambio, Concepto= cxc.Concepto
-From Auxiliar aux Join MovTipo mt On aux.Aplica=mt.Mov And mt.Modulo='CXC' Join Cxc On aux.Empresa=Cxc.Empresa And aux.Sucursal=Cxc.Sucursal And aux.Aplica=Cxc.Mov And aux.AplicaId=Cxc.MovId And Cxc.Estatus in ('CONCLUIDO','PENDIENTE') Join Cte On Cxc.Cliente=Cte.Cliente 
-Where aux.Rama='CXC' And mt.Clave in ('CXC.F','CXC.FA','CXC.NC','CXC.A','CXC.DP','CXC.CD','CXC.CAP','CXC.AJM','CXC.AJR','CXC.RA','CXC.FAC','CXC.DC') And mt.Mov<>'Factura S/L' 
-And aux.Fecha<=@Fecha and ((@Tipo='Todos') or (@Tipo= 'Anticipos' and Cxc.Mov in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )) or (@Tipo= 'SinAnticipos' and Cxc.Mov not in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )))
+		public static string SqlCxc = @"
+Select 
+	Clase='N/A',
+	Clave=Cxc.Cliente,
+	Nombre=Cte.Nombre,
+	Categoria=Cte.Categoria,
+	Grupo=Cte.Grupo,
+	Familia=Cte.Familia,
+	Cuenta=Cte.Cuenta,
+	Tipo=Cte.Tipo,
+	Mov=Cxc.Mov,
+	MovId=Cxc.Movid,
+	FechaEmision=Cxc.FechaEmision,
+	Vencimiento=Cxc.Vencimiento,
+	Importe= isnull(Avg(cxc.Importe),0),
+	Impuestos= isnull(avg(cxc.Impuestos),0),
+	Retencion= isnull(avg(cxc.Retencion),0),
+	Saldo=Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)),
+	Moneda=Aux.moneda,
+	TipoCambio=Cxc.ClienteTipoCambio, 
+	Concepto= cxc.Concepto
+From Auxiliar aux 
+	Join MovTipo mt On aux.Aplica=mt.Mov And mt.Modulo='CXC' 
+	Join Cxc On aux.Empresa=Cxc.Empresa And aux.Sucursal=Cxc.Sucursal And aux.Aplica=Cxc.Mov And aux.AplicaId=Cxc.MovId And Cxc.Estatus in ('CONCLUIDO','PENDIENTE') 
+	Join Cte On Cxc.Cliente=Cte.Cliente 
+Where aux.Rama='CXC' And mt.Clave in ('CXC.F','CXC.FA','CXC.NC','CXC.A','CXC.DP','CXC.CD','CXC.CAP','CXC.AJM','CXC.AJR','CXC.RA','CXC.FAC','CXC.DC', 'CXC.DAC') And mt.Mov<>'Factura S/L' 
+	And aux.Fecha<=@Fecha 
+	and ((@Tipo='Todos') or (@Tipo= 'Anticipos' and Cxc.Mov in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )) or (@Tipo= 'SinAnticipos' and Cxc.Mov not in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )))
 
 Group by Cxc.Cliente,Cte.Nombre,Cte.Categoria,Cte.Grupo,Cte.Familia,Cte.Tipo,mt.Clave,Cxc.Mov,Cxc.MovId,Cxc.FechaEmision,Cxc.Vencimiento,Aux.Moneda,Cxc.ClienteTipoCambio,Cte.Cuenta, cxc.Concepto
 Having ((Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))< -0.01 or (Sum(Isnull(aux.Cargo,0)-Isnull(aux.Abono,0)))> 0.01) 

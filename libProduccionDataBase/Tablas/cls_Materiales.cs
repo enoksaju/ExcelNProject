@@ -16,8 +16,8 @@ namespace libProduccionDataBase.Tablas
 		public int Id { get; set; }
 		[MaxLength ( 250 )]
 		public string NombreFamilia { get; set; }
-		public ObservableListSource<Material> Materiales => _Materiales;
-		public virtual ObservableListSource<MovimientoPrecio> Movimientos { get; set; }
+		public virtual ObservableListSource<Material> Materiales => _Materiales;
+		public virtual ObservableListSource<MovimientoPrecio> Movimientos { get; set; } 
 		public override string ToString () => this.NombreFamilia;
 	}
 	[Table ( "MovPrec_Fam_Mat" )]
@@ -25,13 +25,15 @@ namespace libProduccionDataBase.Tablas
 	{
 		[Key]
 		public int MovimientoPrecioId { get; set; }
-		public int FamiliaId { get; set; }
+		[ForeignKey ( "FamiliaMateriales" )]
+		public int FamiliaMateriales_Id { get; set; }
 		[Required]
 		public double Valor { get; set; }
 		[Required]
 		public DateTime FechaRegistro { get; set; }
 		[Required]
 		public DateTime FechaOperacion { get; set; }
+		public virtual FamiliaMateriales FamiliaMateriales { get; set; }
 	}
 
 	[Table ( "Material" )]
@@ -61,9 +63,9 @@ namespace libProduccionDataBase.Tablas
 		[Required]
 		public DateTime FechaOperacion { get; set; }
 
-		public virtual ObservableListSource<Calibre> Calibres { get; set; }
+		public virtual ObservableListSource<Calibre> Calibres { get; set; } = new ObservableListSource<Calibre> ( );
 		public virtual FamiliaMateriales Familia { get; set; }
-		
+
 		/// <summary>
 		/// Busca los incrementos o decremntos de la familia de materiales y modifica el precio inicial.
 		/// </summary>
@@ -77,7 +79,7 @@ namespace libProduccionDataBase.Tablas
 					if ( this.Familia != null )
 					{
 						inc = ( from prec in this.Familia.Movimientos
-								where prec.FechaOperacion >= this.FechaOperacion
+								where prec.FechaOperacion >= this.FechaOperacion & prec.FechaOperacion <= DateTime.Now
 								select prec.Valor ).Sum ( );
 					}
 					return inc;
@@ -86,7 +88,7 @@ namespace libProduccionDataBase.Tablas
 				{
 					return 0;
 				}
-				
+
 			}
 		}
 

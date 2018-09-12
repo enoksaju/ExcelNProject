@@ -26,10 +26,10 @@ export class TokenInterceptor implements HttpInterceptor {
     });
 
     return next.handle(request).pipe(tap(event => {
-      if (event instanceof HttpResponse) {
-        const elapsed = Date.now() - started;
-        console.log(`La respuesta desde ${request.urlWithParams} tomó ${elapsed} ms.`);
-      }
+      // if (event instanceof HttpResponse) {
+      //   const elapsed = Date.now() - started;
+      //   console.log(`La respuesta desde ${request.urlWithParams} tomó ${elapsed} ms.`);
+      // }
     }));
   }
 }

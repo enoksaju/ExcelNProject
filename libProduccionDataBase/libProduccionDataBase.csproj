@@ -167,6 +167,10 @@
     <Compile Include="Migrations\201808151409562_AddIndexToTProduccion.Designer.cs">
       <DependentUpon>201808151409562_AddIndexToTProduccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808271622474_updateMovimientosPrecios.cs" />
+    <Compile Include="Migrations\201808271622474_updateMovimientosPrecios.Designer.cs">
+      <DependentUpon>201808271622474_updateMovimientosPrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
@@ -257,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808151409562_AddIndexToTProduccion.resx">
       <DependentUpon>201808151409562_AddIndexToTProduccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808271622474_updateMovimientosPrecios.resx">
+      <DependentUpon>201808271622474_updateMovimientosPrecios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

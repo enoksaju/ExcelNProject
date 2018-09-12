@@ -1,0 +1,103 @@
+@import '~@angular/material/theming';
+$materialHue: 50 100 200 300 400 600 700 800 900 'A100' 'A200' 'A400' 'A700';
+$materialColors: (
+  ('red', $mat-red),
+  ('pink', $mat-pink),
+  ('purple', $mat-purple),
+  ('deep-purple', $mat-deep-purple),
+  ('indigo', $mat-indigo),
+  ('blue', $mat-blue),
+  ('light-blue', $mat-light-blue),
+  ('cyan', $mat-cyan),
+  ('teal', $mat-teal),
+  ('green', $mat-green),
+  ('light-green', $mat-light-green),
+  ('lime', $mat-lime),
+  ('yellow', $mat-yellow),
+  ('amber', $mat-amber),
+  ('orange', $mat-orange),
+  ('deep-orange', $mat-deep-orange),
+  ('brown', $mat-brown),
+  ('grey', $mat-grey),
+  ('blue-grey', $mat-blue-grey)
+);
+
+$my-dark-primary-text: rgba(black, 0.87);
+$my-light-primary-text: white;
+
+
+
+@mixin colors() {
+  /**
+ *  Configuracion de contrastes en los backgrounds
+ */
+  %dark-contrast {
+    color: $my-dark-primary-text !important;
+  }
+  %light-contrast {
+    color: $my-light-primary-text !important;
+  }
+
+  /**
+ * Condiciones de Blanco y negro en las impresiones
+ */
+  @media print {
+    %print-bg {
+      background-color: #ccc !important;
+      color: rgba(#000, 0.5) !important;
+    }
+    %print-fg {
+      color: #222 !important;
+    }
+  }
+
+  /**
+ * Todos los Colores de las paletas de Material
+ */
+
+  @each $color_ in $materialColors {
+    $section: nth($color_, 1);
+    $pallete: nth($color_, 2);
+
+    /**
+ * Color: #{$section}
+ */
+    .#{$section} {
+      &,
+      &-500 {
+        @extend %print-bg;
+
+        @if mat-contrast($pallete, 500) ==$my-dark-primary-text {
+          @extend %dark-contrast;
+        } @else {
+          @extend %light-contrast;
+        }
+
+        background-color: mat-color($pallete, 500) !important;
+        &-fg {
+          @extend %print-fg;
+          color: map-get($pallete, 500) !important;
+        }
+      }
+      @each $hue in $materialHue {
+        &-#{$hue} {
+          @extend %print-bg;
+
+          @if mat-contrast($pallete, $hue) ==$my-dark-primary-text {
+            @extend %dark-contrast;
+          } @else {
+            @extend %light-contrast;
+          }
+
+          background-color: mat-color($pallete, $hue) !important;
+          &-fg {
+            @extend %print-fg;
+            color: map-get($pallete, $hue) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include colors();

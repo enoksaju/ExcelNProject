@@ -1,64 +1,61 @@
-<button color="primary" matTooltip="Regresar" mat-icon-button [routerLink]="'../'">
-  <mat-icon>
-    arrow_back
-  </mat-icon>
-</button>
+<div class="outlet-content">
+  <my-card CardColor="primary" [Titulo]="'Familias de Materiales'" [Descripcion]="'Se muestran las familias de materiales disponibles en la base de datos'"
+    Icono="object-group" [HasFontawesomeIcon]="true" [ShowMore]="isAdmin ? true : false" [ShowPrint]="true" [ShowAdd]="isAdmin ? true : false"
+    (ClickAdd)="AddOrEdit()">
 
-<my-card CardColor="primary" [Titulo]="'Familias de Materiales'" [Descripcion]="'Se muestran las familias de materiales disponibles en la base de datos'"
-  Icono="layer-group" [HasFontawesomeIcon]="true" [ShowAdd]="true" (ClickAdd)="add()">
+    <div my-card-content style="overflow: auto;">
 
-  <div my-card-content>
-    <mat-progress-bar color="accent" *ngIf="isLoading" mode="query"></mat-progress-bar>
-    <mat-table [dataSource]="catalogPage.Items" style="min-width: 800px;" matSort (matSortChange)="catalogosService.emitSort($event, this.pagConfig);">
+      <mat-table [dataSource]="catalogPage.Items" matSort (matSortChange)="catalogosService.emitSort($event, this.pagConfig);">
 
-      <!-- <ng-container matColumnDef="NombreFamilia">
-        <mat-header-cell *matHeaderCellDef fxFlex="100%" mat-sort-header> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="100%"> {{row.NombreFamilia}} </mat-cell>
-      </ng-container> -->
+        <!-- Crea las columnas con datos desde el servidor -->
+        <ng-container *ngFor="let column of columsToView()">
 
-      <ng-container *ngFor="let column of columsToView()">
-
-        <ng-container *ngIf="column.db && !column.sortable" matColumnDef="{{column.column}}">
-          <mat-header-cell *matHeaderCellDef [fxFlex]="column.flex"> {{column.text}} </mat-header-cell>
-          <mat-cell *matCellDef="let element" [fxFlex]="column.flex"> {{element[column.column]}}</mat-cell>
-        </ng-container>
-
-        <ng-container *ngIf="column.db && column.sortable" matColumnDef="{{column.column}}">
-          <mat-header-cell mat-sort-header *matHeaderCellDef [fxFlex]="column.flex"> {{column.text}} </mat-header-cell>
-          <mat-cell *matCellDef="let element" [fxFlex]="column.flex"> {{element[column.column]}}</mat-cell>
-        </ng-container>
-
-      </ng-container>
-
-      <!-- Control de acciones -->
-      <ng-container matColumnDef="ActionEdit">
-        <mat-header-cell *matHeaderCellDef fxFlex="100px"> Acciones </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="100px">
-
-          <ng-container *ngIf="!isAdmin">
-            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center center">
-              <mat-icon color="warn">block</mat-icon>
-            </div>
+          <ng-container *ngIf="column.db && !column.sortable" matColumnDef="{{column.column}}">
+            <mat-header-cell *matHeaderCellDef [fxFlex]="column.flex"> {{column.text}} </mat-header-cell>
+            <mat-cell *matCellDef="let element" [fxFlex]="column.flex"> {{element[column.column]}}</mat-cell>
           </ng-container>
 
-          <ng-container *ngIf="isAdmin">
-            <button class="blue-700" mat-icon-button (click)="edit(row.Id)">
-              <mat-icon>edit</mat-icon>
-            </button>
+          <ng-container *ngIf="column.db && column.sortable" matColumnDef="{{column.column}}">
+            <mat-header-cell mat-sort-header *matHeaderCellDef [fxFlex]="column.flex"> {{column.text}} </mat-header-cell>
+            <mat-cell *matCellDef="let element" [fxFlex]="column.flex"> {{element[column.column]}}</mat-cell>
           </ng-container>
 
-        </mat-cell>
-      </ng-container>
+        </ng-container>
 
-      <!-- Definicion de filas y columnas -->
-      <mat-header-row *matHeaderRowDef="columns()"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: columns();"></mat-row>
-    </mat-table>
-  </div>
+        <!-- Control de acciones -->
+        <ng-container matColumnDef="ActionEdit">
+          <mat-header-cell class="noprinted" *matHeaderCellDef fxFlex="100px"> Acciones </mat-header-cell>
+          <mat-cell class="noprinted" *matCellDef="let row" fxFlex="100px">
 
-  <div my-card-footer>
-    <mat-paginator [length]="catalogPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
-      (page)="catalogosService.emitPaginator($event, pagConfig)">
-    </mat-paginator>
-  </div>
-</my-card>
+            <ng-container *ngIf="!isAdmin">
+              <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center center">
+                <mat-icon color="warn">block</mat-icon>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="isAdmin">
+              <button class="orange-fg" mat-icon-button (click)="AddOrEdit(row.Id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button class="green-800-fg" mat-icon-button (click)="viewMovesToPrice(row.Id)">
+                <mat-icon>monetization_on</mat-icon>
+              </button>
+            </ng-container>
+
+          </mat-cell>
+        </ng-container>
+
+        <!-- Definicion de filas y columnas -->
+        <mat-header-row *matHeaderRowDef="columns()"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columns();"></mat-row>
+      </mat-table>
+      <mat-progress-bar color="accent" *ngIf="isLoading" mode="query"></mat-progress-bar>
+    </div>
+
+    <div my-card-footer>
+      <mat-paginator [length]="catalogPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
+        (page)="catalogosService.emitPaginator($event, pagConfig)">
+      </mat-paginator>
+    </div>
+  </my-card>
+</div>

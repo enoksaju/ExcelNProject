@@ -1,0 +1,63 @@
+<!-- spinner -->
+<div *ngIf="isLoading" fxLayoutAlign="center center" fxFlex="100%">
+  <mat-spinner color="accent" diameter="80"></mat-spinner>
+</div>
+
+<!-- Formulario -->
+<form *ngIf="!isLoading" fxFlex="100%" style="position:relative;" fxLayout="column" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>{{isNew ? 'Agregar' : 'Editar'}} Material</h2>
+  <mat-divider class="dialog-divider"></mat-divider>
+
+  <!-- Contenido del dialogo -->
+  <div mat-dialog-content class="mat-typography">
+    <div *ngIf="!isLoading" fxLayout="column">
+      <div fxLayout="column">
+        <wrap-inputs [controls]="ctls" [fGroup]="form" *ngFor="let ctls of ViewForm"></wrap-inputs>
+      </div>
+    </div>
+    <br />
+    <mat-divider class="dialog-divider"></mat-divider>
+    <br />
+
+    <!-- Calibres del material -->
+    <mat-card style="padding: 0px" class="mat-elevation-z10">
+
+      <mat-toolbar class="blue-grey mat-elevation-z0">
+        <mat-toolbar-row>
+          <span>Calibres</span>
+          <!-- <button type="button" matTooltip="Agregar un Calibre" class="deep-purple mat-elevation-z10" mat-mini-fab><mat-icon>add</mat-icon></button> -->
+
+          <span class="relleno"></span>
+          <mat-form-field color="accent" appearance="standard" [style.fontSize.px]="14">
+            <mat-label>Agregar Calibre</mat-label>
+            <input name="calibre" #calibre type="number" matInput>
+            <button type="button" (click)="AddCalibre(calibre.value)" mat-icon-button matSuffix><mat-icon>add</mat-icon></button>
+          </mat-form-field>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <mat-list dense>
+        <mat-list-item *ngFor="let link of entity.Calibres">
+          {{ link.Valor }} {{UnidadesMaterial[entity.Unidad]}}
+          <span class="relleno"></span>
+          <button type="button" (click)="RemoveCalibre(link)" class="red-fg" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <br>
+
+  </div>
+  <mat-divider class="dialog-divider"></mat-divider>
+  <div mat-dialog-actions fxLayout="row" fxFlex="80px" fxLayoutAlign="center center">
+    <button type="submit" mat-raised-button color="warn">{{isNew ? 'Guardar' : 'Actualizar'}}</button>
+  </div>
+
+  <!-- CloseButton -->
+  <button class="closeButton" mat-dialog-close tabIndex="3" color="warn" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</form>

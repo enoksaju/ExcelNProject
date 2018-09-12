@@ -17,12 +17,12 @@ export class DialogService {
   showDialog(
     Title: string,
     Message: string,
-    options?: { buttons?: DialogButtonsFlags, Icon?: DialogIcons }): Promise<DialogResults> {
+    options?: { buttons?: DialogButtonsFlags, Icon?: DialogIcons, hasCloseButton?: boolean }): Promise<DialogResults> {
 
     const defaults_ = {
       buttons: DialogButtonsFlags.Ok,
       Icon: DialogIcons.Info,
-      affterClose: result => console.log(result)
+      hasCloseButton: false
     };
     const options_ = Object.assign(defaults_, options);
     const dialogRef = this.dialog.open(DialogComponent, {

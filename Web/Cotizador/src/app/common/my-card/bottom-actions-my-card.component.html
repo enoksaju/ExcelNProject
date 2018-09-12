@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <a mat-list-item *ngIf="hasAddButton" type="button" (click)="close('add')">
+    <mat-icon mat-list-icon>add</mat-icon>
+    <span mat-line>Agregar</span>
+    <span class="mat-caption" mat-line>Agrega un nuevo elemento a la base de datos</span>
+  </a>
+
+  <a mat-list-item *ngIf="hasPrintButton" type="button" (click)="close('print')">
+    <mat-icon mat-list-icon>print</mat-icon>
+    <h3 mat-line>Imprimir</h3>
+    <p class="mat-caption" mat-line>Imprime la pagina actual</p>
+  </a>
+
+  <ng-container *ngFor="let button of extraButtons">
+    <a mat-list-item *ngIf="hasPrintButton" type="button" (click)="close(button.actionResult)">
+      <mat-icon *ngIf="button.icon" mat-list-icon>{{button.icon}}</mat-icon>
+      <h3 mat-line>{{button.text}}</h3>
+      <p class="mat-caption" mat-line>{{button.description}}</p>
+    </a>
+  </ng-container>
+</mat-nav-list>

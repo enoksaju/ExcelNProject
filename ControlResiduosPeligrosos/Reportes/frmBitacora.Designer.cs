@@ -30,6 +30,7 @@
     {
 			this.components = new System.ComponentModel.Container();
 			Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBitacora));
 			this.VstSalidaRPBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.kryptonGroupBox1 = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -114,6 +115,7 @@
 			// kryptonLabel3
 			// 
 			this.kryptonLabel3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.kryptonLabel3.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.kryptonLabel3.Location = new System.Drawing.Point(3, 85);
 			this.kryptonLabel3.Name = "kryptonLabel3";
 			this.kryptonLabel3.Size = new System.Drawing.Size(145, 20);
@@ -133,6 +135,7 @@
 			// kryptonLabel2
 			// 
 			this.kryptonLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.kryptonLabel2.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.kryptonLabel2.Location = new System.Drawing.Point(3, 44);
 			this.kryptonLabel2.Name = "kryptonLabel2";
 			this.kryptonLabel2.Size = new System.Drawing.Size(145, 20);
@@ -152,6 +155,7 @@
 			// kryptonLabel1
 			// 
 			this.kryptonLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.kryptonLabel1.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldPanel;
 			this.kryptonLabel1.Location = new System.Drawing.Point(3, 3);
 			this.kryptonLabel1.Name = "kryptonLabel1";
 			this.kryptonLabel1.Size = new System.Drawing.Size(145, 20);
@@ -201,8 +205,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.kryptonPanel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmBitacora";
-			this.Text = "frmBitacora";
+			this.Text = "Bitacora";
 			this.Load += new System.EventHandler(this.frmBitacora_Load);
 			((System.ComponentModel.ISupportInitialize)(this.VstSalidaRPBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonGroupBox1.Panel)).EndInit();

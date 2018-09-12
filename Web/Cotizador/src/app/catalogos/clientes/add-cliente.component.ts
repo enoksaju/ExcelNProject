@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { ICliente, CatalogosService } from '../../catalogos.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -6,6 +6,7 @@ import { DialogService } from '../../dialog.service';
 import { DialogButtonsFlags, DialogIcons, DialogResults } from '../../dialog.component';
 import { UsuariosService } from '../../usuarios.service';
 import { ISelectOptions } from '../../common/wrap-inputs/wrap-inputs.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'cat-add-cliente',
@@ -28,7 +29,7 @@ import { ISelectOptions } from '../../common/wrap-inputs/wrap-inputs.component';
             <wrap-inputs [controls]="[{name:'Telefono', text:'Telefono'},{name:'Email', text: 'Email'}]" [fGroup]="ClienteForm"></wrap-inputs>
             <wrap-inputs [controls]="[{name: 'Domicilio', text:'Dirección', smflex:'100%'}]" [fGroup]="ClienteForm"></wrap-inputs>
             <wrap-inputs [controls]="[{name: 'Ciudad', text: 'Ciudad'},{name:'Estado', text:'Estado'}]" [fGroup]="ClienteForm"></wrap-inputs>
-            <wrap-inputs *ngIf="showSelect()" [controls]="[{
+            <wrap-inputs *ngIf="isAdmin" [controls]="[{
               name:'AgenteId',
               text:'Agente',
               smflex:'100%',
@@ -51,13 +52,16 @@ import { ISelectOptions } from '../../common/wrap-inputs/wrap-inputs.component';
   `,
   styles: [],
 })
-export class AddClienteComponent implements OnInit {
+export class AddClienteComponent implements OnInit, OnDestroy {
   Cliente: ICliente;
   IdCliente_: number;
   IsNew: boolean;
   isLoading: boolean;
   ClienteForm: FormGroup;
   agentes: Array<ISelectOptions>;
+  getAgentes$: Subscription;
+  isAsmin$: Subscription;
+  isAdmin: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<AddClienteComponent, DialogResults>,
@@ -70,15 +74,20 @@ export class AddClienteComponent implements OnInit {
     this.IdCliente_ = data;
     this.IsNew = data ? false : true;
     this.isLoading = !this.IsNew;
+
+    this.isAsmin$ = this.usuariosService.isAdmin().subscribe(val => {
+      this.isAdmin = val;
+    });
   }
 
-  showSelect() {
-    return this.usuariosService.CurrentIsInRol('Sistemas,Develop, Administrador');
+  ngOnDestroy() {
+    this.getAgentes$.unsubscribe();
+    this.isAsmin$.unsubscribe();
   }
-
   ngOnInit() {
     this.createForm();
-    this.usuariosService.GetUsers().subscribe(
+
+    this.getAgentes$ = this.usuariosService.GetUsers().subscribe(
       users => {
         this.agentes = new Array<ISelectOptions>();
         users.forEach(v => {

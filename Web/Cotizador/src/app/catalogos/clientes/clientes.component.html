@@ -1,84 +1,81 @@
-<button color="primary" matTooltip="Regresar" mat-icon-button [routerLink]="'../'">
-  <mat-icon>
-    arrow_back
-  </mat-icon>
-</button>
+<div class="outlet-content">
+  <my-card CardColor="primary" [Titulo]="'Clientes'" [Descripcion]="'Se muestran los clientes disponibles en la base de datos'"
+    Icono="users" [ShowPrint]="true" [HasFontawesomeIcon]="true" [ShowAdd]="true" (ClickAdd)="add()">
 
-<my-card CardColor="primary" [Titulo]="'Clientes'" [Descripcion]="'Se muestran los clientes disponibles en la base de datos'"
-  Icono="users" [HasFontawesomeIcon]="true" [ShowAdd]="true" (ClickAdd)="add()">
-
-  <div my-card-body fxLayout="row" style="padding: 10px;">
-    <div>
-      <span fxFlex="30px"></span>
-      <mat-form-field>
-        <input matInput placeholder="Buscar" [formControl]="searchControl">
-        <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field>
-      <mat-checkbox style="margin-left: 20px;" [(ngModel)]="searchAll" (change)="getClientesPage()">Todos</mat-checkbox>
+    <div my-card-body fxLayout="row" style="padding: 10px;">
+      <div class="noprinted">
+        <span fxFlex="30px"></span>
+        <mat-form-field>
+          <input name="search" type="text" matInput placeholder="Buscar" [formControl]="searchControl">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <mat-checkbox style="margin-left: 20px;" [(ngModel)]="searchAll" (change)="getClientesPage()">Todos</mat-checkbox>
+      </div>
     </div>
-  </div>
 
-  <div my-card-content>
-    <mat-progress-bar color="accent" *ngIf="loading" mode="query"></mat-progress-bar>
-    <mat-table [dataSource]="clientes" style="min-width: 800px;" matSort (matSortChange)="emitSort($event)">
-      <ng-container matColumnDef="ClaveCliente">
-        <mat-header-cell *matHeaderCellDef fxFlex="100px" mat-sort-header> Clave </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="100px"> {{row.ClaveCliente}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="NombreCliente">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.NombreCliente}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="AgenteId">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Agente </mat-header-cell>
-        <mat-cell *matCellDef="let row"><span [ngClass]="{'orange-700' : row.AgenteId !== usuariosService.getUserId(), 'green-700': row.AgenteId === usuariosService.getUserId()}">{{row.NombreEjecutivo}}</span>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="NombreContacto">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Contacto </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.NombreContacto}} </mat-cell>
-      </ng-container>
+    <div my-card-content class="autoOverflow">
 
-      <ng-container matColumnDef="ActionsContact">
-        <mat-header-cell *matHeaderCellDef fxFlex="140px"> Contacto </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="140px">
-          <a mat-icon-button color="warn" [href]="'tel:'+row.Telefono">
-            <mat-icon>phone</mat-icon>
-          </a>
-          <a mat-icon-button color="accent" [href]="'mailto:'+row.Email">
-            <mat-icon>mail</mat-icon>
-          </a>
-          <a mat-icon-button class="pink" target="_blank" [href]="getURLLocation(row)">
-            <mat-icon>location_on</mat-icon>
-          </a>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="ActionEdit">
-        <mat-header-cell *matHeaderCellDef fxFlex="100px"> Acciones </mat-header-cell>
-        <mat-cell *matCellDef="let row" fxFlex="100px">
-          <ng-container *ngIf="!isAdmin && row.AgenteId !== usuariosService.getUserId()">
-            <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center center">
-              <mat-icon color="warn">block</mat-icon>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="isAdmin || row.AgenteId === usuariosService.getUserId()">
-            <button class="blue-700" mat-icon-button (click)="edit(row.Id)">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button class="red-700" mat-icon-button (click)="delete(row.Id)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </ng-container>
+      <mat-table [dataSource]="clientes" style="min-width: 800px;" matSort (matSortChange)="emitSort($event)">
+        <ng-container matColumnDef="ClaveCliente">
+          <mat-header-cell *matHeaderCellDef fxFlex="100px" mat-sort-header> Clave </mat-header-cell>
+          <mat-cell *matCellDef="let row" fxFlex="100px"> {{row.ClaveCliente}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="NombreCliente">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NombreCliente}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="AgenteId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Agente </mat-header-cell>
+          <mat-cell *matCellDef="let row"><span [ngClass]="{'orange-700-fg' : row.AgenteId !== usuariosService.getUserId(), 'green-700-fg': row.AgenteId === usuariosService.getUserId()}">{{row.NombreEjecutivo}}</span>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="NombreContacto">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Contacto </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NombreContacto}} </mat-cell>
+        </ng-container>
 
-        </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="columsToView()"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: columsToView();"></mat-row>
-    </mat-table>
-  </div>
-  <div my-card-footer>
-    <mat-paginator [length]="clientesPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
-      (page)="emitPaginator($event)">
-    </mat-paginator>
-  </div>
-</my-card>
+        <ng-container matColumnDef="ActionsContact">
+          <mat-header-cell class="noprinted" *matHeaderCellDef fxFlex="140px"> Contacto </mat-header-cell>
+          <mat-cell class="noprinted" *matCellDef="let row" fxFlex="140px">
+            <a mat-icon-button color="warn" [href]="'tel:'+row.Telefono">
+              <mat-icon>phone</mat-icon>
+            </a>
+            <a mat-icon-button color="accent" [href]="'mailto:'+row.Email">
+              <mat-icon>mail</mat-icon>
+            </a>
+            <a mat-icon-button class="pink-fg" target="_blank" [href]="getURLLocation(row)">
+              <mat-icon>location_on</mat-icon>
+            </a>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ActionEdit">
+          <mat-header-cell class="noprinted" *matHeaderCellDef fxFlex="100px"> Acciones </mat-header-cell>
+          <mat-cell class="noprinted" *matCellDef="let row" fxFlex="100px">
+            <ng-container *ngIf="!isAdmin && row.AgenteId !== usuariosService.getUserId()">
+              <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center center">
+                <mat-icon color="warn">block</mat-icon>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="isAdmin || row.AgenteId === usuariosService.getUserId()">
+              <button class="blue-700-fg" mat-icon-button (click)="edit(row.Id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button class="red-700-fg" mat-icon-button (click)="delete(row.Id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </ng-container>
+
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columsToView()"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columsToView();"></mat-row>
+      </mat-table>
+      <mat-progress-bar color="accent" *ngIf="loading" mode="query"></mat-progress-bar>
+    </div>
+    <div my-card-footer>
+      <mat-paginator [length]="clientesPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
+        (page)="emitPaginator($event)">
+      </mat-paginator>
+    </div>
+  </my-card>
+</div>

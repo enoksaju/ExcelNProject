@@ -1,30 +1,51 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { MatSidenav, MatDrawer } from '@angular/material';
 import { ObservableMedia } from '@angular/flex-layout';
-import { state, trigger, transition, animate, style, group, query } from '@angular/animations';
-import { UsuariosService } from './usuarios.service';
-import { RouterOutlet } from '@angular/router';
+import {
+  state,
+  trigger,
+  transition,
+  animate,
+  style,
+  group,
+  query
+} from '@angular/animations';
+import { UsuariosService, BasicInfoUser } from './usuarios.service';
+import {
+  RouterOutlet,
+  ActivatedRoute,
+  Route,
+  Router,
+  NavigationEnd
+} from '@angular/router';
+import { Subscription, Observable } from 'rxjs';
+import { delay, filter } from 'rxjs/operators';
 
 export const fadeAnimation = trigger('fadeAnimation', [
-  // The '* => *' will trigger the animation to change between any two states
   transition('* => *', [
-    // The query function has three params.
-    // First is the event, so this will apply on entering or when the element is added to the DOM.
-    // Second is a list of styles or animations to apply.
-    // Third we add a config object with optional set to true, this is to signal
-    // angular that the animation may not apply as it may or may not be in the DOM.
     query(':enter', [style({ opacity: 0 })], { optional: true }),
     query(
       ':leave',
-      // here we apply a style and use the animate function to apply the style over 0.3 seconds
-      [style({ opacity: 1 }), animate('0.2s ease-in-out', style({ opacity: 0 }))],
+      [
+        style({ opacity: 1 }),
+        animate('0.2s ease-in-out', style({ opacity: 0 }))
+      ],
       { optional: true }
     ),
-    query(':enter', [style({ opacity: 0 }), animate('0.2s ease-in-out', style({ opacity: 1 }))], {
-      optional: true,
-    }),
-  ]),
+    query(
+      ':enter',
+      [
+        style({ opacity: 0 }),
+        animate('0.2s ease-in-out', style({ opacity: 1 }))
+      ],
+      {
+        optional: true
+      }
+    )
+  ])
 ]);
+
+const PRINT = 'print';
 
 @Component({
   selector: 'app-root',
@@ -34,21 +55,27 @@ export const fadeAnimation = trigger('fadeAnimation', [
     trigger('darkness', [
       transition('* => *', [
         style({
-          opacity: 0.1,
+          opacity: 0.1
         }),
-        animate('800ms cubic-bezier(.92,.78,.75,.99)'),
-      ]),
+        animate('800ms cubic-bezier(.92,.78,.75,.99)')
+      ])
     ]),
-    fadeAnimation,
-  ],
+    fadeAnimation
+  ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   _darkTheme: boolean;
+  isAdmin: Observable<boolean>;
+  subIAdmin$: Subscription;
+  private previusDark: boolean;
+  prevRoute: string;
+  user: BasicInfoUser;
 
   // Declaracion de la propiedad darkTheme
   set darkTheme(val: boolean) {
     this._darkTheme = val;
     localStorage.setItem('theme', val ? 'dark' : 'light');
+
     if (val) {
       this.render.removeClass(document.body, 'lt');
     } else {
@@ -56,26 +83,68 @@ export class AppComponent implements OnInit {
     }
   }
   get darkTheme() {
-    return this._darkTheme;
+    return this.media.isActive(PRINT) ? false : this._darkTheme;
   }
 
   getState(outletRef: RouterOutlet) {
     return {
-      value: outletRef.activatedRoute.snapshot.params.index,
+      value: outletRef.activatedRoute.snapshot.params.index
     };
   }
 
   constructor(
     private media: ObservableMedia,
     private render: Renderer2,
-    public usuariosService: UsuariosService
-  ) {}
+    public usuariosService: UsuariosService,
+    public route: Router
+  ) {
+    this.isAdmin = this.usuariosService.isAdmin();
+    this.route.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe((u: NavigationEnd) => {
+        const parts = u.url.split('/');
+        let r: string = '';
+        for (let i = 0; i < parts.length - 1; i++) {
+          r += parts[i] === '' ? '' : '/' + parts[i];
+        }
+        this.prevRoute = r === '' ? '/' : r;
+      });
+  }
 
   ngOnInit() {
     this.darkTheme = localStorage.getItem('theme') === 'dark' ? true : false;
+
     if (!this.usuariosService.hasToken()) {
       this.usuariosService.goToRoute('../login');
     }
+
+    this.media.asObservable().subscribe(u => {
+      if (this.media.isActive(PRINT)) {
+        this.render.addClass(document.body, 'lt');
+        setTimeout(
+          () =>
+            (this.darkTheme =
+              localStorage.getItem('theme') === 'dark' ? true : false),
+          1
+        );
+      }
+    });
+
+    this.usuariosService.getUserInfo().subscribe(
+      u => (this.user = u),
+      () =>
+        (this.user = {
+          Nombre: 'Desconocido',
+          Email: '--',
+          EmailConfirmaed: false,
+          Roles: [],
+          Id: '0'
+        })
+    );
+  }
+
+  ngOnDestroy() {
+    // this.subIAdmin$.unsubscribe();
   }
 
   sideNavOpend() {

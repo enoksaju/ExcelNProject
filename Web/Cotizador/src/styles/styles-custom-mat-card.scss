@@ -1,0 +1,146 @@
+@import '~@angular/material/theming';
+
+$colorTypes: primary accent warn;
+
+@mixin backColorAndContrast($color) {
+  @extend %mat-card-bg-print;
+  background-color: mat-color($color, darker);
+  color: mat-color($color, darker-contrast);
+}
+
+@mixin colorCardHeader($color) {
+  @include backColorAndContrast($color);
+  & mat-card-title,
+  mat-card-subtitle {
+    @extend %mat-card-bg-print;
+    color: mat-color($color, darker-contrast);
+  }
+}
+
+.mat-card {
+  &.mat-card-theme {
+    @extend %mat-card-theme-media;
+    margin: 10px;
+    padding: 0px;
+
+    .mat-card-header,
+    .mat-card-footer {
+      position: relative;
+    }
+    .mat-card-header,
+    .mat-card-content,
+    .mat-card-footer {
+      @extend %mat-card-footer-media-print;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .mat-card-footer {
+      margin: 0px;
+      margin-bottom: 10px !important;
+    }
+    .mat-card-actions{
+      @extend %mat-card-footer-media-print;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px !important;
+      margin: 0px;
+    }
+    &.bg {
+      & .mat-card-title,
+      & .mat-card-subtitle {
+        color: inherit !important;
+      }
+    }
+  }
+
+  &-outside-icon {
+    margin-top: 40px;
+    position: relative;
+    min-height: 170px;
+    & .mat-card-title,
+    .mat-card-subtitle {
+      &.right {
+        text-align: right;
+      }
+      &.left {
+        text-align: left;
+      }
+    }
+
+    & .mat-card-header {
+      margin-left: 80px;
+    }
+
+    & .mat-card-icon {
+      position: absolute;
+      top: -20px;
+      left: 10px;
+      width: 80px;
+      height: 80px;
+      border-radius: 3px;
+    }
+  }
+
+  &-primary-button {
+    position: absolute !important;
+    bottom: -28px;
+    left: 20px;
+  }
+}
+
+@media print {
+  %mat-card-theme-media {
+    border: 1px solid rgba(#000, 0.4);
+  }
+  %mat-card-bg-print {
+    background-color: #ccc !important;
+    color: rgba(#000, 0.5) !important;
+  }
+  %mat-card-footer-media-print {
+    border-bottom: 1px solid rgba(#000, 0.4);
+  }
+}
+
+@mixin customMatCard($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $colorVariables: $primary $accent $warn;
+
+  .mat-card {
+    &.mat-card-theme {
+      @for $i from 1 through length($colorVariables) {
+        &.mat-#{nth($colorTypes, $i)} {
+          & > .mat-card-header {
+            @include colorCardHeader(nth($colorVariables, $i));
+          }
+        }
+      }
+
+      &.bg {
+        .mat-card-content,
+        .mat-card-actions,
+        .mat-card-footer {
+          background-color: mat-color($background, card);
+          color: mat-color($foreground, text);
+        }
+      }
+    }
+
+    &-outside-icon {
+      & .mat-card-icon {
+        background-color: mat-color($background, card);
+        @for $i from 1 through length($colorVariables) {
+          &.bg-#{nth($colorTypes, $i)} {
+            @include backColorAndContrast(nth($colorVariables, $i));
+          }
+        }
+      }
+    }
+  }
+}

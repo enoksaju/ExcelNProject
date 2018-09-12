@@ -1,29 +1,36 @@
-<div fxLayout="column" fxFlex="100%" fxFlexFill fxLayoutAlign="center center">
+<div class="outlet-content">
+  <div fxLayout="column" fxFlex="100%" fxFlexFill fxLayoutAlign="center center">
 
-  <mat-spinner *ngIf="loading"  [mode]="'indeterminate'"></mat-spinner>
-  <mat-card *ngIf="!loading" fxLayout="column" class="mat-elevation-z20 card">
-    <div class="logo">
-      <img mat-card-image class="excel" src="assets/logo.png" alt="Logo de ExcelNobleza">
-      <img mat-card-image class="guala" src="assets/guala.png" alt="Logo de Gualapack">
-      <span>MIEMBRO DE GRUPO</span>
-    </div>
+    <mat-spinner *ngIf="loading" [mode]="'indeterminate'"></mat-spinner>
+    <mat-card *ngIf="!loading" fxLayout="column" class="mat-elevation-z20 card">
 
-    <mat-card-content fxLayout="column">
-      <mat-form-field>
-        <input matInput [(ngModel)]="userLogin.username" placeholder="Correo Electronico">
-      </mat-form-field>
+      <img mat-card-image fxFlex="100%" src="assets/logocol.svg">
 
-      <mat-form-field>
-        <input type="password" [(ngModel)]="userLogin.password" matInput placeholder="Contraseña">
-      </mat-form-field>
-    </mat-card-content>
+      <mat-card-header>
+        <mat-card-title>Bienvenido</mat-card-title>
+        <mat-card-subtitle>Para continuar, por favor ingrese sus credenciales</mat-card-subtitle>
+      </mat-card-header>
 
-    <mat-card-actions fxLayoutAlign="space-around center">
-      <button color="primary" (click)="login()" mat-raised-button>
-        <fa-icon [icon]="['fas', 'user']"></fa-icon>
-        Entrar
-      </button>
-    </mat-card-actions>
 
-  </mat-card>
+      <mat-divider [inset]="true">
+      </mat-divider>
+      <mat-card-content fxLayout="column">
+        <mat-form-field>
+          <input matInput [(ngModel)]="userLogin.username" placeholder="Correo Electronico">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" [(ngModel)]="userLogin.password" matInput placeholder="Contraseña">
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions fxLayoutAlign="space-around center">
+        <button color="primary" (click)="login()" mat-raised-button>
+          <mat-icon>person</mat-icon>
+          Entrar
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-﻿#define DevelopDataBase
+﻿// #define DevelopDataBase
 
 using System;
 using System.Collections.Generic;
@@ -13,17 +13,17 @@ using MySql.Data.EntityFramework;
 
 namespace libProduccionDataBase.Contexto
 {
-	[DbConfigurationType ( typeof ( MyCustomEFConfiguration) )]
+	[DbConfigurationType ( typeof ( MyCustomEFConfiguration ) )]
 	public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
 	{
-		public event EventHandler SavedChanges;		
+		public event EventHandler SavedChanges;
 
 #if DevelopDataBase
 		public DataBaseContexto () : base ( "ProduccionConexionDebug" )
 #else
 		public DataBaseContexto () : base ( "ProduccionConexion" )
 #endif
-		{			
+		{
 			this.Configuration.LazyLoadingEnabled = true;
 			Database.SetInitializer<DataBaseContexto> ( null );//<DataBaseContexto> ( null );
 		}
@@ -65,8 +65,7 @@ namespace libProduccionDataBase.Contexto
 			modelBuilder.Entity<TFamiliaDefectosTDefecto> ( )
 			  .HasRequired ( t => t.FamiliaDefectos )
 			  .WithMany ( y => y.TFamiliaDefectosTDefecto )
-			  .HasForeignKey ( c => c.TFamiliaDefectosID );	
-			
+			  .HasForeignKey ( c => c.TFamiliaDefectosID );
 		}
 
 		public override int SaveChanges ()
@@ -113,6 +112,7 @@ namespace libProduccionDataBase.Contexto
 		public DbSet<Desperdicio> Despedicios { get; set; }
 		public DbSet<Defecto> Defectos { get; set; }
 		public DbSet<FamiliaDefectos> FamiliasDefectos { get; set; }
+		public DbSet<MovimientoPrecio> MovimientosPrecioFamiliaMateriales { get; set; }
 		public DbSet<Proceso> Procesos { get; set; }
 		public DbSet<TemporalOrdenTrabajo> tempOt { get; set; }
 		public DbSet<TEMPCAPT> TEMPCAPT { get; set; }
@@ -136,7 +136,7 @@ namespace libProduccionDataBase.Contexto
 
 		public DbSet<Tinta> Tintas { get; set; }
 		public DbSet<Otro> Otros { get; set; }
-		
+
 
 		// Control de Residuos Peligrosos
 		public DbSet<TipoRP> TiposRP { get; set; }

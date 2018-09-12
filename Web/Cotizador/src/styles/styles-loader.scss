@@ -1,0 +1,70 @@
+@import '~@angular/material/theming';
+
+$c: 'center-loader';
+
+/**
+  * Loader de la pagina
+  */
+
+%center-loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 50vw;
+  height: 50vw;
+  margin: -25vw 0 0 -25vw;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+%center-loader-spin {
+  border-radius: 50%;
+  border-width: 1vw;
+  border-style: solid;
+  border-color: #f3f3f3;
+  animation: loaderAnimation 2s linear infinite;
+}
+
+.#{$c}-image {
+  @extend %center-loader;
+  @extend %center-loader-media;
+  background-image: url('assets/logopl.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 480px) {
+  %center-loader-media {
+    width: 400px;
+    height: 400px;
+    margin: -200px 0 0 -200px;
+  }
+
+  %center-loader-media-spin {
+    border-width: 5px;
+  }
+}
+
+@keyframes loaderAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin Loader($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  &.#{$c}-spin {
+    @extend %center-loader;
+    @extend %center-loader-media;
+    @extend %center-loader-media-spin;
+    @extend %center-loader-spin;
+    border-top-color: mat-color($primary);
+  }
+}

@@ -195,15 +195,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="src\app\app.component.html" />
-    <Content Include="src\assets\guala.png" />
-    <Content Include="src\assets\logo.png" />
-    <Content Include="src\assets\logopl.svg" />
-    <Content Include="src\favicon.ico" />
-    <Content Include="src\index.html" />
-    <Content Include="src\karma.conf.js" />
     <Content Include="Web.config" />
     <Content Include="wwwroot\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\assets\guala.png" />
+    <Content Include="wwwroot\assets\html2pdf.js" />
+    <Content Include="wwwroot\assets\logo.png" />
+    <Content Include="wwwroot\assets\logopl.svg" />
     <Content Include="wwwroot\favicon.ico" />
     <Content Include="wwwroot\index.html" />
     <Content Include="wwwroot\main.js" />
@@ -217,8 +214,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Catalogos\CatalogosController.cs" />
-    <Compile Include="Controllers\Catalogos\CatalogosController_Clientes.cs" />
-    <Compile Include="Controllers\Catalogos\CatalogosController_FamiliasMateriales.cs" />
+    <Compile Include="Controllers\Catalogos\Clientes.cs" />
+    <Compile Include="Controllers\Catalogos\FamiliasMateriales.cs" />
+    <Compile Include="Controllers\Catalogos\Materiales.cs" />
+    <Compile Include="Controllers\Catalogos\Impresoras.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,8 +225,11 @@
     </Compile>
     <Compile Include="Models\AccountBindingModel\AccountBindingModel.cs" />
     <Compile Include="Models\AccountViewModel\AccountViewModel.cs" />
-    <Compile Include="Models\FrontEndModels\Catalogos\FronEndModel_FamiliasMateriales.cs" />
-    <Compile Include="Models\FrontEndModels\Catalogos\FrontEndModel_Cliente.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\FamiliasMateriales.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\Cliente.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\FamiliasMateriales_Movimiento.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\Impresora.cs" />
+    <Compile Include="Models\FrontEndModels\Catalogos\Material.cs" />
     <Compile Include="Models\Managers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -235,26 +237,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\Shared\_shared.cshtml" />
     <Content Include="Views\Services\ConfirmEmail.cshtml" />
     <Content Include="Views\Services\ConfirmationError.cshtml" />
-    <Content Include=".editorconfig" />
-    <Content Include="angular.json" />
-    <Content Include="package.json" />
-    <Content Include="tsconfig.json" />
-    <Content Include="tslint.json" />
-    <Content Include="README.md" />
-    <Content Include="src\app\app.component.scss" />
-    <Content Include="src\assets\.gitkeep" />
-    <Content Include="src\browserslist" />
-    <Content Include="src\styles-variables.scss" />
-    <Content Include="src\styles.scss" />
-    <Content Include="src\tsconfig.app.json" />
-    <Content Include="src\tsconfig.spec.json" />
-    <Content Include="src\tslint.json" />
+    <None Include="Properties\PublishProfiles\248.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -280,17 +266,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="src\app\app.component.ts" />
-    <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\mat-paginator-intl-cro.ts" />
-    <TypeScriptCompile Include="src\app\material.module.ts" />
-    <TypeScriptCompile Include="src\app\token-interceptor.ts" />
-    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
-    <TypeScriptCompile Include="src\environments\environment.ts" />
-    <TypeScriptCompile Include="src\main.ts" />
-    <TypeScriptCompile Include="src\polyfills.ts" />
-    <TypeScriptCompile Include="src\test.ts" />
+    <TypeScriptCompile Include="wwwroot\assets\html2pdf.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

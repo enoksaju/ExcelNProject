@@ -1,262 +1,136 @@
-@import "~@angular/material/theming";
-@import "styles-scrollbar.scss";
+@import '~@angular/material/theming';
 @include mat-core();
-@import "styles-variables.scss";
+@import 'styles/styles-scrollbar.scss';
+@import 'styles/styles-custom-mat-card.scss';
+@import 'styles/styles-loader.scss';
+@import 'styles/styles-variables.scss';
 $light-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
-$dark-app-theme: mat-dark-theme( $app-dark-primary, $app-dark-accent, $app-dark-warn);
-$colorTypes: primary accent warn;
-$materialHue: 50 100 200 300 400 600 700 800 900 "A100" "A200" "A400" "A700";
-$materialColors: ( ( "red", $mat-red), ("pink", $mat-pink), ("purple", $mat-purple), ("deep-purple", $mat-deep-purple), ("indigo", $mat-indigo), ("blue", $mat-blue), ("light-blue", $mat-light-blue), ("cyan", $mat-cyan), ("teal", $mat-teal), ("green", $mat-green), ("light-green", $mat-light-green), ("lime", $mat-lime), ("yellow", $mat-yellow), ("amber", $mat-amber), ("orange", $mat-orange), ("deep-orange", $mat-deep-orange), ("brown", $mat-brown), ("grey", $mat-grey), ("blue-grey", $mat-blue-grey)); //$mat-red $mat-pink $mat-purple $mat-deep-purple $mat-indigo $mat-blue $mat-light-blue $mat-cyan $mat-teal $mat-green $mat-light-green $mat-lime $mat-yellow $mat-amber $mat-orange $mat-deep-orange $mat-brown $mat-blue-grey;
-$my-dark-primary-text: rgba(black, 0.87);
-$my-light-primary-text: white;
-@mixin backColorAndContrast($color) {
-    background-color: mat-color($color, darker);
-    color: mat-color($color, darker-contrast);
-}
-
-@mixin backgroundText($color, $hue) {
-    background-color: mat-color($color, $hue) !important;
-    color: mat-contrast($color, $hue) !important;
-}
-
-@mixin colorCardHeader($color) {
-    @include backColorAndContrast($color);
-    & mat-card-title,
-    mat-card-subtitle {
-        color: mat-color($color, darker-contrast);
-    }
-}
-
-@mixin customMatCard($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $colorVariables: $primary $accent $warn;
-    .mat-card {
-        &-action-button {
-            position: absolute !important;
-            bottom: -28px;
-            right: 20px;
-        }
-        &-primary-button {
-            position: absolute !important;
-            bottom: -28px;
-            left: 20px;
-        }
-        &.mat-card-theme {
-            margin: 10px;
-            padding: 0px;
-            &>.mat-card-header,
-            .mat-card-footer {
-                position: relative;
-            }
-            & .mat-card-header,
-            .mat-card-content,
-            .mat-card-actions,
-            .mat-card-footer {
-                padding-right: 20px;
-                padding-left: 20px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            & .mat-card-footer {
-                margin: 0px;
-            }
-            @for $i from 1 through length($colorVariables) {
-                &.mat-#{nth($colorTypes, $i)} {
-                    &>.mat-card-header {
-                        @include colorCardHeader(nth($colorVariables, $i));
-                    }
-                }
-            }
-        }
-        &-outside-icon {
-            margin-top: 40px;
-            position: relative;
-            min-height: 170px;
-            & .mat-card-title,
-            .mat-card-subtitle {
-                text-align: right;
-            }
-            & .mat-card-header {
-                margin-left: 15% !important;
-            }
-            & .mat-card-icon {
-                position: absolute;
-                top: -20px;
-                left: 10px;
-                width: 80px;
-                height: 80px;
-                border-radius: 3px;
-                background-color: mat-color($background, card);
-                @for $i from 1 through length($colorVariables) {
-                    &.bg-#{nth($colorTypes, $i)} {
-                        @include backColorAndContrast(nth($colorVariables, $i));
-                    }
-                }
-            }
-        }
-    }
-}
-
-@mixin Loader($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    .center-loader {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        z-index: 1;
-        width: 50vw;
-        height: 50vw;
-        margin: -25vw 0 0 -25vw;
-        max-width: 400px;
-        max-height: 400px;
-        &#{&}-image {
-            background-image: url("assets/logopl.svg");
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        &#{&}-spin {
-            border: 2vw solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 2vw solid mat-color($primary);
-            animation: spin 2s linear infinite;
-        }
-        @media screen and (min-width: 480px) {
-            width: 400px;
-            height: 400px;
-            margin: -200px 0 0 -200px;
-            &#{&}-spin {
-                border: 5px solid #f3f3f3;
-                border-top: 5px solid mat-color($primary);
-            }
-        }
-    }
-}
-
-@mixin colors() {
-    $darkSelector: ();
-    $lightSelector: ();
-    @each $color_ in $materialColors {
-        $name: nth($color_, 1);
-        $color: nth($color_, 2);
-        @if mat-contrast($color,
-        500)==$my-dark-primary-text {
-            $darkSelector: append($darkSelector, "."+$name+".bg", comma);
-            $darkSelector: append($darkSelector, "."+$name+"-500.bg", comma);
-        }
-        @else {
-            $lightSelector: append($lightSelector, "."+$name+".bg", comma);
-            $lightSelector: append($lightSelector, "."+$name+"-500.bg", comma);
-        }
-        @each $hue in $materialHue {
-            @if mat-contrast($color,
-            $hue)==$my-dark-primary-text {
-                $darkSelector: append($darkSelector, "."+$name+"-"+$hue+".bg", comma)
-            }
-            @else {
-                $lightSelector: append($lightSelector, "."+$name+"-"+$hue+".bg", comma)
-            }
-        }
-    }
-    #{ $darkSelector} {
-        color: $my-dark-primary-text !important;
-    }
-    #{ $lightSelector} {
-        color: $my-light-primary-text !important;
-    }
-    @each $color_ in $materialColors {
-        $section: nth($color_, 1);
-        $pallete: nth($color_, 2);
-        .#{$section} {
-            &,
-            &-500 {
-                color: map-get($pallete, 500) !important;
-                &.bg {
-                    background-color: mat-color($pallete, 500) !important;
-                }
-            }
-            @each $hue in $materialHue {
-                &-#{$hue} {
-                    color: map-get($pallete, $hue) !important;
-                    &.bg {
-                        background-color: mat-color($pallete, $hue) !important;
-                    }
-                }
-            }
-        }
-    }
-}
-
+$dark-app-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-warn);
 @include angular-material-theme($dark-app-theme);
 @include customMatCard($dark-app-theme);
 @include Loader($dark-app-theme);
 @include scrollbar($dark-app-theme);
 .lt {
-    @include angular-material-theme($light-app-theme);
-    @include customMatCard($light-app-theme);
-    @include Loader($light-app-theme);
-    .excel {
-        filter: invert(0.6);
+  @include angular-material-theme($light-app-theme);
+  @include customMatCard($light-app-theme);
+  @include Loader($light-app-theme);
+  @include scrollbar($light-app-theme);
+  .logo {
+    filter: opacity(55%);
+  }
+}
+@media print {
+  body,
+  html {
+    transition: none !important;
+    * {
+      transition: none !important;
     }
+  }
+  .noprinted {
+    display: none !important;
+  }
+  .mat-sidenav-content {
+    margin: 10px !important;
+  }
+  .flatprint {
+    box-shadow: none !important;
+    border: 1px solid #555;
+  }
+  .mat-drawer-container {
+    background-color: white !important;
+  }
+  .closeButton {
+    @extend .noprinted;
+    // display: none !important;
+  }
+  .onlyprint {
+    display: block !important;
+  }
+  .autoOverflow {
+    overflow: initial;
+  }
 }
 
-@include colors();
+.onlyprint {
+  display: none;
+}
+
+.autoOverflow {
+  overflow: auto;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+.full-screen-dialog {
+  &-container {
+    @extend %no-padding-media;
+    position: relative;
+    padding: 20px;
+    .closeButton {
+      position: fixed !important;
+      top: 10px;
+      right: 10px;
+    }
+    .mat-card.mat-card-theme {
+      padding: 0px !important;
+      margin: 0px !important;
+    }
+
+  }
+}
+@media screen and (max-width: 959px) {
+  %no-padding-media{
+    padding: 0px !important;
+  }
+}
+
+.logo {
+  position: fixed;
+  height: 70px;
+  width: auto;
+  right: 10px;
+  bottom: 10px;
+  z-index: -999;
+  filter: opacity(20%);
+}
+
+%absolutePosition {
+  position: absolute !important;
+}
+
 .closeButton {
-    position: absolute !important;
-    top: -20px;
-    right: -20px;
+  @extend %absolutePosition;
+  top: -20px;
+  right: -20px;
 }
-
-.relleno {
-    flex: 1 1 auto;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.cc {
-    // margin-left: 40px;
-    // margin-right: 40px;
-    @media screen and (max-width: 959px) {
-        margin-top: 80px !important; //      margin-left: 0px;
-        //       margin-right: 0px;
-    }
-}
-
 .back-button {
-    position: absolute;
-    top: -36px;
-    left: 0px;
-    ;
+  @extend %absolutePosition;
+  top: -36px;
+  left: 0px;
 }
-
-router-outlet~* {
-    position: absolute;
-    height: 100%;
-    width: calc( 100% - 80px);
-    padding: 0px 40px 0px 40px;
-    @media screen and (max-width: 959px) {
-        width: 100%;
-        padding: 0px 0px 0px 0px;
-    }
+.relleno {
+  flex: 1 1 auto;
 }
+router-outlet ~ * {
+  @extend %absolutePosition;
+  height: 100%;
+  width: 100%;
+  margin-top: 10px !important;
+}
+.outlet-content {
+  @extend %no-padding-media;
+  margin: 0px 40px 0px 40px;
+}
+$list: 5 10 15 20 25 30 35 40 45 50;
 
-$list: 5 10 15 20 25 30 35 40 45 50 60 65 70 75 80 85 90 95 100;
 @each $i in $list {
-    .end-wrap-#{$i} {
-        > :last-child {
-            margin-right: #{$i}px;
-        }
+  .end-wrap-#{$i} {
+    > :last-child {
+      margin-right: #{$i}px;
     }
+  }
 }

@@ -26,6 +26,18 @@ namespace libProduccionDataBase.Contexto
 			return table;
 		}
 
+		private string PrepareSql ( string sql, bool removeNonMySqlChars )
+		{
+			var sqlResult = sql;
+			if ( removeNonMySqlChars )
+			{
+				sqlResult = sql.Replace ( "[", "" ).Replace ( "]", "" ).Replace ( "@", "" );
+			}
+			sqlResult = sqlResult.Replace ( "dbo.", "" );
+			return sqlResult;
+		}
+
+
 		protected override MigrationStatement Generate ( CreateIndexOperation op )
 		{
 			StringBuilder sb = new StringBuilder ( );
@@ -47,6 +59,14 @@ namespace libProduccionDataBase.Contexto
 
 			return new MigrationStatement ( ) { Sql = sb.ToString ( ) };
 		}
+		protected override MigrationStatement Generate ( DropForeignKeyOperation op )
+		{
+			StringBuilder sb = new StringBuilder ( );
+			sb = sb.AppendFormat ( "ALTER TABLE `{0}` DROP FOREIGN KEY `{1}`", TrimSchemaPrefix ( op.DependentTable ), op.Name.Replace("_dbo.","_") );
+			return new MigrationStatement { Sql = sb.ToString ( ) };
+		}
+
+
 	}
 
 	/// <summary>
@@ -62,7 +82,7 @@ namespace libProduccionDataBase.Contexto
 			SetDefaultConnectionFactory ( new MySqlConnectionFactory ( ) );
 			SetMigrationSqlGenerator ( MySqlProviderInvariantName.ProviderName, () => new MyCustomMigrationSQLGenerator ( ) );
 			SetManifestTokenResolver ( new MySqlManifestTokenResolver ( ) );
-			SetHistoryContext ( MySqlProviderInvariantName.ProviderName, 
+			SetHistoryContext ( MySqlProviderInvariantName.ProviderName,
 				( existingConnection, defaultSchema ) => new MyCustomHistoryContext ( existingConnection, defaultSchema ) );
 		}
 	}

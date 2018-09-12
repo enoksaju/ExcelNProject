@@ -30,7 +30,14 @@ namespace Cotizador.Controllers
 		public CatalogosController ()
 		{
 			UserManager = new ApplicationUserManager ( new ApplicationUserStore ( DB ) );
+			DB.Database.Log = log_;
 		}
+
+		public void log_ ( string val )
+		{
+			System.Diagnostics.Debug.Write ( val );
+		}
+
 		public CatalogosController ( ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat )
 		{
 			UserManager = userManager;
@@ -67,16 +74,10 @@ namespace Cotizador.Controllers
 					Content= $"{await DB.FamiliasMateriales.CountAsync()} Elementos"
 				},
 				new {
-					Nombre = "Maquinas",
-					Route = "Maquinas",
+					Nombre = "Impresoras",
+					Route = "Impresoras",
 					Icono = "cogs",
-					Content= $"{await DB.Maquinas.CountAsync()} Elementos"
-				},
-				new {
-					Nombre = "Rodillos",
-					Route = "Rodillos",
-					Icono = "dot-circle",
-					Content= $"{await DB.Rodillos.CountAsync()} Elementos"
+					Content= $"{await DB.Maquinas.Where(i => i.TipoMaquina_Id == 1 ).CountAsync()} Elementos" // Impresoras
 				},
 				new {
 					Nombre = "Tipos Tinta",

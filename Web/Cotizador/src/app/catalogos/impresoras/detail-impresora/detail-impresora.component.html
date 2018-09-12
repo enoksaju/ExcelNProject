@@ -1,0 +1,110 @@
+<div class="outlet-content mat-typography">
+  <my-card *ngIf="!isLoading && !notFound else loader" [Titulo]="'Impresora: ' + (entity.NombreMaquina ).toUpperCase()"
+    CardColor="primary" [Descripcion]="'Linea: ' + entity.LineaNombre + ' Modelo: ' + entity.ModeloMaquina" Icono="cogs"
+    [HasFontawesomeIcon]="true" [ShowPrint]="true">
+
+    <div my-card-content style="overflow: auto;" fxLayout="column">
+      <div fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlex style="padding:5px;">
+          <h2>Especificaciones</h2>
+          <dl>
+            <dt class="mat-body-2">Modelo:</dt>
+            <dd class="mat-body-1">{{entity.ModeloMaquina}}</dd>
+            <dt class="mat-body-2">Linea:</dt>
+            <dd class="mat-body-1">{{entity.LineaNombre}}</dd>
+            <dt class="mat-body-2">Velocidad:</dt>
+            <dd class="mat-body-1">{{entity.Velocidad}} mts/min</dd>
+            <dt class="mat-body-2">Unidades Disponibles:</dt>
+            <dd class="mat-body-1">{{entity.Decks}}</dd>
+            <dt class="mat-body-2">Minutos por Turno:</dt>
+            <dd class="mat-body-1">{{entity.MinutosTurno}} minutos</dd>
+
+            <dt class="mat-body-2">Ancho minimo de Impresión:</dt>
+            <dd class="mat-body-1">{{entity.AnchoMinimoImpresion}} cm</dd>
+
+            <dt class="mat-body-2">Ancho maximo de Impresión:</dt>
+            <dd class="mat-body-1">{{entity.AnchoMaximoImpresion}} cm</dd>
+
+            <dt class="mat-body-2">Ancho minimo del Material:</dt>
+            <dd class="mat-body-1">{{entity.AnchoMinimoMaterial}} cm</dd>
+
+            <dt class="mat-body-2">Ancho maximo del Material:</dt>
+            <dd class="mat-body-1">{{entity.AnchoMaximoMaterial}} cm</dd>
+
+          </dl>
+        </div>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <div fxFlex style="padding:5px;">
+          <h2>Precios y Costos</h2>
+          <dl>
+            <dt class="mat-body-2">Costo de Arranque:</dt>
+            <dd class="mat-body-1">{{entity.CostoArranque | currency:'MXN'}}</dd>
+            <dt class="mat-body-2">Costo por Turno:</dt>
+            <dd class="mat-body-1">{{entity.CostoTurno | currency:'MXN'}}</dd>
+          </dl>
+          <h2>Configuración para el Cotizador</h2>
+          <dl>
+            <dt class="mat-body-2">% de Desperdicio:</dt>
+            <dd class="mat-body-1">{{entity.PorcentajeDesperdicio | percent}}</dd>
+            <dt class="mat-body-2">Minutos por Turno:</dt>
+            <dd class="mat-body-1">{{entity.MinutosTurno}}</dd>
+          </dl>
+        </div>
+      </div>
+      <mat-divider [inset]="true"> </mat-divider>
+      <div fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlex="100%" style="padding:5px;" fxLayout="column">
+          <h2>Rodillos Displonibles</h2>
+          <table mat-table [dataSource]="entity.Rodillos" class="mat-elevation-z1" fxFlex="100%">
+            <ng-container matColumnDef="Cantidad">
+              <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+              <td mat-cell *matCellDef="let element"> {{element.Cantidad}} </td>
+              <td mat-footer-cell *matFooterCellDef style="text-align: right;"><span class="mat-body-2" style="margin-right: 5px;">Total:</span></td>
+            </ng-container>
+            <ng-container matColumnDef="Medida">
+              <th mat-header-cell *matHeaderCellDef> Medida </th>
+              <td mat-cell *matCellDef="let element"> {{ element.Medida | number:'1.2-2'}} </td>
+              <td mat-footer-cell *matFooterCellDef><span class="mat-body-2">{{entity.Rodillos.length}}</span></td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['Cantidad', 'Medida']"></tr>
+            <tr mat-row *matRowDef="let row; columns:['Cantidad', 'Medida'];"></tr>
+            <tr mat-footer-row *matFooterRowDef="['Cantidad', 'Medida']"></tr>
+          </table>
+        </div>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <div fxFlex="100%" style="padding:5px;" fxLayout="column">
+          <h2>Configuracion de Tintas</h2>
+
+          <table mat-table [dataSource]="entity.ConfiguracionTintas" class="mat-elevation-z1" fxFlex="100%">
+            <ng-container matColumnDef="Cantidad">
+              <th mat-header-cell *matHeaderCellDef> Numero de Tintas </th>
+              <td mat-cell *matCellDef="let element"> {{element.Cantidad}} </td>
+            </ng-container>
+            <ng-container matColumnDef="MinMetros">
+              <th mat-header-cell *matHeaderCellDef> Metros Minimos </th>
+              <td mat-cell *matCellDef="let element"> {{ element.MinimoMetros | number:'1.2-2'}} mts.</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['Cantidad', 'MinMetros']"></tr>
+            <tr mat-row *matRowDef="let row; columns:['Cantidad', 'MinMetros'];"></tr>
+          </table>
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </my-card>
+
+  <ng-template #loader>
+    <div fxFLex="100%" fxLayout="column" style="min-height: 90vh" fxLayoutAlign="center center">
+      <mat-progress-spinner *ngIf="!notFound" mode="indeterminate" color="accent"></mat-progress-spinner>
+      <h2 *ngIf="!notFound">Cargando ...</h2>
+      <img *ngIf="notFound" src="assets/404.png">
+      <h2 *ngIf="notFound" class="red-fg">No se ha encontrado el elemento</h2>
+    </div>
+
+  </ng-template>
+</div>

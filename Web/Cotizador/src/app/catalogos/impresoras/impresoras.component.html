@@ -1,0 +1,68 @@
+<div class="outlet-content">
+  <my-card CardColor="primary" [Titulo]="'Impresoras'" [Descripcion]="'Se muestran las impresoras disponibles en la base de datos'"
+    Icono="cogs" [HasFontawesomeIcon]="true" [ShowPrint]="true" [ShowAdd]="isAdmin ? true : false"
+    (ClickAdd)="AddOrEdit(null)" (ClickAction)="fillCatalog()" [ExtraButtons]="[{text:'Actualizar', icon:'refresh', description:'Actualiza los datos de la pagina actual', actionResult:'refresh'}]">
+
+    <div my-card-content style="overflow: auto;">
+      <mat-table multiTemplateDataRows [dataSource]="catalogPage.Items" style="min-width: 900px;" matSort (matSortChange)="catalogosService.emitSort($event, this.pagConfig);">
+        <!-- Crea las columnas con datos desde el servidor -->
+        <ng-container *ngFor="let column of columsToView()">
+
+          <ng-container *ngIf="column.db" matColumnDef="{{column.column}}">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!column.sortable" [fxFlex]="column.flex"> {{column.text}}
+              </mat-header-cell>
+            <mat-cell *matCellDef="let element" [fxFlex]="column.flex">
+              <ng-container [ngSwitch]="column.type">
+                <ng-container *ngSwitchCase="'currency'">
+                  {{element[column.columnToShow] | currency:'MXN'}}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  {{element[column.columnToShow]}}
+                </ng-container>
+              </ng-container>
+            </mat-cell>
+          </ng-container>
+
+        </ng-container>
+
+        <!-- Control de acciones -->
+        <ng-container matColumnDef="ActionEdit">
+          <mat-header-cell class="noprinted" *matHeaderCellDef fxFlex="150px"> Acciones </mat-header-cell>
+          <mat-cell class="noprinted" *matCellDef="let row" fxFlex="150px">
+
+            <ng-container *ngIf="!isAdmin">
+              <div fxLayout="row" fxFlex="100%" fxLayoutAlign="center center">
+                <button class="green-700-fg" mat-icon-button [routerLink]="row.Id">
+                  <mat-icon>info</mat-icon>
+                </button>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="isAdmin">
+              <button class="cyan-fg" mat-icon-button [routerLink]="row.Id">
+                <mat-icon>info</mat-icon>
+              </button>
+              <button class="orange-fg" mat-icon-button (click)="AddOrEdit(row)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </ng-container>
+
+          </mat-cell>
+        </ng-container>
+
+
+        <!-- Definicion de filas y columnas -->
+        <mat-header-row *matHeaderRowDef="columns()"></mat-header-row>
+        <mat-row *matRowDef="let material; columns: columns();"></mat-row>
+      </mat-table>
+      <mat-progress-bar color="accent" *ngIf="isLoading" mode="query"></mat-progress-bar>
+    </div>
+
+    <div my-card-footer>
+      <mat-paginator [length]="catalogPage.TotalCount" [pageIndex]="pagConfig.pageNumber - 1" [pageSize]="10" [pageSizeOptions]="[10,25,50,75,100]"
+        (page)="catalogosService.emitPaginator($event, pagConfig)">
+      </mat-paginator>
+    </div>
+
+  </my-card>
+</div>

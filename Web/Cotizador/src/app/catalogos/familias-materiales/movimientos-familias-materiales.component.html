@@ -1,0 +1,46 @@
+<div fxFlex="100%" class="full-screen-dialog-container" fxLayout="column">
+  <my-card ColorClass="indigo" [Titulo]="NombreFamilia + ' - Movimientos en los precios.'" [Descripcion]="'Se muestra el historial de los movimientos en los precios del ' + NombreFamilia"
+    Icono="show_chart" [ShowPrint]="true" [ShowAdd]="true" (ClickAdd)="add()">
+
+
+    <div my-card-content fxLayout="column">
+      <div class="noprinted chart-container" *ngIf="chart_">
+        <canvas id="movs{{data}}"></canvas>
+      </div>
+      <img class="onlyprint" *ngIf="chart_ && !isLoadingResults" src="{{imageOfChart(chart_)}}" />
+      <mat-divider class="noprinted" [inset]="true"></mat-divider>
+
+
+      <div fxLayout="column">
+
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="isLoadingResults || isRateLimitReached">
+          <mat-spinner *ngIf="isLoadingResults" [strokeWidth]="3"></mat-spinner>
+          <div class="red" *ngIf="isRateLimitReached">
+            La Api se encuentra ocupada, se reestablecera en unos minuto.
+          </div>
+        </div>
+
+        <mat-table fxLayout="column" [dataSource]="dataSource">
+          <ng-container matColumnDef="FechaRegistro">
+            <mat-header-cell fxFlex *matHeaderCellDef>Fecha de Registro</mat-header-cell>
+            <mat-cell fxFlex *matCellDef="let row">{{row.FechaRegistro | date}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="FechaOperacion">
+            <mat-header-cell fxFlex *matHeaderCellDef>Fecha de Operacion</mat-header-cell>
+            <mat-cell fxFlex *matCellDef="let row">{{row.FechaOperacion | date}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Valor">
+            <mat-header-cell fxFlex="70px" *matHeaderCellDef>Valor</mat-header-cell>
+            <mat-cell fxFlex="70px" *matCellDef="let row">{{row.Valor | currency:'MXN':'symbol-narrow':'1.2-4'}}</mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </my-card>
+  <!-- CloseButton -->
+  <button class="closeButton mat-elevation-z15" mat-dialog-close tabIndex="3" color="warn" mat-mini-fab>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

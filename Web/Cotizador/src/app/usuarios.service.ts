@@ -1,9 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, observable } from '../../node_modules/rxjs';
-import { map } from 'rxjs/operators';
-import { async } from '../../node_modules/@types/q';
+import { Observable, BehaviorSubject } from '../../node_modules/rxjs';
 
 export enum Actions {
   Add,
@@ -37,6 +35,14 @@ export interface BasicInfoUser {
   Roles: string[];
 }
 
+export interface User {
+  Nombre: string;
+  ApellidoPaterno: string;
+  ApellidoMaterno: string;
+  Estatus: any;
+  Email: string;
+}
+
 export interface AddRemoveUserRoleModel {
   Role: string;
   Action: Actions;
@@ -47,20 +53,45 @@ export interface AddRemoveUserRoleModel {
   providedIn: 'root',
 })
 export class UsuariosService {
-  public myRoles: string[];
+  private data1 = new BehaviorSubject<boolean>(false);
+  private User = new BehaviorSubject<BasicInfoUser>({
+    Nombre: 'Desconocido',
+    Email: '--',
+    EmailConfirmaed: false,
+    Roles: [],
+    Id: '0',
+  });
 
-  // public UserRoles: string[] = [];
+  public UserRoles: string[] = [];
+  // public isAdmin_: Observable<boolean>;
+
   constructor(private http: HttpClient, private router: Router, private ngZone: NgZone) {
-    this.Initialice();
+    this.refreshisAdmin();
   }
 
-  public Initialice() {
-    this.getUserRoles().subscribe(r => (this.myRoles = r));
+  private refreshisAdmin() {
+    if (this.hasToken()) {
+      this.getUserRoles()
+        .toPromise()
+        .then(r => {
+          this.UserRoles = r;
+          let ret: boolean = false;
+          for (const v of ['Administrador', 'Sistemas', 'Develop']) {
+            if (this.UserRoles != null && this.UserRoles.includes(v.replace('', ''))) {
+              ret = true;
+            }
+          }
+          this.data1.next(ret);
+        });
+
+      this.GetUsers()
+        .toPromise()
+        .then(u =>
+          this.User.next(u.filter(p => p.Id.toString() === this.getUserId().toString())[0]),
+        );
+    }
   }
 
-  public getUserRoles(UsuarioId: number = null) {
-    return this.http.post<string[]>('api/Account/UserRoles', UsuarioId);
-  }
   /**
    * Registra un usuario nuevo en la App
    */
@@ -83,7 +114,7 @@ export class UsuariosService {
     userLogin: UserLogin,
     toRoute: string = '',
     successCallback: Function = () => {},
-    errorCallback: (error: HttpErrorResponse) => void
+    errorCallback: (error: HttpErrorResponse) => void,
   ) {
     this.http
       .post(
@@ -93,55 +124,39 @@ export class UsuariosService {
           '&password=' +
           userLogin.password +
           '&grant_type=password',
-        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
       )
       .subscribe(
         (resp: any) => {
           sessionStorage.setItem('userName', resp.userName);
           sessionStorage.setItem('userId', resp.userId);
+          sessionStorage.setItem('userRoles', resp.userRoles);
           sessionStorage.setItem('accessToken', resp.access_token);
           sessionStorage.setItem('refreshToken', resp.refresh_token);
-          this.Initialice();
+          this.refreshisAdmin();
           this.goToRoute(toRoute);
           successCallback();
         },
         (error: HttpErrorResponse) => {
           console.log(error);
           errorCallback(error);
-        }
+        },
       );
   }
 
   public getRolesAvailables(): Observable<string[]> {
     return this.http.get<string[]>('/api/Account/Roles');
   }
+  public getUserInfo() {
+    return this.User.asObservable();
+  }
 
-  public CurrentIsInRol(role: string): Observable<boolean> {
-    return new Observable<boolean>(observer => {
-      const roles = role.split(',');
-      let ret: boolean = false;
+  public getUserRoles() {
+    return this.http.get<string[]>('/api/Account/UserRoles');
+  }
 
-      const resolve = function(myRoles_: string[]) {
-        for (const v of roles) {
-          if (myRoles_ != null && myRoles_.includes(v.replace('', ''))) {
-            ret = true;
-          }
-        }
-        observer.next(ret);
-        observer.complete();
-      };
-
-      if (!this.myRoles) {
-        this.getUserRoles()
-          .toPromise()
-          .then(rols => {
-            this.myRoles = rols;
-            resolve(this.myRoles);
-          });
-      } else {
-        resolve(this.myRoles);
-      }
-    });
+  public isAdmin() {
+    return this.data1.asObservable();
   }
 
   public ManageRoles(data: AddRemoveUserRoleModel) {
@@ -156,6 +171,8 @@ export class UsuariosService {
     sessionStorage.removeItem('refreshToken');
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('myRoles');
+    sessionStorage.removeItem('userRoles');
   }
 
   public getUserId(): number {

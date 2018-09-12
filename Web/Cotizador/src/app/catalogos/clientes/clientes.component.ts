@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   ICatalogResponse,
   ICliente,
@@ -14,14 +14,15 @@ import { HttpParams } from '../../../../node_modules/@angular/common/http';
 import { DialogService } from '../../dialog.service';
 import { DialogButtonsFlags, DialogIcons, DialogResults } from '../../dialog.component';
 import { UsuariosService } from '../../usuarios.service';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'cat-clientes.cc',
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.scss'],
 })
-export class ClientesComponent implements OnInit {
-  clientesPage: ICatalogResponse = {
+export class ClientesComponent implements OnInit, OnDestroy {
+  clientesPage: ICatalogResponse<ICliente> = {
     TotalCount: 0,
     TotalPages: 0,
     Items: null,
@@ -31,7 +32,8 @@ export class ClientesComponent implements OnInit {
   searchControl: FormControl = new FormControl('');
   searchAll: boolean = false;
   loading: boolean = false;
-  isAdmin: boolean = false;
+  isAdmin: boolean = true;
+  subIsAdmin$: Subscription;
 
   constructor(
     private catalogosService: CatalogosService,
@@ -60,11 +62,15 @@ export class ClientesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.usuariosService.CurrentIsInRol('Administrador,Sistemas,Develop').subscribe(p => {
-      this.isAdmin = p;
-      this.searchAll = this.isAdmin;
+    this.subIsAdmin$ = this.usuariosService.isAdmin().subscribe(o => {
+      this.isAdmin = o;
+      this.searchAll = o;
       this.getClientesPage();
     });
+  }
+
+  ngOnDestroy() {
+    this.subIsAdmin$.unsubscribe();
   }
 
   columsToView(): string[] {

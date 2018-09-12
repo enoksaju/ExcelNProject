@@ -16,7 +16,7 @@ Mov=Cxc.Mov,MovId=Cxc.Movid,FechaEmision=Cxc.FechaEmision,Vencimiento=Cxc.Vencim
 Moneda=Aux.moneda,TipoCambio=Cxc.ClienteTipoCambio,Cuenta=Cte.Cuenta,TipoCambioSAT= @TipoCambioSat,
 Concepto= cxc.Concepto 
 From Auxiliar aux Join MovTipo mt On aux.Aplica=mt.Mov And mt.Modulo='CXC' Join Cxc On aux.Empresa=Cxc.Empresa And aux.Sucursal=Cxc.Sucursal And aux.Aplica=Cxc.Mov And aux.AplicaId=Cxc.MovId And Cxc.Estatus in ('CONCLUIDO','PENDIENTE') Join Cte On Cxc.Cliente=Cte.Cliente 
-Where aux.Rama='CXC' And mt.Clave in ('CXC.F','CXC.NC','CXC.A', 'CXC.FA','CXC.CAP') And mt.Mov<>'Retencion' 
+Where aux.Rama='CXC' And mt.Clave in ('CXC.F','CXC.NC','CXC.A', 'CXC.FA','CXC.CAP', 'CXC.DAC') And mt.Mov<>'Retencion' 
 And aux.Fecha<=@Fecha and Aux.Moneda=@Moneda
 and ((@Tipo='Todos') or (@Tipo= 'Anticipos' and Cxc.Mov in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )) or (@Tipo= 'SinAnticipos' and Cxc.Mov not in ('Anticipo','Anticipo Electronico','Anticipo CFDi', 'Canc Dev Sdo Cte' )))
 

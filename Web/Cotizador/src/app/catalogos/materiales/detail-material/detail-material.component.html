@@ -1,0 +1,80 @@
+<div class="outlet-content mat-typography">
+  <my-card *ngIf="!isLoading && !notFound else loader" [Titulo]="'FAMILIA: ' + (entity.NombreFamilia ).toUpperCase()" CardColor="primary"
+    [Descripcion]="entity.Id + ' - ' + (entity.NombreFamilia + ' ' + entity.Apariencia + ' ' + entity.Caracteristicas).toUpperCase()"
+    Icono="layer-group" [HasFontawesomeIcon]="true" [ShowPrint]="true">
+
+    <div my-card-content style="overflow: auto;" fxLayout="column">
+      <div fxLayout="row">
+        <div fxFlex style="padding:5px;">
+          <h2>Especificaciones</h2>
+          <dl>
+            <dt class="mat-body-2">Apariencia:</dt>
+            <dd class="mat-body-1">{{entity.Apariencia}}</dd>
+            <dt class="mat-body-2">Caracteristicas:</dt>
+            <dd class="mat-body-1">{{entity.Caracteristicas}}</dd>
+            <dt class="mat-body-2">Unidad:</dt>
+            <dd class="mat-body-1">{{entity.Unidad}}</dd>
+            <dt class="mat-body-2">Factor de Densidad:</dt>
+            <dd class="mat-body-1">{{entity.FactorDensidad}}</dd>
+            <dt class="mat-body-2">Se usa en Metalizado:</dt>
+            <dd class="mat-body-1">{{entity.Metalizado ? 'Si' : 'No'}}</dd>
+            <dt class="mat-body-2">Fecha de Registro:</dt>
+            <dd class="mat-body-1">{{entity.FechaRegistro | date}}</dd>
+            <dt class="mat-body-2">Fecha de Operación:</dt>
+            <dd class="mat-body-1">{{entity.FechaOperacion | date}}</dd>
+          </dl>
+        </div>
+        <mat-divider [vertical]="true"> </mat-divider>
+        <div fxFlex style="padding:5px;">
+          <h2>Precios y Costo</h2>
+          <dl>
+
+            <dt class="mat-body-2">Precio Inicial:</dt>
+            <dd class="mat-body-1">{{entity.PrecioInicial | currency:'MXN'}}</dd>
+            <dt class="mat-body-2">Costo Inicial:</dt>
+            <dd class="mat-body-1">{{entity.CostoInicial | currency:'MXN'}}</dd>
+            <dt class="mat-body-2">Precio Actual:</dt>
+            <dd class="mat-body-1">{{entity.PrecioActual | currency:'MXN'}}</dd>
+            <dt class="mat-body-2">Costo Inicial:</dt>
+            <dd class="mat-body-1">{{+entity.PrecioActual - 5 | currency:'MXN'}}</dd>
+            <dt class="mat-body-2">Precio especial en Convenios:</dt>
+            <dd class="mat-body-1">{{entity.Convenio ? 'Si' : 'No'}}</dd>
+          </dl>
+        </div>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div>
+        <div fxFlex style="padding:5px;">
+          <h2>Calibres Disponibles</h2>
+          <mat-chip-list>
+            <mat-chip *ngFor="let link of entity.Calibres">{{ link.Valor }} </mat-chip>
+          </mat-chip-list>
+        </div>
+      </div>
+      <mat-divider [inset]="true"></mat-divider>
+      <div style="overflow:hidden">
+        <h2>Historial de cambios al Precio</h2>
+        <div class="noprinted chart-container" *ngIf="chart_">
+          <canvas id="movimientos{{Id}}"></canvas>
+        </div>
+        <img class="onlyprint" *ngIf="chart_ && !isLoadingResults" src="{{imageOfChart(chart_)}}" />
+      </div>
+
+    </div>
+  </my-card>
+
+
+
+  <ng-template #loader>
+
+    <div fxFLex="100%" fxLayout="column" style="min-height: 90vh" fxLayoutAlign="center center">
+      <mat-progress-spinner *ngIf="!notFound" mode="indeterminate" color="accent"></mat-progress-spinner>
+      <h2 *ngIf="!notFound">Cargando ...</h2>
+      <img *ngIf="notFound" src="assets/404.png">
+      <h2 *ngIf="notFound" class="red-fg">No se ha encontrado el elemento</h2>
+    </div>
+
+  </ng-template>
+
+
+</div>

@@ -85,6 +85,7 @@ namespace libProduccionDataBase.Tablas
 		public double Medida { get; set; }
 		public int Cantidad { get; set; }
 		[Required]
+		[ScriptIgnore]
 		public virtual Maquina Maquina { get; set; }
 
 		public override string ToString () => this.Medida.ToString ( "#0.00" );

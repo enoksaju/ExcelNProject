@@ -24,7 +24,7 @@ using Microsoft.Owin.Security.OAuth;
 
 namespace Cotizador.Controllers
 {
-	[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+	[Authorize]
 	[RoutePrefix ( "api/Account" )]
 	public class AccountController : ApiController
 	{
@@ -96,7 +96,9 @@ namespace Cotizador.Controllers
 				ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync ( UserManager, OAuthDefaults.AuthenticationType );
 				ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync ( UserManager, CookieAuthenticationDefaults.AuthenticationType );
 
-				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties ( user.UserName, user.Id );
+				var roles = UserManager.GetRoles ( user.Id );
+
+				AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties ( user.UserName, user.Id, roles.ToArray ( ) );
 				Authentication.SignIn ( properties, oAuthIdentity, cookieIdentity );
 			}
 			else
@@ -151,8 +153,7 @@ namespace Cotizador.Controllers
 		}
 
 		[Route ( "UserRoles" )]
-		[HttpPost]
-		[AllowAnonymous]
+		[HttpGet]
 		public IHttpActionResult UserRoles ( [FromBody]int? Id )
 		{
 			int currentUserId;
@@ -170,6 +171,7 @@ namespace Cotizador.Controllers
 
 		// POST api/Account/Register		
 		[Route ( "Register" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
 		public async Task<IHttpActionResult> Register ( RegisterBindingModel model )
 		{
 
@@ -232,6 +234,7 @@ namespace Cotizador.Controllers
 		}
 
 		[Route ( "ManageRoles" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
 		public async Task<IHttpActionResult> ManageRoles ( AddRemoveUserRoleModel model )
 		{
 			if ( !ModelState.IsValid )
@@ -260,6 +263,31 @@ namespace Cotizador.Controllers
 			return Ok ( $"Se completo la accion {model.Action.ToString ( )} del rol {model.Role} al usuario {user.Nombre} {user.ApellidoPaterno} {user.ApellidoMaterno }." );
 		}
 
+		[Route ( "user" )]
+		[HttpGet]
+		public async Task<IHttpActionResult> getUserInfo ()
+		{
+			try
+			{
+				var usr = await UserManager.FindByIdAsync ( User.Identity.GetUserId<int> ( ) );
+
+				if ( usr == null ) return NotFound ( );
+
+				return Ok ( new
+				{
+					usr.Nombre,
+					usr.ApellidoPaterno,
+					usr.ApellidoMaterno,
+					usr.Email,
+					usr.Estatus
+				} );
+			}
+			catch ( Exception ex )
+			{
+				return InternalServerError ( ex );
+			}
+		}
+
 		[Route ( "Users" )]
 		[HttpGet]
 		public async Task<IHttpActionResult> UsuariosList ()
@@ -279,6 +307,12 @@ namespace Cotizador.Controllers
 			}
 
 			return Ok ( ret );
+		}
+		[Route ( "Roles" )]
+		[HttpGet]
+		public IHttpActionResult getRoles ()
+		{
+			return Ok ( RoleManager.Roles.Select ( t => t.Name ) );
 		}
 
 		#region Aplicaciones Auxiliares

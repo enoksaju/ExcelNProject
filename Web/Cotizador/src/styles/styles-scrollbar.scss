@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+  &:horizontal {
+    height: 5px;
+  }
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+@mixin scrollbar($theme) {
+  $accent: map-get($theme, accent);
+
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background-color: mat-color($accent);// red;
+  }
+}
