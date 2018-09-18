@@ -1,29 +1,26 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import {
-  HttpClient,
-  HttpParams,
-  HttpErrorResponse
-} from '../../node_modules/@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse } from '../../node_modules/@angular/common/http';
 import { UsuariosService } from './usuarios.service';
 import { Observable, BehaviorSubject } from '../../node_modules/rxjs';
 import { PageEvent, Sort } from '@angular/material';
 
 export enum OrderTypes {
   ASC,
-  DESC
+  DESC,
 }
 
 export const prefixApi: string = '/api/Catalogos/';
 export const rEstadoCatalogos: string = 'EstadoCatalogos';
 export const rClientes: string = 'Clientes';
 export const ROUTE_FAMILIA_MATERIALES: string = 'familiasmateriales';
-export const ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES: string =
-  'familiasmateriales/mov';
+export const ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES: string = 'familiasmateriales/mov';
 export const ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS: string =
   'familiasmateriales/mov/chartdata';
 export const ROUTE_MATERIALES: string = 'materiales';
 
 export const ROUTE_IMPRESORAS: string = 'impresoras';
+export const ROUTE_TINTAS: string = 'Tintas';
+export const ROUTE_OTROS: string = 'Otros';
 
 //#region Interfaces
 
@@ -55,14 +52,14 @@ export class Column {
       flex?: string;
       columnToShow?: string;
       type?: string;
-    }
+    },
   ) {
     const defaults_ = {
       db: true,
       sortable: true,
       flex: '1 1 100%',
       columnToShow: column,
-      type: 'default'
+      type: 'default',
     };
     const options_ = Object.assign(defaults_, options);
     this.column = column;
@@ -108,7 +105,7 @@ export interface IFamiliasMateriales {
 
 export enum UnidadesMaterial {
   Micras,
-  CI
+  CI,
 }
 
 export interface IMaterial {
@@ -173,6 +170,21 @@ export interface ILinea {
   EmailResponsable: string;
 }
 
+export interface ITinta {
+  TintaId?: number;
+  Nombre?: string;
+  Tipo?: string;
+  Precio?: number;
+  Costo?: number;
+}
+
+export interface IOtro {
+  OtroId?: number;
+  Nombre?: string;
+  Precio?: number;
+  Costo?: number;
+}
+
 /**
  * Interface de Paginacion
  */
@@ -187,7 +199,7 @@ export interface IPageConfig {
 //#endregion
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatalogosService {
   @Output()
@@ -199,18 +211,13 @@ export class CatalogosService {
   @Output()
   onHttpError: EventEmitter<HttpErrorResponse> = new EventEmitter(true);
 
-  constructor(
-    private http: HttpClient,
-    private usuariosService: UsuariosService
-  ) {}
+  constructor(private http: HttpClient, private usuariosService: UsuariosService) {}
 
   /**
    * Retorna el estado de los catalogos.
    */
   getStatus(): Promise<CatalogoMenuItem[]> {
-    return this.http
-      .get<CatalogoMenuItem[]>(`${prefixApi}${rEstadoCatalogos}`)
-      .toPromise();
+    return this.http.get<CatalogoMenuItem[]>(`${prefixApi}${rEstadoCatalogos}`).toPromise();
   }
 
   /**
@@ -224,8 +231,8 @@ export class CatalogosService {
         pageNumber: pageConfig.pageNumber.toString(),
         orderType: pageConfig.orderType.toString(),
         orderBy: pageConfig.orderBy,
-        query: pageConfig.query ? pageConfig.query : '%'
-      }
+        query: pageConfig.query ? pageConfig.query : '%',
+      },
     });
   }
 
@@ -250,8 +257,7 @@ export class CatalogosService {
    */
   async emitSort(sort: Sort, pagConfig: IPageConfig) {
     pagConfig.orderBy = sort.active;
-    pagConfig.orderType =
-      sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC;
+    pagConfig.orderType = sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC;
     pagConfig.pageNumber = 1;
     this.needRefresh.emit();
   }
@@ -266,10 +272,7 @@ export class CatalogosService {
   getClientes(pageConfig: IPageConfig, allUsers: boolean) {
     return this.http
       .get<ICatalogResponse<ICliente>>(`${prefixApi}${rClientes}`, {
-        params: this.getPageConfig(pageConfig).append(
-          'allUsers',
-          String(allUsers)
-        )
+        params: this.getPageConfig(pageConfig).append('allUsers', String(allUsers)),
       })
       .toPromise();
   }
@@ -277,7 +280,7 @@ export class CatalogosService {
   getCliente(Id: number) {
     return this.http
       .get<ICliente>(`${prefixApi}${rClientes}`, {
-        params: this.getEntityByIdConfig(Id)
+        params: this.getEntityByIdConfig(Id),
       })
       .toPromise();
   }
@@ -292,7 +295,7 @@ export class CatalogosService {
 
   delCliente(Id: number): Observable<string> {
     return this.http.delete<string>(`${prefixApi}${rClientes}`, {
-      params: this.getEntityByIdConfig(Id)
+      params: this.getEntityByIdConfig(Id),
     });
   }
 
@@ -302,7 +305,7 @@ export class CatalogosService {
   getCollection<t>(pageConfig: IPageConfig, apiRoute: string) {
     return this.http
       .get<ICatalogResponse<t>>(`${prefixApi}${apiRoute}`, {
-        params: this.getPageConfig(pageConfig)
+        params: this.getPageConfig(pageConfig),
       })
       .toPromise();
 
@@ -316,7 +319,7 @@ query: string; */
   getAllCollection<t>(
     apiRoute: string,
     _orderType: OrderTypes = OrderTypes.ASC,
-    _orderBy: string = 'Id'
+    _orderBy: string = 'Id',
   ) {
     return this.http.get<ICatalogResponse<t>>(`${prefixApi}${apiRoute}`, {
       params: this.getPageConfig({
@@ -324,8 +327,8 @@ query: string; */
         pageNumber: 1,
         orderType: _orderType,
         orderBy: _orderBy,
-        query: '%'
-      })
+        query: '%',
+      }),
     });
   }
 
@@ -336,7 +339,7 @@ query: string; */
   getEntity<t>(Id: number, apiRoute: string) {
     return this.http
       .get<t>(`${prefixApi}${apiRoute}`, {
-        params: this.getEntityByIdConfig(Id)
+        params: this.getEntityByIdConfig(Id),
       })
       .toPromise();
   }

@@ -73,7 +73,7 @@ namespace Cotizador.Controllers
 
 		[HttpPost]
 		[Route ( "familiasmateriales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> postFamMat ( Models.FrontEndModels.Catalogos.FamiliasMateriales model )
 		{
 			if ( !ModelState.IsValid )
@@ -101,7 +101,7 @@ namespace Cotizador.Controllers
 
 		[HttpPut]
 		[Route ( "familiasmateriales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> putFamMat ( Models.FrontEndModels.Catalogos.FamiliasMateriales model )
 		{
 			if ( !ModelState.IsValid )
@@ -125,7 +125,7 @@ namespace Cotizador.Controllers
 		}
 		[HttpDelete]
 		[Route ( "familiasmateriales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> deleteFamMat ( int id )
 		{
 			try

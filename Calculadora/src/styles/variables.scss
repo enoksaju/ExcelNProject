@@ -1,0 +1,13 @@
+@import "~@angular/material/theming";
+$app-primary: mat-palette($mat-orange);
+$app-accent: mat-palette($mat-pink);
+$app-warn: mat-palette($mat-deep-orange);
+
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@mixin md-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}

@@ -1,0 +1,28 @@
+<!-- spinner -->
+<div *ngIf="isLoading" fxLayoutAlign="center center" fxFlex="100%">
+  <mat-spinner color="accent" diameter="80"></mat-spinner>
+</div>
+
+<!-- Formulario -->
+<form *ngIf="!isLoading" fxFlex="100%" style="position:relative;" fxLayout="column" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2 mat-dialog-title>{{isNew ? 'Agregar' : 'Editar'}} Otros</h2>
+  <mat-divider class="dialog-divider"></mat-divider>
+
+  <!-- Contenido del dialogo -->
+  <div mat-dialog-content class="mat-typography">
+    <div *ngIf="!isLoading" fxLayout="column">
+      <div fxLayout="column">
+        <wrap-inputs [controls]="ctls" [fGroup]="form" *ngFor="let ctls of ViewForm"></wrap-inputs>
+      </div>
+    </div>
+  </div>
+  <mat-divider class="dialog-divider"></mat-divider>
+  <div mat-dialog-actions fxLayout="row" fxFlex="80px" fxLayoutAlign="center center">
+    <button type="submit" mat-raised-button color="warn">{{isNew ? 'Guardar' : 'Actualizar'}}</button>
+  </div>
+
+  <!-- CloseButton -->
+  <button class="closeButton" mat-dialog-close tabIndex="3" color="warn" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+</form>

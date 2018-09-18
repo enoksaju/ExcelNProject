@@ -118,7 +118,7 @@ namespace Cotizador.Controllers
 
 		[HttpPost]
 		[Route ( "materiales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> postMaterial ( Models.FrontEndModels.Catalogos.Material model )
 		{
 			if ( !ModelState.IsValid ) return BadRequest ( ModelState );
@@ -159,7 +159,7 @@ namespace Cotizador.Controllers
 
 		[HttpPut]
 		[Route ( "materiales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> putMaterial ( Models.FrontEndModels.Catalogos.Material model )
 		{
 			if ( !ModelState.IsValid ) return BadRequest ( ModelState );
@@ -209,7 +209,7 @@ namespace Cotizador.Controllers
 
 		[HttpDelete]
 		[Route ( "materiales" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> deleteMaterial ( int id )
 		{
 			try

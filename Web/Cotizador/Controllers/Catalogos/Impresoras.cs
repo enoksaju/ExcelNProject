@@ -113,7 +113,7 @@ namespace Cotizador.Controllers
 
 		[HttpPost]
 		[Route ( "impresoras" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> postImpresora ( Models.FrontEndModels.Catalogos.Impresora model )
 		{
 			try
@@ -160,7 +160,7 @@ namespace Cotizador.Controllers
 
 		[HttpPut]
 		[Route ( "impresoras" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> putImpresora ( Models.FrontEndModels.Catalogos.Impresora model )
 		{
 			try
@@ -245,7 +245,7 @@ namespace Cotizador.Controllers
 
 		[HttpDelete]
 		[Route ( "impresoras" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> deleteImpresora ( int id )
 		{
 			try

@@ -325,12 +325,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _catalogos_impresoras_impresoras_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./catalogos/impresoras/impresoras.component */ "./src/app/catalogos/impresoras/impresoras.component.ts");
 /* harmony import */ var _catalogos_impresoras_detail_impresora_detail_impresora_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./catalogos/impresoras/detail-impresora/detail-impresora.component */ "./src/app/catalogos/impresoras/detail-impresora/detail-impresora.component.ts");
 /* harmony import */ var _initial_page_initial_page_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./initial-page/initial-page.component */ "./src/app/initial-page/initial-page.component.ts");
+/* harmony import */ var _catalogos_tintas_tintas_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./catalogos/tintas/tintas.component */ "./src/app/catalogos/tintas/tintas.component.ts");
+/* harmony import */ var _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./catalogos/otros/otros.component */ "./src/app/catalogos/otros/otros.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -357,18 +361,23 @@ var routes = [
                 path: 'Materiales',
                 children: [
                     { path: '', component: _catalogos_materiales_materiales_component__WEBPACK_IMPORTED_MODULE_7__["MaterialesComponent"] },
-                    { path: ':Id', component: _catalogos_materiales_detail_material_detail_material_component__WEBPACK_IMPORTED_MODULE_8__["DetailMaterialComponent"] }
-                ]
+                    { path: ':Id', component: _catalogos_materiales_detail_material_detail_material_component__WEBPACK_IMPORTED_MODULE_8__["DetailMaterialComponent"] },
+                ],
             },
             {
                 path: 'Impresoras',
                 children: [
                     { path: '', component: _catalogos_impresoras_impresoras_component__WEBPACK_IMPORTED_MODULE_9__["ImpresorasComponent"] },
-                    { path: ':Id', component: _catalogos_impresoras_detail_impresora_detail_impresora_component__WEBPACK_IMPORTED_MODULE_10__["DetailImpresoraComponent"] }
-                ]
-            }
-        ]
-    }
+                    { path: ':Id', component: _catalogos_impresoras_detail_impresora_detail_impresora_component__WEBPACK_IMPORTED_MODULE_10__["DetailImpresoraComponent"] },
+                ],
+            },
+            {
+                path: 'Tintas',
+                component: _catalogos_tintas_tintas_component__WEBPACK_IMPORTED_MODULE_12__["TintasComponent"],
+            },
+            { path: 'Otros', component: _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_13__["OtrosComponent"] },
+        ],
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -376,7 +385,7 @@ var AppRoutingModule = /** @class */ (function () {
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { useHash: true })],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -615,6 +624,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _catalogos_impresoras_add_edit_impresora_add_rodillo_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./catalogos/impresoras/add-edit-impresora/add-rodillo.component */ "./src/app/catalogos/impresoras/add-edit-impresora/add-rodillo.component.ts");
 /* harmony import */ var _catalogos_impresoras_add_edit_impresora_add_config_tinta_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./catalogos/impresoras/add-edit-impresora/add-config-tinta.component */ "./src/app/catalogos/impresoras/add-edit-impresora/add-config-tinta.component.ts");
 /* harmony import */ var _initial_page_initial_page_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./initial-page/initial-page.component */ "./src/app/initial-page/initial-page.component.ts");
+/* harmony import */ var _catalogos_tintas_tintas_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./catalogos/tintas/tintas.component */ "./src/app/catalogos/tintas/tintas.component.ts");
+/* harmony import */ var _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./catalogos/otros/otros.component */ "./src/app/catalogos/otros/otros.component.ts");
+/* harmony import */ var _catalogos_tintas_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./catalogos/tintas/add-edit-tinta/add-edit-tinta.component */ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.ts");
+/* harmony import */ var _catalogos_otros_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./catalogos/otros/add-edit-otros/add-edit-otros.component */ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -627,6 +640,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+
+
+
+
 
 
 
@@ -701,6 +718,10 @@ var AppModule = /** @class */ (function () {
                 _catalogos_impresoras_add_edit_impresora_add_rodillo_component__WEBPACK_IMPORTED_MODULE_36__["AddRodilloComponent"],
                 _catalogos_impresoras_add_edit_impresora_add_config_tinta_component__WEBPACK_IMPORTED_MODULE_37__["AddConfigTintaComponent"],
                 _initial_page_initial_page_component__WEBPACK_IMPORTED_MODULE_38__["InitialPageComponent"],
+                _catalogos_tintas_tintas_component__WEBPACK_IMPORTED_MODULE_39__["TintasComponent"],
+                _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_40__["OtrosComponent"],
+                _catalogos_tintas_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_41__["AddEditTintaComponent"],
+                _catalogos_otros_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_42__["AddEditOtrosComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -734,6 +755,8 @@ var AppModule = /** @class */ (function () {
                 _catalogos_impresoras_add_edit_impresora_add_edit_impresora_component__WEBPACK_IMPORTED_MODULE_35__["AddEditImpresoraComponent"],
                 _catalogos_impresoras_add_edit_impresora_add_rodillo_component__WEBPACK_IMPORTED_MODULE_36__["AddRodilloComponent"],
                 _catalogos_impresoras_add_edit_impresora_add_config_tinta_component__WEBPACK_IMPORTED_MODULE_37__["AddConfigTintaComponent"],
+                _catalogos_tintas_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_41__["AddEditTintaComponent"],
+                _catalogos_otros_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_42__["AddEditOtrosComponent"],
             ],
         }),
         __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"])),
@@ -750,7 +773,7 @@ var AppModule = /** @class */ (function () {
 /*!**************************************!*\
   !*** ./src/app/catalogos.service.ts ***!
   \**************************************/
-/*! exports provided: OrderTypes, prefixApi, rEstadoCatalogos, rClientes, ROUTE_FAMILIA_MATERIALES, ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES, ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS, ROUTE_MATERIALES, ROUTE_IMPRESORAS, Column, UnidadesMaterial, CatalogosService */
+/*! exports provided: OrderTypes, prefixApi, rEstadoCatalogos, rClientes, ROUTE_FAMILIA_MATERIALES, ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES, ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS, ROUTE_MATERIALES, ROUTE_IMPRESORAS, ROUTE_TINTAS, ROUTE_OTROS, Column, UnidadesMaterial, CatalogosService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -764,6 +787,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS", function() { return ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_MATERIALES", function() { return ROUTE_MATERIALES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_IMPRESORAS", function() { return ROUTE_IMPRESORAS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_TINTAS", function() { return ROUTE_TINTAS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_OTROS", function() { return ROUTE_OTROS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return Column; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnidadesMaterial", function() { return UnidadesMaterial; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CatalogosService", function() { return CatalogosService; });
@@ -832,6 +857,8 @@ var ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES = 'familiasmateriales/mov';
 var ROUTE_MOVIMIENTOS_PRECIO_FAMILIA_MATERIALES_CHARTS = 'familiasmateriales/mov/chartdata';
 var ROUTE_MATERIALES = 'materiales';
 var ROUTE_IMPRESORAS = 'impresoras';
+var ROUTE_TINTAS = 'Tintas';
+var ROUTE_OTROS = 'Otros';
 var Column = /** @class */ (function () {
     function Column(column, text, options) {
         var defaults_ = {
@@ -839,7 +866,7 @@ var Column = /** @class */ (function () {
             sortable: true,
             flex: '1 1 100%',
             columnToShow: column,
-            type: 'default'
+            type: 'default',
         };
         var options_ = Object.assign(defaults_, options);
         this.column = column;
@@ -871,9 +898,7 @@ var CatalogosService = /** @class */ (function () {
      * Retorna el estado de los catalogos.
      */
     CatalogosService.prototype.getStatus = function () {
-        return this.http
-            .get("" + prefixApi + rEstadoCatalogos)
-            .toPromise();
+        return this.http.get("" + prefixApi + rEstadoCatalogos).toPromise();
     };
     /**
      * Regresa parametros para los metodos GET de paginacion de colecciones.
@@ -886,8 +911,8 @@ var CatalogosService = /** @class */ (function () {
                 pageNumber: pageConfig.pageNumber.toString(),
                 orderType: pageConfig.orderType.toString(),
                 orderBy: pageConfig.orderBy,
-                query: pageConfig.query ? pageConfig.query : '%'
-            }
+                query: pageConfig.query ? pageConfig.query : '%',
+            },
         });
     };
     CatalogosService.prototype.getEntityByIdConfig = function (Id) {
@@ -916,8 +941,7 @@ var CatalogosService = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 pagConfig.orderBy = sort.active;
-                pagConfig.orderType =
-                    sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC;
+                pagConfig.orderType = sort.direction === 'asc' ? OrderTypes.ASC : OrderTypes.DESC;
                 pagConfig.pageNumber = 1;
                 this.needRefresh.emit();
                 return [2 /*return*/];
@@ -933,14 +957,14 @@ var CatalogosService = /** @class */ (function () {
     CatalogosService.prototype.getClientes = function (pageConfig, allUsers) {
         return this.http
             .get("" + prefixApi + rClientes, {
-            params: this.getPageConfig(pageConfig).append('allUsers', String(allUsers))
+            params: this.getPageConfig(pageConfig).append('allUsers', String(allUsers)),
         })
             .toPromise();
     };
     CatalogosService.prototype.getCliente = function (Id) {
         return this.http
             .get("" + prefixApi + rClientes, {
-            params: this.getEntityByIdConfig(Id)
+            params: this.getEntityByIdConfig(Id),
         })
             .toPromise();
     };
@@ -952,7 +976,7 @@ var CatalogosService = /** @class */ (function () {
     };
     CatalogosService.prototype.delCliente = function (Id) {
         return this.http.delete("" + prefixApi + rClientes, {
-            params: this.getEntityByIdConfig(Id)
+            params: this.getEntityByIdConfig(Id),
         });
     };
     //#endregion
@@ -960,7 +984,7 @@ var CatalogosService = /** @class */ (function () {
     CatalogosService.prototype.getCollection = function (pageConfig, apiRoute) {
         return this.http
             .get("" + prefixApi + apiRoute, {
-            params: this.getPageConfig(pageConfig)
+            params: this.getPageConfig(pageConfig),
         })
             .toPromise();
         /* pageSize: number;
@@ -978,8 +1002,8 @@ var CatalogosService = /** @class */ (function () {
                 pageNumber: 1,
                 orderType: _orderType,
                 orderBy: _orderBy,
-                query: '%'
-            })
+                query: '%',
+            }),
         });
     };
     CatalogosService.prototype.getCollectionsOfEntity = function (Id, apiRoute) {
@@ -988,7 +1012,7 @@ var CatalogosService = /** @class */ (function () {
     CatalogosService.prototype.getEntity = function (Id, apiRoute) {
         return this.http
             .get("" + prefixApi + apiRoute, {
-            params: this.getEntityByIdConfig(Id)
+            params: this.getEntityByIdConfig(Id),
         })
             .toPromise();
     };
@@ -1058,10 +1082,9 @@ var CatalogosService = /** @class */ (function () {
     ], CatalogosService.prototype, "onHttpError", void 0);
     CatalogosService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
+            providedIn: 'root',
         }),
-        __metadata("design:paramtypes", [_node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
-            _usuarios_service__WEBPACK_IMPORTED_MODULE_2__["UsuariosService"]])
+        __metadata("design:paramtypes", [_node_modules_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _usuarios_service__WEBPACK_IMPORTED_MODULE_2__["UsuariosService"]])
     ], CatalogosService);
     return CatalogosService;
 }());
@@ -3302,7 +3325,7 @@ var AddEditMaterialComponent = /** @class */ (function () {
             .then(function (value) {
             var fams = value.Items.map(function (i) { return ({
                 display: i.NombreFamilia,
-                value: i.Id
+                value: i.Id,
             }); });
             _this.ViewForm = [
                 [
@@ -3311,8 +3334,8 @@ var AddEditMaterialComponent = /** @class */ (function () {
                         text: 'Familia de Materiales',
                         smflex: '100%',
                         type: 'select',
-                        selectOptions: fams
-                    }
+                        selectOptions: fams,
+                    },
                 ],
                 [{ name: 'Apariencia' }, { name: 'Caracteristicas' }],
                 [
@@ -3320,35 +3343,27 @@ var AddEditMaterialComponent = /** @class */ (function () {
                         name: 'Unidad',
                         text: 'Unidad de Calibre',
                         type: 'select',
-                        selectOptions: [
-                            { display: 'Micras', value: 0 },
-                            { display: 'CI', value: 1 }
-                        ]
+                        selectOptions: [{ display: 'Micras', value: 0 }, { display: 'CI', value: 1 }],
                     },
                     {
                         name: 'FactorDensidad',
                         text: 'Factor de Densidad',
-                        type: 'number'
-                    }
+                        type: 'number',
+                    },
                 ],
                 [
                     { name: 'PrecioInicial', text: 'Precio Inicial', type: 'currency' },
-                    { name: 'CostoInicial', text: 'Costo Inicial', type: 'currency' }
+                    { name: 'CostoInicial', text: 'Costo Inicial', type: 'currency' },
                 ],
-                [
-                    { name: 'Metalizado', type: 'checkbox' },
-                    { name: 'Convenio', type: 'checkbox' }
-                ],
-                [{ name: 'FechaOperacion', text: 'Fecha de Operación', type: 'date' }]
+                [{ name: 'Metalizado', type: 'checkbox' }, { name: 'Convenio', type: 'checkbox' }],
+                [{ name: 'FechaOperacion', text: 'Fecha de Operación', type: 'date' }],
             ];
             _this.isLoading = false;
         });
     }
     AddEditMaterialComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.onSuccess$ = this.catalogosService.onHttpComplete
-            .pipe()
-            .subscribe(function (o) {
+        this.onSuccess$ = this.catalogosService.onHttpComplete.pipe().subscribe(function (o) {
             _this.dialogService
                 .showDialog('Correcto...', o, { Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_2__["DialogIcons"].Success })
                 .then(function () { return _this.dialogRef.close(_dialog_component__WEBPACK_IMPORTED_MODULE_2__["DialogResults"].Ok); });
@@ -3356,7 +3371,7 @@ var AddEditMaterialComponent = /** @class */ (function () {
         this.onError$ = this.catalogosService.onHttpError.pipe().subscribe(function (e) {
             _this.dialogService
                 .showDialog('Error...', _this.dialogService.getModelError(e), {
-                Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_2__["DialogIcons"].Error
+                Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_2__["DialogIcons"].Error,
             })
                 .then(function () { return (_this.isLoading = false); });
         });
@@ -3382,14 +3397,11 @@ var AddEditMaterialComponent = /** @class */ (function () {
                         Metalizado: false,
                         Convenio: false,
                         FechaOperacion: new Date(),
-                        Calibres: new Array()
+                        Calibres: new Array(),
                     };
                 this.form = this.fb.group({
                     Id: [this.entity.Id],
-                    FamiliaMateriales_Id: [
-                        this.entity.FamiliaMateriales_Id,
-                        _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
-                    ],
+                    FamiliaMateriales_Id: [this.entity.FamiliaMateriales_Id, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
                     Apariencia: [this.entity.Apariencia, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
                     Caracteristicas: [this.entity.Caracteristicas],
                     Unidad: [this.entity.Unidad],
@@ -3398,11 +3410,9 @@ var AddEditMaterialComponent = /** @class */ (function () {
                     CostoInicial: [this.entity.CostoInicial],
                     Metalizado: [this.entity.Metalizado],
                     Convenio: [this.entity.Convenio],
-                    FechaOperacion: [this.entity.FechaOperacion, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required]
+                    FechaOperacion: [this.entity.FechaOperacion, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
                 });
-                this.form.valueChanges
-                    .pipe()
-                    .subscribe(function (g) { return (_this.entity.Unidad = g.Unidad); });
+                this.form.valueChanges.pipe().subscribe(function (g) { return (_this.entity.Unidad = g.Unidad); });
                 return [2 /*return*/];
             });
         });
@@ -3458,7 +3468,7 @@ var AddEditMaterialComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'cat-add-edit-material',
             template: __webpack_require__(/*! ./add-edit-material.component.html */ "./src/app/catalogos/materiales/add-edit-material.component.html"),
-            styles: []
+            styles: [],
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object, _catalogos_service__WEBPACK_IMPORTED_MODULE_3__["CatalogosService"],
@@ -3860,6 +3870,791 @@ var MaterialesComponent = /** @class */ (function () {
             _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
     ], MaterialesComponent);
     return MaterialesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- spinner -->\n<div *ngIf=\"isLoading\" fxLayoutAlign=\"center center\" fxFlex=\"100%\">\n  <mat-spinner color=\"accent\" diameter=\"80\"></mat-spinner>\n</div>\n\n<!-- Formulario -->\n<form *ngIf=\"!isLoading\" fxFlex=\"100%\" style=\"position:relative;\" fxLayout=\"column\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n  <h2 mat-dialog-title>{{isNew ? 'Agregar' : 'Editar'}} Otros</h2>\n  <mat-divider class=\"dialog-divider\"></mat-divider>\n\n  <!-- Contenido del dialogo -->\n  <div mat-dialog-content class=\"mat-typography\">\n    <div *ngIf=\"!isLoading\" fxLayout=\"column\">\n      <div fxLayout=\"column\">\n        <wrap-inputs [controls]=\"ctls\" [fGroup]=\"form\" *ngFor=\"let ctls of ViewForm\"></wrap-inputs>\n      </div>\n    </div>\n  </div>\n  <mat-divider class=\"dialog-divider\"></mat-divider>\n  <div mat-dialog-actions fxLayout=\"row\" fxFlex=\"80px\" fxLayoutAlign=\"center center\">\n    <button type=\"submit\" mat-raised-button color=\"warn\">{{isNew ? 'Guardar' : 'Actualizar'}}</button>\n  </div>\n\n  <!-- CloseButton -->\n  <button class=\"closeButton\" mat-dialog-close tabIndex=\"3\" color=\"warn\" mat-icon-button>\n    <mat-icon>close</mat-icon>\n  </button>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.scss":
+/*!******************************************************************************!*\
+  !*** ./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.scss ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: AddEditOtrosComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddEditOtrosComponent", function() { return AddEditOtrosComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _catalogos_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../catalogos.service */ "./src/app/catalogos.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../dialog.component */ "./src/app/dialog.component.ts");
+/* harmony import */ var _dialog_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../dialog.service */ "./src/app/dialog.service.ts");
+/* harmony import */ var _usuarios_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../usuarios.service */ "./src/app/usuarios.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var AddEditOtrosComponent = /** @class */ (function () {
+    function AddEditOtrosComponent(dialogRef, data, catalogosService, dialogService, fb, usuariosService) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.catalogosService = catalogosService;
+        this.dialogService = dialogService;
+        this.fb = fb;
+        this.usuariosService = usuariosService;
+        this.ViewForm = [
+            [
+                {
+                    name: 'Nombre',
+                    text: 'Nombre',
+                    smflex: '100%',
+                },
+            ],
+            [{ name: 'Costo', type: 'currency' }, { name: 'Precio', type: 'currency' }],
+        ];
+        this.entity = data;
+        this.isNew = this.entity ? false : true;
+        this.isLoading = false;
+    }
+    AddEditOtrosComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.onSuccess$ = this.catalogosService.onHttpComplete.pipe().subscribe(function (o) {
+            _this.dialogService
+                .showDialog('Correcto...', o, { Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogIcons"].Success })
+                .then(function () { return _this.dialogRef.close(_dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogResults"].Ok); });
+        });
+        this.onError$ = this.catalogosService.onHttpError.pipe().subscribe(function (e) {
+            _this.dialogService
+                .showDialog('Error...', _this.dialogService.getModelError(e), {
+                Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogIcons"].Error,
+            })
+                .then(function () { return (_this.isLoading = false); });
+        });
+        this.createForm();
+    };
+    AddEditOtrosComponent.prototype.ngOnDestroy = function () {
+        this.onSuccess$.unsubscribe();
+        this.onError$.unsubscribe();
+    };
+    AddEditOtrosComponent.prototype.createForm = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.entity = this.entity ? this.entity : {};
+                this.form = this.fb.group({
+                    OtroId: [this.entity.OtroId],
+                    Nombre: [this.entity.Nombre, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                    Costo: [this.entity.Costo, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                    Precio: [this.entity.Precio, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    AddEditOtrosComponent.prototype.onSubmit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.isLoading = true;
+                if (this.form.valid) {
+                    this.entity = Object.assign(this.entity, this.form.value);
+                    if (this.isNew) {
+                        this.catalogosService.postEntity(this.entity, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_OTROS"]);
+                    }
+                    else {
+                        this.catalogosService.putEntity(this.entity, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_OTROS"]);
+                    }
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    AddEditOtrosComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'cat-add-edit-otros',
+            template: __webpack_require__(/*! ./add-edit-otros.component.html */ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.html"),
+            styles: [__webpack_require__(/*! ./add-edit-otros.component.scss */ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.scss")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], Object, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["CatalogosService"],
+            _dialog_service__WEBPACK_IMPORTED_MODULE_5__["DialogService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _usuarios_service__WEBPACK_IMPORTED_MODULE_6__["UsuariosService"]])
+    ], AddEditOtrosComponent);
+    return AddEditOtrosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/otros.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/catalogos/otros/otros.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"outlet-content\">\n  <my-card CardColor=\"primary\" [Titulo]=\"'Otros'\" [Descripcion]=\"'Se muestran los datos de otros costos.'\" Icono=\"box\"\n    [HasFontawesomeIcon]=\"true\" [ShowPrint]=\"true\" [ShowAdd]=\"isAdmin ? true : false\" (ClickAdd)=\"AddOrEdit()\">\n\n    <div my-card-content style=\"overflow: auto;\">\n      <mat-table multiTemplateDataRows [dataSource]=\"catalogPage.Items\" style=\"min-width: 900px;\" matSort\n        (matSortChange)=\"catalogosService.emitSort($event, this.pagConfig);\">\n        <!-- Crea las columnas con datos desde el servidor -->\n        <ng-container *ngFor=\"let column of columsToView()\">\n          <ng-container *ngIf=\"column.db && !column.sortable\" matColumnDef=\"{{column.column}}\">\n            <mat-header-cell *matHeaderCellDef [fxFlex]=\"column.flex\"> {{column.text}} </mat-header-cell>\n            <mat-cell *matCellDef=\"let element\" [fxFlex]=\"column.flex\">\n              <ng-container [ngSwitch]=\"column.type\">\n                <ng-container *ngSwitchCase=\"'currency'\">\n                  {{element[column.columnToShow] | currency:'MXN'}}\n                </ng-container>\n                <ng-container *ngSwitchCase=\"'date'\">\n                  {{element[column.columnToShow] | date}}\n                </ng-container>\n                <ng-container *ngSwitchDefault>\n                  {{element[column.columnToShow]}}\n                </ng-container>\n              </ng-container>\n            </mat-cell>\n          </ng-container>\n\n          <ng-container *ngIf=\"column.db && column.sortable\" matColumnDef=\"{{column.column}}\">\n            <mat-header-cell mat-sort-header *matHeaderCellDef [fxFlex]=\"column.flex\"> {{column.text}}\n            </mat-header-cell>\n            <mat-cell *matCellDef=\"let element\" [fxFlex]=\"column.flex\">\n              <ng-container [ngSwitch]=\"column.type\">\n                <ng-container *ngSwitchCase=\"'currency'\">\n                  {{element[column.columnToShow] | currency:'MXN'}}\n                </ng-container>\n                <ng-container *ngSwitchCase=\"'date'\">\n                  {{element[column.columnToShow] | date}}\n                </ng-container>\n                <ng-container *ngSwitchDefault>\n                  {{element[column.columnToShow]}}\n                </ng-container>\n              </ng-container>\n            </mat-cell>\n          </ng-container>\n        </ng-container>\n\n        <!-- Control de acciones -->\n        <ng-container matColumnDef=\"ActionEdit\">\n          <mat-header-cell class=\"noprinted\" *matHeaderCellDef fxFlex=\"150px\"> Acciones </mat-header-cell>\n          <mat-cell class=\"noprinted\" *matCellDef=\"let row\" fxFlex=\"150px\">\n            <ng-container *ngIf=\"!isAdmin\">\n              <div fxLayout=\"row\" fxFlex=\"100%\" fxLayoutAlign=\"center center\">\n                <mat-icon>cancel</mat-icon>\n              </div>\n            </ng-container>\n            <ng-container *ngIf=\"isAdmin\">\n              <button class=\"orange-fg\" mat-icon-button (click)=\"AddOrEdit(row)\">\n                <mat-icon>edit</mat-icon>\n              </button>\n            </ng-container>\n          </mat-cell>\n        </ng-container>\n\n\n        <!-- Definicion de filas y columnas -->\n        <mat-header-row *matHeaderRowDef=\"columns()\"></mat-header-row>\n        <mat-row *matRowDef=\"let material; columns: columns();\"></mat-row>\n      </mat-table>\n      <mat-progress-bar color=\"accent\" *ngIf=\"isLoading\" mode=\"query\"></mat-progress-bar>\n    </div>\n\n\n    <div my-card-footer>\n      <mat-paginator [length]=\"catalogPage.TotalCount\" [pageIndex]=\"pagConfig.pageNumber - 1\" [pageSize]=\"10\"\n        [pageSizeOptions]=\"[10,25,50,75,100]\" (page)=\"catalogosService.emitPaginator($event, pagConfig)\">\n      </mat-paginator>\n    </div>\n\n  </my-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/otros.component.scss":
+/*!******************************************************!*\
+  !*** ./src/app/catalogos/otros/otros.component.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/catalogos/otros/otros.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/catalogos/otros/otros.component.ts ***!
+  \****************************************************/
+/*! exports provided: OtrosComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OtrosComponent", function() { return OtrosComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _catalogos_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../catalogos.service */ "./src/app/catalogos.service.ts");
+/* harmony import */ var _usuarios_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../usuarios.service */ "./src/app/usuarios.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../dialog.service */ "./src/app/dialog.service.ts");
+/* harmony import */ var _dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../dialog.component */ "./src/app/dialog.component.ts");
+/* harmony import */ var _add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./add-edit-otros/add-edit-otros.component */ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var OtrosComponent = /** @class */ (function () {
+    function OtrosComponent(catalogosService, usuariosService, dialog, dialogService) {
+        var _this = this;
+        this.catalogosService = catalogosService;
+        this.usuariosService = usuariosService;
+        this.dialog = dialog;
+        this.dialogService = dialogService;
+        /**
+         * Contenido del Catalogo
+         */
+        this.catalogPage = {
+            TotalCount: 0,
+            TotalPages: 0,
+            Items: null,
+        };
+        /**
+         * Configuracion del Paginador
+         */
+        this.pagConfig = {
+            pageSize: 10,
+            pageNumber: 1,
+            orderType: _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["OrderTypes"].ASC,
+            orderBy: 'Id',
+            query: '',
+        };
+        this.isLoading = false;
+        this.isAdmin = false;
+        this.needRefresh$ = this.catalogosService.needRefresh.subscribe(function (p) {
+            _this.fillCatalog();
+        });
+        this.subIsAdmin$ = this.usuariosService.isAdmin().subscribe(function (o) {
+            _this.isAdmin = o;
+            _this.fillCatalog();
+        });
+    }
+    OtrosComponent.prototype.ngOnInit = function () { };
+    OtrosComponent.prototype.ngOnDestroy = function () {
+        this.subIsAdmin$.unsubscribe();
+        this.needRefresh$.unsubscribe();
+    };
+    /**
+     * Llena el catalogo
+     */
+    OtrosComponent.prototype.fillCatalog = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        this.isLoading = true;
+                        _a = this;
+                        return [4 /*yield*/, this.catalogosService.getCollection(this.pagConfig, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_OTROS"])];
+                    case 1:
+                        _a.catalogPage = _b.sent();
+                        this.isLoading = false;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Define la coleccion de las columnas
+     */
+    OtrosComponent.prototype.columsToView = function () {
+        return [
+            // new Column('Id', 'Id', { flex: '100px' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Nombre', 'Nombre'),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Costo', 'Costo', { type: 'currency' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Precio', 'Precio', { type: 'currency' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('ActionEdit', 'Acciones', { sortable: false, db: false }),
+        ];
+    };
+    /**
+     * Regresa el nombre de las columnas a mostrar
+     */
+    OtrosComponent.prototype.columns = function () {
+        return this.columsToView().map(function (p) { return p.column; });
+    };
+    OtrosComponent.prototype.AddOrEdit = function (entity) {
+        var _this = this;
+        if (entity === void 0) { entity = null; }
+        this.dialog
+            .open(_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_6__["AddEditOtrosComponent"], {
+            disableClose: true,
+            data: entity,
+            width: '400px',
+        })
+            .afterClosed()
+            .toPromise()
+            .then(function (r) {
+            if (r === _dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogResults"].Ok) {
+                _this.fillCatalog();
+            }
+        });
+    };
+    OtrosComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'cat-otros',
+            template: __webpack_require__(/*! ./otros.component.html */ "./src/app/catalogos/otros/otros.component.html"),
+            styles: [__webpack_require__(/*! ./otros.component.scss */ "./src/app/catalogos/otros/otros.component.scss")],
+        }),
+        __metadata("design:paramtypes", [_catalogos_service__WEBPACK_IMPORTED_MODULE_1__["CatalogosService"],
+            _usuarios_service__WEBPACK_IMPORTED_MODULE_2__["UsuariosService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"]])
+    ], OtrosComponent);
+    return OtrosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- spinner -->\n<div *ngIf=\"isLoading\" fxLayoutAlign=\"center center\" fxFlex=\"100%\">\n  <mat-spinner color=\"accent\" diameter=\"80\"></mat-spinner>\n</div>\n\n<!-- Formulario -->\n<form *ngIf=\"!isLoading\" fxFlex=\"100%\" style=\"position:relative;\" fxLayout=\"column\" [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n  <h2 mat-dialog-title>{{isNew ? 'Agregar' : 'Editar'}} Tinta</h2>\n  <mat-divider class=\"dialog-divider\"></mat-divider>\n\n  <!-- Contenido del dialogo -->\n  <div mat-dialog-content class=\"mat-typography\">\n    <div *ngIf=\"!isLoading\" fxLayout=\"column\">\n      <div fxLayout=\"column\">\n        <wrap-inputs [controls]=\"ctls\" [fGroup]=\"form\" *ngFor=\"let ctls of ViewForm\"></wrap-inputs>\n      </div>\n    </div>\n  </div>\n  <mat-divider class=\"dialog-divider\"></mat-divider>\n  <div mat-dialog-actions fxLayout=\"row\" fxFlex=\"80px\" fxLayoutAlign=\"center center\">\n    <button type=\"submit\" mat-raised-button color=\"warn\">{{isNew ? 'Guardar' : 'Actualizar'}}</button>\n  </div>\n\n  <!-- CloseButton -->\n  <button class=\"closeButton\" mat-dialog-close tabIndex=\"3\" color=\"warn\" mat-icon-button>\n    <mat-icon>close</mat-icon>\n  </button>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: AddEditTintaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddEditTintaComponent", function() { return AddEditTintaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _catalogos_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../catalogos.service */ "./src/app/catalogos.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../dialog.component */ "./src/app/dialog.component.ts");
+/* harmony import */ var _dialog_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../dialog.service */ "./src/app/dialog.service.ts");
+/* harmony import */ var _usuarios_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../usuarios.service */ "./src/app/usuarios.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var AddEditTintaComponent = /** @class */ (function () {
+    function AddEditTintaComponent(dialogRef, data, catalogosService, dialogService, fb, usuariosService) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.catalogosService = catalogosService;
+        this.dialogService = dialogService;
+        this.fb = fb;
+        this.usuariosService = usuariosService;
+        this.ViewForm = [
+            [
+                {
+                    name: 'Nombre',
+                    text: 'Nombre de la Tinta',
+                    smflex: '100%',
+                },
+            ],
+            [
+                {
+                    name: 'Tipo',
+                    text: 'Tipo de Tinta',
+                    smflex: '100%',
+                },
+            ],
+            [{ name: 'Costo', type: 'currency' }, { name: 'Precio', type: 'currency' }],
+        ];
+        this.entity = data;
+        this.isNew = this.entity ? false : true;
+        this.isLoading = false;
+    }
+    AddEditTintaComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.onSuccess$ = this.catalogosService.onHttpComplete.pipe().subscribe(function (o) {
+            _this.dialogService
+                .showDialog('Correcto...', o, { Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogIcons"].Success })
+                .then(function () { return _this.dialogRef.close(_dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogResults"].Ok); });
+        });
+        this.onError$ = this.catalogosService.onHttpError.pipe().subscribe(function (e) {
+            _this.dialogService
+                .showDialog('Error...', _this.dialogService.getModelError(e), {
+                Icon: _dialog_component__WEBPACK_IMPORTED_MODULE_4__["DialogIcons"].Error,
+            })
+                .then(function () { return (_this.isLoading = false); });
+        });
+        this.createForm();
+    };
+    AddEditTintaComponent.prototype.ngOnDestroy = function () {
+        this.onSuccess$.unsubscribe();
+        this.onError$.unsubscribe();
+    };
+    AddEditTintaComponent.prototype.createForm = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.entity = this.entity ? this.entity : {};
+                this.form = this.fb.group({
+                    TintaId: [this.entity.TintaId],
+                    Nombre: [this.entity.Nombre, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                    Tipo: [this.entity.Tipo],
+                    Costo: [this.entity.Costo, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                    Precio: [this.entity.Precio, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    AddEditTintaComponent.prototype.onSubmit = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.isLoading = true;
+                if (this.form.valid) {
+                    this.entity = Object.assign(this.entity, this.form.value);
+                    if (this.isNew) {
+                        this.catalogosService.postEntity(this.entity, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_TINTAS"]);
+                    }
+                    else {
+                        this.catalogosService.putEntity(this.entity, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_TINTAS"]);
+                    }
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    AddEditTintaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'cat-add-edit-tinta',
+            template: __webpack_require__(/*! ./add-edit-tinta.component.html */ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.html"),
+            styles: [__webpack_require__(/*! ./add-edit-tinta.component.scss */ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.scss")],
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], Object, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["CatalogosService"],
+            _dialog_service__WEBPACK_IMPORTED_MODULE_5__["DialogService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
+            _usuarios_service__WEBPACK_IMPORTED_MODULE_6__["UsuariosService"]])
+    ], AddEditTintaComponent);
+    return AddEditTintaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/tintas.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/catalogos/tintas/tintas.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"outlet-content\">\n  <my-card CardColor=\"primary\" [Titulo]=\"'Tintas'\" [Descripcion]=\"'Se muestran los tipos de tintas disponibles.'\" Icono=\"tint\"\n    [HasFontawesomeIcon]=\"true\" [ShowPrint]=\"true\" [ShowAdd]=\"isAdmin ? true : false\" (ClickAdd)=\"AddOrEdit()\">\n\n    <div my-card-content style=\"overflow: auto;\">\n      <mat-table multiTemplateDataRows [dataSource]=\"catalogPage.Items\" style=\"min-width: 900px;\" matSort\n        (matSortChange)=\"catalogosService.emitSort($event, this.pagConfig);\">\n        <!-- Crea las columnas con datos desde el servidor -->\n        <ng-container *ngFor=\"let column of columsToView()\">\n          <ng-container *ngIf=\"column.db && !column.sortable\" matColumnDef=\"{{column.column}}\">\n            <mat-header-cell *matHeaderCellDef [fxFlex]=\"column.flex\"> {{column.text}} </mat-header-cell>\n            <mat-cell *matCellDef=\"let element\" [fxFlex]=\"column.flex\">\n              <ng-container [ngSwitch]=\"column.type\">\n                <ng-container *ngSwitchCase=\"'currency'\">\n                  {{element[column.columnToShow] | currency:'MXN'}}\n                </ng-container>\n                <ng-container *ngSwitchCase=\"'date'\">\n                  {{element[column.columnToShow] | date}}\n                </ng-container>\n                <ng-container *ngSwitchDefault>\n                  {{element[column.columnToShow]}}\n                </ng-container>\n              </ng-container>\n            </mat-cell>\n          </ng-container>\n\n          <ng-container *ngIf=\"column.db && column.sortable\" matColumnDef=\"{{column.column}}\">\n            <mat-header-cell mat-sort-header *matHeaderCellDef [fxFlex]=\"column.flex\"> {{column.text}}\n            </mat-header-cell>\n            <mat-cell *matCellDef=\"let element\" [fxFlex]=\"column.flex\">\n              <ng-container [ngSwitch]=\"column.type\">\n                <ng-container *ngSwitchCase=\"'currency'\">\n                  {{element[column.columnToShow] | currency:'MXN'}}\n                </ng-container>\n                <ng-container *ngSwitchCase=\"'date'\">\n                  {{element[column.columnToShow] | date}}\n                </ng-container>\n                <ng-container *ngSwitchDefault>\n                  {{element[column.columnToShow]}}\n                </ng-container>\n              </ng-container>\n            </mat-cell>\n          </ng-container>\n        </ng-container>\n\n        <!-- Control de acciones -->\n        <ng-container matColumnDef=\"ActionEdit\">\n          <mat-header-cell class=\"noprinted\" *matHeaderCellDef fxFlex=\"150px\"> Acciones </mat-header-cell>\n          <mat-cell class=\"noprinted\" *matCellDef=\"let row\" fxFlex=\"150px\">\n            <ng-container *ngIf=\"!isAdmin\">\n              <div fxLayout=\"row\" fxFlex=\"100%\" fxLayoutAlign=\"center center\">\n\n                <mat-icon>cancel</mat-icon>\n              </div>\n            </ng-container>\n            <ng-container *ngIf=\"isAdmin\">\n              <button class=\"orange-fg\" mat-icon-button (click)=\"AddOrEdit(row)\">\n                <mat-icon>edit</mat-icon>\n              </button>\n            </ng-container>\n          </mat-cell>\n        </ng-container>\n\n\n        <!-- Definicion de filas y columnas -->\n        <mat-header-row *matHeaderRowDef=\"columns()\"></mat-header-row>\n        <mat-row *matRowDef=\"let material; columns: columns();\"></mat-row>\n      </mat-table>\n      <mat-progress-bar color=\"accent\" *ngIf=\"isLoading\" mode=\"query\"></mat-progress-bar>\n    </div>\n\n\n    <div my-card-footer>\n      <mat-paginator [length]=\"catalogPage.TotalCount\" [pageIndex]=\"pagConfig.pageNumber - 1\" [pageSize]=\"10\"\n        [pageSizeOptions]=\"[10,25,50,75,100]\" (page)=\"catalogosService.emitPaginator($event, pagConfig)\">\n      </mat-paginator>\n    </div>\n\n  </my-card>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/tintas.component.scss":
+/*!********************************************************!*\
+  !*** ./src/app/catalogos/tintas/tintas.component.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/catalogos/tintas/tintas.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/catalogos/tintas/tintas.component.ts ***!
+  \******************************************************/
+/*! exports provided: TintasComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TintasComponent", function() { return TintasComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _catalogos_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../catalogos.service */ "./src/app/catalogos.service.ts");
+/* harmony import */ var _usuarios_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../usuarios.service */ "./src/app/usuarios.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../dialog.service */ "./src/app/dialog.service.ts");
+/* harmony import */ var _add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./add-edit-tinta/add-edit-tinta.component */ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.ts");
+/* harmony import */ var _dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../dialog.component */ "./src/app/dialog.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var TintasComponent = /** @class */ (function () {
+    function TintasComponent(catalogosService, usuariosService, dialog, dialogService) {
+        var _this = this;
+        this.catalogosService = catalogosService;
+        this.usuariosService = usuariosService;
+        this.dialog = dialog;
+        this.dialogService = dialogService;
+        /**
+         * Contenido del Catalogo
+         */
+        this.catalogPage = {
+            TotalCount: 0,
+            TotalPages: 0,
+            Items: null,
+        };
+        /**
+         * Configuracion del Paginador
+         */
+        this.pagConfig = {
+            pageSize: 10,
+            pageNumber: 1,
+            orderType: _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["OrderTypes"].ASC,
+            orderBy: 'Id',
+            query: '',
+        };
+        this.isLoading = false;
+        this.isAdmin = false;
+        this.needRefresh$ = this.catalogosService.needRefresh.subscribe(function (p) {
+            _this.fillCatalog();
+        });
+        this.subIsAdmin$ = this.usuariosService.isAdmin().subscribe(function (o) {
+            _this.isAdmin = o;
+            _this.fillCatalog();
+        });
+    }
+    TintasComponent.prototype.ngOnInit = function () { };
+    TintasComponent.prototype.ngOnDestroy = function () {
+        this.subIsAdmin$.unsubscribe();
+        this.needRefresh$.unsubscribe();
+    };
+    /**
+     * Llena el catalogo
+     */
+    TintasComponent.prototype.fillCatalog = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        this.isLoading = true;
+                        _a = this;
+                        return [4 /*yield*/, this.catalogosService.getCollection(this.pagConfig, _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["ROUTE_TINTAS"])];
+                    case 1:
+                        _a.catalogPage = _b.sent();
+                        this.isLoading = false;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Define la coleccion de las columnas
+     */
+    TintasComponent.prototype.columsToView = function () {
+        return [
+            // new Column('Id', 'Id', { flex: '100px' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Nombre', 'Nombre de la Tinta'),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Tipo', 'Tipo'),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Costo', 'Costo', { type: 'currency' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('Precio', 'Precio', { type: 'currency' }),
+            new _catalogos_service__WEBPACK_IMPORTED_MODULE_1__["Column"]('ActionEdit', 'Acciones', { sortable: false, db: false }),
+        ];
+    };
+    /**
+     * Regresa el nombre de las columnas a mostrar
+     */
+    TintasComponent.prototype.columns = function () {
+        return this.columsToView().map(function (p) { return p.column; });
+    };
+    TintasComponent.prototype.AddOrEdit = function (entity) {
+        var _this = this;
+        if (entity === void 0) { entity = null; }
+        this.dialog
+            .open(_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_5__["AddEditTintaComponent"], {
+            disableClose: true,
+            data: entity,
+            width: '400px',
+        })
+            .afterClosed()
+            .toPromise()
+            .then(function (r) {
+            if (r === _dialog_component__WEBPACK_IMPORTED_MODULE_6__["DialogResults"].Ok) {
+                _this.fillCatalog();
+            }
+        });
+    };
+    TintasComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'cat-tintas',
+            template: __webpack_require__(/*! ./tintas.component.html */ "./src/app/catalogos/tintas/tintas.component.html"),
+            styles: [__webpack_require__(/*! ./tintas.component.scss */ "./src/app/catalogos/tintas/tintas.component.scss")],
+        }),
+        __metadata("design:paramtypes", [_catalogos_service__WEBPACK_IMPORTED_MODULE_1__["CatalogosService"],
+            _usuarios_service__WEBPACK_IMPORTED_MODULE_2__["UsuariosService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"]])
+    ], TintasComponent);
+    return TintasComponent;
 }());
 
 

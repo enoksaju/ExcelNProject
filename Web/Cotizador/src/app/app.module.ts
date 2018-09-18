@@ -46,6 +46,10 @@ import { AddEditImpresoraComponent } from './catalogos/impresoras/add-edit-impre
 import { AddRodilloComponent } from './catalogos/impresoras/add-edit-impresora/add-rodillo.component';
 import { AddConfigTintaComponent } from './catalogos/impresoras/add-edit-impresora/add-config-tinta.component';
 import { InitialPageComponent } from './initial-page/initial-page.component';
+import { TintasComponent } from './catalogos/tintas/tintas.component';
+import { OtrosComponent } from './catalogos/otros/otros.component';
+import { AddEditTintaComponent } from './catalogos/tintas/add-edit-tinta/add-edit-tinta.component';
+import { AddEditOtrosComponent } from './catalogos/otros/add-edit-otros/add-edit-otros.component';
 
 registerLocaleData(localeMx, 'es-MX');
 
@@ -77,6 +81,10 @@ registerLocaleData(localeMx, 'es-MX');
     AddRodilloComponent,
     AddConfigTintaComponent,
     InitialPageComponent,
+    TintasComponent,
+    OtrosComponent,
+    AddEditTintaComponent,
+    AddEditOtrosComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +118,8 @@ registerLocaleData(localeMx, 'es-MX');
     AddEditImpresoraComponent,
     AddRodilloComponent,
     AddConfigTintaComponent,
+    AddEditTintaComponent,
+    AddEditOtrosComponent,
   ],
 })
 export class AppModule {

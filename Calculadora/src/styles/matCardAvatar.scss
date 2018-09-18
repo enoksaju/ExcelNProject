@@ -1,0 +1,31 @@
+%mat-card-avatar {
+  .mat-icon {
+    @include md-icon-size(35px);
+  }
+}
+.mat-card {
+  margin: 10px;
+}
+
+@mixin CardAvatar($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  .mat-card-avatar {
+    place-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    &.mat-primary {
+      @extend %mat-card-avatar;
+      background-color: mat-color($primary);
+      color: mat-color($primary, default-contrast);
+    }
+    &.mat-accent {
+      @extend %mat-card-avatar;
+      background-color: mat-color($accent);
+      color: mat-color($accent, default-contrast);
+    }
+  }
+}

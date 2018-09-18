@@ -9,21 +9,18 @@ import {
   UnidadesMaterial,
   ICalibre,
   IFamiliasMateriales,
-  ROUTE_FAMILIA_MATERIALES
+  ROUTE_FAMILIA_MATERIALES,
 } from '../../catalogos.service';
 import { DialogService } from '../../dialog.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../usuarios.service';
 import { Subscription } from 'rxjs';
-import {
-  IInputConfig,
-  ISelectOptions
-} from '../../common/wrap-inputs/wrap-inputs.component';
+import { IInputConfig, ISelectOptions } from '../../common/wrap-inputs/wrap-inputs.component';
 
 @Component({
   selector: 'cat-add-edit-material',
   templateUrl: './add-edit-material.component.html',
-  styles: []
+  styles: [],
 })
 export class AddEditMaterialComponent implements OnInit, OnDestroy {
   isNew: boolean;
@@ -41,15 +38,12 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
   ViewForm: IInputConfig[][];
 
   constructor(
-    public dialogRef: MatDialogRef<
-      AddEditFamiliaMaterialesComponent,
-      DialogResults
-    >,
+    public dialogRef: MatDialogRef<AddEditFamiliaMaterialesComponent, DialogResults>,
     @Inject(MAT_DIALOG_DATA) public data: IMaterial,
     private catalogosService: CatalogosService,
     private dialogService: DialogService,
     private fb: FormBuilder,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
   ) {
     this.entity = data;
     this.isNew = this.entity ? false : true;
@@ -60,7 +54,7 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
       .then(value => {
         const fams: ISelectOptions[] = value.Items.map(i => ({
           display: i.NombreFamilia,
-          value: i.Id
+          value: i.Id,
         }));
         this.ViewForm = [
           [
@@ -69,8 +63,8 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
               text: 'Familia de Materiales',
               smflex: '100%',
               type: 'select',
-              selectOptions: fams
-            }
+              selectOptions: fams,
+            },
           ],
           [{ name: 'Apariencia' }, { name: 'Caracteristicas' }],
           [
@@ -78,44 +72,36 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
               name: 'Unidad',
               text: 'Unidad de Calibre',
               type: 'select',
-              selectOptions: [
-                { display: 'Micras', value: 0 },
-                { display: 'CI', value: 1 }
-              ]
+              selectOptions: [{ display: 'Micras', value: 0 }, { display: 'CI', value: 1 }],
             },
             {
               name: 'FactorDensidad',
               text: 'Factor de Densidad',
-              type: 'number'
-            }
+              type: 'number',
+            },
           ],
           [
             { name: 'PrecioInicial', text: 'Precio Inicial', type: 'currency' },
-            { name: 'CostoInicial', text: 'Costo Inicial', type: 'currency' }
+            { name: 'CostoInicial', text: 'Costo Inicial', type: 'currency' },
           ],
-          [
-            { name: 'Metalizado', type: 'checkbox' },
-            { name: 'Convenio', type: 'checkbox' }
-          ],
-          [{ name: 'FechaOperacion', text: 'Fecha de Operación', type: 'date' }]
+          [{ name: 'Metalizado', type: 'checkbox' }, { name: 'Convenio', type: 'checkbox' }],
+          [{ name: 'FechaOperacion', text: 'Fecha de Operación', type: 'date' }],
         ];
         this.isLoading = false;
       });
   }
 
   ngOnInit(): void {
-    this.onSuccess$ = this.catalogosService.onHttpComplete
-      .pipe()
-      .subscribe(o => {
-        this.dialogService
-          .showDialog('Correcto...', o, { Icon: DialogIcons.Success })
-          .then(() => this.dialogRef.close(DialogResults.Ok));
-      });
+    this.onSuccess$ = this.catalogosService.onHttpComplete.pipe().subscribe(o => {
+      this.dialogService
+        .showDialog('Correcto...', o, { Icon: DialogIcons.Success })
+        .then(() => this.dialogRef.close(DialogResults.Ok));
+    });
 
     this.onError$ = this.catalogosService.onHttpError.pipe().subscribe(e => {
       this.dialogService
         .showDialog('Error...', this.dialogService.getModelError(e), {
-          Icon: DialogIcons.Error
+          Icon: DialogIcons.Error,
         })
         .then(() => (this.isLoading = false));
     });
@@ -140,15 +126,12 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
           Metalizado: false,
           Convenio: false,
           FechaOperacion: new Date(),
-          Calibres: new Array<ICalibre>()
+          Calibres: new Array<ICalibre>(),
         };
 
     this.form = this.fb.group({
       Id: [this.entity.Id],
-      FamiliaMateriales_Id: [
-        this.entity.FamiliaMateriales_Id,
-        Validators.required
-      ],
+      FamiliaMateriales_Id: [this.entity.FamiliaMateriales_Id, Validators.required],
       Apariencia: [this.entity.Apariencia, Validators.required],
       Caracteristicas: [this.entity.Caracteristicas],
       Unidad: [this.entity.Unidad],
@@ -157,12 +140,10 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
       CostoInicial: [this.entity.CostoInicial],
       Metalizado: [this.entity.Metalizado],
       Convenio: [this.entity.Convenio],
-      FechaOperacion: [this.entity.FechaOperacion, Validators.required]
+      FechaOperacion: [this.entity.FechaOperacion, Validators.required],
     });
 
-    this.form.valueChanges
-      .pipe()
-      .subscribe((g: IMaterial) => (this.entity.Unidad = g.Unidad));
+    this.form.valueChanges.pipe().subscribe((g: IMaterial) => (this.entity.Unidad = g.Unidad));
   }
 
   async onSubmit() {
@@ -189,16 +170,14 @@ export class AddEditMaterialComponent implements OnInit, OnDestroy {
     if (
       calibre.toString() !== '' &&
       calibre >= 0 &&
-      this.entity.Calibres.findIndex(
-        t => t.Valor.toString() === calibre.toString()
-      ) === -1
+      this.entity.Calibres.findIndex(t => t.Valor.toString() === calibre.toString()) === -1
     ) {
       this.entity.Calibres.push({ MaterialId: this.entity.Id, Valor: calibre });
     } else {
       this.dialogService.showDialog(
         'Error',
         'El valor que intenta agregar ya existe o es invalido',
-        { Icon: DialogIcons.Error }
+        { Icon: DialogIcons.Error },
       );
       console.error('valor invalido');
     }

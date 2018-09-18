@@ -171,7 +171,7 @@ namespace Cotizador.Controllers
 
 		// POST api/Account/Register		
 		[Route ( "Register" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> Register ( RegisterBindingModel model )
 		{
 
@@ -234,7 +234,7 @@ namespace Cotizador.Controllers
 		}
 
 		[Route ( "ManageRoles" )]
-		[Authorize ( Roles = "Administrador, Sistemas, Develop" )]
+		[Authorize ( Roles = "Administrador, Sistemas, Develop, Administrador Ventas" )]
 		public async Task<IHttpActionResult> ManageRoles ( AddRemoveUserRoleModel model )
 		{
 			if ( !ModelState.IsValid )

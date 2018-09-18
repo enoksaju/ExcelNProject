@@ -1,0 +1,39 @@
+<mat-drawer-container fxFlexFill>
+  <mat-drawer #drawer fxFlexFill mode="over" fxLayout="column" class="menu">
+
+    <button mat-icon-button color="warn" style="position:absolute; top:0; right: 0;" (click)="drawer.toggle()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <div fxFlex="150px" class="menu-ban mat-elevation-z10" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+      <img src="assets/logo.png">
+      <div fxLayout="column">
+        <span class="mat-headline">FlexCalc</span>
+        <span class="mat-caption">Calculadora para la Flexografía</span>
+      </div>
+    </div>
+
+    <div fxLayoutAlign="center center" fxLayoutGap="5px" fxLayout="column" fxFlex="100%">
+
+      <span fxLayout="row" class="menu-item" [routerLink]='itm.link' (click)="drawer.toggle()" fxFlex="50px"
+        fxLayoutAlign="center center" *ngFor="let itm of menu">
+        <mat-icon *ngIf="itm.icono" class="menu-icon">{{itm.icono}}</mat-icon>
+        <h2 style="margin: 0;">{{itm.texto}}</h2>
+      </span>
+
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content" fxFlexFill fxLayout="column">
+    <mat-toolbar color="primary" style="position:sticky; top:0;z-index:1" class="mat-elevation-z5">
+      <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>
+          menu
+        </mat-icon>
+      </button>
+    </mat-toolbar>
+    <div fxFlex="100%">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

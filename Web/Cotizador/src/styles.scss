@@ -4,6 +4,8 @@
 @import 'styles/styles-custom-mat-card.scss';
 @import 'styles/styles-loader.scss';
 @import 'styles/styles-variables.scss';
+
+
 $light-app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 $dark-app-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-warn);
 @include angular-material-theme($dark-app-theme);
@@ -19,6 +21,7 @@ $dark-app-theme: mat-dark-theme($app-dark-primary, $app-dark-accent, $app-dark-w
     filter: opacity(55%);
   }
 }
+
 @media print {
   body,
   html {
