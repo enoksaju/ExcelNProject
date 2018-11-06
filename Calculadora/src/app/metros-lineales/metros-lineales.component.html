@@ -1,83 +1,79 @@
-<mat-tab-group headerPosition="below" class="fill" mat-stretch-tabs>
+<mat-card>
+  <mat-card-content fxLayout="column">
+    <mat-form-field appearance="standard">
+      <mat-label>
+        <mat-icon>layers</mat-icon>
+        <span>Sustrato</span>
+      </mat-label>
+      <mat-select required [value]="materialId" (selectionChange)="onMaterialChange($event)">
+        <mat-select-trigger>
+          {{material.nombre}}
+        </mat-select-trigger>
+        <mat-option *ngFor="let mat of materiales" [value]="mat.id" style="height: 4em!important">
+          <div fxLayout="column">
+            <span class="mat-body-2" matBadge="4" matBadgeOverlap="true">{{mat.nombre}} </span>
+            <span class="mat-caption">({{mat.abrev}}) - {{mat.densidad | number:'1.3-3'}} g/cm <sup>3</sup></span>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-option>
+      </mat-select>
+      <mat-hint>({{material.abrev}}) - {{material.densidad | number:'1.3-3'}} g/cm <sup>3</sup> </mat-hint>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex appearance="standard">
+        <mat-label>
+          <mat-icon>swap_horiz</mat-icon><span>Ancho</span>
+        </mat-label>
+        <input [(ngModel)]="MaterialConfig.Ancho" required (ngModelChange)="updateMaterialConfig()" matInput type="number"
+          min="0" max="200" step="0.05">
+        <span matSuffix>cm</span>
+      </mat-form-field>
+      <mat-form-field fxFlex appearance="standard">
+        <mat-label>
+          <mat-icon>vertical_align_center</mat-icon><span>Calibre</span>
+        </mat-label>
+        <input [(ngModel)]="MaterialConfig.Calibre" required (ngModelChange)="updateMaterialConfig()" matInput type="number"
+          min="0" max="500" step="0.05">
+        <span matSuffix>Um</span>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-tab-group fxFlex="100%" headerPosition="below" mat-stretch-tabs>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>thumb_up</mat-icon>
+      <mat-icon color="accent">vertical_align_bottom</mat-icon>(Kg)
+      <mat-icon color="warn">keyboard_arrow_right</mat-icon>
+      <mat-icon color="accent">linear_scale</mat-icon>(m)
     </ng-template>
 
     <div fxLayout="column">
       <mat-card>
-        <mat-card-header>
-          <div mat-card-avatar class="mat-accent">
-            <mat-icon>layers</mat-icon>
-          </div>
-          <mat-card-title>Material</mat-card-title>
-          <mat-card-subtitle>Material del que se calculara</mat-card-subtitle>
-        </mat-card-header>
         <mat-card-content fxLayout="column">
-          <mat-form-field appearance="standard">
+
+          <mat-form-field fxFlex appearance="standard">
             <mat-label>
-              <mat-icon>layers</mat-icon>
-              <span>Sustrato</span>
+              <mat-icon>vertical_align_bottom</mat-icon><span>Kg</span>
             </mat-label>
-            <mat-select required [value]="materialId" (selectionChange)="onMaterialChange($event)">
-              <mat-select-trigger>
-                {{material.nombre}}
-              </mat-select-trigger>
-              <mat-option *ngFor="let mat of materiales" [value]="mat.id" style="height: 4em!important">
-                <div fxLayout="column">
-                  <span class="mat-body-1">{{mat.nombre}} </span>
-                  <span class="mat-caption">({{mat.abrev}}) - {{mat.densidad | number:'1.3-3'}} g/cm <sup>3</sup></span>
-                </div>
-                <mat-divider></mat-divider>
-              </mat-option>
-            </mat-select>
-            <mat-hint>({{material.abrev}}) - {{material.densidad | number:'1.3-3'}} g/cm <sup>3</sup> </mat-hint>
+            <input [(ngModel)]="MaterialConfig.Calibre" required (ngModelChange)="updateMaterialConfig()" matInput type="number"
+              min="0" max="500" step="0.05">
+            <span matSuffix>Um</span>
           </mat-form-field>
 
-          <div fxLayout="row" fxLayoutGap="10px">
-            <mat-form-field fxFlex appearance="standard">
-              <mat-label>
-                <mat-icon>swap_horiz</mat-icon><span>Ancho</span>
-              </mat-label>
-              <input [(ngModel)]="MaterialConfig.Ancho" (ngModelChange)="updateMaterialConfig()" matInput type="number"
-                min="0" max="200" step="0.05">
-              <span matSuffix>cm</span>
-            </mat-form-field>
-            <mat-form-field fxFlex appearance="standard">
-              <mat-label>
-                <mat-icon>vertical_align_center</mat-icon><span>Calibre</span>
-              </mat-label>
-              <input [(ngModel)]="MaterialConfig.Calibre" (ngModelChange)="updateMaterialConfig()" matInput type="number"
-                min="0" max="500" step="0.05">
-              <span matSuffix>Um</span>
-            </mat-form-field>
-          </div>
-        </mat-card-content>
-      </mat-card>
 
-      <mat-card>
-        <mat-card-header>
-          <div mat-card-avatar class="mat-accent">
-            <mat-icon>settings</mat-icon>
-          </div>
-          <mat-card-title>Producción</mat-card-title>
-          <mat-card-subtitle>Condiciones de producción</mat-card-subtitle>
-        </mat-card-header>
+        </mat-card-content>
       </mat-card>
     </div>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      First
+      <mat-icon color="accent">linear_scale</mat-icon>(m)
+      <mat-icon color="warn">keyboard_arrow_right</mat-icon>
+      <mat-icon color="accent">vertical_align_bottom</mat-icon>(Kg)
     </ng-template>
-    Content 2
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-      First
-    </ng-template>
-    Content 3
+
+    Content 2<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
   </mat-tab>
 </mat-tab-group>

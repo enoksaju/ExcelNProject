@@ -17,7 +17,7 @@ namespace libProduccionDataBase.Contexto
 	/// Inherit from MySqlMigrationSqlGenerator by fixing the Index generation method, set the default type in BTREE 
 	/// <para>(the MySql manual says that in the SQL script syntax it is not necessary to specify it for the innoDB engine)</para>
 	/// </summary>
-	public class MyCustomMigrationSQLGenerator : MySqlMigrationSqlGenerator
+	public class customMigrationSQLGenerator : MySqlMigrationSqlGenerator
 	{
 		private string TrimSchemaPrefix ( string table )
 		{
@@ -72,27 +72,27 @@ namespace libProduccionDataBase.Contexto
 	/// <summary>
 	/// Inherit from DbConfiguration to set the new QSL script generator and set the conditions to work with MySQL
 	/// </summary>
-	public class MyCustomEFConfiguration : DbConfiguration
+	public class customEFConfiguration : DbConfiguration
 	{
-		public MyCustomEFConfiguration ()
+		public customEFConfiguration ()
 		{
 			AddDependencyResolver ( new MySqlDependencyResolver ( ) );
 			SetProviderFactory ( MySqlProviderInvariantName.ProviderName, new MySqlClientFactory ( ) );
 			SetProviderServices ( MySqlProviderInvariantName.ProviderName, new MySqlProviderServices ( ) );
 			SetDefaultConnectionFactory ( new MySqlConnectionFactory ( ) );
-			SetMigrationSqlGenerator ( MySqlProviderInvariantName.ProviderName, () => new MyCustomMigrationSQLGenerator ( ) );
+			SetMigrationSqlGenerator ( MySqlProviderInvariantName.ProviderName, () => new customMigrationSQLGenerator ( ) );
 			SetManifestTokenResolver ( new MySqlManifestTokenResolver ( ) );
 			SetHistoryContext ( MySqlProviderInvariantName.ProviderName,
-				( existingConnection, defaultSchema ) => new MyCustomHistoryContext ( existingConnection, defaultSchema ) );
+				( existingConnection, defaultSchema ) => new customHistoryContext ( existingConnection, defaultSchema ) );
 		}
 	}
 
 	/// <summary>
 	/// Read and write the migration history of the database during the first code migrations. This class must be in the same assembly as the EF configuration
 	/// </summary>
-	public class MyCustomHistoryContext : HistoryContext
+	public class customHistoryContext : HistoryContext
 	{
-		public MyCustomHistoryContext ( DbConnection existingConnection, string defaultSchema ) : base ( existingConnection, defaultSchema ) { }
+		public customHistoryContext ( DbConnection existingConnection, string defaultSchema ) : base ( existingConnection, defaultSchema ) { }
 
 		protected override void OnModelCreating ( System.Data.Entity.DbModelBuilder modelBuilder )
 		{

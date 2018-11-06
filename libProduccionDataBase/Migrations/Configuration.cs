@@ -16,8 +16,6 @@ namespace libProduccionDataBase.Migrations
 		public Configuration ()
 		{			
 			AutomaticMigrationsEnabled = false;
-			//SetSqlGenerator ( "MySql.Data.MySqlClient", new Contexto.MyCustomMigrationSQLGenerator ( ) );
-			//SetSqlGenerator ( "MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator ( ) );
 		}
 
 		protected override void Seed ( libProduccionDataBase.Contexto.DataBaseContexto context )

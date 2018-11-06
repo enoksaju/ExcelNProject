@@ -28,6 +28,7 @@ import {
   faDotCircle,
   faSignOutAlt,
   faLayerGroup,
+  faFileInvoiceDollar,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -96,7 +97,8 @@ library.add(
   faBox,
   faBook,
   faSignOutAlt,
-  faLayerGroup
+  faLayerGroup,
+  faFileInvoiceDollar,
 );
 
 @NgModule({

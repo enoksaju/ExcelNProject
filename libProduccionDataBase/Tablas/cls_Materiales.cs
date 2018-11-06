@@ -17,7 +17,7 @@ namespace libProduccionDataBase.Tablas
 		[MaxLength ( 250 )]
 		public string NombreFamilia { get; set; }
 		public virtual ObservableListSource<Material> Materiales => _Materiales;
-		public virtual ObservableListSource<MovimientoPrecio> Movimientos { get; set; } 
+		public virtual ObservableListSource<MovimientoPrecio> Movimientos { get; set; }
 		public override string ToString () => this.NombreFamilia;
 	}
 	[Table ( "MovPrec_Fam_Mat" )]
@@ -79,7 +79,7 @@ namespace libProduccionDataBase.Tablas
 					if ( this.Familia != null )
 					{
 						inc = ( from prec in this.Familia.Movimientos
-								where prec.FechaOperacion >= this.FechaOperacion & prec.FechaOperacion <= DateTime.Now
+								where prec.FechaOperacion.Date >= this.FechaOperacion.Date & prec.FechaOperacion.Date <= DateTime.Now.Date
 								select prec.Valor ).Sum ( );
 					}
 					return inc;
@@ -95,8 +95,47 @@ namespace libProduccionDataBase.Tablas
 		public double PrecioActual => this.PrecioInicial + this.IncrementoDecremento;
 		public double CostoActual => this.CostoInicial + this.IncrementoDecremento;
 
+		public double PrecioAFecha ( DateTime Fecha )
+		{
+			try
+			{
+				double inc = 0;
+				if ( this.Familia != null )
+				{
+					inc = ( from prec in this.Familia.Movimientos
+							where prec.FechaOperacion.Date >= this.FechaOperacion.Date & prec.FechaOperacion.Date <= Fecha.Date
+							select prec.Valor ).Sum ( );
+				}
+				return this.PrecioInicial + inc;
+			}
+			catch
+			{
+				return this.PrecioInicial;
+			}
+		}
+
+		public double CostoAFecha ( DateTime Fecha )
+		{
+			try
+			{
+				double inc = 0;
+				if ( this.Familia != null )
+				{
+					inc = ( from prec in this.Familia.Movimientos
+							where prec.FechaOperacion.Date >= this.FechaOperacion.Date & prec.FechaOperacion.Date <= Fecha.Date
+							select prec.Valor ).Sum ( );
+				}
+				return this.CostoInicial + inc;
+			}
+			catch
+			{
+				return this.CostoInicial;
+			}
+		}
+
 		public string NombreFamilia => this.Familia == null ? "" : this.Familia.ToString ( );
 		public override string ToString () => this.NombreFamilia + this.Apariencia + this.Caracteristicas;
+
 	}
 
 	[Table ( "mat_calibres" )]

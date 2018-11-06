@@ -1,11 +1,12 @@
 @import '~@angular/material/theming';
 @include mat-core();
 @import 'styles/variables.scss';
+@import 'styles/materialIcons.scss';
 @import 'styles/matCardAvatar.scss';
 
 @include angular-material-theme($app-theme);
-
 @include CardAvatar($app-theme);
+@include MaterialIcons();
 
 * {
   -webkit-user-select: none;
@@ -15,22 +16,14 @@
   user-select: none;
 }
 
-.fill.mat-tab-group {
-  height: 100%;
-  margin: 0px;
-  min-height: 100%;
-  min-width: 100%;
-  width: 100%;
-  div.mat-tab-body-wrapper {
-    flex: 1;
+// margin: 0px;
+  // min-height: 100%;
+  // min-width: 100%;
+  // width: 100%;
+  .mat-tab-body-wrapper {
+    height: 100%;
   }
-  .mat-tab-body.mat-tab-body-active {
-    position: absolute;
-  }
-  .mat-tab-body-content {
-    @extend .fill.mat-tab-group;
-  }
-}
+
 
 input {
   -webkit-user-select: auto !important;
@@ -60,4 +53,25 @@ $list: 5 10 15 20 25 30 35 40 45 50;
 }
 .mat-form-field .mat-form-field-infix {
   width: auto !important;
+}
+
+@media screen and (max-width: 959px) {
+  %no-padding-media {
+    padding: 0px !important;
+  }
+}
+
+router-outlet ~ * {
+  //height: calc(100% - 60px);
+  flex-direction: column;
+  // display: flex;
+  // flex-basis: 100%;
+  flex: 1 1 100%;
+  // box-sizing: border-box;
+  // max-height: 100%;
+  // margin-top: 10px !important;
+}
+.outlet-content {
+  @extend %no-padding-media;
+  margin: 0px 40px 0px 40px;
 }

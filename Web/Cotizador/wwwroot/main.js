@@ -327,12 +327,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _initial_page_initial_page_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./initial-page/initial-page.component */ "./src/app/initial-page/initial-page.component.ts");
 /* harmony import */ var _catalogos_tintas_tintas_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./catalogos/tintas/tintas.component */ "./src/app/catalogos/tintas/tintas.component.ts");
 /* harmony import */ var _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./catalogos/otros/otros.component */ "./src/app/catalogos/otros/otros.component.ts");
+/* harmony import */ var _cotizador_cotizador_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./cotizador/cotizador.component */ "./src/app/cotizador/cotizador.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -378,6 +380,10 @@ var routes = [
             { path: 'Otros', component: _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_13__["OtrosComponent"] },
         ],
     },
+    {
+        path: 'cotizador',
+        children: [{ path: '', component: _cotizador_cotizador_component__WEBPACK_IMPORTED_MODULE_14__["CotizadorComponent"] }],
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -402,7 +408,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"main-container mat-typography\">\r\n  <!-- SideNav -->\r\n  <mat-sidenav #sidenav class=\"mat-elevation-z15 noprinted\" style=\"width: 300px;\" fxLayout=\"column\" [opened]=\"!sideNavOpend() && usuariosService.hasToken()\"\r\n    [mode]=\"sideNavOpend() ? 'overlay' : 'side'\">\r\n\r\n    <!-- Barra de navegacion del side nav bar -->\r\n    <div class=\"mat-elevation-z3 card-user\" *ngIf=\"user\" fxFlex=\"200px\" fxLayout=\"column\">\r\n      <div [style.background-image]=\"'url(assets/bkImage.png)'\" class=\"card-user-background\"> </div>\r\n      <img class=\"card-user-profile-image mat-elevation-z10\" src=\"assets/img_avatar.png\">\r\n      <span class=\"mat-body-2 card-user-text\" [style.font-size]=\"'18px'\">{{user.Nombre}}</span>\r\n      <span class=\"mat-caption card-user-text\" [style.font-size]=\"'16px'\">{{user.Email}}</span>\r\n    </div>\r\n\r\n\r\n    <!-- Menu de Navegacion -->\r\n    <!-- Con sesion iniciada -->\r\n    <div>\r\n      <mat-nav-list>\r\n        <mat-list-item [routerLink]=\"''\">\r\n          <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'home']\"></fa-icon>\r\n          <h4 mat-line>Inicio</h4>\r\n        </mat-list-item>\r\n        <mat-accordion>\r\n          <!-- Control de Usuarios -->\r\n          <mat-expansion-panel class=\"plain\" displayMode=\"flat\" *ngIf=\"isAdmin | async\">\r\n            <mat-expansion-panel-header>\r\n              <fa-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'users']\"></fa-icon>\r\n              <h4>Administrador</h4>\r\n            </mat-expansion-panel-header>\r\n            <mat-nav-list>\r\n              <mat-list-item [routerLink]=\"'../usuarios'\">\r\n                <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'users']\"></fa-icon>\r\n                <h4 mat-line>Usuarios</h4>\r\n              </mat-list-item>\r\n            </mat-nav-list>\r\n          </mat-expansion-panel>\r\n          <!-- Catalogos -->\r\n          <mat-list-item [routerLink]=\"'../catalogos'\">\r\n            <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'book']\"></fa-icon>\r\n            <h4 mat-line>Catalogos</h4>\r\n          </mat-list-item>\r\n        </mat-accordion>\r\n      </mat-nav-list>\r\n    </div>\r\n  </mat-sidenav>\r\n\r\n  <!-- Contenido principal de la pagina -->\r\n  <mat-sidenav-content fxLayout=\"column\" fxFlex>\r\n    <!-- ToolBar de la aplicacion en modo Movil -->\r\n    <mat-toolbar fxFlex=\"60px\" class=\"noprinted\" class=\"mat-elevation-z10\" style=\"position:sticky; top: 0px; z-index: 999;\" color=\"primary\" *ngIf=\"usuariosService.hasToken()\">\r\n\r\n      <!-- Control de apertura del SideNav -->\r\n      <button mat-icon-button *ngIf=\"sideNavOpend()\" (click)=\"sidenav.toggle()\">\r\n        <mat-icon>menu</mat-icon>\r\n      </button>\r\n\r\n      <button mat-icon-button *ngIf=\"prevRoute !== '/'\" matTooltip=\"Regresar\" [routerLink]=\"prevRoute\">\r\n        <mat-icon>arrow_back</mat-icon>\r\n      </button>\r\n\r\n      <span class=\"relleno\"></span>\r\n      <!-- Botón de apertura del menu MoreOptions -->\r\n      <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n        <mat-icon>more_vert</mat-icon>\r\n      </button>\r\n      <!-- Menu de mas opciones -->\r\n      <mat-menu #menu=\"matMenu\">\r\n        <button mat-menu-item [matMenuTriggerFor]=\"themes\">\r\n          <mat-icon>color_lens</mat-icon>\r\n          <span>Temas</span>\r\n        </button>\r\n        <button mat-menu-item (click)=\"signOut()\" [routerLink]=\"'../login'\">\r\n          <mat-icon>close</mat-icon>\r\n          <span>Cerrar Sesión</span>\r\n        </button>\r\n      </mat-menu>\r\n\r\n      <!-- Menu de Temas -->\r\n      <mat-menu #themes=\"matMenu\">\r\n        <button mat-menu-item (click)=\"darkTheme = true\">\r\n          <span>Oscuro</span>\r\n        </button>\r\n        <button mat-menu-item (click)=\"darkTheme = false\">\r\n          <span>Claro</span>\r\n        </button>\r\n      </mat-menu>\r\n    </mat-toolbar>\r\n\r\n    <!-- Contendor de Componentes Navegables -->\r\n    <div fxLayout=\"column\" style=\"position: relative;\" [@fadeAnimation]=\"o.isActivated ? o.activatedRoute : ''\">\r\n      <router-outlet #o=\"outlet\"></router-outlet>\r\n      <img src=\"assets/logocol.svg\" class=\"logo\">\r\n    </div>\r\n  </mat-sidenav-content>\r\n\r\n</mat-sidenav-container>\r\n"
+module.exports = "<mat-sidenav-container class=\"main-container mat-typography\">\r\n  <!-- SideNav -->\r\n  <mat-sidenav #sidenav class=\"mat-elevation-z15 noprinted\" style=\"width: 300px;\" fxLayout=\"column\" [opened]=\"!sideNavOpend() && usuariosService.hasToken()\"\r\n    [mode]=\"sideNavOpend() ? 'overlay' : 'side'\">\r\n\r\n    <!-- Barra de navegacion del side nav bar -->\r\n    <div class=\"mat-elevation-z3 card-user\" *ngIf=\"user\" fxFlex=\"200px\" fxLayout=\"column\">\r\n      <div [style.background-image]=\"'url(assets/bkImage.png)'\" class=\"card-user-background\"> </div>\r\n      <img class=\"card-user-profile-image mat-elevation-z10\" src=\"assets/img_avatar.png\">\r\n      <span class=\"mat-body-2 card-user-text\" [style.font-size]=\"'18px'\">{{user.Nombre}}</span>\r\n      <span class=\"mat-caption card-user-text\" [style.font-size]=\"'16px'\">{{user.Email}}</span>\r\n    </div>\r\n\r\n\r\n    <!-- Menu de Navegacion -->\r\n    <!-- Con sesion iniciada -->\r\n    <div>\r\n      <mat-nav-list>\r\n        <mat-list-item [routerLink]=\"''\">\r\n          <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'home']\"></fa-icon>\r\n          <h4 mat-line>Inicio</h4>\r\n        </mat-list-item>\r\n        <mat-accordion>\r\n\r\n          <!-- Control de Usuarios -->\r\n          <mat-expansion-panel class=\"plain\" displayMode=\"flat\" *ngIf=\"isAdmin | async\">\r\n            <mat-expansion-panel-header>\r\n              <fa-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'users']\"></fa-icon>\r\n              <h4>Administrador</h4>\r\n            </mat-expansion-panel-header>\r\n            <mat-nav-list>\r\n              <mat-list-item [routerLink]=\"'../usuarios'\">\r\n                <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'users']\"></fa-icon>\r\n                <h4 mat-line>Usuarios</h4>\r\n              </mat-list-item>\r\n            </mat-nav-list>\r\n          </mat-expansion-panel>\r\n\r\n          <!-- Catalogos -->\r\n          <mat-list-item [routerLink]=\"'../catalogos'\">\r\n            <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'book']\"></fa-icon>\r\n            <h4 mat-line>Catalogos</h4>\r\n          </mat-list-item>\r\n\r\n          <!-- Cotizador -->\r\n          <mat-list-item [routerLink]=\"'../cotizador'\">\r\n            <fa-icon mat-list-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'file-invoice-dollar']\"></fa-icon>\r\n            <h4 mat-line>Cotizador</h4>\r\n          </mat-list-item>\r\n\r\n        </mat-accordion>\r\n      </mat-nav-list>\r\n    </div>\r\n  </mat-sidenav>\r\n\r\n  <!-- Contenido principal de la pagina -->\r\n  <mat-sidenav-content fxLayout=\"column\" fxFlex>\r\n    <!-- ToolBar de la aplicacion en modo Movil -->\r\n    <mat-toolbar fxFlex=\"60px\" class=\"noprinted\" class=\"mat-elevation-z10\" style=\"position:sticky; top: 0px; z-index: 999;\"\r\n      color=\"primary\" *ngIf=\"usuariosService.hasToken()\">\r\n\r\n      <!-- Control de apertura del SideNav -->\r\n      <button mat-icon-button *ngIf=\"sideNavOpend()\" (click)=\"sidenav.toggle()\">\r\n        <mat-icon>menu</mat-icon>\r\n      </button>\r\n\r\n      <button mat-icon-button *ngIf=\"prevRoute !== '/'\" matTooltip=\"Regresar\" [routerLink]=\"prevRoute\">\r\n        <mat-icon>arrow_back</mat-icon>\r\n      </button>\r\n\r\n      <span class=\"relleno\"></span>\r\n      <!-- Botón de apertura del menu MoreOptions -->\r\n      <button mat-icon-button [matMenuTriggerFor]=\"menu\">\r\n        <mat-icon>more_vert</mat-icon>\r\n      </button>\r\n      <!-- Menu de mas opciones -->\r\n      <mat-menu #menu=\"matMenu\">\r\n        <button mat-menu-item [matMenuTriggerFor]=\"themes\">\r\n          <mat-icon>color_lens</mat-icon>\r\n          <span>Temas</span>\r\n        </button>\r\n        <button mat-menu-item (click)=\"signOut()\" [routerLink]=\"'../login'\">\r\n          <mat-icon>close</mat-icon>\r\n          <span>Cerrar Sesión</span>\r\n        </button>\r\n      </mat-menu>\r\n\r\n      <!-- Menu de Temas -->\r\n      <mat-menu #themes=\"matMenu\">\r\n        <button mat-menu-item (click)=\"darkTheme = true\">\r\n          <span>Oscuro</span>\r\n        </button>\r\n        <button mat-menu-item (click)=\"darkTheme = false\">\r\n          <span>Claro</span>\r\n        </button>\r\n      </mat-menu>\r\n    </mat-toolbar>\r\n\r\n    <!-- Contendor de Componentes Navegables -->\r\n    <div fxLayout=\"column\" style=\"position: relative;\" [@fadeAnimation]=\"o.isActivated ? o.activatedRoute : ''\">\r\n      <router-outlet #o=\"outlet\"></router-outlet>\r\n      <img src=\"assets/logocol.svg\" class=\"logo\">\r\n    </div>\r\n  </mat-sidenav-content>\r\n\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -628,6 +634,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./catalogos/otros/otros.component */ "./src/app/catalogos/otros/otros.component.ts");
 /* harmony import */ var _catalogos_tintas_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./catalogos/tintas/add-edit-tinta/add-edit-tinta.component */ "./src/app/catalogos/tintas/add-edit-tinta/add-edit-tinta.component.ts");
 /* harmony import */ var _catalogos_otros_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./catalogos/otros/add-edit-otros/add-edit-otros.component */ "./src/app/catalogos/otros/add-edit-otros/add-edit-otros.component.ts");
+/* harmony import */ var _cotizador_cotizador_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./cotizador/cotizador.component */ "./src/app/cotizador/cotizador.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -640,6 +647,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+
 
 
 
@@ -722,6 +730,7 @@ var AppModule = /** @class */ (function () {
                 _catalogos_otros_otros_component__WEBPACK_IMPORTED_MODULE_40__["OtrosComponent"],
                 _catalogos_tintas_add_edit_tinta_add_edit_tinta_component__WEBPACK_IMPORTED_MODULE_41__["AddEditTintaComponent"],
                 _catalogos_otros_add_edit_otros_add_edit_otros_component__WEBPACK_IMPORTED_MODULE_42__["AddEditOtrosComponent"],
+                _cotizador_cotizador_component__WEBPACK_IMPORTED_MODULE_43__["CotizadorComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -5052,6 +5061,58 @@ var WrapInputsContainerComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/cotizador/cotizador.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/cotizador/cotizador.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-tab-group>\n  <mat-tab>\n    <ng-template matTabLabel>\n      Mis Cotizaciones\n    </ng-template>\n    Tab1 content\n  </mat-tab>\n  <mat-tab>\n    <ng-template matTabLabel>\n      Nueva Cotización\n    </ng-template>\n    Tab2 content\n  </mat-tab>\n\n</mat-tab-group>\n"
+
+/***/ }),
+
+/***/ "./src/app/cotizador/cotizador.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/cotizador/cotizador.component.ts ***!
+  \**************************************************/
+/*! exports provided: CotizadorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CotizadorComponent", function() { return CotizadorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CotizadorComponent = /** @class */ (function () {
+    function CotizadorComponent() {
+    }
+    CotizadorComponent.prototype.ngOnInit = function () {
+    };
+    CotizadorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'cot-cotizador',
+            template: __webpack_require__(/*! ./cotizador.component.html */ "./src/app/cotizador/cotizador.component.html"),
+            styles: []
+        }),
+        __metadata("design:paramtypes", [])
+    ], CotizadorComponent);
+    return CotizadorComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/custom-breackpoints.ts":
 /*!****************************************!*\
   !*** ./src/app/custom-breackpoints.ts ***!
@@ -5559,7 +5620,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCoffee"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faInfoCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faQuestionCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCheckCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUsers"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCheck"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faPlusCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faHome"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCogs"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCubes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTint"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faClone"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faObjectGroup"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faDotCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBox"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBook"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faLayerGroup"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_4__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCoffee"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faInfoCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faQuestionCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCheckCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUsers"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCheck"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faPlusCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faHome"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCogs"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCubes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faTint"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faClone"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faObjectGroup"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faDotCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBox"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faBook"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faLayerGroup"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faFileInvoiceDollar"]);
 var MaterialModule = /** @class */ (function () {
     function MaterialModule() {
     }

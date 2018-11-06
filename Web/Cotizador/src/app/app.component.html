@@ -21,6 +21,7 @@
           <h4 mat-line>Inicio</h4>
         </mat-list-item>
         <mat-accordion>
+
           <!-- Control de Usuarios -->
           <mat-expansion-panel class="plain" displayMode="flat" *ngIf="isAdmin | async">
             <mat-expansion-panel-header>
@@ -34,11 +35,19 @@
               </mat-list-item>
             </mat-nav-list>
           </mat-expansion-panel>
+
           <!-- Catalogos -->
           <mat-list-item [routerLink]="'../catalogos'">
             <fa-icon mat-list-icon [fixedWidth]="true" [icon]="['fas', 'book']"></fa-icon>
             <h4 mat-line>Catalogos</h4>
           </mat-list-item>
+
+          <!-- Cotizador -->
+          <mat-list-item [routerLink]="'../cotizador'">
+            <fa-icon mat-list-icon [fixedWidth]="true" [icon]="['fas', 'file-invoice-dollar']"></fa-icon>
+            <h4 mat-line>Cotizador</h4>
+          </mat-list-item>
+
         </mat-accordion>
       </mat-nav-list>
     </div>
@@ -47,7 +56,8 @@
   <!-- Contenido principal de la pagina -->
   <mat-sidenav-content fxLayout="column" fxFlex>
     <!-- ToolBar de la aplicacion en modo Movil -->
-    <mat-toolbar fxFlex="60px" class="noprinted" class="mat-elevation-z10" style="position:sticky; top: 0px; z-index: 999;" color="primary" *ngIf="usuariosService.hasToken()">
+    <mat-toolbar fxFlex="60px" class="noprinted" class="mat-elevation-z10" style="position:sticky; top: 0px; z-index: 999;"
+      color="primary" *ngIf="usuariosService.hasToken()">
 
       <!-- Control de apertura del SideNav -->
       <button mat-icon-button *ngIf="sideNavOpend()" (click)="sidenav.toggle()">

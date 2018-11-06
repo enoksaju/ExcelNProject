@@ -257,6 +257,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Cotizador\" />
+    <Folder Include="Models\Cotizadores\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\libProduccionDataBase\libProduccionDataBase.csproj">

@@ -1,4 +1,4 @@
-﻿ #define DevelopDataBase
+﻿//#define DevelopDataBase
 
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using MySql.Data.EntityFramework;
 
 namespace libProduccionDataBase.Contexto
 {
-	[DbConfigurationType ( typeof ( MyCustomEFConfiguration ) )]
+	[DbConfigurationType ( typeof ( customEFConfiguration ) )]
 	public class DataBaseContexto : IdentityDbContext<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>
 	{
 		public event EventHandler SavedChanges;
@@ -66,6 +66,17 @@ namespace libProduccionDataBase.Contexto
 			  .HasRequired ( t => t.FamiliaDefectos )
 			  .WithMany ( y => y.TFamiliaDefectosTDefecto )
 			  .HasForeignKey ( c => c.TFamiliaDefectosID );
+
+
+
+			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasMany ( y => y ).WithOptional ( ).WillCascadeOnDelete ( false );
+			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasRequired ( u => u.Cliente ).WithMany ( ).WillCascadeOnDelete ( false );
+			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasRequired ( u => u.Agente ).WithMany ( ).WillCascadeOnDelete ( false );
+			//modelBuilder.Entity<Tablas.Cotizador.CotizacionDetalle> ( ).HasRequired ( u => u.MaterialBase ).WithMany ( ).WillCascadeOnDelete ( false );
+
+			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasMany ( y => y.Items ).WithRequired ( y => y.Cotizacion ).HasForeignKey ( u => u.Cotizacion_Id );
+
+
 		}
 
 		public override int SaveChanges ()
@@ -150,6 +161,14 @@ namespace libProduccionDataBase.Contexto
 		/// Coleccion de etiquetas en formato zpl
 		/// </summary>
 		public DbSet<Etiqueta> Etiquetas { get; set; }
+
+
+
+		// Cotizaciones
+		public virtual DbSet<Tablas.Cotizador.Cotizacion> Cotizaciones { get; set; }
+		public virtual DbSet<Tablas.Cotizador.CotizacionDetalle> Cotizacion_Detalle_Items { get; set; }
+
+
 		#endregion
 	}
 

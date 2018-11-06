@@ -50,6 +50,7 @@ import { TintasComponent } from './catalogos/tintas/tintas.component';
 import { OtrosComponent } from './catalogos/otros/otros.component';
 import { AddEditTintaComponent } from './catalogos/tintas/add-edit-tinta/add-edit-tinta.component';
 import { AddEditOtrosComponent } from './catalogos/otros/add-edit-otros/add-edit-otros.component';
+import { CotizadorComponent } from './cotizador/cotizador.component';
 
 registerLocaleData(localeMx, 'es-MX');
 
@@ -85,6 +86,7 @@ registerLocaleData(localeMx, 'es-MX');
     OtrosComponent,
     AddEditTintaComponent,
     AddEditOtrosComponent,
+    CotizadorComponent,
   ],
   imports: [
     BrowserModule,

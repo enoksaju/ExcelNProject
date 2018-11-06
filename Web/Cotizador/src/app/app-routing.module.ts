@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -12,6 +12,8 @@ import { DetailImpresoraComponent } from './catalogos/impresoras/detail-impresor
 import { InitialPageComponent } from './initial-page/initial-page.component';
 import { TintasComponent } from './catalogos/tintas/tintas.component';
 import { OtrosComponent } from './catalogos/otros/otros.component';
+import { patch } from 'webdriver-js-extender';
+import { CotizadorComponent } from './cotizador/cotizador.component';
 
 const routes: Routes = [
   { path: '', component: InitialPageComponent },
@@ -43,6 +45,10 @@ const routes: Routes = [
       },
       { path: 'Otros', component: OtrosComponent },
     ],
+  },
+  {
+    path: 'cotizador',
+    children: [{ path: '', component: CotizadorComponent }],
   },
 ];
 

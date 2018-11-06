@@ -19,6 +19,9 @@ const bootstrap = () => {
 if (window['cordova']) {
   console.log('Cordova found');
   document.addEventListener('deviceready', bootstrap);
+  document.addEventListener('backbutton', e => {
+    e.preventDefault();
+  });
 } else {
   console.log('Cordova not found');
   bootstrap();

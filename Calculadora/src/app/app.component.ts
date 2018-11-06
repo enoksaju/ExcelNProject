@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CordovaService } from './cordova.service';
 
 /**
  * Item de un Menu
@@ -40,5 +41,8 @@ export class AppComponent implements OnInit {
     new MenuItem('Catalogo Pantone', { icono: 'palette', link: 'pantone' })
   ];
 
+  constructor(private cordovaService: CordovaService) {
+    console.log(this.cordovaService.cordova);
+  }
   ngOnInit(): void {}
 }

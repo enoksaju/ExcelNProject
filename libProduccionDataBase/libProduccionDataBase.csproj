@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201808271622474_updateMovimientosPrecios.Designer.cs">
       <DependentUpon>201808271622474_updateMovimientosPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809242200473_cotizador.cs" />
+    <Compile Include="Migrations\201809242200473_cotizador.Designer.cs">
+      <DependentUpon>201809242200473_cotizador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
@@ -187,6 +191,8 @@
     <Compile Include="Tablas\cls_Produccion.cs" />
     <Compile Include="Tablas\cls_Recetas.cs" />
     <Compile Include="Tablas\cls_TiposProducto.cs" />
+    <Compile Include="Tablas\Cotizador\CotizadorItem.cs" />
+    <Compile Include="Tablas\Cotizador\PeliculaSinImpresion.cs" />
     <Compile Include="Tablas\EmbarquesNaveCuatro.cs" />
     <Compile Include="Tablas\PruebaMigrations.cs" />
     <Compile Include="Tablas\resSalidaRP.cs" />
@@ -265,7 +271,11 @@
     <EmbeddedResource Include="Migrations\201808271622474_updateMovimientosPrecios.resx">
       <DependentUpon>201808271622474_updateMovimientosPrecios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809242200473_cotizador.resx">
+      <DependentUpon>201809242200473_cotizador.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

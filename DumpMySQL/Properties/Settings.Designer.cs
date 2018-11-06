@@ -130,5 +130,16 @@ namespace DumpMySQL.Properties {
                 this["sendEmail"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.1.248;user id=root;password=hsj43295;persistsecurityinfo=True;data" +
+            "base=production")]
+        public string PrincipalDatabase {
+            get {
+                return ((string)(this["PrincipalDatabase"]));
+            }
+        }
     }
 }

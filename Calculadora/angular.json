@@ -67,6 +67,9 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "serve": {
+              "extractCss": true
             }
           }
         },
@@ -78,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "Calculadora:build:production"
+            },
+            "serve": {
+              "browserTarget": "Calculadora:build:serve"
             }
           }
         },
