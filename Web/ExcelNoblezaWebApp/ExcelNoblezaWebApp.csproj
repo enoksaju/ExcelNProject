@@ -446,11 +446,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\libReportsOTS.vbproj">
+    <ProjectReference Include="..\..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\libReportsOTS.vbproj">
       <Project>{c8d24004-87ff-4d73-985f-60c0a8b98369}</Project>
       <Name>libReportsOTS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
+    <ProjectReference Include="..\..\libProduccionDataBase\libProduccionDataBase.csproj">
       <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
       <Name>libProduccionDataBase</Name>
     </ProjectReference>
