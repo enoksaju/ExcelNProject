@@ -25,15 +25,13 @@ namespace libProduccionDataBase.Contexto
 #endif
 		{
 			this.Configuration.LazyLoadingEnabled = true;
-			Database.SetInitializer<DataBaseContexto> ( null );//<DataBaseContexto> ( null );
+			Database.SetInitializer<DataBaseContexto> ( null );
 		}
 
 		public static DataBaseContexto Create () => new DataBaseContexto ( );
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
-
-			//  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention>();
-			//  modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.ManyToManyCascadeDeleteConvention>();       
+  
 
 			modelBuilder.Entity<ApplicationUserLogin> ( )
 				.HasKey ( l => new { l.LoginProvider, l.ProviderKey, l.UserId } )

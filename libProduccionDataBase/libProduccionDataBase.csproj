@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201809242200473_cotizador.Designer.cs">
       <DependentUpon>201809242200473_cotizador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812051758232_addReferenciaFigura.cs" />
+    <Compile Include="Migrations\201812051758232_addReferenciaFigura.Designer.cs">
+      <DependentUpon>201812051758232_addReferenciaFigura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809242200473_cotizador.resx">
       <DependentUpon>201809242200473_cotizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051758232_addReferenciaFigura.resx">
+      <DependentUpon>201812051758232_addReferenciaFigura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

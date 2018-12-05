@@ -147,6 +147,8 @@ namespace libProduccionDataBase.Tablas {
 		public double MERMAPROCESO { get; set; }
 		public int ENABLED { get; set; }
 		public DateTime FechaCaptura { get; set; }
+		[Column("ref_fig")]
+		public string ReferenciaFigura { get; set; }
 	}
 	[Table ( "TPRODUCCION" )]
 	public class TempProduccion {
