@@ -48,7 +48,7 @@
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace">
       <HintPath>C:\Users\HSALINAS.PC-HSALINAS\Downloads\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>

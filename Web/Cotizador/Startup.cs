@@ -40,7 +40,11 @@ namespace Cotizador
 
 		public void ConfigureAuth ( IAppBuilder app )
 		{
-			app.CreatePerOwinContext( DataBaseContexto.Create);
+#if debugDB
+			app.CreatePerOwinContext(()=> {	return DataBaseContexto.Create ( "ProduccionConexionDebug" ); } );
+#else
+			app.CreatePerOwinContext ( () => { return DataBaseContexto.Create ( "ProduccionConexion" ); } );
+#endif
 
 			app.CreatePerOwinContext<ApplicationUserManager> ( ApplicationUserManager.Create );
 			app.CreatePerOwinContext<ApplicationRoleManager> ( ApplicationRoleManager.Create );

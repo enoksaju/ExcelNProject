@@ -28,11 +28,16 @@ namespace libProduccionDataBase.Contexto
 			Database.SetInitializer<DataBaseContexto> ( null );
 		}
 
+		public DataBaseContexto ( string DataBase ) : base ( DataBase )
+		{
+			this.Configuration.LazyLoadingEnabled = true;
+			Database.SetInitializer<DataBaseContexto> ( null );
+		}
+
 		public static DataBaseContexto Create () => new DataBaseContexto ( );
+		public static DataBaseContexto Create ( string DataBase ) => new DataBaseContexto ( DataBase);
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
-  
-
 			modelBuilder.Entity<ApplicationUserLogin> ( )
 				.HasKey ( l => new { l.LoginProvider, l.ProviderKey, l.UserId } )
 				.ToTable ( "Z_UserLogin" );

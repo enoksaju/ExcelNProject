@@ -77,9 +77,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201810292250287_inicial.cs" />
-    <Compile Include="Migrations\201810292250287_inicial.Designer.cs">
-      <DependentUpon>201810292250287_inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201901242201022_inicial.cs" />
+    <Compile Include="Migrations\201901242201022_inicial.Designer.cs">
+      <DependentUpon>201901242201022_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -106,8 +106,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810292250287_inicial.resx">
-      <DependentUpon>201810292250287_inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901242201022_inicial.resx">
+      <DependentUpon>201901242201022_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

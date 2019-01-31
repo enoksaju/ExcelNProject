@@ -21,31 +21,18 @@ namespace InventarioControlTry.Models
 
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
-			//base.OnModelCreating ( modelBuilder );
+			base.OnModelCreating ( modelBuilder );
 
-			modelBuilder
-			.Properties ( )
-			.Where ( p => p.PropertyType.Name == "String" &
-				!(
-					Attribute.IsDefined ( p, typeof ( KeyAttribute ) )
-					| Attribute.IsDefined ( p, typeof ( MaxLengthAttribute ) )
-					| Attribute.IsDefined ( p, typeof ( MinLengthAttribute ) )
-				)
-			)
-			.Configure ( p => p.HasMaxLength ( 250 ) );
-
-			//modelBuilder.Entity<Movimiento> ( ).Map<Solicitud> ( S => S.Requires ( "TipoMov" ).HasValue ( "SOLICITUD" ) );
-			//modelBuilder.Entity<Movimiento> ( ).Map<Transferencia> ( S => S.Requires ( "TipoMov" ).HasValue ( "TRANSFERENCIA" ) );
-			//modelBuilder.Entity<Movimiento> ( ).Map<Consumo> ( S => S.Requires ( "TipoMov" ).HasValue ( "CONSUMO" ) );
-
-			// modelBuilder.Entity<Ubicacion> ( ).Property ( p => p.RackId ).HasDatabaseGeneratedOption ( DatabaseGeneratedOption.Computed ); 
+			modelBuilder.Entity<Rollo> ( )
+				.Map<RolloMatPrima> ( m => m.Requires ( "RollType" ).HasValue ( "MP" ) )
+				.Map<RolloRetorno> ( m => m.Requires ( "RollType" ).HasValue ( "MR" ) )
+				.Map<RolloImpresion> ( m => m.Requires ( "RollType" ).HasValue ( "PI" ) )
+				.Map<RolloLaminacion> ( m => m.Requires ( "RollType" ).HasValue ( "PL" ) )
+				.Map<RolloRefinado> ( m => m.Requires ( "RollType" ).HasValue ( "PR" ) )
+				.Map<RolloProceso> ( m => m.Requires ( "RollType" ).HasValue ( "PP" ) );
 
 		}
-
-		//public DbSet<Articulo> Articulos { get; set; }
-		//public DbSet<Rack> Racks { get; set; }
-		//public DbSet<Movimiento> Movimientos { get; set; }
-		 public virtual DbSet <Movimiento > Movimientos { get; set; }
+		public virtual DbSet<Rollo> Rollos { get; set; }
 	}
 	#endregion
 

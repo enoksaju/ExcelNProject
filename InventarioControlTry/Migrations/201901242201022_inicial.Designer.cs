@@ -13,7 +13,7 @@ namespace InventarioControlTry.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201810292250287_inicial"; }
+            get { return "201901242201022_inicial"; }
         }
         
         string IMigrationMetadata.Source
