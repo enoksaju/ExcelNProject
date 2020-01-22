@@ -77,7 +77,7 @@ namespace EstacionPesaje {
 		private void CapturaProduccionRbnBtn_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Abrir OT Produccion" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -115,6 +115,19 @@ namespace EstacionPesaje {
 			ToogleBascula_btn.ImageSmall = img;
 		}
 
+		private void controlBascula1_CambioValor ( object sender, libBascula.CambioValorEventArgs e )
+		{
+
+			//if ( e.EsEstable )
+			//{
+			//	this.readyScaleImage.Image = Properties.Resources.bullet_green;
+			//}else
+			//{
+			//	this.readyScaleImage.Image = Properties.Resources.bullet_red;
+			//}
+
+		}
+
 		private void kryptonRibbonGroupButton3_Click ( object sender , EventArgs e ) {
 			Pages.Base.PageCreator.CrateAndShowMainPage (
 				new Pages.MainPages.MaquinasPage ( ) ,
@@ -149,7 +162,7 @@ namespace EstacionPesaje {
 		private void kryptonRibbonGroupButton4_Click_1 ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Abrir OT Produccion" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -196,7 +209,7 @@ namespace EstacionPesaje {
 		private void kryptonRibbonGroupButton7_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir, separe por ',' si son varias ordenes." , "Abrir OT Produccion" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -211,7 +224,7 @@ namespace EstacionPesaje {
 		private void showInstrucciones_btn_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Abrir OT Produccion" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -227,7 +240,7 @@ namespace EstacionPesaje {
 		private void kryptonRibbonGroupButton6_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Abrir Historico" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -243,7 +256,7 @@ namespace EstacionPesaje {
 		private void kryptonRibbonGroupButton9_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese nombre total o parcial del producto a buscar" , "Abrir Historico" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -287,7 +300,7 @@ namespace EstacionPesaje {
 		private void progressProduction_btn_Click ( object sender , EventArgs e ) {
 			try {
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Abrir Historico" , "*****" );
-
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 
 					Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -327,6 +340,7 @@ namespace EstacionPesaje {
 			try {
 
 				string OT = KryptonInputBox.Show ( this , "Ingrese el numero de orden que desea abrir" , "Embarques Nave 4" , "*****" );
+				OT = OT.ToUpper ( );
 				if ( OT != "" && OT != "*****" ) {
 					Pages.Base.PageCreator.CrateAndShowMainPage (
 							new Pages.MainPages.Embarques.EmbarquesN4Page ( OT ) ,
@@ -338,5 +352,7 @@ namespace EstacionPesaje {
 			}
 
 		}
+
+
 	}
 }

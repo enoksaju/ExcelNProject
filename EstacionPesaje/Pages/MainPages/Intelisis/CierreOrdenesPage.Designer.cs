@@ -23,22 +23,23 @@
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent () {
-			this.movimientosOT1 = new TRYINTELISISSELECTCTL.MovimientosOT();
+			this.ctlCierreOrdenes1 = new libIntelisisReports.Controles.ctlCierreOrdenes();
 			this.SuspendLayout();
 			// 
-			// movimientosOT1
+			// ctlCierreOrdenes1
 			// 
-			this.movimientosOT1.Location = new System.Drawing.Point(5, 5);
-			this.movimientosOT1.Name = "movimientosOT1";
-			this.movimientosOT1.Size = new System.Drawing.Size(517, 439);
-			this.movimientosOT1.TabIndex = 0;
-			this.movimientosOT1.changedOT += new System.EventHandler<string>(this.movimientosOT1_changedOT);
+			this.ctlCierreOrdenes1.Location = new System.Drawing.Point(5, 5);
+			this.ctlCierreOrdenes1.Name = "ctlCierreOrdenes1";
+			this.ctlCierreOrdenes1.OT = null;
+			this.ctlCierreOrdenes1.Size = new System.Drawing.Size(517, 439);
+			this.ctlCierreOrdenes1.TabIndex = 0;
+			this.ctlCierreOrdenes1.changedOT += new System.EventHandler<string>(this.movimientosOT1_changedOT);
 			// 
 			// CierreOrdenesPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.movimientosOT1);
+			this.Controls.Add(this.ctlCierreOrdenes1);
 			this.Name = "CierreOrdenesPage";
 			this.Padding = new System.Windows.Forms.Padding(5);
 			this.Size = new System.Drawing.Size(527, 449);
@@ -48,6 +49,6 @@
 
 		#endregion
 
-		private TRYINTELISISSELECTCTL.MovimientosOT movimientosOT1;
+		private libIntelisisReports.Controles.ctlCierreOrdenes ctlCierreOrdenes1;
 	}
 }

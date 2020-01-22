@@ -58,6 +58,13 @@
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
+         <PropertyUISetting Name="Comentarios">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="KryptonTextBox" Type="ComponentFactory.Krypton.Toolkit.KryptonTextBox" AssemblyName="Krypton Toolkit, Version=5.400.1251.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" AssemblyCodeBase="file:///D:/Otros/RecentProjects/ExcelProjects/TryAppDesktopKripton/packages/KryptonToolkitSuite5400.5.400.1251/lib/net40/Krypton Toolkit.dll" Frameworks=".NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.6.2;.NETFramework,Version=v4.7" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
       </PropertyUISettings>
    </TypeUISetting>
 </GenericObjectDataSource>

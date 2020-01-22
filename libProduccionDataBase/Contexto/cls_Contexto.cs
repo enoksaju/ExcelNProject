@@ -21,7 +21,7 @@ namespace libProduccionDataBase.Contexto
 #if DevelopDataBase
 		public DataBaseContexto () : base ( "ProduccionConexionDebug" )
 #else
-		public DataBaseContexto () : base ( "ProduccionConexion" )
+		public DataBaseContexto () :  base ( "ProduccionConexion" )
 #endif
 		{
 			this.Configuration.LazyLoadingEnabled = true;

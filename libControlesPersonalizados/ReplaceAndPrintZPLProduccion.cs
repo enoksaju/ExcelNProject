@@ -11,13 +11,17 @@ using ComponentFactory.Krypton.Toolkit;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
 
-namespace libControlesPersonalizados {
-	public partial class ReplaceAndPrintZPLProduccion : Component, IBindableComponent {
-		public ReplaceAndPrintZPLProduccion ( ) {
+namespace libControlesPersonalizados
+{
+	public partial class ReplaceAndPrintZPLProduccion : Component, IBindableComponent
+	{
+		public ReplaceAndPrintZPLProduccion ()
+		{
 			InitializeComponent ( );
 		}
 
-		public ReplaceAndPrintZPLProduccion ( IContainer container ) {
+		public ReplaceAndPrintZPLProduccion ( IContainer container )
+		{
 			container.Add ( this );
 
 			InitializeComponent ( );
@@ -27,14 +31,16 @@ namespace libControlesPersonalizados {
 
 		public string PrinterName { get { return PrinterNameGlobal; } set { PrinterNameGlobal = value; } }
 
-		public string PrintZPL ( string ZPL , libProduccionDataBase.Tablas.TempProduccion produccionElemet , Optionals optionals = null , bool simulate = false ) {
+		public string PrintZPL ( string ZPL, libProduccionDataBase.Tablas.TempProduccion produccionElemet, Optionals optionals = null, bool simulate = false )
+		{
 
 			Console.WriteLine ( produccionElemet.Proceso_.NombreProceso );
 			if ( optionals == null )
 				optionals = new Optionals ( );
 
 			string OptionalValue;
-			switch ( produccionElemet.REPETICION ) {
+			switch ( produccionElemet.REPETICION )
+			{
 				case 1:
 					OptionalValue = optionals.Optional1;
 					break;
@@ -50,12 +56,15 @@ namespace libControlesPersonalizados {
 				case 5:
 					OptionalValue = optionals.Optional5;
 					break;
+				case 6:
+					OptionalValue = optionals.optional6;
+					break;
 				default:
 					OptionalValue = optionals.Optional1;
 					break;
 			}
 
-			var produccionElementDictionary = new Dictionary<string , string> ( ) {
+			var produccionElementDictionary = new Dictionary<string, string> ( ) {
 
 				{ "@OT", produccionElemet.OT },
 				{ "@CLIENTE", produccionElemet.OrdenTrabajo.CLIENTE },
@@ -108,6 +117,17 @@ namespace libControlesPersonalizados {
 				{ "@PESOCORE", produccionElemet.PESOCORE.ToString("#0.00") },
 				{ "@PESONETO", (produccionElemet.PESOBRUTO-produccionElemet .PESOCORE).ToString("#0.00") },
 				{ "@PIEZAS", produccionElemet.PIEZAS.ToString ()},
+
+				{ "@LARGOPIESPZSALTO", (((produccionElemet.PIEZAS * produccionElemet.OrdenTrabajo.ALTO)/100)*3.28084).ToString("#0")},
+				{ "@LARGOPIESPZSANCHO", (((produccionElemet.PIEZAS * produccionElemet.OrdenTrabajo.ANCHO)/100)*3.28084).ToString("#0")},
+				{ "@LARGOPIES", ((produccionElemet.PIEZAS)*3.28084).ToString("#0")},
+
+				{ "@PZSXLB", (1000/(produccionElemet.OrdenTrabajo.KGXMILL*2.20462)).ToString("#0.00")},
+				{ "@PZSXKG", (1000/(produccionElemet.OrdenTrabajo.KGXMILL)).ToString("#0.00")},
+				{ "@PESONETOLB", ((produccionElemet.PESOBRUTO-produccionElemet .PESOCORE) * 2.20462).ToString("#0.00") },
+				{ "@PESOBRUTOLB", ((produccionElemet.PESOBRUTO) * 2.20462).ToString("#0.00") },
+				{ "@PESOCORELB", ((produccionElemet.PESOBRUTO) * 2.20462).ToString("#0.00") },
+				
 				{ "@EXTRUSIONID", produccionElemet.EXTRUSION_ID},
 				{ "@PROCESO", produccionElemet.Proceso_.NombreProceso},
 				{ "@REPETICION", produccionElemet.REPETICION.ToString ()},
@@ -122,53 +142,67 @@ namespace libControlesPersonalizados {
 				{ "@ITEMKB", (produccionElemet .OT.Substring(produccionElemet .OT.Length -3) + " " + produccionElemet .OPERADOR .Substring(produccionElemet .OPERADOR .Length -3)+" "+produccionElemet.ORIGEN + " " +produccionElemet .FECHA .Month .ToString ()).ToUpper ()},
 
 				{ "@ITEMOPTIONAL", optionals .ItemOptional },
+				{ "@ITEMTEXT", produccionElemet.Item},
 				{ "@OPTIONAL1",optionals.Optional1 },
 				{ "@OPTIONAL2",optionals.Optional2 },
 				{ "@OPTIONAL3",optionals.Optional3 },
 				{ "@OPTIONAL4",optionals.Optional4 },
 				{ "@OPTIONAL5",optionals.Optional5 },
+				{ "@OPTIONAL6",optionals.optional6 },
 				{ "@OPTIONALSEL", OptionalValue}
 			};
 
 
-			if ( produccionElemet.ENSANEO == 0 ) {
-				ZPL = Regex.Replace ( ZPL , @"(\^FXENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXENSANEO\^FS)+" , "" );
-			} else {
-				ZPL = Regex.Replace ( ZPL , @"(\^FXNOTENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXNOTENSANEO\^FS)+" , "" );
+			if ( produccionElemet.ENSANEO == 0 )
+			{
+				ZPL = Regex.Replace ( ZPL, @"(\^FXENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXENSANEO\^FS)+", "" );
+			}
+			else
+			{
+				ZPL = Regex.Replace ( ZPL, @"(\^FXNOTENSANEO\^FS){1}[A-Z0-9a-z .,\^@\n\t\r\/+$-\\]+(\^FXNOTENSANEO\^FS)+", "" );
 			}
 
 			StringBuilder stgBld = new StringBuilder ( ZPL );
 
-			var T = Regex.Matches ( ZPL , @"([@$]{1})[A-Z0-9]*" );
+			var T = Regex.Matches ( ZPL, @"([@$]{1})[A-Z0-9]*" );
 
-			foreach ( Match res in T ) {
+			foreach ( Match res in T )
+			{
 
-				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) )
+				{
 
-					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
+					stgBld.Replace ( res.Value, produccionElementDictionary[ res.Value ] );
 
-				} else {
-					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
+				}
+				else
+				{
+					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
 				}
 			}
 
 
-			var MakeOptionals = Regex.Matches ( ZPL , @"([@$]{1})[A-Z0-9]*" );
+			var MakeOptionals = Regex.Matches ( ZPL, @"([@$]{1})[A-Z0-9]*" );
 
-			foreach ( Match res in MakeOptionals ) {
+			foreach ( Match res in MakeOptionals )
+			{
 
-				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) )
+				{
 
-					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
+					stgBld.Replace ( res.Value, produccionElementDictionary[ res.Value ] );
 
-				} else {
-					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
+				}
+				else
+				{
+					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
 				}
 			}
 
 
-			if ( !simulate ) {
-				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal , stgBld.ToString ( ) , String.Format ( "{0}_{1}_{2}" , produccionElemet.OT , produccionElemet.Proceso_.NombreProceso , produccionElemet.NUMERO ) );
+			if ( !simulate )
+			{
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_{1}_{2}", produccionElemet.OT, produccionElemet.Proceso_.NombreProceso, produccionElemet.NUMERO ) );
 			}
 			return stgBld.ToString ( );
 		}
@@ -234,11 +268,12 @@ namespace libControlesPersonalizados {
 ^XZ
 ";
 
-		public string PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio , bool simulate = false ) {
+		public string PrintDesperdicio ( libProduccionDataBase.Tablas.TempDesperdicios TempDesperdicio, bool simulate = false )
+		{
 
 
 
-			var produccionElementDictionary = new Dictionary<string , string> ( ) {
+			var produccionElementDictionary = new Dictionary<string, string> ( ) {
 				{ "@OT", TempDesperdicio.OT },
 				{ "@CLIENTE", TempDesperdicio.OrdenTrabajo.CLIENTE },
 				{ "@PRODUCTO", TempDesperdicio.OrdenTrabajo.PRODUCTO },
@@ -277,19 +312,24 @@ namespace libControlesPersonalizados {
 			Regex rgx = new Regex ( @"(@)[A-Z0-9]*" );
 			var T = rgx.Matches ( ZPLDesperdicio );
 
-			foreach ( Match res in T ) {
+			foreach ( Match res in T )
+			{
 
-				if ( produccionElementDictionary.ContainsKey ( res.Value ) ) {
+				if ( produccionElementDictionary.ContainsKey ( res.Value ) )
+				{
 
-					stgBld.Replace ( res.Value , produccionElementDictionary [ res.Value ] );
+					stgBld.Replace ( res.Value, produccionElementDictionary[ res.Value ] );
 
-				} else {
-					stgBld.Replace ( res.Value , KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value , "Campo no encontrado" , "" ) );
+				}
+				else
+				{
+					stgBld.Replace ( res.Value, KryptonInputBox.Show ( "Ingrese el valor para el campo " + res.Value, "Campo no encontrado", "" ) );
 				}
 			}
 
-			if ( !simulate ) {
-				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal , stgBld.ToString ( ) , String.Format ( "{0}_Desperdicio_{1}" , TempDesperdicio.OT , TempDesperdicio.NUMERO ) );
+			if ( !simulate )
+			{
+				RAWPrinter.RawPrinter.SendStringToPrinter ( PrinterNameGlobal, stgBld.ToString ( ), String.Format ( "{0}_Desperdicio_{1}", TempDesperdicio.OT, TempDesperdicio.NUMERO ) );
 			}
 
 			return stgBld.ToString ( );
@@ -302,22 +342,29 @@ namespace libControlesPersonalizados {
 		private ControlBindingsCollection dataBindings;
 
 		[Browsable ( false )]//, EditorBrowsable ( EditorBrowsableState.Never  )]
-		public BindingContext BindingContext {
-			get {
-				if ( bindingContext == null ) {
+		public BindingContext BindingContext
+		{
+			get
+			{
+				if ( bindingContext == null )
+				{
 					bindingContext = new BindingContext ( );
 				}
 				return bindingContext;
 			}
-			set {
+			set
+			{
 				bindingContext = value;
 			}
 		}
 
 		[DesignerSerializationVisibility ( DesignerSerializationVisibility.Content )]
-		public ControlBindingsCollection DataBindings {
-			get {
-				if ( dataBindings == null ) {
+		public ControlBindingsCollection DataBindings
+		{
+			get
+			{
+				if ( dataBindings == null )
+				{
 					dataBindings = new ControlBindingsCollection ( this );
 				}
 				return dataBindings;
@@ -327,12 +374,14 @@ namespace libControlesPersonalizados {
 
 		#endregion
 	}
-	public class Optionals {
+	public class Optionals
+	{
 		public string ItemOptional { get; set; } = "";
 		public string Optional1 { get; set; } = "";
 		public string Optional2 { get; set; } = "";
 		public string Optional3 { get; set; } = "";
 		public string Optional4 { get; set; } = "";
 		public string Optional5 { get; set; } = "";
+		public string optional6 { get; set; } ="";
 	}
 }

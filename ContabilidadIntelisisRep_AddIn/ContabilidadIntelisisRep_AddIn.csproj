@@ -34,7 +34,7 @@
     <PublishUrl>T:\Henoc\Contabilidad\</PublishUrl>
     <InstallUrl />
     <TargetCulture>es</TargetCulture>
-    <ApplicationVersion>1.0.0.19</ApplicationVersion>
+    <ApplicationVersion>1.0.0.20</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
@@ -255,6 +255,7 @@
     </Compile>
     <None Include="App.config" />
     <None Include="ContabilidadIntelisisRep_AddIn_TemporaryKey.pfx" />
+    <None Include="mycert.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Forms.frmContResultados+ConfigContBalanza.datasource" />
     <None Include="Properties\DataSources\ContabilidadIntelisisRep_AddIn.Modelos.Cuentas.datasource" />
@@ -310,10 +311,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ContabilidadIntelisisRep_AddIn_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>mycert.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>7CEFA821A471A09BAF9966BE87FA9BC7B7F28F7F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FA5EFE3169BA596EDEB552350253C6EE0032668C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

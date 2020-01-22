@@ -27,8 +27,8 @@
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>6.2.0.%2a</ApplicationVersion>
+    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationVersion>6.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -57,10 +57,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9559E133701F16186990700C694F6B9B37F3EF0C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FA5EFE3169BA596EDEB552350253C6EE0032668C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>EstacionPesaje_ClaveTemporal.pfx</ManifestKeyFile>
+    <ManifestKeyFile>mycert.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -116,6 +116,10 @@
     <Reference Include="libEmbarquesNCuatro">
       <HintPath>..\libEmbarquesNCuatro\obj\Debug\libEmbarquesNCuatro.dll</HintPath>
     </Reference>
+    <Reference Include="libReportsOTS, Version=1.0.6960.18168, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Escritorio\libs\libReportsOTS.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -138,13 +142,13 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.12\lib\net452\MySql.Data.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libProduccionDataBase\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.EntityFramework, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.12\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libProduccionDataBase\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
       <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
@@ -157,6 +161,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
@@ -172,7 +177,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TRYINTELISISSELECTCTL">
-      <HintPath>..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\TRYINTELISISSELECTCTL\obj\Debug\TRYINTELISISSELECTCTL.dll</HintPath>
+      <HintPath>..\..\..\..\Escritorio\libs\TRYINTELISISSELECTCTL.dll</HintPath>
     </Reference>
     <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.8.6.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
       <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.8.6\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
@@ -363,6 +368,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SinBasculaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinBasculaForm.Designer.cs">
+      <DependentUpon>SinBasculaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,10 +474,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SinBasculaForm.resx">
+      <DependentUpon>SinBasculaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="EstacionPesaje_ClaveTemporal.pfx" />
+    <None Include="mycert.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Embarques.DataPackingList.datasource" />
@@ -494,7 +509,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -504,14 +521,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\CapturaTabla\CapturaTabla.vbproj">
-      <Project>{FFEC507A-2F51-4498-A5B6-0AB65BAD0656}</Project>
-      <Name>CapturaTabla</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\libReportsOTS.vbproj">
-      <Project>{c8d24004-87ff-4d73-985f-60c0a8b98369}</Project>
-      <Name>libReportsOTS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\libBascula\libBascula.csproj">
       <Project>{b0bc4541-f643-4306-b2c1-945192d75ff0}</Project>
       <Name>libBascula</Name>
@@ -523,6 +532,10 @@
     <ProjectReference Include="..\libControlesPersonalizados\libControlesPersonalizados.csproj">
       <Project>{1426aed9-0470-48ad-b4e7-b9a4921a7a93}</Project>
       <Name>libControlesPersonalizados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libIntelisisReports\libIntelisisReports.csproj">
+      <Project>{8780a832-ef97-48ed-87cf-69e801e03db7}</Project>
+      <Name>libIntelisisReports</Name>
     </ProjectReference>
     <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
       <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
@@ -617,6 +630,9 @@
     <None Include="Resources\AzureDefaultResource_16x.png" />
     <None Include="Resources\barcode-check.png" />
     <None Include="Resources\B16.png" />
+    <Content Include="GruposTinta.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\barcode-edit.png" />
     <Content Include="Resources\barcode-edit1.png" />
     <None Include="Resources\report_open1.png" />
@@ -649,6 +665,9 @@
     <None Include="Resources\barcode-ok.png" />
     <None Include="Resources\Bold_16x.png" />
     <None Include="Resources\database_16xLG.png" />
+    <None Include="Resources\bullet_green.png" />
+    <None Include="Resources\bullet_red.png" />
+    <None Include="Resources\cancel.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />
@@ -663,7 +682,21 @@
     <None Include="Resources\report_worker.png" />
     <None Include="Resources\N16.png" />
     <None Include="Resources\ScaleBordered.png" />
+    <None Include="Resources\table-import.png" />
+    <None Include="Resources\table-import1.png" />
     <Content Include="tag_orange.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="GruposTinta.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

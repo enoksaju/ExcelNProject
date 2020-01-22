@@ -90,6 +90,15 @@ namespace libBascula
 				_eventArgs.FullString = value;
 			}
 		}
+		[Category ( "Conexion Bascula" )]
+		[Description ( "Indica si la bascula ha mantenido un valor por mas de 5 segundos." )]
+		[DefaultValue ( 2 )]
+		public int EstableTimeDelay { get; set; } = 2;
+
+		[DefaultValue ( false )]
+		[Category ( "Conexion Bascula" )]
+		[Description ( "Indica si la bascula ha mantenido un valor por mas de 5 segundos." )]
+		public bool Estable { get; private set; } = true;
 
 		[Description ( "Tiempo de espera de lectura" )]
 		[Category ( "Conexion Bascula" )]
@@ -110,6 +119,7 @@ namespace libBascula
 			{
 				_eventArgs.NuevoValor = value;
 				_eventArgs.FormatedValue = String.Format ( "{0:00.00} {1}", value, StatusLabelShowUnidad ? Unidad.ToString ( ) : "" );
+				_eventArgs.EsEstable = this.Estable;
 				this.OnCambioValor ( _eventArgs );
 			}
 		}
@@ -123,6 +133,11 @@ namespace libBascula
 		[Category ( "Status Bascula" )]
 		public ToolStripStatusLabel StatusLabel { get; set; }
 
+		[Description ( "ToolStripStatusLabel donde se muestra si el valor es estable en la bascula" )]
+		[Category ( "Status Bascula" )]
+		public ToolStripStatusLabel EstableLabel { get; set; }
+
+
 		[Description ( "PictureBox donde se muestra el la imagen del estado la bascula" )]
 		[Category ( "Status Bascula" )]
 		public PictureBox StatusPicture { get { return _StatusPicture; } set { _StatusPicture = value; OnCambioEstado ( this.Estatus ); } }
@@ -134,6 +149,17 @@ namespace libBascula
 		[Description ( "PictureBox donde se muestra el la imagen del estado la bascula" )]
 		[Category ( "Status Bascula" )]
 		public Image DisconnectedImage { get; set; } = Properties.Resources.ScalesConnected_red;
+
+
+		[Description ( "PictureBox donde se muestra el la imagen del estado la bascula" )]
+		[Category ( "Status Bascula" )]
+		public Image EstableImage { get; set; } = Properties.Resources.ScalesConnected_green;
+
+		[Description ( "PictureBox donde se muestra el la imagen del estado la bascula" )]
+		[Category ( "Status Bascula" )]
+		public Image InestableImage { get; set; } = Properties.Resources.ScalesConnected_red;
+
+
 
 
 		[Description ( "Indica si se muestra o no la unidad de la bascula en el ToolStripStatusLabel" )]
@@ -259,11 +285,9 @@ namespace libBascula
 				  {
 					  try
 					  {
-
 						  if ( !SerialPort.IsOpen ) throw new Exception ( "El puerto no se encuentra abierto" );
 						  if ( ActivarEnvio ) SerialPort.Write ( TextoAEnviar );
 						  System.Threading.Thread.Sleep ( Intervalo >= 15 ? Intervalo - 10 : Intervalo );
-
 					  }
 					  catch ( Exception ex )
 					  {
@@ -288,6 +312,25 @@ namespace libBascula
 					  }
 					  finally
 					  {
+						  // Valoro si la bascula es estable o sigue en movimiento el valor enviado por ella, 
+						  // si es eswtable establezco el valor y activo la bandera de validacion.
+						  if (this.Estatus == EstadoConexion.Desconectado )
+						  {
+							  Estable = true;
+						  }
+						  else if ( this.ValorBascula != val )
+						  {
+							  TimerInicio = DateTime.Now;
+							  Estable = false;
+						  }
+						  else if ( this.ValorBascula == val && ( DateTime.Now - TimerInicio ).Seconds > EstableTimeDelay )
+						  {
+							  Estable = true;
+						  }
+						  else
+						  {
+							  Estable = false;
+						  }
 						  this.ValorBascula = val;
 					  }
 				  }
@@ -295,6 +338,8 @@ namespace libBascula
 				  OnCambioEstado ( _estatus );
 			  } );
 		}
+
+		private DateTime TimerInicio = new DateTime ( );
 
 		/// <summary>
 		/// Desconecta el puerto COM
@@ -335,6 +380,8 @@ namespace libBascula
 		{
 			e.Unidad = this.Unidad;
 			if ( StatusLabel != null ) setStatusToolStripLabelText ( e.NuevoValor );
+			if ( EstableLabel != null ) setEstableToolStripLabelText ( e.NuevoValor );
+
 			CambioValor?.Invoke ( this, e );
 		}
 		protected virtual void OnCambioEstado ( EstadoConexion e )
@@ -357,6 +404,31 @@ namespace libBascula
 					return;
 				};
 				StatusLabel.Text = String.Format ( "{0:00.00} {1}", value, StatusLabelShowUnidad ? Unidad.ToString ( ) : "" );
+			}
+		}
+
+		/// <summary>
+		/// Delegado para el cambio de valor del StatusToolStripLabel
+		/// </summary>
+		/// <param name="value"></param>
+		private void setEstableToolStripLabelText ( double value )
+		{
+			if ( this.EstableLabel != null )
+			{
+				if ( this.EstableLabel.GetCurrentParent ( ) != null && this.EstableLabel.GetCurrentParent ( ).InvokeRequired )
+				{
+					this.EstableLabel.GetCurrentParent ( ).Invoke ( new Action<double> ( setEstableToolStripLabelText ), value );
+					return;
+				};
+
+				if ( Estable )
+				{
+					EstableLabel.Image = this.EstableImage;
+				}
+				else
+				{
+					EstableLabel.Image = this.InestableImage;
+				}
 			}
 		}
 
@@ -405,12 +477,14 @@ namespace libBascula
 		public string FullString { get; set; }
 		public string FormatedValue { get; set; }
 		public Unidad Unidad { get; set; }
-		public CambioValorEventArgs ( double valor, string FullString, string formatedValue, Unidad Unidad )
+		public bool EsEstable { get; set; }
+		public CambioValorEventArgs ( double valor, string FullString, string formatedValue, Unidad Unidad, bool EsEstable = false )
 		{
 			this.NuevoValor = valor;
 			this.FullString = FullString;
 			this.Unidad = Unidad;
 			this.FormatedValue = formatedValue;
+			this.EsEstable = EsEstable;
 		}
 	}
 }

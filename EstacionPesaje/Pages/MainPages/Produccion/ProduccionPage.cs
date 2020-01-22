@@ -18,34 +18,37 @@ using libProduccionDataBase.Contexto;
 using Z.EntityFramework.Plus;
 using System.Data.Entity.Infrastructure;
 
-namespace EstacionPesaje.Pages.MainPages {
-	public partial class ProduccionPage : Base.DocumentPageBase, Base.IUsaBascula {
+namespace EstacionPesaje.Pages.MainPages
+{
+	public partial class ProduccionPage : Base.DocumentPageBase, Base.IUsaBascula
+	{
 
 		private int _AcumuladoBajada = 0;
-		private int AcumuladoBajada {
-			get {
+		private int AcumuladoBajada
+		{
+			get
+			{
 				return _AcumuladoBajada;
 			}
-			set {
+			set
+			{
 				_AcumuladoBajada = ( _AcumuladoBajada < ( int.Parse ( repEje_txt.Text ) - 1 ) ? value : 0 );
 			}
 		}
 		private string OT;
-		private KryptonTaskDialog td = new KryptonTaskDialog ( ) {
-			CommonButtons = TaskDialogButtons.Yes | TaskDialogButtons.No ,
-			DefaultButton = TaskDialogButtons.No ,
-			Icon = MessageBoxIcon.Question ,
-			Content = "" ,
-			WindowTitle = "Confirmación de Captura" ,
+		private KryptonTaskDialog td = new KryptonTaskDialog ( )
+		{
+			CommonButtons = TaskDialogButtons.Yes | TaskDialogButtons.No,
+			DefaultButton = TaskDialogButtons.No,
+			Icon = MessageBoxIcon.Question,
+			Content = "",
+			WindowTitle = "Confirmación de Captura",
 			MainInstruction = "Continuar?"
-
 		};
 		private InformacionInicialCaptura valuesCaptura;
 		public ControlBascula Bascula { get; set; }
-
-
-
-		public ProduccionPage ( string OT , libBascula.ControlBascula Bascula_ ) {
+		public ProduccionPage ( string OT, libBascula.ControlBascula Bascula_ )
+		{
 
 			InitializeComponent ( );
 			KP.ClearFlags ( ComponentFactory.Krypton.Navigator.KryptonPageFlags.All );
@@ -54,18 +57,19 @@ namespace EstacionPesaje.Pages.MainPages {
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageDrag
 				| ComponentFactory.Krypton.Navigator.KryptonPageFlags.AllowPageReorder );
 
-		
+
 			DB = new libProduccionDataBase.Contexto.DataBaseContexto ( );
 
 			DB.Configuration.LazyLoadingEnabled = false;
-			DB.Database.Log = (string text) => { System.Diagnostics.Debug.Write ( text ); };
-
+#if DEBUG
+			DB.Database.Log = ( string text ) => { System.Diagnostics.Debug.Write ( text ); };
+#endif
 
 			if ( !DB.tempOt.Any ( o => o.OT == OT.Trim ( ) ) )
 				throw new Exception ( "No existe la orden solicitada" );
 
 			this.OT = OT;
-			this.PageTitleText = String.Format ( "Produccion[{0}]" , this.OT );
+			this.PageTitleText = String.Format ( "Produccion[{0}]", this.OT );
 			KP.ImageSmall = Properties.Resources.worker1;
 
 			DB.tempOt.Where ( o => o.OT == OT.Trim ( ) ).Load ( );
@@ -82,17 +86,26 @@ namespace EstacionPesaje.Pages.MainPages {
 
 
 		}
-
-
-		private async void ProduccionPage_Load ( object sender , EventArgs e ) {
+		private async void ProduccionPage_Load ( object sender, EventArgs e )
+		{
 			await DB.Procesos.LoadAsync ( );
 			procesoBindingSource.DataSource = DB.Procesos.Local.ToBindingList ( );
 			ProcesosFilterToolBar.ComboBox.DataSource = procesoBindingSource;
 			ProcesosFilterToolBar.ComboBox.DisplayMember = "NombreProceso";
 			ProcesosFilterToolBar.ComboBox.ValueMember = "ID";
+			ProcesosFilterToolBar.ComboBox.SelectedValue = Properties.Settings.Default.FiltroProduccion;
+
+			ProcesosFilterToolBar.ComboBox.SelectedValueChanged += ( object s, EventArgs ev ) =>
+			{
+				Properties.Settings.Default.FiltroProduccion = (int)ProcesosFilterToolBar.ComboBox.SelectedValue;
+				// RefreshListItems ( );
+			};
+
 		}
-		protected override void Dispose ( bool disposing ) {
-			if ( disposing && ( components != null ) ) {
+		protected override void Dispose ( bool disposing )
+		{
+			if ( disposing && ( components != null ) )
+			{
 
 				Bascula.CambioValor -= Bascula_CambioValor;
 				this.Bascula.CambioEstado -= Bascula_CambioEstado;
@@ -101,19 +114,21 @@ namespace EstacionPesaje.Pages.MainPages {
 			base.Dispose ( disposing );
 		}
 
-
 		/// <summary>
 		/// Controla las acciones de cambio de pestaña
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void kryptonNavigator1_Selecting ( object sender , ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs e ) {
+		private void kryptonNavigator1_Selecting ( object sender, ComponentFactory.Krypton.Navigator.KryptonPageCancelEventArgs e )
+		{
 
-			if ( e.Item == kryptonPageCaptura ) {
+			if ( e.Item == kryptonPageCaptura )
+			{
 
 				var frm = new IniciarCaptura_frm ( );
 
-				if ( frm.ShowDialog ( ) == DialogResult.OK ) {
+				if ( frm.ShowDialog ( ) == DialogResult.OK )
+				{
 					valuesCaptura = frm.response;
 
 					OperadorLabel.Text = valuesCaptura.Operador;
@@ -124,7 +139,7 @@ namespace EstacionPesaje.Pages.MainPages {
 					var t = from produccion in DB.TempProduccion
 							where produccion.OT == this.OT && produccion.TIPOPROCESO == valuesCaptura.Proceso.ID
 							orderby produccion.NUMERO descending
-							select new { produccion.NUMERO , produccion.PESOCORE , produccion.USUARIO , produccion.EXTRUSION_ID };
+							select new { produccion.NUMERO, produccion.PESOCORE, produccion.USUARIO, produccion.EXTRUSION_ID };
 
 					var myNumber = t.Where ( u => u.USUARIO == Environment.MachineName ).OrderByDescending ( i => i.NUMERO ).FirstOrDefault ( );
 
@@ -132,7 +147,7 @@ namespace EstacionPesaje.Pages.MainPages {
 					var PesoCore = ( myNumber != null ? myNumber.PESOCORE : ( t.FirstOrDefault ( ) != null ? t.FirstOrDefault ( ).PESOCORE : 0 ) );
 
 					nUMEROKryptonTextBox.Value = num + 1;
-					pESOCOREKryptonTextBox.Value = ( decimal ) PesoCore;
+					pESOCOREKryptonTextBox.Value = (decimal)PesoCore;
 					idExtrusion_txt.Text = valuesCaptura.Proceso.ID == 9 ? ( myNumber != null ? myNumber.EXTRUSION_ID : "1A" ) : "";
 
 					Optional1_rdbtn.Text = valuesCaptura.Options.Optional1;
@@ -140,20 +155,29 @@ namespace EstacionPesaje.Pages.MainPages {
 					Optional3_rdbtn.Text = valuesCaptura.Options.Optional3;
 					Optional4_rdbtn.Text = valuesCaptura.Options.Optional4;
 					Optional5_rdbtn.Text = valuesCaptura.Options.Optional5;
+					Optional6_rdbtn.Text = valuesCaptura.Options.optional6;
+
+
 					Extrusion_Panel.Visible = valuesCaptura.Proceso.ID == 9 ? true : false;
 
 					this.PageTitleText = $"Captura [{this.OT}] [{valuesCaptura.Proceso.NombreProceso}] ";
 
-				} else {
+				}
+				else
+				{
 					e.Cancel = true;
 				}
 
 				frm.Dispose ( );
 
-			} else if ( e.Item == kryptonPageLista ) {
+			}
+			else if ( e.Item == kryptonPageLista )
+			{
 				RefreshListItems ( );
-			} else {
-				this.PageTitleText = String.Format ( "Produccion[{0}]" , this.OT );
+			}
+			else
+			{
+				this.PageTitleText = String.Format ( "Produccion[{0}]", this.OT );
 			}
 
 		}
@@ -162,19 +186,69 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// Retorna el ItemOptional seleccionado
 		/// </summary>
 		/// <returns></returns>
-		private int GetItemSelected ( ) {
-			if ( Optional1_rdbtn.Checked ) {
+		private int GetItemSelected ()
+		{
+			if ( Optional1_rdbtn.Checked )
+			{
 				return 1;
-			} else if ( Optional2_rdbtn.Checked ) {
+			}
+			else if ( Optional2_rdbtn.Checked )
+			{
 				return 2;
-			} else if ( Optional3_rdbtn.Checked ) {
+			}
+			else if ( Optional3_rdbtn.Checked )
+			{
 				return 3;
-			} else if ( Optional4_rdbtn.Checked ) {
+			}
+			else if ( Optional4_rdbtn.Checked )
+			{
 				return 4;
-			} else if ( Optional5_rdbtn.Checked ) {
+			}
+			else if ( Optional5_rdbtn.Checked )
+			{
 				return 5;
-			} else {
+			}
+			else if ( Optional6_rdbtn.Checked )
+			{
+				return 6;
+
+			}
+			else
+			{
 				return 1;
+			}
+		}
+
+		private string GetTextItem ()
+		{
+			if ( Optional1_rdbtn.Checked )
+			{
+				return Optional1_rdbtn.Text;
+			}
+			else if ( Optional2_rdbtn.Checked )
+			{
+				return Optional2_rdbtn.Text;
+			}
+			else if ( Optional3_rdbtn.Checked )
+			{
+				return Optional3_rdbtn.Text;
+			}
+			else if ( Optional4_rdbtn.Checked )
+			{
+				return Optional4_rdbtn.Text;
+			}
+			else if ( Optional5_rdbtn.Checked )
+			{
+				return Optional5_rdbtn.Text;
+			}
+			else if ( Optional6_rdbtn.Checked )
+			{
+				return Optional6_rdbtn.Text;
+
+			}
+			else
+			{
+				return "";
 			}
 		}
 
@@ -183,35 +257,63 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void kryptonButton1_Click ( object sender , EventArgs e ) {
-			try {
+		private void kryptonButton1_Click ( object sender, EventArgs e )
+		{
+			try
+			{
+				if ( Bascula.Estatus == EstadoConexion.Desconectado && new SinBasculaForm ( ).ShowDialog ( ) == DialogResult.No )
+				{
+					throw new Exception ( "Se cancelo la captura del elemento." );
+				}
+
+				if ( !Bascula.Estable ) throw new Exception ( "El valor de la bascula aun no es estable; espere 5 segundos" );
+
 				td.Content = "Realmente desea Imprimir y guardar?";
 				if ( td.ShowDialog ( ) == DialogResult.No )
 					return;
 
-				if ( Properties.Settings.Default.enabledImpresionMultiple ) {
+				if ( Properties.Settings.Default.enabledImpresionMultiple )
+				{
 					ProgressBar.Visible = true;
-					ProgressBar.Maximum = ( int ) multipleQuantity_num.Value;
+					ProgressBar.Maximum = (int)multipleQuantity_num.Value;
 
 
-					for ( int i = 1; i <= ( int ) multipleQuantity_num.Value; i++ ) {
-						try {
+					for ( int i = 1; i <= (int)multipleQuantity_num.Value; i++ )
+					{
+						try
+						{
 							var t = SaveCapturaProduccion ( );
-							this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode , t , valuesCaptura.Options ); // TODO: faltan Acciones par impresion de etquetas de Extrusion
-						} catch { } finally {
+							this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options ); // TODO: faltan Acciones par impresion de etquetas de Extrusion
+						}
+						catch { }
+						finally
+						{
 							ProgressBar.Value = i;
 						}
 					}
 
 					ProgressBar.Visible = false;
 
-				} else {
+				}
+				else
+				{
 					var t = SaveCapturaProduccion ( );
-					this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode , t , valuesCaptura.Options );
+					this.replaceAndPrintZPLProduccion1.PrintZPL ( valuesCaptura.Etiqueta.ZPLCode, t, valuesCaptura.Options );
 				}
 
-			} catch ( Exception ex ) {
-				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB , ex ) ) );
+			}
+			catch ( Exception ex )
+			{
+				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
+			}
+			finally
+			{
+				if ( valuesCaptura.Proceso.ID == 1 || valuesCaptura.Proceso.ID == 2 )
+				{
+					KryptonMessageBox.Show ( this, "Para los procesos de impresión y laminacion, solo se permite una captura a la vez", "Proceso de Impresión o Laminación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation );
+					this.GetKryptonPage ( ).Hide ( );
+
+				}
 			}
 
 		}
@@ -221,49 +323,79 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void kryptonButton2_Click ( object sender , EventArgs e ) {
+		private void kryptonButton2_Click ( object sender, EventArgs e )
+		{
+			try
+			{
+				if ( Bascula.Estatus == EstadoConexion.Desconectado && new SinBasculaForm ( ).ShowDialog ( ) == DialogResult.No )
+				{
+					throw new Exception ( "Se cancelo la captura del elemento." );
+				}
 
-			try {
+				if ( !Bascula.Estable ) throw new Exception ( "El valor de la bascula aun no es estable; espere 5 segundos" );
+
 				td.Content = "Realmente desea solo guardar?";
 				if ( td.ShowDialog ( ) == DialogResult.No )
 					return;
 
-				if ( Properties.Settings.Default.enabledImpresionMultiple ) {
+				if ( Properties.Settings.Default.enabledImpresionMultiple )
+				{
 					ProgressBar.Visible = true;
-					ProgressBar.Maximum = ( int ) multipleQuantity_num.Value;
+					ProgressBar.Maximum = (int)multipleQuantity_num.Value;
 
-					for ( int i = 1; i <= ( int ) multipleQuantity_num.Value; i++ ) {
-						try {
+					for ( int i = 1; i <= (int)multipleQuantity_num.Value; i++ )
+					{
+						try
+						{
 							var t = SaveCapturaProduccion ( );
-						} catch { } finally {
+						}
+						catch { }
+						finally
+						{
 							ProgressBar.Value = i;
 						}
 					}
 
 					ProgressBar.Visible = false;
-				} else {
+				}
+				else
+				{
 					var t = SaveCapturaProduccion ( );
 				}
-			} catch ( Exception ex ) {
+			}
+			catch ( Exception ex )
+			{
 				System.Diagnostics.Debug.WriteLine ( $"Tipo: {ex.GetType ( ).Name} => Message:{ex.Message }" );
-				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB , ex ) ) );
+				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
+			}
+			finally
+			{
+				if ( valuesCaptura.Proceso.ID == 1 || valuesCaptura.Proceso.ID == 2 )
+				{
+					KryptonMessageBox.Show ( this, "Para los procesos de impresión y laminacion, solo se permite una captura a la vez", "Proceso de Impresión o Laminación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation );
+					this.GetKryptonPage ( ).Hide ( );
+
+				}
 			}
 		}
-
 
 		/// <summary>
 		/// Procedimiento de almacenamiento de la captura en la Base de datos.
 		/// </summary>
 		/// <returns></returns>
-		private TempProduccion SaveCapturaProduccion ( ) {
+		private TempProduccion SaveCapturaProduccion ( bool soloGuardar = false )
+		{
+
 
 			TempProduccion ToRet = null;
 
-			using ( var DBLocal = new DataBaseContexto ( ) ) {
+			using ( var DBLocal = new DataBaseContexto ( ) )
+			{
 
-				if ( valuesCaptura.Proceso.ID == 9 && idExtrusion_txt.Text.Trim ( ) != string.Empty ) {
+				if ( valuesCaptura.Proceso.ID == 9 && idExtrusion_txt.Text.Trim ( ) != string.Empty )
+				{
 
-					if ( valuesCaptura.Proceso.ID == 9 && !System.Text.RegularExpressions.Regex.IsMatch ( idExtrusion_txt.Text.Trim ( ) , @"^[0-9]+([A-Z]{1})$" ) )
+					if ( valuesCaptura.Proceso.ID == 9 && !System.Text.RegularExpressions.Regex.IsMatch ( idExtrusion_txt.Text.Trim ( ), @"^[0-9]+([A-Z]{1})$" ) )
 						throw new Exception ( $"El Id de extrusión debe tener el siguiente formato:\n\t[numero de bajada][letra de la bajada] => '1A'" );
 
 					if ( valuesCaptura.Proceso.ID == 9 &&
@@ -274,37 +406,55 @@ namespace EstacionPesaje.Pages.MainPages {
 							) )
 						throw new Exception ( $"El Id de Extrusion {idExtrusion_txt.Text} ya esta siendo usado o es incorrecto" );
 
-				} else if ( valuesCaptura.Proceso.ID == 9 && idExtrusion_txt.Text.Trim ( ) == string.Empty ) {
-					if ( KryptonTaskDialog.Show ( "Extrusion Id" , "Confirme" , "El Id de Extrusion se encuentra vacio, desea continuar?" , MessageBoxIcon.Question , TaskDialogButtons.Yes | TaskDialogButtons.No ) == DialogResult.No )
+				}
+				else if ( valuesCaptura.Proceso.ID == 9 && idExtrusion_txt.Text.Trim ( ) == string.Empty )
+				{
+					if ( KryptonTaskDialog.Show ( "Extrusion Id", "Confirme", "El Id de Extrusion se encuentra vacio, desea continuar?", MessageBoxIcon.Question, TaskDialogButtons.Yes | TaskDialogButtons.No ) == DialogResult.No )
 						throw new Exception ( "Operación Cancelada" );
 				}
 
 
+				double Di, Dc, Dd;
+				Double.TryParse ( dCentrotxt.Value.ToString ( ), out Dc );
+				Double.TryParse ( dIzqtxt.Value.ToString ( ), out Di );
+				Double.TryParse ( dDertxt.Value.ToString ( ), out Dd );
 
-				var t = new TempProduccion ( ) {
-					BANDERAS = ( int ) bANDERASKryptonTextBox.Value ,
-					OT = this.OT ,
+				var t = new TempProduccion ( )
+				{
+					BANDERAS = (int)bANDERASKryptonTextBox.Value,
+					OT = this.OT,
 
-					MAQUINA = valuesCaptura.Maquina.Id ,
-					TIPOPROCESO = valuesCaptura.Proceso.ID ,
-
-					PESOBRUTO = ( double ) pESOBRUTOKryptonTextBox.Value ,
-					PESOCORE = ( double ) pESOCOREKryptonTextBox.Value ,
-					NUMERO = ( int ) nUMEROKryptonTextBox.Value ,
-					PIEZAS = ( int ) pIEZASKryptonTextBox.Value ,
-					TURNO = valuesCaptura.Turno ,
-					ORIGEN = oRIGENKryptonTextBox.Text ,
-					FECHA = DateTime.Now ,
-					OPERADOR = valuesCaptura.Operador ,
-					REPETICION = GetItemSelected ( ) ,
-					USUARIO = Environment.MachineName ,
-					INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + ( int ) nUMEROKryptonTextBox.Value ,
-					ENSANEO = ( short ) ( saneo_chk.Checked ? -1 : 0 ) ,
-					FUEEDITADA = 0 ,
-					FUESANEADA = 0 ,
-					ESRECHAZADA = 0 ,
-					EXTRUSION_ID = ( valuesCaptura.Proceso.ID == 9 ? idExtrusion_txt.Text : "" )
+					MAQUINA = valuesCaptura.Maquina.Id,
+					TIPOPROCESO = valuesCaptura.Proceso.ID,
+					PESOBRUTO = (double)pESOBRUTOKryptonTextBox.Value,
+					PESOCORE = (double)pESOCOREKryptonTextBox.Value,
+					NUMERO = (int)nUMEROKryptonTextBox.Value,
+					PIEZAS = (int)pIEZASKryptonTextBox.Value,
+					TURNO = valuesCaptura.Turno,
+					ORIGEN = oRIGENKryptonTextBox.Text,
+					FECHA = DateTime.Now,
+					OPERADOR = valuesCaptura.Operador,
+					REPETICION = GetItemSelected ( ),
+					USUARIO = Environment.MachineName,
+					INDICE = this.OT + "-" + valuesCaptura.Proceso.ID + "-" + (int)nUMEROKryptonTextBox.Value,
+					ENSANEO = (short)( saneo_chk.Checked ? -1 : 0 ),
+					FUEEDITADA = 0,
+					FUESANEADA = 0,
+					ESRECHAZADA = 0,
+					EXTRUSION_ID = ( valuesCaptura.Proceso.ID == 9 ? idExtrusion_txt.Text : "" ),
+					DurezaCentro = Dc,
+					DurezaIzquierda = Di,
+					DurezaDerecha = Dd,
+					Item = GetTextItem ( ),
+					Comentarios = comentariosTextBox.Text
 				};
+
+
+				if ( ArrugasCHK.Checked )
+				{
+					t.ENSANEO = -1;
+					t.EnSaneoArrugas = true;
+				}
 
 				DBLocal.TempProduccion.Add ( t );
 				DBLocal.SaveChanges ( );
@@ -316,17 +466,26 @@ namespace EstacionPesaje.Pages.MainPages {
 					.FirstOrDefault ( );
 
 				saneo_chk.Checked = false;
+				ArrugasCHK.Checked = false;
+				comentariosTextBox.Text = "";
+				dCentrotxt.Value = 0;
+				dIzqtxt.Value = 0;
+				dDertxt.Value = 0;
 
-				if ( valuesCaptura.Proceso.ID == 3 ) {
+				if ( valuesCaptura.Proceso.ID == 3 )
+				{
 					++AcumuladoBajada;
 					bajadaActual_txt.Text = ( AcumuladoBajada ).ToString ( );
 
-					if ( AcumuladoBajada == 0 ) {
+					if ( AcumuladoBajada == 0 )
+					{
 						var org = oRIGENKryptonTextBox.Text.Split ( ( oRIGENKryptonTextBox.Text.Contains ( '-' ) ? '-' : ( oRIGENKryptonTextBox.Text.Contains ( '.' ) ? '.' : ' ' ) ) );
-						oRIGENKryptonTextBox.Text = ( org.Count ( ) >= 2 ? org [ 1 ] : org [ 0 ] );
+						oRIGENKryptonTextBox.Text = ( org.Count ( ) >= 2 ? org[ 1 ] : org[ 0 ] );
 						bANDERASKryptonTextBox.Value = 0;
 					}
-				} else {
+				}
+				else
+				{
 					bANDERASKryptonTextBox.Value = 0;
 				}
 			}
@@ -339,27 +498,36 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void toolStripButton1_Click ( object sender , EventArgs e ) {
-			try {
+		private void toolStripButton1_Click ( object sender, EventArgs e )
+		{
+			try
+			{
 				td.Content = "Realmente desea guardar?";
 				if ( td.ShowDialog ( ) == DialogResult.No )
 					return;
 
-				foreach ( var t in DB.TempProduccion.Local.ToList ( ) ) {
-					if ( t.OrdenTrabajo == null ) {
+				foreach ( var t in DB.TempProduccion.Local.ToList ( ) )
+				{
+					if ( t.OrdenTrabajo == null )
+					{
 						DB.TempProduccion.Remove ( t );
 					}
 
-					if ( t.TIPOPROCESO == 9 && t.EXTRUSION_ID != string.Empty && DB.TempProduccion.Local.Any ( o => o.EXTRUSION_ID == t.EXTRUSION_ID && o.OT == t.OT && o.Id != t.Id ) ) {
+					if ( t.TIPOPROCESO == 9 && t.EXTRUSION_ID != string.Empty && DB.TempProduccion.Local.Any ( o => o.EXTRUSION_ID == t.EXTRUSION_ID && o.OT == t.OT && o.Id != t.Id ) )
+					{
 						throw new Exception ( "Existe algun id de extrusion duplicado, no se pueden guardar los cambio" );
 					}
 				}
 
 				DB.SaveChanges ( );
-			} catch ( Exception ex ) {
+			}
+			catch ( Exception ex )
+			{
 
-				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB , ex ) ) );
-			} finally {
+				HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
+			}
+			finally
+			{
 				DB.Entry ( temporalOrdenTrabajoBindingSource.Current ).Reload ( );
 				temporalOrdenTrabajoBindingSource.ResetBindings ( false );
 				produccionBindingSource.ResetBindings ( false );
@@ -372,21 +540,27 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void toolStripButton2_Click ( object sender , EventArgs e ) {
+		private async void toolStripButton2_Click ( object sender, EventArgs e )
+		{
 
 			var frm = new IniciarCaptura_frm ( );
 			frm.InfoCapturaLayout.Visible = false;
 
-			if ( frm.ShowDialog ( ) == DialogResult.OK ) {
+			if ( frm.ShowDialog ( ) == DialogResult.OK )
+			{
 
-				foreach ( DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows ) {
+				foreach ( DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows )
+				{
 
-					try {
+					try
+					{
 
-						var y = await DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == ( ( TempProduccion ) rw.DataBoundItem ).Id ).FirstOrDefaultAsync ( );
-						this.replaceAndPrintZPLProduccion1.PrintZPL ( frm.response.Etiqueta.ZPLCode , y , frm.response.Options );
-					} catch ( Exception ex ) {
-						HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB , ex ) ) );
+						var y = await DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == ( (TempProduccion)rw.DataBoundItem ).Id ).FirstOrDefaultAsync ( );
+						this.replaceAndPrintZPLProduccion1.PrintZPL ( frm.response.Etiqueta.ZPLCode, y, frm.response.Options );
+					}
+					catch ( Exception ex )
+					{
+						HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
 					}
 
 				}
@@ -395,13 +569,16 @@ namespace EstacionPesaje.Pages.MainPages {
 		}
 
 		private bool CoreEditing = false;
-		private void pESOCOREKryptonTextBox_Enter ( object sender , EventArgs e ) {
+		private void pESOCOREKryptonTextBox_Enter ( object sender, EventArgs e )
+		{
 			CoreEditing = true;
 		}
-		private void pESOCOREKryptonTextBox_Leave ( object sender , EventArgs e ) {
+		private void pESOCOREKryptonTextBox_Leave ( object sender, EventArgs e )
+		{
 			CoreEditing = false;
 		}
-		private void pESOBRUTOKryptonTextBox_ValueChanged ( object sender , EventArgs e ) {
+		private void pESOBRUTOKryptonTextBox_ValueChanged ( object sender, EventArgs e )
+		{
 			PesoNetokryptonNumericUpDown.Value = pESOBRUTOKryptonTextBox.Value - pESOCOREKryptonTextBox.Value;
 		}
 
@@ -412,9 +589,11 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void Bascula_CambioEstado ( object sender , EstadoConexion e ) {
+		private async void Bascula_CambioEstado ( object sender, EstadoConexion e )
+		{
 
-			await Task.Run ( ( ) => {
+			await Task.Run ( () =>
+			{
 				setEnableStatusBascula ( e == EstadoConexion.Conectado ? true : false );
 			} );
 		}
@@ -424,10 +603,12 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// Deshabilita el TextBox del peso Bruto si la bascula se encuentra conectada
 		/// </summary>
 		/// <param name="Value"></param>
-		private void setEnableStatusBascula ( bool Value ) {
+		private void setEnableStatusBascula ( bool Value )
+		{
 
-			if ( this.InvokeRequired ) {
-				this.Invoke ( new Action<bool> ( setEnableStatusBascula ) , Value );
+			if ( this.InvokeRequired )
+			{
+				this.Invoke ( new Action<bool> ( setEnableStatusBascula ), Value );
 				return;
 			}
 
@@ -439,12 +620,17 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private async void Bascula_CambioValor ( object sender , CambioValorEventArgs e ) {
-			await Task.Run ( ( ) => {
-				try {
+		private async void Bascula_CambioValor ( object sender, CambioValorEventArgs e )
+		{
+			await Task.Run ( () =>
+			{
+				try
+				{
 					if ( !CoreEditing )
 						setValuePesoBruto ( e.NuevoValor );
-				} catch ( Exception EX ) {
+				}
+				catch ( Exception EX )
+				{
 					Console.WriteLine ( EX );
 				}
 
@@ -455,18 +641,21 @@ namespace EstacionPesaje.Pages.MainPages {
 		/// Asigna el valor del peso bruto al Textbox
 		/// </summary>
 		/// <param name="Value"></param>
-		private void setValuePesoBruto ( double Value ) {
-			if ( pESOBRUTOKryptonTextBox.InvokeRequired ) {
-				pESOBRUTOKryptonTextBox.Invoke ( new Action<double> ( setValuePesoBruto ) , Value );
+		private void setValuePesoBruto ( double Value )
+		{
+			if ( pESOBRUTOKryptonTextBox.InvokeRequired )
+			{
+				pESOBRUTOKryptonTextBox.Invoke ( new Action<double> ( setValuePesoBruto ), Value );
 				return;
 			}
-			pESOBRUTOKryptonTextBox.Value = ( decimal ) Value;
+			pESOBRUTOKryptonTextBox.Value = (decimal)Value;
 		}
 
 		#endregion
 
 
-		public class InformacionInicialCaptura {
+		public class InformacionInicialCaptura
+		{
 			public string Operador { get; set; } = "";
 			public Maquina Maquina { get; set; } = null;
 			public int Turno { get; set; } = 0;
@@ -476,28 +665,33 @@ namespace EstacionPesaje.Pages.MainPages {
 
 		}
 
-		private void produccionKryptonDataGridView_SelectionChanged ( object sender , EventArgs e ) {
-			try {
+		private void produccionKryptonDataGridView_SelectionChanged ( object sender, EventArgs e )
+		{
+			try
+			{
 
 				List<TempProduccion> t = ( from DataGridViewRow rw in produccionKryptonDataGridView.SelectedRows
-										   select ( TempProduccion ) rw.DataBoundItem ).ToList ( );
+										   select (TempProduccion)rw.DataBoundItem ).ToList ( );
 
-				PB_lbl.Text = String.Format ( "{0:0.00}" , t.Sum ( u => u.PESOBRUTO ) );
-				PN_lbl.Text = String.Format ( "{0:0.00}" , t.Sum ( u => u.PESONETO ) );
-				PZ_lbl.Text = String.Format ( "{0:N0}" , t.Sum ( u => u.PIEZAS ) );
-				SEL_lbl.Text = String.Format ( "{0:N0}" , t.Count ( ) );
+				PB_lbl.Text = String.Format ( "{0:0.00}", t.Sum ( u => u.PESOBRUTO ) );
+				PN_lbl.Text = String.Format ( "{0:0.00}", t.Sum ( u => u.PESONETO ) );
+				PZ_lbl.Text = String.Format ( "{0:N0}", t.Sum ( u => u.PIEZAS ) );
+				SEL_lbl.Text = String.Format ( "{0:N0}", t.Count ( ) );
 
-			} catch ( Exception ) {
+			}
+			catch ( Exception )
+			{
 
 			}
 		}
 
 		#region FilterDataGridView
-		private async void RefreshListItems ( ) {
+		private async void RefreshListItems ()
+		{
 
 
-			int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
-			
+			int sp = (int)ProcesosFilterToolBar.ComboBox.SelectedValue;
+
 			DB.TempProduccion
 				.Local
 				.ToList ( )
@@ -506,8 +700,8 @@ namespace EstacionPesaje.Pages.MainPages {
 					DB.Entry ( y ).State = EntityState.Detached;
 					y = null;
 				} );
-			
-			var tempu= DB.TempProduccion.Where ( o => o.TIPOPROCESO == sp & o.OT == this.OT ).ToList();
+
+			var tempu = await DB.TempProduccion.Where ( o => o.TIPOPROCESO == sp & o.OT == this.OT ).Include ( y => y.Maquina_ ).OrderBy ( u => u.NUMERO ).ToListAsync ( );
 
 			temporalOrdenTrabajoBindingSource.DataSource = DB.tempOt.Local.ToBindingList ( );
 
@@ -518,7 +712,7 @@ namespace EstacionPesaje.Pages.MainPages {
 			this.PageTitleText = $"Lista [{this.OT }] [{ProcesosFilterToolBar.ComboBox.SelectedItem }]";
 		}
 
-		private void toolStripButton3_Click ( object sender , EventArgs e ) => RefreshListItems ( );
+		private void toolStripButton3_Click ( object sender, EventArgs e ) => RefreshListItems ( );
 		//	{
 		//	int sp = ( int ) ProcesosFilterToolBar.ComboBox.SelectedValue;
 
@@ -541,26 +735,31 @@ namespace EstacionPesaje.Pages.MainPages {
 
 
 
-		private void toolStripButton4_Click ( object sender , EventArgs e ) {
+		private void toolStripButton4_Click ( object sender, EventArgs e )
+		{
 
-			if ( produccionKryptonDataGridView.SelectedRows.Count > 0 ) {
+			if ( produccionKryptonDataGridView.SelectedRows.Count > 0 )
+			{
 				td.Content = "Desea Eliminar los elementos seleccionados?";
 				if ( td.ShowDialog ( ) == DialogResult.No )
 					return;
 
-				foreach ( DataGridViewRow row in produccionKryptonDataGridView.SelectedRows ) {
+				foreach ( DataGridViewRow row in produccionKryptonDataGridView.SelectedRows )
+				{
 					produccionKryptonDataGridView.Rows.Remove ( row );
 				}
 			}
 
 
 		}
-		private void setBajadaActual_btn_Click ( object sender , EventArgs e ) {
-			var val = KryptonInputBox.Show ( this , "Ingrese el valor de la bajada siguiente" , "Cambiar valor de bajada" , "1" );
-			try {
+		private void setBajadaActual_btn_Click ( object sender, EventArgs e )
+		{
+			var val = KryptonInputBox.Show ( this, "Ingrese el valor de la bajada siguiente", "Cambiar valor de bajada", "1" );
+			try
+			{
 
 				int valor;
-				bool num = int.TryParse ( val , out valor );
+				bool num = int.TryParse ( val, out valor );
 				if ( !num )
 					throw new Exception ( "No es un numero o valor valido" );
 				if ( valor - 1 >= int.Parse ( repEje_txt.Text ) )
@@ -568,40 +767,112 @@ namespace EstacionPesaje.Pages.MainPages {
 
 				AcumuladoBajada = valor - 1;
 				bajadaActual_txt.Text = ( AcumuladoBajada ).ToString ( );
-			} catch ( Exception ex ) {
+			}
+			catch ( Exception ex )
+			{
 				HandledException ( ex );
 			}
 		}
 
-
-		private async void simularEtiqueta_Lista_chk_Click ( object sender , EventArgs e ) {
+		private async void simularEtiqueta_Lista_chk_Click ( object sender, EventArgs e )
+		{
 			var frm = new IniciarCaptura_frm ( );
 			frm.InfoCapturaLayout.Visible = false;
 
-			if ( frm.ShowDialog ( ) == DialogResult.OK ) {
-				try {
+			if ( frm.ShowDialog ( ) == DialogResult.OK )
+			{
+				try
+				{
 					if ( produccionKryptonDataGridView.SelectedRows.Count <= 0 )
 						throw new Exception ( "No se selecciono ningun elemento." );
 
-					var t = produccionKryptonDataGridView.SelectedRows [ 0 ];
+					var t = produccionKryptonDataGridView.SelectedRows[ 0 ];
 
-					var y = await DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == ( ( TempProduccion ) t.DataBoundItem ).Id ).FirstOrDefaultAsync ( );
+					var y = await DB.TempProduccion.Include ( r => r.Maquina_ ).Include ( r => r.Proceso_ ).Where ( r => r.Id == ( (TempProduccion)t.DataBoundItem ).Id ).FirstOrDefaultAsync ( );
 
 
-					using ( var frm2 = new tools.PreviewLabel_frm<TempProduccion> ( y , frm.response.Etiqueta.ZPLCode , frm.response.Options ) ) {
+					using ( var frm2 = new tools.PreviewLabel_frm<TempProduccion> ( y, frm.response.Etiqueta.ZPLCode, frm.response.Options ) )
+					{
 						frm2.ShowDialog ( );
 					}
 
 
 					//this.replaceAndPrintZPLProduccion1.PrintZPL ( frm.response.Etiqueta.ZPLCode , y , frm.response.Options , true );
 
-				} catch ( Exception ex ) {
-					HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB , ex ) ) );
+				}
+				catch ( Exception ex )
+				{
+					HandledException ( new Exception ( libProduccionDataBase.Auxiliares.ValidationAndErrorMessages ( DB, ex ) ) );
 				}
 
 
 			}
 			frm.Dispose ( );
+		}
+
+		private void pasteClipBoard ()
+		{
+			try
+			{
+				string s = Clipboard.GetText ( );
+				string[] lines = s.Split ( '\n' );
+				int iFail = 0, iRow = produccionKryptonDataGridView.CurrentCell.RowIndex;
+				int iCol = produccionKryptonDataGridView.CurrentCell.ColumnIndex;
+				DataGridViewCell oCell;
+
+				foreach ( string line in lines )
+				{
+					if ( iRow < produccionKryptonDataGridView.RowCount && line.Length > 0 )
+					{
+						string[] sCells = line.Split ( '\t' );
+						for ( int i = 0; i < sCells.GetLength ( 0 ); ++i )
+						{
+							if ( iCol + i < this.produccionKryptonDataGridView.ColumnCount )
+							{
+								oCell = produccionKryptonDataGridView[ iCol + i, iRow ];
+								if ( !oCell.ReadOnly )
+								{
+
+									oCell.Value = Convert.ChangeType ( sCells[ i ],
+														  oCell.ValueType );
+									oCell.Style.BackColor = Color.Orange;
+
+									//only traps a fail if the data has changed 
+									//and you are pasting into a read only cell
+								}
+							}
+							else
+							{ break; }
+						}
+						iRow++;
+					}
+					else
+					{ break; }
+					if ( iFail > 0 )
+						MessageBox.Show ( string.Format ( "{0} updates failed due" +
+										" to read only column setting", iFail ) );
+				}
+
+
+			}
+			catch ( Exception e )
+			{
+				MessageBox.Show ( "The data you pasted is in the wrong format for the cell" );
+				return;
+			}
+		}
+
+		private void produccionKryptonDataGridView_KeyDown ( object sender, KeyEventArgs e )
+		{
+			if ( e.Control && e.KeyCode == Keys.V )
+			{
+				pasteClipBoard ( );
+			}
+		}
+
+		private void saneo_chk_Click ( object sender, EventArgs e )
+		{
+
 		}
 	}
 }

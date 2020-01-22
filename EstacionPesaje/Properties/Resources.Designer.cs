@@ -193,6 +193,26 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bullet_green {
+            get {
+                object obj = ResourceManager.GetObject("bullet_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bullet_red {
+            get {
+                object obj = ResourceManager.GetObject("bullet_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_circle_blue_bottom {
             get {
                 object obj = ResourceManager.GetObject("button_circle_blue_bottom", resourceCulture);
@@ -246,6 +266,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap calendar_selection_year {
             get {
                 object obj = ResourceManager.GetObject("calendar_selection_year", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel {
+            get {
+                object obj = ResourceManager.GetObject("cancel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -766,6 +796,26 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap shipment1 {
             get {
                 object obj = ResourceManager.GetObject("shipment1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_import {
+            get {
+                object obj = ResourceManager.GetObject("table-import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_import1 {
+            get {
+                object obj = ResourceManager.GetObject("table-import1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

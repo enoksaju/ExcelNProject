@@ -179,6 +179,22 @@
     <Compile Include="Migrations\201812051758232_addReferenciaFigura.Designer.cs">
       <DependentUpon>201812051758232_addReferenciaFigura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908142033044_ControlDurezas.cs" />
+    <Compile Include="Migrations\201908142033044_ControlDurezas.Designer.cs">
+      <DependentUpon>201908142033044_ControlDurezas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910231954014_addItem.cs" />
+    <Compile Include="Migrations\201910231954014_addItem.Designer.cs">
+      <DependentUpon>201910231954014_addItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212052411_ComenatariosProduccion.cs" />
+    <Compile Include="Migrations\202001212052411_ComenatariosProduccion.Designer.cs">
+      <DependentUpon>202001212052411_ComenatariosProduccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001212128014_SaneoArrugasProduccion.cs" />
+    <Compile Include="Migrations\202001212128014_SaneoArrugasProduccion.Designer.cs">
+      <DependentUpon>202001212128014_SaneoArrugasProduccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
     <Compile Include="Tablas\cls_Embarques.cs" />
@@ -281,6 +297,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812051758232_addReferenciaFigura.resx">
       <DependentUpon>201812051758232_addReferenciaFigura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908142033044_ControlDurezas.resx">
+      <DependentUpon>201908142033044_ControlDurezas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910231954014_addItem.resx">
+      <DependentUpon>201910231954014_addItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212052411_ComenatariosProduccion.resx">
+      <DependentUpon>202001212052411_ComenatariosProduccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001212128014_SaneoArrugasProduccion.resx">
+      <DependentUpon>202001212128014_SaneoArrugasProduccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

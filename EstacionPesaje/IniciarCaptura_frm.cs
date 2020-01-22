@@ -70,14 +70,18 @@ namespace EstacionPesaje {
 						if (procesoKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione un Proceso" );
 					}
 
-					if (etiquetaKryptonComboBox.SelectedIndex == -1) throw new Exception ( "Seleccione una Etiqueta" );
+					var p = (Proceso)procesoBindingSource.Current;
+					if (etiquetaKryptonComboBox.SelectedIndex == -1 && !(p.ID ==1 || p.ID ==2  )) throw new Exception ( "Seleccione una Etiqueta" );
+
+					var et = ( p.ID == 1 || p.ID == 2 ) ? DB.Etiquetas.FirstOrDefault(y=> y.Id == 3) : (Etiqueta)etiquetaBindingSource.Current ;
+
 
 					response = new InformacionInicialCaptura ( ) {
 						Maquina = ( Maquina ) maquinasBindingSource.Current,
 						Turno = TurnokryptonComboBox.SelectedIndex,
-						Proceso = ( Proceso ) procesoBindingSource.Current,
+						Proceso = p,
 						Operador = OperadorkryptonTextBox.Text,
-						Etiqueta = ( Etiqueta ) etiquetaBindingSource.Current,
+						Etiqueta = et,
 						Options = new Optionals {
 							ItemOptional = ItemOptionalTextBox.Text,
 							Optional1 = Optional1TextBox.Text,
@@ -85,6 +89,7 @@ namespace EstacionPesaje {
 							Optional3 = Optional3TextBox.Text,
 							Optional4 = Optional4TextBox.Text,
 							Optional5 = Optional5TextBox.Text,
+							optional6 = Optional6TextBox.Text
 						}
 
 					};

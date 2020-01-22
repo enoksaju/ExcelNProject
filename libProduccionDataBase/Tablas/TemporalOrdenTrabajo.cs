@@ -212,6 +212,20 @@ namespace libProduccionDataBase.Tablas {
 
 		[ForeignKey ( "OT" )]
 		public virtual TemporalOrdenTrabajo OrdenTrabajo { get; set; }
+
+		// Control de dureza en bobinas
+		public double? DurezaIzquierda { get; set; }
+		public double? DurezaDerecha { get; set; }
+		public double? DurezaCentro { get; set; }
+
+		// Almacenamiento del Item de la bobina
+		public string Item { get; set; }
+
+		/// <summary>
+		/// Almacena los comentarios sobre la bobina capturada
+		/// </summary>
+		public string Comentarios { get; set; }
+		public bool EnSaneoArrugas { get; set; }
 	}
 
 

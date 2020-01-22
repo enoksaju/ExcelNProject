@@ -38,6 +38,7 @@
 			this.kryptonRibbonGroupButton6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.kryptonRibbonGroupButton9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.progressProduction_btn = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+			this.kryptonRibbonGroupTriple11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
 			this.kryptonRibbonGroup5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
 			this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -87,6 +88,7 @@
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.databaseName_lbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.BasculaText = new System.Windows.Forms.ToolStripStatusLabel();
+			this.readyScaleImage = new System.Windows.Forms.ToolStripStatusLabel();
 			this.kryptonDockingManager = new ComponentFactory.Krypton.Docking.KryptonDockingManager();
 			this.controlBascula1 = new libBascula.ControlBascula(this.components);
 			this.ConnectBasculaSpectButton = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -141,7 +143,6 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
-			this.Ribbon.SelectedContext = null;
 			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;
@@ -159,7 +160,8 @@
 			// 
 			this.kryptonRibbonGroup1.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple1,
-            this.kryptonRibbonGroupTriple7});
+            this.kryptonRibbonGroupTriple7,
+            this.kryptonRibbonGroupTriple11});
 			this.kryptonRibbonGroup1.TextLine1 = "Producción";
 			// 
 			// kryptonRibbonGroupTriple1
@@ -526,6 +528,7 @@
 			// kryptonRibbonGroupButton14
 			// 
 			this.kryptonRibbonGroupButton14.KeyTip = "T";
+			this.kryptonRibbonGroupButton14.Visible = false;
 			this.kryptonRibbonGroupButton14.Click += new System.EventHandler(this.kryptonRibbonGroupButton14_Click);
 			// 
 			// MainPanel
@@ -541,7 +544,6 @@
 			// 
 			this.kryptonDockableWorkspace.AutoHiddenHost = false;
 			this.kryptonDockableWorkspace.CompactFlags = ComponentFactory.Krypton.Workspace.CompactFlags.None;
-			this.kryptonDockableWorkspace.ContainerBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
 			this.kryptonDockableWorkspace.ContextMenus.ShortcutCloseAllButThis = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.T)));
 			this.kryptonDockableWorkspace.ContextMenus.TextClose = "&Cerrar";
@@ -571,7 +573,8 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.databaseName_lbl,
-            this.BasculaText});
+            this.BasculaText,
+            this.readyScaleImage});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 543);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
@@ -582,7 +585,7 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(682, 17);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(666, 17);
 			this.toolStripStatusLabel1.Spring = true;
 			this.toolStripStatusLabel1.Text = "Listo...";
 			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,6 +607,12 @@
 			this.BasculaText.Name = "BasculaText";
 			this.BasculaText.Size = new System.Drawing.Size(66, 17);
 			this.BasculaText.Text = "00.00 kg";
+			// 
+			// readyScaleImage
+			// 
+			this.readyScaleImage.Image = global::EstacionPesaje.Properties.Resources.bullet_red;
+			this.readyScaleImage.Name = "readyScaleImage";
+			this.readyScaleImage.Size = new System.Drawing.Size(16, 17);
 			// 
 			// kryptonDockingManager
 			// 
@@ -629,8 +638,13 @@
 			this.controlBascula1.DataBindings.Add(new System.Windows.Forms.Binding("StatusLabelShowUnidad", global::EstacionPesaje.Properties.Settings.Default, "BasculaShowUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.controlBascula1.DataBindings.Add(new System.Windows.Forms.Binding("TextoAEnviar", global::EstacionPesaje.Properties.Settings.Default, "BasculaTextoAEnviar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.controlBascula1.DataBindings.Add(new System.Windows.Forms.Binding("Unidad", global::EstacionPesaje.Properties.Settings.Default, "BasculaUnidad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.controlBascula1.DataBindings.Add(new System.Windows.Forms.Binding("EstableTimeDelay", global::EstacionPesaje.Properties.Settings.Default, "EstableDelay", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.controlBascula1.DisconnectedImage = ((System.Drawing.Image)(resources.GetObject("controlBascula1.DisconnectedImage")));
+			this.controlBascula1.EstableImage = global::EstacionPesaje.Properties.Resources.bullet_green;
+			this.controlBascula1.EstableLabel = this.readyScaleImage;
+			this.controlBascula1.EstableTimeDelay = global::EstacionPesaje.Properties.Settings.Default.EstableDelay;
 			this.controlBascula1.Fin = global::EstacionPesaje.Properties.Settings.Default.BasculaFin;
+			this.controlBascula1.InestableImage = global::EstacionPesaje.Properties.Resources.bullet_red;
 			this.controlBascula1.Inicio = global::EstacionPesaje.Properties.Settings.Default.BasculaInicio;
 			this.controlBascula1.Intervalo = global::EstacionPesaje.Properties.Settings.Default.BasculaIntervalo;
 			this.controlBascula1.Puerto = global::EstacionPesaje.Properties.Settings.Default.BasculaPuerto;
@@ -640,6 +654,7 @@
 			this.controlBascula1.StatusPicture = null;
 			this.controlBascula1.TextoAEnviar = global::EstacionPesaje.Properties.Settings.Default.BasculaTextoAEnviar;
 			this.controlBascula1.Unidad = global::EstacionPesaje.Properties.Settings.Default.BasculaUnidad;
+			this.controlBascula1.CambioValor += new libBascula.CambioValorEvenHandler(this.controlBascula1_CambioValor);
 			this.controlBascula1.CambioEstado += new libBascula.CambioEstadoEventHandler(this.controlBascula1_CambioEstado);
 			// 
 			// ConnectBasculaSpectButton
@@ -742,6 +757,8 @@
 		private System.Windows.Forms.ToolStripStatusLabel databaseName_lbl;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
 		public ComponentFactory.Krypton.Docking.KryptonDockingManager kryptonDockingManager;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple11;
+		private System.Windows.Forms.ToolStripStatusLabel readyScaleImage;
 	}
 }
 

@@ -156,6 +156,7 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 		public string M_MAQUINA { get; set; }
 
 		public short ENABLED { get; set; }
+		public string Comentarios { get; set; }
 
 		public dataProduccion ( ) {
 
@@ -238,6 +239,7 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 			P_FECHA = null;
 			P_USUARIO = "";
 			M_MAQUINA = "";
+			Comentarios = "";
 			ENABLED = 1;
 		}
 
@@ -261,6 +263,8 @@ namespace EstacionPesaje.Pages.MainPages.Produccion {
 				y.P_PIEZAS = prod.PIEZAS;
 				y.P_TURNO = prod.TURNO;
 				y.P_USUARIO = prod.USUARIO;
+				y.Comentarios = prod.Comentarios;
+				y.M_MAQUINA = prod.Maquina_.NombreMaquina;
 				ret.Add ( y );
 			} );
 

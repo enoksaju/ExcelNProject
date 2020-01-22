@@ -19,152 +19,116 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="ID">
-          <DataField>ID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TIPO">
-          <DataField>TIPO</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="FECHARECIBIDO">
-          <DataField>FECHARECIBIDO</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="OT">
-          <DataField>OT</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="FECHAENTREGASOL">
-          <DataField>FECHAENTREGASOL</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="CLIENTE">
-          <DataField>CLIENTE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PRODUCTO">
-          <DataField>PRODUCTO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CANTIDAD">
-          <DataField>CANTIDAD</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="UNIDAD">
-          <DataField>UNIDAD</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="ALTO">
+          <DataField>ALTO</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="ANCHO">
           <DataField>ANCHO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="ALTO">
-          <DataField>ALTO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="SOLAPA">
-          <DataField>SOLAPA</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="FUELLELATERAL">
-          <DataField>FUELLELATERAL</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="FUELLEFONDO">
-          <DataField>FUELLEFONDO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="COPETE">
-          <DataField>COPETE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="AREASELLOREV">
-          <DataField>AREASELLOREV</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="AREASELLOFONDO">
           <DataField>AREASELLOFONDO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="TIPOIMPRESION">
-          <DataField>TIPOIMPRESION</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
+        <Field Name="AREASELLOREV">
+          <DataField>AREASELLOREV</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="TIPOTRABAJO">
-          <DataField>TIPOTRABAJO</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="REPEJE">
-          <DataField>REPEJE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="REPDES">
-          <DataField>REPDES</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATBASE">
-          <DataField>MATBASE</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="MATBASECALIBRE">
-          <DataField>MATBASECALIBRE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATBASEKG">
-          <DataField>MATBASEKG</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATLAMINACION">
-          <DataField>MATLAMINACION</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="MATLAMINACIONCALIBRE">
-          <DataField>MATLAMINACIONCALIBRE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATLAMINACIONKG">
-          <DataField>MATLAMINACIONKG</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATTRILAMINACION">
-          <DataField>MATTRILAMINACION</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="MATTRILAMINACIONCALIBRE">
-          <DataField>MATTRILAMINACIONCALIBRE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="MATTRILAMINACIONKG">
-          <DataField>MATTRILAMINACIONKG</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+        <Field Name="CANTIDAD">
+          <DataField>CANTIDAD</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="CLAVEINTELISIS">
           <DataField>CLAVEINTELISIS</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ORDENCOMPRA">
-          <DataField>ORDENCOMPRA</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CLAVEPRODUCTO">
           <DataField>CLAVEPRODUCTO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IMPRESORA">
-          <DataField>IMPRESORA</DataField>
+        <Field Name="CLIENTE">
+          <DataField>CLIENTE</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RODILLO">
-          <DataField>RODILLO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+        <Field Name="Comentarios">
+          <DataField>Comentarios</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FIGURASALIDAFINAL">
-          <DataField>FIGURASALIDAFINAL</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
+        <Field Name="COPETE">
+          <DataField>COPETE</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
         <Field Name="EMPATES">
           <DataField>EMPATES</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ENABLED">
+          <DataField>ENABLED</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="ESIMPRESO">
+          <DataField>ESIMPRESO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXANCHO">
+          <DataField>EXANCHO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXANTIESTATICA">
+          <DataField>EXANTIESTATICA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXCOLOR">
+          <DataField>EXCOLOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXDESLIZ">
+          <DataField>EXDESLIZ</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXDINAS">
+          <DataField>EXDINAS</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXKG">
+          <DataField>EXKG</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXTIPO">
+          <DataField>EXTIPO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EXTRATADO">
+          <DataField>EXTRATADO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FECHAENTREGASOL">
+          <DataField>FECHAENTREGASOL</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FECHARECIBIDO">
+          <DataField>FECHARECIBIDO</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FIGURASALIDAFINAL">
+          <DataField>FIGURASALIDAFINAL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FUELLEFONDO">
+          <DataField>FUELLEFONDO</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="FUELLELATERAL">
+          <DataField>FUELLELATERAL</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IMPRESORA">
+          <DataField>IMPRESORA</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="INSTCORTE">
@@ -203,61 +167,157 @@
           <DataField>INSTSELLADO</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OBSERVACIONES">
-          <DataField>OBSERVACIONES</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ESIMPRESO">
-          <DataField>ESIMPRESO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="KGXMILL">
           <DataField>KGXMILL</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="M_MAQUINA">
+          <DataField>M_MAQUINA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MATBASE">
+          <DataField>MATBASE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MATBASEAMU">
           <DataField>MATBASEAMU</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="EXTIPO">
-          <DataField>EXTIPO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="MATBASECALIBRE">
+          <DataField>MATBASECALIBRE</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="EXCOLOR">
-          <DataField>EXCOLOR</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="MATBASEKG">
+          <DataField>MATBASEKG</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="EXTRATADO">
-          <DataField>EXTRATADO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EXDINAS">
-          <DataField>EXDINAS</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EXDESLIZ">
-          <DataField>EXDESLIZ</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EXANTIESTATICA">
-          <DataField>EXANTIESTATICA</DataField>
+        <Field Name="MATLAMINACION">
+          <DataField>MATLAMINACION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MATLAMINACIONAMU">
           <DataField>MATLAMINACIONAMU</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MATLAMINACIONCALIBRE">
+          <DataField>MATLAMINACIONCALIBRE</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MATLAMINACIONKG">
+          <DataField>MATLAMINACIONKG</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MATTRILAMINACION">
+          <DataField>MATTRILAMINACION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MATTRILAMINACIONAMU">
           <DataField>MATTRILAMINACIONAMU</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="EXKG">
-          <DataField>EXKG</DataField>
+        <Field Name="MATTRILAMINACIONCALIBRE">
+          <DataField>MATTRILAMINACIONCALIBRE</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MATTRILAMINACIONKG">
+          <DataField>MATTRILAMINACIONKG</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="OBSERVACIONES">
+          <DataField>OBSERVACIONES</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EXANCHO">
-          <DataField>EXANCHO</DataField>
+        <Field Name="ORDENCOMPRA">
+          <DataField>ORDENCOMPRA</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OT">
+          <DataField>OT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="P_BANDERAS">
+          <DataField>P_BANDERAS</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_ENSANEO">
+          <DataField>P_ENSANEO</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_ESRECHAZADA">
+          <DataField>P_ESRECHAZADA</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_FECHA">
+          <DataField>P_FECHA</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_FUEEDITADA">
+          <DataField>P_FUEEDITADA</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_FUESANEADA">
+          <DataField>P_FUESANEADA</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_NUMERO">
+          <DataField>P_NUMERO</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_OPERADOR">
+          <DataField>P_OPERADOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="P_ORIGEN">
+          <DataField>P_ORIGEN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="P_PESOBRUTO">
+          <DataField>P_PESOBRUTO</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_PESOCORE">
+          <DataField>P_PESOCORE</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_PIEZAS">
+          <DataField>P_PIEZAS</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_TURNO">
+          <DataField>P_TURNO</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="P_USUARIO">
+          <DataField>P_USUARIO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCTO">
+          <DataField>PRODUCTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REPDES">
+          <DataField>REPDES</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="REPEJE">
+          <DataField>REPEJE</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="RODILLO">
+          <DataField>RODILLO</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SOLAPA">
+          <DataField>SOLAPA</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TIPO">
+          <DataField>TIPO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TIPOIMPRESION">
+          <DataField>TIPOIMPRESION</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="TIPOINSTRING">
           <DataField>TIPOINSTRING</DataField>
@@ -267,74 +327,19 @@
           <DataField>TIPOPROCESO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="P_NUMERO">
-          <DataField>P_NUMERO</DataField>
+        <Field Name="TIPOTRABAJO">
+          <DataField>TIPOTRABAJO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="P_PESOBRUTO">
-          <DataField>P_PESOBRUTO</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="P_PESOCORE">
-          <DataField>P_PESOCORE</DataField>
-          <rd:TypeName>System.Single</rd:TypeName>
-        </Field>
-        <Field Name="P_PIEZAS">
-          <DataField>P_PIEZAS</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="P_ORIGEN">
-          <DataField>P_ORIGEN</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="P_BANDERAS">
-          <DataField>P_BANDERAS</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="P_ENSANEO">
-          <DataField>P_ENSANEO</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="P_ESRECHAZADA">
-          <DataField>P_ESRECHAZADA</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="P_FUEEDITADA">
-          <DataField>P_FUEEDITADA</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="P_FUESANEADA">
-          <DataField>P_FUESANEADA</DataField>
-          <rd:TypeName>System.Int16</rd:TypeName>
-        </Field>
-        <Field Name="P_OPERADOR">
-          <DataField>P_OPERADOR</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="P_TURNO">
-          <DataField>P_TURNO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="P_FECHA">
-          <DataField>P_FECHA</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="P_USUARIO">
-          <DataField>P_USUARIO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="M_MAQUINA">
-          <DataField>M_MAQUINA</DataField>
+        <Field Name="UNIDAD">
+          <DataField>UNIDAD</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\HSALINAS\Dropbox\PROYECTOS EXCEL\Control Pedidos y Produccion v4\EstacionesPesaje\libReportsOTS\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>REPORT_OTS</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>REPORT_OTSTableAdapter</rd:TableAdapterName>
+        <rd:DataSetName>EstacionPesaje.Pages.MainPages.Produccion</rd:DataSetName>
+        <rd:TableName>dataProduccion</rd:TableName>
+        <rd:ObjectDataSourceType>EstacionPesaje.Pages.MainPages.Produccion.dataProduccion, EstacionesPesaje, Version=5.2.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1861,6 +1866,7 @@
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
+                                                  <Format>#,0.0000;-#,0.0000;'-'</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -1930,6 +1936,7 @@
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
+                                                  <Format>#,0.00;-#,0.00;'-'</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -4254,7 +4261,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DESP</Value>
+                                                              <Value>BANDERAS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -4291,7 +4298,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DEFECTO</Value>
+                                                              <Value>COMENTARIOS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -4616,7 +4623,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!P_BANDERAS.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>6pt</FontSize>
@@ -4651,7 +4658,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!Comentarios.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>6pt</FontSize>
@@ -4906,12 +4913,119 @@
                                                         <PaddingBottom>2pt</PaddingBottom>
                                                       </Style>
                                                     </Textbox>
-                                                    <ColSpan>4</ColSpan>
                                                   </CellContents>
                                                 </TablixCell>
-                                                <TablixCell />
-                                                <TablixCell />
-                                                <TablixCell />
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox9">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                                <FontWeight>SemiBold</FontWeight>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox10">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox11">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
                                               </TablixCells>
                                             </TablixRow>
                                           </TablixRows>
@@ -5298,7 +5412,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DESP</Value>
+                                                <Value>BANDERAS</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -5334,7 +5448,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DEFECTO</Value>
+                                                <Value>COMENTARIOS</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -5652,13 +5766,13 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox531">
+                                      <Textbox Name="P_BANDERAS">
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!P_BANDERAS.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -5670,7 +5784,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox531</rd:DefaultName>
+                                        <rd:DefaultName>P_BANDERAS</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
@@ -5687,13 +5801,13 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox533">
+                                      <Textbox Name="Comentarios">
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!Comentarios.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -5705,7 +5819,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox533</rd:DefaultName>
+                                        <rd:DefaultName>Comentarios</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
@@ -5847,10 +5961,11 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>6pt</FontSize>
+                                                  <FontWeight>SemiBold</FontWeight>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -5866,6 +5981,42 @@
                                             <Style>Solid</Style>
                                             <Width>0.5pt</Width>
                                           </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox12">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>6pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox12</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
                                           <BackgroundColor>LightGrey</BackgroundColor>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -5873,11 +6024,45 @@
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
-                                      <ColSpan>3</ColSpan>
                                     </CellContents>
                                   </TablixCell>
-                                  <TablixCell />
-                                  <TablixCell />
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox13">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>6pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox13</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
                                 </TablixCells>
                               </TablixRow>
                             </TablixRows>
@@ -7065,7 +7250,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DESP</Value>
+                                                              <Value>BANDERAS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -7102,7 +7287,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DEFECTO</Value>
+                                                              <Value>COMENTARIOS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -7428,14 +7613,14 @@
                                                 </TablixCell>
                                                 <TablixCell>
                                                   <CellContents>
-                                                    <Textbox Name="Textbox664">
+                                                    <Textbox Name="P_BANDERAS1">
                                                       <CanGrow>true</CanGrow>
                                                       <KeepTogether>true</KeepTogether>
                                                       <Paragraphs>
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!P_BANDERAS.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -7447,7 +7632,7 @@
                                                           </Style>
                                                         </Paragraph>
                                                       </Paragraphs>
-                                                      <rd:DefaultName>Textbox664</rd:DefaultName>
+                                                      <rd:DefaultName>P_BANDERAS1</rd:DefaultName>
                                                       <Style>
                                                         <Border>
                                                           <Color>DimGray</Color>
@@ -7464,14 +7649,14 @@
                                                 </TablixCell>
                                                 <TablixCell>
                                                   <CellContents>
-                                                    <Textbox Name="Textbox666">
+                                                    <Textbox Name="Comentarios1">
                                                       <CanGrow>true</CanGrow>
                                                       <KeepTogether>true</KeepTogether>
                                                       <Paragraphs>
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!Comentarios.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -7483,7 +7668,7 @@
                                                           </Style>
                                                         </Paragraph>
                                                       </Paragraphs>
-                                                      <rd:DefaultName>Textbox666</rd:DefaultName>
+                                                      <rd:DefaultName>Comentarios1</rd:DefaultName>
                                                       <Style>
                                                         <Border>
                                                           <Color>DimGray</Color>
@@ -7651,12 +7836,119 @@
                                                         <PaddingBottom>2pt</PaddingBottom>
                                                       </Style>
                                                     </Textbox>
-                                                    <ColSpan>4</ColSpan>
                                                   </CellContents>
                                                 </TablixCell>
-                                                <TablixCell />
-                                                <TablixCell />
-                                                <TablixCell />
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox15">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                                <FontWeight>Bold</FontWeight>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox16">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox17">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
                                               </TablixCells>
                                             </TablixRow>
                                           </TablixRows>
@@ -10150,7 +10442,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DESP</Value>
+                                                              <Value>BANDERAS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -10186,7 +10478,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DEFECTO</Value>
+                                                              <Value>COMENTARIOS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -10510,7 +10802,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!P_BANDERAS.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -10545,7 +10837,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!Comentarios.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -10795,12 +11087,118 @@
                                                         <PaddingBottom>2pt</PaddingBottom>
                                                       </Style>
                                                     </Textbox>
-                                                    <ColSpan>4</ColSpan>
                                                   </CellContents>
                                                 </TablixCell>
-                                                <TablixCell />
-                                                <TablixCell />
-                                                <TablixCell />
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox18">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox18</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox19">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox19</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox21">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>6pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox21</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
                                               </TablixCells>
                                             </TablixRow>
                                           </TablixRows>
@@ -10870,6 +11268,7 @@
                               <TablixMember />
                             </TablixMembers>
                           </TablixRowHierarchy>
+                          <DataSetName>DataSet1</DataSetName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -11341,7 +11740,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DESP</Value>
+                                                <Value>BAND.</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -11377,7 +11776,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DEFECTO</Value>
+                                                <Value>COMENTARIOS</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -11738,13 +12137,14 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox430">
+                                      <Textbox Name="P_BANDERAS3">
+                                        <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!P_BANDERAS.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -11754,7 +12154,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox430</rd:DefaultName>
+                                        <rd:DefaultName>P_BANDERAS3</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
@@ -11770,13 +12170,13 @@
                                   </TablixCell>
                                   <TablixCell>
                                     <CellContents>
-                                      <Textbox Name="Textbox432">
+                                      <Textbox Name="Comentarios3">
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!Comentarios.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -11786,7 +12186,7 @@
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Textbox432</rd:DefaultName>
+                                        <rd:DefaultName>Comentarios3</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>DimGray</Color>
@@ -12379,7 +12779,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DESP</Value>
+                                                <Value>BAND</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -12416,7 +12816,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>DEFECTO</Value>
+                                                <Value>COMENTARIOS</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -12741,7 +13141,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!P_BANDERAS.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -12776,7 +13176,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value />
+                                                <Value>=Fields!Comentarios.Value</Value>
                                                 <Style>
                                                   <FontFamily>Calibri</FontFamily>
                                                   <FontSize>7pt</FontSize>
@@ -13031,12 +13431,119 @@
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
-                                      <ColSpan>4</ColSpan>
                                     </CellContents>
                                   </TablixCell>
-                                  <TablixCell />
-                                  <TablixCell />
-                                  <TablixCell />
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="P_BANDERAS4">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>6pt</FontSize>
+                                                  <FontWeight>SemiBold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>P_BANDERAS4</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox3">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>6pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox3</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="Textbox4">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value />
+                                                <Style>
+                                                  <FontFamily>Calibri</FontFamily>
+                                                  <FontSize>6pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Textbox4</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>DimGray</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <BackgroundColor>LightGrey</BackgroundColor>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
                                 </TablixCells>
                               </TablixRow>
                             </TablixRows>
@@ -14703,7 +15210,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DESP</Value>
+                                                              <Value>BANDERAS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -14739,7 +15246,7 @@
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value>DEFECTO</Value>
+                                                              <Value>COMENTARIOS</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -15076,13 +15583,13 @@
                                                 </TablixCell>
                                                 <TablixCell>
                                                   <CellContents>
-                                                    <Textbox Name="Textbox347">
+                                                    <Textbox Name="P_BANDERAS2">
                                                       <KeepTogether>true</KeepTogether>
                                                       <Paragraphs>
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!P_BANDERAS.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -15092,7 +15599,7 @@
                                                           <Style />
                                                         </Paragraph>
                                                       </Paragraphs>
-                                                      <rd:DefaultName>Textbox347</rd:DefaultName>
+                                                      <rd:DefaultName>P_BANDERAS2</rd:DefaultName>
                                                       <Style>
                                                         <Border>
                                                           <Color>DimGray</Color>
@@ -15109,13 +15616,13 @@
                                                 </TablixCell>
                                                 <TablixCell>
                                                   <CellContents>
-                                                    <Textbox Name="Textbox349">
+                                                    <Textbox Name="Comentarios2">
                                                       <KeepTogether>true</KeepTogether>
                                                       <Paragraphs>
                                                         <Paragraph>
                                                           <TextRuns>
                                                             <TextRun>
-                                                              <Value />
+                                                              <Value>=Fields!Comentarios.Value</Value>
                                                               <Style>
                                                                 <FontFamily>Calibri</FontFamily>
                                                                 <FontSize>7pt</FontSize>
@@ -15125,7 +15632,7 @@
                                                           <Style />
                                                         </Paragraph>
                                                       </Paragraphs>
-                                                      <rd:DefaultName>Textbox349</rd:DefaultName>
+                                                      <rd:DefaultName>Comentarios2</rd:DefaultName>
                                                       <Style>
                                                         <Border>
                                                           <Color>DimGray</Color>
@@ -15319,13 +15826,147 @@
                                                         <PaddingBottom>2pt</PaddingBottom>
                                                       </Style>
                                                     </Textbox>
-                                                    <ColSpan>5</ColSpan>
                                                   </CellContents>
                                                 </TablixCell>
-                                                <TablixCell />
-                                                <TablixCell />
-                                                <TablixCell />
-                                                <TablixCell />
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox5">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>7pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style />
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox6">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Sum(Fields!P_BANDERAS.Value)</Value>
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>7pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style />
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox7">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>7pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style />
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
+                                                <TablixCell>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox8">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value />
+                                                              <Style>
+                                                                <FontFamily>Calibri</FontFamily>
+                                                                <FontSize>7pt</FontSize>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style />
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Color>DimGray</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>0.5pt</Width>
+                                                        </Border>
+                                                        <BackgroundColor>LightGrey</BackgroundColor>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixCell>
                                               </TablixCells>
                                             </TablixRow>
                                           </TablixRows>

@@ -274,5 +274,41 @@ namespace EstacionPesaje.Properties {
                 this["ItemOptional"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Optional6 {
+            get {
+                return ((string)(this["Optional6"]));
+            }
+            set {
+                this["Optional6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int EstableDelay {
+            get {
+                return ((int)(this["EstableDelay"]));
+            }
+            set {
+                this["EstableDelay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public int FiltroProduccion {
+            get {
+                return ((int)(this["FiltroProduccion"]));
+            }
+            set {
+                this["FiltroProduccion"] = value;
+            }
+        }
     }
 }
