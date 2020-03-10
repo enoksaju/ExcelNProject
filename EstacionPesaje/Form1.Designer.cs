@@ -143,6 +143,7 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
+			this.Ribbon.SelectedContext = null;
 			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;

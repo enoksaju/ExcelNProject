@@ -133,6 +133,8 @@ namespace libProduccionDataBase.Migrations
 				}
 			);
 
+			
+
 			using ( var t = new ApplicationUserManager_ ( new Identity.ApplicationUserStore ( context ) ) )
 			{
 				if ( !t.Users.Any ( HS => HS.UserName == "hsalinas@excelnobleza.com.mx" ) )

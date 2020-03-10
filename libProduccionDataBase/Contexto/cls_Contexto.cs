@@ -10,6 +10,7 @@ using libProduccionDataBase.Tablas;
 using Microsoft.AspNet.Identity.EntityFramework;
 using libProduccionDataBase.Identity;
 using MySql.Data.EntityFramework;
+using System.Threading;
 
 namespace libProduccionDataBase.Contexto
 {
@@ -18,12 +19,22 @@ namespace libProduccionDataBase.Contexto
 	{
 		public event EventHandler SavedChanges;
 
-#if DevelopDataBase
+#if DEBUG
 		public DataBaseContexto () : base ( "ProduccionConexionDebug" )
+		{
+
+			this.Database.Log = ( y ) =>
+			{
+				//var ConCol = Console.ForegroundColor;
+				//Console.ForegroundColor = ConsoleColor.DarkYellow;
+				//Console.WriteLine ( y );
+				//Console.ForegroundColor = ConCol;
+				System.Diagnostics.Debug.WriteLine ( y );
+			};
 #else
 		public DataBaseContexto () :  base ( "ProduccionConexion" )
-#endif
 		{
+#endif
 			this.Configuration.LazyLoadingEnabled = true;
 			Database.SetInitializer<DataBaseContexto> ( null );
 		}
@@ -35,7 +46,7 @@ namespace libProduccionDataBase.Contexto
 		}
 
 		public static DataBaseContexto Create () => new DataBaseContexto ( );
-		public static DataBaseContexto Create ( string DataBase ) => new DataBaseContexto ( DataBase);
+		public static DataBaseContexto Create ( string DataBase ) => new DataBaseContexto ( DataBase );
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )
 		{
 			modelBuilder.Entity<ApplicationUserLogin> ( )
@@ -69,40 +80,84 @@ namespace libProduccionDataBase.Contexto
 			  .HasRequired ( t => t.FamiliaDefectos )
 			  .WithMany ( y => y.TFamiliaDefectosTDefecto )
 			  .HasForeignKey ( c => c.TFamiliaDefectosID );
+		}
+
+		private void ValidateOrdenTrabajosChanges ()
+		{
+			var y = this.ChangeTracker.Entries<TemporalOrdenTrabajo> ( );
+
+			foreach ( var ent in y.Where ( u => u.State == EntityState.Added ) )
+			{
+				Tablas.Planeacion.TiposProcesoProduccion tp = new Tablas.Planeacion.TiposProcesoProduccion ( );
+				if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
+
+				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "MICROPERFORAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Microperforado;
+				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "TROQUELAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Troquelar;
+
+				ent.Entity.Planeacion.CrearProcesos ( tp );
+
+			}
 
 
+			foreach ( var ent in y.Where ( u => u.State == EntityState.Modified ) )
+			{
+				var pl = ent.Entity.Planeacion;
+				pl.UltimaActualizacion = DateTime.Now;
+				Tablas.Planeacion.TiposProcesoProduccion toAdd = new Tablas.Planeacion.TiposProcesoProduccion ( );
 
-			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasMany ( y => y ).WithOptional ( ).WillCascadeOnDelete ( false );
-			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasRequired ( u => u.Cliente ).WithMany ( ).WillCascadeOnDelete ( false );
-			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasRequired ( u => u.Agente ).WithMany ( ).WillCascadeOnDelete ( false );
-			//modelBuilder.Entity<Tablas.Cotizador.CotizacionDetalle> ( ).HasRequired ( u => u.MaterialBase ).WithMany ( ).WillCascadeOnDelete ( false );
+				if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
 
-			//modelBuilder.Entity<Tablas.Cotizador.Cotizacion> ( ).HasMany ( y => y.Items ).WithRequired ( y => y.Cotizacion ).HasForeignKey ( u => u.Cotizacion_Id );
 
+				pl.UpdateProcesos ( toAdd );
+			}
 
 		}
 
 		public override int SaveChanges ()
 		{
+			ValidateOrdenTrabajosChanges ( );
 			var t = base.SaveChanges ( );
 			OnSavedChanges ( this, null );
 			return t;
 		}
+		public override Task<int> SaveChangesAsync ()
+		{
+			return base.SaveChangesAsync ( );
+		}
 
 		public int SavechangesWithSender ( object sender )
 		{
-			var t = base.SaveChanges ( );
+			var t = SaveChanges ( );
 			OnSavedChanges ( sender, null );
 			return t;
 		}
 
 		public async Task<int> SaveChangesWithSender ( object sender )
 		{
-
 			var t = await base.SaveChangesAsync ( );
-
 			OnSavedChanges ( sender, null );
-
 			return t;
 		}
 
@@ -170,6 +225,10 @@ namespace libProduccionDataBase.Contexto
 		// Cotizaciones
 		public virtual DbSet<Tablas.Cotizador.Cotizacion> Cotizaciones { get; set; }
 		public virtual DbSet<Tablas.Cotizador.CotizacionDetalle> Cotizacion_Detalle_Items { get; set; }
+
+
+		// Planeacion 
+		public virtual DbSet<Tablas.Planeacion> Planeacion { get; set; }
 
 
 		#endregion

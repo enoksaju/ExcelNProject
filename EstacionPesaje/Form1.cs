@@ -141,7 +141,7 @@ namespace EstacionPesaje {
 		}
 
 		private void kryptonRibbonGroupButton5_Click ( object sender , EventArgs e ) {
-			using ( var frm = new IniciarCaptura_frm ( ) ) {
+			using ( var frm = new IniciarCaptura_frm (true ) ) {
 				frm.InfoCapturaLayout.Visible = false;
 				if ( frm.ShowDialog ( ) == DialogResult.OK ) {
 

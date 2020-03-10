@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Microsoft.Reporting.WinForms;
+using libProduccionDataBase.Tablas;
+using ControlResiduosPeligrosos.Reportes.Vistas;
 
 namespace ControlResiduosPeligrosos
 {
@@ -132,6 +136,72 @@ namespace ControlResiduosPeligrosos
 					break;
 				default:
 					break;
+			}
+		}
+
+		private void reimprimirReporteToolStripMenuItem_Click ( object sender, EventArgs e )
+		{
+			try
+			{
+
+				int Folio = int.Parse ( KryptonInputBox.Show(this, "Ingrese el Folio", "Reimprimir Formato", "#") );
+				SalidaRP curr;
+
+				using ( var db = new libProduccionDataBase.Contexto.DataBaseContexto ( ) )
+				{
+					db.Configuration.LazyLoadingEnabled = true;
+					curr = db.SalidasRP.FirstOrDefault ( c => c.FolioRP == Folio );
+					if ( curr == null ) throw new Exception ( "El folio no se encontró registrado" );
+
+
+					using ( var repView = new ReportViewer ( ) )
+					{
+						using ( var vstSalidaRPBindingSource = new System.Windows.Forms.BindingSource ( ) )
+						{
+							ReportDataSource reportDataSource1 = new ReportDataSource ( );
+							reportDataSource1.Name = "dsVstSalidaRP";
+							reportDataSource1.Value = vstSalidaRPBindingSource;
+							repView.LocalReport.DataSources.Add ( reportDataSource1 );
+							repView.LocalReport.ReportEmbeddedResource = "ControlResiduosPeligrosos.Reportes.repSalidaRP.rdlc";
+
+							var y = new List<VstSalidaRP> ( );
+							y.Add ( new VstSalidaRP
+							{
+								Linea = curr.Linea.Nombre,
+								ResponsableLinea = curr.Linea.Responsable,
+								TipoRP = curr.TipoRP.Descripcion,
+
+								RiesgoRP = curr.TipoRP.Riesgo.ToString ( ),
+								UnidadRP = curr.TipoRP.Unidad.ToString ( ),
+								FechaEnvasado = curr.FechaEnvasado,
+								FechaIngreso = curr.FechaIngreso,
+								Cantidad = curr.Cantidad,
+								FolioRP = curr.FolioRP,
+								valRiesgoRP = (int)curr.TipoRP.Riesgo
+							} );
+
+							vstSalidaRPBindingSource.DataSource = y;
+							Stream pdf = new MemoryStream ( repView.LocalReport.Render ( "pdf" ) );
+
+							Movimientos.frmSalidaRP.WriteFile ( $"{curr.Linea.Nombre.Replace ( " ", "" )}_{curr.TipoRP.Descripcion}_{curr.FolioRP}.pdf", pdf );
+
+
+
+							using ( var frm = new KryptonForm ( ) { ClientSize = new Size ( 400, 400 ), Text = "Vista previa de Formato", ShowIcon = false, MinimizeBox = false, MaximizeBox = false } )
+							{
+								repView.Dock = DockStyle.Fill;
+								frm.Controls.Add ( repView );
+								repView.RefreshReport ( );
+								frm.ShowDialog ( );
+							}
+						}
+					}
+
+				}
+			}
+			catch ( Exception ex )
+			{
+				KryptonTaskDialog.Show ( "Algo va mal...", "Error", ex.Message, MessageBoxIcon.Error, TaskDialogButtons.OK );
 			}
 		}
 	}

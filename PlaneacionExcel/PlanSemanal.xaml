@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="PlaneacionExcel.PlanSemanal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PlaneacionExcel"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="125" MinWidth="125" FontSize="10" >
+    <UserControl.Resources>
+        <local:WpConverter x:Key="WpConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl Name="icTodoList">
+            <ItemsControl.Resources>
+                <Style x:Key="tipo" TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=TipoTrabajo}" Value="Autorizacion">
+                            <Setter Property="Foreground" Value="Red"/>
+                            <Setter Property="Text" Value="Aut."/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Path=TipoTrabajo}" Value="Repetido">
+                            <Setter Property="Foreground" Value="DarkGreen"/>
+                            <Setter Property="Text" Value="Rep."/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                    <Style.Setters>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style.Setters>
+                </Style>
+            </ItemsControl.Resources>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" Margin="2" 
+                            BorderBrush="Silver" CornerRadius="5"
+                            Padding="3">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="60" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="1"
+                                       Style="{StaticResource tipo}"/>
+                            
+                            <TextBlock Grid.Column="0"
+                                       FontWeight="Bold"
+                                       TextAlignment="Center" 
+                                       Text="{Binding OT}" />
+                            
+                            <Border Width="55" 
+                                    Grid.Column="2"
+                                    BorderThickness="1" 
+                                    CornerRadius="4" 
+                                    BorderBrush="Silver">
+                                <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontStyle="Italic">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat="{}{0:N0} m">
+                                            <Binding Path="MetrosLineales" />
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Border>   
+                            
+                            <TextBlock Grid.ColumnSpan="3" 
+                                       TextWrapping="Wrap" 
+                                       TextAlignment="Center" 
+                                       Grid.Row="1" >
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} - {2} {1}">
+                                        <Binding Path="Cliente" />
+                                        <Binding Path="Producto" />
+                                        <Binding Path="TipoTrabajo" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <local:TodoItem Cliente="Industrias Maquin" 
+                            Maquina="Windmoller" 
+                            Producto="Chicolastic Classic 48"
+                            MetrosLineales="20300"
+                            Material_1="Pet Transp 89/12"
+                            Material_2="PEBD L-1200 89/190"
+                            Material_3=""
+                            Material_4=""
+                            TipoTrabajo="Autorizacion"
+                            OT="66459"/>
+            <local:TodoItem Cliente="Kimberly Clark de Mexico Sa de CV" 
+                            Maquina="Windmoller" 
+                            Producto="Pouch 962351 Absorsec 120's Limpiecito v2"
+                            MetrosLineales="240300"
+                            Material_1="Pet Transp 116/12"
+                            Material_2="PEBD L-1200 116/200"
+                            Material_3=""
+                            Material_4=""
+                            TipoTrabajo="Repetido"
+                            OT="66459"/>
+            <local:TodoItem Cliente="POLYMERALL" 
+                            Maquina="Windmoller" 
+                            Producto="7FOODS PRIMIZIE CHEESE AND BEER"
+                            MetrosLineales="15200"
+                            Material_1="Pet Transp 105/12"
+                            Material_2="Pet Metalizado 105/15"
+                            Material_3="PEBD Transparente 105/150"
+                            Material_4=""
+                            TipoTrabajo="Repetido"
+                            OT="66459"/>
+        </ItemsControl>
+    </Grid>
+</UserControl>

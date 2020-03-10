@@ -19,9 +19,11 @@ namespace EstacionPesaje {
 
 		public InformacionInicialCaptura response = null;
 		public DataBaseContexto DB = new DataBaseContexto ( );
+		public bool Reprint= false;
 
-		public IniciarCaptura_frm () {
+		public IniciarCaptura_frm ( bool reprint = false) {
 			InitializeComponent ( );
+			this.Reprint = reprint;
 		}
 
 		private async void IniciarCaptura_frm_Load ( object sender, EventArgs e ) {
@@ -71,10 +73,20 @@ namespace EstacionPesaje {
 					}
 
 					var p = (Proceso)procesoBindingSource.Current;
-					if (etiquetaKryptonComboBox.SelectedIndex == -1 && !(p.ID ==1 || p.ID ==2  )) throw new Exception ( "Seleccione una Etiqueta" );
+					var TipoMaquina = ( (Maquina)maquinasBindingSource.Current ).TipoMaquina_Id;
 
-					var et = ( p.ID == 1 || p.ID == 2 ) ? DB.Etiquetas.FirstOrDefault(y=> y.Id == 3) : (Etiqueta)etiquetaBindingSource.Current ;
+					if (etiquetaKryptonComboBox.SelectedIndex == -1 && !( TipoMaquina == 1 || TipoMaquina == 2  )) throw new Exception ( "Seleccione una Etiqueta" );
 
+					Etiqueta et;
+					if ( !this.Reprint )
+					{
+						
+						p = ( TipoMaquina == 1 || TipoMaquina == 2 ) ? DB.Procesos.FirstOrDefault(proc => proc.ID == TipoMaquina) : p;
+						et = ( TipoMaquina == 1 || TipoMaquina == 2 ) ? DB.Etiquetas.FirstOrDefault ( y => y.Id == 3 ) : (Etiqueta)etiquetaBindingSource.Current;
+					}else
+					{
+						et = (Etiqueta)etiquetaBindingSource.Current;
+					}
 
 					response = new InformacionInicialCaptura ( ) {
 						Maquina = ( Maquina ) maquinasBindingSource.Current,

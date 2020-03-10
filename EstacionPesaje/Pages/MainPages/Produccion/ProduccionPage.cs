@@ -543,7 +543,7 @@ namespace EstacionPesaje.Pages.MainPages
 		private async void toolStripButton2_Click ( object sender, EventArgs e )
 		{
 
-			var frm = new IniciarCaptura_frm ( );
+			var frm = new IniciarCaptura_frm ( true );
 			frm.InfoCapturaLayout.Visible = false;
 
 			if ( frm.ShowDialog ( ) == DialogResult.OK )
@@ -776,7 +776,7 @@ namespace EstacionPesaje.Pages.MainPages
 
 		private async void simularEtiqueta_Lista_chk_Click ( object sender, EventArgs e )
 		{
-			var frm = new IniciarCaptura_frm ( );
+			var frm = new IniciarCaptura_frm ( true );
 			frm.InfoCapturaLayout.Visible = false;
 
 			if ( frm.ShowDialog ( ) == DialogResult.OK )

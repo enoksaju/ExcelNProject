@@ -324,9 +324,6 @@
 			// 
 			// kryptonGroupBox1
 			// 
-			this.kryptonGroupBox1.CaptionStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.GroupBoxCaption;
-			this.kryptonGroupBox1.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlGroupBox;
-			this.kryptonGroupBox1.GroupBorderStyle = ComponentFactory.Krypton.Toolkit.PaletteBorderStyle.ControlGroupBox;
 			this.kryptonGroupBox1.Location = new System.Drawing.Point(452, 3);
 			this.kryptonGroupBox1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 10);
 			this.kryptonGroupBox1.Name = "kryptonGroupBox1";

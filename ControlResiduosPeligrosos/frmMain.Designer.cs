@@ -32,9 +32,10 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.catalogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.kryptonManager1 = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reimprimirReporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.catalogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.transportistasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tiposDeResiduosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,10 +72,32 @@
 			// archivoToolStripMenuItem
 			// 
 			this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.reimprimirReporteToolStripMenuItem});
 			this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
 			this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
 			this.archivoToolStripMenuItem.Text = "Archivo";
+			// 
+			// kryptonManager1
+			// 
+			this.kryptonManager1.GlobalPaletteMode = global::ControlResiduosPeligrosos.Properties.Settings.Default.Tema;
+			// 
+			// salirToolStripMenuItem
+			// 
+			this.salirToolStripMenuItem.Image = global::ControlResiduosPeligrosos.Properties.Resources.cross;
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+			// 
+			// reimprimirReporteToolStripMenuItem
+			// 
+			this.reimprimirReporteToolStripMenuItem.Image = global::ControlResiduosPeligrosos.Properties.Resources.printer;
+			this.reimprimirReporteToolStripMenuItem.Name = "reimprimirReporteToolStripMenuItem";
+			this.reimprimirReporteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.reimprimirReporteToolStripMenuItem.Text = "Reimprimir Reporte";
+			this.reimprimirReporteToolStripMenuItem.Click += new System.EventHandler(this.reimprimirReporteToolStripMenuItem_Click);
 			// 
 			// catalogosToolStripMenuItem
 			// 
@@ -87,26 +110,13 @@
 			this.catalogosToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
 			this.catalogosToolStripMenuItem.Text = "Catalogos";
 			// 
-			// kryptonManager1
-			// 
-			this.kryptonManager1.GlobalPaletteMode = global::ControlResiduosPeligrosos.Properties.Settings.Default.Tema;
-			// 
-			// salirToolStripMenuItem
-			// 
-			this.salirToolStripMenuItem.Image = global::ControlResiduosPeligrosos.Properties.Resources.cross;
-			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-			this.salirToolStripMenuItem.Text = "Salir";
-			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-			// 
 			// proveedoresToolStripMenuItem
 			// 
 			this.proveedoresToolStripMenuItem.Image = global::ControlResiduosPeligrosos.Properties.Resources.group;
 			this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
 			this.proveedoresToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.P)));
-			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
 			this.proveedoresToolStripMenuItem.Text = "Proveedores";
 			this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
 			// 
@@ -116,7 +126,7 @@
 			this.transportistasToolStripMenuItem.Name = "transportistasToolStripMenuItem";
 			this.transportistasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.T)));
-			this.transportistasToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+			this.transportistasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
 			this.transportistasToolStripMenuItem.Text = "Transportistas";
 			this.transportistasToolStripMenuItem.Click += new System.EventHandler(this.transportistasToolStripMenuItem_Click);
 			// 
@@ -126,7 +136,7 @@
 			this.tiposDeResiduosToolStripMenuItem.Name = "tiposDeResiduosToolStripMenuItem";
 			this.tiposDeResiduosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.R)));
-			this.tiposDeResiduosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+			this.tiposDeResiduosToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
 			this.tiposDeResiduosToolStripMenuItem.Text = "Tipos de Residuos";
 			this.tiposDeResiduosToolStripMenuItem.Click += new System.EventHandler(this.tiposDeResiduosToolStripMenuItem_Click);
 			// 
@@ -199,7 +209,7 @@
             this.naranjaToolStripMenuItem});
 			this.temaToolStripMenuItem.Image = global::ControlResiduosPeligrosos.Properties.Resources.palette;
 			this.temaToolStripMenuItem.Name = "temaToolStripMenuItem";
-			this.temaToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.temaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.temaToolStripMenuItem.Text = "Temas";
 			// 
 			// azulToolStripMenuItem
@@ -282,6 +292,7 @@
 		private System.Windows.Forms.ToolStripMenuItem negroToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem purpuraToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem naranjaToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem reimprimirReporteToolStripMenuItem;
 	}
 }
 

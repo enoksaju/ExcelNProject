@@ -8,12 +8,15 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
-namespace libProduccionDataBase.Tablas {
+namespace libProduccionDataBase.Tablas
+{
 	[Table ( "TORDENTRABAJO" )]
-	public class TemporalOrdenTrabajo {
+	public class TemporalOrdenTrabajo
+	{
 		private string _OT = "";
 
-		public enum Tipos {
+		public enum Tipos
+		{
 			Pelicula,
 			PeliculaLaminada,
 			PeliculaTrilaminada,
@@ -36,7 +39,7 @@ namespace libProduccionDataBase.Tablas {
 		[Key, ForeignKey ( "TempCapt" )]
 		public string OT { get { return _OT; } set { _OT = value.Trim ( ); } }
 		public Tipos TIPO { get; set; }
-		public string TIPOINSTRING { get { return Regex.Replace ( this.TIPO.ToString ( ) , "([^A-Z ])([A-Z])" , "$1 $2" ); } }
+		public string TIPOINSTRING { get { return Regex.Replace ( this.TIPO.ToString ( ), "([^A-Z ])([A-Z])", "$1 $2" ); } }
 		public DateTime FECHARECIBIDO { get; set; }
 		public DateTime FECHAENTREGASOL { get; set; }
 		public string CLIENTE { get; set; }
@@ -99,20 +102,23 @@ namespace libProduccionDataBase.Tablas {
 		public virtual ObservableListSource<TempProduccion> Produccion { get; private set; }
 		public virtual ObservableListSource<TempDesperdicios> Desperdicios { get; private set; }
 		public virtual ObservableListSource<NaveCuatro_Tarima> TarimasNCuatro { get; private set; }
-		public TemporalOrdenTrabajo ( ) {
+		public TemporalOrdenTrabajo ()
+		{
 			this.Produccion = new ObservableListSource<TempProduccion> ( );//new ICollection<TempProduccion> ( );
 			this.Desperdicios = new ObservableListSource<TempDesperdicios> ( );
-			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );
+			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );		
 		}
 
-		public override string ToString ( ) => this.OT;
+		public override string ToString () => this.OT;
 
 		public virtual TEMPCAPT TempCapt { get; set; }
+		public virtual Planeacion Planeacion { get; set; }
 	}
 
 	[Table ( "TEMPCAPT" )]
-  [Serializable]
-	public class TEMPCAPT {
+	[Serializable]
+	public class TEMPCAPT
+	{
 		private string _OT = "";
 		public int Id { get; set; }
 
@@ -147,11 +153,12 @@ namespace libProduccionDataBase.Tablas {
 		public double MERMAPROCESO { get; set; }
 		public int ENABLED { get; set; }
 		public DateTime FechaCaptura { get; set; }
-		[Column("ref_fig")]
+		[Column ( "ref_fig" )]
 		public string ReferenciaFigura { get; set; }
 	}
 	[Table ( "TPRODUCCION" )]
-	public class TempProduccion {
+	public class TempProduccion
+	{
 
 		[Key]
 		public int Id { get; set; }
@@ -232,7 +239,8 @@ namespace libProduccionDataBase.Tablas {
 	#region Desperdicios
 
 	[Table ( "TDESPERDICIOS" )]
-	public class TempDesperdicios {
+	public class TempDesperdicios
+	{
 
 		public int Id { get; set; }
 		[Required ( ErrorMessage = "El numero de orden de trabajo es requerido" )]
@@ -262,37 +270,44 @@ namespace libProduccionDataBase.Tablas {
 	}
 
 	[Table ( "TFamiliasDefectos" )]
-	public class TFamiliaDefectos {
+	public class TFamiliaDefectos
+	{
 		public int Id { get; set; }
 
 		[Required]
 		public string NombreFamiliaDefecto { get; set; }
 
 		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
-		public TFamiliaDefectos ( ) {
+		public TFamiliaDefectos ()
+		{
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
 		}
-		public override string ToString ( ) {
+		public override string ToString ()
+		{
 			return this.NombreFamiliaDefecto;
 		}
 	}
 
 	[Table ( "TDefectos" )]
-	public class TDefecto {
+	public class TDefecto
+	{
 		public int Id { get; set; }
 		[Required]
 		public string NombreDefecto { get; set; }
 		public virtual ObservableListSource<TFamiliaDefectosTDefecto> TFamiliaDefectosTDefecto { get; private set; }
-		public TDefecto ( ) {
+		public TDefecto ()
+		{
 			TFamiliaDefectosTDefecto = new ObservableListSource<TFamiliaDefectosTDefecto> ( );
 		}
 
-		public override string ToString ( ) {
+		public override string ToString ()
+		{
 			return this.NombreDefecto;
 		}
 	}
 	[Table ( " TFamiliaDefectosTDefectos" )]
-	public class TFamiliaDefectosTDefecto {
+	public class TFamiliaDefectosTDefecto
+	{
 		public int Id { get; set; }
 
 		public int TFamiliaDefectosID { get; set; }
@@ -306,7 +321,8 @@ namespace libProduccionDataBase.Tablas {
 
 		public virtual Proceso Proceso { get; set; }
 
-		public override string ToString ( ) {
+		public override string ToString ()
+		{
 			return this.Defecto.ToString ( );
 		}
 	}

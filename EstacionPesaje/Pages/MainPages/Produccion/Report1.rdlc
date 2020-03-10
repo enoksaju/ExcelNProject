@@ -2563,6 +2563,7 @@
                               <TablixMember />
                             </TablixMembers>
                           </TablixRowHierarchy>
+                          <RepeatColumnHeaders>true</RepeatColumnHeaders>
                           <DataSetName>DataSet1</DataSetName>
                           <Style>
                             <Border>
