@@ -88,49 +88,53 @@ namespace libProduccionDataBase.Contexto
 
 			foreach ( var ent in y.Where ( u => u.State == EntityState.Added ) )
 			{
-				Tablas.Planeacion.TiposProcesoProduccion tp = new Tablas.Planeacion.TiposProcesoProduccion ( );
-				if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
-				if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
-				if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
-				if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
-				if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
-				if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
-				if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
-				if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
-				if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
-				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
-				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
-				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
+				Tablas.Planeacion.AddToOT ( ent .Entity);
 
-				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "MICROPERFORAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Microperforado;
-				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "TROQUELAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Troquelar;
+				//Tablas.Planeacion.TiposProcesoProduccion tp = new Tablas.Planeacion.TiposProcesoProduccion ( );
+				//if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				//if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				//if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				//if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				//if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				//if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				//if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				//if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				//if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				//if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				//if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				//if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
 
-				ent.Entity.Planeacion.CrearProcesos ( tp );
+				//if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "MICROPERFORAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Microperforado;
+				//if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "TROQUELAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Troquelar;
+
+				//ent.Entity.Planeacion.CrearProcesos ( tp );
 
 			}
 
 
 			foreach ( var ent in y.Where ( u => u.State == EntityState.Modified ) )
 			{
-				var pl = ent.Entity.Planeacion;
-				pl.UltimaActualizacion = DateTime.Now;
-				Tablas.Planeacion.TiposProcesoProduccion toAdd = new Tablas.Planeacion.TiposProcesoProduccion ( );
+				Tablas.Planeacion.AddToOT ( ent.Entity );
 
-				if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
-				if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
-				if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
-				if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
-				if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
-				if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
-				if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
-				if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
-				if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
-				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
-				if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
-				if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
+				//var pl = ent.Entity.Planeacion;
+				//pl.UltimaActualizacion = DateTime.Now;
+				//Tablas.Planeacion.TiposProcesoProduccion toAdd = new Tablas.Planeacion.TiposProcesoProduccion ( );
+
+				//if ( ent.Entity.INSTCORTE.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				//if ( ent.Entity.INSTDOBLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				//if ( ent.Entity.INSTEMBOBINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				//if ( ent.Entity.INSTEXTRUSION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				//if ( ent.Entity.INSTIMPRESION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				//if ( ent.Entity.INSTLAMINACION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				//if ( ent.Entity.INSTMANGAS.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				//if ( ent.Entity.INSTREFINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				//if ( ent.Entity.INSTSELLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				//if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				//if ( ent.Entity.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				//if ( ent.Entity.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || ent.Entity.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
 
 
-				pl.UpdateProcesos ( toAdd );
+				//pl.UpdateProcesos ( toAdd );
 			}
 
 		}
@@ -229,6 +233,7 @@ namespace libProduccionDataBase.Contexto
 
 		// Planeacion 
 		public virtual DbSet<Tablas.Planeacion> Planeacion { get; set; }
+		public virtual DbSet<Tablas.PlaneacionProduccion> PlaneacionProduccion { get; set; }
 
 
 		#endregion

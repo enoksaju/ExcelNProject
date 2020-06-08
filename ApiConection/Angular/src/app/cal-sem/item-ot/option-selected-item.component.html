@@ -1,0 +1,25 @@
+<h1 style="text-align: center;">
+  {{data.OT}} {{data.NombreProceso}}
+</h1>
+<mat-divider>
+</mat-divider>
+<mat-action-list>
+
+  <button mat-list-item (click)="showDetails()">
+    <mat-icon color="primary" matListIcon svgIcon="details"></mat-icon>
+    <h2 mat-line>Ver Detalles</h2>
+    <span mat-line>Muestra los detalles de {{data.NombreProceso}} de la OT seleccionada</span>
+  </button>
+
+  <button mat-list-item (click)="showProgress()">
+    <mat-icon color="primary" matListIcon svgIcon="progress-check"></mat-icon>
+    <h2 mat-line>Ver Detalles del Pedido</h2>
+    <span mat-line>Muestra los detalles del pedido asi como el progreso de producción</span>
+  </button>
+
+  <button mat-list-item (click)="showDocument()">
+    <mat-icon color="primary" matListIcon svgIcon="file-document-outline"></mat-icon>
+    <h2 mat-line>Ver Orden de Trabajo</h2>
+    <span mat-line>Muestra la orden de trabajo para el proceso de {{data.NombreProceso}}</span>
+  </button>
+</mat-action-list>

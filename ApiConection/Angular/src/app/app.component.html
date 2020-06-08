@@ -1,0 +1,60 @@
+<ng-template #login>
+  <div fxLayout="column" class="theme-bg" fxFlexFill>
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+
+<div class="container" *ngIf="identityService.hasToken(); else login" fxLayout="column" fxFlexFill>
+
+  <mat-sidenav-container fxFlex>
+
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" style="width: 200px;"
+      class="mat-elevation-z10 no-print">
+
+      <mat-toolbar color="primary" class="toolbar">
+        <span style="flex: 1;"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon svgIcon="keyboard-backspace"></mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-nav-list>
+
+        <mat-list-item [routerLink]='["/home"]' routerLinkActive="itemActive">
+          <mat-icon svgIcon="home" matListIcon></mat-icon>
+          <p matLine>Home</p>
+        </mat-list-item>
+
+        <mat-list-item [routerLink]='["/cal"]' routerLinkActive="itemActive">
+          <mat-icon matListIcon svgIcon="calendar"></mat-icon>
+          <p matLine>Cal. Semanal</p>
+        </mat-list-item>
+
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+
+    <mat-sidenav-content fxLayout="column">
+
+      <mat-toolbar #tb class="toolbar no-print mat-elevation-z3">
+        <button mat-icon-button *ngIf="!sidenav.opened" (click)="sidenav.toggle()">
+          <mat-icon svgIcon="menu"></mat-icon>
+        </button>
+        <h1>Excel Nobleza</h1>
+        <span style="flex: 1;"></span>
+        <mat-slide-toggle class="mat-body-2" #darkMode [(ngModel)]="dark" (change)="toggleChange()">Dark
+        </mat-slide-toggle>
+
+        <button mat-icon-button (click)="this.identityService.signOut()">
+          <mat-icon svgIcon="logout"></mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>

@@ -1,0 +1,35 @@
+<mat-card #rootItem class="semana" fxFlex="100" fxLayout="column">
+
+  <div fxLayout="column" class="text--title">
+    <div *ngIf="!unasigned, else sa" fxLayout="column" fxLayoutAlign="center center">
+      <div fxShow.lt-md fxHide class="text--title--header">{{Dia | date:'dd-MM'}}</div>
+      <div fxHide.lt-md class="text--title--header">{{Dia | date:'EEE, dd/MM'}}</div>
+      <div fxHide.lt-sm class="text--title--subheader">{{Items.length}}/{{totalMetros | number:'1.0-0'}} m</div>
+    </div>
+
+    <ng-template #sa>
+      <div class="text--title--header">Sin Asignar</div>
+    </ng-template>
+  </div>
+
+  <mat-divider [inset]="true"></mat-divider>
+  <mat-card-content fxFlex fxLayout="column" cdkDropList [cdkDropListData]="Items" (cdkDropListDropped)="drop($event)">
+    <mat-action-list>
+      <button #elem mat-list-item CalendarItem class="item" style="cursor:move; height: auto; position: relative;"
+        [cdkDragData]="item" *ngFor="let item of Items" cdkDrag [cdkDragStartDelay]="250" (click)="itemClick(item)">
+        <mat-chip-list *cdkDragPreview>
+          <mat-chip color="primary" selected>
+            {{item.OT}} {{item.NombreProceso}}
+          </mat-chip>
+        </mat-chip-list>
+        <p mat-line class="title">{{item.OT}}</p>
+
+        <p fxHide.lt-md mat-line>{{item.Cliente}} - {{item.Producto}}</p>
+        <p fxHide.lt-md mat-line>{{item.Ml | number:'1.0-0'}} m</p>
+
+        <mat-progress-bar mat-line *ngIf="item.isLoading" mode="indeterminate"></mat-progress-bar>
+        <mat-divider> </mat-divider>
+      </button>
+    </mat-action-list>
+  </mat-card-content>
+</mat-card>

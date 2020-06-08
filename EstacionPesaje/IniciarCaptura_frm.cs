@@ -78,9 +78,9 @@ namespace EstacionPesaje {
 					if (etiquetaKryptonComboBox.SelectedIndex == -1 && !( TipoMaquina == 1 || TipoMaquina == 2  )) throw new Exception ( "Seleccione una Etiqueta" );
 
 					Etiqueta et;
-					if ( !this.Reprint )
+					if ( !this.Reprint && !p.NombreProceso.Contains ( "Laminext" ) )
 					{
-						
+																		
 						p = ( TipoMaquina == 1 || TipoMaquina == 2 ) ? DB.Procesos.FirstOrDefault(proc => proc.ID == TipoMaquina) : p;
 						et = ( TipoMaquina == 1 || TipoMaquina == 2 ) ? DB.Etiquetas.FirstOrDefault ( y => y.Id == 3 ) : (Etiqueta)etiquetaBindingSource.Current;
 					}else

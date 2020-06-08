@@ -65,6 +65,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,13 +82,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libIntelisisReports\libIntelisisReports.csproj">
+      <Project>{8780a832-ef97-48ed-87cf-69e801e03db7}</Project>
+      <Name>libIntelisisReports</Name>
+    </ProjectReference>
     <ProjectReference Include="..\libProduccionDataBase\libProduccionDataBase.csproj">
       <Project>{9e5c4de4-dbdc-4e5d-b001-767d967107a5}</Project>
       <Name>libProduccionDataBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Web\Cotizador\Cotizador.csproj">
-      <Project>{7f3d38be-4c63-4026-953c-4c0808000372}</Project>
-      <Name>Cotizador</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

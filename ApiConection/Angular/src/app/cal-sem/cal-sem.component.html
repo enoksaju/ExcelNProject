@@ -1,0 +1,24 @@
+
+
+<div>
+  Maquina
+</div>
+
+<div cdkDropListGroup fxLayout="row" fxLayoutGap="5px" fxFlex>
+  <ng-container *ngIf="UnasignedItems, else loading">
+    <app-item-ot class="no-print" fxFlex="12%" [Items]="UnasignedItems" [Dia]="getLabelDay(0)" [unasigned]="true"> </app-item-ot>
+  </ng-container>
+  <mat-divider class="no-print" [vertical]="true"> </mat-divider>
+  <ng-container *ngIf="semanaItems && DiaInicial, else loading">
+    <app-item-ot fxFlex [Items]="Dia1" [Dia]="getLabelDay(0)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia2" [Dia]="getLabelDay(1)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia3" [Dia]="getLabelDay(2)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia4" [Dia]="getLabelDay(3)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia5" [Dia]="getLabelDay(4)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia6" [Dia]="getLabelDay(5)"> </app-item-ot>
+    <app-item-ot fxFlex [Items]="Dia7" [Dia]="getLabelDay(6)"> </app-item-ot>
+  </ng-container>
+  <ng-template #loading>
+    Cargando...
+  </ng-template>
+</div>

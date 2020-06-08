@@ -295,7 +295,7 @@
             this.kryptonPageInstrucciones,
             this.kryptonPageLista,
             this.kryptonPageCaptura});
-			this.kryptonNavigator1.SelectedIndex = 1;
+			this.kryptonNavigator1.SelectedIndex = 2;
 			this.kryptonNavigator1.Size = new System.Drawing.Size(708, 409);
 			this.kryptonNavigator1.TabIndex = 4;
 			this.kryptonNavigator1.Text = "kryptonNavigator1";

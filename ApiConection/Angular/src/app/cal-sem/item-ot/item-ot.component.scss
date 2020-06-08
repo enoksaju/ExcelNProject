@@ -1,0 +1,73 @@
+.mat-card {
+  margin: 1px;
+  margin-bottom: 10px !important;
+}
+
+.cdk-drag-preview {
+  // box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3),
+    0 8px 10px 1px rgba(0, 0, 0, 0.2), 0 3px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.menu-button {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  z-index: 5;
+}
+
+.item__hidden {
+  display: none;
+}
+
+:host ::ng-deep .item {
+  font-size: 12px;
+  .mat-list-item-content {
+    padding: 5px !important;
+    @media screen and (min-width: 960px) {
+      min-height: 100px;
+    }
+    @media print {
+     min-height: 100px;
+    }
+
+    p {
+      font-size: 10px !important;
+      line-height: 12px;
+      z-index: 1;
+      white-space: normal;
+      text-align: center;
+      @extend %noprintmargin;
+      &.title {
+        font-size: 10px !important;
+        font-weight: 700;
+        margin-top: 5px;
+        @extend %noprintmargin;
+        @media screen and (min-width: 960px) {
+          font-size: 12px !important;
+        }
+      }
+    }
+  }
+}
+
+.text {
+  &--title {
+    background: rgba(0, 0, 0, 0.1);
+    &--header {
+      font-size: 11px;
+      line-height: 14px;
+    }
+    &--subheader {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+}
+
+@media print {
+  %noprintmargin {
+    margin: 0px !important;
+  }
+}

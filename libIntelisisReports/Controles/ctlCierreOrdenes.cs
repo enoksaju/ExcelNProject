@@ -42,9 +42,10 @@ namespace libIntelisisReports.Controles
 			this.button1_Click ( (object)this.button1, (EventArgs)null );
 		}
 
-		private void updateProgressbar (int val)
+		private void updateProgressbar ( int val )
 		{
-			progressBar1.Invoke ( new Action ( () => {
+			progressBar1.Invoke ( new Action ( () =>
+			{
 				progressBar1.Value = val;
 			} ) );
 		}
@@ -56,33 +57,50 @@ namespace libIntelisisReports.Controles
 			this.progressBar1.Visible = true;
 			try
 			{
-				int t = await Task.Run<int> ( (Func<int>)( () =>
+				await Task.Run( ( () =>
 				{
+					// Traigo los grupos de tintas que se encuentran en el XML del proyecto
+					// TODO: Buscar que estos valores se obtengan desde una base de datos en vez de un archivo XML
 					List<GruposTinta.tintaItem> gpoTintas = GruposTinta.getTintas ( );
-					updateProgressbar ( 20);
-					this.MovOtTableAdapter.Fill ( this.CapacitaExcelNDataSet.CierreOrdenes, this.OT );
-					updateProgressbar ( 50);
 
-					var VAL = Math.Ceiling ( ((double)this.CapacitaExcelNDataSet.CierreOrdenes.Rows.Count*10) / 50 );
+					// Actualizo la barra de progreso
+					updateProgressbar ( 20 );
+
+					// ---------------------------------------------------------------------------------------
+					// Lleno el tableAdapter con los datos de la orden en el dataSet 
+					this.MovOtTableAdapter.Fill ( this.CapacitaExcelNDataSet.CierreOrdenes, this.OT );
+					// ---------------------------------------------------------------------------------------
+					
+					
+					// Actualizo nuevamente la barra de progreso
+					updateProgressbar ( 50 );
+
+					// Calculo el avance por unidad de la barra de progreso 
+					var VAL = Math.Ceiling ( ( (double)this.CapacitaExcelNDataSet.CierreOrdenes.Rows.Count * 10 ) / 50 );
 					var counter = 0;
 					foreach ( ExcelNoblezaDataSet.CierreOrdenesRow rw in this.CapacitaExcelNDataSet.CierreOrdenes.Rows )
 					{
-
+						// incremento el valor del contador de elementos
 						counter++;
+						// Actualizo la barra de estado
+						updateProgressbar ( this.progressBar1.Value + ( counter % VAL == 0 ? 10 : 0 ) );
 
-						updateProgressbar( this.progressBar1.Value + (counter % VAL == 0 ? 10 : 0));
-						System.Threading.Thread.Sleep ( 50 );
+						// Busco la tinta en la lista y si la encuentro, agrego el valor al campo componente
+						// este valor sera usado para el calculo de tinta solida.
 						if ( gpoTintas.Any ( u => u.clave == rw.Articulo.TrimEnd ( ) ) )
 						{
 							rw.Componentes = decimal.Parse ( gpoTintas.First ( o => o.clave == rw.Articulo.TrimEnd ( ) ).factor.ToString ( ) );
 						}
 					}
 
+					// Si todo sale de manera correcta, retorno el valor 1
 					return 1;
+				} ) );
+				
 
-				}
-			) );
-				this.Invoke ( (Delegate)new System.Action<string> ( this.onChangeOT ), (object)this.OT );
+				this.Invoke ( new Action<string> ( onChangeOT ), OT );
+
+
 			}
 			catch ( Exception ex )
 			{
@@ -97,6 +115,7 @@ namespace libIntelisisReports.Controles
 		{
 			this.progressBar1.Visible = false;
 		}
+
 		protected void onChangeOT ( string OT )
 		{
 			this.reportViewer1.RefreshReport ( );

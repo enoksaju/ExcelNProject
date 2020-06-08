@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="ControlProgramaProduccion.Controles.CommonDialogs.YesNoDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlProgramaProduccion.Controles.CommonDialogs"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="400" Width="400">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="16" x:Name="RootBinding">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <md:PackIcon Kind="QuestionMarkCircleOutline"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Height="80"
+                     Width="80"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                   Text="{Binding Title, FallbackValue=¿Continuar?}"
+                   HorizontalAlignment="Center"></TextBlock>
+            <Separator Grid.Row="1"
+                       Style="{DynamicResource MaterialDesignDarkSeparator}"/>
+            <TextBlock Grid.Row="2" Margin="0 5 0 15" 
+                   Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                   Text="{Binding Promp, FallbackValue=¿Desea continuar?}"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Center"></TextBlock>
+            <Button Grid.Row="3"
+                    IsCancel="True"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Width="100"
+                    md:RippleAssist.Feedback="#FF000000"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                    HorizontalAlignment="Left">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+                No
+            </Button>
+            <Button Grid.Row="3"
+                    Width="100"
+                    IsDefault="True"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                    HorizontalAlignment="Right">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+                Si
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

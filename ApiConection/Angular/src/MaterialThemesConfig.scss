@@ -1,0 +1,95 @@
+@import "~@angular/material/theming";
+@import "MaterialThemesVariables";
+
+@include mat-core();
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  cursor: pointer;
+  &:horizontal {
+    height: 8px;
+  }
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+@mixin scrollbar($theme) {
+  $accent: map-get($theme, accent);
+
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background-color: mat-color($accent);
+  }
+}
+
+@mixin backColorAndContrast($theme, $col, $cont: "default") {
+  $customColor: map-get($theme, $col);
+  background-color: mat-color($customColor, $cont);
+  color: mat-color($customColor, $cont + "-contrast");
+}
+
+.semana.mat-card {
+  padding: 0px;
+
+  .mat-card-content {
+    overflow-y: auto;
+  }
+
+  .mat-card-content.cdk-drop-list-dragging .item:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.2;
+}
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@mixin semana($theme, $name) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  .semana.mat-card {
+    & .mat-card-header:not(.item) .mat-card-header-text {
+      @include backColorAndContrast($theme, accent);
+    }
+    & .box {
+      border: solid 1px mat-color($foreground, divider);
+      background-color: rgba(mat-color($foreground, divider), $alpha: 0.05);
+    }
+  }
+  #{if(&, '&.theme-bg ', '.theme-bg ')} {
+    background-color: mat-color($background, background);
+  }
+}
+
+@include angular-material-theme($app-theme);
+@include semana($app-theme, "");
+@include scrollbar($app-theme);
+
+.dark {
+  @include angular-material-theme($app-dark-theme);
+  @include semana($app-dark-theme, ".dark");
+  @include scrollbar($app-dark-theme);
+}
+
+@media print {
+  html {
+    zoom: 0.8;
+  }
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  .no-margin {
+    margin: 1px;
+  }
+}

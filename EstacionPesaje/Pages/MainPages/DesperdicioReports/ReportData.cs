@@ -9,6 +9,8 @@ namespace EstacionPesaje.Pages.MainPages.DesperdicioReports {
 		private DateTime _Fecha = DateTime.Now;
 		public int ID { get; set; }
 		public string OT { get; set; }
+		public string Cliente { get; set; }
+		public string Producto { get; set; }
 		public string OPERADOR { get; set; }
 		public int TURNO { get; set; }
 		public string LINEA { get; set; }

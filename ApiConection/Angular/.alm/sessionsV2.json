@@ -1,0 +1,22 @@
+{
+  "sessions": [
+    {
+      "id": "fd931ef4-cd4a-4a75-b87c-80a7eb27ecd6",
+      "tabLayout": {
+        "type": "stack",
+        "width": 100,
+        "height": 100,
+        "tabs": [],
+        "subItems": [],
+        "activeItemIndex": 0
+      },
+      "lastUsed": 1591108677775,
+      "errorsExpanded": true,
+      "mainPanelHeight": 137,
+      "errorsDisplayMode": 1,
+      "selectedTabId": null,
+      "fileTreeExpanded": true
+    }
+  ],
+  "relativePathToTsconfig": "./tsconfig.json"
+}

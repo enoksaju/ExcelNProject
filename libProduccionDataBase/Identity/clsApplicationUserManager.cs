@@ -12,7 +12,7 @@ namespace libProduccionDataBase.Identity
         public ApplicationUserManager_( IUserStore<ApplicationUser, int> store ) : base( store )
         {
 
-           // this.UserValidator = new CustomUserValidator<ApplicationUser>(this);           
+            // this.UserValidator = new CustomUserValidator<ApplicationUser>(this);           
         }
     }        
 }

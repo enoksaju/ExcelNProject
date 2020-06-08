@@ -27,6 +27,7 @@
 			this.tempDesperdiciosKryptonDataGridView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
 			this.tempDesperdiciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.OrdenTrabajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +54,7 @@
 			this.tempDesperdiciosKryptonDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.tempDesperdiciosKryptonDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.OrdenTrabajo,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn3,
@@ -85,6 +87,13 @@
 			this.Id.HeaderText = "Id";
 			this.Id.Name = "Id";
 			this.Id.ReadOnly = true;
+			// 
+			// OrdenTrabajo
+			// 
+			this.OrdenTrabajo.DataPropertyName = "OrdenTrabajo";
+			this.OrdenTrabajo.HeaderText = "OrdenTrabajo";
+			this.OrdenTrabajo.Name = "OrdenTrabajo";
+			this.OrdenTrabajo.ReadOnly = true;
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
@@ -197,6 +206,7 @@
 		private System.Windows.Forms.BindingSource tempDesperdiciosBindingSource;
 		private ComponentFactory.Krypton.Toolkit.KryptonDataGridView tempDesperdiciosKryptonDataGridView;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+		private System.Windows.Forms.DataGridViewTextBoxColumn OrdenTrabajo;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
 		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

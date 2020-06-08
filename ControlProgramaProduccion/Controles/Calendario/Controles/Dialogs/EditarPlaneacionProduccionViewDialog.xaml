@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="ControlProgramaProduccion.Controles.Calendario.Controles.Dialogs.EditarPlaneacionProduccionViewDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlProgramaProduccion.Controles.Calendario.Controles.Dialogs"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <md:DialogHost Identifier="EditPlaneacionProgramaDialogHost">
+        <Grid Margin="16" MinWidth="268" MinHeight="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                   HorizontalAlignment="Center">
+            <Run Text="{Binding Entity.OT, FallbackValue=xxxx}"></Run>
+            <Run Text="{Binding Entity.TipoProceso, FallbackValue=Proceso}"/>
+            </TextBlock>
+            <Separator Grid.Row="1" Style="{DynamicResource MaterialDesignDarkSeparator}"></Separator>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DatePicker Grid.Row="0" SelectedDate="{Binding FechaProgramada}" 
+                        md:HintAssist.Hint="Fecha Programada"
+                        md:HintAssist.IsFloating="True"/>
+
+                <ComboBox Grid.Row="1"
+                      SelectedValue="{Binding Entity.MaquinaId}"
+                      x:Name="MaquinasCMB"
+                      md:HintAssist.Hint="Maquina"
+                      md:HintAssist.IsFloating="True"/>
+
+                <CheckBox Grid.Row="2" 
+                          IsChecked="{Binding EsProgramada}">Programada</CheckBox>
+            </Grid>
+
+            <Button Grid.Row="3" 
+                Style="{StaticResource MaterialDesignFlatButton}"
+                IsDefault="True"
+                    HorizontalAlignment="Right" Click="Button_Click">
+                <!--Command="{x:Static md:DialogHost.CloseDialogCommand}"-->
+
+                <!--<Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>-->
+                GUARDAR
+            </Button>
+
+            <Button Grid.Row="3" 
+                Style="{StaticResource MaterialDesignFlatButton}"
+                IsCancel="True" 
+                Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                HorizontalAlignment="Left">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+                CANCELAR
+            </Button>
+        </Grid>
+    </md:DialogHost>
+</UserControl>

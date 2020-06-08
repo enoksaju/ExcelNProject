@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "MaterialThemesConfig.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+button.mat-menu-item {
+  line-height: 24px !important;
+}
+a.mat-menu-item > mat-icon {
+  margin-bottom: 14px;
+}
+
+.mat-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+%px60 {
+  height: 40px;
+  width: 40px;
+}
+.mat-icon.mat-icon-dialog {
+  @extend %px60;
+  svg {
+    @extend %px60;
+  }
+}
+
+.mat-step-icon-content .mat-icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+%absolutePosition {
+  position: absolute !important;
+}
+
+.closeButton {
+  @extend %absolutePosition;
+  top: -20px;
+  right: -20px;
+}
+
+router-outlet ~ * {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: start;
+  padding: 5px;
+}

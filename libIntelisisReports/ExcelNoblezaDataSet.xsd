@@ -15,6 +15,7 @@
                     <CommandText>/* Transferencias de materiales (Entradas, Proceso y Salidas)*/
 /*DECLARE @PEDIDO VARCHAR(10) = '58412';*/
 
+
 SELECT (
 	SELECT TOP (1) Cte.Nombre FROM Venta AS Venta INNER JOIN Cte 
 	ON Venta.Cliente = Cte.Cliente WHERE (Venta.Mov = 'PEDIDO') 
@@ -51,7 +52,7 @@ CASE
 	WHEN (Inv.Almacen In('MATPRIMA','MP-PENAVE7','TERMINADO') OR (Inv.Almacen = 'PT-PPXTRUS' AND Inv.AlmacenDestino &lt;&gt; 'TERMINADO')OR (Inv.Almacen = 'PT-PEXTRUS' AND Inv.AlmacenDestino &lt;&gt; 'TERMINADO')OR (Inv.Almacen = 'MP-PEXTRUS' AND LEFT(Inv.AlmacenDestino, 2) = 'MP') OR (Inv.Almacen = 'MP-PPXTRUS' AND LEFT(Inv.AlmacenDestino, 2) = 'MP') OR Art.Grupo IN('MP-Tintas','MP-Adh Impr','MP-Solventes','Mp-Barniz')) AND Art.Grupo NOT IN ('ME-Carton') THEN '1.ENTRADA' 
 	WHEN (Inv.Almacen = 'MP-PEXTRUS' AND Inv.AlmacenDestino = 'PP-PEXTRUS') THEN 'z_PROCESO_PEXTRUS' 
 	WHEN (Inv.Almacen = 'MP-PPXTRUS' AND Inv.AlmacenDestino = 'PP-PPXTRUS') THEN 'z_PROCESO_PPXTRUS' 
-	WHEN Inv.AlmacenDestino IN('RECHAZADOS','MATPRIMA','RCALMACEN','RC-CALIDAD','RE-PEXTRUS','RC-PEXTRUS','MP-PENAVE7','RE-PPXTRUS','RC-PPXTRUS') OR (Inv.AlmacenDestino = 'TERMINADO' AND Inv.Almacen NOT IN ('RECHAZADOS'))OR (Inv.AlmacenDestino = 'PT-PPXTRUS' AND (Inv.Almacen NOT IN('PP-PPXTRUS','MP-PPXTRUS')))OR (Inv.AlmacenDestino = 'PT-PEXTRUS' AND (Inv.Almacen NOT IN('PP-PEXTRUS','MP-PEXTRUS')))  THEN '4.SALIDA' 
+	WHEN Inv.AlmacenDestino IN('RECHAZADOS','MATPRIMA','RCALMACEN','RC-CALIDAD','RE-PEXTRUS','RC-PEXTRUS','MP-PENAVE7','RE-PPXTRUS','RC-PPXTRUS','MP-EXTRU') OR (Inv.AlmacenDestino = 'TERMINADO' AND Inv.Almacen NOT IN ('RECHAZADOS'))OR (Inv.AlmacenDestino = 'PT-PPXTRUS' AND (Inv.Almacen NOT IN('PP-PPXTRUS','MP-PPXTRUS')))OR (Inv.AlmacenDestino = 'PT-PEXTRUS' AND (Inv.Almacen NOT IN('PP-PEXTRUS','MP-PEXTRUS')))  THEN '4.SALIDA' 
 	ELSE '3.PROCESO' END AS Tipo,
 /*Obtengo Categoria de Movimientos*/
 CASE 
@@ -239,7 +240,7 @@ ORDER BY Almacen, art.Grupo desc, ART.Articulo, SL.Existencia</CommandText>
   <xs:element name="ExcelNoblezaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ExcelNoblezaDataSet" msprop:Generator_UserDSName="ExcelNoblezaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CierreOrdenes" msprop:Generator_TableClassName="CierreOrdenesDataTable" msprop:Generator_TableVarName="tableCierreOrdenes" msprop:Generator_RowChangedName="CierreOrdenesRowChanged" msprop:Generator_TablePropName="CierreOrdenes" msprop:Generator_RowDeletingName="CierreOrdenesRowDeleting" msprop:Generator_RowChangingName="CierreOrdenesRowChanging" msprop:Generator_RowEvHandlerName="CierreOrdenesRowChangeEventHandler" msprop:Generator_RowDeletedName="CierreOrdenesRowDeleted" msprop:Generator_RowClassName="CierreOrdenesRow" msprop:Generator_UserTableName="CierreOrdenes" msprop:Generator_RowEvArgName="CierreOrdenesRowChangeEvent">
+        <xs:element name="CierreOrdenes" msprop:Generator_TableClassName="CierreOrdenesDataTable" msprop:Generator_TableVarName="tableCierreOrdenes" msprop:Generator_TablePropName="CierreOrdenes" msprop:Generator_RowDeletingName="CierreOrdenesRowDeleting" msprop:Generator_RowChangingName="CierreOrdenesRowChanging" msprop:Generator_RowEvHandlerName="CierreOrdenesRowChangeEventHandler" msprop:Generator_RowDeletedName="CierreOrdenesRowDeleted" msprop:Generator_UserTableName="CierreOrdenes" msprop:Generator_RowChangedName="CierreOrdenesRowChanged" msprop:Generator_RowEvArgName="CierreOrdenesRowChangeEvent" msprop:Generator_RowClassName="CierreOrdenesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Cliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
@@ -368,7 +369,7 @@ ORDER BY Almacen, art.Grupo desc, ART.Articulo, SL.Existencia</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ExistenciasLineas" msprop:Generator_TableClassName="ExistenciasLineasDataTable" msprop:Generator_TableVarName="tableExistenciasLineas" msprop:Generator_RowChangedName="ExistenciasLineasRowChanged" msprop:Generator_TablePropName="ExistenciasLineas" msprop:Generator_RowDeletingName="ExistenciasLineasRowDeleting" msprop:Generator_RowChangingName="ExistenciasLineasRowChanging" msprop:Generator_RowEvHandlerName="ExistenciasLineasRowChangeEventHandler" msprop:Generator_RowDeletedName="ExistenciasLineasRowDeleted" msprop:Generator_RowClassName="ExistenciasLineasRow" msprop:Generator_UserTableName="ExistenciasLineas" msprop:Generator_RowEvArgName="ExistenciasLineasRowChangeEvent">
+        <xs:element name="ExistenciasLineas" msprop:Generator_TableClassName="ExistenciasLineasDataTable" msprop:Generator_TableVarName="tableExistenciasLineas" msprop:Generator_TablePropName="ExistenciasLineas" msprop:Generator_RowDeletingName="ExistenciasLineasRowDeleting" msprop:Generator_RowChangingName="ExistenciasLineasRowChanging" msprop:Generator_RowEvHandlerName="ExistenciasLineasRowChangeEventHandler" msprop:Generator_RowDeletedName="ExistenciasLineasRowDeleted" msprop:Generator_UserTableName="ExistenciasLineas" msprop:Generator_RowChangedName="ExistenciasLineasRowChanged" msprop:Generator_RowEvArgName="ExistenciasLineasRowChangeEvent" msprop:Generator_RowClassName="ExistenciasLineasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Articulo" msprop:Generator_ColumnVarNameInTable="columnArticulo" msprop:Generator_ColumnPropNameInRow="Articulo" msprop:Generator_ColumnPropNameInTable="ArticuloColumn" msprop:Generator_UserColumnName="Articulo" minOccurs="0">

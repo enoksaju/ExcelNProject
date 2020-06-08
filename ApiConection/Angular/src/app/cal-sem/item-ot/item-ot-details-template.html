@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{data.OT}} {{data.NombreProceso}}</h1>
+<div mat-dialog-content fxLayout="row" fxLayout.lt-md="column">
+
+  <div fxLayout="column" style="padding: 5px;" fxLayoutAlign="stretch stretch">
+    <mat-form-field fxFlex>
+      <mat-label>Cliente:</mat-label>
+      <input readonly matInput [(ngModel)]="data.Cliente">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <mat-label>Producto:</mat-label>
+      <input readonly matInput [(ngModel)]="data.Producto">
+    </mat-form-field>
+    <div fxLayout="row" fxFlex fxLayout.lt-md="column" fxLayoutGap="10px">
+      <mat-form-field fxFlex="calc(50%-10px)">
+        <mat-label>Maquina:</mat-label>
+        <input readonly matInput [(ngModel)]="data.Maquina">
+      </mat-form-field>
+      <mat-form-field fxFlex="calc(50%-10px)">
+        <mat-label>Metros Lineales:</mat-label>
+        <input readonly matInput value="{{data.Ml | number:'1.0-0'}} m">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex fxLayout.lt-md="column" fxLayoutGap="10px">
+      <mat-form-field fxFlex="calc(50%-10px)">
+        <mat-label>Fecha Programada:</mat-label>
+        <input readonly matInput [matDatepicker]="picker" [(ngModel)]="data.FechaProgramada">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field fxFlex="calc(50%-10px)">
+        <mat-label>Fecha de Entrega al Almacen:</mat-label>
+        <input readonly matInput [matDatepicker]="pickerFechaEntrega" [(ngModel)]="data.FechaEntrega">
+        <mat-datepicker-toggle matSuffix [for]="pickerFechaEntrega"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFechaEntrega></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-divider> </mat-divider>
+  <mat-divider [vertical]="true">
+  </mat-divider>
+
+  <div style="padding: 5px;">
+    <h3 style="text-align: center;">Estatus:</h3>
+    <!-- <mat-selection-list disabled="true" (selectionChange)="changeValue($event)">
+      <mat-list-option [selected]="hasFlag(data.Estatus, status.value)" [value]="status.value" *ngFor="let status of t">
+        {{status.key}}</mat-list-option>
+    </mat-selection-list> -->
+    <mat-chip-list multiple class="mat-chip-list-stacked">
+      <mat-chip [selected]="hasFlag(data.Estatus, status.value)" *ngFor="let status of t">
+        {{status.key}}
+      </mat-chip>
+    </mat-chip-list>
+
+  </div>
+
+</div>

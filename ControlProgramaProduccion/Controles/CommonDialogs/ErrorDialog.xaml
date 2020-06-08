@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ControlProgramaProduccion.Controles.CommonDialogs.ErrorDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlProgramaProduccion.Controles.CommonDialogs"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="400" MinWidth="400" MaxWidth="900">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Margin="16" x:Name="RootBinding">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <md:PackIcon Kind="ErrorOutline" Foreground="DarkRed"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Height="80"
+                     Width="80"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                   Text="{Binding Title, FallbackValue=Error}"
+                   HorizontalAlignment="Center"></TextBlock>
+            <Separator Grid.Row="1"
+                       Style="{DynamicResource MaterialDesignDarkSeparator}"/>
+            <TextBlock Grid.Row="2" Margin="0 5 0 15" 
+                   Style="{DynamicResource MaterialDesignSubheadingTextBlock}"
+                   Text="{Binding Promp, FallbackValue=Algo salio mal}"
+                   TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Center"></TextBlock>
+
+            <Button Grid.Row="3"
+                    Width="100"
+                    IsDefault="True"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                    HorizontalAlignment="Center">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+                Ok
+            </Button>
+        </Grid>
+    </Grid>
+    
+</UserControl>

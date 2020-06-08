@@ -133,7 +133,7 @@ namespace libProduccionDataBase.Migrations
 				}
 			);
 
-			
+
 
 			using ( var t = new ApplicationUserManager_ ( new Identity.ApplicationUserStore ( context ) ) )
 			{

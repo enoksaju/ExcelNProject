@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -176,7 +177,55 @@ namespace libProduccionDataBase.Tablas
 					this.Procesos.FirstOrDefault ( u => u.TipoProceso == p ).Activa = false;
 				}
 			};
+
 			this.UltimaActualizacion = DateTime.Now;
+		}
+
+		public static void AddToOT ( libProduccionDataBase.Tablas.TemporalOrdenTrabajo OT )
+		{
+			OT.Planeacion = OT.Planeacion ?? ( new Planeacion ( ) );
+
+			if ( OT.Planeacion.Procesos.Count == 0 )
+			{
+				Tablas.Planeacion.TiposProcesoProduccion tp = new Tablas.Planeacion.TiposProcesoProduccion ( );
+				if ( OT.INSTCORTE.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				if ( OT.INSTDOBLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				if ( OT.INSTEMBOBINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				if ( OT.INSTEXTRUSION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				if ( OT.INSTIMPRESION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				if ( OT.INSTLAMINACION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				if ( OT.INSTMANGAS.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				if ( OT.INSTREFINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				if ( OT.INSTSELLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
+
+				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "MICROPERFORAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Microperforado;
+				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "TROQUELAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Troquelar;
+
+				OT.Planeacion.CrearProcesos ( tp );
+			}
+			else
+			{
+
+				OT.Planeacion.UltimaActualizacion = DateTime.Now;
+				Tablas.Planeacion.TiposProcesoProduccion toAdd = new Tablas.Planeacion.TiposProcesoProduccion ( );
+
+				if ( OT.INSTCORTE.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+				if ( OT.INSTDOBLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+				if ( OT.INSTEMBOBINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+				if ( OT.INSTEXTRUSION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+				if ( OT.INSTIMPRESION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+				if ( OT.INSTLAMINACION.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+				if ( OT.INSTMANGAS.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+				if ( OT.INSTREFINADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+				if ( OT.INSTSELLADO.Trim ( ) != "" ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) toAdd |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
+				OT.Planeacion.UpdateProcesos ( toAdd );
+			}
 		}
 	}
 
@@ -286,6 +335,30 @@ namespace libProduccionDataBase.Tablas
 		/// Entidad Padre.
 		/// </summary>
 		public virtual Planeacion Planeacion { get; set; }
+
+
+		#region WPF Planeacion
+		private bool _IsSelected = false;
+		[NotMapped]
+		public bool IsSelected
+		{
+			get; set;
+			//get { return _IsSelected; }
+			//set { if ( _IsSelected != value ) { _IsSelected = value; OnPropertyChanged ( ); } }
+		}
+		//#region INotifyPropertyChanged Implementation
+
+		//public event PropertyChangedEventHandler PropertyChanged;
+		//// This method is called by the Set accessor of each property.
+		//// The CallerMemberName attribute that is applied to the optional propertyName
+		//// parameter causes the property name of the caller to be substituted as an argument.
+		//private void OnPropertyChanged ( [System.Runtime.CompilerServices.CallerMemberName] String propertyName = "" )
+		//{
+		//	PropertyChanged?.Invoke ( this, new PropertyChangedEventArgs ( propertyName ) );
+		//}
+
+		//#endregion
+		#endregion
 	}
 
 

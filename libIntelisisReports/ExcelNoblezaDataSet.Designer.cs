@@ -2518,91 +2518,92 @@ namespace libIntelisisReports.ExcelNoblezaDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "/* Transferencias de materiales (Entradas, Proceso y Salidas)*/\r\n/*DECLARE @PEDID" +
-                "O VARCHAR(10) = \'58412\';*/\r\n\r\nSELECT (\r\n\tSELECT TOP (1) Cte.Nombre FROM Venta AS" +
-                " Venta INNER JOIN Cte \r\n\tON Venta.Cliente = Cte.Cliente WHERE (Venta.Mov = \'PEDI" +
-                "DO\') \r\n\tAND (Venta.MovID = @PEDIDO) AND (Cte.Nombre <> \'EXCEL NOBLEZA, S.A. DE C" +
-                ".V.\')\r\n) AS Cliente,\r\n/*Obtengo Nombre del cliente*/\r\n\r\nInv.Mov,\r\nInv.MovID,\r\nIn" +
-                "vD.DescripcionExtra,\r\nInv.Referencia AS Pedido,\r\nInv.Estatus AS Estado,\r\nInv.Alm" +
-                "acen AS AlmacenOrig,\r\nInv.AlmacenDestino AS AlmacenDest,\r\nInv.Usuario,\r\nInv.Fech" +
-                "aConclusion,\r\nInvD.Articulo,\r\nCASE \r\n\tWHEN Art.Grupo in (\'MP-Solventes\') then 0\r" +
-                "\n\tWHEN Art.Grupo in (\'MP-Tintas\', \'MP-Barniz\') then 0.34\r\n\tELSE 1 \r\nEND AS Compo" +
-                "nentes,\r\nInvD.Cantidad * CASE WHEN InvD.Articulo IN (\'MPZI-PE7032\', \'MPZI-PE7120" +
-                "\') THEN 16.3\tELSE InvD.Factor END as Cantidad,\r\n/* Obtengo la conversion a KG, S" +
-                "e  modifica para considerar la conversion a Kg del zipper MPZI-PE7032 , estos se" +
-                " tendra que cambiar al cambiar el factor en Intelisis*/\r\nCASE WHEN InvD.Articulo" +
-                " IN (\'MPZI-PE7032\', \'MPZI-PE7120\') THEN \'KG\' ELSE UPPER(InvD.Unidad) END AS Unid" +
-                "ad, \r\n/*Obtengo la Unidad del Articulo*/\r\nInvD.Factor,\r\nArt.Descripcion1, \r\nArt." +
-                "Grupo, \r\nArt.Categoria, \r\nArt.Familia, \r\n/*Obtengo tipo de Movimiento*/\r\nCASE \r\n" +
-                "\tWHEN (Inv.Almacen In(\'MATPRIMA\',\'MP-PENAVE7\',\'TERMINADO\') OR (Inv.Almacen = \'PT" +
-                "-PPXTRUS\' AND Inv.AlmacenDestino <> \'TERMINADO\')OR (Inv.Almacen = \'PT-PEXTRUS\' A" +
-                "ND Inv.AlmacenDestino <> \'TERMINADO\')OR (Inv.Almacen = \'MP-PEXTRUS\' AND LEFT(Inv" +
-                ".AlmacenDestino, 2) = \'MP\') OR (Inv.Almacen = \'MP-PPXTRUS\' AND LEFT(Inv.AlmacenD" +
-                "estino, 2) = \'MP\') OR Art.Grupo IN(\'MP-Tintas\',\'MP-Adh Impr\',\'MP-Solventes\',\'Mp-" +
-                "Barniz\')) AND Art.Grupo NOT IN (\'ME-Carton\') THEN \'1.ENTRADA\' \r\n\tWHEN (Inv.Almac" +
-                "en = \'MP-PEXTRUS\' AND Inv.AlmacenDestino = \'PP-PEXTRUS\') THEN \'z_PROCESO_PEXTRUS" +
-                "\' \r\n\tWHEN (Inv.Almacen = \'MP-PPXTRUS\' AND Inv.AlmacenDestino = \'PP-PPXTRUS\') THE" +
-                "N \'z_PROCESO_PPXTRUS\' \r\n\tWHEN Inv.AlmacenDestino IN(\'RECHAZADOS\',\'MATPRIMA\',\'RCA" +
-                "LMACEN\',\'RC-CALIDAD\',\'RE-PEXTRUS\',\'RC-PEXTRUS\',\'MP-PENAVE7\',\'RE-PPXTRUS\',\'RC-PPX" +
-                "TRUS\') OR (Inv.AlmacenDestino = \'TERMINADO\' AND Inv.Almacen NOT IN (\'RECHAZADOS\'" +
-                "))OR (Inv.AlmacenDestino = \'PT-PPXTRUS\' AND (Inv.Almacen NOT IN(\'PP-PPXTRUS\',\'MP" +
-                "-PPXTRUS\')))OR (Inv.AlmacenDestino = \'PT-PEXTRUS\' AND (Inv.Almacen NOT IN(\'PP-PE" +
-                "XTRUS\',\'MP-PEXTRUS\')))  THEN \'4.SALIDA\' \r\n\tELSE \'3.PROCESO\' END AS Tipo,\r\n/*Obte" +
-                "ngo Categoria de Movimientos*/\r\nCASE \r\n\tWHEN Inv.almacenDestino = \'TERMINADO\' TH" +
-                "EN \'TERMINADO\' \r\n\tWHEN Inv.AlmacenDestino = \'RECHAZADOS\' THEN \'RECHAZADO\' \r\n\tWHE" +
-                "N Inv.AlmacenDestino IN (\'MATPRIMA\',\'PT-PEXTRUS\' ,\'MP-PENAVE7\')OR (Inv.AlmacenDe" +
-                "stino = \'PT-PPXTRUS\' AND (Inv.Almacen <> \'PP-PPXTRUS\' OR Inv.Almacen <> \'MP-PPXT" +
-                "RUS\')) THEN \'DEVOLUCION\' \r\n\tWHEN Inv.AlmacenDestino IN ( \'RCALMACEN\',\'RC-CALIDAD" +
-                "\') THEN \'DESPERDICIOS\' \r\n\tWHEN Art.Categoria IN (\'ME-Material Empaque\') THEN \'MA" +
-                "TERIAL DE EMPAQUE\'\r\n\tWHEN Inv.AlmacenDestino IN(\'RECHAZADOS\', \'RE-PEXTRUS\' ,\'RE-" +
-                "PPXTRUS\',\'RC-PPXTRUS\',\'RC-PEXTRUS\') THEN \'RECHAZADOS\'\r\n\tWHEN Inv.Almacen IN (\'MA" +
-                "TPRIMA\',\'PT-PEXTRUS\' ,\'PT-PPXTRUS\',\'MP-PENAVE7\' )OR (Inv.Almacen IN (\'MP-PEXTRUS" +
-                "\',\'MP-PPXTRUS\') AND LEFT(Inv.AlmacenDestino, 2) = \'MP\') THEN \'MATERIA PRIMA\'\r\n\tW" +
-                "HEN Inv.Almacen = \'TINTAS\' or Art.Grupo IN (\'MP-Tintas\',\'MP-Solventes\',\'Mp-Barni" +
-                "z\') THEN \'TINTAS\' \r\n\tWHEN Art.Grupo = \'MP-Adh Impr\' THEN \'ADHESIVOS\' END AS Tipo" +
-                "Salida\r\nFROM Inv AS Inv INNER JOIN InvD ON Inv.ID = InvD.ID INNER JOIN Art ON In" +
-                "vD.Articulo = Art.Articulo\r\nWHERE (Inv.Empresa = \'GRAL\') AND (Inv.Referencia LIK" +
-                "E \'%\' + @PEDIDO)AND (Inv.Mov = \'Transferencia\')  AND (Inv.Estatus = \'CONCLUIDO\')" +
-                " AND (RTRIM(UPPER(InvD.Unidad)) in (\'KG\',\'ROLLOS\'))\r\n\r\n\r\nUNION /*Solicitado en e" +
-                "l Pedido*/\r\n\r\nSELECT Cte_1.Nombre AS Cliente, \r\nVenta.Mov, \r\nVenta.MovID,\r\nVenta" +
-                "D.DescripcionExtra, \r\nVenta.Referencia, \r\n\'CONCLUIDO\', \r\nArt_1.Linea, \r\n\'\' AS Al" +
-                "macenDest, \r\n\'ContMarg\' AS Usuario,\r\nCURRENT_TIMESTAMP AS FechaConclusion, \r\nArt" +
-                "_1.Articulo, \r\n1 AS Componentes, \r\nVentaD.Cantidad, \r\nUPPER(VentaD.Unidad), \r\n(s" +
-                "elect Top 1 AU.[Factor] from ArtUnidad AU where AU.Articulo= Art_1.Articulo and " +
-                "AU.Unidad= VentaD.Unidad),\r\n/*Art_1.Factor, */\r\nArt_1.Descripcion1, \r\nArt_1.Grup" +
-                "o, \r\nArt_1.Categoria, \r\nArt_1.Familia,\r\n\'(_Solicitado)\' AS Tipo, \r\n\' \' AS TipoSa" +
-                "lida \r\nFROM Venta AS Venta INNER JOIN Cte AS Cte_1 ON Venta.Cliente = Cte_1.Clie" +
-                "nte INNER JOIN VentaD ON Venta.ID = VentaD.ID INNER JOIN Art AS Art_1 ON Art_1.A" +
-                "rticulo = VentaD.Articulo\r\n/*ArtUnidad AU ON AU.Articulo = Art_1.Articulo & AU.U" +
-                "nidad = VentaD.Unidad*/\r\nWHERE (Venta.Mov = \'PEDIDO\') AND (Venta.MovID = @PEDIDO" +
-                ") AND (Cte_1.Nombre <> \'EXCEL NOBLEZA, S.A. DE C.V.\') AND (Venta.Estatus <> \'CAN" +
-                "CELADO\')\r\n\r\nUNION /*Obtengo Materiales a MP- de las Odenes de Transferencia*/\r\nS" +
-                "ELECT (\r\n\tSELECT TOP (1) Cte_2.Nombre \r\n\tFROM Venta AS Venta INNER JOIN Cte AS C" +
-                "te_2 ON Venta.Cliente = Cte_2.Cliente \r\n\tWHERE (Venta.Mov = \'PEDIDO\') AND (Venta" +
-                ".MovID = @PEDIDO) AND (Cte_2.Nombre <> \'EXCEL NOBLEZA, S.A. DE C.V.\')\r\n) AS Clie" +
-                "nte, \r\nInv.Mov, \r\nInv.MovID, \r\nInv.Observaciones,\r\nInv.Referencia,\r\nInv.Estatus," +
-                "\r\nInv.Almacen, \r\nInv.AlmacenDestino, \r\nInv.Usuario, \r\nisnull(Inv.FechaConclusion" +
-                ", 0), \r\nInvD_1.Articulo, \r\n1 As Componentes, \r\nInvD_1.Cantidad, \r\nUPPER(InvD_1.U" +
-                "nidad), \r\nInvD_1.Factor, \r\nArt_2.Descripcion1,\r\nArt_2.Grupo, \r\nArt_2.Categoria, " +
-                "\r\nArt_2.Familia, \r\n\'(Requerido)\', \r\n\'\' AS TipoSalida \r\nFROM Inv AS Inv INNER JOI" +
-                "N InvD AS InvD_1 ON Inv.ID = InvD_1.ID INNER JOIN Art AS Art_2 ON InvD_1.Articul" +
-                "o = Art_2.Articulo\r\nWHERE (Inv.Empresa = \'GRAL\') AND (Inv.Mov = \'Orden Transfere" +
-                "ncia\') AND (Inv.Referencia LIKE \'%\' + @PEDIDO) AND (Inv.Estatus = \'CONCLUIDO\'  o" +
-                "r Inv.Estatus = \'Pendiente\') AND (Inv.Usuario in (\'JOSECG\', \'HECTORH\'))AND (RTRI" +
-                "M(UPPER(InvD_1.Unidad)) = \'KG\') AND (SUBSTRING(Inv.AlmacenDestino, 1, 3) = \'MP-\'" +
-                ")\r\n\r\nUNION \r\nSELECT (\r\n\tSELECT TOP (1) Cte_2.Nombre \r\n\tFROM Venta AS Venta INNER" +
-                " JOIN Cte AS Cte_2 ON Venta.Cliente = Cte_2.Cliente\r\n\tWHERE (Venta.Mov = \'PEDIDO" +
+                "O VARCHAR(10) = \'58412\';*/\r\n\r\n\r\nSELECT (\r\n\tSELECT TOP (1) Cte.Nombre FROM Venta " +
+                "AS Venta INNER JOIN Cte \r\n\tON Venta.Cliente = Cte.Cliente WHERE (Venta.Mov = \'PE" +
+                "DIDO\') \r\n\tAND (Venta.MovID = @PEDIDO) AND (Cte.Nombre <> \'EXCEL NOBLEZA, S.A. DE" +
+                " C.V.\')\r\n) AS Cliente,\r\n/*Obtengo Nombre del cliente*/\r\n\r\nInv.Mov,\r\nInv.MovID,\r\n" +
+                "InvD.DescripcionExtra,\r\nInv.Referencia AS Pedido,\r\nInv.Estatus AS Estado,\r\nInv.A" +
+                "lmacen AS AlmacenOrig,\r\nInv.AlmacenDestino AS AlmacenDest,\r\nInv.Usuario,\r\nInv.Fe" +
+                "chaConclusion,\r\nInvD.Articulo,\r\nCASE \r\n\tWHEN Art.Grupo in (\'MP-Solventes\') then " +
+                "0\r\n\tWHEN Art.Grupo in (\'MP-Tintas\', \'MP-Barniz\') then 0.34\r\n\tELSE 1 \r\nEND AS Com" +
+                "ponentes,\r\nInvD.Cantidad * CASE WHEN InvD.Articulo IN (\'MPZI-PE7032\', \'MPZI-PE71" +
+                "20\') THEN 16.3\tELSE InvD.Factor END as Cantidad,\r\n/* Obtengo la conversion a KG," +
+                " Se  modifica para considerar la conversion a Kg del zipper MPZI-PE7032 , estos " +
+                "se tendra que cambiar al cambiar el factor en Intelisis*/\r\nCASE WHEN InvD.Articu" +
+                "lo IN (\'MPZI-PE7032\', \'MPZI-PE7120\') THEN \'KG\' ELSE UPPER(InvD.Unidad) END AS Un" +
+                "idad, \r\n/*Obtengo la Unidad del Articulo*/\r\nInvD.Factor,\r\nArt.Descripcion1, \r\nAr" +
+                "t.Grupo, \r\nArt.Categoria, \r\nArt.Familia, \r\n/*Obtengo tipo de Movimiento*/\r\nCASE " +
+                "\r\n\tWHEN (Inv.Almacen In(\'MATPRIMA\',\'MP-PENAVE7\',\'TERMINADO\') OR (Inv.Almacen = \'" +
+                "PT-PPXTRUS\' AND Inv.AlmacenDestino <> \'TERMINADO\')OR (Inv.Almacen = \'PT-PEXTRUS\'" +
+                " AND Inv.AlmacenDestino <> \'TERMINADO\')OR (Inv.Almacen = \'MP-PEXTRUS\' AND LEFT(I" +
+                "nv.AlmacenDestino, 2) = \'MP\') OR (Inv.Almacen = \'MP-PPXTRUS\' AND LEFT(Inv.Almace" +
+                "nDestino, 2) = \'MP\') OR Art.Grupo IN(\'MP-Tintas\',\'MP-Adh Impr\',\'MP-Solventes\',\'M" +
+                "p-Barniz\')) AND Art.Grupo NOT IN (\'ME-Carton\') THEN \'1.ENTRADA\' \r\n\tWHEN (Inv.Alm" +
+                "acen = \'MP-PEXTRUS\' AND Inv.AlmacenDestino = \'PP-PEXTRUS\') THEN \'z_PROCESO_PEXTR" +
+                "US\' \r\n\tWHEN (Inv.Almacen = \'MP-PPXTRUS\' AND Inv.AlmacenDestino = \'PP-PPXTRUS\') T" +
+                "HEN \'z_PROCESO_PPXTRUS\' \r\n\tWHEN Inv.AlmacenDestino IN(\'RECHAZADOS\',\'MATPRIMA\',\'R" +
+                "CALMACEN\',\'RC-CALIDAD\',\'RE-PEXTRUS\',\'RC-PEXTRUS\',\'MP-PENAVE7\',\'RE-PPXTRUS\',\'RC-P" +
+                "PXTRUS\',\'MP-EXTRU\') OR (Inv.AlmacenDestino = \'TERMINADO\' AND Inv.Almacen NOT IN " +
+                "(\'RECHAZADOS\'))OR (Inv.AlmacenDestino = \'PT-PPXTRUS\' AND (Inv.Almacen NOT IN(\'PP" +
+                "-PPXTRUS\',\'MP-PPXTRUS\')))OR (Inv.AlmacenDestino = \'PT-PEXTRUS\' AND (Inv.Almacen " +
+                "NOT IN(\'PP-PEXTRUS\',\'MP-PEXTRUS\')))  THEN \'4.SALIDA\' \r\n\tELSE \'3.PROCESO\' END AS " +
+                "Tipo,\r\n/*Obtengo Categoria de Movimientos*/\r\nCASE \r\n\tWHEN Inv.almacenDestino = \'" +
+                "TERMINADO\' THEN \'TERMINADO\' \r\n\tWHEN Inv.AlmacenDestino = \'RECHAZADOS\' THEN \'RECH" +
+                "AZADO\' \r\n\tWHEN Inv.AlmacenDestino IN (\'MATPRIMA\',\'PT-PEXTRUS\' ,\'MP-PENAVE7\')OR (" +
+                "Inv.AlmacenDestino = \'PT-PPXTRUS\' AND (Inv.Almacen <> \'PP-PPXTRUS\' OR Inv.Almace" +
+                "n <> \'MP-PPXTRUS\')) THEN \'DEVOLUCION\' \r\n\tWHEN Inv.AlmacenDestino IN ( \'RCALMACEN" +
+                "\',\'RC-CALIDAD\') THEN \'DESPERDICIOS\' \r\n\tWHEN Art.Categoria IN (\'ME-Material Empaq" +
+                "ue\') THEN \'MATERIAL DE EMPAQUE\'\r\n\tWHEN Inv.AlmacenDestino IN(\'RECHAZADOS\', \'RE-P" +
+                "EXTRUS\' ,\'RE-PPXTRUS\',\'RC-PPXTRUS\',\'RC-PEXTRUS\') THEN \'RECHAZADOS\'\r\n\tWHEN Inv.Al" +
+                "macen IN (\'MATPRIMA\',\'PT-PEXTRUS\' ,\'PT-PPXTRUS\',\'MP-PENAVE7\' )OR (Inv.Almacen IN" +
+                " (\'MP-PEXTRUS\',\'MP-PPXTRUS\') AND LEFT(Inv.AlmacenDestino, 2) = \'MP\') THEN \'MATER" +
+                "IA PRIMA\'\r\n\tWHEN Inv.Almacen = \'TINTAS\' or Art.Grupo IN (\'MP-Tintas\',\'MP-Solvent" +
+                "es\',\'Mp-Barniz\') THEN \'TINTAS\' \r\n\tWHEN Art.Grupo = \'MP-Adh Impr\' THEN \'ADHESIVOS" +
+                "\' END AS TipoSalida\r\nFROM Inv AS Inv INNER JOIN InvD ON Inv.ID = InvD.ID INNER J" +
+                "OIN Art ON InvD.Articulo = Art.Articulo\r\nWHERE (Inv.Empresa = \'GRAL\') AND (Inv.R" +
+                "eferencia LIKE \'%\' + @PEDIDO)AND (Inv.Mov = \'Transferencia\')  AND (Inv.Estatus =" +
+                " \'CONCLUIDO\') AND (RTRIM(UPPER(InvD.Unidad)) in (\'KG\',\'ROLLOS\'))\r\n\r\n\r\nUNION /*So" +
+                "licitado en el Pedido*/\r\n\r\nSELECT Cte_1.Nombre AS Cliente, \r\nVenta.Mov, \r\nVenta." +
+                "MovID,\r\nVentaD.DescripcionExtra, \r\nVenta.Referencia, \r\n\'CONCLUIDO\', \r\nArt_1.Line" +
+                "a, \r\n\'\' AS AlmacenDest, \r\n\'ContMarg\' AS Usuario,\r\nCURRENT_TIMESTAMP AS FechaConc" +
+                "lusion, \r\nArt_1.Articulo, \r\n1 AS Componentes, \r\nVentaD.Cantidad, \r\nUPPER(VentaD." +
+                "Unidad), \r\n(select Top 1 AU.[Factor] from ArtUnidad AU where AU.Articulo= Art_1." +
+                "Articulo and AU.Unidad= VentaD.Unidad),\r\n/*Art_1.Factor, */\r\nArt_1.Descripcion1," +
+                " \r\nArt_1.Grupo, \r\nArt_1.Categoria, \r\nArt_1.Familia,\r\n\'(_Solicitado)\' AS Tipo, \r\n" +
+                "\' \' AS TipoSalida \r\nFROM Venta AS Venta INNER JOIN Cte AS Cte_1 ON Venta.Cliente" +
+                " = Cte_1.Cliente INNER JOIN VentaD ON Venta.ID = VentaD.ID INNER JOIN Art AS Art" +
+                "_1 ON Art_1.Articulo = VentaD.Articulo\r\n/*ArtUnidad AU ON AU.Articulo = Art_1.Ar" +
+                "ticulo & AU.Unidad = VentaD.Unidad*/\r\nWHERE (Venta.Mov = \'PEDIDO\') AND (Venta.Mo" +
+                "vID = @PEDIDO) AND (Cte_1.Nombre <> \'EXCEL NOBLEZA, S.A. DE C.V.\') AND (Venta.Es" +
+                "tatus <> \'CANCELADO\')\r\n\r\nUNION /*Obtengo Materiales a MP- de las Odenes de Trans" +
+                "ferencia*/\r\nSELECT (\r\n\tSELECT TOP (1) Cte_2.Nombre \r\n\tFROM Venta AS Venta INNER " +
+                "JOIN Cte AS Cte_2 ON Venta.Cliente = Cte_2.Cliente \r\n\tWHERE (Venta.Mov = \'PEDIDO" +
                 "\') AND (Venta.MovID = @PEDIDO) AND (Cte_2.Nombre <> \'EXCEL NOBLEZA, S.A. DE C.V." +
-                "\')\r\n) AS Cliente, \r\nInv.Mov, \r\nInv.MovID, \r\nInv.Observaciones,\r\nInv.Referencia, " +
-                "\r\nInv.Estatus,\r\nInv.Almacen, \r\nInv.AlmacenDestino, \r\nInv.Usuario, \r\nisnull(Inv.F" +
-                "echaConclusion, 0), \r\nInvD_1.Articulo, \r\n1 As Componentes, \r\nInvD_1.Cantidad, \r\n" +
-                "UPPER(InvD_1.Unidad), \r\nInvD_1.Factor, \r\nArt_2.Descripcion1,\r\nArt_2.Grupo, \r\nArt" +
-                "_2.Categoria, \r\nArt_2.Familia, \r\n\'2.CONSUMOS\', \r\nSUBSTRING(Inv.Almacen, 4, LEN( " +
-                "Inv.Almacen )-3) AS TipoSalida\r\nFROM Inv AS Inv INNER JOIN InvD AS InvD_1 ON Inv" +
-                ".ID = InvD_1.ID INNER JOIN Art AS Art_2 ON InvD_1.Articulo = Art_2.Articulo\r\nWHE" +
-                "RE (Inv.Empresa = \'GRAL\') AND (Inv.Mov = \'Consumo Material\') AND (Inv.Referencia" +
-                " LIKE \'%\' + @PEDIDO) AND (Inv.Estatus = \'CONCLUIDO\' or Inv.Estatus = \'Pendiente\'" +
-                ") AND (RTRIM(UPPER(InvD_1.Unidad)) = \'KG\') AND (SUBSTRING(Inv.Almacen, 4, LEN( I" +
-                "nv.Almacen )-3) not in (\'PEXTRUS\',\'PPXTRUS\'))\r\nORDER BY Tipo, Inv.MovID";
+                "\')\r\n) AS Cliente, \r\nInv.Mov, \r\nInv.MovID, \r\nInv.Observaciones,\r\nInv.Referencia,\r" +
+                "\nInv.Estatus,\r\nInv.Almacen, \r\nInv.AlmacenDestino, \r\nInv.Usuario, \r\nisnull(Inv.Fe" +
+                "chaConclusion, 0), \r\nInvD_1.Articulo, \r\n1 As Componentes, \r\nInvD_1.Cantidad, \r\nU" +
+                "PPER(InvD_1.Unidad), \r\nInvD_1.Factor, \r\nArt_2.Descripcion1,\r\nArt_2.Grupo, \r\nArt_" +
+                "2.Categoria, \r\nArt_2.Familia, \r\n\'(Requerido)\', \r\n\'\' AS TipoSalida \r\nFROM Inv AS " +
+                "Inv INNER JOIN InvD AS InvD_1 ON Inv.ID = InvD_1.ID INNER JOIN Art AS Art_2 ON I" +
+                "nvD_1.Articulo = Art_2.Articulo\r\nWHERE (Inv.Empresa = \'GRAL\') AND (Inv.Mov = \'Or" +
+                "den Transferencia\') AND (Inv.Referencia LIKE \'%\' + @PEDIDO) AND (Inv.Estatus = \'" +
+                "CONCLUIDO\'  or Inv.Estatus = \'Pendiente\') AND (Inv.Usuario in (\'JOSECG\', \'HECTOR" +
+                "H\'))AND (RTRIM(UPPER(InvD_1.Unidad)) = \'KG\') AND (SUBSTRING(Inv.AlmacenDestino, " +
+                "1, 3) = \'MP-\')\r\n\r\nUNION \r\nSELECT (\r\n\tSELECT TOP (1) Cte_2.Nombre \r\n\tFROM Venta A" +
+                "S Venta INNER JOIN Cte AS Cte_2 ON Venta.Cliente = Cte_2.Cliente\r\n\tWHERE (Venta." +
+                "Mov = \'PEDIDO\') AND (Venta.MovID = @PEDIDO) AND (Cte_2.Nombre <> \'EXCEL NOBLEZA," +
+                " S.A. DE C.V.\')\r\n) AS Cliente, \r\nInv.Mov, \r\nInv.MovID, \r\nInv.Observaciones,\r\nInv" +
+                ".Referencia, \r\nInv.Estatus,\r\nInv.Almacen, \r\nInv.AlmacenDestino, \r\nInv.Usuario, \r" +
+                "\nisnull(Inv.FechaConclusion, 0), \r\nInvD_1.Articulo, \r\n1 As Componentes, \r\nInvD_1" +
+                ".Cantidad, \r\nUPPER(InvD_1.Unidad), \r\nInvD_1.Factor, \r\nArt_2.Descripcion1,\r\nArt_2" +
+                ".Grupo, \r\nArt_2.Categoria, \r\nArt_2.Familia, \r\n\'2.CONSUMOS\', \r\nSUBSTRING(Inv.Alma" +
+                "cen, 4, LEN( Inv.Almacen )-3) AS TipoSalida\r\nFROM Inv AS Inv INNER JOIN InvD AS " +
+                "InvD_1 ON Inv.ID = InvD_1.ID INNER JOIN Art AS Art_2 ON InvD_1.Articulo = Art_2." +
+                "Articulo\r\nWHERE (Inv.Empresa = \'GRAL\') AND (Inv.Mov = \'Consumo Material\') AND (I" +
+                "nv.Referencia LIKE \'%\' + @PEDIDO) AND (Inv.Estatus = \'CONCLUIDO\' or Inv.Estatus " +
+                "= \'Pendiente\') AND (RTRIM(UPPER(InvD_1.Unidad)) = \'KG\') AND (SUBSTRING(Inv.Almac" +
+                "en, 4, LEN( Inv.Almacen )-3) not in (\'PEXTRUS\',\'PPXTRUS\'))\r\nORDER BY Tipo, Inv.M" +
+                "ovID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PEDIDO", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Pedido", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

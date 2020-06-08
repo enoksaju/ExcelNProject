@@ -1,0 +1,18 @@
+﻿<Page x:Class="ControlProgramaProduccion.Views.CalendarioSemanalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ControlProgramaProduccion.Views"
+      xmlns:cal="clr-namespace:ControlProgramaProduccion.Controles.Calendario.Controles"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:converter="clr-namespace:ControlProgramaProduccion.Controles"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="900"
+      Title="CalendarioSemanalPage">
+
+    <Grid Margin="3"> 
+        <cal:SemanaViewer Grid.Row="1" Grid.ColumnSpan="3" DataContext="{Binding}"></cal:SemanaViewer>
+    </Grid>  
+
+</Page>

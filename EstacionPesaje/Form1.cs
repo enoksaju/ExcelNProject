@@ -279,11 +279,7 @@ namespace EstacionPesaje {
 			Properties.Settings.Default.enabledImpresionMultiple = kryptonRibbonGroupCheckBox1.Checked;
 		}
 
-		private void openCierreOrdenes_Click ( object sender , EventArgs e ) {
-			Pages.Base.PageCreator.CrateAndShowMainPage (
-						new Pages.MainPages.Intelisis.CierreOrdenesPage ( ) ,
-						kryptonDockingManager , _dc );
-		}
+
 
 		private void openTransferencias_Click ( object sender , EventArgs e ) {
 			Pages.Base.PageCreator.CrateAndShowMainPage (
@@ -354,5 +350,34 @@ namespace EstacionPesaje {
 		}
 
 
+		private void openCierreOrdenes_Click ( object sender, EventArgs e )
+		{
+			var pg = new Pages.MainPages.Intelisis.CierreOrdenesLinea ( );
+
+			pg.ChangedMsg += Pg_ChangedMsg;
+
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						pg,
+						kryptonDockingManager, _dc );
+		}
+
+
+		private void btnCierreOTLinea_Click ( object sender, EventArgs e )
+		{
+			var pg = new Pages.MainPages.Intelisis.CierreOrdenesLinea ( );
+
+			pg.ChangedMsg += Pg_ChangedMsg;
+
+			Pages.Base.PageCreator.CrateAndShowMainPage (
+						pg,
+						kryptonDockingManager, _dc );
+
+
+		}
+
+		private void Pg_ChangedMsg ( object sender, string e )
+		{
+			this.tsStatuslbl.Text = e;
+		}
 	}
 }

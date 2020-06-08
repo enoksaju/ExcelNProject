@@ -29,10 +29,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
@@ -57,6 +69,13 @@
     </Compile>
     <Compile Include="Controles\ctlExistencias.Designer.cs">
       <DependentUpon>ctlExistencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CierreOrdenesItmObj.cs" />
+    <Compile Include="Controles\TransferenciasOT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\TransferenciasOT.Designer.cs">
+      <DependentUpon>TransferenciasOT.cs</DependentUpon>
     </Compile>
     <Compile Include="ExcelNoblezaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -88,6 +107,8 @@
     <None Include="ExcelNoblezaDataSet.xss">
       <DependentUpon>ExcelNoblezaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\libIntelisisReports.Models.CierreOrdenesItmObj+itmCv.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,11 +118,16 @@
     <Content Include="GruposTinta.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\blank_report.png" />
     <EmbeddedResource Include="Controles\ctlCierreOrdenes.resx">
       <DependentUpon>ctlCierreOrdenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ctlExistencias.resx">
       <DependentUpon>ctlExistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptCierreOrdenesLineas.rdlc" />
+    <EmbeddedResource Include="Controles\TransferenciasOT.resx">
+      <DependentUpon>TransferenciasOT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptCierreOrdenes.rdlc" />
     <EmbeddedResource Include="Reportes\rptExistencias.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EF\Tablas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

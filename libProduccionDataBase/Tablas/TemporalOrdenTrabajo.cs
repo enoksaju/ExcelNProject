@@ -109,7 +109,7 @@ namespace libProduccionDataBase.Tablas
 			this.TarimasNCuatro = new ObservableListSource<NaveCuatro_Tarima> ( );		
 		}
 
-		public override string ToString () => this.OT;
+		public override string ToString () => $"{OT};{CLIENTE};{PRODUCTO}";
 
 		public virtual TEMPCAPT TempCapt { get; set; }
 		public virtual Planeacion Planeacion { get; set; }
@@ -156,6 +156,7 @@ namespace libProduccionDataBase.Tablas
 		[Column ( "ref_fig" )]
 		public string ReferenciaFigura { get; set; }
 	}
+
 	[Table ( "TPRODUCCION" )]
 	public class TempProduccion
 	{

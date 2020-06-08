@@ -18,14 +18,14 @@ namespace libProduccionDataBase.Tablas
 	[Serializable]
 	public class Maquina
 	{
-		private ObservableListSource<Rodillo> _Rodillos= new ObservableListSource<Rodillo>();
-		private ObservableListSource<Produccion> _Produccion= new ObservableListSource<Tablas.Produccion>();
-		private ObservableListSource<Desperdicio> _Desperdicio= new ObservableListSource<Tablas.Desperdicio>();
+		private ObservableListSource<Rodillo> _Rodillos = new ObservableListSource<Rodillo> ( );
+		private ObservableListSource<Produccion> _Produccion = new ObservableListSource<Tablas.Produccion> ( );
+		private ObservableListSource<Desperdicio> _Desperdicio = new ObservableListSource<Tablas.Desperdicio> ( );
 
 		public int Id { get; set; }
 
 		[Required ( ErrorMessage = "El nombre de la Maquina es requerido" )]
-		public string NombreMaquina { get; set; }		
+		public string NombreMaquina { get; set; }
 		public string ModeloMaquina { get; set; }
 
 		#region ForCotizador
@@ -54,7 +54,7 @@ namespace libProduccionDataBase.Tablas
 		public virtual ObservableListSource<configTintaMaquina> ConfiguracionTintas { get; set; }
 
 		#endregion
-		
+
 
 		[InverseProperty ( "Maquina" )]
 		public virtual ObservableListSource<Rodillo> Rodillos { get { return _Rodillos; } private set { _Rodillos = value; } }
@@ -67,11 +67,51 @@ namespace libProduccionDataBase.Tablas
 		public virtual TipoMaquina TipoMaquina { get; set; }
 
 		[Required ( ErrorMessage = "La Linea a la que pertenece la maquina es requerida" )]
-		[ForeignKey("Linea")]
+		[ForeignKey ( "Linea" )]
 		public int? Linea_Id { get; set; }
 		public virtual Linea Linea { get; set; }
-		
+
 		public override string ToString () => this.NombreMaquina;
+
+
+		[NotMapped]
+		public Planeacion.TiposProcesoProduccion Procesos
+		{
+			//Impresora
+			//Laminadora
+			//Refinadora
+			//Dobladora
+			//Pegadora
+			//Bolseadora
+			//Extrusora
+			//Saneadora
+			get
+			{
+				switch ( TipoMaquina_Id )
+				{
+					case 1:
+						return Planeacion.TiposProcesoProduccion.Impresion;
+					case 2:
+						return Planeacion.TiposProcesoProduccion.Laminacion | Planeacion.TiposProcesoProduccion.Trilaminacion | Planeacion.TiposProcesoProduccion.Trilaminacion;
+					case 3:
+						return Planeacion.TiposProcesoProduccion.Corte | Planeacion.TiposProcesoProduccion.Refinado | Planeacion.TiposProcesoProduccion.Embobinado;
+					case 4:
+						return Planeacion.TiposProcesoProduccion.Doblado | Planeacion.TiposProcesoProduccion.Embobinado;
+					case 5:
+					case 6:
+						return Planeacion.TiposProcesoProduccion.Sellado;
+					case 7:
+						return Planeacion.TiposProcesoProduccion.Extrusion;
+					case 8:
+						return Planeacion.TiposProcesoProduccion.Embobinado;
+					case 9:
+						return Planeacion.TiposProcesoProduccion.Troquelar | Planeacion.TiposProcesoProduccion.Microperforado | Planeacion.TiposProcesoProduccion.Embobinado;
+					default:
+						return Planeacion.TiposProcesoProduccion.Impresion;
+				}
+
+			}
+		}
 
 	}
 
@@ -119,7 +159,7 @@ namespace libProduccionDataBase.Tablas
 		public override string ToString () => this.Nombre;
 	}
 
-	[Table("config_tintas_maquina") ]
+	[Table ( "config_tintas_maquina" )]
 	public class configTintaMaquina
 	{
 		[Key, Column ( Order = 0 ), DatabaseGenerated ( DatabaseGeneratedOption.None )]

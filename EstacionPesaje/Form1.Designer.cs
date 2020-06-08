@@ -60,6 +60,8 @@
 			this.kryptonRibbonGroupButton11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.kryptonRibbonGroupButton12 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.kryptonRibbonGroupButton13 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+			this.kryptonRibbonGroupTriple12 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+			this.btnCierreOTLinea = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.ConfiguracionRibbonTab = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
 			this.kryptonRibbonGroup3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonGroupLines1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupLines();
@@ -85,7 +87,7 @@
 			this.MainPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
 			this.kryptonDockableWorkspace = new ComponentFactory.Krypton.Docking.KryptonDockableWorkspace();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.tsStatuslbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.databaseName_lbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.BasculaText = new System.Windows.Forms.ToolStripStatusLabel();
 			this.readyScaleImage = new System.Windows.Forms.ToolStripStatusLabel();
@@ -143,8 +145,7 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
-			this.Ribbon.SelectedContext = null;
-			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
+			this.Ribbon.SelectedTab = this.IntelisisRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
@@ -346,7 +347,8 @@
 			// kryptonRibbonGroup6
 			// 
 			this.kryptonRibbonGroup6.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple9});
+            this.kryptonRibbonGroupTriple9,
+            this.kryptonRibbonGroupTriple12});
 			this.kryptonRibbonGroup6.TextLine1 = "Reportes";
 			// 
 			// kryptonRibbonGroupTriple9
@@ -379,6 +381,20 @@
 			this.kryptonRibbonGroupButton13.KeyTip = "E";
 			this.kryptonRibbonGroupButton13.TextLine1 = "Existencias";
 			this.kryptonRibbonGroupButton13.Click += new System.EventHandler(this.openExistenciasAlmacen_Click);
+			// 
+			// kryptonRibbonGroupTriple12
+			// 
+			this.kryptonRibbonGroupTriple12.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnCierreOTLinea});
+			// 
+			// btnCierreOTLinea
+			// 
+			this.btnCierreOTLinea.ImageLarge = global::EstacionPesaje.Properties.Resources.mailbox_info;
+			this.btnCierreOTLinea.ImageSmall = global::EstacionPesaje.Properties.Resources.mailbox_info1;
+			this.btnCierreOTLinea.TextLine1 = "Cierre OT";
+			this.btnCierreOTLinea.TextLine2 = "por Linea";
+			this.btnCierreOTLinea.Visible = false;
+			this.btnCierreOTLinea.Click += new System.EventHandler(this.btnCierreOTLinea_Click);
 			// 
 			// ConfiguracionRibbonTab
 			// 
@@ -572,7 +588,7 @@
 			// 
 			this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
+            this.tsStatuslbl,
             this.databaseName_lbl,
             this.BasculaText,
             this.readyScaleImage});
@@ -583,13 +599,13 @@
 			this.statusStrip1.TabIndex = 2;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
-			// toolStripStatusLabel1
+			// tsStatuslbl
 			// 
-			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(666, 17);
-			this.toolStripStatusLabel1.Spring = true;
-			this.toolStripStatusLabel1.Text = "Listo...";
-			this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.tsStatuslbl.Name = "tsStatuslbl";
+			this.tsStatuslbl.Size = new System.Drawing.Size(666, 17);
+			this.tsStatuslbl.Spring = true;
+			this.tsStatuslbl.Text = "Listo...";
+			this.tsStatuslbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// databaseName_lbl
 			// 
@@ -709,7 +725,7 @@
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton ToogleBascula_btn;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton2;
 		private libBascula.ControlBascula controlBascula1;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.ToolStripStatusLabel tsStatuslbl;
 		private System.Windows.Forms.ToolStripStatusLabel BasculaText;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab ConfiguracionRibbonTab;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup3;
@@ -760,6 +776,8 @@
 		public ComponentFactory.Krypton.Docking.KryptonDockingManager kryptonDockingManager;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple11;
 		private System.Windows.Forms.ToolStripStatusLabel readyScaleImage;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple12;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCierreOTLinea;
 	}
 }
 

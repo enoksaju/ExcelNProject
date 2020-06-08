@@ -27,7 +27,7 @@
     <PublisherName>Henoc Salinas Juárez</PublisherName>
     <SuiteName>Control de Residuos Peligrosos</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -58,16 +58,16 @@
     <ApplicationIcon>caution_radiation.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>ECEBF45BA73807EB56630FFCFC917B6F7993550E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FA5EFE3169BA596EDEB552350253C6EE0032668C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ControlResiduosPeligrosos_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>mycert.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
@@ -243,6 +243,7 @@
     <EmbeddedResource Include="Reportes\repBitacora.rdlc" />
     <EmbeddedResource Include="Reportes\repSalidaRP.rdlc" />
     <None Include="ControlResiduosPeligrosos_TemporaryKey.pfx" />
+    <None Include="mycert.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ControlResiduosPeligrosos.Reportes.Vistas.VstSalidaRP.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />

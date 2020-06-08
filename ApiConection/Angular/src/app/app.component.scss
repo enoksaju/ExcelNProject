@@ -1,0 +1,25 @@
+@import "~@angular/material/theming";
+@import "../MaterialThemesVariables.scss";
+
+
+
+.toolbar {
+  .is-mobile {
+    position: fixed;
+    z-index: 2;
+  }
+}
+
+
+.itemActive {
+  background: rgba(mat-color($app-primary), $alpha: 0.4);
+  &:hover, &:focus {
+    background: rgba(mat-color($app-primary), $alpha: 0.6);
+  }
+}
+.dark .itemActive {
+  background: rgba(mat-color($app-dark-primary), $alpha: 0.6);
+  &:hover, &:focus {
+    background: rgba(mat-color($app-dark-primary), $alpha: 0.9);
+  }
+}
