@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <db>
   <item>
+    <clave>MPSO-ACETATO ETILO</clave>
+    <grupo>991</grupo>
+    <factor>0</factor>
+  </item>
+  <item>
     <clave>MPTS-F15490</clave>
     <grupo>1</grupo>
     <factor>0.55</factor>

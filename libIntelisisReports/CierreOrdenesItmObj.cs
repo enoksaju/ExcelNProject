@@ -297,7 +297,7 @@ WHERE (I.Empresa = 'GRAL')
 			{
 				cnn.Open ( );
 
-				
+
 				using ( var ad = new SqlCommand ( SQL_STR, cnn ) )
 				{
 					ad.Parameters.AddWithValue ( "@Pedido", OT );
@@ -331,13 +331,19 @@ WHERE (I.Empresa = 'GRAL')
 			ChangeProgress?.Invoke ( new CierreEventArgs ( 20, "Cargando Tintas..." ) );
 			foreach ( var itm in tnt )
 			{
+
+
 				if ( gpoTintas.Any ( u => u.clave == itm.Articulo.TrimEnd ( ) ) )
 				{
-
 					itm.Factor = gpoTintas.First ( o => o.clave == itm.Articulo.TrimEnd ( ) ).factor;
-					itm.CantidadInventario = itm.Factor * itm.Cantidad;
-
 				}
+
+				if ( itm.Articulo.Substring ( 0, 4 ) == "MPSO" )
+				{
+					itm.Factor = 0;
+				}
+
+				itm.CantidadInventario = itm.Factor * itm.Cantidad;
 			}
 
 
@@ -349,12 +355,12 @@ WHERE (I.Empresa = 'GRAL')
 			get
 			{
 				var elems = Elementos
-					   .Where ( o => o.LineaOrg != "TINTAS" && o.LineaOrg != "MATPRIMA" )
-					   .Where ( o => o.LineaDes != "TERMINADO" && o.LineaDes != "MATPRIMA" && o.LineaDes != "RECHAZADOS" && o.LineaDes != "RCALMACEN" && o.LineaDes != "CALIDAD" )
 					   .Where ( o => o.TipoElemento == "Transferencia" )
 					   .OrderBy ( u => u.FechaEmision );
-				var org = elems.Select ( u => u.LineaOrg );
-				var des = elems.Select ( u => u.LineaDes );
+
+
+				var org = elems.Where ( o => o.LineaOrg != "TINTAS" && o.LineaOrg != "MATPRIMA" ).Select ( u => u.LineaOrg );
+				var des = elems.Where ( o => o.LineaDes != "TERMINADO" && o.LineaDes != "MATPRIMA" && o.LineaDes != "RECHAZADOS" && o.LineaDes != "RCALMACEN" && o.LineaDes != "CALIDAD" ).Select ( u => u.LineaDes );
 				return org.Union ( des ).Distinct ( ).ToArray ( );
 			}
 		}
@@ -369,13 +375,14 @@ WHERE (I.Empresa = 'GRAL')
 		public static List<itmCv> allMoves ()
 		{
 			List<itmCv> toRet = new List<itmCv> ( );
+			var lns = CierreOrdenesItmObj.Lineas;
 
 			ChangeProgress?.Invoke ( new CierreEventArgs ( 30, "Buscando Lineas..." ) );
 
-			var paso = Lineas.Length> 0 ? 50 / Lineas.Length : 1;
+			var paso = CierreOrdenesItmObj.Lineas.Length > 0 ? 50 / CierreOrdenesItmObj.Lineas.Length : 1;
 			var count = 0;
 
-			foreach ( var linea in Lineas )
+			foreach ( var linea in CierreOrdenesItmObj.Lineas )
 			{
 				count += 1;
 				ChangeProgress?.Invoke ( new CierreEventArgs ( 30 + ( count * paso ), $"Analisando linea {linea}" ) );
@@ -448,6 +455,7 @@ WHERE (I.Empresa = 'GRAL')
 					u.Linea = linea;
 					u.Tipo = "1.(Requerido)";
 					u.CantidadInventario = 0;
+					u.Estatus = "CONCLUIDO";
 					toRet.Add ( u );
 				}
 
