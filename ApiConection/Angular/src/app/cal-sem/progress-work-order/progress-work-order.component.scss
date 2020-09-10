@@ -1,0 +1,72 @@
+.table-container {
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+
+table {
+  min-width: 1000px;
+  width: 100%;
+}
+
+.mat-column-column {
+  width: 100px;
+  padding-right: 8px;
+}
+
+.mat-column-arrugas {
+  width: 80px;
+}
+
+.mat-column-maquinas {
+  padding-left: 8px;
+}
+
+.mat-table-sticky:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+.mat-divider {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.pdf-explorer {
+  position: relative;
+  height: calc(100vh - 80px);
+}
+
+.pdf-container {
+  position: absolute;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+pdf-viewer {
+  height: 100%;
+  display: block;
+}
+mat-drawer {
+  width: 300px;
+  padding: 12px;
+}
+mat-drawer-container {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

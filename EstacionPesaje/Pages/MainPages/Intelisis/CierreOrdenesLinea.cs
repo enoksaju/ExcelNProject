@@ -35,7 +35,15 @@ namespace EstacionPesaje.Pages.MainPages.Intelisis
 
 		private void transferenciasOT1_ChangedMsg ( object sender, libIntelisisReports.Controles.TransferenciasOT.OTEventArgs e )
 		{
-			ChangedMsg?.Invoke ( this, e.Message );
+			try
+			{
+				ChangedMsg?.Invoke ( this, e.Message );
+			}
+			catch ( Exception ex )
+			{
+				MessageBox.Show ( e.Message );
+			}		
+
 		}
 	}
 }

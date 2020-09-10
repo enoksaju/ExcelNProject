@@ -30,8 +30,8 @@ export class CalSemComponent implements OnInit, OnDestroy {
 
     this.subUnasignedItems = planeacionService.UnasignedItems.subscribe(u => {
       this.UnasignedItems = u.sort((a, b) => {
-        if (a.OT < b.OT) return -1;
-        else if (a.OT > b.OT) return 1;
+        if (a.FechaEntrega < b.FechaEntrega) return -1;
+        else if (a.FechaEntrega > b.FechaEntrega) return 1;
         else return 0;
       });
     });

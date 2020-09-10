@@ -15,8 +15,21 @@ namespace ApiConection.Controllers.API
 		{
 			var par = new MySql.Data.MySqlClient.MySqlParameter ( "@OT", MySql.Data.MySqlClient.MySqlDbType.VarString );
 			par.Value = ot;
-			var T = ( await DB.Database.SqlQuery<Models.progressItem> ( Models.progressItem.SQL_STR, par )
-				.ToListAsync ( ) )
+
+
+
+			var y = await DB.Database.SqlQuery<Models.progressItem> ( Models.progressItem.SQL_STR, par )
+				.ToListAsync ( );
+
+
+			if ( y.Count <= 0 )
+			{
+				y = await DB.Database.SqlQuery<Models.progressItem> ( Models.progressItem.SQL_STR_EMPTY, par )
+				.ToListAsync ( );
+			}
+
+
+			var T = y
 				.GroupBy ( itm => new
 				{
 					itm.OT,
@@ -60,10 +73,43 @@ namespace ApiConection.Controllers.API
 					baseP.KGXMILL,
 					Procesos = p,
 					Count = p.Count ( )
-				} ).FirstOrDefault();
+				} ).FirstOrDefault ( );
 
 
 			return Ok ( T );
+		}
+
+		[HttpGet]
+		[Route ( "progresoPDF" )]
+		public async Task<IHttpActionResult> getProgresoOT_PDF ( string ot, libProduccionDataBase.Reportes.Models.OrdenTrabajoModel.Procesos? proceso )
+		{
+			if (proceso == null )  return NotFound ( );
+
+			byte[] buffer = await libProduccionDataBase.Reportes.OrdenTrabajo_ReportViewer.ToPDFAsync ( ot, proceso.Value );
+
+			if ( buffer != null )
+			{
+				var contentLength = buffer.Length;
+				var result = new System.Net.Http.HttpResponseMessage ( System.Net.HttpStatusCode.OK )
+				{
+					Content = new System.Net.Http.ByteArrayContent ( buffer )
+				};
+
+				result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue ( "application/pdf" );
+				result.Content.Headers.ContentLength = contentLength;
+				System.Net.Http.Headers.ContentDispositionHeaderValue contentDisposition = null;
+
+				if ( System.Net.Http.Headers.ContentDispositionHeaderValue.TryParse ( $"inline; filename= Progreso_OT_{ ot }_{DateTime.Now:dd_MM_yyyy_HH_mm}.pdf", out contentDisposition ) )
+				{
+					result.Content.Headers.ContentDisposition = contentDisposition;
+				}
+				var response = ResponseMessage ( result );
+				return response;
+			}
+			else
+			{
+				return NotFound();
+			}
 		}
 	}
 
@@ -73,7 +119,7 @@ namespace ApiConection.Controllers.API
 		{
 			public const string SQL_STR = @"
 SELECT o.OT, o.CLIENTE AS Cliente, o.PRODUCTO AS Producto, n.NombreTipoProducto AS TipoProducto, o.ClaveIntelisis,
-    o.OrdenCompra, o.FechaRecibido, o.FechaEntregaSol, c.FechaCaptura, c.ML, o.Cantidad, o.Unidad, round(o.KGXMILL,6),
+    o.OrdenCompra, o.FechaRecibido, o.FechaEntregaSol, c.FechaCaptura, c.ML, o.Cantidad, o.Unidad, round(o.KGXMILL,6) as KGXMILL,
     ROUND(SUM(PESOBRUTO - PESOCORE), 2) AS PesoNeto, SUM(piezas) AS conteo, COUNT(numero) AS Bobinas,
     SUM(banderas) AS Banderas, MAX(banderas) AS maximoBanderasBobina, SUM(IF(t.EnSaneoArrugas <> 0, 1, 0)) AS BobinasArrugas,
     p.NombreProceso, MAX(FECHA) AS UltimaCaptura, GROUP_CONCAT(DISTINCT m.NombreMaquina SEPARATOR ', ') AS Maquinas
@@ -87,6 +133,20 @@ FROM
 WHERE t.ot = @OT
 GROUP BY t.Ot , t.tipoproceso
 ORDER BY t.Ot DESC , ultimaCaptura;";
+
+			public const string SQL_STR_EMPTY = @"
+SELECT o.OT, o.CLIENTE AS Cliente, o.PRODUCTO AS Producto, n.NombreTipoProducto AS TipoProducto, o.ClaveIntelisis,
+    o.OrdenCompra, o.FechaRecibido, o.FechaEntregaSol, c.FechaCaptura, c.ML, o.Cantidad, o.Unidad, round(o.KGXMILL,6) as KGXMILL,
+    0 AS PesoNeto, 
+    0 AS Bobinas,
+    0 AS Banderas, 
+    0 AS maximoBanderasBobina, 
+    0 AS BobinasArrugas,
+    'Sin Procesar', null, '' AS Maquinas
+FROM  tordentrabajo o INNER JOIN
+    tiposproducto n ON n.id = (o.tipo + 1) INNER JOIN
+    tempcapt c ON c.OT = o.OT
+WHERE o.ot = @OT";
 
 
 			public string OT { get; set; }

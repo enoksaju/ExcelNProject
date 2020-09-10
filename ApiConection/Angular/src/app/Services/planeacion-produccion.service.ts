@@ -72,10 +72,12 @@ export interface OrderDataProgress {
 export class PlaneacionProduccionService {
   private unasignedItems: BehaviorSubject<CalendarItem[]>;
   private semanaItems: BehaviorSubject<SemanaData>;
+  private detailsOT: BehaviorSubject<OrderData>;
 
   constructor(private httpClient: HttpClient) {
     this.unasignedItems = new BehaviorSubject<CalendarItem[]>([]);
     this.semanaItems = new BehaviorSubject<SemanaData>({ data: [] });
+    this.detailsOT = new BehaviorSubject<OrderData>(null);
     this.MaquinaId = 5;
   }
 
@@ -86,6 +88,9 @@ export class PlaneacionProduccionService {
   }
   get PlanItems() {
     return this.semanaItems.asObservable();
+  }
+  get DetailsOT() {
+    return this.detailsOT.asObservable();
   }
 
   public refreshUnasigned(proceso: number) {
@@ -177,8 +182,18 @@ export class PlaneacionProduccionService {
 
   }
 
-  getProgress(ot: string) {
+  CleanDataOrder() {
+    this.detailsOT.next(null);
+  }
+  UpdateDataOrder(ot: string) {
     return this.httpClient.get<OrderData>('api/progresoOT', { params: { OT: ot } })
+      .toPromise()
+      .then(dt => {
+
+        this.detailsOT.next(dt);
+      })
+      .catch(err => console.log(err))
+      .finally()
   }
 
   public addDayToDate(date: Date, daysToAdd: number) {

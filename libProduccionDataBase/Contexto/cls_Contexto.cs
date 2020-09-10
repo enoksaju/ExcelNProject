@@ -236,6 +236,12 @@ namespace libProduccionDataBase.Contexto
 		public virtual DbSet<Tablas.PlaneacionProduccion> PlaneacionProduccion { get; set; }
 
 
+
+
+		// Variables Criticas
+
+		public virtual DbSet<Tablas.VariablesCriticas.VariablesCriticasRoot> VariablesCriticas { get; set; }
+
 		#endregion
 	}
 

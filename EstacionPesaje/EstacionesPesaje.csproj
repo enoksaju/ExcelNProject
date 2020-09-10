@@ -25,9 +25,12 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <UpdateUrl>\\192.168.1.253\Temp\Henoc\EstacionesPesajeV4\</UpdateUrl>
+    <ProductName>Estacion de Pesaje</ProductName>
+    <PublisherName>Henoc Salinas Juarez</PublisherName>
+    <SuiteName>Control de Producción Excel Nobleza</SuiteName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>6.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -72,6 +75,13 @@
     <ApplicationIcon>tag_orange.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -330,7 +340,6 @@
     <Compile Include="Pages\MainPages\Intelisis\TransferenciasPage.Designer.cs">
       <DependentUpon>TransferenciasPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPages\Produccion\dataProduccion.cs" />
     <Compile Include="Pages\MainPages\Produccion\HistoricoOts.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -474,7 +483,6 @@
     <EmbeddedResource Include="Pages\MainPages\Produccion\progresoOTPage.resx">
       <DependentUpon>progresoOTPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPages\Produccion\Report1.rdlc" />
     <EmbeddedResource Include="Pages\MainPages\Produccion\ViewOTPage.resx">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -503,6 +511,7 @@
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Embarques.DataPackingList.datasource" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.Produccion.dataProduccion.datasource" />
+    <None Include="Properties\DataSources\libProduccionDataBase.Reportes.Models.OrdenTrabajoModel.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Etiqueta.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Linea.datasource" />
     <None Include="Properties\DataSources\libProduccionDataBase.Tablas.Maquina.datasource" />
@@ -685,6 +694,11 @@
     <None Include="Resources\bullet_green.png" />
     <None Include="Resources\bullet_red.png" />
     <None Include="Resources\cancel.png" />
+    <None Include="Resources\IMPRESION.png" />
+    <None Include="Resources\EMBOBINADO.png" />
+    <None Include="Resources\CORTE.png" />
+    <None Include="Resources\DOBLADO.png" />
+    <None Include="Resources\EXTRUSION.png" />
     <Content Include="Resources\intelisis.png" />
     <None Include="Resources\print-add.png" />
     <None Include="Resources\text_box.png" />
@@ -701,6 +715,11 @@
     <None Include="Resources\ScaleBordered.png" />
     <None Include="Resources\table-import.png" />
     <None Include="Resources\table-import1.png" />
+    <None Include="Resources\OTICON.png" />
+    <None Include="Resources\LAMINACION.png" />
+    <None Include="Resources\REFINADO.png" />
+    <None Include="Resources\PEGADO.png" />
+    <None Include="Resources\MANGAS.png" />
     <Content Include="tag_orange.ico" />
   </ItemGroup>
   <ItemGroup>

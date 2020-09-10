@@ -35,7 +35,7 @@ namespace Pruebas_Cotizador
 				tr.ChangedOT += ( sender, eventargs ) => {
 
 					Console.Clear ( );
-					foreach ( var item in libIntelisisReports.Models.CierreOrdenesItmObj.allMoves ( ) )
+					foreach ( var item in new libIntelisisReports.Models.CierreOrdenesItmObj().allMoves ( ) )
 					{
 						Console.WriteLine ( $"{item.Linea,15} {item.Tipo,15} {item.TipoMovimiento,25} {item.Articulo,20} {item.Cantidad,12:N2}{item.Unidad,-10} {item.CantidadInventario,12:N2} {item.Estatus,15} { $"{item.AlmacenOrg}->{item.AlmacenDes}",22 }" );
 					}

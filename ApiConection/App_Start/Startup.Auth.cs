@@ -41,7 +41,7 @@ namespace ApiConection
 				TokenEndpointPath = new PathString ( "/Token" ),
 				Provider = new ApplicationOAuthProvider ( PublicClientId ),
 				AuthorizeEndpointPath = new PathString ( "/api/Account/ExternalLogin" ),
-				AccessTokenExpireTimeSpan = TimeSpan.FromSeconds(15),
+				AccessTokenExpireTimeSpan = TimeSpan.FromHours(24),
 				// En el modo de producción establezca AllowInsecureHttp = false
 				AllowInsecureHttp = true,
 				RefreshTokenProvider = new OAuthCustomRefreshTokenProvider()
@@ -52,6 +52,7 @@ namespace ApiConection
 			app.UseOAuthBearerTokens ( OAuthOptions );
 
 			// Quitar los comentarios de las siguientes líneas para habilitar el inicio de sesión con proveedores de inicio de sesión de terceros
+
 			//app.UseMicrosoftAccountAuthentication(
 			//    clientId: "",
 			//    clientSecret: "");

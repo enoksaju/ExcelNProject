@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle ( "EstacionesPesaje" )]
+[assembly: AssemblyTitle ( "Estacion de Pesaje" )]
 [assembly: AssemblyDescription ( "" )]
 [assembly: AssemblyConfiguration ( "" )]
 [assembly: AssemblyCompany ( "" )]
@@ -21,8 +21,8 @@ using System.Runtime.InteropServices;
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
 [assembly: Guid ( "fd868c3b-6a0b-43a8-8349-c550caa6599c" )]
-[assembly: AssemblyVersion ( "5.2.0.0" )]
-[assembly: AssemblyFileVersion ( "5.2.0.0" )]
+[assembly: AssemblyVersion ( "6.0.1.0" )]
+[assembly: AssemblyFileVersion ( "6.0.1.0" )]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

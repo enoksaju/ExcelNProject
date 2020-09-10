@@ -188,20 +188,33 @@ namespace libProduccionDataBase.Tablas
 			if ( OT.Planeacion.Procesos.Count == 0 )
 			{
 				Tablas.Planeacion.TiposProcesoProduccion tp = new Tablas.Planeacion.TiposProcesoProduccion ( );
+
 				if ( OT.INSTCORTE.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Corte;
+
 				if ( OT.INSTDOBLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Doblado;
+
 				if ( OT.INSTEMBOBINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Embobinado;
+
 				if ( OT.INSTEXTRUSION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Extrusion;
+
 				if ( OT.INSTIMPRESION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Impresion;
+
 				if ( OT.INSTLAMINACION.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Laminacion;
+
 				if ( OT.INSTMANGAS.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Mangas;
+
 				if ( OT.INSTREFINADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Refinado;
+
 				if ( OT.INSTSELLADO.Trim ( ) != "" ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Sellado;
+
 				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TRILAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Trilaminacion;
+
 				if ( OT.INSTLAMINACION.ToUpper ( ).Contains ( "TETRALAMINAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Tetralaminacion;
+
 				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTCORTE.ToUpper ( ).Contains ( "DESMETALIZAR" ) || OT.INSTREFINADO.ToUpper ( ).Contains ( "DESMETALIZAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Desmetalizar;
 
 				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "MICROPERFORAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Microperforado;
+
 				if ( OT.INSTEMBOBINADO.ToUpper ( ).Contains ( "TROQUELAR" ) ) tp |= Tablas.Planeacion.TiposProcesoProduccion.Troquelar;
 
 				OT.Planeacion.CrearProcesos ( tp );

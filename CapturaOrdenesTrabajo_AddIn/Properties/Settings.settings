@@ -2,14 +2,14 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CapturaOrdenesTrabajo_AddIn.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="EnableCrear" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="AutomaticSaveBook" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="Plantilla" Type="System.String" Scope="User">
       <Value Profile="(Default)">\\192.168.1.253\Temp\Henoc\CapturaOt\Nueva carpeta\cAPTURA MANUAL.xlsx</Value>
+    </Setting>
+    <Setting Name="EnableCrear" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AutomaticSaveBook" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -19,10 +19,12 @@ namespace libIntelisisReports.Controles
 		public delegate void OnChengeMsg ( object sender, OTEventArgs e );
 		public event OnChengeMsg ChangedMsg;
 
+		private Models.CierreOrdenesItmObj md = new Models.CierreOrdenesItmObj();
+
 		public TransferenciasOT ()
 		{
 			InitializeComponent ( );
-			Models.CierreOrdenesItmObj.ChangeProgress += CierreOrdenesItmObj_ChangeProgress;
+			md.ChangeProgress += CierreOrdenesItmObj_ChangeProgress;
 			this.progress_pb.ProgressBar.Style = ProgressBarStyle.Continuous;
 		}
 
@@ -40,7 +42,7 @@ namespace libIntelisisReports.Controles
 		private void reportViewer1_ReportRefresh ( object sender, CancelEventArgs e )
 		{
 			if ( this.ot_txt.Text.Trim ( ) != "" && this.ot_txt.Text.Trim ( ).Length >= 5 )
-				itmCvBindingSource.DataSource = Models.CierreOrdenesItmObj.allMoves ( this.ot_txt.Text );
+					itmCvBindingSource.DataSource =md.allMoves ( this.ot_txt.Text );
 		}
 
 		private async void fill_btn_Click ( object sender, EventArgs e )
@@ -54,7 +56,7 @@ namespace libIntelisisReports.Controles
 			   {
 				   if ( !DesignMode && this.ot_txt.Text.Trim ( ) != "" && this.ot_txt.Text.Trim ( ).Length >= 5 )
 				   {
-					   itmCvBindingSource.DataSource = Models.CierreOrdenesItmObj.allMoves ( this.ot_txt.Text );
+					   itmCvBindingSource.DataSource = md.allMoves ( this.ot_txt.Text );
 
 				   }
 			   }

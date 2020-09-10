@@ -25,7 +25,19 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.1.253\\Temp\\Henoc\\CapturaOt\\Nueva carpeta\\cAPTURA MANUAL.xlsx")]
+        public string Plantilla {
+            get {
+                return ((string)(this["Plantilla"]));
+            }
+            set {
+                this["Plantilla"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableCrear {
             get {
                 return ((bool)(this["EnableCrear"]));
@@ -37,25 +49,13 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AutomaticSaveBook {
             get {
                 return ((bool)(this["AutomaticSaveBook"]));
             }
             set {
                 this["AutomaticSaveBook"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.1.253\\Temp\\Henoc\\CapturaOt\\Nueva carpeta\\cAPTURA MANUAL.xlsx")]
-        public string Plantilla {
-            get {
-                return ((string)(this["Plantilla"]));
-            }
-            set {
-                this["Plantilla"] = value;
             }
         }
     }

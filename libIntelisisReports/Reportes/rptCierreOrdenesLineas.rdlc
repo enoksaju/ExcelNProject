@@ -2084,7 +2084,16 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Fields!TipoMovimiento.Value="DEVOLUCION") or (Fields!Tipo.Value="5.Salida" and Fields!TipoMovimiento.Value="RECHAZADO"), Fields!CantidadInventario.Value,0))</Value>
+                                  <Value>=sum(
+	iif(
+		Fields!Tipo.Value="3.Entrada" 
+		or (Fields!Tipo.Value="5.Salida" and Fields!TipoMovimiento.Value="DEVOLUCION") 
+		or (Fields!Tipo.Value="5.Salida" and Fields!TipoMovimiento.Value="RECHAZADO")
+		or (Fields!Tipo.Value="5.Salida" and Fields!TipoMovimiento.Value="CAMBIO PRESENTACION")
+		, Fields!CantidadInventario.Value
+		,0
+		)
+	)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0.00</Format>
@@ -2658,6 +2667,13 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                 <Operator>NotEqual</Operator>
                 <FilterValues>
                   <FilterValue>PENAVE7</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=Fields!Linea.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue>PRODUCCION</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -4024,6 +4040,13 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                   <FilterValue>(Entrega)</FilterValue>
                 </FilterValues>
               </Filter>
+              <Filter>
+                <FilterExpression>=Fields!Linea.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue>PRODUCCION</FilterValue>
+                </FilterValues>
+              </Filter>
             </Filters>
             <Top>20.39094cm</Top>
             <Height>2.56343cm</Height>
@@ -4138,6 +4161,7 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -4262,6 +4286,7 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -4371,6 +4396,7 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -4513,6 +4539,13 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                           <FilterValue>Pedido</FilterValue>
                         </FilterValues>
                       </Filter>
+                      <Filter>
+                        <FilterExpression>=Fields!Linea.Value</FilterExpression>
+                        <Operator>NotEqual</Operator>
+                        <FilterValues>
+                          <FilterValue>PRODUCCION</FilterValue>
+                        </FilterValues>
+                      </Filter>
                     </Filters>
                   </Group>
                   <SortExpressions>
@@ -4532,7 +4565,7 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                         </GroupExpressions>
                         <Filters>
                           <Filter>
-                            <FilterExpression>=iif(Fields!Tipo.Value="(Entrada)" or Fields!Tipo.Value="(Salida)" or Fields!Tipo.Value="1.(Requerido)" or Fields!Tipo.Value="3.Entrada" or Fields!Tipo.Value="5.Salida" , true, false)</FilterExpression>
+                            <FilterExpression>=iif(Fields!Tipo.Value="(Entrada)" or Fields!Tipo.Value="(Salida)" or Fields!Tipo.Value="1.(Requerido)" or Fields!Tipo.Value="3.Entrada" or Fields!Tipo.Value="5.Salida" or Fields!Tipo.Value="6.Existencias" , true, false)</FilterExpression>
                             <Operator>Equal</Operator>
                             <FilterValues>
                               <FilterValue DataType="Boolean">true</FilterValue>
@@ -4597,7 +4630,7 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
             <Top>17.94711cm</Top>
             <Left>0.00355cm</Left>
             <Height>1.93229cm</Height>
-            <Width>19.00001cm</Width>
+            <Width>19.00002cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -5274,6 +5307,13 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                 <Operator>NotEqual</Operator>
                 <FilterValues>
                   <FilterValue>PEXTRUS</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=Fields!Linea.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue>PRODUCCION</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -6144,10 +6184,17 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
                   <FilterValue>PENAVE7</FilterValue>
                 </FilterValues>
               </Filter>
+              <Filter>
+                <FilterExpression>=Fields!Linea.Value</FilterExpression>
+                <Operator>NotEqual</Operator>
+                <FilterValues>
+                  <FilterValue>PRODUCCION</FilterValue>
+                </FilterValues>
+              </Filter>
             </Filters>
             <Top>14.89287cm</Top>
             <Left>0.03396cm</Left>
-            <Height>2.65604cm</Height>
+            <Height>2.65605cm</Height>
             <Width>9.44588cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
@@ -6263,7 +6310,20 @@ sum(iif(Fields!Tipo.Value="3.Entrada" or (Fields!Tipo.Value="5.Salida" and Field
   <Variables>
     <Variable Name="MatPrimaUtil">
       <Value>=
-Sum(IIF( Fields!Linea.Value= "(GLOBAL)" AND(  Fields!Tipo.Value = "(Entrada)" OR Fields!TipoMovimiento.Value = "DEVOLUCION" OR Fields!TipoMovimiento.Value = "RECHAZADO"), Fields!CantidadInventario.Value, 0), "transferencias")</Value>
+Sum(
+	IIF( 
+		Fields!Linea.Value= "(GLOBAL)" 
+		AND (  
+				Fields!Tipo.Value = "(Entrada)" 
+				OR Fields!TipoMovimiento.Value = "DEVOLUCION" 
+				OR Fields!TipoMovimiento.Value = "RECHAZADO"
+				OR Fields!TipoMovimiento.Value = "CAMBIO PRESENTACION"
+			)
+		, Fields!CantidadInventario.Value
+		, 0
+		)
+	, "transferencias"
+)</Value>
     </Variable>
     <Variable Name="DespGlobal">
       <Value>=ABS( SUM(

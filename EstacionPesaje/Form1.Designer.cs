@@ -88,6 +88,7 @@
 			this.kryptonDockableWorkspace = new ComponentFactory.Krypton.Docking.KryptonDockableWorkspace();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.tsStatuslbl = new System.Windows.Forms.ToolStripStatusLabel();
+			this.lblVersion = new System.Windows.Forms.ToolStripStatusLabel();
 			this.databaseName_lbl = new System.Windows.Forms.ToolStripStatusLabel();
 			this.BasculaText = new System.Windows.Forms.ToolStripStatusLabel();
 			this.readyScaleImage = new System.Windows.Forms.ToolStripStatusLabel();
@@ -145,7 +146,8 @@
             this.IntelisisRibbonTab,
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
-			this.Ribbon.SelectedTab = this.IntelisisRibbonTab;
+			this.Ribbon.SelectedContext = null;
+			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
@@ -589,6 +591,7 @@
 			this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatuslbl,
+            this.lblVersion,
             this.databaseName_lbl,
             this.BasculaText,
             this.readyScaleImage});
@@ -602,10 +605,16 @@
 			// tsStatuslbl
 			// 
 			this.tsStatuslbl.Name = "tsStatuslbl";
-			this.tsStatuslbl.Size = new System.Drawing.Size(666, 17);
+			this.tsStatuslbl.Size = new System.Drawing.Size(613, 17);
 			this.tsStatuslbl.Spring = true;
 			this.tsStatuslbl.Text = "Listo...";
 			this.tsStatuslbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// lblVersion
+			// 
+			this.lblVersion.Name = "lblVersion";
+			this.lblVersion.Size = new System.Drawing.Size(53, 17);
+			this.lblVersion.Text = "{version}";
 			// 
 			// databaseName_lbl
 			// 
@@ -778,6 +787,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel readyScaleImage;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple12;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCierreOTLinea;
+		private System.Windows.Forms.ToolStripStatusLabel lblVersion;
 	}
 }
 

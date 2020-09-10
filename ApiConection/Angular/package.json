@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.4",
     "@mdi/angular-material": "^5.1.45",
     "moment": "^2.26.0",
+    "ng2-pdf-viewer": "^6.3.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

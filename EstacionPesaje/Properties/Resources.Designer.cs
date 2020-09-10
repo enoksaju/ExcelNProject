@@ -333,6 +333,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CORTE {
+            get {
+                object obj = ResourceManager.GetObject("CORTE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cut_16x {
             get {
                 object obj = ResourceManager.GetObject("Cut_16x", resourceCulture);
@@ -383,6 +393,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DOBLADO {
+            get {
+                object obj = ResourceManager.GetObject("DOBLADO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap document_check {
             get {
                 object obj = ResourceManager.GetObject("document-check", resourceCulture);
@@ -416,6 +436,26 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap document_move {
             get {
                 object obj = ResourceManager.GetObject("document_move", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EMBOBINADO {
+            get {
+                object obj = ResourceManager.GetObject("EMBOBINADO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EXTRUSION {
+            get {
+                object obj = ResourceManager.GetObject("EXTRUSION", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,6 +563,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMPRESION {
+            get {
+                object obj = ResourceManager.GetObject("IMPRESION", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap intelisis {
             get {
                 object obj = ResourceManager.GetObject("intelisis", resourceCulture);
@@ -536,6 +586,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap item_disable {
             get {
                 object obj = ResourceManager.GetObject("item_disable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LAMINACION {
+            get {
+                object obj = ResourceManager.GetObject("LAMINACION", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -603,6 +663,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MANGAS {
+            get {
+                object obj = ResourceManager.GetObject("MANGAS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap N16 {
             get {
                 object obj = ResourceManager.GetObject("N16", resourceCulture);
@@ -623,9 +693,29 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OTICON {
+            get {
+                object obj = ResourceManager.GetObject("OTICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap page_numbers_in_margins_insert {
             get {
                 object obj = ResourceManager.GetObject("page_numbers_in_margins_insert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PEGADO {
+            get {
+                object obj = ResourceManager.GetObject("PEGADO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -656,6 +746,16 @@ namespace EstacionPesaje.Properties {
         internal static System.Drawing.Bitmap Process_32x {
             get {
                 object obj = ResourceManager.GetObject("Process_32x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap REFINADO {
+            get {
+                object obj = ResourceManager.GetObject("REFINADO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

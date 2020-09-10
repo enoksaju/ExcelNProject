@@ -144,7 +144,7 @@ namespace ApiConection.Providers
 			var refreshTokenProperties = new AuthenticationProperties ( context.Ticket.Properties.Dictionary )
 			{
 				IssuedUtc = context.Ticket.Properties.IssuedUtc,
-				ExpiresUtc = DateTime.UtcNow.AddHours ( 24 )
+				ExpiresUtc = DateTime.UtcNow.AddHours ( 48 )
 			};
 			var refreshTokenTicket = await Task.Run ( () => new AuthenticationTicket ( context.Ticket.Identity, refreshTokenProperties ) );
 

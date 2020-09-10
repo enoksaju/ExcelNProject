@@ -11,6 +11,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class AppComponent {
   title = 'Angular';
+  printQuery: MediaQueryList;
   mobileQuery: MediaQueryList;
   dark: boolean;
 
@@ -25,10 +26,12 @@ export class AppComponent {
     this.refreshBodyDark()
 
     // Configuro el manejador del evento change del mediaQuery 'print'
-    this.mobileQuery = media.matchMedia('print');
-    this.mobileQuery.addEventListener('change', () => {
+    this.printQuery = media.matchMedia('print');
+    this.printQuery.addEventListener('change', () => {
       this.refreshBodyDark();
     });
+
+    this.mobileQuery= media.matchMedia('(max-width: 599px)');
 
 
   }
@@ -53,6 +56,6 @@ export class AppComponent {
 
   // Elimino los listener
   ngDestroy(): void {
-    this.mobileQuery.removeEventListener('change', () => { });
+    this.printQuery.removeEventListener('change', () => { });
   }
 }

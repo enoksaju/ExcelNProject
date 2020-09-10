@@ -24,41 +24,30 @@
 		/// </summary>
 		private void InitializeComponent () {
 			this.components = new System.ComponentModel.Container();
-			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-			this.dataProduccionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.dataProduccionBindingSource)).BeginInit();
+			this.ordenTrabajo_ReportViewer1 = new libProduccionDataBase.Reportes.OrdenTrabajo_ReportViewer();
 			this.SuspendLayout();
 			// 
-			// reportViewer1
+			// ordenTrabajo_ReportViewer1
 			// 
-			this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.reportViewer1.LocalReport.ReportEmbeddedResource = "EstacionPesaje.Pages.MainPages.Produccion.Report1.rdlc";
-			this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-			this.reportViewer1.Name = "reportViewer1";
-			this.reportViewer1.Size = new System.Drawing.Size(705, 499);
-			this.reportViewer1.TabIndex = 0;
-			this.reportViewer1.ReportRefresh += new System.ComponentModel.CancelEventHandler(this.reportViewer1_ReportRefresh);
-			// 
-			// dataProduccionBindingSource
-			// 
-			this.dataProduccionBindingSource.DataSource = typeof(EstacionPesaje.Pages.MainPages.Produccion.dataProduccion);
+			this.ordenTrabajo_ReportViewer1.Location = new System.Drawing.Point(0, 0);
+			this.ordenTrabajo_ReportViewer1.Name = "ordenTrabajo_ReportViewer1";
+			this.ordenTrabajo_ReportViewer1.Size = new System.Drawing.Size(705, 499);
+			this.ordenTrabajo_ReportViewer1.TabIndex = 0;
 			// 
 			// progresoOTPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.Controls.Add(this.reportViewer1);
+			this.Controls.Add(this.ordenTrabajo_ReportViewer1);
 			this.Name = "progresoOTPage";
 			this.Size = new System.Drawing.Size(705, 499);
 			this.Load += new System.EventHandler(this.progresoOTPage_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dataProduccionBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-		private System.Windows.Forms.BindingSource dataProduccionBindingSource;
+		private libProduccionDataBase.Reportes.OrdenTrabajo_ReportViewer ordenTrabajo_ReportViewer1;
 	}
 }

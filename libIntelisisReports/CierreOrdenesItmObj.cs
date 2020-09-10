@@ -14,7 +14,7 @@ namespace libIntelisisReports.Models
 	{
 
 		public delegate void OnChangeProgress ( CierreEventArgs e );
-		public static event OnChangeProgress ChangeProgress;
+		public event OnChangeProgress ChangeProgress;
 
 		#region Constantes
 		const string SQL_STR = @"
@@ -226,6 +226,152 @@ WHERE (I.Empresa = 'GRAL')
 	AND (I.Estatus = 'CONCLUIDO'  or I.Estatus = 'Pendiente') 
 	AND (I.Usuario in ('JOSECG', 'HECTORH', 'LAMXEXT'))
 	AND (RTRIM(UPPER(ID.Unidad)) = 'KG') AND (SUBSTRING(I.AlmacenDestino, 1, 3) = 'MP-')
+
+UNION
+
+SELECT 
+	''
+	,CONCAT( RTRIM([Mov]),' ',[MovID])
+	,LTRIM(RTRIM(P.[Estatus]))
+	,PD.[Almacen]
+	,'PRODUCCION'
+	,CONCAT(PD.[Articulo],' -Desperdicio')
+	,CONCAT(A.[Descripcion1],' -Desperdicio')
+	,PD.Desperdicio
+	,LTRIM(RTRIM(UPPER(PD.[Unidad])))
+	,PD.Factor
+	,PD.Desperdicio * PD.Factor
+	,PD.DescripcionExtra
+	,P.Usuario
+	,UPPER(RTrim(P.[Referencia]))
+	,P.FechaConclusion
+	,P.FechaEmision
+	,A.Grupo
+	,A.Categoria
+	,A.Familia
+	,'Transferencia'
+	,SUBSTRING(P.Almacen, 4, len(P.Almacen) - 3)
+	,'PRODUCCION'
+	,'DESPERDICIOS'
+	,0
+  FROM [ExcelNobleza].[dbo].[ProdD] PD
+	INNER JOIN [ExcelNobleza].[dbo].[Prod] P ON  P.ID= PD.ID
+	INNER JOIN Art AS A ON PD.Articulo = A.Articulo
+  WHERE P.Referencia LIKE '%' + @PEDIDO + '%'
+	AND P.Almacen like '%PEXTRUS%'
+	AND P.Mov ='Entrada Produccion'
+
+UNION
+	
+SELECT 
+	''
+	,CONCAT( RTRIM([Mov]),' ',[MovID])
+	,LTRIM(RTRIM(I.[Estatus]))
+	,ID.[Almacen]
+	,''
+	,ID.[Articulo]
+	,A.[Descripcion1]
+	,ID.Cantidad
+	,LTRIM(RTRIM(UPPER(ID.[Unidad])))
+	,ID.Factor
+	,ID.Cantidad * ID.Factor
+	,ID.DescripcionExtra
+	,I.Usuario
+	,UPPER(RTrim(I.[Referencia]))
+	,I.FechaConclusion
+	,I.FechaEmision
+	,A.Grupo
+	,A.Categoria
+	,A.Familia
+	,'Transferencia'
+	,SUBSTRING(I.Almacen, 4, len(I.Almacen) - 3)
+	,'PRODUCCION'
+	,'CAMBIO PRESENTACION'
+	,1
+  FROM [ExcelNobleza].[dbo].[InvD] ID
+	INNER JOIN [ExcelNobleza].[dbo].[Inv] I ON  I.ID= ID.ID
+	INNER JOIN Art AS A ON ID.Articulo = A.Articulo
+  WHERE I.Referencia LIKE '%' + @PEDIDO + '%'
+	AND I.Almacen like '%PEXTRUS%'
+	AND A.Grupo like '%PT-Película'
+	AND I.Mov ='Salida Cambio Pres'
+UNION 
+  SELECT 
+	''
+	,CONCAT( RTRIM([Mov]),' ',[MovID])
+	,LTRIM(RTRIM(P.[Estatus]))
+	,''
+	,PD.[Almacen]
+	,PD.[Articulo]
+	,A.[Descripcion1]
+	,PD.Cantidad
+	,LTRIM(RTRIM(UPPER(PD.[Unidad])))
+	,PD.Factor
+	,PD.Cantidad * PD.Factor
+	,PD.DescripcionExtra
+	,P.Usuario
+	,UPPER(RTrim(P.[Referencia]))
+	,P.FechaConclusion
+	,P.FechaEmision
+	,A.Grupo
+	,A.Categoria
+	,A.Familia
+	,'Transferencia'
+	,'PRODUCCION'
+	,SUBSTRING(P.Almacen, 4, len(P.Almacen) - 3)
+	,'PRODUCTO TERMINADO'
+	,1
+  FROM [ExcelNobleza].[dbo].[InvD] PD
+	INNER JOIN [ExcelNobleza].[dbo].[Inv] P ON  P.ID= PD.ID
+	INNER JOIN Art AS A ON PD.Articulo = A.Articulo
+  WHERE P.Referencia LIKE '%' + @PEDIDO + '%'
+	AND P.Almacen LIKE '%PEXTRUS%'
+	AND A.Grupo like '%PT-Película'
+	AND P.Mov ='Entrada Cambio Pres'
+
+UNION
+
+SELECT '' 
+	, 'Existencia'
+	, 'CONCLUIDO'
+	, SL.Almacen AS ALMORG
+	, SL.Almacen AS ALMDES
+	, Art.Articulo
+	, Art.Descripcion1
+	, SL.Existencia
+	, UPPER(LTRIM(RTRIM(Art.Unidad))) AS Unidad 
+	, ISNULL(ART.FACTOR, 1)
+	, ISNULL(ART.FACTOR, 1) * SL.Existencia
+	, ''
+	, ''
+	, UPPER(SL.SerieLote)
+	, SL.UltimaEntrada
+	, SL.UltimaSalida
+	, Art.Grupo
+	, Art.Categoria
+	, Art.Familia
+	, 'Existencia'
+	, CASE 
+		WHEN Almacen IN ('MATPRIMA', 'TINTAS', 'TERMINADO', 'RECHAZADOS', 'SERVICIOS', 'DEV-CONVER', 'REVISION', 'RCALMACEN', 'MPTRANSITO', 'AVIOS', 'DESPER', '(TRANSITO)') THEN Almacen 
+		WHEN Almacen IN ('MAQMP', 'MAQPROCESO', 'MAQPT', 'MAQMP2', 'MAQPP2', 'MAQPT2') THEN 'Maquila' 
+		ELSE SUBSTRING(Almacen, 4, len(Almacen)) 
+	  END AS LineaOrg
+	, CASE 
+		WHEN Almacen IN ('MATPRIMA', 'TINTAS', 'TERMINADO', 'RECHAZADOS', 'SERVICIOS', 'DEV-CONVER', 'REVISION', 'RCALMACEN', 'MPTRANSITO', 'AVIOS', 'DESPER', '(TRANSITO)') THEN Almacen 
+		WHEN Almacen IN ('MAQMP', 'MAQPROCESO', 'MAQPT', 'MAQMP2', 'MAQPP2', 'MAQPT2') THEN 'Maquila' 
+		ELSE SUBSTRING(Almacen, 4, len(Almacen)) 
+	  END AS LineaDes
+	, 'EXISTENCIA'
+	, 1
+
+FROM SerieLote AS SL 
+	LEFT OUTER JOIN Art AS Art ON SL.Articulo = Art.Articulo 
+WHERE (SL.Almacen <> '(TRANSITO)') 
+	AND (SL.Existencia IS NOT NULL) 
+	AND Art.Grupo not in ('MP-Tintas','Mp-Barniz','ME-Centros','ME-Carton','MP-Solventes','MP-Adh Impr') 
+	AND Art.Grupo Like '%Película%'
+	AND SL.Almacen NOT IN('RC-PEXTRUS')
+	AND UPPER(SL.SerieLote) LIKE '%' + @PEDIDO + '%'
 ";
 		#endregion
 		public class item
@@ -268,6 +414,11 @@ WHERE (I.Empresa = 'GRAL')
 				itmCv nuevo = (itmCv)this.MemberwiseClone ( );
 				return nuevo;
 			}
+
+			public override string ToString ()
+			{
+				return $"{Movimiento} {Cantidad} {Unidad} {TipoMovimiento} {TipoElemento}";
+			}
 		}
 
 		public class CierreEventArgs
@@ -288,11 +439,11 @@ WHERE (I.Empresa = 'GRAL')
 		public static string OT => CierreOrdenesItmObj._OT;
 
 		private static List<CierreOrdenesItmObj.itmCv> Elementos { get; set; } = new List<CierreOrdenesItmObj.itmCv> ( );
-		public static void Initialice ( string OT )
+		public void Initialice ( string OT )
 		{
 			_OT = OT;
 			Elementos.Clear ( );
-			ChangeProgress?.Invoke ( new CierreEventArgs ( 0, "Conectanco..." ) );
+			ChangeProgress?.Invoke ( new CierreEventArgs ( 0, "Conectando..." ) );
 			using ( var cnn = new SqlConnection ( Properties.Settings.Default.ExcelNoblezaConnectionString ) )
 			{
 				cnn.Open ( );
@@ -337,6 +488,10 @@ WHERE (I.Empresa = 'GRAL')
 				{
 					itm.Factor = gpoTintas.First ( o => o.clave == itm.Articulo.TrimEnd ( ) ).factor;
 				}
+				else
+				{
+					itm.Factor = 0.34;
+				}
 
 				if ( itm.Articulo.Substring ( 0, 4 ) == "MPSO" )
 				{
@@ -359,20 +514,20 @@ WHERE (I.Empresa = 'GRAL')
 					   .OrderBy ( u => u.FechaEmision );
 
 
-				var org = elems.Where ( o => o.LineaOrg != "TINTAS" && o.LineaOrg != "MATPRIMA" ).Select ( u => u.LineaOrg );
-				var des = elems.Where ( o => o.LineaDes != "TERMINADO" && o.LineaDes != "MATPRIMA" && o.LineaDes != "RECHAZADOS" && o.LineaDes != "RCALMACEN" && o.LineaDes != "CALIDAD" ).Select ( u => u.LineaDes );
+				var org = elems.Where ( o => o.LineaOrg != "TINTAS" && o.LineaOrg != "MATPRIMA" ).Select ( u => u.LineaOrg.Trim() );
+				var des = elems.Where ( o => o.LineaDes != "TERMINADO" && o.LineaDes != "MATPRIMA" && o.LineaDes != "RECHAZADOS" && o.LineaDes != "RCALMACEN" && o.LineaDes != "CALIDAD" ).Select ( u => u.LineaDes.Trim() );
 				return org.Union ( des ).Distinct ( ).ToArray ( );
 			}
 		}
 
-		public static List<itmCv> allMoves ( string OT )
+		public List<itmCv> allMoves ( string OT )
 		{
 			if ( OT == null ) return null;
 			Initialice ( OT );
 			return allMoves ( );
 		}
 
-		public static List<itmCv> allMoves ()
+		public List<itmCv> allMoves ()
 		{
 			List<itmCv> toRet = new List<itmCv> ( );
 			var lns = CierreOrdenesItmObj.Lineas;
@@ -389,30 +544,70 @@ WHERE (I.Empresa = 'GRAL')
 
 				var inputs = Elementos
 					.Where ( o => o.TipoElemento == "Transferencia" && o.TipoMovimiento != "MATERIAL DE EMPAQUE" && o.Estatus == "CONCLUIDO" )
-					.Where ( o => o.LineaDes == linea && o.TipoMovimiento != "PROCESO DE LINEA" )
+					.Where ( o => o.LineaDes.Trim() == linea && o.TipoMovimiento != "PROCESO DE LINEA" )
 					.OrderBy ( o => o.Movimiento ).ToList ( );
 
 				var outputs = Elementos
 					.Where ( o => o.TipoElemento == "Transferencia" && o.TipoMovimiento != "MATERIAL DE EMPAQUE" && o.Estatus == "CONCLUIDO" )
-					.Where ( o => o.LineaOrg == linea && o.TipoMovimiento != "PROCESO DE LINEA" && o.TipoMovimiento != "TINTAS" && o.TipoMovimiento != "ADHESIVOS" && o.TipoMovimiento != "ENTRADA MP" )
+					.Where ( o => (o.LineaOrg.Trim() == linea && o.TipoMovimiento != "PROCESO DE LINEA" && o.TipoMovimiento != "TINTAS" && o.TipoMovimiento != "ADHESIVOS" && o.TipoMovimiento != "ENTRADA MP") || ( o.TipoMovimiento == "ENTRADA MP" && o.LineaOrg =="LAMXEXT" ) )
 					.OrderBy ( o => o.Movimiento ).ToList ( );
 
 				var proceso = Elementos
 					.Where ( o => o.TipoElemento == "Transferencia" && o.TipoMovimiento != "MATERIAL DE EMPAQUE" && o.Estatus == "CONCLUIDO" )
 					.Where ( o => o.LineaOrg == linea && o.LineaDes == linea && o.TipoMovimiento == "PROCESO DE LINEA" )
+					.Where ( o => o.AlmacenDes.Trim() != "RC-PEXTRUS")
 					.OrderBy ( o => o.Movimiento ).ToList ( );
 
 				var consumos = Elementos
 					.Where ( o => o.TipoElemento == "Consumos" )
-					.Where ( o => o.LineaOrg == linea )
+					.Where ( o => o.LineaOrg.Trim() == linea )
 					.OrderBy ( o => o.Movimiento ).ToList ( );
 
 				var requeridos = Elementos
 					.Where ( o => o.TipoElemento == "Requerido" )
-					.Where ( o => o.LineaDes == linea )
+					.Where ( o => o.LineaDes.Trim() == linea )
 					.OrderBy ( o => o.Movimiento ).ToList ( );
 
+				
 
+				if(linea == "PEXTRUS" )
+				{
+					Elementos
+						.Where ( o => o.AlmacenDes == "RC-PEXTRUS" && o.TipoElemento != "Existencia" ).ToList ( ).ForEach ( item =>
+						  {
+							  Console.WriteLine ( "------- here -----" );
+							  item.TipoMovimiento = "DESPERDICIOS";
+							  item.Articulo += " -Desperdicio";
+							  item.ArticuloDescripcion += " -Desperdicio";
+							  var u = (itmCv)item.Clone ( );
+							  u.Linea = linea;
+							  u.Tipo = "5.Salida";
+							  u.CantidadInventario *= -1;							  
+							  toRet.Add ( u );
+						  } );
+
+
+					Elementos
+					.Where ( o => o.TipoElemento == "Existencia" && o.AlmacenOrg != "RC-PEXTRUS" )
+					.Where ( o => o.LineaOrg.Trim ( ) == linea )
+					.OrderBy ( o => o.FechaConclusion ).ToList ( ).ForEach ( item =>
+					{
+						var u = (itmCv)item.Clone ( );
+						u.Linea = linea;
+						u.Tipo = "6.Existencias";
+						toRet.Add ( u );
+						u.CantidadInventario *= -1;
+
+
+						var O = (itmCv)item.Clone ( );
+						O.Linea = "(GLOBAL)";
+						O.Tipo = "(Existencia)";
+						O.CantidadInventario *= -1;
+						toRet.Add ( O );
+
+					} );
+
+				}
 
 				foreach ( var item in inputs )
 				{
@@ -422,12 +617,25 @@ WHERE (I.Empresa = 'GRAL')
 					toRet.Add ( u );
 				}
 
+
+
 				foreach ( var item in outputs )
 				{
 					var u = (itmCv)item.Clone ( );
 					u.Linea = linea;
 					u.Tipo = "5.Salida";
 					u.CantidadInventario *= -1;
+
+					if(u.LineaOrg != u.LineaDes && u.LineaDes == "PEXTRUS")
+					{
+						u.TipoMovimiento = "DEVOLUCION";
+					}
+
+					if ( u.LineaOrg == "PEXTRUS" && u.TipoMovimiento == "CAMBIO PRESENTACION" )
+					{
+						u.TipoMovimiento = "DEVOLUCION";
+					}
+
 					toRet.Add ( u );
 				}
 
@@ -470,13 +678,18 @@ WHERE (I.Empresa = 'GRAL')
 
 			var salidas = Elementos
 				.Where ( o => o.TipoElemento == "Transferencia" && o.Estatus == "CONCLUIDO" )
-				.Where ( o => o.TipoMovimiento == "DEVOLUCION" || ( o.TipoMovimiento == "DESPERDICIOS" ) || ( o.LineaDes == "RECHAZADOS" || o.LineaDes == "PENAVE7" ) || ( o.LineaDes == "TERMINADO" && o.LineaOrg != "RECHAZADOS" ) )
+
+				.Where ( o => o.TipoMovimiento == "DEVOLUCION" || ( o.TipoMovimiento == "DESPERDICIOS" ) || ( o.LineaDes == "RECHAZADOS" || o.LineaDes == "PENAVE7" ) || ( o.LineaDes == "TERMINADO" && o.LineaOrg != "RECHAZADOS" )||(o.LineaOrg=="PEXTRUS" && o.LineaDes=="PRODUCCION") )
 				.OrderBy ( o => o.Movimiento ).ToList ( );
 
 			var entradas = Elementos
 				.Where ( o => o.TipoElemento == "Transferencia" && o.Estatus == "CONCLUIDO" )
-				.Where ( o => ( o.LineaOrg == "MATPRIMA" || o.LineaOrg == "PENAVE7" || o.LineaOrg == "TERMINADO" || o.TipoMovimiento == "ENTRADA MP" || o.TipoMovimiento == "ADHESIVOS" || o.TipoMovimiento == "TINTAS" ) && o.TipoMovimiento != "MATERIAL DE EMPAQUE" )
+				.Where ( o => ( o.LineaOrg == "MATPRIMA" || o.LineaOrg == "PENAVE7" || o.LineaOrg == "TERMINADO" || o.TipoMovimiento == "ENTRADA MP" || o.TipoMovimiento == "ADHESIVOS" || o.TipoMovimiento == "TINTAS" || (o.LineaDes=="PEXTRUS" && o.Movimiento.Contains("Entrada Cambio Pres")) ) && o.TipoMovimiento != "MATERIAL DE EMPAQUE" )
 				.OrderBy ( o => o.Movimiento ).ToList ( );
+
+			//var existen = Elementos
+			//	.Where ( o => o.TipoElemento == "Existencia" && o.AlmacenOrg != "RC-PEXTRUS" )
+			//	.ToList ( );
 
 
 			double? Factor = 1;
@@ -516,6 +729,15 @@ WHERE (I.Empresa = 'GRAL')
 					toRet.Add ( I );
 				}
 			}
+
+			//foreach(var item in existen )
+			//{
+			//	var u = (itmCv)item.Clone ( );
+			//	u.Linea = "(GLOBAL)";
+			//	u.Tipo = "(Existencia)";
+			//	u.CantidadInventario *= -1;
+			//	toRet.Add ( u );
+			//}
 
 			foreach ( var item in entradas )
 			{

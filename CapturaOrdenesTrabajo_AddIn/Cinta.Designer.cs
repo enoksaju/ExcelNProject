@@ -34,27 +34,27 @@
 		/// </summary>
 		private void InitializeComponent ()
 		{
-			this.CapturaOTs = this.Factory.CreateRibbonTab();
+			this.CapturaOrdenes = this.Factory.CreateRibbonTab();
 			this.group1 = this.Factory.CreateRibbonGroup();
-			this.separator1 = this.Factory.CreateRibbonSeparator();
 			this.btnCrearActualizar = this.Factory.CreateRibbonButton();
 			this.btnLimpiar = this.Factory.CreateRibbonButton();
 			this.btnBuscar = this.Factory.CreateRibbonButton();
+			this.separator1 = this.Factory.CreateRibbonSeparator();
 			this.btnAbrir = this.Factory.CreateRibbonButton();
 			this.btnGuardarLibro = this.Factory.CreateRibbonButton();
 			this.menuOpciones = this.Factory.CreateRibbonMenu();
 			this.chkGuardarALEnviar = this.Factory.CreateRibbonCheckBox();
 			this.chkCrearActualizar = this.Factory.CreateRibbonCheckBox();
 			this.btnConfigurar = this.Factory.CreateRibbonButton();
-			this.CapturaOTs.SuspendLayout();
+			this.CapturaOrdenes.SuspendLayout();
 			this.group1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// CapturaOTs
+			// CapturaOrdenes
 			// 
-			this.CapturaOTs.Groups.Add(this.group1);
-			this.CapturaOTs.Label = "Captura Ordenes";
-			this.CapturaOTs.Name = "CapturaOTs";
+			this.CapturaOrdenes.Groups.Add(this.group1);
+			this.CapturaOrdenes.Label = "Captura de Ordenes";
+			this.CapturaOrdenes.Name = "CapturaOrdenes";
 			// 
 			// group1
 			// 
@@ -67,16 +67,12 @@
 			this.group1.Items.Add(this.menuOpciones);
 			this.group1.Name = "group1";
 			// 
-			// separator1
-			// 
-			this.separator1.Name = "separator1";
-			// 
 			// btnCrearActualizar
 			// 
 			this.btnCrearActualizar.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
 			this.btnCrearActualizar.Enabled = global::CapturaOrdenesTrabajo_AddIn.Properties.Settings.Default.EnableCrear;
-			this.btnCrearActualizar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.add;
-			this.btnCrearActualizar.Label = "Crear/Actualizar";
+			this.btnCrearActualizar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.add2;
+			this.btnCrearActualizar.Label = "Crear/ Actualizar";
 			this.btnCrearActualizar.Name = "btnCrearActualizar";
 			this.btnCrearActualizar.ShowImage = true;
 			this.btnCrearActualizar.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCrearActualizar_Click);
@@ -84,7 +80,7 @@
 			// btnLimpiar
 			// 
 			this.btnLimpiar.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.btnLimpiar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.broom;
+			this.btnLimpiar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.erase;
 			this.btnLimpiar.Label = "Limpiar";
 			this.btnLimpiar.Name = "btnLimpiar";
 			this.btnLimpiar.ShowImage = true;
@@ -93,16 +89,20 @@
 			// btnBuscar
 			// 
 			this.btnBuscar.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.btnBuscar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.magnifier;
+			this.btnBuscar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.magnifying_glass;
 			this.btnBuscar.Label = "Buscar";
 			this.btnBuscar.Name = "btnBuscar";
 			this.btnBuscar.ShowImage = true;
 			this.btnBuscar.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnBuscar_Click);
 			// 
+			// separator1
+			// 
+			this.separator1.Name = "separator1";
+			// 
 			// btnAbrir
 			// 
 			this.btnAbrir.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-			this.btnAbrir.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.excel_imports;
+			this.btnAbrir.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.document;
 			this.btnAbrir.Label = "Abrir Plantilla";
 			this.btnAbrir.Name = "btnAbrir";
 			this.btnAbrir.ShowImage = true;
@@ -112,7 +112,7 @@
 			// 
 			this.btnGuardarLibro.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
 			this.btnGuardarLibro.Enabled = global::CapturaOrdenesTrabajo_AddIn.Properties.Settings.Default.AutomaticSaveBook;
-			this.btnGuardarLibro.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.save_as_excel;
+			this.btnGuardarLibro.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.book_2;
 			this.btnGuardarLibro.Label = "Guardar Libro";
 			this.btnGuardarLibro.Name = "btnGuardarLibro";
 			this.btnGuardarLibro.ShowImage = true;
@@ -120,7 +120,7 @@
 			// 
 			// menuOpciones
 			// 
-			this.menuOpciones.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.cog;
+			this.menuOpciones.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.adjustment;
 			this.menuOpciones.Items.Add(this.chkGuardarALEnviar);
 			this.menuOpciones.Items.Add(this.chkCrearActualizar);
 			this.menuOpciones.Items.Add(this.btnConfigurar);
@@ -138,14 +138,13 @@
 			// chkCrearActualizar
 			// 
 			this.chkCrearActualizar.Checked = global::CapturaOrdenesTrabajo_AddIn.Properties.Settings.Default.EnableCrear;
-			this.chkCrearActualizar.Enabled = false;
 			this.chkCrearActualizar.Label = "Permitir crear y actualizar";
 			this.chkCrearActualizar.Name = "chkCrearActualizar";
 			this.chkCrearActualizar.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.chkCrearActualizar_Click);
 			// 
 			// btnConfigurar
 			// 
-			this.btnConfigurar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.page_excel;
+			this.btnConfigurar.Image = global::CapturaOrdenesTrabajo_AddIn.Properties.Resources.cog_gear;
 			this.btnConfigurar.Label = "Configurar Plantilla";
 			this.btnConfigurar.Name = "btnConfigurar";
 			this.btnConfigurar.ShowImage = true;
@@ -155,10 +154,10 @@
 			// 
 			this.Name = "Cinta";
 			this.RibbonType = "Microsoft.Excel.Workbook";
-			this.Tabs.Add(this.CapturaOTs);
+			this.Tabs.Add(this.CapturaOrdenes);
 			this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Cinta_Load);
-			this.CapturaOTs.ResumeLayout(false);
-			this.CapturaOTs.PerformLayout();
+			this.CapturaOrdenes.ResumeLayout(false);
+			this.CapturaOrdenes.PerformLayout();
 			this.group1.ResumeLayout(false);
 			this.group1.PerformLayout();
 			this.ResumeLayout(false);
@@ -167,7 +166,7 @@
 
 		#endregion
 
-		internal Microsoft.Office.Tools.Ribbon.RibbonTab CapturaOTs;
+		internal Microsoft.Office.Tools.Ribbon.RibbonTab CapturaOrdenes;
 		internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCrearActualizar;
 		internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLimpiar;

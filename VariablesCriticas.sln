@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapturaVariablesCriticas", "CapturaVariablesCriticas\CapturaVariablesCriticas.csproj", "{44486BF0-FA71-41A4-BF4B-0E09F8429590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libProduccionDataBase", "libProduccionDataBase\libProduccionDataBase.csproj", "{9E5C4DE4-DBDC-4E5D-B001-767D967107A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44486BF0-FA71-41A4-BF4B-0E09F8429590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44486BF0-FA71-41A4-BF4B-0E09F8429590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44486BF0-FA71-41A4-BF4B-0E09F8429590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44486BF0-FA71-41A4-BF4B-0E09F8429590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E5C4DE4-DBDC-4E5D-B001-767D967107A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5C4DE4-DBDC-4E5D-B001-767D967107A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5C4DE4-DBDC-4E5D-B001-767D967107A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5C4DE4-DBDC-4E5D-B001-767D967107A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {848B1BE5-C062-49E7-9214-2B5BD48DE00C}
+	EndGlobalSection
+EndGlobal

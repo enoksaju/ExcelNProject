@@ -6,12 +6,12 @@ using System.Security;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("CapturaOrdenesTrabajo_AddIn")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle ( "CapturaTabla" )]
+[assembly: AssemblyDescription ( "Captura de ordenes de informacion de ordenes de trabajo en la base de datos, esta información estará disponible en las estaciones de pesaje" )]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CapturaOrdenesTrabajo_AddIn")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCompany ( "Excel Nobleza" )]
+[assembly: AssemblyProduct ( "Captura de Ordenes de Trabajo" )]
+[assembly: AssemblyCopyright ( "Copyright ©  2020 Excel Nobleza" )]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Security;
 // Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión 
 // mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion ( "2.0.0.0" )]
+[assembly: AssemblyFileVersion ( "2.0.0.0" )]
 

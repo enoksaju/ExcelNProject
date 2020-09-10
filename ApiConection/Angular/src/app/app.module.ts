@@ -17,6 +17,8 @@ import { FilterPipe } from './Services/pipe/filter.pipe';
 import { DialogComponent } from './Services/Dialog/dialog.component';
 import { ProgressWorkOrderComponent } from './cal-sem/progress-work-order/progress-work-order.component';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 registerLocaleData(localeMx);
 
 @NgModule({
@@ -37,6 +39,7 @@ registerLocaleData(localeMx);
   ],
   imports: [
     BrowserModule,
+    PdfViewerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialDesignModule,

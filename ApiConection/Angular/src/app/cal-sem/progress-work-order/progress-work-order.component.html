@@ -1,1 +1,186 @@
-<p>data:{{data | json}}</p>
+<div *ngIf="data != null,else loading" fxFlex style="padding: 10px;">
+
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <button mat-icon-button [routerLink]="'../../'">
+          <mat-icon svgIcon="keyboard-backspace" style="width: 100%; height: 100%;"></mat-icon>
+        </button>
+      </div>
+      <mat-card-title>{{data.OT}}</mat-card-title>
+      <mat-card-subtitle>{{data.TipoProducto}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+      <!-- Datos generales del pedido -->
+      <div fxLayout="row wrap" fxLayoutGap="10px">
+        <mat-form-field appearance="fill" fxFlex.lt-md="calc(100% - 10px)" fxFlex="calc(50% - 10px)">
+          <mat-label>Cliente</mat-label>
+          <input readonly matInput value="{{data.Cliente}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="calc(100% - 10px)" fxFlex="calc(50% - 10px)">
+          <mat-label>Producto</mat-label>
+          <input readonly matInput value="{{data.Producto}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-sm="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Tipo de Producto</mat-label>
+          <input readonly matInput value="{{data.TipoProducto}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-sm="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Clave de Intelisis</mat-label>
+          <input readonly matInput value="{{data.ClaveIntelisis}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-sm="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Oden de Compra</mat-label>
+          <input readonly matInput value="{{data.OrdenCompra}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Cantidad</mat-label>
+          <input readonly matInput value="{{data.Cantidad}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Unidad</mat-label>
+          <input readonly matInput value="{{data.Unidad}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Kg x Mill</mat-label>
+          <input readonly matInput value="{{data.KGXMILL | number:'1.5-5'}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Fecha de Recepción</mat-label>
+          <input readonly matInput value="{{data.FechaRecibido | date:'EEE, dd MMM yyyy'}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Fecha de Captura</mat-label>
+          <input readonly matInput value="{{data.FechaCaptura | date:'EEE, dd MMM yyyy'}}">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" fxFlex.lt-md="auto" fxFlex="calc(33% - 10px)">
+          <mat-label>Fecha Entrega Solicitada</mat-label>
+          <input readonly matInput value="{{data.FechaEntregaSol | date:'EEE, dd MMM yyyy'}}">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <br>
+
+  <mat-card>
+    <mat-tab-group>
+      <mat-tab label="Procesos">
+        <div class="table-container">
+          <table mat-table #table [dataSource]="data.Procesos" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="column" sticky>
+              <th mat-header-cell class="firstColumn" *matHeaderCellDef>Proceso</th>
+              <td mat-cell class="firstColumn Dt" *matCellDef="let row"> {{row.NombreProceso}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="maquinas">
+              <th mat-header-cell *matHeaderCellDef>Maquinas</th>
+              <td mat-cell *matCellDef="let row"> {{row.Maquinas}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ultimaCaptura">
+              <th mat-header-cell *matHeaderCellDef>Ultima Captura</th>
+              <td mat-cell *matCellDef="let row"> {{row.UltimaCaptura | date:'EEE, dd MMM yyyy, HH:mm'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="pesoNeto">
+              <th mat-header-cell *matHeaderCellDef>Peso Neto</th>
+              <td mat-cell *matCellDef="let row"> {{row.PesoNeto | number:'1.2-2'}} Kg</td>
+            </ng-container>
+
+            <ng-container matColumnDef="conteo">
+              <th mat-header-cell *matHeaderCellDef>Piezas</th>
+              <td mat-cell *matCellDef="let row"> {{row.Conteo | number:'1.0-0'}} Pzas</td>
+            </ng-container>
+
+            <ng-container matColumnDef="bobinas">
+              <th mat-header-cell *matHeaderCellDef>Bobinas</th>
+              <td mat-cell *matCellDef="let row"> {{row.Bobinas }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="arrugas">
+              <th mat-header-cell *matHeaderCellDef>Bobinas con Arrugas</th>
+              <td mat-cell *matCellDef="let row"> {{row.BobinasArrugas }} </td>
+            </ng-container>
+
+            <tr mat-header-row
+              *matHeaderRowDef="['column','maquinas', 'ultimaCaptura', 'pesoNeto', 'conteo', 'bobinas', 'arrugas']">
+            </tr>
+
+            <tr mat-row
+              *matRowDef="let row; columns: ['column', 'maquinas', 'ultimaCaptura', 'pesoNeto', 'conteo', 'bobinas', 'arrugas'];">
+            </tr>
+
+          </table>
+        </div>
+      </mat-tab>
+      <mat-tab label="Reportes">
+        <ng-template matTabContent>
+          <div fxLayout="row" class="pdf-explorer">
+
+            <mat-toolbar>
+              <button mat-button (click)="pdfDrag.toggle()">
+                <mat-icon svgIcon="file-tree"></mat-icon>
+              </button>
+              <button mat-button (click)="printPDF()">
+                <mat-icon svgIcon="printer"></mat-icon>
+              </button>
+            </mat-toolbar>
+            <mat-drawer-container fxFlex>
+              <mat-drawer #pdfDrag mode="overlay">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+                  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                    <li class="mat-tree-node">
+                      <!-- use a disabled button to provide padding for tree leaf -->
+                      <button mat-icon-button disabled></button>
+                      <button mat-button color="accent" (click)="navigateTo(node.dest)">{{node.title}}</button>
+                    </li>
+                  </mat-tree-node>
+                  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                    <li>
+                      <div class="mat-tree-node">
+                        <button mat-icon-button color="accent" matTreeNodeToggle>
+                          <mat-icon [svgIcon]="treeControl.isExpanded(node) ? 'chevron-down' : 'chevron-right'">
+                          </mat-icon>
+                        </button>
+                        {{node.title}}
+                      </div>
+                      <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+                        <ng-container matTreeNodeOutlet></ng-container>
+                      </ul>
+                    </li>
+                  </mat-nested-tree-node>
+                </mat-tree>
+              </mat-drawer>
+              <mat-drawer-content>
+                <pdf-viewer [src]="'/api/progresoPDF?ot=' + id + '&proceso=Progreso'"
+                  (after-load-complete)="loadComplet($event)" [render-text]="true" [fit-to-page]="true"
+                  style="display: block;">
+                </pdf-viewer>
+              </mat-drawer-content>
+            </mat-drawer-container>
+          </div>
+        </ng-template>
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-card>
+</div>
+
+
+<ng-template #loading>
+  <div fxFlex style="padding: 10px;" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

@@ -136,9 +136,6 @@
   <data name="barcode_new1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barcode-new1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="text_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="AzureDefaultResource_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AzureDefaultResource_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -147,6 +144,9 @@
   </data>
   <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cut_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cut_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="document-check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +160,14 @@
   <data name="gear_32xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gear_32xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMPRESION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMPRESION.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXTRUSION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXTRUSION.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="barcode-check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barcode-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,8 +178,11 @@
   <data name="database" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="B16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\B16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PEGADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PEGADO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="history-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history-info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +196,9 @@
   <data name="book_Open_16xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_Open_16xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="OTICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OTICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="document_move" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_move.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,8 +211,8 @@
   <data name="print-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="barcode_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barcode-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LAMINACION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LAMINACION.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="worker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\worker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -226,8 +238,8 @@
   <data name="connect1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\connect1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cut_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cut_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CORTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CORTE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AddRemoteServer_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddRemoteServer_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,14 +265,23 @@
   <data name="page_numbers_in_margins_insert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\page_numbers_in_margins_insert.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="B16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EMBOBINADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EMBOBINADO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="table-import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table-import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="form-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\form-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_circle_blue_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_circle_blue_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="REFINADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\REFINADO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barcode_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barcode-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="database_16xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_16xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -270,6 +291,12 @@
   </data>
   <data name="text_box1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\text_box1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barcode_edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barcode-edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barcode-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barcode-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ScaleBordered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScaleBordered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,11 +316,8 @@
   <data name="shipment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shipment1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="barcode_edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barcode-edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="barcode-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barcode-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="text_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_circle_green_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_circle_green_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -318,6 +342,9 @@
   </data>
   <data name="SelectAll_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SelectAll_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_circle_blue_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_circle_blue_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="database_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,13 +382,16 @@
   <data name="fre3of9x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fre3of9x.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DOBLADO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DOBLADO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="worker1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\worker1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="script" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\script.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MANGAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MANGAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -49,6 +49,16 @@ namespace EstacionPesaje {
 			using ( var db = new libProduccionDataBase.Contexto.DataBaseContexto ( ) ) {
 				databaseName_lbl.Text = db.Database.Connection.Database;
 			}
+
+
+			if ( System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed )
+			{
+				lblVersion.Text =				System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString ( 4 ) ;
+			}else
+			{
+				lblVersion.Text = Application.ProductVersion;
+			}
+			 
 		}
 
 		private void KryptonDockingManager_DockableWorkspaceCellAdding ( object sender , DockableWorkspaceCellEventArgs e ) {

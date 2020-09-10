@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using libProduccionDataBase.Contexto;
 using libProduccionDataBase.Tablas;
@@ -20,7 +21,7 @@ namespace CapturaOrdenesTrabajo_AddIn
 		private void Cinta_Load ( object sender, RibbonUIEventArgs e )
 		{
 			this.EXAPP = Globals.ThisAddIn.Application;
-			Globals.ThisAddIn.ntMSG.Visible = true;
+			//Globals.ThisAddIn.ntMSG.Visible = true;
 		}
 		private void chkCrearActualizar_Click ( object sender, RibbonControlEventArgs e )
 		{
@@ -79,159 +80,160 @@ namespace CapturaOrdenesTrabajo_AddIn
 			try
 			{
 
-				string objectValue = this.EXAPP.Range[ "A5" ].Text.Trim ( );
+				string OT_Number = this.EXAPP.Range[ "A5" ].Text.Trim ( );
 
 				Microsoft.Office.Interop.Excel.Worksheet sh = this.EXAPP.ActiveWorkbook.ActiveSheet;
 
-				if ( this.EXAPP.Range[ "A2" ].Value == "captura pedidos2" )
+				if ( this.EXAPP.Range[ "A2" ].Value != "captura pedidos2" ) throw new Exception ( "El libro y la hoja que desea usar no corresponde al archivo relacionado con el Complemento" );
+
+				if ( OT_Number == "" ) throw new Exception ( "No se ha indicado el numero de Orden de Trabajo" );
+
+				if ( OT_Number.Length > 10 ) throw new Exception ( "El numero de Orden de trabajo es muy largo" );
+
+				if ( sh.Range[ "A11" ].Text.Trim ( ) == "" || sh.Range[ "A44" ].Text.Trim ( ) == "" ) throw new Exception ( "El nombre del cliente o del producto es invalido o nulo" );
+
+				if ( sh.Range[ "A13" ].Text == "True" && sh.Range[ "A54" ].Text.Trim ( ) == "" ) throw new Exception ( "Para los trabajos con impresión es necesario indicar el diseño autorizado" );
+
+				if ( MessageBox.Show ( "¿Desea crear o actualizar la OT?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.No ) return;
+
+				this.EXAPP.StatusBar = (object)"Revisando si la OT existe...";
+				using ( DataBaseContexto dataBaseContexto = new DataBaseContexto ( ) )
 				{
-					if ( objectValue == "" ) throw new Exception ( "No se ha indicado el numero de Orden de Trabajo" );
-					if ( objectValue.Length > 10 ) throw new Exception ( "El numero de Orden de trabajo es muy largo" );
-					if ( sh.Range[ "A11" ].Text.Trim ( ) == "" || sh.Range[ "A44" ].Text.Trim ( ) == "" ) throw new Exception ( "El nombre del cliente o del producto es invalido o nulo" );
-					if ( sh.Range[ "A13" ].Text == "True" && sh.Range[ "A54" ].Text.Trim ( ) == "" ) throw new Exception ( "Para los trabajos con impresión es necesario indicar el diseño autorizado" );
-					if ( MessageBox.Show ( "¿Desea crear o actualizar la OT?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.No ) return;
+					// dataBaseContexto.Database.Log = ( f ) => { System.Diagnostics.Debug.WriteLine ( f, "SAVE_DATABASE" ); };
 
-					this.EXAPP.StatusBar = (object)"Revisando si la OT existe...";
-					using ( DataBaseContexto dataBaseContexto = new DataBaseContexto ( ) )
+					bool any_ = dataBaseContexto.tempOt.Any ( OT => OT.OT == OT_Number );
+
+					if ( any_ && MessageBox.Show ( $"La orden de trabajo {OT_Number} ya existe,\r\nDesea que la información se modifique?", "OT existente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2 ) == DialogResult.No ) throw new Exception ( $"Operación cancelada, no se realizó ningun cambio a la OT { OT_Number }" );
+
+
+					this.EXAPP.StatusBar = $"Guardando informacion de la OT {OT_Number} en el servidor...";
+					bool DisponibleConsulta = false;
+					short FiguraSalida = 0;
+
+					// Checo si es impreso
+					if ( sh.Range[ "A13" ].Text == "True" )
 					{
-						// dataBaseContexto.Database.Log = ( f ) => { System.Diagnostics.Debug.WriteLine ( f, "SAVE_DATABASE" ); };
-
-						bool any_ = dataBaseContexto.tempOt.Any ( OT => OT.OT == objectValue );
-
-						if ( any_ && MessageBox.Show ( string.Format ( "La orden de trabajo {0} ya existe,{1}Desea que la información se modifique?", objectValue, "\r\n", objectValue ), "OT existente", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2 ) == DialogResult.No ) throw new Exception ( string.Format ( "Operación cancelada, no se realizó ningun cambio a la OT { 0 }", objectValue ) );
-
-
-						this.EXAPP.StatusBar = string.Format ( "Guardando informacion de la OT {0} en el servidor...", objectValue );
-
-						bool DisponibleConsulta = false;
-
-						short FiguraSalida = 0;
-
-						// Checo si es impreso
-						if ( sh.Range[ "A13" ].Text == "True" )
-						{
-							bool isShort = short.TryParse ( sh.Range[ "A8" ].Value2.ToString ( ), out FiguraSalida );
-							if ( isShort && FiguraSalida <= 0 ) throw new Exception ( "No se ha indicado ninguna figura valida" );
-							if ( sh.Range[ "A76" ].Text.Trim ( ) == "" ) throw new Exception ( "No se indicó ninguna referencia para la figura de salida" );
-						}
-
-						if ( MessageBox.Show ( "La OT Estara disponible para consulta?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes ) DisponibleConsulta = true;
-
-						TemporalOrdenTrabajo temporalOrdenTrabajo2 = new TemporalOrdenTrabajo ( );
-						temporalOrdenTrabajo2.TIPO = (TemporalOrdenTrabajo.Tipos)sh.Range[ "A1" ].Value2;
-						temporalOrdenTrabajo2.FECHARECIBIDO = DateTime.FromOADate ( sh.Range[ "A6" ].Value2 );
-						temporalOrdenTrabajo2.OT = objectValue;
-						temporalOrdenTrabajo2.FECHAENTREGASOL = DateTime.FromOADate ( sh.Range[ "A7" ].Value2 );
-						temporalOrdenTrabajo2.CLIENTE = sh.Range[ "A11" ].Value2;
-						temporalOrdenTrabajo2.PRODUCTO = sh.Range[ "A44" ].Value2;
-						temporalOrdenTrabajo2.CANTIDAD = (double)sh.Range[ "A19" ].Value2;
-						temporalOrdenTrabajo2.UNIDAD = sh.Range[ "A12" ].Value2;
-						temporalOrdenTrabajo2.ANCHO = (double)sh.Range[ "A32" ].Value2;
-						temporalOrdenTrabajo2.ALTO = (double)sh.Range[ "A33" ].Value2;
-						temporalOrdenTrabajo2.SOLAPA = (double)sh.Range[ "A68" ].Value2;
-						temporalOrdenTrabajo2.FUELLELATERAL = (double)sh.Range[ "A69" ].Value2;
-						temporalOrdenTrabajo2.FUELLEFONDO = (double)sh.Range[ "A70" ].Value2;
-						temporalOrdenTrabajo2.COPETE = (double)sh.Range[ "A71" ].Value2;
-						temporalOrdenTrabajo2.AREASELLOREV = (double)sh.Range[ "A72" ].Value2;
-						temporalOrdenTrabajo2.AREASELLOFONDO = (double)sh.Range[ "A73" ].Value2;
-						temporalOrdenTrabajo2.TIPOIMPRESION = (int)sh.Range[ "A14" ].Value2;
-						temporalOrdenTrabajo2.TIPOTRABAJO = (int)sh.Range[ "A15" ].Value2;
-						temporalOrdenTrabajo2.REPEJE = (double)sh.Range[ "A9" ].Value2;
-						temporalOrdenTrabajo2.REPDES = (double)sh.Range[ "A10" ].Value2;
-						temporalOrdenTrabajo2.MATBASE = sh.Range[ "A26" ].Value2;
-						temporalOrdenTrabajo2.MATBASECALIBRE = (double)sh.Range[ "A23" ].Value2;
-						temporalOrdenTrabajo2.MATBASEKG = (double)sh.Range[ "A29" ].Value2;
-						temporalOrdenTrabajo2.MATLAMINACION = sh.Range[ "A27" ].Value2;
-						temporalOrdenTrabajo2.MATLAMINACIONCALIBRE = (double)sh.Range[ "A24" ].Value2;
-						temporalOrdenTrabajo2.MATLAMINACIONKG = (double)sh.Range[ "A30" ].Value2;
-						temporalOrdenTrabajo2.MATTRILAMINACION = sh.Range[ "A28" ].Value2;
-						temporalOrdenTrabajo2.MATTRILAMINACIONCALIBRE = sh.Range[ "A25" ].Value2;
-						temporalOrdenTrabajo2.MATTRILAMINACIONKG = (double)sh.Range[ "A31" ].Value2;
-						temporalOrdenTrabajo2.CLAVEINTELISIS = sh.Range[ "A3" ].Text;
-						temporalOrdenTrabajo2.ORDENCOMPRA = sh.Range[ "A4" ].Text;
-						temporalOrdenTrabajo2.IMPRESORA = sh.Range[ "A16" ].Text;
-						temporalOrdenTrabajo2.RODILLO = sh.Range[ "A17" ].Value2;
-						temporalOrdenTrabajo2.FIGURASALIDAFINAL = (int)sh.Range[ "A8" ].Value2;
-						temporalOrdenTrabajo2.INSTCORTE = sh.Range[ "A34" ].Value2;
-						temporalOrdenTrabajo2.INSTDOBLADO = sh.Range[ "A35" ].Value2;
-						temporalOrdenTrabajo2.INSTEMBOBINADO = sh.Range[ "A36" ].Value2;
-						temporalOrdenTrabajo2.INSTEXTRUSION = sh.Range[ "A53" ].Value2;
-						temporalOrdenTrabajo2.INSTIMPRESION = sh.Range[ "A38" ].Value2;
-						temporalOrdenTrabajo2.INSTLAMINACION = sh.Range[ "A39" ].Value2;
-						temporalOrdenTrabajo2.INSTMANGAS = sh.Range[ "A40" ].Value2;
-						temporalOrdenTrabajo2.INSTREFINADO = sh.Range[ "A41" ].Value2;
-						temporalOrdenTrabajo2.INSTSELLADO = sh.Range[ "A42" ].Value2;
-						temporalOrdenTrabajo2.OBSERVACIONES = sh.Range[ "A43" ].Value2;
-						temporalOrdenTrabajo2.ESIMPRESO = sh.Range[ "A13" ].Value2;
-						temporalOrdenTrabajo2.KGXMILL = (double)sh.Range[ "A18" ].Value2;
-						temporalOrdenTrabajo2.MATBASEAMU = (double)sh.Range[ "A20" ].Value2;
-						temporalOrdenTrabajo2.EXTIPO = sh.Range[ "A45" ].Value2;
-						temporalOrdenTrabajo2.EXCOLOR = sh.Range[ "A46" ].Value2;
-						temporalOrdenTrabajo2.EXTRATADO = sh.Range[ "A47" ].Value2;
-						temporalOrdenTrabajo2.EXDINAS = sh.Range[ "A48" ].Value2;
-						temporalOrdenTrabajo2.EXDESLIZ = sh.Range[ "A49" ].Value2;
-						temporalOrdenTrabajo2.EXANTIESTATICA = sh.Range[ "A50" ].Value2;
-						temporalOrdenTrabajo2.MATLAMINACIONAMU = (double)sh.Range[ "A21" ].Value2;
-						temporalOrdenTrabajo2.MATTRILAMINACIONAMU = (double)sh.Range[ "A22" ].Value2;
-						temporalOrdenTrabajo2.EXKG = sh.Range[ "A51" ].Value2;
-						temporalOrdenTrabajo2.EXANCHO = sh.Range[ "A52" ].Value2;
-						temporalOrdenTrabajo2.CLAVEPRODUCTO = "-";
-						temporalOrdenTrabajo2.EMPATES = "";
-
-						dataBaseContexto.tempOt.AddOrUpdate ( o => o.OT, temporalOrdenTrabajo2 );
-
-						TEMPCAPT tempcapt2 = new TEMPCAPT ( );
-
-						tempcapt2.OT = objectValue;
-						tempcapt2.DISENIOAUT = sh.Range[ "A54" ].Value2;
-						tempcapt2.CENTROS = (int)sh.Range[ "A55" ].Value2;
-						tempcapt2.TINTA = (double)sh.Range[ "A56" ].Value2;
-						tempcapt2.ADH1 = (double)sh.Range[ "A57" ].Value2;
-						tempcapt2.ADH2 = (double)sh.Range[ "A58" ].Value2;
-						tempcapt2.AJUIMP = (double)sh.Range[ "A59" ].Value2;
-						tempcapt2.LAMIMP = (double)sh.Range[ "A60" ].Value2;
-						tempcapt2.TRIIMP = (double)sh.Range[ "A60" ].Value2;
-						tempcapt2.AJULAM = (double)sh.Range[ "A62" ].Value2;
-						tempcapt2.LAMLAM = (double)sh.Range[ "A63" ].Value2;
-						tempcapt2.TRILAM = (double)sh.Range[ "A64" ].Value2;
-						tempcapt2.AJUTRI = (double)sh.Range[ "A65" ].Value2;
-						tempcapt2.TRITRI = (double)sh.Range[ "A66" ].Value2;
-						tempcapt2.ESPECIAL = sh.Range[ "X4" ].Value2 = true ? 1 : 0;
-						tempcapt2.ESPECIALLAM = sh.Range[ "X3" ].Value2 = true ? 1 : 0;
-						tempcapt2.ESPECIALREF = sh.Range[ "X2" ].Value2 = true ? 1 : 0;
-						tempcapt2.PORCTOLERANCIA = (double)sh.Range[ "E21" ].Value2;
-						tempcapt2.ZIPPER = sh.Range[ "F19" ].Value2 ? 1 : 0;
-						tempcapt2.ADHPERM = sh.Range[ "F20" ].Value2 ? 1 : 0;
-						tempcapt2.ADHREM = sh.Range[ "F21" ].Value2 ? 1 : 0;
-						tempcapt2.EX1 = sh.Range[ "I49" ].Value2 ? 1 : 0;
-						tempcapt2.EX2 = sh.Range[ "I50" ].Value2 ? 1 : 0;
-						tempcapt2.EX3 = sh.Range[ "I51" ].Value2 ? 1 : 0;
-						tempcapt2.ML = (int)sh.Range[ "A74" ].Value2;
-						tempcapt2.ZIPPER_TYPE = (int)sh.Range[ "G18" ].Value2;
-						tempcapt2.MERMAPROCESO = (double)sh.Range[ "A75" ].Value2;
-						tempcapt2.ENABLED = DisponibleConsulta ? 1 : 0;
-						tempcapt2.FechaCaptura = DateTime.Now;
-						tempcapt2.ReferenciaFigura = sh.Range[ "A76" ].Value2;
-
-						dataBaseContexto.TEMPCAPT.AddOrUpdate ( O => O.OT, tempcapt2 );
-						dataBaseContexto.SaveChanges ( );
+						bool isShort = short.TryParse ( sh.Range[ "A8" ].Value2.ToString ( ), out FiguraSalida );
+						if ( isShort && FiguraSalida <= 0 ) throw new Exception ( "No se ha indicado ninguna figura valida" );
+						if ( sh.Range[ "A76" ].Text.Trim ( ) == "" ) throw new Exception ( "No se indicó ninguna referencia para la figura de salida" );
 					}
 
+					if ( MessageBox.Show ( "La OT Estara disponible para consulta?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes ) DisponibleConsulta = true;
 
-					NotifyIcon ntMsg = Globals.ThisAddIn.ntMSG;
-					ntMsg.BalloonTipIcon = ToolTipIcon.Info;
-					ntMsg.BalloonTipText = "Correcto...";
-					ntMsg.BalloonTipTitle = "Ok";
-					ntMsg.ShowBalloonTip ( 500 );
+					TemporalOrdenTrabajo ot = new TemporalOrdenTrabajo ( );
+					ot.TIPO = (TemporalOrdenTrabajo.Tipos)sh.Range[ "A1" ].Value2;
+					ot.FECHARECIBIDO = DateTime.FromOADate ( sh.Range[ "A6" ].Value2 );
+					ot.OT = OT_Number;
+					ot.FECHAENTREGASOL = DateTime.FromOADate ( sh.Range[ "A7" ].Value2 );
+					ot.CLIENTE = sh.Range[ "A11" ].Value2;
+					ot.PRODUCTO = sh.Range[ "A44" ].Value2;
+					ot.CANTIDAD = (double)sh.Range[ "A19" ].Value2;
+					ot.UNIDAD = sh.Range[ "A12" ].Value2;
+					ot.ANCHO = (double)sh.Range[ "A32" ].Value2;
+					ot.ALTO = (double)sh.Range[ "A33" ].Value2;
+					ot.SOLAPA = (double)sh.Range[ "A68" ].Value2;
+					ot.FUELLELATERAL = (double)sh.Range[ "A69" ].Value2;
+					ot.FUELLEFONDO = (double)sh.Range[ "A70" ].Value2;
+					ot.COPETE = (double)sh.Range[ "A71" ].Value2;
+					ot.AREASELLOREV = (double)sh.Range[ "A72" ].Value2;
+					ot.AREASELLOFONDO = (double)sh.Range[ "A73" ].Value2;
+					ot.TIPOIMPRESION = (int)sh.Range[ "A14" ].Value2;
+					ot.TIPOTRABAJO = (int)sh.Range[ "A15" ].Value2;
+					ot.REPEJE = (double)sh.Range[ "A9" ].Value2;
+					ot.REPDES = (double)sh.Range[ "A10" ].Value2;
+					ot.MATBASE = sh.Range[ "A26" ].Value2;
+					ot.MATBASECALIBRE = (double)sh.Range[ "A23" ].Value2;
+					ot.MATBASEKG = (double)sh.Range[ "A29" ].Value2;
+					ot.MATLAMINACION = sh.Range[ "A27" ].Value2;
+					ot.MATLAMINACIONCALIBRE = (double)sh.Range[ "A24" ].Value2;
+					ot.MATLAMINACIONKG = (double)sh.Range[ "A30" ].Value2;
+					ot.MATTRILAMINACION = sh.Range[ "A28" ].Value2;
+					ot.MATTRILAMINACIONCALIBRE = sh.Range[ "A25" ].Value2;
+					ot.MATTRILAMINACIONKG = (double)sh.Range[ "A31" ].Value2;
+					ot.CLAVEINTELISIS = sh.Range[ "A3" ].Text.Trim();
+					ot.ORDENCOMPRA = sh.Range[ "A4" ].Text;
+					ot.IMPRESORA = sh.Range[ "A16" ].Text;
+					ot.RODILLO = sh.Range[ "A17" ].Value2;
+					ot.FIGURASALIDAFINAL = (int)sh.Range[ "A8" ].Value2;
+					ot.INSTCORTE = sh.Range[ "A34" ].Value2;
+					ot.INSTDOBLADO = sh.Range[ "A35" ].Value2;
+					ot.INSTEMBOBINADO = sh.Range[ "A36" ].Value2;
+					ot.INSTEXTRUSION = sh.Range[ "A53" ].Value2;
+					ot.INSTIMPRESION = sh.Range[ "A38" ].Value2;
+					ot.INSTLAMINACION = sh.Range[ "A39" ].Value2;
+					ot.INSTMANGAS = sh.Range[ "A40" ].Value2;
+					ot.INSTREFINADO = sh.Range[ "A41" ].Value2;
+					ot.INSTSELLADO = sh.Range[ "A42" ].Value2;
+					ot.OBSERVACIONES = sh.Range[ "A43" ].Value2;
+					ot.ESIMPRESO = sh.Range[ "A13" ].Value2;
+					ot.KGXMILL = (double)sh.Range[ "A18" ].Value2;
+					ot.MATBASEAMU = (double)sh.Range[ "A20" ].Value2;
+					ot.EXTIPO = sh.Range[ "A45" ].Value2;
+					ot.EXCOLOR = sh.Range[ "A46" ].Value2;
+					ot.EXTRATADO = sh.Range[ "A47" ].Value2;
+					ot.EXDINAS = sh.Range[ "A48" ].Value2;
+					ot.EXDESLIZ = sh.Range[ "A49" ].Value2;
+					ot.EXANTIESTATICA = sh.Range[ "A50" ].Value2;
+					ot.MATLAMINACIONAMU = (double)sh.Range[ "A21" ].Value2;
+					ot.MATTRILAMINACIONAMU = (double)sh.Range[ "A22" ].Value2;
+					ot.EXKG = sh.Range[ "A51" ].Value2;
+					ot.EXANCHO = sh.Range[ "A52" ].Value2;
+					ot.CLAVEPRODUCTO = "-";
+					ot.EMPATES = "";
 
-					if ( Properties.Settings.Default.AutomaticSaveBook )
-					{
-						this.EXAPP.StatusBar = (object)"Guardando Libro...";
-						System.Threading.Thread.Sleep ( 1000 );
-						this.GuardarLibro ( );
-					}
+					dataBaseContexto.tempOt.AddOrUpdate ( o => o.OT, ot );
+
+					TEMPCAPT tc = new TEMPCAPT ( );
+
+					tc.OT = OT_Number;
+					tc.DISENIOAUT = sh.Range[ "A54" ].Value2;
+					tc.CENTROS = (int)sh.Range[ "A55" ].Value2;
+					tc.TINTA = (double)sh.Range[ "A56" ].Value2;
+					tc.ADH1 = (double)sh.Range[ "A57" ].Value2;
+					tc.ADH2 = (double)sh.Range[ "A58" ].Value2;
+					tc.AJUIMP = (double)sh.Range[ "A59" ].Value2;
+					tc.LAMIMP = (double)sh.Range[ "A60" ].Value2;
+					tc.TRIIMP = (double)sh.Range[ "A61" ].Value2;
+					tc.AJULAM = (double)sh.Range[ "A62" ].Value2;
+					tc.LAMLAM = (double)sh.Range[ "A63" ].Value2;
+					tc.TRILAM = (double)sh.Range[ "A64" ].Value2;
+					tc.AJUTRI = (double)sh.Range[ "A65" ].Value2;
+					tc.TRITRI = (double)sh.Range[ "A66" ].Value2;
+					tc.ESPECIAL = sh.Range[ "X4" ].Value == true ? 1 : 0;
+					tc.ESPECIALLAM = sh.Range[ "X3" ].Value == true ? 1 : 0;
+					tc.ESPECIALREF = (int)sh.Range[ "X2" ].Value2;
+					tc.PORCTOLERANCIA = (double)sh.Range[ "E21" ].Value2;
+					tc.ZIPPER = sh.Range[ "F19" ].Value == true ? 1 : 0;
+					tc.ADHPERM = sh.Range[ "F20" ].Value == true ? 1 : 0;
+					tc.ADHREM = sh.Range[ "F21" ].Value == true ? 1 : 0;
+					tc.EX1 = sh.Range[ "I49" ].Value == true ? 1 : 0;
+					tc.EX2 = sh.Range[ "I50" ].Value == true ? 1 : 0;
+					tc.EX3 = sh.Range[ "I51" ].Value == true ? 1 : 0;
+					tc.ML = (int)sh.Range[ "A74" ].Value2;
+					tc.ZIPPER_TYPE = (int)sh.Range[ "G18" ].Value2;
+					tc.MERMAPROCESO = (double)sh.Range[ "A75" ].Value2;
+					tc.ENABLED = DisponibleConsulta ? 1 : 0;
+					tc.FechaCaptura = DateTime.Now;
+					tc.ReferenciaFigura = sh.Range[ "A76" ].Value2;
+
+					dataBaseContexto.TEMPCAPT.AddOrUpdate ( O => O.OT, tc );
+					dataBaseContexto.SaveChanges ( );
 				}
-				else throw new Exception ( "El libro y la hoja que desea usar no corresponde al archivo relacionado con el Complemento" );
+
+
+				NotifyIcon ntMsg = Globals.ThisAddIn.ntMSG;
+				ntMsg.BalloonTipIcon = ToolTipIcon.Info;
+				ntMsg.BalloonTipText = "Correcto...";
+				ntMsg.BalloonTipTitle = "Ok";
+				ntMsg.ShowBalloonTip ( 500 );
+
+				if ( !Properties.Settings.Default.AutomaticSaveBook )
+				{
+					this.EXAPP.StatusBar = (object)"Guardando Libro...";
+					System.Threading.Thread.Sleep ( 1000 );
+					this.GuardarLibro ( );
+				}
+
 			}
 			catch ( Exception ex )
 			{
@@ -269,7 +271,8 @@ namespace CapturaOrdenesTrabajo_AddIn
 					var ordenTrabajo = temp.OrdenTrabajo;
 
 
-					sw.Range[ "C1" ].Value = ordenTrabajo.TIPO.ToString ( );
+
+					sw.Range[ "C1" ].Value = getNameTipo ( (int)ordenTrabajo.TIPO );//System.Text.RegularExpressions.Regex.Replace ( ordenTrabajo.TIPO.ToString ( ), "[A-Z]", " $0" ).TrimStart().TrimEnd().ToUpper();//Regex.Replace( ordenTrabajo.TIPO.ToString ( ), "");
 					sw.Range[ "C2" ].Value = Local_Ot; sw.Range[ "C4" ].Value = ordenTrabajo.CLIENTE;
 					sw.Range[ "C5" ].Value = ordenTrabajo.PRODUCTO;
 					sw.Range[ "C3" ].Value = ordenTrabajo.FECHARECIBIDO;
@@ -355,17 +358,17 @@ namespace CapturaOrdenesTrabajo_AddIn
 					sw.Range[ "D38" ].Value = temp.TRILAM.ToString ( "0.00000" );
 					sw.Range[ "E36" ].Value = temp.AJUTRI.ToString ( "0.00000" );
 					sw.Range[ "E38" ].Value = temp.TRITRI.ToString ( "0.00000" );
-					sw.Range[ "X4" ].Value = ( (uint)temp.ESPECIAL > 0U );
-					sw.Range[ "X3" ].Value = ( (uint)temp.ESPECIALLAM > 0U );
+					sw.Range[ "X4" ].Value = temp.ESPECIAL != 0 ? true : false ;
+					sw.Range[ "X3" ].Value = temp.ESPECIALLAM != 0 ? true : false;
 
 					sw.Range[ "X2" ].Value = temp.ESPECIALREF;
-					sw.Range[ "F19" ].Value = ( (uint)temp.ZIPPER > 0U );
-					sw.Range[ "F20" ].Value = ( (uint)temp.ADHPERM > 0U );
-					sw.Range[ "F21" ].Value = ( (uint)temp.ADHREM > 0U );
+					sw.Range[ "F19" ].Value = temp.ZIPPER != 0 ? true : false;
+					sw.Range[ "F20" ].Value = temp.ADHPERM != 0 ? true : false;
+					sw.Range[ "F21" ].Value = temp.ADHREM != 0 ? true : false;
 					sw.Range[ "E21" ].Value = temp.PORCTOLERANCIA.ToString ( "0.00000" );
-					sw.Range[ "I49" ].Value = ( (uint)temp.EX1 > 0U );
-					sw.Range[ "I50" ].Value = ( (uint)temp.EX2 > 0U );
-					sw.Range[ "I51" ].Value = ( (uint)temp.EX3 > 0U );
+					sw.Range[ "I49" ].Value = temp.EX1 != 0 ? true : false;
+					sw.Range[ "I50" ].Value = temp.EX2 != 0 ? true : false;
+					sw.Range[ "I51" ].Value = temp.EX3 != 0 ? true : false;
 					sw.Range[ "G18" ].Value = temp.ZIPPER_TYPE.ToString ( "0" );
 					sw.Range[ "E7" ].Value = temp.ReferenciaFigura != null ? temp.ReferenciaFigura : "";
 				}
@@ -558,7 +561,7 @@ namespace CapturaOrdenesTrabajo_AddIn
 				sw.Range[ "F19" ].Value = false;
 				sw.Range[ "F20" ].Value = false;
 				sw.Range[ "F21" ].Value = false;
-				sw.Range[ "E21" ].Value = 0.05;
+				sw.Range[ "E21" ].Value = 0.06;
 				sw.Range[ "E7" ].Value = "";
 				sw.Range[ "I49" ].Value = false;
 				sw.Range[ "I50" ].Value = false;

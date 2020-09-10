@@ -63,9 +63,9 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add {
+        internal static System.Drawing.Bitmap add2 {
             get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
+                object obj = ResourceManager.GetObject("add2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap broom {
+        internal static System.Drawing.Bitmap adjustment {
             get {
-                object obj = ResourceManager.GetObject("broom", resourceCulture);
+                object obj = ResourceManager.GetObject("adjustment", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cog {
+        internal static System.Drawing.Bitmap book_2 {
             get {
-                object obj = ResourceManager.GetObject("cog", resourceCulture);
+                object obj = ResourceManager.GetObject("book_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap excel_imports {
+        internal static System.Drawing.Bitmap cog_gear {
             get {
-                object obj = ResourceManager.GetObject("excel_imports", resourceCulture);
+                object obj = ResourceManager.GetObject("cog_gear", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,29 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap magnifier {
+        internal static System.Drawing.Bitmap document {
             get {
-                object obj = ResourceManager.GetObject("magnifier", resourceCulture);
+                object obj = ResourceManager.GetObject("document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap erase {
+            get {
+                object obj = ResourceManager.GetObject("erase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass {
+            get {
+                object obj = ResourceManager.GetObject("magnifying_glass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -117,26 +137,6 @@ namespace CapturaOrdenesTrabajo_AddIn.Properties {
             get {
                 object obj = ResourceManager.GetObject("OTICON", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap page_excel {
-            get {
-                object obj = ResourceManager.GetObject("page_excel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_as_excel {
-            get {
-                object obj = ResourceManager.GetObject("save_as_excel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
