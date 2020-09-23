@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace libProduccionDataBase.Tablas.VariablesCriticas
 {
-	[Table ( "VC_Root" )]
+	[Table("VC_Root")]
 	public class VariablesCriticasRoot
 	{
 		/// <summary>
 		/// Clave de diseño a la que se asignaran las Variables Criticas
 		/// </summary>
-		[Key, ForeignKey ( "Estructura" ), Column ( "ClaveDiseno" )]
+		[Key, Column("ClaveDiseno")]
 		public string ClaveDiseño { get; set; }
 
 		/// <summary>
@@ -23,19 +23,9 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public string RutaImagenFigura { get; set; }
 
 		/// <summary>
-		/// Fecha en la que se captura el elemento
-		/// </summary>
-		public DateTime FechaCaptura { get; set; }
-
-		/// <summary>
-		/// Datos de los elementos que participan en la produccion del diseño
-		/// </summary>
-		public virtual Estructura Estructura { get; set; }
-
-		/// <summary>
 		/// Tamaño de fotocelda
 		/// </summary>
-		public VCStr Fotocelda { get; set; } = new VCStr ( "cmXcm" );
+		public VCStr Fotocelda { get; set; } = new VCStr("mm");
 
 		/// <summary>
 		/// Numero de Codigo de Barras
@@ -43,64 +33,45 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public string CodigoBarras { get; set; }
 
 		/// <summary>
-		/// Coleccion de datos de impresion, un diseño puede imprimirse en diferentes impresoras.
+		/// Ancho del material en el proceso de impresion, contien los valores de tolerancia
 		/// </summary>
-		public virtual ObservableListSource<DatosImpresion> DatosImpresion { get; set; }
-
-	}
-
-
-	#region Estructura
-
-	/// <summary>
-	/// Contenedor de los elementos de una estructura para un diseño.
-	/// </summary>
-	[Table ( "VC_Estructura" )]
-	public class Estructura
-	{
-		/// <summary>
-		/// Diseño al que pertenece la estructura
-		/// </summary>
-		[Key, Column ( "ClaveDiseno" )]
-		public string ClaveDiseño { get; set; }
+		public VCNum Ancho { get; set; } = new VCNum("cm");
 
 		/// <summary>
-		/// Fecha en que se captura por primera vez el elemento
+		/// Alto o repeticion del diseño en el proceso de impresión, contien los valores de tolerancia
 		/// </summary>
-		public DateTime FechaCaptura { get; set; }
+		public VCNum Alto { get; set; } = new VCNum("cm");
 
 		/// <summary>
-		/// Fecha de la ultima actualizacion del elemento
+		/// Numero de sobre viajero que contiene la informacion del producto asociado al diseño
 		/// </summary>
-		public DateTime FechaUltimaActualizacion { get; set; }
+		public string NumeroSobre { get; set; }
+
+		public virtual ObservableListSource<BaseProcesos> Procesos { get; set; } = new ObservableListSource<BaseProcesos>();
+
+		public virtual ObservableListSource<Tablas.TemporalOrdenTrabajo> OrdenesTrabajo { get; set; } = new ObservableListSource<TemporalOrdenTrabajo>();
 
 		/// <summary>
-		/// Lista de elementos que pertenecen a la estructura
+		/// Datos de los elementos que participan en la produccion del diseño
 		/// </summary>
-		public virtual ObservableListSource<EstructuraItems> Items { get; set; }
+		public virtual ObservableListSource<EstructuraItems> EstructuraItems { get; set; } = new ObservableListSource<VariablesCriticas.EstructuraItems>();
 
-		/// <summary>
-		/// Conversion a texto para la presentacion en el formato de Variables Criticas o en el DGrid
-		/// </summary>
-		/// <returns></returns>
-		public override string ToString ()
+		[NotMapped]
+		public string Estructura
 		{
-			// Reviso que la estructura tenga elementos
-			if ( Items != null && Items.Count > 0 )
+			get
 			{
-				return "Datos"; // TODO: realizar adecuaciones para presentacion de las cadena en el reporte
-			}
-			else
-			{
-				return "Sin Datos";
+				return "datos de la estructura\nTODO: modificar cosntructor del string"; // TODO: Falta desarrollo
 			}
 		}
 	}
 
+	#region Estructura
+
 	/// <summary>
 	/// Item que contiene los datos para un elemto de la estructura
 	/// </summary>
-	[Table ( "VC_Estructura_Items" )]
+	[Table("VC_Estructura_Items")]
 	public class EstructuraItems
 	{
 		/// <summary>
@@ -111,13 +82,13 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		/// <summary>
 		/// Diseño al que pertenece el Item
 		/// </summary>
-		[Key, Column ( "ClaveDiseno", Order = 0 )]
+		[Key, Column("ClaveDiseno", Order = 0)]
 		public string ClaveDiseño { get; set; }
 
 		/// <summary>
 		/// Posicion del elemento en la estructura
 		/// </summary>
-		[Key, Column ( Order = 1 )]
+		[Key, Column(Order = 1)]
 		public int Posicion { get; set; }
 
 		/// <summary>
@@ -138,13 +109,12 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		/// <summary>
 		/// Unidad del calibre
 		/// </summary>
-		public Unidades_Calibre UnidadCalibre { get; set; } = Unidades_Calibre.Um;
+		public Unidades_Calibre UnidadCalibre { get; set; } = Unidades_Calibre.NA;
 
 		/// <summary>
 		/// Descripcion o comentarios del elemento
 		/// </summary>
 		public string Descripcion { get; set; }
-
 
 		/// <summary>
 		///  Indica si el elemento es utilizado para impresión
@@ -159,16 +129,19 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		/// <summary>
 		/// Indica el Tratado que debe tener un elemento si es un sustrato. por defecto 38 Dinas
 		/// </summary>
-		public VCStr Tratado { get; set; } = new VCStr ( "Dinas", "38", "38", ">38" );
+		public VCStr Tratado { get; set; } = new VCStr("Dinas", "38", "38", ">38");
 
-		// public virtual Estructura Estructura { get; set; }
+		[ForeignKey("ClaveDiseño")]
+		public virtual VariablesCriticasRoot Root { get; set; }
 	}
 	#endregion
 
 	#region Procesos
-	#region Impresion
-	[Table ( "VC_Impresion" )]
-	public class DatosImpresion
+
+	/// <summary>
+	/// Contiene los datos de las variables criticas del proceso de impresión para una impresora especifica
+	/// </summary>
+	public class DatosImpresion : BaseProcesos
 	{
 		/// <summary>
 		/// Se utiliza para seleccionar el tipo de parametros que se rellenearan en el formato
@@ -176,26 +149,9 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public enum TiposImpresora { gearless, engranes }
 
 		/// <summary>
-		/// Clave de diseño al quue esta asociada la informacion
-		/// </summary>
-		[Key, Column ( "ClaveDiseno", Order = 0 )]
-		public string ClaveDiseño { get; set; }
-
-		/// <summary>
-		/// Id de la maquina Impresora
-		/// </summary>
-		[Key, Column ( Order = 1 ), ForeignKey ( "Maquina" )]
-		public int MaquinaId { get; set; }
-
-		/// <summary>
 		///  Tipo de impresora al que pertenece la informacion (gearless o engranes)
 		/// </summary>
 		public TiposImpresora TipoImpresora { get; set; }
-
-		/// <summary>
-		/// Figura de salida del proceso de impresión
-		/// </summary>
-		public int FiguraSalida { get; set; }
 
 		/// <summary>
 		/// Tipo de tinta que se utilizará para procesar el producto
@@ -203,205 +159,339 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public string TipoTinta { get; set; }
 
 		/// <summary>
-		/// Numero de sobre viajero que contiene la informacion del producto asociado al diseño
+		/// Parametro 
 		/// </summary>
-		public string NumeroSobre { get; set; }
-
-		/// <summary>
-		/// Ancho del material en el proceso de impresion, contien los valores de tolerancia
-		/// </summary>
-		public VCNum Ancho { get; set; } = new VCNum ( "cm" );
-
-		/// <summary>
-		/// Alto o repeticion del diseño en el proceso de impresión, contien los valores de tolerancia
-		/// </summary>
-		public VCNum Alto { get; set; } = new VCNum ( "cm" );
-
-		/// <summary>
-		/// Dureza que deberan tener las bobinas resultantes, el valor predeterminado es min:26 std:36 max:46
-		/// </summary>
-		public VCNum Dureza { get; set; } = new VCNum ( "cm", 36, 26, 46 );
-
-		/// <summary>
-		/// Velocidad registrada para la produccion del producto
-		/// </summary>
-		public VCNum Velocidad { get; set; } = new VCNum ( "m/min" );
+		public VCNum ParametroPresionRodilloPisorCalandra { get; set; } = new VCNum("Bar");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCNum PresionRodilloPisorCalandra { get; set; } = new VCNum ( "Bar" );
+		public VCNum ParametroPresionRodilloTamborCentral { get; set; } = new VCNum("Bar");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCNum PresionRodilloTamborCentral { get; set; } = new VCNum ( "Bar" );
+		public VCNum ParametroPresionRodilloPisorEmbobinador { get; set; } = new VCNum("Bar");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCNum PresionRodilloPisorEmbobinador { get; set; } = new VCNum ( "Bar" );
+		public VCNum ParametroTensionEmbobinador { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCNum PotenciaTratador { get; set; } = new VCNum ( "m/%" );
+		public VCNum ParametroTensionBanda { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCNum TensionEmbobinador { get; set; } = new VCNum ( "N" );
-
-		/// <summary>
-		/// Parametro 
-		/// </summary>
-		public VCNum TensionBanda { get; set; } = new VCNum ( "N" );
-
-		/// <summary>
-		/// Parametro 
-		/// </summary>
-		public VCNum TensionArrastreODesbobinador { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroTensionArrastreODesbobinador { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro Gearless 
 		/// </summary>
-		public VCNum G_TensionRodilloRefrigerante { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroGearlessTensionRodilloRefrigerante { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro Grarless
 		/// </summary>
-		public VCNum G_FuerzaApriete { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroGearlessFuerzaApriete { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro Grarless
 		/// </summary>
-		public VCNum G_IndiceReduccion { get; set; } = new VCNum ( "%" );
+		public double? ParametroGearlessDiametroInicial { get; set; }
 
 		/// <summary>
 		/// Parametro Grarless
 		/// </summary>
-		public double? G_DiametroInicial { get; set; }
-
-		/// <summary>
-		/// Parametro Grarless
-		/// </summary>
-		public double? G_DiametroFinal { get; set; }
+		public double? ParametroGearlessDiametroFinal { get; set; }
 
 		/// <summary>
 		/// Parametro Engranes
 		/// </summary>
-		public VCNum E_PresionBalancinEmbobinador { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroEngranesPresionBalancinEmbobinador { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro Engranes
 		/// </summary>
-		public VCNum E_PresionBalancinDesbobinador { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroEngranesPresionBalancinDesbobinador { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro Engranes
 		/// </summary>
-		public VCNum E_Offset { get; set; } = new VCNum ( "N" );
+		public VCNum ParametroEngranesOffset { get; set; } = new VCNum("N");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCStr TemperaturaPuente { get; set; } = new VCStr ( "°C" );
+		public VCStr ParametroTemperaturaPuente { get; set; } = new VCStr("°C");
 
 		/// <summary>
 		/// Parametro 
 		/// </summary>
-		public VCStr TemperaturaEntrecolores { get; set; } = new VCStr ( "°C" );
+		public VCStr ParametroTemperaturaEntrecolores { get; set; } = new VCStr("°C");
 
-		/// <summary>
-		/// Comentarios sobre la informacion del proceso de impresión
-		/// </summary>
-		public string Comentarios { get; set; }
+		[InverseProperty("DatosImpresion")]
+		public virtual ObservableListSource<DeckImpresion> Decks { get; set; } = new ObservableListSource<DeckImpresion>();
 
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 1
+		///// </summary>
+		//public DeckImpresion Unidad1 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 1
-		/// </summary>
-		public DeckImpresion Unidad1 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 2
+		///// </summary>
+		//public DeckImpresion Unidad2 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 2
-		/// </summary>
-		public DeckImpresion Unidad2 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 3
+		///// </summary>
+		//public DeckImpresion Unidad3 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 3
-		/// </summary>
-		public DeckImpresion Unidad3 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 4
+		///// </summary>
+		//public DeckImpresion Unidad4 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 4
-		/// </summary>
-		public DeckImpresion Unidad4 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 5
+		///// </summary>
+		//public DeckImpresion Unidad5 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 5
-		/// </summary>
-		public DeckImpresion Unidad5 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 6
+		///// </summary>
+		//public DeckImpresion Unidad6 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 6
-		/// </summary>
-		public DeckImpresion Unidad6 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 7
+		///// </summary>
+		//public DeckImpresion Unidad7 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 7
-		/// </summary>
-		public DeckImpresion Unidad7 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 8
+		///// </summary>
+		//public DeckImpresion Unidad8 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 8
-		/// </summary>
-		public DeckImpresion Unidad8 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 9
+		///// </summary>
+		//public DeckImpresion Unidad9 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 9
-		/// </summary>
-		public DeckImpresion Unidad9 { get; set; }
+		///// <summary>
+		///// Datos de la tinta y anilox utilizado en la unidad 10
+		///// </summary>
+		//public DeckImpresion Unidad10 { get; set; } = new DeckImpresion();
 
-		/// <summary>
-		/// Datos de la tinta y anilox utilizado en la unidad 10
-		/// </summary>
-		public DeckImpresion Unidad10 { get; set; }
-
-
-		/// <summary>
-		/// Fecha en que se realizó la captura de la información
-		/// </summary>
-		public DateTime FechaCaptura { get; set; }
-
-		/// <summary>
-		/// Fecha de la ultima actualización de la información
-		/// </summary>
-		public DateTime FechaActualizacion { get; set; }
-
-
-		/// <summary>
-		/// Datos de la maquina asociada a la informacion
-		/// </summary>
-		public virtual Maquina Maquina { get; set; }
-
-		/// <summary>
-		/// Constructor de la clase
-		/// </summary>
-		public DatosImpresion ()
-		{
-			FechaCaptura = DateTime.Now;
-		}
 	}
-	#endregion
 
-	#region Laminacion
-	[Table ( "VC_Laminacion" )]
-	public class DatosLaminacion
+	/// <summary>
+	/// Clase contenedora de los datos de una unidad de impresion, contiene informacion del color a utilizar, el anilox y los valores LAB
+	/// </summary>
+	[Table("VC_DecksImpresion")]
+	public class DeckImpresion
 	{
+		public int Id { get; set; }
+
+		[Index("UniqueDeck", IsUnique = true, Order = 0)]
+		public int IdProceso { get; set; }
+
+		[Index("UniqueDeck", IsUnique = true, Order = 1)]
+		public int Unidad { get; set; }
+
+		public string Color { get; set; }
+		public string Descripcion { get; set; }
+		public string Anilox { get; set; }
+		public string Stickyback { get; set; }
+		public double? L { get; set; }
+		public double? A { get; set; }
+		public double? B { get; set; }
+		public double? Densidad { get; set; }
+
+		[ForeignKey("IdProceso")]
+		public virtual DatosImpresion DatosImpresion { get; set; }
+	}
+
+	/// <summary>
+	/// Contiene los datos de las variables criticas del proceso de laminacion
+	/// <para>Pueden ser parametros para Laminación, Trilamianción o Tetralaminación</para>
+	/// </summary>
+	public class DatosLaminacion : BaseProcesos
+	{
+		/// <summary>
+		/// Ancho de la goma que se utiliza para el proceso de laminación
+		/// </summary>
+		public double? GomaMedida { get; set; }
+
+		/// <summary>
+		/// Ancho util de la laminacion
+		/// </summary>
+		public double? GomaAnchoUtil { get; set; }
+
+		/// <summary>
+		/// Ancho total laminado
+		/// </summary>
+		public double? GomaAnchoTotal { get; set; }
+
+		/// <summary>
+		/// Comentarios referentes al estado de la goma
+		/// </summary>
+		public string GomaComentarios { get; set; }
+
+		/// <summary>
+		/// Clave de la resina
+		/// </summary>		
+		public string AdhesivoResinaClave { get; set; }
+
+		/// <summary>
+		/// Clave del catalizador o del segundo elemento en solventbase
+		/// </summary>
+		public string AdhesivoCatalizadorClave { get; set; }
+
+		/// <summary>
+		/// Parametro Relacion de Catalizador
+		/// </summary>
+		public VCNum ParametroAdhesivoCatalizadorRelacion { get; set; } = new VCNum("%");
+
+		/// <summary>
+		/// Parametro: Aplicacion de adhesivo por metro cuadrado
+		/// </summary>
+		public VCNum ParametroAdhesivoAplicacion { get; set; } = new VCNum("");
+
+		/// <summary>
+		/// Parametro: Temperatura de la resina
+		/// </summary>
+		public VCNum ParametroTemperaturaResina { get; set; } = new VCNum("°C");
+
+		/// <summary>
+		/// Parametro: Temperatura del Catalizador
+		/// </summary>
+		public VCNum ParametroTemperaturaCatalizador { get; set; } = new VCNum("°C");
+
+		/// <summary>
+		/// Parametro: Temperatura del Rodillo Aplicador
+		/// </summary>
+		public VCNum ParametroTemperaturaRodilloAplicador { get; set; } = new VCNum("°C");
+
+		/// <summary>
+		/// Parametro: Temperatura del Rodillo Laminador
+		/// </summary>
+		public VCNum ParametroTemperaturaRodilloLaminador { get; set; } = new VCNum("°C");
+
+		/// <summary>
+		/// Parametro: Presion Rodillo Mangas 
+		/// </summary>
+		public VCNum ParametroPresionRodilloMangas { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Presion Rodillo Laminador Izquierdo 
+		/// </summary>
+		public VCNum ParametroPresionRodilloLaminadorIzquierdo { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Presion Rodillo Laminador Derecho 
+		/// </summary>
+		public VCNum ParametroPresionRodilloLaminadorDerecho { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Pesion Rodillo Presor Izquierdo 
+		/// </summary>
+		public VCNum ParametroPresionRodilloPresorIzquierdo { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Presion Rodillo Presor Derecho 
+		/// </summary>
+		public VCNum ParametroPresionRodilloPresorDerecho { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Presion Rodillo Aplicador  
+		/// </summary>
+		public VCNum ParametroPresionRodilloAplicador { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Galga Izquierdo 
+		/// </summary>
+		public VCNum ParametroGalgaIzquierda { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro:Galga Derecha 
+		/// </summary>
+		public VCNum ParametroGalgaDerecha { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Tension Desbobinador uno 
+		/// </summary>
+		public VCNum ParametroTensionDesbobinadorUno { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Tension Desbobinador dos 
+		/// </summary>
+		public VCNum ParametroTensionDesbobinadorDos { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro:Tension embobinador 
+		/// </summary>
+		public VCNum ParametroTensionBobinador { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro:Tension Puente 
+		/// </summary>
+		public VCNum ParametroTensionPuente { get; set; } = new VCNum("N");
+
+		/// <summary>
+		/// Parametro: Curling en grados
+		/// </summary>
+		public VCNum Curling { get; set; } = new VCNum("°");
+
+		/// <summary>
+		/// Parametro: Fuerza de laminado 40 minutos 
+		/// </summary>
+		public VCNum FuerzaLaminacionUno { get; set; } = new VCNum("");
+
+		/// <summary>
+		/// Parametro: Fuerza de laminado 4 horas 
+		/// </summary>
+		public VCNum FuerzaLaminacionDos { get; set; } = new VCNum("");
+
+		/// <summary>
+		/// Elemento del desbobinador Unod
+		/// </summary>
+		public string DesbobinadorUnoElemento { get; set; }
+
+		/// <summary>
+		/// Tratado del elemento del desbobinador uno
+		/// </summary>
+		public VCStr DesbobinadorUnoTratado { get; set; } = new VCStr("Dinas", "38", "38", ">38");
+
+		/// <summary>
+		/// Elemento del desbobinador dos
+		/// </summary>
+		public string DesbobinadorDosElemento { get; set; }
+
+		/// <summary>
+		/// Tratado del elemento del desbobinador dos
+		/// </summary>
+		public VCStr DesbobinadorDosTratado { get; set; } = new VCStr("Dinas", "38", "38", ">38");
+	}
+
+	public class DatosRefinado : BaseProcesos
+	{
+		public enum Cores { Tres = 3, Seis = 6 }
+		public Cores Core { get; set; } = Cores.Tres;
+		public string Marca { get; set; }
+		public string VariableSecundaria { get; set; }
+		public string VariablePrincipal { get; set; }
+		public VCStr VariablePrincipalTolerancias { get; set; }
+		public VCNum ParametroTensionDesbobinador { get; set; }
+		public VCNum ParametroTensionBobinadorSuperior { get; set; }
+		public VCNum ParametroTensionBobinadorInferior { get; set; }
+		public VCNum ParametroPresionRodilloPisorSuperior { get; set; }
+		public VCNum ParametroPresionRodilloPisorInferior { get; set; }
 
 	}
-	#endregion
 
 	#endregion
 
@@ -417,13 +507,12 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public double? Minimo { get; set; }
 		public double? Maximo { get; set; }
 		public string Unidad { get; set; }
-
-		public VCNum () { }
-		public VCNum ( string Unidad )
+		public VCNum() { }
+		public VCNum(string Unidad)
 		{
 			this.Unidad = Unidad;
 		}
-		public VCNum ( string Unidad, double Estandar, double Minimo, double Maximo )
+		public VCNum(string Unidad, double Estandar, double Minimo, double Maximo)
 		{
 			this.Unidad = Unidad;
 			this.Estandar = Estandar;
@@ -442,38 +531,22 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public string Minimo { get; set; }
 		public string Maximo { get; set; }
 		public string Unidad { get; set; }
-
-		public VCStr () { }
-		public VCStr ( string Unidad )
+		public VCStr() { }
+		public VCStr(string Unidad)
 		{
 			this.Unidad = Unidad;
 		}
-		public VCStr ( string Unidad, string Estandar, string Minimo, string Maximo )
+		public VCStr(string Unidad, string Estandar, string Minimo, string Maximo)
 		{
 			this.Unidad = Unidad;
 			this.Estandar = Estandar;
 			this.Minimo = Minimo;
 			this.Maximo = Maximo;
 		}
-
 	}
 
 
-	/// <summary>
-	/// Clase contenedora de los datos de una unidad de impresion, contiene informacion del color a utilizar, el anilox y los valores LAB
-	/// </summary>
-	[ComplexType]
-	public class DeckImpresion
-	{
-		public string Color { get; set; }
-		public string Descripcion { get; set; }
-		public string Anilox { get; set; }
-		public string Stickyback { get; set; }
-		public double? L { get; set; }
-		public double? A { get; set; }
-		public double? B { get; set; }
-		public double? Densidad { get; set; }
 
-	}
+
 	#endregion
 }

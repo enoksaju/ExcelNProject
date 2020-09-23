@@ -123,27 +123,30 @@
   <metadata name="VSTheme.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>135, 17</value>
   </metadata>
-  <metadata name="VSTheme.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="kryptonPalette1.ButtonSpecs.FormClose.ColorMap" type="System.Drawing.Color, System.Drawing">
+  <data name="VSTheme.ButtonSpecs.FormClose.ColorMap" type="System.Drawing.Color, System.Drawing">
     <value>63, 63, 70</value>
   </data>
-  <data name="kryptonPalette1.ButtonSpecs.FormMax.ColorMap" type="System.Drawing.Color, System.Drawing">
+  <data name="VSTheme.ButtonSpecs.FormMax.ColorMap" type="System.Drawing.Color, System.Drawing">
     <value>63, 63, 70</value>
   </data>
-  <data name="kryptonPalette1.ButtonSpecs.FormMin.ColorMap" type="System.Drawing.Color, System.Drawing">
+  <data name="VSTheme.ButtonSpecs.FormMin.ColorMap" type="System.Drawing.Color, System.Drawing">
     <value>63, 63, 70</value>
   </data>
-  <data name="kryptonPalette1.ButtonSpecs.FormRestore.ColorMap" type="System.Drawing.Color, System.Drawing">
+  <data name="VSTheme.ButtonSpecs.FormRestore.ColorMap" type="System.Drawing.Color, System.Drawing">
     <value>63, 63, 70</value>
   </data>
   <metadata name="barraEstado.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>238, 17</value>
   </metadata>
   <data name="barraEstado.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12world</value>
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="tsLblStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 17</value>
+  </data>
+  <data name="tsLblStatus.Text" xml:space="preserve">
+    <value>Listo</value>
   </data>
   <data name="barraEstado.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 387</value>
@@ -174,37 +177,7 @@
     <value>354, 17</value>
   </metadata>
   <data name="mainMenu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12world</value>
-  </data>
-  <data name="archivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
-  <data name="archivoToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Archivo</value>
-  </data>
-  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>708, 24</value>
-  </data>
-  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="mainMenu.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
-    <value>mainMenu</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="nuevoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -334,6 +307,36 @@
   <data name="salirToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Salir</value>
   </data>
+  <data name="archivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="archivoToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Archivo</value>
+  </data>
+  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 24</value>
+  </data>
+  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="mainMenu.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
+    <value>mainMenu</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="kryptonDockableWorkspace1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -385,13 +388,13 @@
   <metadata name="K_DockingManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>464, 17</value>
   </metadata>
-  <data name="kryptonDockingManager1.Strings.TextClose" xml:space="preserve">
+  <data name="K_DockingManager.Strings.TextClose" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-  <data name="kryptonDockingManager1.Strings.TextCloseAllButThis" xml:space="preserve">
+  <data name="K_DockingManager.Strings.TextCloseAllButThis" xml:space="preserve">
     <value>Cerrar Todas excepto esta</value>
   </data>
-  <data name="kryptonDockingManager1.Strings.TextHide" xml:space="preserve">
+  <data name="K_DockingManager.Strings.TextHide" xml:space="preserve">
     <value>Ocultar</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -559,6 +562,12 @@
   </data>
   <data name="&gt;&gt;K_DockingManager.Type" xml:space="preserve">
     <value>ComponentFactory.Krypton.Docking.KryptonDockingManager, ComponentFactory.Krypton.Docking, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e</value>
+  </data>
+  <data name="&gt;&gt;tsLblStatus.Name" xml:space="preserve">
+    <value>tsLblStatus</value>
+  </data>
+  <data name="&gt;&gt;tsLblStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

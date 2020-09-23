@@ -209,9 +209,9 @@
     <Compile Include="Migrations\202003051647463_PlaneacionesV1.Designer.cs">
       <DependentUpon>202003051647463_PlaneacionesV1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008312016408_VariablesCritivasV1.cs" />
-    <Compile Include="Migrations\202008312016408_VariablesCritivasV1.Designer.cs">
-      <DependentUpon>202008312016408_VariablesCritivasV1.cs</DependentUpon>
+    <Compile Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs" />
+    <Compile Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.Designer.cs">
+      <DependentUpon>202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Models\OrdenTrabajoModel.cs" />
     <Compile Include="Reportes\OrdenTrabajo_ReportViewer.cs">
@@ -241,6 +241,7 @@
     <Compile Include="Tablas\PruebaMigrations.cs" />
     <Compile Include="Tablas\resSalidaRP.cs" />
     <Compile Include="Tablas\TemporalOrdenTrabajo.cs" />
+    <Compile Include="Tablas\VariablesCriticas\BaseProcesos.cs" />
     <Compile Include="Tablas\VariablesCriticas\Root.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -337,8 +338,8 @@
     <EmbeddedResource Include="Migrations\202003051647463_PlaneacionesV1.resx">
       <DependentUpon>202003051647463_PlaneacionesV1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008312016408_VariablesCritivasV1.resx">
-      <DependentUpon>202008312016408_VariablesCritivasV1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.resx">
+      <DependentUpon>202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\OrdenTrabajo.rdlc" />
     <EmbeddedResource Include="Reportes\OrdenTrabajo_ReportViewer.resx">

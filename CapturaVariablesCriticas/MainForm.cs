@@ -57,10 +57,8 @@ namespace CapturaVariablesCriticas
 			page.UniqueName = page.Text;
 
 			// Add rich text box as content of the page
-			KryptonRichTextBox rtb = new KryptonRichTextBox ( );
-			rtb.StateCommon.Border.Draw = InheritBool.False;
+			Pages.Captura_Page rtb = new Pages.Captura_Page ( );
 			rtb.Dock = DockStyle.Fill;
-			rtb.Text = "Page Content";
 			page.Controls.Add ( rtb );
 
 			return page;

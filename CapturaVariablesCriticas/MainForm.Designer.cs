@@ -47,6 +47,8 @@
 			this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
 			this.kryptonDockableWorkspace1 = new ComponentFactory.Krypton.Docking.KryptonDockableWorkspace();
 			this.K_DockingManager = new ComponentFactory.Krypton.Docking.KryptonDockingManager();
+			this.tsLblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+			this.barraEstado.SuspendLayout();
 			this.mainMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
 			this.kryptonPanel1.SuspendLayout();
@@ -55,16 +57,15 @@
 			// 
 			// KryManager
 			// 
-			this.KryManager.GlobalPalette = this.VSTheme;
-			this.KryManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Custom;
+			this.KryManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2007Silver;
 			// 
 			// VSTheme
 			// 
 			this.VSTheme.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-			this.VSTheme.ButtonSpecs.FormClose.ColorMap = ((System.Drawing.Color)(resources.GetObject("kryptonPalette1.ButtonSpecs.FormClose.ColorMap")));
-			this.VSTheme.ButtonSpecs.FormMax.ColorMap = ((System.Drawing.Color)(resources.GetObject("kryptonPalette1.ButtonSpecs.FormMax.ColorMap")));
-			this.VSTheme.ButtonSpecs.FormMin.ColorMap = ((System.Drawing.Color)(resources.GetObject("kryptonPalette1.ButtonSpecs.FormMin.ColorMap")));
-			this.VSTheme.ButtonSpecs.FormRestore.ColorMap = ((System.Drawing.Color)(resources.GetObject("kryptonPalette1.ButtonSpecs.FormRestore.ColorMap")));
+			this.VSTheme.ButtonSpecs.FormClose.ColorMap = ((System.Drawing.Color)(resources.GetObject("VSTheme.ButtonSpecs.FormClose.ColorMap")));
+			this.VSTheme.ButtonSpecs.FormMax.ColorMap = ((System.Drawing.Color)(resources.GetObject("VSTheme.ButtonSpecs.FormMax.ColorMap")));
+			this.VSTheme.ButtonSpecs.FormMin.ColorMap = ((System.Drawing.Color)(resources.GetObject("VSTheme.ButtonSpecs.FormMin.ColorMap")));
+			this.VSTheme.ButtonSpecs.FormRestore.ColorMap = ((System.Drawing.Color)(resources.GetObject("VSTheme.ButtonSpecs.FormRestore.ColorMap")));
 			this.VSTheme.ButtonStyles.ButtonCluster.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
 			this.VSTheme.ButtonStyles.ButtonCluster.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(55)))));
 			this.VSTheme.ButtonStyles.ButtonCluster.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -396,6 +397,8 @@
 			// barraEstado
 			// 
 			resources.ApplyResources(this.barraEstado, "barraEstado");
+			this.barraEstado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsLblStatus});
 			this.barraEstado.Name = "barraEstado";
 			this.barraEstado.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
 			// 
@@ -491,9 +494,14 @@
 			// K_DockingManager
 			// 
 			this.K_DockingManager.DefaultCloseRequest = ComponentFactory.Krypton.Docking.DockingCloseRequest.RemovePageAndDispose;
-			this.K_DockingManager.Strings.TextClose = resources.GetString("kryptonDockingManager1.Strings.TextClose");
-			this.K_DockingManager.Strings.TextCloseAllButThis = resources.GetString("kryptonDockingManager1.Strings.TextCloseAllButThis");
-			this.K_DockingManager.Strings.TextHide = resources.GetString("kryptonDockingManager1.Strings.TextHide");
+			this.K_DockingManager.Strings.TextClose = resources.GetString("K_DockingManager.Strings.TextClose");
+			this.K_DockingManager.Strings.TextCloseAllButThis = resources.GetString("K_DockingManager.Strings.TextCloseAllButThis");
+			this.K_DockingManager.Strings.TextHide = resources.GetString("K_DockingManager.Strings.TextHide");
+			// 
+			// tsLblStatus
+			// 
+			this.tsLblStatus.Name = "tsLblStatus";
+			resources.ApplyResources(this.tsLblStatus, "tsLblStatus");
 			// 
 			// MainForm
 			// 
@@ -505,6 +513,8 @@
 			this.MainMenuStrip = this.mainMenu;
 			this.Name = "MainForm";
 			this.Load += new System.EventHandler(this.MainForm_Load);
+			this.barraEstado.ResumeLayout(false);
+			this.barraEstado.PerformLayout();
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
@@ -516,8 +526,6 @@
 		}
 
 		#endregion
-
-		private ComponentFactory.Krypton.Toolkit.KryptonManager KryManager;
 		private ComponentFactory.Krypton.Toolkit.KryptonPalette VSTheme;
 		private System.Windows.Forms.StatusStrip barraEstado;
 		private System.Windows.Forms.MenuStrip mainMenu;
@@ -534,6 +542,8 @@
 		private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
 		private ComponentFactory.Krypton.Docking.KryptonDockableWorkspace kryptonDockableWorkspace1;
 		private ComponentFactory.Krypton.Docking.KryptonDockingManager K_DockingManager;
+		private ComponentFactory.Krypton.Toolkit.KryptonManager KryManager;
+		private System.Windows.Forms.ToolStripStatusLabel tsLblStatus;
 	}
 }
 

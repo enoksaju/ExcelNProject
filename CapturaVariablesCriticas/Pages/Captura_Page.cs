@@ -7,15 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Navigator;
+using System.Data.Entity;
 
 namespace CapturaVariablesCriticas.Pages
 {
 	public partial class Captura_Page : UserControl
 	{
-		public Captura_Page ()
+		libProduccionDataBase.Contexto.DataBaseContexto DB;
+		public Captura_Page()
 		{
-			InitializeComponent ( );
+			
+			InitializeComponent();
+			DB = new libProduccionDataBase.Contexto.DataBaseContexto();
+			LoadDB();
+		}
+
+		private async void LoadDB()
+		{			
+			await DB.VariablesCriticas.LoadAsync();
+			variablesCriticasRootBindingSource.DataSource = DB.VariablesCriticas.Local.ToBindingList();
+		}
+
+		private async void Captura_Page_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
