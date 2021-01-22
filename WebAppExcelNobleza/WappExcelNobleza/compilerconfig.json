@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "wwwroot/assets/css/index.css",
+    "inputFile": "wwwroot/assets/css/index.less"
+  },
+  {
+    "outputFile": "wwwroot/assets/vendors/metro4/common/sizing.css",
+    "inputFile": "wwwroot/assets/vendors/metro4/common/sizing.less"
+  },
+  {
+    "outputFile": "wwwroot/AdminLTE/css/scss/adminlte.css",
+    "inputFile": "wwwroot/AdminLTE/css/scss/adminlte.scss"
+  },
+  {
+    "outputFile": "wwwroot/assets/vendors/animatecss/animate.css",
+    "inputFile": "wwwroot/assets/vendors/animatecss/animate.scss"
+  }
+]

@@ -1,0 +1,116 @@
+@*@implements IDisposable*@
+@inject NavigationManager nm
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+    <!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column nav-compact nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+        <NavLinkLTE href="" Match="NavLinkMatch.All" Icon="mdi mdi-apps" Title="Tablero"></NavLinkLTE>
+        <NavLinkLTE href="/counter" Icon="mdi mdi-numeric" Title="Counter"></NavLinkLTE>
+        <!-- Menu de Variables Criticas -->
+        <SideBarTreeView Icon="mdi mdi-folder-cog" Href="/variablescriticas" Title="Variables Criticas">
+            <Items>
+                <NavLinkLTE href="/variablescriticas/ver" Icon="mdi mdi-cog" Title="Ver"></NavLinkLTE>
+                <NavLinkLTE href="/variablescriticas/crear_editar" Icon="mdi mdi-cog" Title="Ver"></NavLinkLTE>
+                <NavLinkLTE href="/variablescriticas/asignar_ot" Icon="mdi mdi-cog" Title="Ver"></NavLinkLTE>
+            </Items>
+        </SideBarTreeView>
+        <!-- Menu de Recursos -->
+        <SideBarTreeView Icon="mdi mdi-folder-cog" Href="/recursos" Title="Recursos">
+            <Items>
+                <NavLinkLTE href="/recursos/maquinas" Icon="mdi mdi-cog" Title="Maquinas"></NavLinkLTE>
+            </Items>
+        </SideBarTreeView>
+    </ul>
+</nav>
+
+
+
+<!--<ul class="navview-menu mt-4" id="side-menu">
+    <LiNavLink Href="/index">
+        <span class="icon"><span class="mdi mdi-apps"></span></span>
+        <span class="caption">Tablero</span>
+    </LiNavLink>
+
+    <LiNavLink Href="/counter">
+        <span class="icon"><span class="mdi mdi-numeric"></span></span>
+        <span class="caption">Counter</span>
+    </LiNavLink>-->
+@*<LiNavLink href="/fetchdata" Match="NavLinkMatch.All">
+      <span class="icon"><span class="mdi mdi-cog"></span></span>
+      <span class="caption">Maquinas</span>
+    </LiNavLink>*@
+
+<!--<li>
+        <a href="#" class="dropdown-toggle">
+            <span class="icon"><span class="mdi mdi-folder-cog "></span></span>
+            <span class="caption">Recursos</span>
+        </a>
+        <ul class="navview-menu stay-open" data-role="dropdown">
+
+            <LiNavLink Href="/maquinas">
+                <span class="icon"><span class="mdi mdi-cog"></span></span>
+                <span class="caption">Maquinas</span>
+            </LiNavLink>
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="dropdown-toggle">
+            <span class="icon"><span class="mdi mdi-folder-cog "></span></span>
+            <span class="caption">Variables Criticas</span>
+        </a>
+        <ul class="navview-menu stay-open" data-role="dropdown">
+            <LiNavLink Href="/vc/asignar_ot">
+                <span class="icon"><span class="mdi mdi-cog"></span></span>
+                <span class="caption">Asignar Diseño a OT</span>
+            </LiNavLink>
+            <LiNavLink Href="/vc/crear_editar">
+                <span class="icon"><span class="mdi mdi-cog"></span></span>
+                <span class="caption">Ver Formatos</span>
+            </LiNavLink>
+            <LiNavLink Href="/maquinas">
+                <span class="icon"><span class="mdi mdi-cog"></span></span>
+                <span class="caption">Crear/Editar Variables</span>
+            </LiNavLink>
+        </ul>
+    </li>
+
+</ul>-->
+@*@code {
+
+        protected override async Task OnInitializedAsync()
+        {
+            NavigationManager.LocationChanged += LocationChanged;
+            await Task.Delay(500);
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (!firstRender)
+            {
+                var dotNetReference = DotNetObjectReference.Create(this);
+
+                await JS.InvokeAsync<object>("InitMenu", dotNetReference);
+            }
+        }
+
+        async void LocationChanged(object sender, LocationChangedEventArgs e)
+        {
+            await JS.InvokeAsync<object>("CheckRoute");
+            string navigationMethod = e.IsNavigationIntercepted ? "HTML" : "code";
+            System.Diagnostics.Debug.WriteLine($"Notified of navigation via {navigationMethod} to {e.Location}");
+        }
+
+        [JSInvokable("GotoPage")]
+        public void GotoPage(string Route)
+        {
+            NavigationManager.NavigateTo(Route, false);
+        }
+
+        void IDisposable.Dispose()
+        {
+            // Unsubscribe from the event when our component is disposed
+            NavigationManager.LocationChanged -= LocationChanged;
+        }
+
+    }*@

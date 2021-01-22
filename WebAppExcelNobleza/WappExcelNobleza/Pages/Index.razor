@@ -1,0 +1,56 @@
+@page "/"
+@page "/index"
+@inject IJSRuntime JS
+
+    <MainTemplate>
+        <Content>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col mt-2">
+                    <div class="small-box bg-gradient-red">
+                        <div class="inner">
+                            <h3>1,214 Kg</h3>
+                            <p>Impresora WH</p>
+                        </div>
+                        <div class="icon">
+                            <img src="/assets/images/logo_wuh.jpg" />
+                        </div>
+                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col mt-2">
+                    <div class="small-box bg-gradient-cyan">
+                        <div class="inner">
+                            <h3>1,214 Kg</h3>
+                            <p>Impresora Schiavi</p>
+                        </div>
+                        <div class="icon">
+                            <img src="/assets/images/logo_schiavi.png" />
+                        </div>
+                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col mt-2">
+                    <div class="small-box bg-gradient-green">
+                        <div class="inner">
+                            <h3>1,214 Kg</h3>
+                            <p>Impresora Bobst</p>
+                        </div>
+                        <div class="icon">
+                            <img src="/assets/images/BOBST_Logo.png" />
+                        </div>
+                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </Content>
+    </MainTemplate>
+    @code{
+
+        private async void openDialog(string modalId, int EntityId)
+        {
+            await JS.InvokeVoidAsync("global.openModal", modalId);
+        }
+    }
+
+

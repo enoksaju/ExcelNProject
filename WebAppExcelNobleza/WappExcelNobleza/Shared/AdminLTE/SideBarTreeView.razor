@@ -1,0 +1,58 @@
+
+@inject IJSRuntime JS
+
+<li class="nav-item has-treeview menu-@MenuState">
+    <NavLinkPreventDefault IsOpenedMenuOnInit="OnClick"
+                           href="@Href"
+                           class="nav-link navlink"
+                           @onclick="OnClick">
+        <i class="nav-icon @Icon"></i>
+        <p>
+            @Title
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </NavLinkPreventDefault>
+
+    <ul @ref="ul" class="nav nav-treeview">
+        @Items
+    </ul>
+</li>
+@code{
+    [Parameter]
+    public string Icon { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Href { get; set; }
+
+    [Parameter]
+    public RenderFragment Items { get; set; }
+
+    private string _menuState { get; set; } = "closed";
+
+    private string MenuState
+    {
+        get
+        {
+            return _menuState;
+        }
+        set
+        {
+            if (_menuState == value) return;
+            JS.InvokeVoidAsync("toggleSideMenu", ul);
+            _menuState = value;
+            StateHasChanged();
+        }
+    }
+
+    private ElementReference ul { get; set; }
+    private ElementReference menu { get; set; }
+
+    private void OnClick()
+    {
+        MenuState = MenuState == "open" ? "closed" : "open";
+    }
+
+}

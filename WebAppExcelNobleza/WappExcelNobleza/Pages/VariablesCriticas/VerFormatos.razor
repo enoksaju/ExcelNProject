@@ -1,0 +1,87 @@
+@page "/variablescriticas/ver"
+@page "/variablescriticas/ver/{OT}"
+@inject NavigationManager navigationManager
+@inject IOperationsDataBase<ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Diseno> serviceDiseño
+@inject IOperationsDataBase<OrdenTrabajo> serviceOrdenTrabajo
+
+<MainTemplate>
+    <NavBarForms>
+        <form @onsubmit="@(e => { navigationManager.NavigateTo($"/variablescriticas/ver/{searchOT}"); searchOT = ""; })">
+            <div class="input-group input-group-sm">
+                <input name="search"
+                       type="search"
+                       @bind-value="searchOT"
+                       class="form-control form-control-navbar"
+                       placeholder="Buscar OT..." />
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </NavBarForms>
+    <Content>
+        @if (OT != null && OT.Trim() != "")
+        {
+
+            <iframe id="pdfViewer" class="w-100"
+                    style="height: calc(100vh - 60px)!important;"
+                    src="@( $"/pdfViewer/web/viewer.html?file=/api/reports/vcreport/{OT}.pdf" )">
+            </iframe>
+        }
+
+
+        @*@if (OrdenTrabajo != null)
+        {
+
+
+            <Report>
+                <Header>
+                    <ReportRow>
+                        <ReportField Name="OT" Value="@OrdenTrabajo.OT" OnSMSize="20" />
+                        <ReportField Name="Cliente" Value="@OrdenTrabajo.CLIENTE" />
+                        <ReportField Name="Fecha" Value="" OnSMSize="15" LabelSize="60px" />
+                    </ReportRow>
+                    <ReportRow>
+                        <ReportField Name="Producto" Value="@OrdenTrabajo.PRODUCTO" />
+                        <ReportField Name="Impresora" Value="@OrdenTrabajo.IMPRESORA" LabelSize="90px" OnSMSize="20" />
+                    </ReportRow>
+                    <ReportRow>
+                        <ReportField Name="Clave Intelisis" Value="@OrdenTrabajo.CLAVEINTELISIS" OnSMSize="33" LabelSize="120px" />
+                        <ReportField Name="Cantidad" Value="@(OrdenTrabajo.CANTIDAD + " "+ OrdenTrabajo.UNIDAD )" OnSMSize="20" />
+                        <ReportField Name="Clave Diseño" Value="@OrdenTrabajo.ClaveDiseño" LabelSize="100px" />
+                        <ReportField Name="Tipo Trabajo" Value="@OrdenTrabajo.TipoTrabajoString" LabelSize="90px" OnSMSize="20" />
+                    </ReportRow>
+                </Header>
+                <Pages>
+                    <ReportPage PageTitle="Variables Criticas Page 1">
+
+                    </ReportPage>
+                    <ReportPage>
+
+                    </ReportPage>
+                </Pages>
+            </Report>
+        }*@
+    </Content>
+</MainTemplate>
+@code{
+    [Parameter]
+    public string OT { get; set; }
+
+    public string Diseño { get; set; }
+    private string searchOT;
+
+    public OrdenTrabajo OrdenTrabajo { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (OT != null && OT.Trim() != String.Empty)
+        {
+            var diseño = (await serviceOrdenTrabajo.Get(this.OT))?.ClaveDiseño;
+
+            OrdenTrabajo = await serviceOrdenTrabajo.Get(this.OT);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@page
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = "Restablecer la clave del autenticador";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row  justify-content-center">
+            <div class="col-md-10 col-xl-8 col-xxl-6 col-12 mt-2">
+                <partial name="_StatusMessage" for="StatusMessage" />
+                <div class="card card-outline card-primary">
+                    <div class="card-header">
+                        <h5>@ViewData["Title"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="callout callout-danger">
+                                    <p class="lead">
+                                        <span class="mdi mdi-alert mdi-24px text-danger"></span>
+                                        <strong>Si restablece su clave de autenticación, su aplicación de autenticación no funcionará hasta que la reconfigure.</strong>
+                                    </p>
+                                    <p class="lead">
+                                        Este proceso deshabilita 2FA hasta que verifique su aplicación de autenticación.
+                                        Si no completa la configuración de su aplicación de autenticación, puede perder el acceso a su cuenta.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <form id="reset-authenticator-form" method="post" class="form-group w-100">
+                                    <button class="btn btn-warning" type="submit">Restablecer la clave del autenticador</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

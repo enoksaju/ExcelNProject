@@ -1,0 +1,8 @@
+<div class="d-flex flex-column flex-sm-row border">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}
+

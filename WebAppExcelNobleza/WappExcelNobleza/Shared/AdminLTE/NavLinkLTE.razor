@@ -1,0 +1,14 @@
+@inherits NavLink
+<li class="nav-item">
+    <a @attributes=@AdditionalAttributes class="@CssClass nav-link">
+        <i class="nav-icon @Icon"></i>
+        <p class="caption">@Title</p>
+    </a>
+</li>
+
+@code{
+    [Parameter]
+    public string Title { get; set; }
+    [Parameter]
+    public string Icon { get; set; }
+}

@@ -1,0 +1,74 @@
+
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link"
+                   data-widget="pushmenu"
+                   href="#"
+                   role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            @NavBarRightItems
+        </ul>
+        @NavBarForms
+        <ul class="navbar-nav ml-auto">
+            @NavBarLeftItems
+            <BarLoginDisplay />
+        </ul>
+    </nav>
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <div class="brand-link">
+            <img src="/assets/images/p-120x120.png" alt="ExcelNoblezaLogo"
+                 class="brand-image img-circle elevation-3 bg-white"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">ExcelNobleza</span>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <LoginDisplay />
+            <NavMenu />
+        </div>
+        <div class="sidebar-custom">
+            <a href="#" class="btn btn-link text-cyan"><i class="fas fa-cogs"></i></a>
+            @SideBarCustomContent
+        </div>
+    </aside>
+    <div class="content-wrapper">
+        <section class="content p-0">
+            <div class="container-fluid">
+                @Content
+            </div>
+        </section>
+    </div>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        @SideBarContent
+    </aside>
+
+@code{
+
+    [Parameter]
+    public RenderFragment NavBarLeftItems { get; set; }
+
+    [Parameter]
+    public RenderFragment NavBarRightItems { get; set; }
+
+    [Parameter]
+    public RenderFragment NavBarForms { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+    [Parameter]
+    public RenderFragment SideBarContent { get; set; }
+
+    [Parameter]
+    public RenderFragment SideBarCustomContent { get; set; }
+
+}

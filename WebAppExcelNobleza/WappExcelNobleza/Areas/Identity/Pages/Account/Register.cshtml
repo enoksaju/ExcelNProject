@@ -1,0 +1,123 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registrar";
+    ViewData["subTitle"] = "Rellene los campos solicitados para crear un usuario nuevo.";
+}
+
+<div class="login-page">
+    <div class="login-box">
+        <form id="account" method="post">
+            <div class="card mvh-100 card-outline card-primary">
+                <div class="d-flex align-items-center justify-content-between">
+                    <button type="button"
+                            class="btn btn-primary btn-sm btn-flat"
+                            onclick="history.back()">
+                        <span class="mdi mdi-arrow-left"></span>
+                    </button>
+                    <a href="/" class="btn btn-primary btn-sm btn-flat">
+                        <span class="mdi mdi-home"></span>
+                    </a>
+                </div>
+                <div class="card-header m-0 mr-1 p-0 row d-flex align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0 col text-center">@ViewData["Title"]</h5>
+                        <p class="text-muted">@ViewData["subTitle"]</p>
+                    </div>
+                    <img src="~/assets/images/p-120x120.png" style="width:100px; height:auto" class="place-right mt-4-minus mr-0">
+                </div>
+
+                <div class="card-body mvh-60 overflow-auto">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.Nombre" class="form-control" placeholder="Nombre" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-account"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.Apellidos" class="form-control" placeholder="Apellido(s)" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-account"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.NumTrab" class="form-control" placeholder="Clave Trabajador" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-numeric"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.NumTrab" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.Password" class="form-control" placeholder="Contraseña" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirme Contraseña" />
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="mdi mdi-lock-check"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+
+                    <div class="row d-flex align-items-center justify-content-between">
+                        <a id="forgot-password" asp-page="./Login" class="d-block">¿Ya es usuario?</a>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

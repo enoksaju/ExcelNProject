@@ -1,0 +1,175 @@
+@inject IOperationsDataBase<Maquina> maquinasService
+@inject IOperationsDataBase<Linea> LineaService
+@inject IOperationsDataBase<TipoMaquina> TiposMaquinaService
+@inject IMessageService messageService
+
+
+@if (maquina != null)
+{
+    <EditForm class="row max-vh p-2 m-0 d-flex"
+              EditContext="@editContext"
+              @onreset="HandleReset"
+              OnValidSubmit="@OnValidSubmit">
+        <DataAnnotationsValidator />
+
+        <div class="card  card-outline card-warning  wh-fill  animate__animated @animationClass">
+            <div class="card-header">
+
+                <h3 class="card-title">
+                    @(Id == 0 ? "Agregar" : "Editar")Máquina
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" @onclick="InternalCloseEditForm"><i class="mdi mdi-close"></i></button>
+                </div>
+            </div>
+
+            <div class="card-body ">
+
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Nombre de la Maquina</label>
+                        <InputText class="form-control" disabled="@ReadOnly" @bind-Value="maquina.NombreMaquina" />
+                        <div class="invalid-feedback">
+                            <ValidationMessage For="@(() => maquina.NombreMaquina)" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Modelo</label>
+                        <InputText class="form-control" disabled="@ReadOnly" @bind-Value="maquina.ModeloMaquina"></InputText>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Tipo de Maquina</label>
+                        <CInputSelect class="custom-select" disabled="@ReadOnly" @bind-Value="maquina.TipoMaquina_Id">
+                            <option value="-1" class="d-none"></option>
+                            @foreach (TipoMaquina tm in TiposMaquina)
+                                {
+                                <option value="@tm.Id">@tm.Tipo_Maquina</option>
+                                }
+                        </CInputSelect>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Linea</label>
+                        <CInputSelect class="custom-select" disabled="@ReadOnly" @bind-Value="maquina.Linea_Id">
+                            <option value="-1" class="d-none"></option>
+                            @foreach (Linea lin in lineas)
+                                {
+                                <option value="@lin.Id">@lin.Nombre</option>
+                                }
+                        </CInputSelect>
+                        <span class="invalid_feedback">
+                            <ValidationMessage class="fg-red" For="@(() => maquina.Linea_Id)" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            @if (!ReadOnly)
+            {
+                <div class="card-footer">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            }
+        </div>
+    </EditForm>
+}
+else
+{
+    <div class="h-100 d-flex flex-justify-center flex-align-center">
+        <div class="container text-center">
+
+            <img src="/assets/images/p-120x120.png" class="w-75-fs w-50-sm w-33-md w-25-lg h-auto">
+            <div class="display3  fg-red mt-0 ani-horizontal">404</div>
+
+            <div class="h2 text-center mt-2 mb-2">Oops!<br>Parece ser que no se encontró el elemento buscado</div>
+
+            <div class="text-leader2 text-center page-error-box mx-auto mb-5">
+                verifique la información solicitada e intentelo nuevamente
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@code{
+    private const string ANIMATION_IN = "animate__fadeIn";
+    private const string ANIMATION_OUT = "animate__fadeOut";
+    private string animationClass = ANIMATION_IN;
+
+    private string statusOnSaveChanges;
+
+    [Parameter] public int Id { get; set; }
+    [Parameter] public bool ReadOnly { get; set; } = true;
+
+    [Parameter] public EventCallback<bool> OnCloseEditForm { get; set; }
+
+    private Maquina maquina { get; set; }
+    private List<Linea> lineas { get; set; }
+    private List<TipoMaquina> TiposMaquina { get; set; }
+
+    protected EditContext editContext { get; set; }
+
+    /// <summary>
+    /// Accion al cerrar ek formulario, contiene un delay para la animacion
+    /// </summary>
+    /// <param name="e"></param>
+    /// <returns></returns>
+    private async Task InternalCloseEditForm(EventArgs e)
+    {
+        animationClass = ANIMATION_OUT;
+        await Task.Delay(500);
+        await OnCloseEditForm.InvokeAsync(false);
+    }
+
+    /// <summary>
+    ///  inicializa el componente y carga la maquina al formulario
+    /// </summary>
+    /// <returns></returns>
+    protected override async Task OnInitializedAsync()
+    {
+
+        lineas = await LineaService.Get();
+        TiposMaquina = await TiposMaquinaService.Get();
+
+        maquina = Id <= 0 ? new Maquina() : await maquinasService.Get(Id);
+
+        if (maquina != null)
+        {
+            editContext = new EditContext(maquina);
+        }
+    }
+
+    /// <summary>
+    /// Refresca los datos modificados al resetear el formulario
+    /// </summary>
+    private async void HandleReset()
+    {
+        maquina = Id <= 0 ? new Maquina() : await maquinasService.Get(Id);
+        if (maquina != null)
+        {
+            editContext = new EditContext(maquina);
+        }
+    }
+
+
+    /// <summary>
+    /// Submit al ser un formulario valido
+    /// </summary>
+    private async void OnValidSubmit()
+    {
+        try
+        {
+            var maq = maquina.Id > 0 ? await maquinasService.Update(maquina) : await maquinasService.Add(maquina);
+            await messageService.SuccessMessage("Se guardo el elemento correctamente", "¡Correcto!");
+        }
+        catch (Exception ex)
+        {
+            statusOnSaveChanges = ex.Message;
+        }
+
+    }
+}

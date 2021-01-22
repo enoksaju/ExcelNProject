@@ -1,0 +1,138 @@
+@page "/recursos/maquinas"
+@implements IDisposable
+@inject IOperationsDataBase<Maquina> service
+@inject IJSRuntime JS
+@inject MainStateContainer mainStateContainer
+@inject IMessageService messageService
+<MainTemplate>
+    <Content>
+        @if (spf == null)
+        {
+            <div class="max-vh d-flex align-items-center justify-content-center">
+                <div class="spinner-grow text-cyan" role="status">
+                    <span class="sr-only">Cargando...</span>
+                </div>
+            </div>
+        }
+        else if (spf != null && !isEditMode)
+        {
+            <Table Responsive="true"
+                   IsLoading="isLoading"
+                   Title="Maquinas"
+                   TableExtraCssClass="table-sm table-striped table-head-fixed"
+                   CardExtraCssClass="card-outline card-info"
+                   SortablePageFunctions="spf"
+                   OnClickAddButton="@(()=> {ShowForm(0); StateHasChanged(); })"
+                   PaginatedList="spf.PaginatedList">
+                <TableHeader>
+                    <TableColumnHead SortProperty="NombreMaquina">Nombre de la Maquina</TableColumnHead>
+                    <TableColumnHead SortProperty="ModeloMaquina">Modelo</TableColumnHead>
+                    <TableColumnHead SortProperty="Linea_Id">Linea</TableColumnHead>
+                    <TableColumnHead SortProperty="TipoMaquina_Id">Tipo</TableColumnHead>
+                    <TableColumnHead>Acciones</TableColumnHead>
+                </TableHeader>
+                <RowTemplate>
+                    <td><div class="data-wrapper" style="width: 200px">@context.NombreMaquina</div></td>
+                    <td><div class="data-wrapper">@context.ModeloMaquina</div></td>
+                    <td><div class="data-wrapper">@context.Linea_Id-@context.Linea.Nombre</div></td>
+                    <td><div class="data-wrapper">@context.TipoMaquina_Id-@context.TipoMaquina.Tipo_Maquina</div></td>
+                    <td>
+                        <div class="data-wrapper">
+                            <AuthorizeView Policy="IsRoot">
+                                <Authorized Context="autContext">
+                                    <button @onclick="e => ShowForm(context.Id)" class="btn btn-sm btn-info">
+                                        <i class="icon mdi mdi-pencil"></i>
+                                    </button>
+                                    <button @onclick="e => QuestionYesNo(context.Id)" class="btn btn-sm btn-danger">
+                                        <i class="icon mdi mdi-delete"></i>
+                                    </button>
+                                </Authorized>
+                                <NotAuthorized Context="autContext">
+                                    <button @onclick="e => ShowForm(context.Id, true)" class="btn btn-sm btn-info">
+                                        <i class="icon mdi mdi-pencil"></i>
+                                    </button>
+                                </NotAuthorized>
+                            </AuthorizeView>
+                        </div>
+                    </td>
+                </RowTemplate>
+            </Table>
+
+        }
+        else if (spf != null && isEditMode)
+        {
+            <EntityForm ReadOnly="readOnly" Id="IdEntityEdit" OnCloseEditForm="CloseForm"></EntityForm>
+        }
+    </Content>
+</MainTemplate>
+@code{
+
+    private SortablePageFunctions<Maquina> spf;
+
+    bool isEditMode = false;
+    bool readOnly = true;
+    int IdEntityEdit = -1;
+    bool isLoading = true;
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender && spf == null)
+        {
+            service.SetIncludes("TipoMaquina", "Linea");
+            service.SetFilterPropertyNames("TipoMaquina.Tipo_Maquina", "Linea.Nombre", "NombreMaquina", "ModeloMaquina");
+
+            spf = new SortablePageFunctions<Maquina>(service, mainStateContainer);
+            spf.LoadingChanged += updateView;
+            await spf.Filter();
+        }
+    }
+
+    private void updateView(object s, LoadingEventArgs e)
+    {
+        isLoading = e.isUpdating;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (spf != null)
+        {
+            spf.LoadingChanged -= updateView;
+        }
+    }
+
+    private void ShowForm(int Id, bool _readOnly = false)
+    {
+        isEditMode = true;
+        IdEntityEdit = Id;
+        readOnly = _readOnly;
+    }
+
+
+    private async void CloseForm(bool val)
+    {
+        isEditMode = val;
+        await spf.Filter(reorder: false);
+    }
+
+    async void QuestionYesNo(int Id)
+    {
+        var y = await messageService.YesNoMessage("Realmente desea eliminar el elemento?", "Confirme", Id, Id, "warning");
+
+        if (y.Result)
+        {
+            await service.Delete(Id);
+            await spf.Filter(reorder: false);
+        }
+    }
+
+
+}

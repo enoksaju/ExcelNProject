@@ -1,0 +1,66 @@
+﻿@page
+@model LoginWith2faModel
+@{
+  ViewData["Title"] = "2° paso";
+}
+
+
+<div class="m4-cloak h-vh-100 d-flex flex-justify-center flex-align-center">
+  <div class="login-box">
+    <form asp-route-returnUrl="@Model.ReturnUrl" class="bg-white p-4" method="post">
+
+      <div class="form-group d-flex mb-4 flex-align-center flex-justify-between">
+        <button type="button"
+                class="button primary square small"
+                data-role="popover"
+                data-popover-text="Volver"
+                data-hide-on-leave="true"
+                onclick="history.back()">
+          <span class="mif-arrow-left"></span>
+        </button>
+        <a href="/" class="button primary square small"
+           data-role="popover"
+           data-popover-text="Ir al Inicio"
+           data-hide-on-leave="true">
+          <span class="mif-home"></span>
+        </a>
+      </div>
+
+      <img src="~/assets/images/p-120x120.png" style="width:100px; height:auto" class="place-right mt-4-minus mr-0">
+      <h2 class="mb-0">@ViewData["Title"]</h2>
+
+      <div class="text-muted mb-4">
+        <p>El inicio de sesión está protegido por una aplicación de autenticacion, Escriba su codigo para ingresar</p>
+      </div>
+
+      <input asp-for="RememberMe" type="hidden" />
+
+      <div asp-validation-summary="All" class="fg-red"></div>
+
+
+      <div class="form-group">
+        <label asp-for="Input.TwoFactorCode"></label>
+        <input asp-for="Input.TwoFactorCode" class="required" data-role="input" class="form-control" autocomplete="off" />
+        <span asp-validation-for="Input.TwoFactorCode" class="fg-red"></span>
+      </div>
+
+      <div class="form-group d-flex flex-align-center flex-justify-between">
+        <input type="checkbox" asp-for="Input.RememberMachine" data-role="checkbox" data-caption="@Html.DisplayNameFor(m => m.Input.RememberMachine)">
+        <button type="submit" class="button primary">Entrar</button>
+      </div>
+
+      <div class="form-group border-top bd-default pt-2">
+        <p>
+          ¿No tiene acceso a us dispositivo? Usted puede
+          <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl" class="">iniciar con un codigo de recuperación</a>
+        </p>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}

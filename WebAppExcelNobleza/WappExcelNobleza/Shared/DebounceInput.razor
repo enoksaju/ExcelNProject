@@ -1,0 +1,58 @@
+@using System.Timers
+@implements IDisposable
+
+<input @attributes="AdditionalAttributes" @bind-value="@BindingValue" @bind-value:event="oninput" @onkeyup="@HandleKeyUp" />
+
+@code{
+    private string _value;
+    private System.Timers.Timer aTimer;
+
+    [Parameter]
+    public string BindingValue
+    {
+        get => _value;
+        set
+        {
+            if (_value == value) return;
+            _value = value;
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> BindingValueChanged { get; set; }
+
+    [Parameter]
+    public int InitialDebounceTime { get; set; } = 1000;
+
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        aTimer = new System.Timers.Timer(InitialDebounceTime);
+        aTimer.Elapsed += OnFinishTimer;
+        aTimer.AutoReset = false;
+    }
+
+    void HandleKeyUp(KeyboardEventArgs e)
+    {
+        aTimer.Stop();
+        aTimer.Start();
+    }
+
+    public void Dispose()
+    {
+        aTimer?.Dispose();
+    }
+
+    private async void OnFinishTimer(object sender, ElapsedEventArgs e)
+    {
+        await InvokeAsync(() =>
+        {
+            BindingValueChanged.InvokeAsync(_value);
+            StateHasChanged();
+        });
+    }
+
+}

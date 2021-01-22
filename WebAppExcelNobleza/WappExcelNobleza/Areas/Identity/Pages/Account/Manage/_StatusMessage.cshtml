@@ -1,0 +1,20 @@
+@model string
+
+@if (!String.IsNullOrEmpty(Model))
+{
+  var statusMessageClass = Model.StartsWith("Error") ? "danger" : "success";
+
+<div class="alert alert-@statusMessageClass alert-dismissible fade show" role="alert">
+    @Model
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+  @*<div id="infobox_manager" class="info-box @statusMessageClass pos-relative">
+    <span class="button square closer" onclick="$('#infobox_manager').hide()"></span>
+    <div class="info-box-content">
+      @Model
+    </div>
+  </div>*@
+
+}

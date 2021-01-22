@@ -1,0 +1,53 @@
+﻿@page "/fetchdata"
+
+@using WappExcelNobleza.Data
+@inject WeatherForecastService ForecastService
+
+@attribute [Authorize(policy: "IsRoot")]
+
+<h1>Maquinas</h1>
+
+<p>Administrador de las maquinas disponibles para producción.</p>
+
+@if (maquinas == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-border striped cell-border subcompact">
+        <thead>
+            <tr>
+                <th class="sortable-column">Nombre</th>
+                <th>Modelo</th>
+                <th class="sortable-column">Linea</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody class="">
+            @foreach (Maquina maq in maquinas)
+            {
+                <tr>
+                    <td>@maq.NombreMaquina</td>
+                    <td>@maq.ModeloMaquina</td>
+                    <td>@maq.Linea?.Nombre</td>
+                    <td>@maq.TipoMaquina?.Tipo_Maquina</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Maquina[] maquinas;
+
+    protected override async Task OnInitializedAsync()
+    {
+      using (var db = new excelnobleza.shared.ApplicationDbContextCore())
+      {
+        maquinas = await db.Maquinas.Include(t => t.Linea).Include(t => t.TipoMaquina).ToArrayAsync();
+      }
+
+
+    }
+}

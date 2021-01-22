@@ -1,0 +1,135 @@
+<span class="text-muted text-sm m-0 p-0">@TableInfo</span>
+<ul class="pagination pagination-sm float-right m-0 p-0">
+    @foreach (LinkModelPaginator link in links)
+    {
+        <li @onclick="@( e=> SelectedPageInternal(link))"
+            class="page-item @(link.Enabled ? null : "disabled") @(link.Active ? "active" : null)">
+            <a class="page-link" href="#" @onclick:preventDefault><span class="@link.ContentClass"></span>@link.Text</a>
+        </li>
+    }
+</ul>
+
+@code{
+
+    [Parameter] public string TableInfo { get; set; } = "";
+    [Parameter] public int CurrentPage { get; set; } = 1;
+    [Parameter] public int TotalPagesQuantity { get; set; }
+    [Parameter] public int Radius { get; set; } = 3;
+    [Parameter] public EventCallback<int> SelectedPage { get; set; }
+    [Parameter] public bool EnableLastFirst { get; set; } = false;
+
+
+
+    List<LinkModelPaginator> links;
+
+    protected override void OnParametersSet()
+    {
+        LoadPages();
+    }
+
+    public void LoadPages()
+    {
+        links = new List<LinkModelPaginator>();
+        var isPreviusPageLinkEnabled = CurrentPage != 1;
+        var previousPage = CurrentPage - 1;
+        var pagesToShow = (Radius * 2) + 1;
+
+        if (EnableLastFirst) links.Add(new LinkModelPaginator(1, isPreviusPageLinkEnabled, "", "mdi mdi-chevron-double-left"));
+
+        links.Add(new LinkModelPaginator(previousPage, isPreviusPageLinkEnabled, "", "mdi mdi-chevron-left"));
+
+
+
+        if (CurrentPage <= Radius + 1)
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                links.Add(new LinkModelPaginator(i,
+                    !(i > TotalPagesQuantity),
+                    i > TotalPagesQuantity ? "" : i.ToString(),
+                    i > TotalPagesQuantity ? "mdi mdi-cancel" : ""
+                    )
+                { Active = CurrentPage == i });
+            }
+        }
+        else if (CurrentPage >= TotalPagesQuantity - (Radius + 1))
+        {
+            for (int i = TotalPagesQuantity - (Radius + 2); i <= TotalPagesQuantity; i++)
+            {
+
+                links.Add(new LinkModelPaginator(i,
+                    !(i < 1),
+                    i < 1 ? "" : i.ToString(),
+                    i < 1 ? "mdi mdi-cancel" : ""
+                    )
+                { Active = CurrentPage == i });
+
+
+            }
+        }
+        else
+        {
+            for (int i = 1; i <= TotalPagesQuantity; i++)
+            {
+                if (i >= CurrentPage - Radius && i <= CurrentPage + Radius)
+                {
+                    links.Add(new LinkModelPaginator(i) { Active = CurrentPage == i });
+                }
+            }
+        }
+
+        //for (int i = 1; i <= TotalPagesQuantity; i++)
+        //{
+
+
+        //    Console.WriteLine(upperPages);
+
+        //    if (i >= CurrentPage - Radius && i <= CurrentPage + Radius)
+        //    {
+        //        links.Add(new LinkModelPaginator(i) { Active = CurrentPage == i });
+        //    }
+        //}
+
+        var isNextPageLinkEnabled = CurrentPage != TotalPagesQuantity;
+        var nextPage = CurrentPage + 1;
+        links.Add(new LinkModelPaginator(nextPage, isNextPageLinkEnabled, "", "mdi mdi-chevron-right"));
+        if (EnableLastFirst) links.Add(new LinkModelPaginator(TotalPagesQuantity, isNextPageLinkEnabled, "", "mdi mdi-chevron-double-right"));
+    }
+
+    private async Task SelectedPageInternal(LinkModelPaginator link)
+    {
+        if (link.Page == CurrentPage)
+        {
+            return;
+        }
+
+        if (!link.Enabled)
+        {
+            return;
+        }
+
+        CurrentPage = link.Page;
+        await SelectedPage.InvokeAsync(link.Page);
+    }
+
+
+    class LinkModelPaginator
+    {
+        public LinkModelPaginator(int page) : this(page, true) { }
+        public LinkModelPaginator(int page, bool enabled) : this(page, enabled, page.ToString()) { }
+        public LinkModelPaginator(int page, bool enabled, string text, string contentClass = "")
+
+        {
+            Page = page;
+            Enabled = enabled;
+            Text = text;
+            ContentClass = contentClass;
+        }
+
+        public string Text { get; set; }
+        public int Page { get; set; }
+        public bool Enabled { get; set; } = true;
+        public bool Active { get; set; } = false;
+        public string ContentClass { get; set; } = "";
+    }
+}

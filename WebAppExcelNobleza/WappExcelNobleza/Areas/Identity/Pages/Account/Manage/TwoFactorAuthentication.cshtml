@@ -1,0 +1,123 @@
+@page
+@model TwoFactorAuthenticationModel
+@{
+    ViewData["Title"] = "Autenticación en 2 pasos (2FA)";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row  justify-content-center">
+            <div class="col-md-10 col-xl-8 col-xxl-6 col-12 mt-2">
+                <partial name="_StatusMessage" for="StatusMessage" />
+                @if (Model.Is2faEnabled)
+                {
+                    if (Model.RecoveryCodesLeft == 0)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>No tiene mas codigos de recuperación</strong>
+                            <br />
+                            <p>Puede <a class="fg-white" asp-page="./GenerateRecoveryCodes">generar una nueva lista de códigos de recuperación </a>.</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+                    else if (Model.RecoveryCodesLeft == 1)
+                    {
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Solo cuenta con 1 codigo de verificacion disponible</strong>
+                            <br />
+                            <p>Puede <a class="fg-white" asp-page="./GenerateRecoveryCodes">generar una nueva lista de códigos de recuperación </a>.</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+                    else if (Model.RecoveryCodesLeft <= 3)
+                    {
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            <strong>Aun cuenta con @Model.RecoveryCodesLeft codigos de recuperación disponibles</strong>
+                            <br />
+                            <p>Puede <a class="fg-white" asp-page="./GenerateRecoveryCodes">generar una nueva lista de códigos de recuperación </a>.</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    <div class="card card-outline card-primary">
+                        <div class="card-header">
+                            <h4>@ViewData["Title"]</h4>
+                        </div>
+                        <div class="card-body container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 mb-2">
+                                    <a asp-page="./Disable2fa" class="btn btn-danger w-100">Deshabilitar 2FA</a>
+                                </div>
+
+                                <div class="col-sm-12 col-md-8 mb-2">
+                                    <a asp-page="./GenerateRecoveryCodes" class="btn btn-warning w-100">Resetear codigos de recuperación</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="card card-outline card-primary">
+                    <div class="card-header">
+                        <h5>App de Autenticación</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (!Model.HasAuthenticator)
+                        {
+
+                            <form>
+                                <button id="enable-authenticator"
+                                        asp-page="./EnableAuthenticator"
+                                        class="btn btn-lg bg-gradient-primary btn-block">
+                                    <i class="mdi mdi-qrcode mdi-18px mr-2"></i>
+                                    <span>Agregar App de Autenticación</span>
+                                </button>
+                            </form>
+
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 mb-2">
+                                    <a id="enable-authenticator"
+                                       asp-page="./EnableAuthenticator"
+                                       class="btn btn-warning w-100">Configurar App</a>
+                                </div>
+                                <div class="col-sm-12 col-md-6 mb-2">
+                                    <a id="reset-authenticator" asp-page="./ResetAuthenticator"
+                                       class="btn btn-warning w-100">Resetear App de Autenticación</a>
+                                </div>
+                            </div>
+                        }
+
+                        <br />
+                        @if (Model.Is2faEnabled)
+                        {
+                            if (Model.IsMachineRemembered)
+                            {
+                                <div class="row">
+                                    <form method="post" class="d-inline-block col-sm-12 col-md-6">
+                                        <button type="submit" class="btn btn-primary w-100">Olvidar este navegador</button>
+                                    </form>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

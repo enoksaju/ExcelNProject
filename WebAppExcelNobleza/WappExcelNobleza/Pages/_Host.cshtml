@@ -1,0 +1,77 @@
+@page "/"
+@namespace WappExcelNobleza.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="es" class="scrollbar-type-2 sb-cyan">
+<head>
+
+    <base href="/">
+    <title>ExcelNobleza</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="~/assets/vendors/materialDesignIcons/css/materialdesignicons.css" />
+
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="~/assets/vendors/animatecss/animate.css" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+
+    <!-- plugins -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.css" />
+    <link rel="stylesheet" href="~/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <link rel="stylesheet" href="~/AdminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
+    <link rel="stylesheet" href="~/AdminLTE/plugins/toastr/toastr.min.css" />
+
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE/css/scss/adminlte.css" />
+
+
+    <!-- Styles Site and Style Pages-->
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/WappExcelNobleza.styles.css" rel="stylesheet" />
+
+</head>
+
+<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed">
+    <div class="wrapper">
+        <app>
+            <component type="typeof(App)" render-mode="ServerPrerendered" />
+        </app>
+
+
+        <div id="blazor-error-ui">
+            <environment include="Staging,Production">
+                An error has occurred. This application may no longer respond until reloaded.
+            </environment>
+            <environment include="Development">
+                An unhandled exception has occurred. See browser dev tools for details.
+            </environment>
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+    </div>
+
+
+    <!-- REQUIRED SCRIPTS -->
+    <script src="~/AdminLTE/plugins/jquery/jquery.js"></script>
+    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/AdminLTE/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/AdminLTE/plugins/toastr/toastr.min.js"></script>
+    <script src="~/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
+    <script src="~/AdminLTE/js/adminlte.js"></script>
+    <script src="~/assets/js/jsruntime.js"></script>
+    <script src="~/_framework/blazor.server.js"></script>
+</body>
+
+</html>

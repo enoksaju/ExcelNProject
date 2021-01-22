@@ -1,0 +1,45 @@
+@page
+@model ShowRecoveryCodesModel
+@{
+    ViewData["Title"] = "Códigos de Recuperación";
+    ViewData["ActivePage"] = "TwoFactorAuthentication";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row  justify-content-center">
+            <div class="col-md-10 col-xl-8 col-xxl-6 col-12 mt-2">
+                <partial name="_StatusMessage" for="StatusMessage" />
+                <div class="card card-outline card-primary">
+                    <div class="card-header">
+                        <h5>@ViewData["Title"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="callout callout-danger">
+                                    <p class="lead">
+                                        <span class="mdi mdi-alert mdi-24px text-danger"></span>
+                                        <strong>Guarde estos codigos en un lugar seguro</strong>
+                                    </p>
+                                    <p class="lead">
+                                        Si usted pierde su dispositivo y no cuenta con códigos de recuperación perderá acceso a su cuenta.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="text-center">
+                                @for (var row = 0; row < Model.RecoveryCodes.Length; row += 2)
+                                {
+                                    <code class="border border-primary rounded p-1 lead m-2">@Model.RecoveryCodes[row]</code><code class="border border-primary rounded p-1 lead m-2">@Model.RecoveryCodes[row + 1]</code><br /><br />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

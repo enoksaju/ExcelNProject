@@ -1,0 +1,10 @@
+
+<CascadingValue Value="@Header" Name="Header">
+    @Pages
+</CascadingValue>
+
+
+@code {
+    [Parameter] public RenderFragment Header { get; set; }
+    [Parameter] public RenderFragment Pages { get; set; }
+}

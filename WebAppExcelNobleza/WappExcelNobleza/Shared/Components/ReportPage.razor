@@ -1,0 +1,23 @@
+<div class="row p-0 text-small justify-content-center mb-2">
+    <div class="col-12 col-lg-9">
+        <div class="card card-outline card-info">
+            <div class="card-header p-0">
+                <div class="row justify-content-center">
+                    @PageTitle
+                </div>
+                @Header
+            </div>
+            <div class="card-body p-0">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="saltopagina"></div>
+
+@code {
+    [Parameter] public string PageTitle { get; set; } = "";
+    [CascadingParameter(Name = "Header")] protected RenderFragment Header { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}

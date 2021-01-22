@@ -1,0 +1,26 @@
+@if (SortProperty != null)
+{
+
+    <th scope="col" @onclick="@(e => SortablePageFunctions.Filter(SortProperty))"
+        class="sortable-column @SortablePageFunctions.SortIndicator(SortProperty)">
+        @ChildContent
+    </th>
+
+}
+else
+{
+    <th scope="col">
+        @ChildContent
+    </th>
+}
+
+@code{
+    [CascadingParameter]
+    public ISortablePageFunctions SortablePageFunctions { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public string SortProperty { get; set; }
+
+}

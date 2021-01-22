@@ -1,0 +1,76 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Perfil";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row  justify-content-center">
+
+            <form id="account" class="col-md-8 col-xl-5 col-12 mt-2" method="post" enctype="multipart/form-data">
+                <partial name="_StatusMessage" model="Model.StatusMessage" />
+
+                <div class="card card-outline card-primary mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"]</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label asp-for="Username"></label>
+                            <input asp-for="Username" class="form-control" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Input.Nombre" class="control-label"></label>
+                            <input asp-for="Input.Nombre" placeholder="Por favor, ingrese su nombre" class="form-control" />
+                            <span asp-validation-for="Input.Nombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Input.Apellidos"></label>
+                            <input asp-for="Input.Apellidos" placeholder="Por favor, ingrese su(s) Apellido(s)" class="form-control">
+                            <span asp-validation-for="Input.Apellidos" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Input.PhoneNumber"></label>
+                            <input asp-for="Input.PhoneNumber" type="tel" placeholder="Por favor, ingrese su número de teléfono" class="form-control">
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex flex-row mt-2 mb-2 justify-content-center">
+                            <img src="@Model.Input.PathImageProfile" class="w-50 w-33-md w-15-xl h-auto rounded-circle border border-primary" />
+                        </div>
+
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input asp-for="Input.Upload" type="file" lang="es" accept="image/*" class="custom-file-input">
+                                <label class="custom-file-label" asp-for="Input.Upload"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="mif-floppy-disk mr-2"></span>
+                            Guardar
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />   
+
+}
+

@@ -1,0 +1,126 @@
+@typeparam T
+
+<div class="row max-vh p-2 d-flex ">
+    <div class="card @CardExtraCssClass  wh-fill animate__animated animate__fadeIn">
+        <div class="card-header">
+            <h3 class="card-title">@Title</h3>
+            <div class="card-tools row align-items-start">
+                <button class="btn btn-success btn-sm mr-1 " style="margin-top: -0.3rem"
+                        @onclick="InternalOnClickAddButton">
+                    <span class="mdi mdi-plus"></span>
+                </button>
+                <div class="input-group input-group-sm mr-1" style="width: 150px;">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Filas/Pagina:</label>
+                    </div>
+                    <select @bind="SortablePageFunctions.PageSize" class="custom-select">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="icon mdi mdi-magnify"></i>
+                        </span>
+                    </div>
+                    <DebounceInput type="text" data-role="input"
+                                   class="form-control float-right"
+                                   placeholder="Buscar"
+                                   @bind-BindingValue="SortablePageFunctions.FilterString"></DebounceInput>
+
+                </div>
+            </div>
+        </div>
+        @if (PaginatedList != null)
+        {
+            <div class="card-body @(Responsive ? "table-responsive" : "")  p-0 ">
+                <table class="table @TableExtraCssClass">
+                    <thead>
+                        <tr>
+                            <CascadingValue Value="SortablePageFunctions">
+                                @TableHeader
+                            </CascadingValue>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in PaginatedList.Items)
+                        {
+                            <tr>@RowTemplate(item)</tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer p-1">
+                <div class="row d-flex justify-content-between p-0 m-0">
+
+
+                    <PaginatorComponent CurrentPage="PaginatedList.PageIndex"
+                                        TotalPagesQuantity="PaginatedList.TotalPages"
+                                        SelectedPage="SortablePageFunctions.PageIndexChanged"
+                                        Radius="2"
+                                        TableInfo="@PaginatedList.TableInfo" />
+                </div>
+            </div>
+        }
+        @if (IsLoading)
+        {
+            @IsLoading
+            <div class="overlay">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="spinner-grow text-cyan" role="status">
+                        <span class="sr-only">Cargando...</span>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+@code{
+
+    [Parameter]
+    public bool IsLoading { get; set; } = true;
+
+    [Parameter]
+    public ISortablePageFunctions SortablePageFunctions { get; set; }
+
+    [Parameter]
+    public IPaginatedList<T> PaginatedList { get; set; }
+
+    [Parameter]
+    public RenderFragment TableHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment<T> RowTemplate { get; set; }
+
+    [Parameter]
+    public bool Responsive { get; set; } = false;
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string CardExtraCssClass { get; set; }
+
+    [Parameter]
+    public string TableExtraCssClass { get; set; }
+
+    [Parameter]
+    public Action OnClickAddButton { get; set; }
+
+
+    private void InternalOnClickAddButton()
+    {
+        Console.WriteLine("Calling add button click action...");
+        OnClickAddButton?.Invoke();
+    }
+}

@@ -1,0 +1,16 @@
+<div class="d-flex @getSize()">
+    <span class="bg-gray-light text-right pr-2 border-left border-right" style="width:@LabelSize">@Name:</span>
+    <span class="flex-fill border-left border-right pl-1">@Value</span>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; }
+    [Parameter] public string Value { get; set; }
+    [Parameter] public string OnSMSize { get; set; }
+    [Parameter] public string LabelSize { get; set; } = "80px";
+
+    private string getSize()
+    {
+        return OnSMSize != null ? $"w-sm-{OnSMSize} w-100" : "flex-fill";
+    }
+}

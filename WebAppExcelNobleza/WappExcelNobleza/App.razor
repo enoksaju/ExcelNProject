@@ -1,0 +1,32 @@
+
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    <div class="h-100 d-flex flex-justify-center flex-align-center">
+                        <div class="container text-center">
+
+                            <img src="/assets/images/p-120x120.png" class="w-75-fs w-50-sm w-33-md w-25-lg h-auto">
+                            <div class="display3  fg-red mt-0 ani-horizontal">401</div>
+
+                            <div class="h1 text-center mt-2 mb-2">Oops!<br>Parece ser que no tiene acceso a est&aacute; p&aacute;gina.</div>
+
+                            <div class="text-leader2 text-center page-error-box mx-auto mb-5">
+                                Por favor, inicie sesi&oacute;n  con una cuenta con privilegios para ver el contenido.
+                            </div>
+                        </div>
+                    </div>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+

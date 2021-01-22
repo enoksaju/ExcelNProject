@@ -1,0 +1,99 @@
+
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<!-- Sidebar Menu -->
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column nav-compact" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="nav-icon mdi mdi-home-outline"></i>
+                <p class="caption">Ir al Inicio</p>
+            </a>
+        </li>
+        <li class="nav-header">Administrar Perfil</li>
+        <li class="nav-item">
+            <a class="@ManageNavPages.IndexNavClass(ViewContext) nav-link" asp-page="./Index">
+                <i class="nav-icon mdi mdi-account "></i>
+                <p>Perfil</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="@ManageNavPages.EmailNavClass(ViewContext) nav-link" asp-page="./Email">
+                <i class="nav-icon mdi mdi-email "></i>
+                <p>Email</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="@ManageNavPages.ChangePasswordNavClass(ViewContext) nav-link" asp-page="./ChangePassword">
+                <i class="nav-icon mdi mdi-key "></i>
+                <p>Contraseña</p>
+            </a>
+        </li>
+        @if (hasExternalLogins)
+        {
+            <li class="nav-item">
+                <a class="@ManageNavPages.ExternalLoginsNavClass(ViewContext) nav-link" asp-page="./ExternalLogins">
+                    <i class="nav-icon mdi mdi-key "></i>
+                    <p>Acceso Externo</p>
+                </a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext) nav-link" asp-page="./TwoFactorAuthentication">
+                <i class="nav-icon mdi mdi-two-factor-authentication "></i>
+                <p>Autenticación en 2 pasos</p>
+            </a>
+        </li>
+        <li class="nav-header">Sesión</li>
+        <li class="nav-item">
+            <form id="logout-form" method="post" class="hide" action="/Identity/Account/Logout"></form>
+            <a class="nav-link" href="javascript:;" onclick="document.getElementById('logout-form').submit()">
+                <i class="nav-icon mdi mdi-logout "></i>
+                <p>Salir</p>
+            </a>
+
+        </li>
+    </ul>
+</nav>
+<!--<ul class="navview-menu mt-4" id="side-menu">
+
+  <li>
+    <a id="home" href="/">
+      <span class="icon"><span class="mdi mdi-home-outline"></span></span>
+      <span class="caption">Ir al Inicio</span>
+    </a>
+  </li>
+
+  <li class="item-header disabled">
+    Administrar Perfil
+  </li>
+
+
+
+
+  -->
+@*<li class="@ManageNavPages.PersonalDataNavClass(ViewContext)">
+      <a id="personal-data" asp-page="./PersonalData">
+        <span class="icon"><span class="mdi mdi-database"></span></span>
+        <span class="caption">Datos Personales</span>
+      </a>
+    </li>*@
+
+<!--<li class="item-header disabled">
+    Sesión
+  </li>
+
+  <li>
+    <form id="logout-form" method="post" action="/Identity/Account/Logout">
+      <a id="personal-data" href="javascript:;" onclick="document.getElementById('logout-form').submit()" >
+        <span class="icon"><span class="mdi mdi-logout"></span></span>
+        <span class="caption">Salir</span>
+      </a>
+    </form>
+  </li>
+
+
+</ul>-->

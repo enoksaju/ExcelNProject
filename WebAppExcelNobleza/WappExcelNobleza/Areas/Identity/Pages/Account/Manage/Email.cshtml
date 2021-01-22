@@ -1,0 +1,77 @@
+@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Gestionar Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row  justify-content-center">
+
+            <form id="account" class="col-md-8 col-xl-5 col-12 mt-2" method="post">
+                <partial name="_StatusMessage" model="Model.StatusMessage" />
+                <div class="card card-outline card-primary mb-3">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"]</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            @if (Model.IsEmailConfirmed)
+                            {
+                                <label asp-for="Email"></label>
+                                <div class="input-group mb-3">
+                                    <input asp-for="Email" disabled
+                                           class="form-control"
+                                           data-role="input">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text text-success"><i class="mdi mdi-shield-check"></i></span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <label asp-for="Email"></label>
+                                <div class="input-group mb-3">
+                                    <input asp-for="Email" disabled
+                                           class="form-control"
+                                           data-role="input">
+                                    <div class="input-group-append">
+                                        <button id="email-verification" type="submit"
+                                                asp-page-handler="SendVerificationEmail"
+                                                class="btn btn-warning">
+                                            Verificar
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Input.NewEmail"></label>
+                            <input asp-for="Input.NewEmail"
+                                   class="form-control"
+                                   data-role="input"
+                                   placeholder="Nuevo correo electrónico" />
+                            <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button id="change-email-button"
+                                type="submit"
+                                asp-page-handler="ChangeEmail"
+                                class="btn btn-primary">
+                            <span class="mdi mdi-content-save mr-2 "></span>
+                            Cambiar Correo
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

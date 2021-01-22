@@ -1,0 +1,52 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject MainStateContainer mainStateContainer
+
+
+<AuthorizeView>
+    <Authorized>
+        @if (isLoaded)
+        {
+            @Body           
+        }
+        else
+        {
+            <h1>Loading... please wait</h1>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <RedirectToLogin />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code{
+    bool isLoaded = false;
+
+    protected override async void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && !isLoaded)
+        {
+            Console.WriteLine("Initializing App settings...");
+            var pageSize = await localStorage.GetItemAsync<int>("PageSize");
+            mainStateContainer.OnChange += onChangeMainState;
+            mainStateContainer.setPageSize(pageSize > 0 ? pageSize : 5);
+            isLoaded = true;
+            StateHasChanged();
+            Console.WriteLine("Initializing completed...");
+        }
+    }
+
+    private async void onChangeMainState()
+    {
+        await localStorage.SetItemAsync<int>("PageSize", mainStateContainer.PageSize);
+    }
+
+    public void Dispose()
+    {
+        mainStateContainer.OnChange -= onChangeMainState;
+        Console.WriteLine("Main Layout Disposed...");
+    }
+}
