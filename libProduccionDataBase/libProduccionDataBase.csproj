@@ -209,14 +209,15 @@
     <Compile Include="Migrations\202003051647463_PlaneacionesV1.Designer.cs">
       <DependentUpon>202003051647463_PlaneacionesV1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs" />
-    <Compile Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.Designer.cs">
-      <DependentUpon>202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs</DependentUpon>
+    <Compile Include="Migrations\202010131444350_AVTSystem.cs" />
+    <Compile Include="Migrations\202010131444350_AVTSystem.Designer.cs">
+      <DependentUpon>202010131444350_AVTSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Models\OrdenTrabajoModel.cs" />
     <Compile Include="Reportes\OrdenTrabajo_ReportViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Tablas\AVT\AVTFolios.cs" />
     <Compile Include="Tablas\clsControlTintas.cs" />
     <Compile Include="Tablas\clsPlaneacion.cs" />
     <Compile Include="Tablas\cls_CatalogoTintasOtros.cs" />
@@ -241,8 +242,6 @@
     <Compile Include="Tablas\PruebaMigrations.cs" />
     <Compile Include="Tablas\resSalidaRP.cs" />
     <Compile Include="Tablas\TemporalOrdenTrabajo.cs" />
-    <Compile Include="Tablas\VariablesCriticas\BaseProcesos.cs" />
-    <Compile Include="Tablas\VariablesCriticas\Root.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -338,8 +337,8 @@
     <EmbeddedResource Include="Migrations\202003051647463_PlaneacionesV1.resx">
       <DependentUpon>202003051647463_PlaneacionesV1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.resx">
-      <DependentUpon>202009142001006_VariablesCriticas_Imp_Lam_Ref_V1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010131444350_AVTSystem.resx">
+      <DependentUpon>202010131444350_AVTSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\OrdenTrabajo.rdlc" />
     <EmbeddedResource Include="Reportes\OrdenTrabajo_ReportViewer.resx">

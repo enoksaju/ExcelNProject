@@ -17,7 +17,7 @@ namespace InventarioControlTry
 		{
 			try
 			{
-				// makeProd_RolloImpresion ( );
+				 //makeProd_RolloImpresion ( );
 				// makeProd_RolloLam ( );
 				tryProgram ( );
 			}
@@ -135,17 +135,18 @@ namespace InventarioControlTry
 		}
 		static void tryProgram ()
 		{
-			var t = Db.Rollos.Where ( c => c.RolloId == 9 ).First ( );
 
-			Console.WriteLine ( $"{t.code} -> {t.gramaje,8:n2} g/m²" );
-			writeGramaje ( t, 1 );
+			var t = Db.Rollos.FirstOrDefault(c => c.RolloId == 9);
 
-			foreach ( var e in t.Estructura )
+			Console.WriteLine($"{t.code} -> {t.gramaje,8:n2} g/m²");
+			writeGramaje(t, 1);
+
+			foreach (var e in t.Estructura)
 			{
-				Console.WriteLine ( $"{e.Code,12}: {e.Gramaje,6:n3} -> {e.Porcentaje,8:p2}" );
+				Console.WriteLine($"{e.Code,12}: {e.Gramaje,6:n3} -> {e.Porcentaje,8:p2}");
 			}
 
-			Console.WriteLine ( $"{"Total",12}: {t.Estructura.Sum ( y => y.Gramaje ),6:n3} -> {t.Estructura.Sum ( y => y.Porcentaje ),8:p2}" );
+			Console.WriteLine($"{"Total",12}: {t.Estructura.Sum(y => y.Gramaje),6:n3} -> {t.Estructura.Sum(y => y.Porcentaje),8:p2}");
 		}
 	}
 }

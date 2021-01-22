@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'progreso-ot/:ot', component: ProgressWorkOrderComponent },
   {
-    path: 'cal', data: { roles: [Roles.AdministradorProduccion] }, canActivate: [AuthGuard],
+    path: 'cal', //data: { roles: [Roles.Usuario] }, canActivate: [AuthGuard],
     children: [
       {
         path: '', component: CalSemComponent

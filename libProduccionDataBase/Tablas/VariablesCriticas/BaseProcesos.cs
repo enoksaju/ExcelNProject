@@ -15,7 +15,7 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		/// <summary>
 		/// Clave de diseño al quue esta asociada la informacion
 		/// </summary>
-		[Index("UniqueBase" ,IsUnique =true, Order = 0), Column("ClaveDiseno")]
+		[Index("UniqueBase", IsUnique = true, Order = 0), Column("ClaveDiseno")]
 		public string ClaveDiseño { get; set; }
 
 		[ForeignKey("ClaveDiseño")]
@@ -56,17 +56,17 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		/// <summary>
 		/// Velocidad registrada para la produccion del producto
 		/// </summary>
-		public VCNum ParametroVelocidad { get; set; } = new VCNum("m/min");
+		public VCNum ParVelocidad { get; set; } = new VCNum("m/min");
 
 		/// <summary>
-		/// Parametro: Tension Decreciente
+		/// Par: Ten Decreciente
 		/// </summary>
-		public VCNum ParametroTensionDecreciente { get; set; }
+		public VCNum ParTenDecreciente { get; set; }
 
 		/// <summary>
-		/// Parametro 
+		/// Par 
 		/// </summary>
-		public VCNum ParametroPotenciaTratador { get; set; } = new VCNum("%");
+		public VCNum ParPotenciaTratador { get; set; } = new VCNum("%");
 
 		/// <summary>
 		/// Fecha en que se realizó la captura de la información
@@ -81,6 +81,6 @@ namespace libProduccionDataBase.Tablas.VariablesCriticas
 		public BaseProcesos()
 		{
 			FechaCaptura = DateTime.Now;
-		}
+		}		
 	}
 }

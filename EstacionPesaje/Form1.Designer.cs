@@ -75,10 +75,14 @@
 			this.kryptonRibbonGroupTriple4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
 			this.AgregarEtiqueta_btn = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.EditarEtiqueta_btn = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+			this.kryptonRibbonGroupSeparator1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
+			this.kryptonRibbonGroupTriple13 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+			this.kryptonRibbonGroupButton17 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.BasculaRibbonGroup = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonGroupTriple2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
 			this.ToogleBascula_btn = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
 			this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+			this.kryptonRibbonGroup8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonTab1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
 			this.kryptonRibbonGroup2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
 			this.kryptonRibbonGroupTriple6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
@@ -147,7 +151,7 @@
             this.ConfiguracionRibbonTab,
             this.kryptonRibbonTab1});
 			this.Ribbon.SelectedContext = null;
-			this.Ribbon.SelectedTab = this.ProduccionRibbonTab;
+			this.Ribbon.SelectedTab = this.ConfiguracionRibbonTab;
 			this.Ribbon.Size = new System.Drawing.Size(823, 115);
 			this.Ribbon.TabIndex = 0;
 			// 
@@ -403,7 +407,8 @@
 			this.ConfiguracionRibbonTab.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
             this.kryptonRibbonGroup3,
             this.EtiquetasRibbonGroup,
-            this.BasculaRibbonGroup});
+            this.BasculaRibbonGroup,
+            this.kryptonRibbonGroup8});
 			this.ConfiguracionRibbonTab.KeyTip = "C";
 			this.ConfiguracionRibbonTab.Text = "Configuracion";
 			// 
@@ -463,7 +468,9 @@
 			// EtiquetasRibbonGroup
 			// 
 			this.EtiquetasRibbonGroup.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple4});
+            this.kryptonRibbonGroupTriple4,
+            this.kryptonRibbonGroupSeparator1,
+            this.kryptonRibbonGroupTriple13});
 			this.EtiquetasRibbonGroup.TextLine1 = "Etiquetas";
 			// 
 			// kryptonRibbonGroupTriple4
@@ -489,6 +496,18 @@
 			this.EditarEtiqueta_btn.TextLine1 = "Editar";
 			this.EditarEtiqueta_btn.TextLine2 = "Etiqueta";
 			this.EditarEtiqueta_btn.Click += new System.EventHandler(this.kryptonRibbonGroupButton5_Click);
+			// 
+			// kryptonRibbonGroupTriple13
+			// 
+			this.kryptonRibbonGroupTriple13.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.kryptonRibbonGroupButton17});
+			// 
+			// kryptonRibbonGroupButton17
+			// 
+			this.kryptonRibbonGroupButton17.ImageLarge = global::EstacionPesaje.Properties.Resources.avt_logo;
+			this.kryptonRibbonGroupButton17.TextLine1 = "Rollos";
+			this.kryptonRibbonGroupButton17.TextLine2 = "Impresos";
+			this.kryptonRibbonGroupButton17.Click += new System.EventHandler(this.AvtRolloImpresoEtiquetas_btn_Click);
 			// 
 			// BasculaRibbonGroup
 			// 
@@ -788,6 +807,10 @@
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple12;
 		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCierreOTLinea;
 		private System.Windows.Forms.ToolStripStatusLabel lblVersion;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator kryptonRibbonGroupSeparator1;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple13;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton17;
+		private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup8;
 	}
 }
 

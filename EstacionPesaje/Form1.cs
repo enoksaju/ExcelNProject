@@ -36,7 +36,15 @@ namespace EstacionPesaje {
 			kryptonDockingManager.DockspaceCellAdding += KryptonDockingManager_DockspaceCellAdding;
 			kryptonDockingManager.DockableWorkspaceCellAdding += KryptonDockingManager_DockableWorkspaceCellAdding;
 
-			this.controlBascula1.Initialize ( );
+			try
+			{
+				this.controlBascula1.Initialize();
+			}
+			catch (Exception ex)
+			{
+				KryptonMessageBox.Show(this, ex.Message, "#Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
 
 			foreach ( var imp in System.Drawing.Printing.PrinterSettings.InstalledPrinters ) {
 				ImpresoraComboBox.Items.Add ( imp );
@@ -101,7 +109,16 @@ namespace EstacionPesaje {
 		}
 
 		private void ToogleBasculaConnection_Click ( object sender , EventArgs e ) {
-			controlBascula1.toogleConection ( );
+
+			try
+			{
+				controlBascula1.toogleConection();
+			}
+			catch (Exception ex)
+			{
+				KryptonMessageBox.Show(this, ex.Message, "#Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
 		}
 
 		private void OpenConfigBasculaPage_Click ( object sender , EventArgs e ) {
@@ -290,7 +307,6 @@ namespace EstacionPesaje {
 		}
 
 
-
 		private void openTransferencias_Click ( object sender , EventArgs e ) {
 			Pages.Base.PageCreator.CrateAndShowMainPage (
 						new Pages.MainPages.Intelisis.TransferenciasPage ( ) ,
@@ -388,6 +404,11 @@ namespace EstacionPesaje {
 		private void Pg_ChangedMsg ( object sender, string e )
 		{
 			this.tsStatuslbl.Text = e;
+		}
+
+		private void AvtRolloImpresoEtiquetas_btn_Click(object sender, EventArgs e)
+		{
+			new Pages.tools.AVTLabelGenerator_frm().ShowDialog();
 		}
 	}
 }

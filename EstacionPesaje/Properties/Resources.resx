@@ -136,6 +136,12 @@
   <data name="barcode_new1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barcode-new1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MANGAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MANGAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="text_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AzureDefaultResource_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AzureDefaultResource_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -190,14 +196,14 @@
   <data name="history" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="barcode_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barcode-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="database_restore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database_restore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="book_Open_16xLG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\book_Open_16xLG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OTICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OTICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="document_move" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_move.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,9 +223,6 @@
   <data name="worker" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\worker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gear1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gear1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Cancel_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cancel_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,6 +231,9 @@
   </data>
   <data name="Report_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Report_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mailbox-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mailbox-info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="document_color_green-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_color_green-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,14 +295,8 @@
   <data name="shipment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shipment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="text_box1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text_box1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="barcode_edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barcode-edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="barcode-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barcode-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ScaleBordered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ScaleBordered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,8 +316,8 @@
   <data name="shipment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shipment1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="text_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="barcode-ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barcode-ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_circle_green_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_circle_green_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,8 +337,11 @@
   <data name="bullet_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bullet_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mailbox-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mailbox-info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gear1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gear1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SelectAll_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SelectAll_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,11 +358,11 @@
   <data name="Process_32x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Process_32x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="report" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="text_box1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\text_box1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="barcode_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barcode-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OTICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OTICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="history-info1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history-info1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -391,7 +394,7 @@
   <data name="script" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\script.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MANGAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MANGAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="avt_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avt_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -114,9 +114,9 @@ namespace libProduccionDataBase.Tablas
 		public virtual TEMPCAPT TempCapt { get; set; }
 		public virtual Planeacion Planeacion { get; set; }
 
-		[ForeignKey("VariablesCriticas"), Column("VC_ClaveDiseno")]
-		public string ClaveDiseño { get; set; }
-		public virtual VariablesCriticas.VariablesCriticasRoot VariablesCriticas { get; set; }
+		//[ForeignKey("VariablesCriticas"), Column("VC_ClaveDiseno")]
+		//public string ClaveDiseño { get; set; }
+		//public virtual VariablesCriticas.VariablesCriticasRoot VariablesCriticas { get; set; }
 	}
 
 	[Table("TEMPCAPT")]

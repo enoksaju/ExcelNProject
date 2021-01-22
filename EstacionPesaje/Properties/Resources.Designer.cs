@@ -73,6 +73,16 @@ namespace EstacionPesaje.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avt_logo {
+            get {
+                object obj = ResourceManager.GetObject("avt_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AzureDefaultResource_16x {
             get {
                 object obj = ResourceManager.GetObject("AzureDefaultResource_16x", resourceCulture);

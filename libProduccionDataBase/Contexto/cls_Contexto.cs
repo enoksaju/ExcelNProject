@@ -235,12 +235,13 @@ namespace libProduccionDataBase.Contexto
 		public virtual DbSet<Tablas.Planeacion> Planeacion { get; set; }
 		public virtual DbSet<Tablas.PlaneacionProduccion> PlaneacionProduccion { get; set; }
 
-
+		// AVT System
+		public virtual DbSet<Tablas.AVT.AVTFolios> AVTFolios { get; set; }
 
 
 		// Variables Criticas
 
-		public virtual DbSet<Tablas.VariablesCriticas.VariablesCriticasRoot> VariablesCriticas { get; set; }
+		//public virtual DbSet<Tablas.VariablesCriticas.VariablesCriticasRoot> VariablesCriticas { get; set; }
 
 		#endregion
 	}

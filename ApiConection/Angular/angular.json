@@ -83,12 +83,12 @@
                 }
               ]
             },
-          "serve":{
-            "extractCss":true,
-            "namedChunks": true,
-            "vendorChunk": true,
-            "commonChunk": true
-          }
+            "serve": {
+              "extractCss": true,
+              "namedChunks": true,
+              "vendorChunk": true,
+              "commonChunk": true
+            }
           }
         },
         "serve": {
@@ -153,5 +153,8 @@
       }
     }
   },
-  "defaultProject": "Angular"
+  "defaultProject": "Angular",
+  "cli": {
+    "analytics": "cf44677d-d56a-49fa-a5b2-9acf31b9a6b1"
+  }
 }

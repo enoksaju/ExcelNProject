@@ -17,6 +17,7 @@ namespace InventarioControlTry.Models
 		{
 			Configuration.LazyLoadingEnabled = true;
 			this.Database.Log = ( t ) => { System.Diagnostics.Debug.WriteLine ( t ); };
+			this.Database.ExecuteSqlCommand("update rolls set RollType = 'PI'");
 		}
 
 		protected override void OnModelCreating ( DbModelBuilder modelBuilder )

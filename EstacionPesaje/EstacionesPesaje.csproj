@@ -30,7 +30,7 @@
     <SuiteName>Control de Producción Excel Nobleza</SuiteName>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>6.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -382,6 +382,12 @@
     <Compile Include="Pages\MainPages\Produccion\ViewOTPage.Designer.cs">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pages\tools\AVTLabelGenerator_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\tools\AVTLabelGenerator_frm.Designer.cs">
+      <DependentUpon>AVTLabelGenerator_frm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\tools\PreviewLabel_frm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -485,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\Produccion\ViewOTPage.resx">
       <DependentUpon>ViewOTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\tools\AVTLabelGenerator_frm.resx">
+      <DependentUpon>AVTLabelGenerator_frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\tools\PreviewLabel_frm.resx">
       <DependentUpon>PreviewLabel_frm.cs</DependentUpon>
@@ -659,6 +668,7 @@
     <Content Include="GruposTinta.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\avt_logo.png" />
     <Content Include="Resources\barcode-edit.png" />
     <Content Include="Resources\barcode-edit1.png" />
     <None Include="Resources\report_open1.png" />
