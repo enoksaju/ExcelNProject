@@ -3,6 +3,7 @@ using ExcelNobleza.Shared.Models.Reportes;
 using ExcelNobleza.Shared.Models.Tablas.Produccion;
 using ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Bases;
 using ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Procesos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace WappExcelNobleza.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ReportsController : ControllerBase
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -53,7 +55,7 @@ namespace WappExcelNobleza.Controllers
 
             // Leo el recurso incrustado con la definicion del reporte en el Dll
             var assembly = Assembly.LoadFile(typeof(ExcelNobleza.Shared.Models.Reportes.VC_ProcesoReportData).Assembly.Location);
-            Stream stream = assembly.GetManifestResourceStream("ExcelNobleza.Shared.Reportes.VariablesCriticas.rdlc");
+            Stream stream = assembly.GetManifestResourceStream("ExcelNobleza.Shared.Reportes.Prueba.rdlc");
 
             
             var CreationDllTime = new FileInfo(assembly.Location).CreationTimeUtc;

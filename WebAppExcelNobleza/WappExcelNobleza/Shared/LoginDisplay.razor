@@ -1,6 +1,5 @@
-<AuthorizeView>
+<AuthorizeView Roles="User">
     <Authorized>
-
         <!-- Sidebar user (optional) -->
         <div class="user-panel pb-2 pt-2 m-0 d-flex">
             <div class="image">
@@ -10,21 +9,16 @@
                 <a href="Identity/Account/Manage" class="d-block">@context.User.Claims.FirstOrDefault(u => u.Type == "NombreCompleto")?.Value</a>
             </div>
         </div>
-
-        @*<div class="suggest-box">
-            <div class="data-box">
-                <img src="@context.User.Claims.FirstOrDefault(u => u.Type == "ImageProfile")?.Value" class="avatar bg-darkBlue">
-                <div class="ml-4 avatar-title flex-column">
-                    <a href="Identity/Account/Manage" class="d-block fg-white text-medium no-decor">
-                        <span class="reduce-1">@context.User.Claims.FirstOrDefault(u => u.Type == "NombreCompleto")?.Value</span>
-                    </a>
-                    <p class="m-0">
-                        <span class="fg-green mr-2">&#x25cf;</span>
-                        <span class="text-small">Núm. Trab.: @context.User.Claims.FirstOrDefault(u => u.Type == "ClaveTrabajador")?.Value</span>
-                    </p>
-                </div>
-            </div>
-            <img src="@context.User.Claims.FirstOrDefault(u => u.Type == "ImageProfile")?.Value" class="avatar holder ml-2 bg-darkBlue">
-        </div>*@
     </Authorized>
+    <NotAuthorized>
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel pb-2 pt-2 m-0 d-flex">
+            <div class="image">
+                <img src="@context.User.Claims.FirstOrDefault(u => u.Type == "ImageProfile")?.Value" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="/" class="d-block">@context.User.Claims.FirstOrDefault(u => u.Type == "NombreCompleto")?.Value</a>
+            </div>
+        </div>
+    </NotAuthorized>
 </AuthorizeView>

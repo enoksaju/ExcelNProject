@@ -19,8 +19,11 @@
     <Watch Remove="ReportDll\**" />
   </ItemGroup>
 
+
   <ItemGroup>
     <Watch Remove="Controllers\LocalReport.cs" />
+    <Watch Remove="Data\Models\Components\DashboardMaquinaCardModel.cs" />
+    <Watch Remove="Shared\Components\DashMaquinaInfoCard.razor" />
   </ItemGroup>
 
 
@@ -36,7 +39,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
       <PrivateAssets>all</PrivateAssets>
@@ -58,6 +60,8 @@
     </Reference>
   </ItemGroup>
 
-
+  <ItemGroup>
+    <Folder Include="wwwroot\Reports\" />
+  </ItemGroup>
 
 </Project>

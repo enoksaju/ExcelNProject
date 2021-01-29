@@ -1,0 +1,208 @@
+//
+// Component: Table
+//
+
+.table {
+    .data-wrapper {
+        white-space: nowrap;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    .sortable-column {
+        position: relative;
+        cursor: pointer;
+        padding-right: 30px;
+
+        &:after {
+            position: absolute;
+            content: "\21C5";
+            width: 1rem;
+            height: 1rem;
+            left: 100%;
+            margin-left: -1.25rem;
+            top: 50%;
+            margin-top: -0.3rem;
+            color: inherit;
+            font-size: 0.8em;
+            font-weight: 100;
+            line-height: 1;
+            opacity: 0.7;
+        }
+
+        &.sort-asc, &.sort-desc {
+            background-color: #ebebeb;
+
+            &:after {
+                color: #1d1d1d;
+                opacity: 1;
+                font-weight: 700;
+                font-size: 1em;
+                margin-top: -0.5rem;
+            }
+        }
+
+        &.sort-asc:after {
+            content: "\2191";
+        }
+
+        &.sort-desc:after {
+            content: "\2193"
+        }
+    }
+
+
+    &:not(.table-dark) {
+        color: inherit;
+    }
+    // fixed table head
+    &.table-head-fixed {
+        thead tr:nth-child(1) th {
+            background-color: $white;
+            border-bottom: 0;
+            box-shadow: inset 0 1px 0 $table-border-color, inset 0 -1px 0 $table-border-color;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        &.table-dark {
+            thead tr {
+                &:nth-child(1) th {
+                    background-color: $table-dark-bg;
+                    box-shadow: inset 0 1px 0 $table-dark-border-color, inset 0 -1px 0 $table-dark-border-color;
+                }
+            }
+        }
+    }
+    // no border
+    &.no-border {
+        &,
+        td,
+        th {
+            border: 0;
+        }
+    }
+    // .text-center in tables
+    &.text-center {
+        &,
+        td,
+        th {
+            text-align: center;
+        }
+    }
+
+    &.table-valign-middle {
+        thead > tr > th,
+        thead > tr > td,
+        tbody > tr > th,
+        tbody > tr > td {
+            vertical-align: middle;
+        }
+    }
+
+    .card-body.p-0 & {
+        thead > tr > th,
+        thead > tr > td,
+        tfoot > tr > th,
+        tfoot > tr > td,
+        tbody > tr > th,
+        tbody > tr > td {
+            &:first-of-type {
+                padding-left: map-get($spacers, 4);
+            }
+
+            &:last-of-type {
+                padding-right: map-get($spacers, 4);
+            }
+        }
+    }
+}
+
+// Expandable Table
+
+.table-hover tbody tr.expandable-body:hover {
+    background-color: inherit !important;
+}
+
+[data-widget="expandable-table"] {
+    cursor: pointer;
+
+    i {
+        transition: transform $transition-speed linear;
+    }
+
+    &[aria-expanded="true"] {
+        td > i {
+            // stylelint-disable selector-max-attribute
+            &[class*="right"] {
+                transform: rotate(90deg);
+            }
+
+            &[class*="left"] {
+                transform: rotate(-90deg);
+            }
+            // stylelint-enable selector-max-attribute
+        }
+    }
+}
+
+.expandable-body {
+    > td {
+        padding: 0 !important;
+        width: 100%;
+
+        > div,
+        > p {
+            padding: $table-cell-padding;
+        }
+    }
+
+    .table {
+        width: calc(100% - #{$table-cell-padding});
+        margin: 0 0 0 $table-cell-padding;
+
+        tr:first-child {
+            td,
+            th {
+                border-top: none;
+            }
+        }
+    }
+}
+
+.dark-mode {
+    .table-bordered {
+        &,
+        td,
+        th {
+            border-color: $gray-600;
+        }
+    }
+
+    .table-hover {
+        tbody tr:hover {
+            color: $gray-300;
+            background-color: lighten($dark, 2.5%);
+            border-color: $gray-600;
+        }
+    }
+
+    .table {
+        thead th {
+            border-bottom-color: $gray-600;
+        }
+
+        th,
+        td {
+            border-top-color: $gray-600;
+        }
+
+        &.table-head-fixed {
+            thead tr:nth-child(1) th {
+                background-color: lighten($dark, 5%);
+            }
+        }
+    }
+}

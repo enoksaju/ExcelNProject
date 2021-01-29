@@ -9,20 +9,24 @@ using ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Parametros;
 using ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Procesos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace excelnobleza.shared
 {
 	public class ApplicationDbContextCore : DbContext
 	{
+
+		private ILoggerFactory MyLoggerFactory;
 		public ApplicationDbContextCore(DbContextOptions<ApplicationDbContextCore> options) : base(options) { }
 		public ApplicationDbContextCore()
 		{
-
+			
 		}
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			base.OnConfiguring(optionsBuilder);
+			MyLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 			var confPath = System.IO.Path.GetDirectoryName(typeof(ExcelNobleza.Shared.Models.Reportes.VC_ProcesoReportData).Assembly.Location);
 
 			var Conf = new ConfigurationBuilder()
@@ -30,12 +34,9 @@ namespace excelnobleza.shared
 				.AddJsonFile("dbSettings.json", optional: true, reloadOnChange: true)
 				.Build();
 
-			optionsBuilder.UseMySQL(Conf.GetConnectionString("Default"));
-
-			optionsBuilder.EnableSensitiveDataLogging();
-
-			//optionsBuilder.UseLazyLoadingProxies();
-
+			optionsBuilder.UseLoggerFactory(MyLoggerFactory)
+				.EnableSensitiveDataLogging()
+				.UseMySQL(Conf.GetConnectionString("Default"));
 		}
 		protected override void OnModelCreating(ModelBuilder mb)
 		{

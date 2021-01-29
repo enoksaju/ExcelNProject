@@ -5,27 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Reportes\VariablesCriticas.rdlc" />
+    <None Remove="Reportes\Prueba.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\VariablesCriticas.rdlc" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Reportes\VariablesCriticas.rdlc">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.ComponentModel.DataAnnotations">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7\System.ComponentModel.DataAnnotations.dll</HintPath>
-    </Reference>
+    <EmbeddedResource Include="Reportes\Prueba.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

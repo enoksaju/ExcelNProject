@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "Default": "server=192.168.1.248;port=3306;database=productiondebug;uid=root;password=hsj43295;sslmode=None;"
+    "Default": "server=192.168.1.248;port=3306;database=production;uid=root;password=hsj43295;sslmode=None;"
   }
 }

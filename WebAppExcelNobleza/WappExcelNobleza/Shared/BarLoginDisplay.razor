@@ -1,6 +1,5 @@
 <AuthorizeView>
-    <Authorized>
-        
+    <Authorized>        
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="">
@@ -17,9 +16,17 @@
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="Identity/Account/Manage" class="dropdown-item">
-                        <i class="mdi mdi-account mdi-24px mr-2"></i> Administrar Perfil
-                    </a>
+
+                    <AuthorizeView Roles="User">
+                        <Authorized Context="ctx2">
+                            <a href="Identity/Account/Manage" class="dropdown-item">
+                                <i class="mdi mdi-account mdi-24px mr-2"></i> Administrar Perfil
+                            </a>
+                        </Authorized>
+                    </AuthorizeView>
+                    
+
+
                     <div class="dropdown-divider"></div>
                     <form id="logout-form" method="post" class="hide" action="Identity/Account/LogOut"></form>
                     <button onclick="document.getElementById('logout-form').submit()"

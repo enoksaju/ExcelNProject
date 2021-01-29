@@ -22,54 +22,63 @@ namespace Test
 			using var db = new ApplicationDbContextCore(contextOptions);
 
 			//TryInsert(db);
-			//TryUpdate(db);
-			PrintValues(db);
-			
+			TryUpdate(db);
+			//PrintValues(db);
+
 		}
 		static void TryInsert(ApplicationDbContextCore db)
 		{
 			Diseno dis = new Diseno()
 			{
-				ClaveDiseño = "U1-47008",
-				ClaveIntelisis = "U1PTPL-01102-10",
-				CodigoBarras = "7 501055 311712",
-				FiguraFinal = 5,
-				SobreViajero = "00204-43",
-				TamañoDiseño = new ParameterSize("mm", 290, 890, 1, 1),
-				TamañoFotocelda = new ParameterSize("mm", 20, 20, 1, 1)
+				ClaveDiseño = "SC-51383",
+				ClaveIntelisis = "SCPTPL-00958-71",
+				CodigoBarras = "4 122018 2275",
+				FiguraFinal = 2,
+				SobreViajero = "00958-71",
+				TamañoDiseño = new ParameterSize("mm", 667.7, 460, 1, 2),
+				TamañoFotocelda = new ParameterSize("mm", 19, 6, 1, 1)
 			};
-
-
 
 			ProcesoImpresion pimp = new ProcesoImpresion()
 			{
 				Dureza = new ParameterType<double>("", 36, 26, 46),
-				FiguraEmbobinado = 6,
+				FiguraEmbobinado = 2,
 				ProcesoId = 1,
-				ProveedorTinta = "Flint Group",
+				ProveedorTinta = "Flint",
 				ReferenciaEntonacion = "Triptico",
 				TipoImpresion = "Reverso",
-				TipoTinta = "Poligloss",
-				TamañoDiseño = new ParameterSize("mm", 290, 890, 1, 1),
-				Comentarios = "Primera Prueba",
-				ImagenFiguraSalida = System.IO.File.ReadAllBytes("T:\\VariablesCriticas de Control\\Figuras Diseño\\62448\\figuras\\fig6.jpg")
+				TipoTinta = "FlexoLam",
+				TamañoDiseño = new ParameterSize("mm", 667.7, 460, 1, 2),
+				Comentarios = ""
 			};
 
 			ProcesoRefinadoEmbobinado procRef = new ProcesoRefinadoEmbobinado()
 			{
 				ControlPrincipal = "Peso Neto",
 				ControlSecundario = "",
-				ControlPrincipalTolerancia = new ParameterType<double>("Kg", 50, 49, 51),
+				ControlPrincipalTolerancia = new ParameterType<double>("Kg", 35.5, 35, 36),
 				Dureza = new ParameterType<double>("", 36, 26, 46),
-				FiguraEmbobinado = 5,
+				FiguraEmbobinado = 2,
 				MarcaCore = "Otro",
 				MedidaCore = ExcelNobleza.Shared.Models.Cores.Tres,
-				PistaDoble = true,
+				PistaDoble = false,
 				ProcesoId = 3,
-				TamañoDiseño = new ParameterSize("mm", 290, 890, 1, 1),
-				Comentarios = "Primera Prueba"
+				TamañoDiseño = new ParameterSize("cm", 66.7, 46, 0.2, 0.2),
+				Comentarios = ""
 			};
 
+			ProcesoLaminacion procLam = new ProcesoLaminacion()
+			{
+				AplicacionAdhesivo = new ParameterType<double>("g", 2.25, 2.1, 2.4),
+				ClaveCatalizador = "CA-5500",
+				ClaveResina = "SF-5480",
+				FiguraEmbobinado = 1,
+				RelacionAdhesivo = new ParameterType<double>("%", 72, 71.5, 72.5),
+				TamañoDiseño = new ParameterSize("mm", 667.7, 460, 2, 2),
+				ElementoUno = "Pet Transparente Impreso",
+				ElementoDos = "PEBD L-2100",
+				ElementoTrilaminacion = ""
+			};
 
 			ParametrosImpresion parImp = new ParametrosImpresion()
 			{
@@ -77,134 +86,168 @@ namespace Test
 				FechaCaptura = DateTime.Now,
 				IsGearless = true,
 				MaquinaId = 1,
-				OffsetE = new ParameterType<string>("", "0", "0", "0"),
-				PotenciaTratador = new ParameterType<double>("%", 0, 0, 0),
-				DiametroFinalG = 600,
-				DiametroInicialG = 180,
-				Tension_Embobinador = new ParameterType<double>("N", 70, 60, 80),
-				TensionRodilloRefrigeranteG = new ParameterType<double>("N", 120, 110, 130),
-				PresionRodilloPisorCalandra = new ParameterType<double>("N", 120, 110, 130),
-				PresionRodilloPisorEmbobinador = new ParameterType<double>("N", 60, 50, 70),
-				PresionRodilloPisorTambor = new ParameterType<double>("N", 40, 35, 45),
-				TemperaturaIntergrupos = new ParameterType<string>("°C", "30/40", "20/30", "40/50"),
-				TemperaturaPuente = new ParameterType<string>("°C", "50/70", "40/60", "60/80"),
-				TensionArrastre_Desbobinador = new ParameterType<double>("N", 60, 50, 70),
-				TensionBanda_Puente = new ParameterType<double>("N", 160, 150, 170),
-				Velocidad = new ParameterType<double>("m/min", 300, 250, 350)
+
+				Velocidad = new ParameterType<double>("m/min", 200, 190, 210),
+				TensionArrastre_Desbobinador = new ParameterType<double>("N", 100, 95, 105),
+				Tension_Embobinador = new ParameterType<double>("N", 60, 55, 65),
+				TensionRodilloRefrigeranteG = new ParameterType<double>("N", 110, 100, 120),
+				TensionBanda_Puente = new ParameterType<double>("N", 110, 100, 120),
+				FuerzaAprieteG = new ParameterType<double>("N", 2, 1.5, 2.5),
+				TemperaturaIntergrupos = new ParameterType<string>("°C", "35/50", "25/40", "45/60"),
+				TemperaturaPuente = new ParameterType<string>("°C", "45/80", "35/70", "55/90"),
+				TaperTension = new ParameterType<double>("%", 40, 38, 48),
+				DiametroFinalG = 500,
+				DiametroInicialG = 250,
+				PresionRodilloPisorCalandra = new ParameterType<double>("", 3, 2.5, 3.5),
+				PresionRodilloPisorTambor = new ParameterType<double>("", 3, 2.5, 3.5),
+				PresionRodilloPisorEmbobinador = new ParameterType<double>(""),
+				PotenciaTratador = new ParameterType<double>("%", 0, 0, 0)
 			};
+
+
 			ParametrosRefinadoEmbobinado parRef = new ParametrosRefinadoEmbobinado()
 			{
 				MaquinaId = 2,
-				PresionRodilloInferior = new ParameterType<double>("Kg", 0, 0, 0),
-				PresionRodilloSuperior = new ParameterType<double>("Kg", 0, 0, 0),
-				TensionDesbobinador = new ParameterType<double>("N", 60, 50, 70),
-				TensionEnbobinadorInferior = new ParameterType<double>("N", 60, 50, 70),
-				TensionEnbobinadorSuperior = new ParameterType<double>("Kg", 0, 0, 0),
-				Velocidad = new ParameterType<double>("m/min", 350, 300, 400),
-				TaperTension = new ParameterType<double>("%", 20, 10, 30),
 				FechaActualizacion = DateTime.Now,
-				FechaCaptura = DateTime.Now
+				FechaCaptura = DateTime.Now,
+
+				TensionDesbobinador = new ParameterType<double>("%", 8, 6, 10),
+				Velocidad = new ParameterType<double>("m/min", 100, 90, 110),
+				TensionEnbobinadorInferior = new ParameterType<double>("%", 6.8, 5, 8),
+				PresionRodilloInferior = new ParameterType<double>("", 1.5, 1, 3),
+				TaperTension = new ParameterType<double>("%", 7, 5, 9)
 			};
-			parImp.Decks.Add(new DeckImpresion()
+
+			ParametrosLaminacion parLam = new ParametrosLaminacion()
 			{
-				unidad = 2,
-				Color = ColorType.Negro,
-				Pantone = "Solido",
-				Anilox = "440",
-				StickyBack = "10/20",
-				Densidad = "2.08"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 1,
-				Color = ColorType.Negro,
-				Pantone = "Process",
-				Anilox = "900",
-				StickyBack = "10/20",
-				Densidad = "1.35"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 3,
-				Color = ColorType.Pantone,
-				Pantone = "704",
-				Anilox = "550",
-				StickyBack = "",
-				L = "35.41",
-				A = "50.07",
-				B = "30.45"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 4,
-				Color = ColorType.Cyan,
-				Pantone = "Process",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.24"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 5,
-				Color = ColorType.Pantone,
-				Pantone = "485",
-				Anilox = "440",
-				StickyBack = "",
-				L = "49.02",
-				A = "64.92",
-				B = "54.49"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 6,
-				Color = ColorType.Magenta,
-				Pantone = "Fondo",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.75"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 7,
-				Color = ColorType.Magenta,
-				Pantone = "Process",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.71"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 9,
-				Color = ColorType.Amarillo,
-				Pantone = "Fondo",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.08"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 8,
-				Color = ColorType.Amarillo,
-				Pantone = "Process",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.19"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 10,
-				Color = ColorType.Blanco,
-				Pantone = "Cama",
-				Anilox = "360",
-				StickyBack = "-",
-				Densidad = "Visual"
+				MaquinaId = 3,
+				FechaActualizacion = DateTime.Now,
+				FechaCaptura = DateTime.Now,
+
+				MangaAncho = 690,
+				MangaUtilAdhesivo = 670,
+				MangaTotalLaminado = 680,
+				TemperaturaResina = new ParameterType<double>("°C", 33, 28, 38),
+				TemperaturaCatalizador = new ParameterType<double>("°C", 34, 29, 39),
+				TemperaturaRodilloAplicador = new ParameterType<double>("°C", 44, 39, 49),
+				TemperaturaRodilloLaminador = new ParameterType<double>("°C", 42, 37, 47),
+				PresionRodilloMangas = new ParameterType<double>("Bar", 5, 4.5, 5.5),
+				RodilloLaminadorPresionIzquierda = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloPresorPresionIzquierda = new ParameterType<double>("", 0.1, 0.1, 0.6),
+				GalgaRodilloAplicacionIzquierda = new ParameterType<double>("", 0, 0, 0),
+
+				Velocidad = new ParameterType<double>("m/min", 130, 120, 140),
+				PotenciaTratador = new ParameterType<double>("%", 0, 0, 0),
+				TensionDesbobinadorUno = new ParameterType<double>("", 30, 28, 32),
+				TensionDesbobinadorDos = new ParameterType<double>("", 30, 28, 32),
+				TensionBobinador = new ParameterType<double>("", 50, 48, 52),
+				TaperTension = new ParameterType<double>("%", 50, 48, 52),
+				TensionPuente = new ParameterType<double>("", 25, 23, 27),
+				PresionRodilloAplicador = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloLaminadorPresionDerecha = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloPresorPresionDerecha = new ParameterType<double>("", 0, 0, 0),
+				GalgaRodilloAplicacionDerecha = new ParameterType<double>("", 0, 0, 0)
+			};
+
+			parImp.Decks.AddRange(new DeckImpresion[]{
+				new DeckImpresion()
+				{
+					unidad = 1,
+					Color = ColorType.Negro,
+					Pantone = "Solido",
+					Anilox = "550/4.21",
+					StickyBack = "15/20",
+					Densidad = "2.18"
+				},
+				new DeckImpresion()
+				{
+					unidad=2,
+					Color= ColorType.Negro,
+					Pantone= "Process",
+					Anilox="900/2.65",
+					StickyBack= "19/20",
+					Densidad= "1.47"
+				},
+				new DeckImpresion()
+				{
+					unidad=3,
+					Color= ColorType.Pantone,
+					Pantone= "293",
+					Anilox="400/5.2",
+					StickyBack= "10/20",
+					L="27.44",
+					A="5.12",
+					B="-57.73"
+				},
+				new DeckImpresion()
+				{
+					unidad= 4,
+					Color= ColorType.Cyan,
+					Pantone= "Process",
+					Anilox= "900/2.18",
+					StickyBack= "900/2.18",
+					Densidad= "1.12"
+				},
+				new DeckImpresion()
+				{
+					unidad= 5,
+					Color= ColorType.Pantone,
+					Anilox= "400/5.35",
+					StickyBack= "15/20",
+					L="39.43", A="-15.5",B="-55.72"
+				},
+				new DeckImpresion()
+				{
+					unidad= 6,
+					Color= ColorType.Magenta,
+					Pantone="Process",
+					Anilox= "900/2.62",
+					StickyBack= "19/20",
+					Densidad= "1.14"
+				},
+				new DeckImpresion()
+				{
+					unidad=7,
+					Color= ColorType.Pantone,
+					Pantone= "485",
+					Anilox= "440/5.15",
+					StickyBack= "15/20",
+					L="50.16",A="69.90",B="56.91"
+				},
+				new DeckImpresion()
+				{
+					unidad=8,
+					Color= ColorType.Pantone,
+					Pantone="1225",
+					Anilox="550/4.3",
+					StickyBack= "10/20",
+					L="78.7", A="10.68",B="84.16"
+				},
+				new DeckImpresion()
+				{
+					unidad=9,
+					Color= ColorType.Amarillo,
+					Pantone= "Process",
+					Anilox= "900/2.42",
+					StickyBack= "19/20",
+					Densidad= "1.05"
+				},
+				new DeckImpresion()
+				{
+					unidad=10,
+					Color= ColorType.Blanco,
+					Pantone= "Cama",
+					Anilox= "360/6.24",
+					StickyBack = "15/20",
+					Densidad= "Visual"
+				}
 			});
 
 
 			dis.EstructuraItems.Add(new EstructuraItem()
 			{
 				Posicion = 1,
-				Elemento = "Pet Transparente 115.9/12",
+				Elemento = "Pet Transparente 69.7/12",
 				EsImpreso = true,
 			});
 			dis.EstructuraItems.Add(new EstructuraItem()
@@ -217,13 +260,13 @@ namespace Test
 			{
 				Posicion = 3,
 				Elemento = "Tinta",
-				Caracteristicas = "Flexiprint",
+				Caracteristicas = "Flexolam",
 			});
 			dis.EstructuraItems.Add(new EstructuraItem()
 			{
 				Posicion = 4,
 				Elemento = "Adhesivo SF5480/CA5500",
-				Caracteristicas = "Globocoim",
+				Caracteristicas = "Novacote",
 			});
 			dis.EstructuraItems.Add(new EstructuraItem()
 			{
@@ -234,7 +277,7 @@ namespace Test
 			dis.EstructuraItems.Add(new EstructuraItem()
 			{
 				Posicion = 6,
-				Elemento = "Pebd Transparente L-1100 115.7/450",
+				Elemento = "Pebd L-2100 69/300",
 				Caracteristicas = "Excel"
 			});
 
@@ -252,144 +295,59 @@ namespace Test
 
 		static void TryUpdate(ApplicationDbContextCore db)
 		{
-			Diseno dis = db.VC_Diseño.FirstOrDefault(i => i.ClaveDiseño == "U1-47008");
-
-			ProcesoImpresion pimp = db.VC_BaseProcesos
-				.OfType<ProcesoImpresion>()
-				.FirstOrDefault(i => i.ProcesoId == 1 && i.ClaveDiseño == dis.ClaveDiseño);
-
-			ProcesoRefinadoEmbobinado procRef =
-				db.VC_BaseProcesos
-				.OfType<ProcesoRefinadoEmbobinado>()
-				.FirstOrDefault(i => i.ProcesoId == 3 && i.ClaveDiseño == dis.ClaveDiseño);
-
-			ParametrosImpresion parImp = new ParametrosImpresion()
+			Diseno dis = db.VC_Diseño.FirstOrDefault(i => i.ClaveDiseño == "SC-51383");
+			
+			ProcesoLaminacion procLam = new ProcesoLaminacion()
 			{
+				AplicacionAdhesivo = new ParameterType<double>("g", 2.25, 2.1, 2.4),
+				ClaveCatalizador = "CA-5500",
+				ClaveResina = "SF-5480",
+				FiguraEmbobinado = 1,
+				RelacionAdhesivo = new ParameterType<double>("%", 72, 71.5, 72.5),
+				TamañoDiseño = new ParameterSize("mm", 667.7, 460, 2, 2),
+				ElementoUno = "Pet Transparente Impreso",
+				ElementoDos = "PEBD L-2100",
+				ElementoTrilaminacion = ""
+			};
+			ParametrosLaminacion parLam = new ParametrosLaminacion()
+			{
+				MaquinaId = 3,
 				FechaActualizacion = DateTime.Now,
 				FechaCaptura = DateTime.Now,
-				IsGearless = false,
-				MaquinaId = 14,
-				OffsetE = new ParameterType<string>("", "0", "0", "0"),
+
+				MangaAncho = 690,
+				MangaUtilAdhesivo = 670,
+				MangaTotalLaminado = 680,
+				TemperaturaResina = new ParameterType<double>("°C", 33, 28, 38),
+				TemperaturaCatalizador = new ParameterType<double>("°C", 34, 29, 39),
+				TemperaturaRodilloAplicador = new ParameterType<double>("°C", 44, 39, 49),
+				TemperaturaRodilloLaminador = new ParameterType<double>("°C", 42, 37, 47),
+				PresionRodilloMangas = new ParameterType<double>("Bar", 5, 4.5, 5.5),
+				RodilloLaminadorPresionIzquierda = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloPresorPresionIzquierda = new ParameterType<double>("", 0.1, 0.1, 0.6),
+				GalgaRodilloAplicacionIzquierda = new ParameterType<double>("", 0, 0, 0),
+
+				Velocidad = new ParameterType<double>("m/min", 130, 120, 140),
 				PotenciaTratador = new ParameterType<double>("%", 0, 0, 0),
-				PresionBalancinDesbobinadorE = new ParameterType<double>("Kg", 0, 0, 0),
-				PresionBalancinEmbobinadorE = new ParameterType<double>("Kg", 0, 0, 0),
-				PresionRodilloPisorCalandra = new ParameterType<double>("Kg", 0, 0, 0),
-				PresionRodilloPisorEmbobinador = new ParameterType<double>("KG", 3, 2.5, 3.5),
-				PresionRodilloPisorTambor = new ParameterType<double>("Kg", 4, 3.5, 4.5),
-				TemperaturaIntergrupos = new ParameterType<string>("°C", "30/40", "20/30", "40/50"),
-				TemperaturaPuente = new ParameterType<string>("°C", "50/70", "40/60", "60/80"),
-				TensionArrastre_Desbobinador = new ParameterType<double>("Bar", 1, 0.5, 1.5),
-				TensionBanda_Puente = new ParameterType<double>("Bar", 0, 0, 0),
-				Velocidad = new ParameterType<double>("m/min", 250, 200, 300)
+				TensionDesbobinadorUno = new ParameterType<double>("", 30, 28, 32),
+				TensionDesbobinadorDos = new ParameterType<double>("", 30, 28, 32),
+				TensionBobinador = new ParameterType<double>("", 50, 48, 52),
+				TaperTension = new ParameterType<double>("%", 50, 48, 52),
+				TensionPuente = new ParameterType<double>("", 25, 23, 27),
+				PresionRodilloAplicador = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloLaminadorPresionDerecha = new ParameterType<double>("", 3, 2.5, 3.5),
+				RodilloPresorPresionDerecha = new ParameterType<double>("", 0, 0, 0),
+				GalgaRodilloAplicacionDerecha = new ParameterType<double>("", 0, 0, 0)
 			};
-			ParametrosRefinadoEmbobinado parRef = new ParametrosRefinadoEmbobinado()
-			{
-				MaquinaId = 7,
-				PresionRodilloInferior = new ParameterType<double>("Kg", 0, 0, 0),
-				PresionRodilloSuperior = new ParameterType<double>("Kg", 0, 0, 0),
-				TensionDesbobinador = new ParameterType<double>("N", 60, 50, 70),
-				TensionEnbobinadorInferior = new ParameterType<double>("N", 60, 50, 70),
-				TensionEnbobinadorSuperior = new ParameterType<double>("Kg", 0, 0, 0),
-				Velocidad = new ParameterType<double>("m/min", 350, 300, 400),
-				TaperTension = new ParameterType<double>("%", 20, 10, 30),
-				FechaActualizacion = DateTime.Now,
-				FechaCaptura = DateTime.Now
-			};
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 1,
-				Color = ColorType.Negro,
-				Pantone = "Solido",
-				Anilox = "440",
-				StickyBack = "10/20",
-				Densidad = "2.08"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 2,
-				Color = ColorType.Negro,
-				Pantone = "Process",
-				Anilox = "900",
-				StickyBack = "10/20",
-				Densidad = "1.35"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 3,
-				Color = ColorType.Pantone,
-				Pantone = "704",
-				Anilox = "550",
-				StickyBack = "",
-				L = "35.41",
-				A = "50.07",
-				B = "30.45"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 5,
-				Color = ColorType.Pantone,
-				Pantone = "485",
-				Anilox = "440",
-				StickyBack = "",
-				L = "49.02",
-				A = "64.92",
-				B = "54.49"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 6,
-				Color = ColorType.Magenta,
-				Pantone = "Fondo",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.75"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 7,
-				Color = ColorType.Magenta,
-				Pantone = "Process",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.71"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 8,
-				Color = ColorType.Amarillo,
-				Pantone = "Fondo",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.08"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 9,
-				Color = ColorType.Amarillo,
-				Pantone = "Process",
-				Anilox = "1100",
-				StickyBack = "10/20",
-				Densidad = "1.19"
-			});
-			parImp.Decks.Add(new DeckImpresion()
-			{
-				unidad = 10,
-				Color = ColorType.Blanco,
-				Pantone = "Cama",
-				Anilox = "360",
-				StickyBack = "-",
-				Densidad = "Visual"
-			});
 
-			pimp.Parametros.Add(parImp);
-			procRef.Parametros.Add(parRef);
-
+			procLam.Parametros.Add(parLam);
+			dis.Procesos.Add(procLam);
 			db.SaveChanges();
 		}
 		static void PrintValues(ApplicationDbContextCore db)
 		{
-			var Ot = db.OrdenesTrabajo.FirstOrDefault(o => o.OT.Equals("63618"));
-			Ot.ClaveDiseño = "U1-47008";
+			var Ot = db.OrdenesTrabajo.FirstOrDefault(o => o.OT.Equals("63486"));
+			Ot.ClaveDiseño = "SC-51383";
 			db.SaveChanges();
 
 			Console.WriteLine($"      OT: {Ot.OT}");

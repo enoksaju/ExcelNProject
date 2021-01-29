@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +41,6 @@ namespace ExcelNoblezaBlazor.Areas.Identity.Pages.Account
 		public class InputModel
 		{
 			[Required(ErrorMessage = "El correo es requerido")]
-			[EmailAddress]
 			public string Email { get; set; }
 
 			[Required(ErrorMessage = "La contraseña es requerida")]

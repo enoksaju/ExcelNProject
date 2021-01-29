@@ -1,56 +1,138 @@
 @page "/"
 @page "/index"
 @inject IJSRuntime JS
+@implements IDisposable
 
-    <MainTemplate>
-        <Content>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col mt-2">
-                    <div class="small-box bg-gradient-red">
-                        <div class="inner">
-                            <h3>1,214 Kg</h3>
-                            <p>Impresora WH</p>
-                        </div>
-                        <div class="icon">
-                            <img src="/assets/images/logo_wuh.jpg" />
-                        </div>
-                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col mt-2">
-                    <div class="small-box bg-gradient-cyan">
-                        <div class="inner">
-                            <h3>1,214 Kg</h3>
-                            <p>Impresora Schiavi</p>
-                        </div>
-                        <div class="icon">
-                            <img src="/assets/images/logo_schiavi.png" />
-                        </div>
-                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col mt-2">
-                    <div class="small-box bg-gradient-green">
-                        <div class="inner">
-                            <h3>1,214 Kg</h3>
-                            <p>Impresora Bobst</p>
-                        </div>
-                        <div class="icon">
-                            <img src="/assets/images/BOBST_Logo.png" />
-                        </div>
-                        <a href="#" class="small-box-footer"> Más info <span class="fas fa-arrow-circle-right"></span></a>
-                    </div>
-                </div>
-            </div>
+<MainTemplate>
+    <Content>
+        <h2>Impresoras</h2>
+        <div class="row">
+            @if (CardsMaquina != null)
+            {
+                @foreach (var maq in CardsMaquina)
+                {
+                    <DashMaquinaInfoCard Model="maq"></DashMaquinaInfoCard>
+                }
+            }
+        </div>
+        <h2>Laminadoras</h2>
+        <div class="row">
+            @if (CardsMaquinaLam != null)
+            {
+                @foreach (var maq in CardsMaquinaLam)
+                {
+                    <DashMaquinaInfoCard Model="maq"></DashMaquinaInfoCard>
+                }
+            }
+        </div>
+        <h2>Refinadoras</h2>
+        <div class="row">
+            @if (CardsMaquinaLam != null)
+            {
+                @foreach (var maq in CardsMaquinaRef)
+                {
+                    <DashMaquinaInfoCard Model="maq"></DashMaquinaInfoCard>
+                }
+            }
+        </div>
 
-        </Content>
-    </MainTemplate>
-    @code{
+    </Content>
+</MainTemplate>
+@code{
+    excelnobleza.shared.ApplicationDbContextCore db;
+    System.Timers.Timer timer;
 
-        private async void openDialog(string modalId, int EntityId)
-        {
-            await JS.InvokeVoidAsync("global.openModal", modalId);
-        }
+    List<DashboardMaquinaCardModel> CardsMaquina = new List<DashboardMaquinaCardModel>();
+    List<DashboardMaquinaCardModel> CardsMaquinaLam = new List<DashboardMaquinaCardModel>();
+    List<DashboardMaquinaCardModel> CardsMaquinaRef = new List<DashboardMaquinaCardModel>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        db = new excelnobleza.shared.ApplicationDbContextCore();
+        timer = new System.Timers.Timer(60000);
+        timer.Elapsed += timer_elapsed;
     }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadData();
+        timer.Start();
+    }
+
+    private async void timer_elapsed(object sender, EventArgs e)
+    {
+        await LoadData();
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            var date = DateTime.Now.Date.AddHours(6);
+
+            List<ConsultaDashMaquinaCardModel> y = await db
+                .Produccion
+                .Where(u => u.FECHA >= date)
+                .OrderByDescending(u => u.FECHA)
+                .Select(c => new
+                {
+                    c.MAQUINA,
+                    c.Maquina_.NombreMaquina,
+                    peso = (c.PESOBRUTO - c.PESOCORE),
+                    c.Id,
+                    c.OT,
+                    c.FECHA
+                }).GroupBy(c => new { c.MAQUINA, c.NombreMaquina, c.OT }, (k, g) => new ConsultaDashMaquinaCardModel
+                {
+                    TotalPesoNeto = g.Sum(b => b.peso),
+                    TotalBobinas = g.Count(),
+                    OT = k.OT,
+                    Maquina = k.MAQUINA,
+                    NombreMaquina = k.NombreMaquina,
+                    Fecha = g.Max(b => b.FECHA)
+                }).ToListAsync();
+
+            CardsMaquina.Clear();
+            DashboardMaquinaCardModel.AddToCollection(y, 5, CardsMaquina);
+            DashboardMaquinaCardModel.AddToCollection(y, 1, CardsMaquina);
+            DashboardMaquinaCardModel.AddToCollection(y, 55, CardsMaquina);
+            DashboardMaquinaCardModel.AddToCollection(y, 14, CardsMaquina);
+            DashboardMaquinaCardModel.AddToCollection(y, 15, CardsMaquina);
+
+            CardsMaquinaLam.Clear();
+            DashboardMaquinaCardModel.AddToCollection(y, 3, CardsMaquinaLam);
+            DashboardMaquinaCardModel.AddToCollection(y, 17, CardsMaquinaLam);
+            DashboardMaquinaCardModel.AddToCollection(y, 16, CardsMaquinaLam);
+            DashboardMaquinaCardModel.AddToCollection(y, 56, CardsMaquinaLam);
+
+            CardsMaquinaRef.Clear();
+            DashboardMaquinaCardModel.AddToCollection(y, 2, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 6, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 7, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 8, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 9, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 35, CardsMaquinaRef);
+            DashboardMaquinaCardModel.AddToCollection(y, 57, CardsMaquinaRef);
+
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+    }
+
+
+    public void Dispose()
+    {
+        db?.Dispose();
+        timer?.Stop();
+        timer?.Dispose();
+    }
+}
 
 

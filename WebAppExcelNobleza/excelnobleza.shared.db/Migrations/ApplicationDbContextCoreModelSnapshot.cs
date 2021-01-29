@@ -1064,6 +1064,18 @@ namespace excelnobleza.shared.db.Migrations
                 {
                     b.HasBaseType("ExcelNobleza.Shared.Models.Tablas.VariablesCriticas.Bases.BaseParametros");
 
+                    b.Property<double>("MangaAncho")
+                        .HasColumnName("Manga_A")
+                        .HasColumnType("double");
+
+                    b.Property<double>("MangaTotalLaminado")
+                        .HasColumnName("Manga_TL")
+                        .HasColumnType("double");
+
+                    b.Property<double>("MangaUtilAdhesivo")
+                        .HasColumnName("Manga_UA")
+                        .HasColumnType("double");
+
                     b.HasDiscriminator().HasValue("ParametrosLaminacion");
                 });
 
@@ -1101,6 +1113,18 @@ namespace excelnobleza.shared.db.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ClaveResina")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ElementoDos")
+                        .HasColumnName("Lam_ElemDos")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ElementoTrilaminacion")
+                        .HasColumnName("Lam_ElemTrilam")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ElementoUno")
+                        .HasColumnName("Lam_ElemUno")
                         .HasColumnType("text");
 
                     b.HasDiscriminator().HasValue("ProcesoLaminacion");

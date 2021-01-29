@@ -1,4 +1,4 @@
-﻿using excelnobleza.shared;
+using excelnobleza.shared;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -20,10 +20,12 @@ namespace WappExcelNobleza.Data
 			ConfigureIdentity(builder);
 
 			builder.Entity<IdentityRole>().HasData(
-				new IdentityRole("Admin"),
-				new IdentityRole("Systems"),
-				new IdentityRole("Developer")
-				); ;
+				new IdentityRole("Admin") { Id = "e6ba880d-864f-4d16-9ee2-225f7af5788f" },
+				new IdentityRole("Systems") { Id= "7bda7324-b6ba-41f7-b78b-305feabb5e1f" },
+				new IdentityRole("Developer") { Id= "c95a97cc-99f5-458f-b714-aecc3389f830" },
+                new IdentityRole("Generic") { Id= "e96df311-2a07-4757-beff-1878c9823093" },
+                new IdentityRole("User") { Id= "5aed0bf0-0e3e-423f-bd6f-cd2083f041ba" }
+                ); ;
 		}
 
 		private void ConfigureIdentity(ModelBuilder builder)

@@ -1,0 +1,53 @@
+$transp: 0.8;
+
+.report {
+    & .row {
+
+        & [class*="col"] {
+            border: $border-width solid;
+            margin: 0px;
+            padding: 0px;
+            padding-right: ($spacer * .25);
+            padding-left: ($spacer * .25);
+
+            &.field-label {
+                background-color: lighten($gray-300, 3%);
+                text-align: right !important;
+                padding-right: ($spacer * .5) !important;
+            }
+
+            &:last-child {
+                border-right: 1px solid;
+            }
+
+            &.border-none {
+                border: hidden;
+            }
+        }
+
+    }
+
+    @each $color, $value in $theme-colors {
+        &.border-#{$color} .row [class*="col"] {
+            border-color: lighten($value, 30%);
+        }
+    }
+
+    @each $name, $color in $colors {
+        &.border-#{$name} .row [class*="col"] {
+            border-color: lighten($color, 30%);
+        }
+    }
+
+    @each $color, $value in $theme-colors {
+        & .row [class*="col"].border-#{$color} {
+            border-color: lighten($value, 30%);
+        }
+    }
+
+    @each $name, $color in $colors {
+        & .row [class*="col"].border-#{$name} {
+            border-color: lighten($color, 30%);
+        }
+    }
+}
