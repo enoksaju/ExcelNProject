@@ -11,6 +11,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Microsoft.Office.Interop.Excel;
+using System.Data.SqlClient;
+
+
+/*
+ * 
+ 
+SELECT       
+	[NGAC_USERINFO].[Name] AS CLAVE, 
+	CONVERT(FLOAT, CONVERT(DATETIME, CONVERT(DATE,[NGAC_AUTHLOG].[TransactionTime]))) AS fecha, 
+	CONVERT(FLOAT, CONVERT(DATETIME, CONVERT(TIME,[NGAC_AUTHLOG].[TransactionTime]))) AS hora
+FROM ([NGAC_USERINFO] INNER JOIN
+	[NGAC_AUTHLOG] ON [NGAC_USERINFO].[ID] = [NGAC_AUTHLOG].[UserID])
+WHERE (NGAC_AUTHLOG.authresult = 0) 
+	AND ([NGAC_AUTHLOG].[TransactionTime] BETWEEN @FechaIni AND  DATEADD(SECOND,59,DATEADD(MINUTE,59,DATEADD(HOUR,23,DATEADD(D, 6,CONVERT(DATETIME, CONVERT(DATE, GETDATE())))))))
+
+     */
 
 namespace ControlNominasAddIn.Forms {
 	public partial class frmImportarReloj : KryptonForm {		
@@ -20,28 +36,39 @@ namespace ControlNominasAddIn.Forms {
 		public Microsoft.Office.Interop.Excel.Range Range { get; set; }
 		public Models.Checadas Checadas { get; set; } = new Models.Checadas ( );
 
-		#region SQLStrings
-		/// <summary>
-		/// SQL_RELOJ_1
-		/// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
-		/// </summary>
+        #region SQLStrings
+        /// <summary>
+        /// SQL_RELOJ_1
+        /// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
+        /// </summary>
 
-		const string SQL_RELOJ_1 = @"
+        //		const string SQL_RELOJ_1 = @"
+        //SELECT       
+        //	NGAC_USERINFO.username AS CLAVE, 
+        //	CDbl(DateValue(NGAC_LOG.logtime)) AS fecha, 
+        //	CDbl(TimeValue(NGAC_LOG.logtime)) AS hora
+        //FROM (NGAC_USERINFO INNER JOIN
+        //	NGAC_LOG ON NGAC_USERINFO.userid = NGAC_LOG.userid)
+        //WHERE (NGAC_LOG.authresult = 0) 
+        //	AND (NGAC_LOG.logtime BETWEEN @FechaIni 
+        //		AND DATEADD(""S"",59,DATEADD(""N"",59,DATEADD(""h"",23,DATEADD(""d"", 6, @FechaIni)))))
+        //";
+        const string SQL_RELOJ_1 = @"
 SELECT       
-	NGAC_USERINFO.username AS CLAVE, 
-	CDbl(DateValue(NGAC_LOG.logtime)) AS fecha, 
-	CDbl(TimeValue(NGAC_LOG.logtime)) AS hora
-FROM (NGAC_USERINFO INNER JOIN
-	NGAC_LOG ON NGAC_USERINFO.userid = NGAC_LOG.userid)
-WHERE (NGAC_LOG.authresult = 0) 
-	AND (NGAC_LOG.logtime BETWEEN @FechaIni 
-		AND DATEADD(""S"",59,DATEADD(""N"",59,DATEADD(""h"",23,DATEADD(""d"", 6, @FechaIni)))))
+	[NGAC_USERINFO].[Name] AS CLAVE, 
+	CONVERT(FLOAT, CONVERT(DATETIME, CONVERT(DATE,[NGAC_AUTHLOG].[TransactionTime]))) AS fecha, 
+	CONVERT(FLOAT, CONVERT(DATETIME, CONVERT(TIME,[NGAC_AUTHLOG].[TransactionTime]))) AS hora
+FROM ([NGAC_USERINFO] INNER JOIN
+	[NGAC_AUTHLOG] ON [NGAC_USERINFO].[ID] = [NGAC_AUTHLOG].[UserID])
+WHERE (NGAC_AUTHLOG.authresult = 0) 
+	AND ([NGAC_AUTHLOG].[TransactionTime] BETWEEN @FechaIni AND  DATEADD(SECOND,59,DATEADD(MINUTE,59,DATEADD(HOUR,23,DATEADD(D, 6,CONVERT(DATETIME, CONVERT(DATE, GETDATE())))))))
 ";
-		/// <summary>
-		/// SQL_RELOJ_2
-		/// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
-		/// </summary>
-		const string SQL_RELOJ_2 = @"
+
+        /// <summary>
+        /// SQL_RELOJ_2
+        /// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
+        /// </summary>
+        const string SQL_RELOJ_2 = @"
 SELECT USERINFO.Name AS CLAVE, 
 	CDbl(DateValue(CHECKINOUT.CHECKTIME)) AS fecha, 
 	CDbl(TimeValue(CHECKINOUT.CHECKTIME)) AS hora
@@ -49,20 +76,26 @@ FROM (USERINFO INNER JOIN
 	CHECKINOUT ON USERINFO.USERID = CHECKINOUT.USERID)
 WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N"",59,DATEADD(""h"",23,DATEADD(""d"", 6, @FechaIni)))))
 ";
-		/// <summary>
-		/// SQL_RELOJ_1_COUNT
-		/// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
-		/// </summary>
-		const string SQL_RELOJ_1_COUNT = @"
-Select Count([NGAC_LOG]![logtime])
-FROM NGAC_LOG
-WHERE (([NGAC_LOG]![logtime] BETWEEN @FechaIni AND @FechaFin) And [NGAC_LOG]![authresult]= 0);
-";
-		/// <summary>
-		/// SQL_RELOJ_2_COUNT
-		/// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
-		/// </summary>
-		const string SQL_RELOJ_2_COUNT = @"
+        /// <summary>
+        /// SQL_RELOJ_1_COUNT
+        /// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
+        /// </summary>
+        //		const string SQL_RELOJ_1_COUNT = @"
+        //Select Count([NGAC_LOG]![logtime])
+        //FROM NGAC_LOG
+        //WHERE (([NGAC_LOG]![logtime] BETWEEN @FechaIni AND @FechaFin) And [NGAC_LOG]![authresult]= 0);
+        //";
+
+        const string SQL_RELOJ_1_COUNT = @"
+Select Count(*)
+FROM NGAC_AUTHLOG
+WHERE (([NGAC_AUTHLOG].[TransactionTime] BETWEEN @FechaIni AND @FechaFin) And [NGAC_AUTHLOG].[AuthResult]= 0);";
+
+        /// <summary>
+        /// SQL_RELOJ_2_COUNT
+        /// Reemplace los valores de los parametros @FechaIni y @FechaFin de tipo DateTime con los valores de las fechas seleccionadas
+        /// </summary>
+        const string SQL_RELOJ_2_COUNT = @"
 Select Count(CHECKINOUT.CHECKTIME) 
 FROM CHECKINOUT 
 WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N"",59,DATEADD(""h"",23,DATEADD(""d"", 6, @FechaIni)))))
@@ -184,26 +217,29 @@ WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N""
 			try {
 
 				// Obtengo la cadena de conexion desde la configuracion y genero una conexión.
-				using ( var cnn = new OleDbConnection ( Properties.Settings.Default.Reloj1ConnectionString ) ) {
-
-					cnn.Open ( );
+				//using ( var cnn = new OleDbConnection ( Properties.Settings.Default.Reloj1ConnectionString ) ) {
+                 using (var cnn = new SqlConnection(Properties.Settings.Default.RelojSQL1ConnectionString))
+                    {
+                        cnn.Open ( );
 					statusMessage = "Obteniendo datos del Reloj 1...";
 
 					// Obtengo el total de elementos que se obtendran con clausula where.
-					using ( var cmd = new OleDbCommand ( SQL_RELOJ_1_COUNT , cnn ) ) {
-						cmd.Parameters.Add ( new OleDbParameter ( "@FechaIni" , SelectedDate ) );
-						cmd.Parameters.Add ( new OleDbParameter ( "@FechaFin" , SelectedDate.AddDays ( 7 ).AddSeconds ( -1 ) ) );
+					using ( var cmd = new SqlCommand ( SQL_RELOJ_1_COUNT , cnn ) ) {
+						cmd.Parameters.Add ( new SqlParameter ( "@FechaIni" , SelectedDate.Date ) );
+						cmd.Parameters.Add ( new SqlParameter ( "@FechaFin" , SelectedDate.Date.AddDays ( 7 ).AddSeconds ( -1 ) ) );
 
 						//asigno el total de elementos al valor maximo del progressbas e inicializo el valor de progreso en 0.
 						progressValue = 0;
 						totalItems = ( int ) cmd.ExecuteScalar ( );
 					}
 
+
+
 					statusMessage = $"{totalItems } elementos detectados";
 
 					// Obtengo los elementos desde la base de datos y ejecuto un datareader
-					using ( var cmd = new OleDbCommand ( SQL_RELOJ_1 , cnn ) ) {
-						cmd.Parameters.Add ( new OleDbParameter ( "@FechaIni" , SelectedDate ) );
+					using ( var cmd = new SqlCommand( SQL_RELOJ_1 , cnn ) ) {
+						cmd.Parameters.Add ( new SqlParameter ( "@FechaIni" , SelectedDate.Date ) );
 						using ( var dr = cmd.ExecuteReader ( ) ) {
 
 							// Mientras lee
@@ -259,7 +295,7 @@ WHERE (CHECKINOUT.CHECKTIME BETWEEN @FechaIni AND DATEADD(""S"",59,DATEADD(""N""
 					cnn.Close ( );
 				}
 			} catch ( Exception ex ) {
-				ExApp.StatusBar = "Error al importar datos del Reloj1...";
+				ExApp.StatusBar = "Error al importar datos del Reloj2...";
 #if DEBUG
 				System.Diagnostics.Debug.Fail ( "Error al importar datos del Reloj2" , ex.Message );
 #endif
@@ -509,7 +545,7 @@ Siguiente:
 					// Obtengo la coleccion por medio de LINQ desde la coleccion de checadas y filtro los datos que corresponden al dia del index
 
 					var y = from ch in Checadas.Elementos									// Genero la variable ch, que representa una fila de la coleccion checadas
-							where ch.Fecha == SelectedDate.AddDays (						// Filtro, agrego el numero de dias a la fecha seleccionada
+							where ch.Fecha == SelectedDate.Date.AddDays (						// Filtro, agrego el numero de dias a la fecha seleccionada
 								_NombreHojas.ToList ( ).IndexOf ( _nombreHoja ) - 4			// Busco el indice del _nombre de la hoja en la coleccion de nombres y le resto 4 por ser el indice inicial
 								) 
 							select ch;														// Si se cumple la condicion agrego el elemento a la coleccion y

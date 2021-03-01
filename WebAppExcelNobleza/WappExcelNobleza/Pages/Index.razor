@@ -2,6 +2,7 @@
 @page "/index"
 @inject IJSRuntime JS
 @implements IDisposable
+@inject ApplicationDbContextCore db
 
 <MainTemplate>
     <Content>
@@ -39,7 +40,6 @@
     </Content>
 </MainTemplate>
 @code{
-    excelnobleza.shared.ApplicationDbContextCore db;
     System.Timers.Timer timer;
 
     List<DashboardMaquinaCardModel> CardsMaquina = new List<DashboardMaquinaCardModel>();
@@ -48,7 +48,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        db = new excelnobleza.shared.ApplicationDbContextCore();
         timer = new System.Timers.Timer(60000);
         timer.Elapsed += timer_elapsed;
     }
@@ -129,7 +128,6 @@
 
     public void Dispose()
     {
-        db?.Dispose();
         timer?.Stop();
         timer?.Dispose();
     }

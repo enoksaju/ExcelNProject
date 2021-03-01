@@ -127,7 +127,7 @@ namespace ExcelNobleza.Shared.Models.Reportes
 
 		#region ProcesoImpresion
 		public string ProcImp_ProveedorTinta { get => $"{ProcImp?.ProveedorTinta}"; }
-		public bool ProcImp_EsGearless { get => (bool)parametrosImpresion?.IsGearless; }
+		public bool ProcImp_EsGearless { get => parametrosImpresion?.IsGearless?? false; }
 		public string ProcImp_TipoTinta { get => $"{ProcImp?.TipoTinta}"; }
 		public string ProcImp_ReferenciaEntonacion { get => $"{ProcImp?.ReferenciaEntonacion}"; }
 		public string ProcImp_TipoImpresion { get => $"{ProcImp?.TipoImpresion}"; }
@@ -473,7 +473,7 @@ namespace ExcelNobleza.Shared.Models.Reportes
 		{
 			var reg = new Regex("(FIGURA )[1-8]");
 			var fig = reg.Match(Instructions.ToUpper()).Value;
-			fig = fig.Substring(fig.Length - 1, 1);
+			fig = fig.Trim() != "" ? fig.Substring(fig.Length - 1, 1): "1";
 
 			var fig_ = ProcImp?.FiguraEmbobinado > 0 ? ProcImp?.FiguraEmbobinado : int.Parse(fig);
 

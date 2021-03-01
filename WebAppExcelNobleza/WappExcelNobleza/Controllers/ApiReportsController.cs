@@ -53,15 +53,11 @@ namespace WappExcelNobleza.Controllers
             // Indico la ubicación del reporte
             var path = $"{this._webHostEnvironment.WebRootPath}\\Reports\\VariablesCriticas.rdlc";
 
+#if DEBUG
+
             // Leo el recurso incrustado con la definicion del reporte en el Dll
             var assembly = Assembly.LoadFile(typeof(ExcelNobleza.Shared.Models.Reportes.VC_ProcesoReportData).Assembly.Location);
             Stream stream = assembly.GetManifestResourceStream("ExcelNobleza.Shared.Reportes.Prueba.rdlc");
-
-            
-            var CreationDllTime = new FileInfo(assembly.Location).CreationTimeUtc;
-            var CreationLocalReport = new FileInfo(path).CreationTimeUtc;
-
-            Console.WriteLine($"{CreationDllTime:U} {CreationLocalReport:U}");
 
             if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
             // Guardo la definicion del reporte en el directorio indicado
@@ -70,6 +66,8 @@ namespace WappExcelNobleza.Controllers
                 await stream.CopyToAsync(fileStream);
                 Console.WriteLine("File copied.");
             }
+
+#endif
 
             // Creo la instancia del reporte
             LocalReport report = new LocalReport(path);

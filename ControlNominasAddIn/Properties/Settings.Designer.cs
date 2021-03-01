@@ -79,5 +79,16 @@ namespace ControlNominasAddIn.Properties {
                 this["Theme"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.47;Initial Catalog=NitgenAccessManager;Persist Security Inf" +
+            "o=True;User ID=consultas;Password=rootExcel")]
+        public string RelojSQL1ConnectionString {
+            get {
+                return ((string)(this["RelojSQL1ConnectionString"]));
+            }
+        }
     }
 }

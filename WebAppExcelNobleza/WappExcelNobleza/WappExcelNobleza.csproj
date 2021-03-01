@@ -5,6 +5,10 @@
     <UserSecretsId>aspnet-WappExcelNobleza-111B0514-C857-45B9-B51E-D3F8FA2B3D1E</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Watch Include="..\**\*.razor" />
     <Watch Include="..\**\*.css" />
@@ -19,14 +23,6 @@
     <Watch Remove="ReportDll\**" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Watch Remove="Controllers\LocalReport.cs" />
-    <Watch Remove="Data\Models\Components\DashboardMaquinaCardModel.cs" />
-    <Watch Remove="Shared\Components\DashMaquinaInfoCard.razor" />
-  </ItemGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\excelnobleza.shared.db\excelnobleza.shared.db.csproj" />
     <ProjectReference Include="..\ExcelNobleza.Shared.Models\ExcelNobleza.Shared.csproj" />
@@ -34,7 +30,6 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="3.0.0" />
-    <PackageReference Include="ErikEJ.EntityFrameworkCore.DgmlBuilder" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.2.0-preview3.20168.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />

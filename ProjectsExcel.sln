@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapturaOrdenesTrabajo_AddIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasGral", "PruebasGral\PruebasGral.csproj", "{ADEA37A9-EAB9-47B5-9091-74AE2BAF4A6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlNominasAddIn", "ControlNominasAddIn\ControlNominasAddIn.csproj", "{C38B01A4-D896-4A01-B782-E319779E9BCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -701,6 +703,46 @@ Global
 		{ADEA37A9-EAB9-47B5-9091-74AE2BAF4A6C}.Release|Windows-x86.Build.0 = Release|Any CPU
 		{ADEA37A9-EAB9-47B5-9091-74AE2BAF4A6C}.Release|x86.ActiveCfg = Release|Any CPU
 		{ADEA37A9-EAB9-47B5-9091-74AE2BAF4A6C}.Release|x86.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Android.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|iOS.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows Phone (Universal).Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows Phone 8.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows Phone 8.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-AnyCPU.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-AnyCPU.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Debug|x86.Build.0 = Debug|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Android.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Android.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|iOS.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|iOS.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows Phone (Universal).ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows Phone (Universal).Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows Phone 8.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows Phone 8.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-AnyCPU.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-AnyCPU.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-ARM.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-x64.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|Windows-x86.Build.0 = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|x86.ActiveCfg = Release|Any CPU
+		{C38B01A4-D896-4A01-B782-E319779E9BCC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -724,6 +766,7 @@ Global
 		{8780A832-EF97-48ED-87CF-69E801E03DB7} = {CE1295C1-B771-459D-A6D7-F41F201F87EE}
 		{EBACD266-19D7-4DB9-9076-B0B3DA5DD60F} = {63D86327-63D9-44B4-8C47-7FE8B8FCC254}
 		{ADEA37A9-EAB9-47B5-9091-74AE2BAF4A6C} = {3465B37F-B804-40B7-B56C-D2B65CFE3FEE}
+		{C38B01A4-D896-4A01-B782-E319779E9BCC} = {63D86327-63D9-44B4-8C47-7FE8B8FCC254}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B24CE8F6-7AE9-4001-B83E-AFFB66935AF6}

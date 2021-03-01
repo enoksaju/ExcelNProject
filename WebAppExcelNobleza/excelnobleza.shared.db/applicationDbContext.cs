@@ -15,8 +15,9 @@ namespace excelnobleza.shared
 {
 	public class ApplicationDbContextCore : DbContext
 	{
-
+#if DEBUG
 		private ILoggerFactory MyLoggerFactory;
+#endif
 		public ApplicationDbContextCore(DbContextOptions<ApplicationDbContextCore> options) : base(options) { }
 		public ApplicationDbContextCore()
 		{
@@ -26,16 +27,20 @@ namespace excelnobleza.shared
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			base.OnConfiguring(optionsBuilder);
-			MyLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 			var confPath = System.IO.Path.GetDirectoryName(typeof(ExcelNobleza.Shared.Models.Reportes.VC_ProcesoReportData).Assembly.Location);
-
 			var Conf = new ConfigurationBuilder()
 				.SetBasePath(confPath)
 				.AddJsonFile("dbSettings.json", optional: true, reloadOnChange: true)
 				.Build();
 
-			optionsBuilder.UseLoggerFactory(MyLoggerFactory)
+#if DEBUG
+			MyLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+			optionsBuilder
+				.UseLoggerFactory(MyLoggerFactory)
 				.EnableSensitiveDataLogging()
+#else
+			optionsBuilder
+#endif
 				.UseMySQL(Conf.GetConnectionString("Default"));
 		}
 		protected override void OnModelCreating(ModelBuilder mb)
@@ -53,14 +58,6 @@ namespace excelnobleza.shared
 				o.HasIndex(e => e.NUMERO);
 				o.HasIndex(e => e.INDICE).IsUnique();
 			});
-
-			//mb.Entity<Diseno>(o => {
-			//	o.HasMany(i => i.EstructuraItems)
-			//	.WithOne(i => i.Diseno)
-			//	.HasForeignKey(i => i.ClaveDiseño)
-			//	.OnDelete(DeleteBehavior.Cascade);				
-			//});
-
 
 			mb.Entity<ProcesoImpresion>();
 			mb.Entity<ProcesoLaminacion>();
