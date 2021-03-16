@@ -1,4 +1,6 @@
-﻿namespace libEmbarquesNCuatro.WinForms.Controls {
+﻿
+
+namespace libEmbarquesNCuatro.WinForms.Controls {
 	partial class frmCrearTarimaNueva {
 		/// <summary>
 		/// Required designer variable.

@@ -335,11 +335,11 @@ namespace EstacionPesaje {
 			}
 		}
 
-		private void kryptonRibbonGroupButton14_Click ( object sender , EventArgs e ) {
-			Pages.Base.PageCreator.CrateAndShowMainPage (
-						new Pages.MainPages.CapturaOrdenes.CapturaWorkSheetPage ( ) ,
-						kryptonDockingManager , _dc );
-		}
+		//private void kryptonRibbonGroupButton14_Click ( object sender , EventArgs e ) {
+		//	Pages.Base.PageCreator.CrateAndShowMainPage (
+		//				new Pages.MainPages.CapturaOrdenes.CapturaWorkSheetPage ( ) ,
+		//				kryptonDockingManager , _dc );
+		//}
 
 		private void kryptonRibbonGroupButton16_Click ( object sender , EventArgs e ) {
 

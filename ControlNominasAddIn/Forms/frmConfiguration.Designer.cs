@@ -92,7 +92,7 @@
             this.pgReloj1,
             this.btnSearchFileReloj2,
             this.kryptonPage4});
-            this.kryptonNavigator1.SelectedIndex = 1;
+            this.kryptonNavigator1.SelectedIndex = 2;
             this.kryptonNavigator1.Size = new System.Drawing.Size(445, 178);
             this.kryptonNavigator1.TabIndex = 0;
             this.kryptonNavigator1.Text = "kryptonNavigator1";
@@ -175,6 +175,7 @@
             this.pgReloj1.TextTitle = "Configurar Base de Datos del Reloj 1";
             this.pgReloj1.ToolTipTitle = "Page ToolTip";
             this.pgReloj1.UniqueName = "44485CEDB3224B4844897870ECF66221";
+            this.pgReloj1.Visible = false;
             // 
             // txtReloj1Password
             // 
@@ -232,7 +233,7 @@
             this.btnSearchFileReloj2.Name = "btnSearchFileReloj2";
             this.btnSearchFileReloj2.Size = new System.Drawing.Size(443, 90);
             this.btnSearchFileReloj2.Text = "Reloj 2";
-            this.btnSearchFileReloj2.TextDescription = "Configurar Base de Datos del Reloj 2, debe ser STK";
+            this.btnSearchFileReloj2.TextDescription = "Configurar Base de Datos del Reloj 2, debe ser ZKT";
             this.btnSearchFileReloj2.TextTitle = "Configurar Base de Datos del Reloj 2";
             this.btnSearchFileReloj2.ToolTipTitle = "Page ToolTip";
             this.btnSearchFileReloj2.UniqueName = "CFCC72407CC549CFEEADE18E5C025B93";
@@ -402,6 +403,7 @@
             this.seleccionarBaseDeDatosDelReloj1ToolStripMenuItem.Name = "seleccionarBaseDeDatosDelReloj1ToolStripMenuItem";
             this.seleccionarBaseDeDatosDelReloj1ToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
             this.seleccionarBaseDeDatosDelReloj1ToolStripMenuItem.Text = "Seleccionar Base de Datos del Reloj 1";
+            this.seleccionarBaseDeDatosDelReloj1ToolStripMenuItem.Visible = false;
             this.seleccionarBaseDeDatosDelReloj1ToolStripMenuItem.Click += new System.EventHandler(this.btnSearchFilePermisos_Click);
             // 
             // seleccionarBaseDeDatosDelReloj2ToolStripMenuItem

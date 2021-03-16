@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Microsoft.Office.Interop.Excel;
+using ControlNominasAddIn.Data;
 
 namespace ControlNominasAddIn.Forms {
 	public partial class frmImportarPermisos : KryptonForm {
@@ -18,8 +19,9 @@ namespace ControlNominasAddIn.Forms {
 		}
 
 		public int countSelectedDays => ( int ) ( clDateRange.SelectionEnd - clDateRange.SelectionStart ).TotalDays + 1;
+        AppSetting appSetting = new AppSetting();
 
-		private Microsoft.Office.Interop.Excel.Application ExApp => Globals.ThisAddIn.Application;
+        private Microsoft.Office.Interop.Excel.Application ExApp => Globals.ThisAddIn.Application;
 		private Microsoft.Office.Interop.Excel.Workbook ExLibro => this.ExApp.ActiveWorkbook;
 		private Microsoft.Office.Interop.Excel.Worksheet ExHoja => this.ExLibro.Worksheets [ 1 ];
 		public Microsoft.Office.Interop.Excel.Range Rge { get; set; }
@@ -50,7 +52,7 @@ SELECT
 	) AS CONCEPTO
 	,IIf(PERMISOS.VALIDADO=True,1,0) AS AUTORIZADO 
 	,PERMISOS.VALIDADOPOR
-	,PERMISOS.COMENTARIOS
+	,PERMISOS.COMENTARIOS, 
 FROM (PERMISOS INNER JOIN CAT_PERM ON PERMISOS.TIPO = CAT_PERM.TIPO) INNER JOIN 
 	TRABAJADOR ON PERMISOS.CLAVE = TRABAJADOR.Clave
 WHERE 
@@ -196,7 +198,7 @@ ORDER BY  PERMISOS.VALIDADO ASC, CINT(PERMISOS.CLAVE) ASC
 		private void btnImportar_Click ( object sender , EventArgs e ) {
 
 			// Genero una variable de conexion Disposable 
-			using ( var cnn = new OleDbConnection ( Properties.Settings.Default.PermisosConnectionString ) ) {
+			using ( var cnn = new OleDbConnection ( this.appSetting.GetConnectionString(AppSetting.PERMISOS_KEY) ) ) {
 
 				// Genero una variable DataAdapter Disposable
 				using ( var ODA = new OleDbDataAdapter ( SQLToExecute , cnn ) ) {

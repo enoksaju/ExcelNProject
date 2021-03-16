@@ -61,7 +61,7 @@ namespace ControlNominasAddIn.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\\\192.168.1.253\\Temp\\Fto_PLREGI_Fto" +
-            "\\BDO\\P3DEBUG.mdb; Jet OLEDB:Database Password=EXCEL2016")]
+            "\\BDO\\P3.mdb; Jet OLEDB:Database Password=EXCEL2016")]
         public string PermisosConnectionString {
             get {
                 return ((string)(this["PermisosConnectionString"]));

@@ -87,29 +87,23 @@
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Design, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>..\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Docking.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.5.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Krypton-master\Krypton-master\build\bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    <Reference Include="ComponentFactory.Krypton.Workspace">
+      <HintPath>..\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -126,13 +120,6 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="libEmbarquesNCuatro">
-      <HintPath>..\libEmbarquesNCuatro\obj\Debug\libEmbarquesNCuatro.dll</HintPath>
-    </Reference>
-    <Reference Include="libReportsOTS, Version=1.0.6960.18168, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Escritorio\libs\libReportsOTS.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -195,7 +182,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TRYINTELISISSELECTCTL">
-      <HintPath>..\..\..\..\Escritorio\libs\TRYINTELISISSELECTCTL.dll</HintPath>
+      <HintPath>..\TRYINTELISISSELECTCTL.dll</HintPath>
     </Reference>
     <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.8.6.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
       <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.8.6\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
@@ -259,12 +246,6 @@
     </Compile>
     <Compile Include="Pages\MainPages\AddEditLabelPage.Designer.cs">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.Designer.cs">
-      <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPages\DesperdicioReports\ExploradorDesperdicioLinea.cs">
       <SubType>UserControl</SubType>
@@ -430,9 +411,6 @@
     <EmbeddedResource Include="Pages\MainPages\AddEditLabelPage.resx">
       <DependentUpon>AddEditLabelPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MainPages\CapturaOrdenes\CapturaWorkSheetPage.resx">
-      <DependentUpon>CapturaWorkSheetPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MainPages\DesperdicioReports\ExploradorDesperdicioLinea.resx">
       <DependentUpon>ExploradorDesperdicioLinea.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,7 +492,6 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="EstacionPesaje_ClaveTemporal.pfx" />
     <None Include="mycert.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EstacionPesaje.Pages.MainPages.DesperdicioReports.ReportData.datasource" />
@@ -560,13 +537,13 @@
       <Project>{b0bc4541-f643-4306-b2c1-945192d75ff0}</Project>
       <Name>libBascula</Name>
     </ProjectReference>
-    <ProjectReference Include="..\libControlesCapturaOrdenes\libControlesCapturaOrdenes.csproj">
-      <Project>{b47f6829-ec2d-4b99-a39a-c2c6043bb005}</Project>
-      <Name>libControlesCapturaOrdenes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\libControlesPersonalizados\libControlesPersonalizados.csproj">
       <Project>{1426aed9-0470-48ad-b4e7-b9a4921a7a93}</Project>
       <Name>libControlesPersonalizados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libEmbarquesNCuatro\libEmbarquesNCuatro.csproj">
+      <Project>{c8a59ba2-54da-4b43-a03f-07bc58efe781}</Project>
+      <Name>libEmbarquesNCuatro</Name>
     </ProjectReference>
     <ProjectReference Include="..\libIntelisisReports\libIntelisisReports.csproj">
       <Project>{8780a832-ef97-48ed-87cf-69e801e03db7}</Project>

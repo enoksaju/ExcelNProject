@@ -567,7 +567,7 @@
 			// 
 			this.kryptonRibbonGroupButton14.KeyTip = "T";
 			this.kryptonRibbonGroupButton14.Visible = false;
-			this.kryptonRibbonGroupButton14.Click += new System.EventHandler(this.kryptonRibbonGroupButton14_Click);
+			//this.kryptonRibbonGroupButton14.Click += new System.EventHandler(this.kryptonRibbonGroupButton14_Click);
 			// 
 			// MainPanel
 			// 

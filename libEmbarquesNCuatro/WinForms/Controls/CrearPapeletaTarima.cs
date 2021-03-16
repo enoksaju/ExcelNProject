@@ -50,16 +50,25 @@ namespace libEmbarquesNCuatro.WinForms.Controls {
 		}
 
 		private void AddTarima_btn_Click ( object sender , EventArgs e ) {
+
 			using ( var frm = new frmCrearTarimaNueva ( this.OT ) ) {
+
 				if ( frm.ShowDialog ( this.FindForm ( ) ) == DialogResult.OK ) {
+
 					DB.Entry ( temporalOrdenTrabajoBindingSource.Current ).Reload ( );
+
 					DB.Entry ( ( TemporalOrdenTrabajo ) temporalOrdenTrabajoBindingSource.Current )
 						.Collection ( o => o.TarimasNCuatro ).Load ( );
+
 					temporalOrdenTrabajoBindingSource.ResetCurrentItem ( );
+
 					tarimasNCuatroBindingSource.ResetBindings ( false );
+
 					tarimasNCuatroBindingSource.MoveLast ( );
 				}
+
 			}
+
 		}
 
 		private void tarimasNCuatroBindingSource_CurrentChanged ( object sender , EventArgs e ) {
